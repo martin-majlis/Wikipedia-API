@@ -1,7 +1,8 @@
 import os
 import re
-
 from setuptools import setup
+
+import wikipedia
 
 
 def fix_doc(txt):
@@ -20,15 +21,9 @@ requires = [
 
 tests_require = []
 
-version = re.search(
-  "^__version__ = \((\d+), (\d+), (\d+)\)$",
-  local_file('wikipedia/__init__.py').read(),
-  re.MULTILINE
-).groups()
-
 setup(
     name='Wikipedia-API',
-    version='.'.join(version),
+    version='.'.join(map(str, wikipedia.__version__)),
     description='Python Wrapper for Wikipedia',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[

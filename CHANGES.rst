@@ -1,10 +1,6 @@
 Changelog
 ======================
 
-0.2
----
-* Playing with documentation
-
-0.1
----
-* Initial commit
+0.1.4
+-----
+* It's possible to extract summary and sections of the page

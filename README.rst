@@ -27,60 +27,43 @@ Usage
 
 .. code-block:: python
 
-    domain = 'example.com'
+	import wikipedia
 
-    mg = MailGunV3(domain,
-                   'key-asdfghjkl',
-                   'pubkey-asdfghjkl')
+	wiki = wikipedia.Wikipedia('en')
 
-    res1 = (mg.
-            mailinglist('mlA-{}@{}'.format(random.randint(0, 10), domain)).
-            create('Test Mailing List').
-            delete())
-    print(repr(res1))
+	page = wiki.article('Python_(programming_language)')
 
-    res2 = (mg.
-            mailinglist('mlB-{}@{}'.format(random.randint(0, 10), domain)).
-            create('Test Mailing List').
-            update(
-                name='New Name',
-                description='New Description').
-            get())
-    print(repr(res2))
+	print("Page - Id: %s" % page.id())
+	# Page - Id: 23862
 
-    res3 = (mg.
-            mailinglist('newsletter-dev@' + domain).
-            members())
-    print(repr(res3))
+	print("Page - Title: %s" % page.title())
+	# Page - Title: Python (programming language)
 
-    res4 = (mg.
-            mailinglist('newsletter-dev@' + domain).
-            member('a01-{}@{}'.format(random.randint(0, 1000), domain)).
-            create(
-                name='Foo Bar',
-                params={'a': 1, 'b': 2}).
-            get())
-    print(repr(res4))
+	print("Page - Summary: %s" % page.summary())
+	# Page - Summary: Python is a widely used high-level programming ...
 
-    res5 = (mg.
-            mailinglist('newsletter-dev@' + domain).
-            member('a01-{}@{}'.format(random.randint(0, 1000), domain)).
-            update(
-                name='Foo Bar - EDIT',
-                params={'a': 1, 'b': 2}).
-            get())
-    print(repr(res5))
 
-    res6 = (mg.
-            mailinglist('newsletter-dev@' + domain).
-            members())
-    print(repr(res6))
+	def print_sections(sections, level=0):
+		for s in sections:
+		    print("%s: %s - %s" % ("*" * (level + 1), s.title(), s.text()[0:40]))
+		    print_sections(s.sections(), level + 1)
 
-    res7 = (mg.
-            mailinglist('newsletter-dev@' + domain).
-            member('a01@' + domain).
-            delete())
-    print(repr(res7))
+
+	print_sections(page.sections())
+	# *: History - Python was conceived in the late 1980s, 
+	# *: Features and philosophy - Python is a multi-paradigm programming l
+	# *: Syntax and semantics - Python is meant to be an easily readable
+	# **: Indentation - Python uses whitespace indentation, rath
+	# **: Statements and control flow - Python's statements include (among other
+	# **: Expressions - Some Python expressions are similar to l
+	# ...
+
+	libraries = page.section_by_title('Libraries')
+	print("Section - Title: %s" % libraries.title())
+	# Section - Title: Libraries
+
+	print("Section - Text: %s" % libraries.text())
+	# Section - Text: Python's large standard library, commonly cited as ...
 
 External Links
 --------------
