@@ -1,9 +1,9 @@
 Wikipedia API
-==========
+=============
 
-This package provides fluent API for `MailGun API`_.
+This package provides python API for accessing `Wikipedia`_.
 
-.. _MailGun API: http://mailgun-documentation.readthedocs.io/
+.. _Wikipedia: https://www.mediawiki.org/wiki/API:Main_page
 
 |build-status| |docs| |cc-badge| |cc-issues|
 
@@ -12,7 +12,6 @@ This package provides fluent API for `MailGun API`_.
    :maxdepth: 2
 
    CHANGES
-   API
 .. PYPI-END
 
 Installation
@@ -91,25 +90,25 @@ External Links
 * `Travis`_
 * `ReadTheDocs`_
 
-.. _GitHub: https://github.com/martin-majlis/MailGunV3/
-.. _PyPi: https://pypi.python.org/pypi/MailGunV3/
-.. _Travis: https://travis-ci.org/martin-majlis/MailGunV3/
-.. _ReadTheDocs: http://mailgunv3.readthedocs.io/
+.. _GitHub: https://github.com/martin-majlis/Wikipedia-API/
+.. _PyPi: https://pypi.python.org/pypi/Wikipedia-API/
+.. _Travis: https://travis-ci.org/martin-majlis/Wikipedia-API/
+.. _ReadTheDocs: http://wikipedia-api.readthedocs.io/
 
 
 
-.. |build-status| image:: https://travis-ci.org/martin-majlis/MailGunV3.svg?branch=master
+.. |build-status| image:: https://travis-ci.org/martin-majlis/Wikipedia-API.svg?branch=master
     :alt: build status
-    :target: https://travis-ci.org/martin-majlis/MailGunV3
+    :target: https://travis-ci.org/martin-majlis/Wikipedia-API
 
-.. |docs| image:: https://readthedocs.org/projects/mailgunv3/badge/?version=latest
-    :target: http://mailgunv3.readthedocs.io/en/latest/?badge=latest
+.. |docs| image:: https://readthedocs.org/projects/wikipedia-api/badge/?version=latest
+    :target: http://wikipedia-api.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. |cc-badge| image:: https://codeclimate.com/github/martin-majlis/MailGunV3/badges/gpa.svg
-    :target: https://codeclimate.com/github/martin-majlis/MailGunV3
+.. |cc-badge| image:: https://codeclimate.com/github/martin-majlis/Wikipedia-API/badges/gpa.svg
+    :target: https://codeclimate.com/github/martin-majlis/Wikipedia-API
     :alt: Code Climate
 
-.. |cc-issues| image:: https://codeclimate.com/github/martin-majlis/MailGunV3/badges/issue_count.svg
-    :target: https://codeclimate.com/github/martin-majlis/MailGunV3
+.. |cc-issues| image:: https://codeclimate.com/github/martin-majlis/Wikipedia-API/badges/issue_count.svg
+    :target: https://codeclimate.com/github/martin-majlis/Wikipedia-API
     :alt: Issue Count

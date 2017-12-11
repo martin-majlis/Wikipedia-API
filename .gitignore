@@ -104,3 +104,7 @@ ENV/
 .project
 .pydevproject
 .settings/
+
+# Documentation
+_build/
+pypi-doc.html
