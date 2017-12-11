@@ -1,6 +1,5 @@
 language: python
 python:
-- '2.7'
 - '3.3'
 - '3.4'
 - '3.5'
@@ -15,6 +14,6 @@ deploy:
     secure: PKcwSyYmDufHd4xPP3VMTMXZTeMDh/l3F7NW3NvU1hr006nrpfLe3Ztk/8pIHX4haadW/1FKvol9Zs+vAl8mNq9f3PdXjS82FWxxkGOHia5bnCHsPFqIjgmxoX61nBS1mGGGDLnhVmDV70mQEhJpdRjl3yhbIkfVYGsK6tamBH9opm27n9GOnaztXI5tCxL0InZVWKZ1xQbyF4u8RXS4mmLI1tKpAdIrT8M5pkzdEVMUgJJQG9JdqGd7LnuoiCBmoJunA+9oQBTohWGHfY1lV2eDSJ3vyJPdxc0FWGv1WZAkxTJ/t64hPBDC2fzweot7OC50g0fPMu4BLNHJ+jte9d6VESjYgo5NtQeAB8sG5HD/88BVOhRCM8gf7PIhlYp0Hc4dTKR2aMmiqzt9QgLLwcrNvl7Pg9Kjaf5SHV07WjlsLOvoPjOiSQYEwaAvX/46qOvu5ponSr+86LH0eRfNz2qr1t/trc1gjXXDO35PiwmrTwKqFPChgQH1D8eYbaXq/+R1gBzyMGBhUENfwGaR3GFdXr1txNBRE8ztU9EGYJAN4U4QiWSCN2zGaNiQVC50ZMNFScw60kowSGqM+31tCQkVxLB+CtOOCTpYB/X9ikpuHDdWDnzxpboXB/XmNdQ702SQSrUN50sjaDzikMpZTwUk3+Z4oH7vHK1l0apr+J0=
   on:
     tags: true
-    branch: master
+
 after_sucess:
 - CODECLIMATE_REPO_TOKEN=f71b8777af3523a62c1b487e7d590e1894353daa codeclimate-test-reporter
