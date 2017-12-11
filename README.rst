@@ -19,7 +19,7 @@ Installation
 
 .. code-block:: python
 
-    pip install mailgunv3
+    pip3 install wikipedia-api
 
 
 Usage

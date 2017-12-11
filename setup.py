@@ -1,7 +1,7 @@
 import os
 import re
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 def fix_doc(txt):
@@ -20,9 +20,15 @@ requires = [
 
 tests_require = []
 
+version = re.search(
+  "^__version__ = \((\d+), (\d+), (\d+)\)$",
+  local_file('wikipedia/__init__.py').read(),
+  re.MULTILINE
+).groups()
+
 setup(
     name='Wikipedia-API',
-    version='0.1.3',
+    version='.'.join(version),
     description='Python Wrapper for Wikipedia',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
@@ -41,8 +47,8 @@ setup(
     license='MIT',
     url='https://github.com/martin-majlis/Wikipedia-API',
     download_url='https://github.com/martin-majlis/Wikipedia-API/archive/master.tar.gz',
-    keywords='Wikipedia',
-    packages=find_packages(),
+    keywords='Wikipedia API wrapper',
+    packages = ['wikipedia'],
     include_package_data=True,
     zip_safe=False,
     extras_require={

@@ -38,7 +38,7 @@ class Wikipedia(object):
             'action': 'query',
             'prop': 'extracts',
             'explaintext': True,
-            'titles': page.title
+            'titles': page._title
         }
 
         raw = self._query(
@@ -76,41 +76,53 @@ class Wikipedia(object):
         page
     ):
         # print(text)
-        page.title = extract['title']
-        page.id = extract['pageid']
+        page._title = extract['title']
+        page._id = extract['pageid']
 
         section_stack = [page]
-        section_stack_pos = 0
         section = None
         prev_pos = 0
 
         for match in re.finditer(RE_SECTION, extract['extract']):
-            print(match.start(), match.end())
-            if page.summary == '':
-                page.summary = extract['extract'][0:match.start()]
+            # print(match.start(), match.end())
+            if page._summary == '':
+                page._summary = extract['extract'][0:match.start()].strip()
             else:
-                section.text = extract['extract'][prev_pos:match.start()]
+                section._text = (
+                    extract['extract'][prev_pos:match.start()]
+                ).strip()
 
             sec_title = match.group(2)
-            sec_level = len(match.group(1)) - 1
+            sec_level = len(match.group(1))
             section = WikipediaPageSection(
                 sec_title,
-                sec_level
+                sec_level - 1
             )
-            section_stack[sec_level - 1].section.append(section)
-            if sec_level > section_stack_pos:
+
+            if sec_level > len(section_stack):
                 section_stack.append(section)
-            elif sec_level < section_stack_pos:
+            elif sec_level == len(section_stack):
                 section_stack.pop()
-            section_stack_pos = sec_level
+                section_stack.append(section)
+            else:
+                for _ in range(len(section_stack) - sec_level + 1):
+                    section_stack.pop()
+                section_stack.append(section)
+
+            section_stack[len(section_stack) - 2]._section.append(section)
+            # section_stack[sec_level - 1]._section.append(section)
+
+            # section_stack_pos = sec_level
 
             prev_pos = match.end()
-            page.section_mapping[section.title] = section
+            page._section_mapping[section._title] = section
 
             match = RE_SECTION.search(extract['extract'])
 
         if prev_pos > 0:
-            section.text = extract['extract'][prev_pos:]
+            section._text = extract['extract'][prev_pos:]
+
+        return page
 
 
 class WikipediaPageSection(object):
@@ -120,16 +132,27 @@ class WikipediaPageSection(object):
             level=0,
             text=''
     ):
-        self.title = title
-        self.level = level
-        self.text = text
-        self.section = []
+        self._title = title
+        self._level = level
+        self._text = text
+        self._section = []
+
+    def title(self):
+        return self._title
+
+    def text(self):
+        return self._text
+
+    def sections(self):
+        return self._section
 
     def __repr__(self):
-        return "Section: {} ({}): {}".format(
-            self.title,
-            self.level,
-            self.text
+        return "Section: {} ({}):\n{}\nSubsections ({}):\n{}".format(
+            self._title,
+            self._level,
+            self._text,
+            len(self._section),
+            "\n".join(map(repr, self._section))
         )
 
 
@@ -140,40 +163,52 @@ class WikipediaPage(object):
             title: str
     ):
         self.wiki = wiki
-        self.title = title
-        self.id = 0
-        self.summary = ''
-        self.section = []
-        self.section_mapping = {}
-        self.called = {
+        self._title = title
+        self._id = 0
+        self._summary = ''
+        self._section = []
+        self._section_mapping = {}
+        self._called = {
             'structured': False
         }
 
-    def summary(self):
-        if not self.called['structured']:
+    def title(self):
+        return self._title
+
+    def id(self):
+        if not self._called['structured']:
             self.structured()
-        return self.summary
+        return self._id
+
+    def summary(self):
+        if not self._called['structured']:
+            self.structured()
+        return self._summary
 
     def sections(self):
-        if not self.called['structured']:
+        if not self._called['structured']:
             self.structured()
-        return self.section
+        return self._section
 
     def section_by_title(self, title):
-        if not self.called['structured']:
+        if not self._called['structured']:
             self.structured()
-        return self.section_mapping[title]
+        return self._section_mapping[title]
 
     def structured(self):
         self.wiki._structured(
             self
         )
-        self.called['structured'] = True
+        self._called['structured'] = True
+        return self
 
     def __repr__(self):
-        return "{}: ({})\n====\nSummary:\n{}\n======\nSections:\n{}".format(
-            self.title,
-            self.id,
-            self.summary,
-            "\n".join(map(repr, self.section))
+        return (
+            "{}: ({})\n====\nSummary:\n{}\n======\nSections ({}):\n{}"
+        ).format(
+            self._title,
+            self._id,
+            self._summary,
+            len(self._section),
+            "\n".join(map(repr, self._section))
         )
