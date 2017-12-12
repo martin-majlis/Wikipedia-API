@@ -12,6 +12,7 @@ This package provides python API for accessing `Wikipedia`_.
    :maxdepth: 2
 
    CHANGES
+   DEVELOPMENT
 .. PYPI-END
 
 Installation
@@ -77,23 +78,6 @@ External Links
 .. _PyPi: https://pypi.python.org/pypi/Wikipedia-API/
 .. _Travis: https://travis-ci.org/martin-majlis/Wikipedia-API/
 .. _ReadTheDocs: http://wikipedia-api.readthedocs.io/
-
-
-Usage Statistics
-----------------
-
-* `Downloads by version`_
-* `Downloads by version and country`_
-* `Downloads by date`_
-* `Downloads comparison`_
-
-.. _Downloads by version: https://bigquery.cloud.google.com/savedquery/35201106510:a6c4870ce9fb43e6aefef12faf56128b
-.. _Downloads by version and country: https://bigquery.cloud.google.com/savedquery/35201106510:46e43ec892d64a10ae9e52a214ee4e04
-.. _Downloads by date: https://bigquery.cloud.google.com/savedquery/35201106510:3848fc01939a4fd3aa265478bfcb6a11
-.. _Downloads comparison: https://bigquery.cloud.google.com/savedquery/35201106510:40051d42809040a3937b8efce9ea7053
-
-
-
 
 .. |build-status| image:: https://travis-ci.org/martin-majlis/Wikipedia-API.svg?branch=master
     :alt: build status
