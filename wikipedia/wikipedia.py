@@ -1,3 +1,4 @@
+from enum import Enum
 import logging
 import re
 import requests
@@ -5,13 +6,33 @@ log = logging.getLogger(__name__)
 
 # https://www.mediawiki.org/wiki/API:Main_page
 
-RE_SECTION = re.compile(r'\n\n *(===*) (.*?) (===*) *\n')
+
+class ExtractFormat(Enum):
+    # Wiki: https://goo.gl/PScNVV
+    # Allows recognizing subsections
+    WIKI = 1
+
+    # HTML: https://goo.gl/1Jwwpr
+    # Text contains HTML tags
+    HTML = 2
+
+    # Plain: https://goo.gl/MAv2qz
+    # Doesn't allow to recognize subsections
+    # PLAIN = 3
+
+
+RE_SECTION = {
+    ExtractFormat.WIKI.value: re.compile(r'\n\n *(===*) (.*?) (===*) *\n'),
+    ExtractFormat.HTML.value: re.compile(r'\n? *<h(\d)[^>]*?>(<span[^>]*><\/span>)? *(<span[^>]*>)? *(<span[^>]*><\/span>)? *(.*?) *(<\/span>)?<\/h\d>\n?'),
+    # ExtractFormat.PLAIN.value: re.compile(r'\n\n *(===*) (.*?) (===*) *\n'),
+}
 
 
 class Wikipedia(object):
     def __init__(
             self,
             language='en',
+            extract_format=ExtractFormat.WIKI,
             user_agent='Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)',
     ):
         '''
@@ -20,6 +41,7 @@ class Wikipedia(object):
         '''
         self.language = language.strip().lower()
         self.user_agent = user_agent
+        self.extract_format = extract_format
 
     def article(
             self,
@@ -37,9 +59,18 @@ class Wikipedia(object):
         params = {
             'action': 'query',
             'prop': 'extracts',
-            'explaintext': True,
             'titles': page._title
         }
+
+        if self.extract_format == ExtractFormat.HTML:
+            # we do nothing, when format is HTML
+            pass
+        elif self.extract_format == ExtractFormat.WIKI:
+            params['explaintext'] = 1
+            params['exsectionformat'] = 'wiki'
+        # elif self.extract_format == ExtractFormat.PLAIN:
+        #    params['explaintext'] = 1
+        #    params['exsectionformat'] = 'plain'
 
         raw = self._query(
             params
@@ -83,7 +114,10 @@ class Wikipedia(object):
         section = None
         prev_pos = 0
 
-        for match in re.finditer(RE_SECTION, extract['extract']):
+        for match in re.finditer(
+            RE_SECTION[self.extract_format.value],
+            extract['extract']
+        ):
             # print(match.start(), match.end())
             if page._summary == '':
                 page._summary = extract['extract'][0:match.start()].strip()
@@ -92,8 +126,15 @@ class Wikipedia(object):
                     extract['extract'][prev_pos:match.start()]
                 ).strip()
 
-            sec_title = match.group(2)
-            sec_level = len(match.group(1))
+            sec_title = ''
+            sec_level = 2
+            if self.extract_format == ExtractFormat.WIKI:
+                sec_title = match.group(2).strip()
+                sec_level = len(match.group(1))
+            elif self.extract_format == ExtractFormat.HTML:
+                sec_title = match.group(5).strip()
+                sec_level = int(match.group(1).strip())
+
             section = WikipediaPageSection(
                 sec_title,
                 sec_level - 1
@@ -116,8 +157,6 @@ class Wikipedia(object):
 
             prev_pos = match.end()
             page._section_mapping[section._title] = section
-
-            match = RE_SECTION.search(extract['extract'])
 
         if prev_pos > 0:
             section._text = extract['extract'][prev_pos:]
