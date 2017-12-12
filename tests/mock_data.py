@@ -176,5 +176,34 @@ _MOCK_DATA = {
                 }
             }
         }
+    },
+    'action=query&lllimit=500&llprop=url&prop=langlinks&titles=Test_1&': {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "langlinks": [
+                        {
+                            "lang": "l1",
+                            "url": "https://l1.wikipedia.org/wiki/Test_1_-_1",
+                            "*": "Test 1 - 1"
+                        },
+                        {
+                            "lang": "l2",
+                            "url": "https://l2.wikipedia.org/wiki/Test_1_-_2",
+                            "*": "Test 1 - 2"
+                        },
+                        {
+                            "lang": "l3",
+                            "url": "https://l3.wikipedia.org/wiki/Test_1_-_3",
+                            "*": "Test 1 - 3"
+                        },
+                    ]
+                }
+            }
+        }
     }
 }

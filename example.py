@@ -19,7 +19,17 @@ def print_sections(sections, level=0):
         print_sections(s.sections, level + 1)
 
 
+def print_langlinks(page):
+    langlinks = page.langlinks
+    for k in sorted(langlinks.keys()):
+        v = langlinks[k]
+        print("%s: %s - %s: %s" % (k, v.lang, v.title, v.url))
+
+
 print_sections(page_py.sections)
+
+print_langlinks(page_py)
+
 
 section_py = page_py.section_by_title('Features and philosophy')
 print("Section - Title: %s" % section_py.title)

@@ -1,12 +1,18 @@
 Changelog
 ======================
+
+0.2.1
+-----
+* Added support for `property Langlinks`_
+
+.. _property Langlinks: https://www.mediawiki.org/wiki/API:Langlinks
+
 0.2.0
 -----
 * Use properties instead of functions
 * Added support for `property Info`_
 
 .. _property Info: https://www.mediawiki.org/wiki/API:Info
-
 
 0.1.6
 -----

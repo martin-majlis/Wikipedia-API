@@ -120,6 +120,33 @@ class Wikipedia(object):
             else:
                 return self._build_info(v, page)
 
+    def _langlinks(
+        self,
+        page: 'WikipediaPage'
+    ) -> 'WikipediaPage':
+        """
+        https://www.mediawiki.org/w/api.php?action=help&modules=query%2Blanglinks
+        https://www.mediawiki.org/wiki/API:Langlinks
+        """
+
+        params = {
+            'action': 'query',
+            'prop': 'langlinks',
+            'titles': page.title,
+            'lllimit': 500,
+            'llprop': 'url',
+        }
+        raw = self._query(
+            params
+        )
+        pages = raw['query']['pages']
+        for k, v in pages.items():
+            if k == '-1':
+                page._attributes['pageid'] = -1
+                return page
+            else:
+                return self._build_langlinks(v, page)
+
     def _query(
         self,
         params: {}
@@ -215,6 +242,20 @@ class Wikipedia(object):
 
         return page
 
+    def _build_langlinks(
+        self,
+        extract,
+        page
+    ):
+        for langlink in extract['langlinks']:
+            page._langlinks[langlink['lang']] = WikipediaLangLink(
+                lang=langlink['lang'],
+                title=langlink['*'],
+                url=langlink['url']
+            )
+
+        return page
+
 
 class WikipediaPageSection(object):
     def __init__(
@@ -254,11 +295,42 @@ class WikipediaPageSection(object):
         )
 
 
+class WikipediaLangLink(object):
+    def __init__(
+            self,
+            title: str,
+            lang: str,
+            url: str
+    ):
+        self._title = title
+        self._lang = lang
+        self._url = url
+
+    @property
+    def title(self) -> str:
+        return self._title
+
+    @property
+    def lang(self) -> str:
+        return self._lang
+
+    @property
+    def url(self) -> str:
+        return self._url
+
+    def __repr__(self):
+        return "LangLink: {} ({}): {}".format(
+            self._title,
+            self._lang,
+            self._url,
+        )
+
+
 class WikipediaPage(object):
     ATTRIBUTES_MAPPING = {
-        "pageid": ["info", "structured"],
-        "ns": ["info", "structured"],
-        "title": ["info", "structured"],
+        "pageid": ["info", "structured", "langlinks"],
+        "ns": ["info", "structured", "langlinks"],
+        "title": ["info", "structured", "langlinks"],
         "contentmodel": ["info"],
         "pagelanguage": ["info"],
         "pagelanguagehtmlcode": ["info"],
@@ -289,9 +361,11 @@ class WikipediaPage(object):
         self._summary = ''
         self._section = []
         self._section_mapping = {}
+        self._langlinks = {}
         self._called = {
             'structured': False,
-            'info': False
+            'info': False,
+            'langlinks': False
         }
         self._attributes = {
             'title': title
@@ -306,7 +380,7 @@ class WikipediaPage(object):
 
         for call in self.ATTRIBUTES_MAPPING[name]:
             if not self._called[call]:
-                getattr(self, call)()
+                getattr(self, "_fetch_" + call)()
                 return self._attributes[name]
 
     def exists(self) -> bool:
@@ -315,32 +389,45 @@ class WikipediaPage(object):
     @property
     def summary(self) -> str:
         if not self._called['structured']:
-            self.structured()
+            self._fetch_structured()
         return self._summary
 
     @property
     def sections(self) -> [WikipediaPageSection]:
         if not self._called['structured']:
-            self.structured()
+            self._fetch_structured()
         return self._section
 
     def section_by_title(self, title) -> WikipediaPageSection:
         if not self._called['structured']:
-            self.structured()
+            self._fetch_structured()
         return self._section_mapping[title]
 
-    def structured(self) -> 'WikipediaPage':
+    @property
+    def langlinks(self):
+        if not self._called['langlinks']:
+            self._fetch_langlinks()
+        return self._langlinks
+
+    def _fetch_structured(self) -> 'WikipediaPage':
         self.wiki._structured(
             self
         )
         self._called['structured'] = True
         return self
 
-    def info(self) -> 'WikipediaPage':
+    def _fetch_info(self) -> 'WikipediaPage':
         self.wiki._info(
             self
         )
         self._called['info'] = True
+        return self
+
+    def _fetch_langlinks(self) -> 'WikipediaPage':
+        self.wiki._langlinks(
+            self
+        )
+        self._called['langlinks'] = True
         return self
 
     def __repr__(self):

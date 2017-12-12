@@ -10,10 +10,11 @@ WikipediaPage
 -------------
 * ``exists()``
 * ``pageid``
-* ``title``
-* ``summary``
-* ``sections``
-* ``section_by_title(name)``
+* ``title`` - title
+* ``summary`` - summary of the page
+* ``sections`` - list of all sections (list of ``WikipediaPageSection``)
+* ``langlinks`` - list of all language links to other languages (``WikipediaLangLink``)
+* ``section_by_title(name)`` - finds section by title (``WikipediaPageSection``)
 * ``displaytitle``
 * ``canonicalurl``
 * ``ns``
@@ -41,6 +42,12 @@ WikipediaPageSection
 * ``level``
 * ``text``
 * ``sections``
+
+WikipediaLangLink
+-----------------
+* ``lang``
+* ``title``
+* ``url``
 
 ExtractFormat
 -------------

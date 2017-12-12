@@ -24,7 +24,7 @@ class TestHtmlFormatExtracts(unittest.TestCase):
 
     def test_title_after_fetching(self):
         page = self.wiki.article('Test_1')
-        page.structured()
+        page._fetch_structured()
         self.assertEqual(page.title, 'Test 1')
 
     def test_summary(self):
