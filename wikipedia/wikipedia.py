@@ -5,7 +5,7 @@ log = logging.getLogger(__name__)
 
 # https://www.mediawiki.org/wiki/API:Main_page
 
-RE_SECTION = re.compile(r'\n\n(===*) (.*?) (===*)\n')
+RE_SECTION = re.compile(r'\n\n *(===*) (.*?) (===*) *\n')
 
 
 class Wikipedia(object):
@@ -75,7 +75,7 @@ class Wikipedia(object):
         extract,
         page
     ):
-        # print(text)
+        # print(extract)
         page._title = extract['title']
         page._id = extract['pageid']
 
@@ -137,13 +137,16 @@ class WikipediaPageSection(object):
         self._text = text
         self._section = []
 
-    def title(self):
+    def title(self) -> str:
         return self._title
 
-    def text(self):
+    def level(self) -> int:
+        return self._level
+
+    def text(self) -> str:
         return self._text
 
-    def sections(self):
+    def sections(self) -> ['WikipediaPageSection']:
         return self._section
 
     def __repr__(self):
@@ -172,30 +175,30 @@ class WikipediaPage(object):
             'structured': False
         }
 
-    def title(self):
+    def title(self) -> str:
         return self._title
 
-    def id(self):
+    def id(self) -> int:
         if not self._called['structured']:
             self.structured()
         return self._id
 
-    def summary(self):
+    def summary(self) -> str:
         if not self._called['structured']:
             self.structured()
         return self._summary
 
-    def sections(self):
+    def sections(self) -> [WikipediaPageSection]:
         if not self._called['structured']:
             self.structured()
         return self._section
 
-    def section_by_title(self, title):
+    def section_by_title(self, title) -> WikipediaPageSection:
         if not self._called['structured']:
             self.structured()
         return self._section_mapping[title]
 
-    def structured(self):
+    def structured(self) -> 'WikipediaPage':
         self.wiki._structured(
             self
         )
