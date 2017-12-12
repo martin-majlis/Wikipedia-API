@@ -6,7 +6,7 @@ python:
 - '3.6'
 install: pip install -r requirements.txt
 script:
-- touch foo
+- python -m unittest discover tests/ '*test.py'
 deploy:
   provider: pypi
   user: martin.majlis
