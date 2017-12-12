@@ -9,10 +9,11 @@ This package provides python API for accessing `Wikipedia`_.
 
 .. PYPI-BEGIN
 .. toctree::
-   :maxdepth: 2
+	:maxdepth: 2
 
-   CHANGES
-   DEVELOPMENT
+	API
+	CHANGES
+	DEVELOPMENT
 .. PYPI-END
 
 Installation
@@ -35,23 +36,26 @@ Usage
 
 	page_py = wiki_wiki.article('Python_(programming_language)')
 
-	print("Page - Id: %s" % page_py.id())
+	print("Page - Exists: %s" % page_py.exists())
+	# Page - Exists: True
+
+	print("Page - Id: %s" % page_py.pageid)
 	# Page - Id: 23862
 
-	print("Page - Title: %s" % page_py.title())
+	print("Page - Title: %s" % page_py.title)
 	# Page - Title: Python (programming language)
 
-	print("Page - Summary: %s" % page_py.summary()[0:60])
+	print("Page - Summary: %s" % page_py.summary[0:60])
 	# Page - Summary: Python is a widely used high-level programming language for
 
 
 	def print_sections(sections, level=0):
 		for s in sections:
-			print("%s: %s - %s" % ("*" * (level + 1), s.title(), s.text()[0:40]))
-			print_sections(s.sections(), level + 1)
+			print("%s: %s - %s" % ("*" * (level + 1), s.title, s.text[0:40]))
+			print_sections(s.sections, level + 1)
 
 
-	print_sections(page_py.sections())
+	print_sections(page_py.sections)
 	# *: History - Python was conceived in the late 1980s, 
 	# *: Features and philosophy - Python is a multi-paradigm programming l
 	# *: Syntax and semantics - Python is meant to be an easily readable
@@ -61,10 +65,10 @@ Usage
 	# ...
 
 	section_py = page_py.section_by_title('Features and philosophy')
-	print("Section - Title: %s" % section_py.title())
+	print("Section - Title: %s" % section_py.title)
 	# Section - Title: Features and philosophy
 
-	print("Section - Text: %s" % section_py.text()[0:60])
+	print("Section - Text: %s" % section_py.text[0:60])
 	# Section - Text: Python is a multi-paradigm programming language. Object-orie
 
 	# Now lets extract texts with HTML tags
@@ -74,16 +78,20 @@ Usage
 	)
 
 	page_ostrava = wiki_html.article('Ostrava')
-	print("Page - Id: %s" % page_ostrava.id())
+
+	print("Page - Exists: %s" % page_ostrava.exists())
+	# Page - Exists: True
+
+	print("Page - Id: %s" % page_ostrava.pageid)
 	# Page - Id: 7667
 
-	print("Page - Title: %s" % page_ostrava.title())
+	print("Page - Title: %s" % page_ostrava.title)
 	# Page - Title: Ostrava
 
-	print("Page - Summary: %s" % page_ostrava.summary()[0:60])
+	print("Page - Summary: %s" % page_ostrava.summary[0:60])
 	# Page - Summary: <p><b>Ostrava</b> (polsky <span lang="pl" title="polština" x
 
-	print_sections(page_ostrava.sections())
+	print_sections(page_ostrava.sections)
 	# *: Znak a logo - 
 	# **: Heraldický znak - <p>Městský znak je blasonován: <i>V modr
 	# **: Marketingové logo - <p>V roce 2008 bylo představeno nové log
@@ -92,11 +100,24 @@ Usage
 	# *: Obyvatelstvo - <ul class="gallery mw-gallery-traditiona
 
 	section_ostrava = page_ostrava.section_by_title('Heraldický znak')
-	print("Section - Title: %s" % section_ostrava.title())
+	print("Section - Title: %s" % section_ostrava.title)
 	# Section - Title: Heraldický znak
 
-	print("Section - Text: %s" % section_ostrava.text()[0:60])
+	print("Section - Text: %s" % section_ostrava.text[0:60])
 	# Section - Text: <p>Městský znak je blasonován: <i>V modrém štítě na zeleném
+
+	page_nonexisting = wiki_wiki.article('Wikipedia-API-FooBar')
+	print("Page - Exists: %s" % page_nonexisting.exists())
+	# Page - Exists: False
+
+	print("Page - Id: %s" % page_nonexisting.pageid)
+	# Page - Id: -1
+
+	print("Page - Title: %s" % page_nonexisting.title)
+	# Page - Title: Wikipedia-API-FooBar
+	
+	print("Page - Summary: %s" % page_nonexisting.summary[0:60])
+	# Page - Summary:
 
 External Links
 --------------

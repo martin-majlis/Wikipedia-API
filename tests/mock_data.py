@@ -109,5 +109,72 @@ _MOCK_DATA = {
                 }
             }
         }
+    },
+    'action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=Test_1&': {
+        "batchcomplete": "",
+        "query": {
+            "normalized": [
+                {
+                    "from": "Test_1",
+                    "to": "Test 1"
+                }
+            ],
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "missing": "",
+                    "contentmodel": "wikitext",
+                    "pagelanguage": "en",
+                    "pagelanguagehtmlcode": "en",
+                    "pagelanguagedir": "ltr",
+                    "protection": [
+                        {
+                            "type": "create",
+                            "level": "sysop",
+                            "expiry": "infinity"
+                        }
+                    ],
+                    "restrictiontypes": [
+                        "create"
+                    ],
+                    "notificationtimestamp": "",
+                    "fullurl": "https://en.wikipedia.org/wiki/Test_1",
+                    "editurl": "https://en.wikipedia.org/w/index.php?title=Test_1&action=edit",
+                    "canonicalurl": "https://en.wikipedia.org/wiki/Test_1",
+                    "readable": "",
+                    "preload": None,
+                    "displaytitle": "Test 1"
+                }
+            }
+        }
+    },
+    'action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=NonExisting&': {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "ns": 0,
+                    "title": "NonExisting",
+                    "missing": "",
+                    "contentmodel": "wikitext",
+                    "pagelanguage": "en",
+                    "pagelanguagehtmlcode": "en",
+                    "pagelanguagedir": "ltr",
+                    "protection": [],
+                    "restrictiontypes": [
+                        "create"
+                    ],
+                    "notificationtimestamp": "",
+                    "fullurl": "https://en.wikipedia.org/wiki/NonExisting",
+                    "editurl": "https://en.wikipedia.org/w/index.php?title=NonExisting&action=edit",
+                    "canonicalurl": "https://en.wikipedia.org/wiki/NonExisting",
+                    "readable": "",
+                    "preload": None,
+                    "displaytitle": "NonExisting"
+                }
+            }
+        }
     }
 }

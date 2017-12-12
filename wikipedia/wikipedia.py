@@ -1,4 +1,3 @@
-from enum import Enum
 import logging
 import re
 import requests
@@ -7,7 +6,7 @@ log = logging.getLogger(__name__)
 # https://www.mediawiki.org/wiki/API:Main_page
 
 
-class ExtractFormat(Enum):
+class ExtractFormat(object):  # (Enum):
     # Wiki: https://goo.gl/PScNVV
     # Allows recognizing subsections
     WIKI = 1
@@ -22,8 +21,8 @@ class ExtractFormat(Enum):
 
 
 RE_SECTION = {
-    ExtractFormat.WIKI.value: re.compile(r'\n\n *(===*) (.*?) (===*) *\n'),
-    ExtractFormat.HTML.value: re.compile(r'\n? *<h(\d)[^>]*?>(<span[^>]*><\/span>)? *(<span[^>]*>)? *(<span[^>]*><\/span>)? *(.*?) *(<\/span>)?<\/h\d>\n?'),
+    ExtractFormat.WIKI: re.compile(r'\n\n *(===*) (.*?) (===*) *\n'),
+    ExtractFormat.HTML: re.compile(r'\n? *<h(\d)[^>]*?>(<span[^>]*><\/span>)? *(<span[^>]*>)? *(<span[^>]*><\/span>)? *(.*?) *(<\/span>)?<\/h\d>\n?'),
     # ExtractFormat.PLAIN.value: re.compile(r'\n\n *(===*) (.*?) (===*) *\n'),
 }
 
@@ -52,14 +51,15 @@ class Wikipedia(object):
     def _structured(
         self,
         page: 'WikipediaPage'
-    ):
+    ) -> 'WikipediaPage':
         """
         https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bextracts
+        https://www.mediawiki.org/wiki/Extension:TextExtracts#API
         """
         params = {
             'action': 'query',
             'prop': 'extracts',
-            'titles': page._title
+            'titles': page.title
         }
 
         if self.extract_format == ExtractFormat.HTML:
@@ -76,8 +76,49 @@ class Wikipedia(object):
             params
         )
         pages = raw['query']['pages']
-        for v in pages.values():
-            return self._build_structured(v, page)
+        for k, v in pages.items():
+            if k == '-1':
+                page._attributes['pageid'] = -1
+                return page
+            else:
+                return self._build_structured(v, page)
+
+    def _info(
+        self,
+        page: 'WikipediaPage'
+    ) -> 'WikipediaPage':
+        """
+        https://www.mediawiki.org/w/api.php?action=help&modules=query%2Binfo
+        https://www.mediawiki.org/wiki/API:Info
+        """
+        params = {
+            'action': 'query',
+            'prop': 'info',
+            'titles': page.title,
+            'inprop': '|'.join([
+                'protection',
+                'talkid',
+                'watched',
+                'watchers',
+                'visitingwatchers',
+                'notificationtimestamp',
+                'subjectid',
+                'url',
+                'readable',
+                'preload',
+                'displaytitle'
+            ])
+        }
+        raw = self._query(
+            params
+        )
+        pages = raw['query']['pages']
+        for k, v in pages.items():
+            if k == '-1':
+                page._attributes['pageid'] = -1
+                return page
+            else:
+                return self._build_info(v, page)
 
     def _query(
         self,
@@ -107,15 +148,16 @@ class Wikipedia(object):
         page
     ):
         # print(extract)
-        page._title = extract['title']
-        page._id = extract['pageid']
+        page._attributes['title'] = extract['title']
+        page._attributes['pageid'] = extract['pageid']
+        page._attributes['ns'] = extract['ns']
 
         section_stack = [page]
         section = None
         prev_pos = 0
 
         for match in re.finditer(
-            RE_SECTION[self.extract_format.value],
+            RE_SECTION[self.extract_format],
             extract['extract']
         ):
             # print(match.start(), match.end())
@@ -163,6 +205,16 @@ class Wikipedia(object):
 
         return page
 
+    def _build_info(
+        self,
+        extract,
+        page
+    ):
+        for k, v in extract.items():
+            page._attributes[k] = v
+
+        return page
+
 
 class WikipediaPageSection(object):
     def __init__(
@@ -176,15 +228,19 @@ class WikipediaPageSection(object):
         self._text = text
         self._section = []
 
+    @property
     def title(self) -> str:
         return self._title
 
+    @property
     def level(self) -> int:
         return self._level
 
+    @property
     def text(self) -> str:
         return self._text
 
+    @property
     def sections(self) -> ['WikipediaPageSection']:
         return self._section
 
@@ -199,34 +255,70 @@ class WikipediaPageSection(object):
 
 
 class WikipediaPage(object):
+    ATTRIBUTES_MAPPING = {
+        "pageid": ["info", "structured"],
+        "ns": ["info", "structured"],
+        "title": ["info", "structured"],
+        "contentmodel": ["info"],
+        "pagelanguage": ["info"],
+        "pagelanguagehtmlcode": ["info"],
+        "pagelanguagedir": ["info"],
+        "touched": ["info"],
+        "lastrevid": ["info"],
+        "length": ["info"],
+        "protection": ["info"],
+        "restrictiontypes": ["info"],
+        "watchers": ["info"],
+        "visitingwatchers": ["info"],
+        "notificationtimestamp": ["info"],
+        "talkid": ["info"],
+        "fullurl": ["info"],
+        "editurl": ["info"],
+        "canonicalurl": ["info"],
+        "readable": ["info"],
+        "preload": ["info"],
+        "displaytitle": ["info"]
+    }
+
     def __init__(
             self,
             wiki: Wikipedia,
             title: str
     ):
         self.wiki = wiki
-        self._title = title
-        self._id = 0
         self._summary = ''
         self._section = []
         self._section_mapping = {}
         self._called = {
-            'structured': False
+            'structured': False,
+            'info': False
+        }
+        self._attributes = {
+            'title': title
         }
 
-    def title(self) -> str:
-        return self._title
+    def __getattr__(self, name):
+        if name not in self.ATTRIBUTES_MAPPING:
+            return self.__getattribute__(name)
 
-    def id(self) -> int:
-        if not self._called['structured']:
-            self.structured()
-        return self._id
+        if name in self._attributes:
+            return self._attributes[name]
 
+        for call in self.ATTRIBUTES_MAPPING[name]:
+            if not self._called[call]:
+                getattr(self, call)()
+                return self._attributes[name]
+
+    def exists(self) -> bool:
+        return self.pageid != -1
+
+    @property
     def summary(self) -> str:
         if not self._called['structured']:
             self.structured()
         return self._summary
 
+    @property
     def sections(self) -> [WikipediaPageSection]:
         if not self._called['structured']:
             self.structured()
@@ -242,6 +334,13 @@ class WikipediaPage(object):
             self
         )
         self._called['structured'] = True
+        return self
+
+    def info(self) -> 'WikipediaPage':
+        self.wiki._info(
+            self
+        )
+        self._called['info'] = True
         return self
 
     def __repr__(self):
