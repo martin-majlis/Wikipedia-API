@@ -1,3 +1,8 @@
+# https://docs.codeclimate.com/v1.0/docs/travis-ci-test-coverage
+env:
+  global:
+    - CC_TEST_REPORTER_ID=d62b9e265b625e28f256147e9636d8fc1abe9f540d4fc82f9f8976171676cec4
+
 language: python
 python:
 - '3.3'
@@ -6,8 +11,14 @@ python:
 - '3.6'
 install:
 - pip install -r requirements.txt
+before_script:
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- ./cc-test-reporter before-build
 script:
 - make run-tests
+after_script:
+- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 deploy:
   provider: pypi
   user: martin.majlis
@@ -16,4 +27,4 @@ deploy:
   on:
     tags: true
 after_sucess:
-- CODECLIMATE_REPO_TOKEN=f71b8777af3523a62c1b487e7d590e1894353daa codeclimate-test-reporter
+- CODECLIMATE_REPO_TOKEN=d62b9e265b625e28f256147e9636d8fc1abe9f540d4fc82f9f8976171676cec4 codeclimate-test-reporter
