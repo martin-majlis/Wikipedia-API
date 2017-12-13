@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 from collections import defaultdict
 import unittest
-from wikipedia import wikipedia
 
 from mock_data import wikipedia_api_request
+import wikipediaapi
 
 
 class TestHtmlFormatExtracts(unittest.TestCase):
     def setUp(self):
-        self.wiki = wikipedia.Wikipedia(
+        self.wiki = wikipediaapi.Wikipedia(
             "en",
-            extract_format=wikipedia.ExtractFormat.HTML
+            extract_format=wikipediaapi.ExtractFormat.HTML
         )
         self.wiki._query = wikipedia_api_request
 

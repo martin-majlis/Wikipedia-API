@@ -29,10 +29,10 @@ Usage
 
 .. code-block:: python
 
-	import wikipedia
+	import wikipediaapi
 
 	# Extract data in Wiki format
-	wiki_wiki = wikipedia.Wikipedia('en')
+	wiki_wiki = wikipediaapi.Wikipedia('en')
 
 	page_py = wiki_wiki.page('Python_(programming_language)')
 
@@ -98,9 +98,9 @@ Usage
 	# Section - Text: Python is a multi-paradigm programming language. Object-orie
 
 	# Now lets extract texts with HTML tags
-	wiki_html = wikipedia.Wikipedia(
+	wiki_html = wikipediaapi.Wikipedia(
 		language='cs',
-		extract_format=wikipedia.ExtractFormat.HTML
+		extract_format=wikipediaapi.ExtractFormat.HTML
 	)
 
 	page_ostrava = wiki_html.page('Ostrava')

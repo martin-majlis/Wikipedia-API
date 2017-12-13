@@ -1,10 +1,10 @@
 import logging
 
-import wikipedia
+import wikipediaapi
 
 logging.basicConfig(level=logging.INFO)
 
-wiki_wiki = wikipedia.Wikipedia('en')
+wiki_wiki = wikipediaapi.Wikipedia('en')
 
 page_py = wiki_wiki.page('Python_(programming_language)')
 
@@ -49,9 +49,9 @@ print("Section - Title: %s" % section_py.title)
 print("Section - Text: %s" % section_py.text[0:60])
 
 
-wiki_html = wikipedia.Wikipedia(
+wiki_html = wikipediaapi.Wikipedia(
     language='cs',
-    extract_format=wikipedia.ExtractFormat.HTML
+    extract_format=wikipediaapi.ExtractFormat.HTML
 )
 
 page_ostrava = wiki_html.page('Ostrava')

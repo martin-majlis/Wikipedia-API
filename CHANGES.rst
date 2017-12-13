@@ -1,5 +1,9 @@
 Changelog
-======================
+=========
+
+0.3.0
+-----
+* Rename directory from ``wikipedia`` to ``wikipediaapi`` to avoid collisions
 
 0.2.4
 -----
@@ -7,7 +11,7 @@ Changelog
 
 0.2.3
 -----
-* Usage method `page` instead of `article` in `Wikipedia`
+* Usage method ``page`` instead of ``article`` in ``Wikipedia``
 
 0.2.2
 -----
