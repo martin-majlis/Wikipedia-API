@@ -76,6 +76,7 @@ class Wikipedia(object):
         raw = self._query(
             params
         )
+        self._common_attributes(raw['query'], page)
         pages = raw['query']['pages']
         for k, v in pages.items():
             if k == '-1':
@@ -113,6 +114,7 @@ class Wikipedia(object):
         raw = self._query(
             params
         )
+        self._common_attributes(raw['query'], page)
         pages = raw['query']['pages']
         for k, v in pages.items():
             if k == '-1':
@@ -140,6 +142,7 @@ class Wikipedia(object):
         raw = self._query(
             params
         )
+        self._common_attributes(raw['query'], page)
         pages = raw['query']['pages']
         for k, v in pages.items():
             if k == '-1':
@@ -166,6 +169,7 @@ class Wikipedia(object):
         raw = self._query(
             params
         )
+        self._common_attributes(raw['query'], page)
         pages = raw['query']['pages']
         for k, v in pages.items():
             if k == '-1':
@@ -196,6 +200,7 @@ class Wikipedia(object):
             )
         )
         params['format'] = 'json'
+        params['redirects'] = 1
         r = requests.get(
             base_url,
             params=params,
@@ -208,11 +213,7 @@ class Wikipedia(object):
         extract,
         page
     ):
-        # print(extract)
-        page._attributes['title'] = extract['title']
-        page._attributes['pageid'] = extract['pageid']
-        page._attributes['ns'] = extract['ns']
-
+        self._common_attributes(extract, page)
         section_stack = [page]
         section = None
         prev_pos = 0
@@ -271,6 +272,7 @@ class Wikipedia(object):
         extract,
         page
     ):
+        self._common_attributes(extract, page)
         for k, v in extract.items():
             page._attributes[k] = v
 
@@ -281,6 +283,7 @@ class Wikipedia(object):
         extract,
         page
     ):
+        self._common_attributes(extract, page)
         for langlink in extract['langlinks']:
             page._langlinks[langlink['lang']] = WikipediaLangLink(
                 lang=langlink['lang'],
@@ -295,6 +298,7 @@ class Wikipedia(object):
         extract,
         page
     ):
+        self._common_attributes(extract, page)
         for link in extract['links']:
             page._links[link['title']] = self.page(
                 title=link['title'],
@@ -302,6 +306,22 @@ class Wikipedia(object):
             )
 
         return page
+
+    def _common_attributes(
+        self,
+        extract,
+        page
+    ):
+        common_attributes = [
+            'title',
+            'pageid',
+            'ns',
+            'redirects'
+        ]
+
+        for attr in common_attributes:
+            if attr in extract:
+                page._attributes[attr] = extract[attr]
 
     def article(
             self,
@@ -504,6 +524,6 @@ class WikipediaPage(object):
 
     def __repr__(self):
         if any(self._called.values()):
-            return "{} (id: {}, ns: {})".format(self.title, self.id, self.ns)
+            return "{} (id: {}, ns: {})".format(self.title, self.pageid, self.ns)
         else:
             return "{} (id: ??, ns: {})".format(self.title, self.ns)

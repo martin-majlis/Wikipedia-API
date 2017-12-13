@@ -1,10 +1,13 @@
 Changelog
 ======================
 
+0.2.4
+-----
+* Handle redirects properly
+
 0.2.3
 -----
 * Usage method `page` instead of `article` in `Wikipedia`
-
 
 0.2.2
 -----
