@@ -22,6 +22,7 @@ run-tests:
 
 run-coverage:
 	coverage run --source=wikipediaapi -m unittest discover tests/ '*test.py'
+	coverage report -m
 
 release: run-tests pypi-html
 	if [ "x$(MSG)" = "x" ]; then \
