@@ -20,6 +20,9 @@ pypi-html:
 run-tests:
 	python3 -m unittest discover tests/ '*test.py'
 
+run-coverage:
+	coverage run --source=wikipediaapi -m unittest discover tests/ '*test.py'
+
 release: run-tests pypi-html
 	if [ "x$(MSG)" = "x" ]; then \
 		echo "Use make release MSG='some msg'"; \
