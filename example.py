@@ -7,6 +7,7 @@ logging.basicConfig(level=logging.INFO)
 wiki_wiki = wikipedia.Wikipedia('en')
 
 page_py = wiki_wiki.article('Python_(programming_language)')
+
 print("Page - Exists: %s" % page_py.exists())
 print("Page - Id: %s" % page_py.pageid)
 print("Page - Title: %s" % page_py.title)
@@ -19,6 +20,10 @@ def print_sections(sections, level=0):
         print_sections(s.sections, level + 1)
 
 
+print("Sections:")
+print_sections(page_py.sections)
+
+
 def print_langlinks(page):
     langlinks = page.langlinks
     for k in sorted(langlinks.keys()):
@@ -26,10 +31,18 @@ def print_langlinks(page):
         print("%s: %s - %s: %s" % (k, v.lang, v.title, v.url))
 
 
-print_sections(page_py.sections)
-
+print("Lang links:")
 print_langlinks(page_py)
 
+
+def print_links(page):
+    links = page.links
+    for title in sorted(links.keys()):
+        print("%s: %s" % (title, links[title]))
+
+
+print("Links:")
+print_links(page_py)
 
 section_py = page_py.section_by_title('Features and philosophy')
 print("Section - Title: %s" % section_py.title)

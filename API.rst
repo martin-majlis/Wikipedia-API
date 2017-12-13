@@ -3,7 +3,7 @@ API
 
 Wikipedia
 ---------
-* ``__init__(language='en', extract_format, user_agent)``
+* ``__init__(language='en', extract_format=ExtractFormat.WIKI, user_agent)``
 * ``article(title)``
 
 WikipediaPage
@@ -13,8 +13,9 @@ WikipediaPage
 * ``title`` - title
 * ``summary`` - summary of the page
 * ``sections`` - list of all sections (list of ``WikipediaPageSection``)
-* ``langlinks`` - list of all language links to other languages (``WikipediaLangLink``)
+* ``langlinks`` - language links to other languages ({lang: ``WikipediaLangLink``})
 * ``section_by_title(name)`` - finds section by title (``WikipediaPageSection``)
+* ``links`` - links to other pages ({title: ``WikipediaPage``})
 * ``displaytitle``
 * ``canonicalurl``
 * ``ns``

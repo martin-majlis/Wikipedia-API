@@ -44,9 +44,10 @@ class Wikipedia(object):
 
     def article(
             self,
-            title: str
+            title: str,
+            ns: int = 0
     ):
-        return WikipediaPage(self, title)
+        return WikipediaPage(self, title, ns)
 
     def _structured(
         self,
@@ -146,6 +147,39 @@ class Wikipedia(object):
                 return page
             else:
                 return self._build_langlinks(v, page)
+
+    def _links(
+        self,
+        page: 'WikipediaPage'
+    ) -> 'WikipediaPage':
+        """
+        https://www.mediawiki.org/w/api.php?action=help&modules=query%2Blinks
+        https://www.mediawiki.org/wiki/API:Links
+        """
+
+        params = {
+            'action': 'query',
+            'prop': 'links',
+            'titles': page.title,
+            'pllimit': 500,
+        }
+        raw = self._query(
+            params
+        )
+        pages = raw['query']['pages']
+        for k, v in pages.items():
+            if k == '-1':
+                page._attributes['pageid'] = -1
+                return page
+            else:
+                while 'continue' in raw:
+                    params['plcontinue'] = raw['continue']['plcontinue']
+                    raw = self._query(
+                        params
+                    )
+                    v['links'] += raw['query']['pages'][k]['links']
+
+                return self._build_links(v, page)
 
     def _query(
         self,
@@ -256,6 +290,19 @@ class Wikipedia(object):
 
         return page
 
+    def _build_links(
+        self,
+        extract,
+        page
+    ):
+        for link in extract['links']:
+            page._links[link['title']] = self.article(
+                title=link['title'],
+                ns=link['ns']
+            )
+
+        return page
+
 
 class WikipediaPageSection(object):
     def __init__(
@@ -355,20 +402,25 @@ class WikipediaPage(object):
     def __init__(
             self,
             wiki: Wikipedia,
-            title: str
+            title: str,
+            ns: int = 0
     ):
         self.wiki = wiki
         self._summary = ''
         self._section = []
         self._section_mapping = {}
         self._langlinks = {}
+        self._links = {}
+
         self._called = {
             'structured': False,
             'info': False,
-            'langlinks': False
+            'langlinks': False,
+            'links': False
         }
         self._attributes = {
-            'title': title
+            'title': title,
+            'ns': ns
         }
 
     def __getattr__(self, name):
@@ -409,6 +461,12 @@ class WikipediaPage(object):
             self._fetch_langlinks()
         return self._langlinks
 
+    @property
+    def links(self):
+        if not self._called['links']:
+            self._fetch_links()
+        return self._links
+
     def _fetch_structured(self) -> 'WikipediaPage':
         self.wiki._structured(
             self
@@ -430,13 +488,15 @@ class WikipediaPage(object):
         self._called['langlinks'] = True
         return self
 
-    def __repr__(self):
-        return (
-            "{}: ({})\n====\nSummary:\n{}\n======\nSections ({}):\n{}"
-        ).format(
-            self._title,
-            self._id,
-            self._summary,
-            len(self._section),
-            "\n".join(map(repr, self._section))
+    def _fetch_links(self) -> 'WikipediaPage':
+        self.wiki._links(
+            self
         )
+        self._called['links'] = True
+        return self
+
+    def __repr__(self):
+        if any(self._called.values()):
+            return "{} (id: {}, ns: {})".format(self.title, self.id, self.ns)
+        else:
+            return "{} (id: ??, ns: {})".format(self.title, self.ns)

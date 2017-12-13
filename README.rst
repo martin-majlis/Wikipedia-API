@@ -75,6 +75,20 @@ Usage
 	# an: an - Python: https://an.wikipedia.org/wiki/Python
 	# ar: ar - بايثون: https://ar.wikipedia.org/wiki/%D8%A8%D8%A7%D9%8A%D8%AB%D9%88%D9%86
 	# as: as - পাইথন: https://as.wikipedia.org/wiki/%E0%A6%AA%E0%A6%BE%E0%A6%87%E0%A6%A5%E0%A6%A8
+	# ...
+
+	def print_links(page):
+		links = page.links
+		for title in sorted(links.keys()):
+		    print("%s: %s" % (title, links[title]))
+
+	print_links(page_py)
+	# 3ds Max: 3ds Max (id: ??, ns: 0)
+	# ?:: ?: (id: ??, ns: 0)
+	# ABC (programming language): ABC (programming language) (id: ??, ns: 0)
+	# ALGOL 68: ALGOL 68 (id: ??, ns: 0)
+	# Abaqus: Abaqus (id: ??, ns: 0)
+	# ...
 
 	section_py = page_py.section_by_title('Features and philosophy')
 	print("Section - Title: %s" % section_py.title)
@@ -90,33 +104,8 @@ Usage
 	)
 
 	page_ostrava = wiki_html.article('Ostrava')
-
-	print("Page - Exists: %s" % page_ostrava.exists())
-	# Page - Exists: True
-
-	print("Page - Id: %s" % page_ostrava.pageid)
-	# Page - Id: 7667
-
-	print("Page - Title: %s" % page_ostrava.title)
-	# Page - Title: Ostrava
-
 	print("Page - Summary: %s" % page_ostrava.summary[0:60])
 	# Page - Summary: <p><b>Ostrava</b> (polsky <span lang="pl" title="polština" x
-
-	print_sections(page_ostrava.sections)
-	# *: Znak a logo - 
-	# **: Heraldický znak - <p>Městský znak je blasonován: <i>V modr
-	# **: Marketingové logo - <p>V roce 2008 bylo představeno nové log
-	# *: Historie - <dl><dd><i>Související informace nalezne
-	# **: Zemské hranice - <p>Zemské hranice zde tvoří řeky Odra a 
-	# *: Obyvatelstvo - <ul class="gallery mw-gallery-traditiona
-
-	section_ostrava = page_ostrava.section_by_title('Heraldický znak')
-	print("Section - Title: %s" % section_ostrava.title)
-	# Section - Title: Heraldický znak
-
-	print("Section - Text: %s" % section_ostrava.text[0:60])
-	# Section - Text: <p>Městský znak je blasonován: <i>V modrém štítě na zeleném
 
 	page_nonexisting = wiki_wiki.article('Wikipedia-API-FooBar')
 	print("Page - Exists: %s" % page_nonexisting.exists())
@@ -124,12 +113,6 @@ Usage
 
 	print("Page - Id: %s" % page_nonexisting.pageid)
 	# Page - Id: -1
-
-	print("Page - Title: %s" % page_nonexisting.title)
-	# Page - Title: Wikipedia-API-FooBar
-	
-	print("Page - Summary: %s" % page_nonexisting.summary[0:60])
-	# Page - Summary:
 
 External Links
 --------------

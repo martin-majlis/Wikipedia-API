@@ -205,5 +205,80 @@ _MOCK_DATA = {
                 }
             }
         }
-    }
+    },
+    'action=query&pllimit=500&prop=links&titles=Test_1&': {
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "links": [
+                        {
+                            "ns": 0,
+                            "title": "Title - 1"
+                        },
+                        {
+                            "ns": 0,
+                            "title": "Title - 2"
+                        },
+                        {
+                            "ns": 0,
+                            "title": "Title - 3"
+                        },
+                    ]
+                }
+            }
+        }
+    },
+    'action=query&pllimit=500&prop=links&titles=Test_2&': {
+        "continue": {
+            "plcontinue": "5|0|Title_-_4",
+            "continue": "||"
+        },
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 5,
+                    "ns": 0,
+                    "title": "Test 2",
+                    "links": [
+                        {
+                            "ns": 0,
+                            "title": "Title - 1"
+                        },
+                        {
+                            "ns": 0,
+                            "title": "Title - 2"
+                        },
+                        {
+                            "ns": 0,
+                            "title": "Title - 3"
+                        },
+                    ]
+                }
+            }
+        }
+    },
+    'action=query&plcontinue=5|0|Title_-_4&pllimit=500&prop=links&titles=Test_2&': {
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 5,
+                    "ns": 0,
+                    "title": "Test 2",
+                    "links": [
+                        {
+                            "ns": 0,
+                            "title": "Title - 4"
+                        },
+                        {
+                            "ns": 0,
+                            "title": "Title - 5"
+                        },
+                    ]
+                }
+            }
+        }
+    },
 }

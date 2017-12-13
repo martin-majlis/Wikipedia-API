@@ -1,6 +1,12 @@
 Changelog
 ======================
 
+0.2.2
+-----
+* Added support for `property Links`_
+
+.. _property Links: https://www.mediawiki.org/wiki/API:Links
+
 0.2.1
 -----
 * Added support for `property Langlinks`_
