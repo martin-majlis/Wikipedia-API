@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from collections import defaultdict
 import unittest
+import wikipediaapi
 
 from mock_data import wikipedia_api_request
-import wikipediaapi
 
 
 class TestWikiFormatExtracts(unittest.TestCase):
@@ -21,7 +21,7 @@ class TestWikiFormatExtracts(unittest.TestCase):
 
     def test_title_after_fetching(self):
         page = self.wiki.page('Test_1')
-        page._fetch_structured()
+        page._fetch('structured')
         self.assertEqual(page.title, 'Test 1')
 
     def test_summary(self):
@@ -43,6 +43,7 @@ class TestWikiFormatExtracts(unittest.TestCase):
         page = self.wiki.page('Test_1')
         section = page.section_by_title('Section 4')
         self.assertEqual(section.title, 'Section 4')
+        self.assertEqual(section.level, 1)
 
     def test_subsection(self):
         page = self.wiki.page('Test_1')
@@ -56,4 +57,10 @@ class TestWikiFormatExtracts(unittest.TestCase):
         section = page.section_by_title('Section 4.2.2')
         self.assertEqual(section.title, 'Section 4.2.2')
         self.assertEqual(section.text, 'Text for section 4.2.2')
+        self.assertEqual(
+            repr(section),
+            "Section: Section 4.2.2 (3):\n" +
+            "Text for section 4.2.2\n" +
+            "Subsections (0):\n"
+        )
         self.assertEqual(len(section.sections), 0)

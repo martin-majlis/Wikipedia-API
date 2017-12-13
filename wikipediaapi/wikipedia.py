@@ -22,7 +22,11 @@ class ExtractFormat(object):  # (Enum):
 
 RE_SECTION = {
     ExtractFormat.WIKI: re.compile(r'\n\n *(===*) (.*?) (===*) *\n'),
-    ExtractFormat.HTML: re.compile(r'\n? *<h(\d)[^>]*?>(<span[^>]*><\/span>)? *(<span[^>]*>)? *(<span[^>]*><\/span>)? *(.*?) *(<\/span>)?<\/h\d>\n?'),
+    ExtractFormat.HTML: re.compile(
+        r'\n? *<h(\d)[^>]*?>(<span[^>]*><\/span>)? *' +
+        '(<span[^>]*>)? *(<span[^>]*><\/span>)? *(.*?) *' +
+        '(<\/span>)?<\/h\d>\n?'
+    ),
     # ExtractFormat.PLAIN.value: re.compile(r'\n\n *(===*) (.*?) (===*) *\n'),
 }
 
@@ -32,11 +36,14 @@ class Wikipedia(object):
             self,
             language='en',
             extract_format=ExtractFormat.WIKI,
-            user_agent='Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)',
+            user_agent=(
+            'Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)'
+            ),
     ):
         '''
         Language of the API being requested.
-        Select language from `list of all Wikipedias <http://meta.wikimedia.org/wiki/List_of_Wikipedias>`_.
+        Select language from `list of all Wikipedias:
+            <http://meta.wikimedia.org/wiki/List_of_Wikipedias>`.
         '''
         self.language = language.strip().lower()
         self.user_agent = user_agent
@@ -269,19 +276,8 @@ class Wikipedia(object):
                     extract['extract'][prev_pos:match.start()]
                 ).strip()
 
-            sec_title = ''
-            sec_level = 2
-            if self.extract_format == ExtractFormat.WIKI:
-                sec_title = match.group(2).strip()
-                sec_level = len(match.group(1))
-            elif self.extract_format == ExtractFormat.HTML:
-                sec_title = match.group(5).strip()
-                sec_level = int(match.group(1).strip())
-
-            section = WikipediaPageSection(
-                sec_title,
-                sec_level - 1
-            )
+            section = self._create_section(match)
+            sec_level = section.level + 1
 
             if sec_level > len(section_stack):
                 section_stack.append(section)
@@ -305,6 +301,22 @@ class Wikipedia(object):
             section._text = extract['extract'][prev_pos:]
 
         return page
+
+    def _create_section(self, match):
+        sec_title = ''
+        sec_level = 2
+        if self.extract_format == ExtractFormat.WIKI:
+            sec_title = match.group(2).strip()
+            sec_level = len(match.group(1))
+        elif self.extract_format == ExtractFormat.HTML:
+            sec_title = match.group(5).strip()
+            sec_level = int(match.group(1).strip())
+
+        section = WikipediaPageSection(
+            sec_title,
+            sec_level - 1
+        )
+        return section
 
     def _build_info(
         self,
@@ -498,7 +510,7 @@ class WikipediaPage(object):
 
         for call in self.ATTRIBUTES_MAPPING[name]:
             if not self._called[call]:
-                getattr(self, "_fetch_" + call)()
+                getattr(self, "_fetch")(call)
                 return self._attributes[name]
 
     def exists(self) -> bool:
@@ -507,75 +519,52 @@ class WikipediaPage(object):
     @property
     def summary(self) -> str:
         if not self._called['structured']:
-            self._fetch_structured()
+            self._fetch('structured')
         return self._summary
 
     @property
     def sections(self) -> [WikipediaPageSection]:
         if not self._called['structured']:
-            self._fetch_structured()
+            self._fetch('structured')
         return self._section
 
     def section_by_title(self, title) -> WikipediaPageSection:
         if not self._called['structured']:
-            self._fetch_structured()
+            self._fetch('structured')
         return self._section_mapping[title]
 
     @property
     def langlinks(self):
         if not self._called['langlinks']:
-            self._fetch_langlinks()
+            self._fetch('langlinks')
         return self._langlinks
 
     @property
     def links(self):
         if not self._called['links']:
-            self._fetch_links()
+            self._fetch('links')
         return self._links
 
     @property
     def categories(self):
         if not self._called['categories']:
-            self._fetch_categories()
+            self._fetch('categories')
         return self._categories
 
-    def _fetch_structured(self) -> 'WikipediaPage':
-        self.wiki._structured(
-            self
-        )
-        self._called['structured'] = True
-        return self
-
-    def _fetch_info(self) -> 'WikipediaPage':
-        self.wiki._info(
-            self
-        )
-        self._called['info'] = True
-        return self
-
-    def _fetch_langlinks(self) -> 'WikipediaPage':
-        self.wiki._langlinks(
-            self
-        )
-        self._called['langlinks'] = True
-        return self
-
-    def _fetch_links(self) -> 'WikipediaPage':
-        self.wiki._links(
-            self
-        )
-        self._called['links'] = True
-        return self
-
-    def _fetch_categories(self) -> 'WikipediaPage':
-        self.wiki._categories(
-            self
-        )
-        self._called['categories'] = True
+    def _fetch(self, call) -> 'WikipediaPage':
+        getattr(self.wiki, '_' + call)(self)
+        self._called[call] = True
         return self
 
     def __repr__(self):
         if any(self._called.values()):
-            return "{} (id: {}, ns: {})".format(self.title, self.pageid, self.ns)
+            return "{} (id: {}, ns: {})".format(
+                self.title,
+                self.pageid,
+                self.ns
+            )
         else:
-            return "{} (id: ??, ns: {})".format(self.title, self.ns)
+            return "{} (id: ??, ns: {})".format(
+                self.title,
+                self.ns
+            )
