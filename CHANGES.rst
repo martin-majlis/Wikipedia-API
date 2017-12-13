@@ -1,6 +1,17 @@
 Changelog
 =========
 
+0.3.2
+-----
+* Added support for `property Categories`_
+
+.. _property Categories: https://www.mediawiki.org/wiki/API:Categories
+
+0.3.1
+-----
+* Removing ``WikipediaLangLink``
+* Page keeps track of its own language, so it's easier to jump between different translations of the same page
+
 0.3.0
 -----
 * Rename directory from ``wikipedia`` to ``wikipediaapi`` to avoid collisions

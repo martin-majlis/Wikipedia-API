@@ -16,6 +16,7 @@ WikipediaPage
 * ``langlinks`` - language links to other languages ({lang: ``WikipediaLangLink``})
 * ``section_by_title(name)`` - finds section by title (``WikipediaPageSection``)
 * ``links`` - links to other pages ({title: ``WikipediaPage``})
+* ``categories`` - all categories ({title: ``WikipediaPage``})
 * ``displaytitle``
 * ``canonicalurl``
 * ``ns``

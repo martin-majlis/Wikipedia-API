@@ -195,6 +195,34 @@ class Wikipedia(object):
 
                 return self._build_links(v, page)
 
+    def _categories(
+        self,
+        page: 'WikipediaPage'
+    ) -> 'WikipediaPage':
+        """
+        https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bcategories
+        https://www.mediawiki.org/wiki/API:Categories
+        """
+
+        params = {
+            'action': 'query',
+            'prop': 'categories',
+            'titles': page.title,
+            'cllimit': 500,
+        }
+        raw = self._query(
+            page,
+            params
+        )
+        self._common_attributes(raw['query'], page)
+        pages = raw['query']['pages']
+        for k, v in pages.items():
+            if k == '-1':
+                page._attributes['pageid'] = -1
+                return page
+            else:
+                return self._build_categories(v, page)
+
     def _query(
         self,
         page: 'WikipediaPage',
@@ -323,6 +351,22 @@ class Wikipedia(object):
 
         return page
 
+    def _build_categories(
+        self,
+        extract,
+        page
+    ):
+        self._common_attributes(extract, page)
+        for category in extract['categories']:
+            page._categories[category['title']] = WikipediaPage(
+                wiki=self,
+                title=category['title'],
+                ns=category['ns'],
+                language=page.language
+            )
+
+        return page
+
     def _common_attributes(
         self,
         extract,
@@ -426,13 +470,16 @@ class WikipediaPage(object):
         self._section_mapping = {}
         self._langlinks = {}
         self._links = {}
+        self._categories = {}
 
         self._called = {
             'structured': False,
             'info': False,
             'langlinks': False,
-            'links': False
+            'links': False,
+            'categories': False,
         }
+
         self._attributes = {
             'title': title,
             'ns': ns,
@@ -486,6 +533,12 @@ class WikipediaPage(object):
             self._fetch_links()
         return self._links
 
+    @property
+    def categories(self):
+        if not self._called['categories']:
+            self._fetch_categories()
+        return self._categories
+
     def _fetch_structured(self) -> 'WikipediaPage':
         self.wiki._structured(
             self
@@ -512,6 +565,13 @@ class WikipediaPage(object):
             self
         )
         self._called['links'] = True
+        return self
+
+    def _fetch_categories(self) -> 'WikipediaPage':
+        self.wiki._categories(
+            self
+        )
+        self._called['categories'] = True
         return self
 
     def __repr__(self):

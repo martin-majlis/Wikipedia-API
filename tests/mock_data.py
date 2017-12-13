@@ -315,4 +315,30 @@ _MOCK_DATA = {
             }
         }
     },
+    'en:action=query&cllimit=500&prop=categories&titles=Test_1&': {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "categories": [
+                        {
+                            "ns": 14,
+                            "title": "Category:C1"
+                        },
+                        {
+                            "ns": 14,
+                            "title": "Category:C2"
+                        },
+                        {
+                            "ns": 14,
+                            "title": "Category:C3"
+                        },
+                    ]
+                }
+            }
+        }
+    },
 }

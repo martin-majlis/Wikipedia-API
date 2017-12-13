@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import logging
 
 import wikipediaapi
@@ -44,6 +46,16 @@ def print_links(page):
 
 print("Links:")
 print_links(page_py)
+
+
+def print_categories(page):
+    categories = page.categories
+    for title in sorted(categories.keys()):
+        print("%s: %s" % (title, categories[title]))
+
+
+print("Categories")
+print_categories(page_py)
 
 section_py = page_py.section_by_title('Features and philosophy')
 print("Section - Title: %s" % section_py.title)
