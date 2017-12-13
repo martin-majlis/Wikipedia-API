@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 
 
-def wikipedia_api_request(params):
+def wikipedia_api_request(page, params):
     query = ""
     for k in sorted(params.keys()):
         query += k + "=" + str(params[k]) + "&"
 
-    return _MOCK_DATA[query]
+    return _MOCK_DATA[page.language + ":" + query]
 
 
 _MOCK_DATA = {
-    'action=query&explaintext=1&exsectionformat=wiki&prop=extracts&titles=Test_1&': {
+    'en:action=query&explaintext=1&exsectionformat=wiki&prop=extracts&titles=Test_1&': {
         "batchcomplete": "",
         "warnings": {
             "extracts": {
@@ -60,7 +60,7 @@ _MOCK_DATA = {
             }
         }
     },
-    'action=query&prop=extracts&titles=Test_1&': {
+    'en:action=query&prop=extracts&titles=Test_1&': {
         "batchcomplete": "",
         "warnings": {
             "extracts": {
@@ -110,7 +110,7 @@ _MOCK_DATA = {
             }
         }
     },
-    'action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=Test_1&': {
+    'en:action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=Test_1&': {
         "batchcomplete": "",
         "query": {
             "normalized": [
@@ -150,7 +150,41 @@ _MOCK_DATA = {
             }
         }
     },
-    'action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=NonExisting&': {
+    'l1:action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=Test 1 - 1&': {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "10": {
+                    "pageid": 10,
+                    "ns": 0,
+                    "title": "Test 1 - 1",
+                    "missing": "",
+                    "contentmodel": "wikitext",
+                    "pagelanguage": "l1",
+                    "pagelanguagehtmlcode": "l1",
+                    "pagelanguagedir": "ltr",
+                    "protection": [
+                        {
+                            "type": "create",
+                            "level": "sysop",
+                            "expiry": "infinity"
+                        }
+                    ],
+                    "restrictiontypes": [
+                        "create"
+                    ],
+                    "notificationtimestamp": "",
+                    "fullurl": "https://l1.wikipedia.org/wiki/Test 1 - 1",
+                    "editurl": "https://l1.wikipedia.org/w/index.php?title=Test 1 - 1&action=edit",
+                    "canonicalurl": "https://l1.wikipedia.org/wiki/Test 1 - 1",
+                    "readable": "",
+                    "preload": None,
+                    "displaytitle": "Test 1 - 1"
+                }
+            }
+        }
+    },
+    'en:action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=NonExisting&': {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -177,7 +211,7 @@ _MOCK_DATA = {
             }
         }
     },
-    'action=query&lllimit=500&llprop=url&prop=langlinks&titles=Test_1&': {
+    'en:action=query&lllimit=500&llprop=url&prop=langlinks&titles=Test_1&': {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -206,7 +240,7 @@ _MOCK_DATA = {
             }
         }
     },
-    'action=query&pllimit=500&prop=links&titles=Test_1&': {
+    'en:action=query&pllimit=500&prop=links&titles=Test_1&': {
         "query": {
             "pages": {
                 "4": {
@@ -231,7 +265,7 @@ _MOCK_DATA = {
             }
         }
     },
-    'action=query&pllimit=500&prop=links&titles=Test_2&': {
+    'en:action=query&pllimit=500&prop=links&titles=Test_2&': {
         "continue": {
             "plcontinue": "5|0|Title_-_4",
             "continue": "||"
@@ -260,7 +294,7 @@ _MOCK_DATA = {
             }
         }
     },
-    'action=query&plcontinue=5|0|Title_-_4&pllimit=500&prop=links&titles=Test_2&': {
+    'en:action=query&plcontinue=5|0|Title_-_4&pllimit=500&prop=links&titles=Test_2&': {
         "query": {
             "pages": {
                 "4": {

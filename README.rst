@@ -67,7 +67,7 @@ Usage
 		langlinks = page.langlinks
 		for k in sorted(langlinks.keys()):
 		    v = langlinks[k]
-		    print("%s: %s - %s: %s" % (k, v.lang, v.title, v.url))
+		    print("%s: %s - %s: %s" % (k, v.language, v.title, v.fullurl))
 
 	print_langlinks(page_py)
 	# af: af - Python (programmeertaal): https://af.wikipedia.org/wiki/Python_(programmeertaal)
@@ -113,6 +113,21 @@ Usage
 
 	print("Page - Id: %s" % page_nonexisting.pageid)
 	# Page - Id: -1
+
+	# Create wikipedia for Germany
+	wiki_de = wikipediaapi.Wikipedia('de')
+	de_page = wiki_de.page('Deutsche Sprache')
+	print(de_page.title + ": " + de_page.fullurl)
+	# Deutsche Sprache: https://de.wikipedia.org/wiki/Deutsche_Sprache
+	print(de_page.summary[0:60])
+	# Die deutsche Sprache bzw. Deutsch [dɔʏ̯t͡ʃ], abgekürzt Dt. o
+
+	# But you can still fetch data from english version
+	en_page = de_page.langlinks['en']
+	print(en_page.title + ": " + en_page.fullurl)
+	# German language: https://en.wikipedia.org/wiki/German_language
+	print(en_page.summary[0:60])
+	# German (Deutsch [ˈdɔʏt͡ʃ] ( listen)) is a West Germanic lang
 
 External Links
 --------------

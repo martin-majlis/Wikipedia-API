@@ -47,7 +47,12 @@ class Wikipedia(object):
             title: str,
             ns: int = 0
     ):
-        return WikipediaPage(self, title, ns)
+        return WikipediaPage(
+            self,
+            title=title,
+            ns=ns,
+            language=self.language
+        )
 
     def _structured(
         self,
@@ -74,6 +79,7 @@ class Wikipedia(object):
         #    params['exsectionformat'] = 'plain'
 
         raw = self._query(
+            page,
             params
         )
         self._common_attributes(raw['query'], page)
@@ -112,6 +118,7 @@ class Wikipedia(object):
             ])
         }
         raw = self._query(
+            page,
             params
         )
         self._common_attributes(raw['query'], page)
@@ -140,6 +147,7 @@ class Wikipedia(object):
             'llprop': 'url',
         }
         raw = self._query(
+            page,
             params
         )
         self._common_attributes(raw['query'], page)
@@ -167,6 +175,7 @@ class Wikipedia(object):
             'pllimit': 500,
         }
         raw = self._query(
+            page,
             params
         )
         self._common_attributes(raw['query'], page)
@@ -179,6 +188,7 @@ class Wikipedia(object):
                 while 'continue' in raw:
                     params['plcontinue'] = raw['continue']['plcontinue']
                     raw = self._query(
+                        page,
                         params
                     )
                     v['links'] += raw['query']['pages'][k]['links']
@@ -187,9 +197,10 @@ class Wikipedia(object):
 
     def _query(
         self,
+        page: 'WikipediaPage',
         params: {}
     ):
-        base_url = 'http://' + self.language + '.wikipedia.org/w/api.php'
+        base_url = 'http://' + page.language + '.wikipedia.org/w/api.php'
         headers = {
             'User-Agent': self.user_agent
         }
@@ -285,11 +296,14 @@ class Wikipedia(object):
     ):
         self._common_attributes(extract, page)
         for langlink in extract['langlinks']:
-            page._langlinks[langlink['lang']] = WikipediaLangLink(
-                lang=langlink['lang'],
+            p = WikipediaPage(
+                wiki=self,
                 title=langlink['*'],
+                ns=0,
+                language=langlink['lang'],
                 url=langlink['url']
             )
+            page._langlinks[p.language] = p
 
         return page
 
@@ -300,9 +314,11 @@ class Wikipedia(object):
     ):
         self._common_attributes(extract, page)
         for link in extract['links']:
-            page._links[link['title']] = self.page(
+            page._links[link['title']] = WikipediaPage(
+                wiki=self,
                 title=link['title'],
-                ns=link['ns']
+                ns=link['ns'],
+                language=page.language
             )
 
         return page
@@ -369,39 +385,9 @@ class WikipediaPageSection(object):
         )
 
 
-class WikipediaLangLink(object):
-    def __init__(
-            self,
-            title: str,
-            lang: str,
-            url: str
-    ):
-        self._title = title
-        self._lang = lang
-        self._url = url
-
-    @property
-    def title(self) -> str:
-        return self._title
-
-    @property
-    def lang(self) -> str:
-        return self._lang
-
-    @property
-    def url(self) -> str:
-        return self._url
-
-    def __repr__(self):
-        return "LangLink: {} ({}): {}".format(
-            self._title,
-            self._lang,
-            self._url,
-        )
-
-
 class WikipediaPage(object):
     ATTRIBUTES_MAPPING = {
+        "language": [],
         "pageid": ["info", "structured", "langlinks"],
         "ns": ["info", "structured", "langlinks"],
         "title": ["info", "structured", "langlinks"],
@@ -430,7 +416,9 @@ class WikipediaPage(object):
             self,
             wiki: Wikipedia,
             title: str,
-            ns: int = 0
+            ns: int = 0,
+            language: str = 'en',
+            url: str = None
     ):
         self.wiki = wiki
         self._summary = ''
@@ -447,8 +435,12 @@ class WikipediaPage(object):
         }
         self._attributes = {
             'title': title,
-            'ns': ns
+            'ns': ns,
+            'language': language
         }
+
+        if url is not None:
+            self._attributes['fullurl'] = url
 
     def __getattr__(self, name):
         if name not in self.ATTRIBUTES_MAPPING:

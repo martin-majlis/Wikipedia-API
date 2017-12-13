@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from collections import defaultdict
 import unittest
+import wikipediaapi
 
 from mock_data import wikipedia_api_request
-import wikipediaapi
 
 
 class TestLangLinks(unittest.TestCase):
@@ -25,7 +25,7 @@ class TestLangLinks(unittest.TestCase):
     def test_langlinks_lang_values(self):
         page = self.wiki.page('Test_1')
         self.assertEqual(
-            list(sorted(map(lambda s: s.lang, page.langlinks.values()))),
+            list(sorted(map(lambda s: s.language, page.langlinks.values()))),
             ['l' + str(i + 1) for i in range(3)]
         )
 
@@ -39,7 +39,14 @@ class TestLangLinks(unittest.TestCase):
     def test_langlinks_urls(self):
         page = self.wiki.page('Test_1')
         self.assertEqual(
-            list(sorted(map(lambda s: s.url, page.langlinks.values()))),
+            list(sorted(map(lambda s: s.fullurl, page.langlinks.values()))),
             [("https://l" + str(i + 1) + ".wikipedia.org/wiki/Test_1_-_" +
               str(i + 1)) for i in range(3)]
         )
+
+    def test_jump_between_languages(self):
+        page = self.wiki.page('Test_1')
+        langlinks = page.langlinks
+        p1 = langlinks['l1']
+        self.assertEqual(p1.language, 'l1')
+        self.assertEqual(p1.pageid, 10)

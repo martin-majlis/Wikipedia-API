@@ -44,12 +44,6 @@ WikipediaPageSection
 * ``text``
 * ``sections``
 
-WikipediaLangLink
------------------
-* ``lang``
-* ``title``
-* ``url``
-
 ExtractFormat
 -------------
 * ``WIKI``

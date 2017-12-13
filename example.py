@@ -4,6 +4,7 @@ import wikipediaapi
 
 logging.basicConfig(level=logging.INFO)
 
+
 wiki_wiki = wikipediaapi.Wikipedia('en')
 
 page_py = wiki_wiki.page('Python_(programming_language)')
@@ -28,7 +29,7 @@ def print_langlinks(page):
     langlinks = page.langlinks
     for k in sorted(langlinks.keys()):
         v = langlinks[k]
-        print("%s: %s - %s: %s" % (k, v.lang, v.title, v.url))
+        print("%s: %s - %s: %s" % (k, v.language, v.title, v.fullurl))
 
 
 print("Lang links:")
@@ -70,3 +71,13 @@ print("Page - Exists: %s" % page_nonexisting.exists())
 print("Page - Id: %s" % page_nonexisting.pageid)
 print("Page - Title: %s" % page_nonexisting.title)
 print("Page - Summary: %s" % page_nonexisting.summary[0:60])
+
+
+wiki_de = wikipediaapi.Wikipedia('de')
+de_page = wiki_de.page('Deutsche Sprache')
+print(de_page.title + ": " + de_page.fullurl)
+print(de_page.summary[0:60])
+
+en_page = de_page.langlinks['en']
+print(en_page.title + ": " + en_page.fullurl)
+print(en_page.summary[0:60])
