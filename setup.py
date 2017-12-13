@@ -2,7 +2,7 @@ import os
 import re
 from setuptools import setup
 
-import wikipedia
+import wikipediaapi
 
 
 def fix_doc(txt):
@@ -23,7 +23,7 @@ tests_require = []
 
 setup(
     name='Wikipedia-API',
-    version='.'.join(map(str, wikipedia.__version__)),
+    version='.'.join(map(str, wikipediaapi.__version__)),
     description='Python Wrapper for Wikipedia',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
@@ -43,7 +43,7 @@ setup(
     url='https://github.com/martin-majlis/Wikipedia-API',
     download_url='https://github.com/martin-majlis/Wikipedia-API/archive/master.tar.gz',
     keywords='Wikipedia API wrapper',
-    packages = ['wikipedia'],
+    packages=['wikipediaapi'],
     include_package_data=True,
     zip_safe=False,
     extras_require={
