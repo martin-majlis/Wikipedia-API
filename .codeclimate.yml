@@ -1,0 +1,21 @@
+# https://docs.codeclimate.com/docs/getting-started-configuration
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+        python:
+          python_version: 3
+  fixme:
+    enabled: true
+  radon:
+    enabled: true
+    config:
+      python_version: 3
+  pep8:
+    enabled: true
+
+ratings:
+  paths:
+  - "wikipediaapi/**.py"
+  - "tests/**.py"
