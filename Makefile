@@ -25,7 +25,12 @@ release: run-tests pypi-html
 		echo "Use make release MSG='some msg'"; \
 		exit 1; \
 	fi; \
-	version=`grep version wikipedia/__init__.py | sed -r 's/.*= \( *(.*), *(.*), *(.*)\)/\1.\2.\3/'`; \
+	version=`grep version wikipediaapi/__init__.py | sed -r 's/.*= \( *(.*), *(.*), *(.*)\)/\1.\2.\3/'`; \
+	if [ "x$$version" = "x" ]; then \
+		echo "Unable to extract version"; \
+		exit 1; \
+	fi; \
+	echo "Current version: $$version"; \
 	short=`echo $$version | cut -f1-2 -d.`; \
 	sed -ri 's/^release = .*/release = "'$$version'"/' conf.py; \
 	sed -ri 's/^version = .*/version = "'$$short'"/' conf.py; \
