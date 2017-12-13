@@ -4,7 +4,7 @@ API
 Wikipedia
 ---------
 * ``__init__(language='en', extract_format=ExtractFormat.WIKI, user_agent)``
-* ``article(title)``
+* ``page(title)``
 
 WikipediaPage
 -------------

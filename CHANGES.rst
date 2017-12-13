@@ -1,6 +1,11 @@
 Changelog
 ======================
 
+0.2.3
+-----
+* Usage method `page` instead of `article` in `Wikipedia`
+
+
 0.2.2
 -----
 * Added support for `property Links`_

@@ -6,7 +6,7 @@ logging.basicConfig(level=logging.INFO)
 
 wiki_wiki = wikipedia.Wikipedia('en')
 
-page_py = wiki_wiki.article('Python_(programming_language)')
+page_py = wiki_wiki.page('Python_(programming_language)')
 
 print("Page - Exists: %s" % page_py.exists())
 print("Page - Id: %s" % page_py.pageid)
@@ -54,7 +54,7 @@ wiki_html = wikipedia.Wikipedia(
     extract_format=wikipedia.ExtractFormat.HTML
 )
 
-page_ostrava = wiki_html.article('Ostrava')
+page_ostrava = wiki_html.page('Ostrava')
 print("Page - Exists: %s" % page_ostrava.exists())
 print("Page - Id: %s" % page_ostrava.pageid)
 print("Page - Title: %s" % page_ostrava.title)
@@ -65,7 +65,7 @@ section_ostrava = page_ostrava.section_by_title('Heraldický znak')
 print("Section - Title: %s" % section_ostrava.title)
 print("Section - Text: %s" % section_ostrava.text[0:60])
 
-page_nonexisting = wiki_wiki.article('Wikipedia-API-FooBar')
+page_nonexisting = wiki_wiki.page('Wikipedia-API-FooBar')
 print("Page - Exists: %s" % page_nonexisting.exists())
 print("Page - Id: %s" % page_nonexisting.pageid)
 print("Page - Title: %s" % page_nonexisting.title)

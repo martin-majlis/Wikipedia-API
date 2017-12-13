@@ -42,7 +42,7 @@ class Wikipedia(object):
         self.user_agent = user_agent
         self.extract_format = extract_format
 
-    def article(
+    def page(
             self,
             title: str,
             ns: int = 0
@@ -296,12 +296,19 @@ class Wikipedia(object):
         page
     ):
         for link in extract['links']:
-            page._links[link['title']] = self.article(
+            page._links[link['title']] = self.page(
                 title=link['title'],
                 ns=link['ns']
             )
 
         return page
+
+    def article(
+            self,
+            title: str,
+            ns: int = 0
+    ):
+        return self.page(title, ns)
 
 
 class WikipediaPageSection(object):

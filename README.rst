@@ -34,7 +34,7 @@ Usage
 	# Extract data in Wiki format
 	wiki_wiki = wikipedia.Wikipedia('en')
 
-	page_py = wiki_wiki.article('Python_(programming_language)')
+	page_py = wiki_wiki.page('Python_(programming_language)')
 
 	print("Page - Exists: %s" % page_py.exists())
 	# Page - Exists: True
@@ -103,11 +103,11 @@ Usage
 		extract_format=wikipedia.ExtractFormat.HTML
 	)
 
-	page_ostrava = wiki_html.article('Ostrava')
+	page_ostrava = wiki_html.page('Ostrava')
 	print("Page - Summary: %s" % page_ostrava.summary[0:60])
 	# Page - Summary: <p><b>Ostrava</b> (polsky <span lang="pl" title="polština" x
 
-	page_nonexisting = wiki_wiki.article('Wikipedia-API-FooBar')
+	page_nonexisting = wiki_wiki.page('Wikipedia-API-FooBar')
 	print("Page - Exists: %s" % page_nonexisting.exists())
 	# Page - Exists: False
 
