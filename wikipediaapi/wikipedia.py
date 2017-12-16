@@ -39,6 +39,7 @@ class Wikipedia(object):
             user_agent=(
             'Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)'
             ),
+            timeout=10.0
     ):
         '''
         Language of the API being requested.
@@ -48,6 +49,7 @@ class Wikipedia(object):
         self.language = language.strip().lower()
         self.user_agent = user_agent
         self.extract_format = extract_format
+        self.timeout = timeout
 
     def page(
             self,
@@ -250,7 +252,8 @@ class Wikipedia(object):
         r = requests.get(
             base_url,
             params=params,
-            headers=headers
+            headers=headers,
+            timeout=self.timeout,
         )
         return r.json()
 
