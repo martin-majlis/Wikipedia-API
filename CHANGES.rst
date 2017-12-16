@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.3.3
+-----
+* Added support for `request timeout`_
+* Add header: Accept-Encoding: gzip
+
+.. _request timeout: https://github.com/martin-majlis/Wikipedia-API/issues/1
+
 0.3.2
 -----
 * Added support for `property Categories`_

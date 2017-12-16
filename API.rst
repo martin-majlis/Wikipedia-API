@@ -3,7 +3,7 @@ API
 
 Wikipedia
 ---------
-* ``__init__(language='en', extract_format=ExtractFormat.WIKI, user_agent)``
+* ``__init__(language='en', extract_format=ExtractFormat.WIKI, user_agent, timeout=10.0)``
 * ``page(title)``
 
 WikipediaPage
