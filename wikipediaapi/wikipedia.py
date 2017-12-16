@@ -239,7 +239,8 @@ class Wikipedia(object):
     ):
         base_url = 'http://' + page.language + '.wikipedia.org/w/api.php'
         headers = {
-            'User-Agent': self.user_agent
+            'User-Agent': self.user_agent,
+            'Accept-Encoding': 'gzip',
         }
         logging.info(
             "Request URL: %s",
