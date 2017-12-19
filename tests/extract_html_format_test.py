@@ -75,3 +75,36 @@ class TestHtmlFormatExtracts(unittest.TestCase):
             "Subsections (0):\n"
         )
         self.assertEqual(len(section.sections), 0)
+
+    def test_text(self):
+        page = self.wiki.page('Test_1')
+        self.maxDiff = None
+        self.assertEqual(
+            page.text,
+            (
+                "<p><b>Summary</b> text\n\n</p>\n\n" +
+                "<h2>Section 1</h2>\n" +
+                "<p>Text for section 1</p>\n\n" +
+                "<h3>Section 1.1</h3>\n" +
+                "<p><b>Text for section 1.1</b>\n\n\n</p>\n\n" +
+                "<h3>Section 1.2</h3>\n" +
+                "<p><b>Text for section 1.2</b>\n\n\n</p>\n\n" +
+                "<h2>Section 2</h2>\n" +
+                "<p><b>Text for section 2</b>\n\n\n</p>\n\n" +
+                "<h2>Section 3</h2>\n" +
+                "<p><b>Text for section 3</b>\n\n\n</p>\n\n" +
+                "<h2>Section 4</h2>\n" +
+                "<h3>Section 4.1</h3>\n" +
+                "<p><b>Text for section 4.1</b>\n\n\n</p>\n\n" +
+                "<h3>Section 4.2</h3>\n" +
+                "<p><b>Text for section 4.2</b>\n\n\n</p>\n\n" +
+                "<h4>Section 4.2.1</h4>\n" +
+                "<p><b>Text for section 4.2.1</b>\n\n\n</p>\n\n" +
+                "<h4>Section 4.2.2</h4>\n" +
+                "<p><b>Text for section 4.2.2</b>\n\n\n</p>\n\n" +
+                "<h2>Section 5</h2>\n" +
+                "<p><b>Text for section 5</b>\n\n\n</p>\n\n" +
+                "<h3>Section 5.1</h3>\n" +
+                "<p>Text for section 5.1\n\n\n</p>"
+            )
+        )

@@ -12,6 +12,7 @@ WikipediaPage
 * ``pageid``
 * ``title`` - title
 * ``summary`` - summary of the page
+* ``text`` - returns text of the page
 * ``sections`` - list of all sections (list of ``WikipediaPageSection``)
 * ``langlinks`` - language links to other languages ({lang: ``WikipediaLangLink``})
 * ``section_by_title(name)`` - finds section by title (``WikipediaPageSection``)

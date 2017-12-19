@@ -538,6 +538,35 @@ class WikipediaPage(object):
         return self._section_mapping[title]
 
     @property
+    def text(self):
+        txt = self.summary
+        if len(txt) > 0:
+            txt += "\n\n"
+
+        def combine(sections, level):
+            res = ""
+            for sec in sections:
+                if self.wiki.extract_format == ExtractFormat.WIKI:
+                    res += sec.title
+                elif self.wiki.extract_format == ExtractFormat.HTML:
+                    res += "<h{}>{}</h{}>".format(level, sec.title, level)
+                else:
+                    raise NotImplementedError("Unknown ExtractFormat type")
+
+                res += "\n"
+                res += sec.text
+                if len(sec.text) > 0:
+                    res += "\n\n"
+
+                res += combine(sec.sections, level + 1)
+
+            return res
+
+        txt += combine(self.sections, 2)
+
+        return txt.strip()
+
+    @property
     def langlinks(self):
         if not self._called['langlinks']:
             self._fetch('langlinks')
