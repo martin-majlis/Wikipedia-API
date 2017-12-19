@@ -93,3 +93,15 @@ print(de_page.summary[0:60])
 en_page = de_page.langlinks['en']
 print(en_page.title + ": " + en_page.fullurl)
 print(en_page.summary[0:60])
+
+
+def print_categorymembers(categorymembers, level=0, max_level=2):
+    for c in categorymembers.values():
+        print("%s %s (ns: %d)" % ("*" * (level + 1), c.title, c.ns))
+        if c.ns == wikipediaapi.Namespace.CATEGORY and level <= max_level:
+            print_categorymembers(c.categorymembers, level + 1)
+
+
+cat = wiki_wiki.page("Category:Physics")
+print("Category members: Category:Physics")
+print_categorymembers(cat.categorymembers)

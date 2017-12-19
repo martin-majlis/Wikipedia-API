@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.3.4
+-----
+* Added support for `property Categorymembers`_
+* Added property ``text`` for retrieving complete text of the page
+
+.. _property Categorymembers: https://www.mediawiki.org/wiki/API:Categorymembers
+
 0.3.3
 -----
 * Added support for `request timeout`_

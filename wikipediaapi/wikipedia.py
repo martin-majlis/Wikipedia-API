@@ -20,6 +20,46 @@ class ExtractFormat(object):  # (Enum):
     # PLAIN = 3
 
 
+class Namespace(object):
+    """
+    https://en.wikipedia.org/wiki/Wikipedia:Namespace
+    https://en.wikipedia.org/wiki/Wikipedia:Namespace#Programming
+    """
+
+    MAIN = 0
+    TALK = 1
+    USER = 2
+    USER_TALK = 3
+    WIKIPEDIA = 4
+    WIKIPEDIA_TALK = 5
+    FILE = 6
+    FILE_TALK = 7
+    MEDIAWIKI = 8
+    MEDIAWIKI_TALK = 9
+    TEMPLATE = 10
+    TEMPLATE_TALK = 11
+    HELP = 12
+    HELP_TALK = 13
+    CATEGORY = 14
+    CATEGORY_TALK = 15
+    PORTAL = 100
+    PORTAL_TALK = 101
+    BOOK = 108
+    BOOK_TALK = 109
+    DRAFT = 118
+    DRAFT_TALK = 119
+    EDUCATION_PROGRAM = 446
+    EDUCATION_PROGRAM_TALK = 447
+    TIMED_TEXT = 710
+    TIMED_TEXT_TALK = 711
+    MODULE = 828
+    MODULE_TALK = 829
+    GADGET = 2300
+    GADGET_TALK = 2301
+    GADGET_DEFINITION = 2302
+    GADGET_DEFINITION_TALK = 2303
+
+
 RE_SECTION = {
     ExtractFormat.WIKI: re.compile(r'\n\n *(===*) (.*?) (===*) *\n'),
     ExtractFormat.HTML: re.compile(
@@ -232,6 +272,37 @@ class Wikipedia(object):
             else:
                 return self._build_categories(v, page)
 
+    def _categorymembers(
+        self,
+        page: 'WikipediaPage'
+    ) -> 'WikipediaPage':
+        """
+        https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bcategorymembers
+        https://www.mediawiki.org/wiki/API:Categorymembers
+        """
+
+        params = {
+            'action': 'query',
+            'list': 'categorymembers',
+            'cmtitle': page.title,
+            'cmlimit': 500,
+        }
+        raw = self._query(
+            page,
+            params
+        )
+        self._common_attributes(raw['query'], page)
+        v = raw['query']
+        while 'continue' in raw:
+            params['cmcontinue'] = raw['continue']['cmcontinue']
+            raw = self._query(
+                page,
+                params
+            )
+            v['categorymembers'] += raw['query']['categorymembers']
+
+        return self._build_categorymembers(v, page)
+
     def _query(
         self,
         page: 'WikipediaPage',
@@ -383,6 +454,25 @@ class Wikipedia(object):
 
         return page
 
+    def _build_categorymembers(
+        self,
+        extract,
+        page
+    ):
+        self._common_attributes(extract, page)
+        for member in extract['categorymembers']:
+            p = WikipediaPage(
+                wiki=self,
+                title=member['title'],
+                ns=member['ns'],
+                language=page.language
+            )
+            p.pageid = member['pageid']
+
+            page._categorymembers[member['title']] = p
+
+        return page
+
     def _common_attributes(
         self,
         extract,
@@ -487,6 +577,7 @@ class WikipediaPage(object):
         self._langlinks = {}
         self._links = {}
         self._categories = {}
+        self._categorymembers = {}
 
         self._called = {
             'structured': False,
@@ -494,6 +585,7 @@ class WikipediaPage(object):
             'langlinks': False,
             'links': False,
             'categories': False,
+            'categorymembers': False,
         }
 
         self._attributes = {
@@ -583,6 +675,12 @@ class WikipediaPage(object):
         if not self._called['categories']:
             self._fetch('categories')
         return self._categories
+
+    @property
+    def categorymembers(self):
+        if not self._called['categorymembers']:
+            self._fetch('categorymembers')
+        return self._categorymembers
 
     def _fetch(self, call) -> 'WikipediaPage':
         getattr(self.wiki, '_' + call)(self)

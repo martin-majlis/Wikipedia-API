@@ -209,6 +209,34 @@ It's map, where key is category title and value is ``WikipediaPage``.
 	# Category:Articles containing potentially dated statements from March 2017: ...
 	# Category:Articles containing potentially dated statements from September 2017: ...
 
+How To Get All Pages From Category
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To get all pages from given category, you should use property ``categorymembers``. It returns all members of given category.
+You have to implement recursion and deduplication by yourself.
+
+.. code-block:: python
+
+	def print_categorymembers(categorymembers, level=0, max_level=2):
+		for c in categorymembers.values():
+		    print("%s: %s (ns: %d)" % ("*" * (level + 1), c.title, c.ns))
+		    if c.ns == wikipediaapi.Namespace.CATEGORY and level <= max_level:
+		        print_categorymembers(c.categorymembers, level + 1)
+
+
+	cat = wiki_wiki.page("Category:Physics")
+	print("Category members: Category:Physics")
+	print_categorymembers(cat.categorymembers)
+
+	# Category members: Category:Physics
+	# * Statistical mechanics (ns: 0)
+	# * Category:Physical quantities (ns: 14)
+	# ** Refractive index (ns: 0)
+	# ** Vapor quality (ns: 0)
+	# ** Electric susceptibility (ns: 0)
+	# ** Specific weight (ns: 0)
+	# ** Category:Viscosity (ns: 14)
+	# *** Brookfield Engineering (ns: 0)
 
 External Links
 --------------
@@ -250,6 +278,10 @@ Other Badges
 .. |cc-badge| image:: https://codeclimate.com/github/martin-majlis/Wikipedia-API/badges/gpa.svg
     :target: https://codeclimate.com/github/martin-majlis/Wikipedia-API
     :alt: Code Climate
+
+.. |cc-issues| image:: https://codeclimate.com/github/martin-majlis/Wikipedia-API/badges/issue_count.svg
+    :target: https://codeclimate.com/github/martin-majlis/Wikipedia-API
+    :alt: Issue Count
 
 .. |cc-coverage| image:: https://api.codeclimate.com/v1/badges/6e2c24d72438b39e5c26/test_coverage
     :target: https://codeclimate.com/github/martin-majlis/Wikipedia-API

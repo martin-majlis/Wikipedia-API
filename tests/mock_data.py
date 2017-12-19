@@ -339,4 +339,67 @@ _MOCK_DATA = {
             }
         }
     },
+    'en:action=query&cmlimit=500&cmtitle=Category:C1&list=categorymembers&': {
+        "query": {
+            "categorymembers": [
+                {
+                    "ns": 0,
+                    "pageid": 4,
+                    "title": "Title - 1"
+                },
+                {
+                    "ns": 0,
+                    "pageid": 5,
+                    "title": "Title - 2"
+                },
+                {
+                    "ns": 0,
+                    "pageid": 6,
+                    "title": "Title - 3"
+                },
+            ]
+        }
+    },
+    'en:action=query&cmlimit=500&cmtitle=Category:C2&list=categorymembers&': {
+        "continue": {
+            "cmcontinue": "5|0|Title_-_4",
+            "continue": "-||"
+        },
+        "query": {
+            "categorymembers": [
+                {
+                    "ns": 0,
+                    "pageid": 4,
+                    "title": "Title - 1"
+                },
+                {
+                    "ns": 0,
+                    "pageid": 5,
+                    "title": "Title - 2"
+                },
+                {
+                    "ns": 0,
+                    "pageid": 6,
+                    "title": "Title - 3"
+                },
+            ]
+        }
+    },
+    'en:action=query&cmcontinue=5|0|Title_-_4&cmlimit=500&cmtitle=Category:C2&list=categorymembers&': {
+        "query": {
+            "categorymembers": [
+                {
+                    "ns": 0,
+                    "pageid": 7,
+                    "title": "Title - 4"
+                },
+                {
+                    "ns": 0,
+                    "pageid": 8,
+                    "title": "Title - 5"
+                },
+            ]
+        }
+    },
+
 }
