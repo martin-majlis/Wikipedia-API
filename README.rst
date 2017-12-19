@@ -1,20 +1,11 @@
 Wikipedia API
 =============
 
-This package provides python API for accessing `Wikipedia`_.
+Package ``Wikipedia-API`` is simple python wrapper around `Wikipedias'`_ API.
 
-.. _Wikipedia: https://www.mediawiki.org/wiki/API:Main_page
+.. _Wikipedias': https://www.mediawiki.org/wiki/API:Main_page
 
-|build-status| |docs| |cc-badge| |cc-issues|
-
-.. PYPI-BEGIN
-.. toctree::
-	:maxdepth: 2
-
-	API
-	CHANGES
-	DEVELOPMENT
-.. PYPI-END
+|build-status| |docs| |cc-coverage|
 
 Installation
 ------------
@@ -27,26 +18,114 @@ Installation
 Usage
 -----
 
+Goal of ``Wikipedia-API`` is to provide simple and easy to use API for retrieving informations from Wikipedia. Bellow are examples of common use cases.
+
+Importing
+~~~~~~~~~
+
 .. code-block:: python
 
 	import wikipediaapi
 
-	# Extract data in Wiki format
+How To Get Single Page
+~~~~~~~~~~~~~~~~~~~~~~
+
+Getting single page is straightforward. You have to initialize ``Wikipedia`` object and ask for page by its name.
+It's parameter language has be one of `supported languages`_.
+
+.. _supported languages: http://meta.wikimedia.org/wiki/List_of_Wikipedias
+
+
+.. code-block:: python
+
 	wiki_wiki = wikipediaapi.Wikipedia('en')
 
 	page_py = wiki_wiki.page('Python_(programming_language)')
 
+How To Check If Wiki Page Exists
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For checking, whether page exists, you can use function ``exists``.
+
+.. code-block:: python
+
+	page_py = wiki_wiki.page('Python_(programming_language)')
 	print("Page - Exists: %s" % page_py.exists())
 	# Page - Exists: True
 
-	print("Page - Id: %s" % page_py.pageid)
-	# Page - Id: 23862
+	page_missing = wiki_wiki.page('NonExistingPageWithStrangeName')
+	print("Page - Exists: %s" % 	page_missing.exists())
+	# Page - Exists: False
+
+How To Get Page Summary
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Class ``WikipediaPage`` has property ``summary``, which returns description of Wiki page.
+
+.. code-block:: python
 
 	print("Page - Title: %s" % page_py.title)
 	# Page - Title: Python (programming language)
 
 	print("Page - Summary: %s" % page_py.summary[0:60])
 	# Page - Summary: Python is a widely used high-level programming language for
+
+How To Get Page URL
+~~~~~~~~~~~~~~~~~~~
+
+``WikipediaPage`` has two properties with URL of the page. It is ``fullurl`` and ``canonicalurl``.
+
+.. code-block:: python
+
+	print(page_py.fullurl)
+	# https://en.wikipedia.org/wiki/Python_(programming_language)
+
+	print(page_py.canonicalurl)
+	# https://en.wikipedia.org/wiki/Python_(programming_language)
+
+How To Get Full Text
+~~~~~~~~~~~~~~~~~~~~
+
+To get full text of Wikipedia page you should use property ``text`` which constructs text of the page
+as concatanation of summary and sections with their titles and texts.
+
+.. code-block:: python
+
+	wiki_wiki = wikipediaapi.Wikipedia(
+		language='en',
+		extract_format=wikipediaapi.ExtractFormat.WIKI
+	)
+
+	p_wiki = wiki_wiki.page("Test 1")
+	print(p_wiki.text)
+	# Summary
+	# Section 1
+	# Text of section 1
+	# Section 1.1
+	# Text of section 1.1
+	# ...
+
+
+	wiki_html = wikipediaapi.Wikipedia(
+		language='en',
+		extract_format=wikipediaapi.ExtractFormat.HTML
+	)
+	p_html = wiki_html.page("Test 1")
+	print(p_html.text)
+	# <p>Summary</p>
+	# <h2>Section 1</h2>
+	# <p>Text of section 1</p>
+	# <h3>Section 1.1</h3>
+	# <p>Text of section 1.1</p>
+	# ...
+
+How To Get Page Sections
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+To get all top level sections of page, you have to use property ``sections``. It returns list of
+``WikipediaPageSection``, so you have to use recursion to get all subsections.
+
+.. code-block:: python
 
 	def print_sections(sections, level=0):
 		for s in sections:
@@ -61,7 +140,14 @@ Usage
 	# **: Indentation - Python uses whitespace indentation, rath
 	# **: Statements and control flow - Python's statements include (among other
 	# **: Expressions - Some Python expressions are similar to l
-	# ...
+
+How To Get Page In Other Languages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to get other translations of given page, you should use property ``langlinks``. It is map,
+where key is language code and value is ``WikipediaPage``.
+
+.. code-block:: python
 
 	def print_langlinks(page):
 		langlinks = page.langlinks
@@ -75,7 +161,18 @@ Usage
 	# an: an - Python: https://an.wikipedia.org/wiki/Python
 	# ar: ar - بايثون: https://ar.wikipedia.org/wiki/%D8%A8%D8%A7%D9%8A%D8%AB%D9%88%D9%86
 	# as: as - পাইথন: https://as.wikipedia.org/wiki/%E0%A6%AA%E0%A6%BE%E0%A6%87%E0%A6%A5%E0%A6%A8
-	# ...
+
+	page_py_cs = page_py.langlinks['cs']
+	print("Page - Summary: %s" % page_py_cs.summary[0:60])
+	# Page - Summary: Python (anglická výslovnost [ˈpaiθtən]) je vysokoúrovňový sk
+
+How To Get Links To Other Pages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to get all links to other wiki pages from given page, you need to use property ``links``.
+It's map, where key is page title and value is ``WikipediaPage``.
+
+.. code-block:: python
 
 	def print_links(page):
 		links = page.links
@@ -90,6 +187,14 @@ Usage
 	# Abaqus: Abaqus (id: ??, ns: 0)
 	# ...
 
+How To Get Page Categories
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to get all categories under which page belongs, you should use property ``categories``.
+It's map, where key is category title and value is ``WikipediaPage``.
+
+.. code-block:: python
+
 	def print_categories(page):
 		categories = page.categories
 		for title in sorted(categories.keys()):
@@ -103,46 +208,7 @@ Usage
 	# Category:Articles containing potentially dated statements from August 2016: ...
 	# Category:Articles containing potentially dated statements from March 2017: ...
 	# Category:Articles containing potentially dated statements from September 2017: ...
-	# ...
 
-	section_py = page_py.section_by_title('Features and philosophy')
-	print("Section - Title: %s" % section_py.title)
-	# Section - Title: Features and philosophy
-
-	print("Section - Text: %s" % section_py.text[0:60])
-	# Section - Text: Python is a multi-paradigm programming language. Object-orie
-
-	# Now lets extract texts with HTML tags
-	wiki_html = wikipediaapi.Wikipedia(
-		language='cs',
-		extract_format=wikipediaapi.ExtractFormat.HTML
-	)
-
-	page_ostrava = wiki_html.page('Ostrava')
-	print("Page - Summary: %s" % page_ostrava.summary[0:60])
-	# Page - Summary: <p><b>Ostrava</b> (polsky <span lang="pl" title="polština" x
-
-	page_nonexisting = wiki_wiki.page('Wikipedia-API-FooBar')
-	print("Page - Exists: %s" % page_nonexisting.exists())
-	# Page - Exists: False
-
-	print("Page - Id: %s" % page_nonexisting.pageid)
-	# Page - Id: -1
-
-	# Create wikipedia for Germany
-	wiki_de = wikipediaapi.Wikipedia('de')
-	de_page = wiki_de.page('Deutsche Sprache')
-	print(de_page.title + ": " + de_page.fullurl)
-	# Deutsche Sprache: https://de.wikipedia.org/wiki/Deutsche_Sprache
-	print(de_page.summary[0:60])
-	# Die deutsche Sprache bzw. Deutsch [dɔʏ̯t͡ʃ], abgekürzt Dt. o
-
-	# But you can still fetch data from english version
-	en_page = de_page.langlinks['en']
-	print(en_page.title + ": " + en_page.fullurl)
-	# German language: https://en.wikipedia.org/wiki/German_language
-	print(en_page.summary[0:60])
-	# German (Deutsch [ˈdɔʏt͡ʃ] ( listen)) is a West Germanic lang
 
 External Links
 --------------
@@ -157,6 +223,22 @@ External Links
 .. _Travis: https://travis-ci.org/martin-majlis/Wikipedia-API/
 .. _ReadTheDocs: http://wikipedia-api.readthedocs.io/
 
+Other Badges
+------------
+
+|cc-badge| |cc-issues| 
+
+.. PYPI-BEGIN
+.. toctree::
+	:maxdepth: 2
+
+	API
+	CHANGES
+	DEVELOPMENT
+
+.. PYPI-END
+
+
 .. |build-status| image:: https://travis-ci.org/martin-majlis/Wikipedia-API.svg?branch=master
     :alt: build status
     :target: https://travis-ci.org/martin-majlis/Wikipedia-API
@@ -169,6 +251,8 @@ External Links
     :target: https://codeclimate.com/github/martin-majlis/Wikipedia-API
     :alt: Code Climate
 
-.. |cc-issues| image:: https://codeclimate.com/github/martin-majlis/Wikipedia-API/badges/issue_count.svg
+.. |cc-coverage| image:: https://api.codeclimate.com/v1/badges/6e2c24d72438b39e5c26/test_coverage
     :target: https://codeclimate.com/github/martin-majlis/Wikipedia-API
-    :alt: Issue Count
+    :alt: Test Coverage
+
+
