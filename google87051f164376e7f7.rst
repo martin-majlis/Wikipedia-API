@@ -1,0 +1,4 @@
+Google Search Console
+=====================
+
+Verification page for Google Search Console
