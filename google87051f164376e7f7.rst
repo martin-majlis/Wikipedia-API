@@ -2,3 +2,5 @@ Google Search Console
 =====================
 
 Verification page for Google Search Console
+
+google-site-verification: google87051f164376e7f7.html
