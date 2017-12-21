@@ -1,11 +1,11 @@
 Wikipedia API
 =============
 
-Package ``Wikipedia-API`` is simple python wrapper around `Wikipedias'`_ API.
+``Wikipedia-API`` is easy to use Python wrapper for `Wikipedias'`_ API. It supports extracting texts, sections, links, categories, translations, etc from Wikipedia. Documentation provides code snippets for the most common use cases.
 
 .. _Wikipedias': https://www.mediawiki.org/wiki/API:Main_page
 
-|build-status| |docs| |cc-coverage|
+|build-status| |docs| |cc-coverage| |version| |pyversions|
 
 Installation
 ------------
@@ -254,7 +254,16 @@ External Links
 Other Badges
 ------------
 
-|cc-badge| |cc-issues| 
+|cc-badge| |cc-issues| |coveralls| |version| |pyversions| |implementations|
+|github-downloads| |github-tag| |github-release|
+|github-commits-since-latest| |github-forks| |github-stars| |github-watches|
+|github-commit-activity| |github-last-commit| |github-code-size| |github-repo-size|
+|pypi-license| |pypi-wheel| |pypi-format| |pypi-pyversions| |pypi-implementations|
+|pypi-status|
+
+
+Other Pages
+-----------
 
 .. PYPI-BEGIN
 .. toctree::
@@ -287,4 +296,86 @@ Other Badges
     :target: https://codeclimate.com/github/martin-majlis/Wikipedia-API
     :alt: Test Coverage
 
+.. |coveralls| image:: https://coveralls.io/repos/github/martin-majlis/Wikipedia-API/badge.svg?branch=master
+	:target: https://coveralls.io/github/martin-majlis/Wikipedia-API?branch=master
+	:alt: Coveralls
+
+.. |version| image:: https://img.shields.io/pypi/v/wikipedia-api.svg?style=flat-square
+	:target: https://pypi.python.org/pypi/Wikipedia-API
+	:alt: Version
+
+.. |pyversions| image:: https://img.shields.io/pypi/pyversions/wikipedia-api.svg?style=flat-square
+	:target: https://pypi.python.org/pypi/Wikipedia-API
+	:alt: Py Versions
+
+.. |implementations| image:: https://img.shields.io/pypi/implementation/wikipedia-api.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/Wikipedia-API
+	:alt: Implementations
+
+.. |github-downloads| image:: https://img.shields.io/github/downloads/martin-majlis/Wikipedia-API/total.svg
+	:target: https://github.com/martin-majlis/Wikipedia-API/releases
+	:alt: Downloads
+
+.. |github-tag| image:: https://img.shields.io/github/tag/martin-majlis/Wikipedia-API.svg
+	:target: https://github.com/martin-majlis/Wikipedia-API/tags
+	:alt: Tags
+
+.. |github-release| image:: https://img.shields.io/github/release/martin-majlis/Wikipedia-API.svg
+	:target: https://github.com/martin-majlis/Wikipedia-API/
+
+.. |github-commits-since-latest| image:: https://img.shields.io/github/commits-since/martin-majlis/Wikipedia-API/latest.svg
+	:target: https://github.com/martin-majlis/Wikipedia-API/
+	:alt: Github commits (since latest release)
+
+.. |github-forks| image:: https://img.shields.io/github/forks/martin-majlis/Wikipedia-API.svg?style=social&label=Fork
+	:target: https://github.com/martin-majlis/Wikipedia-API/
+	:alt: GitHub forks
+
+.. |github-stars| image:: https://img.shields.io/github/stars/martin-majlis/Wikipedia-API.svg?style=social&label=Stars
+	:target: https://github.com/martin-majlis/Wikipedia-API/
+	:alt: GitHub stars
+
+.. |github-watches| image:: https://img.shields.io/github/watchers/martin-majlis/Wikipedia-API.svg?style=social&label=Watch
+	:target: https://github.com/martin-majlis/Wikipedia-API/
+	:alt: GitHub watchers
+
+.. |github-commit-activity| image:: https://img.shields.io/github/commit-activity/y/martin-majlis/Wikipedia-API.svg
+	:target: https://github.com/martin-majlis/Wikipedia-API/commits/master
+	:alt: GitHub commit activity the past week, 4 weeks, year
+
+.. |github-last-commit| image:: https://img.shields.io/github/commits/martin-majlis/Wikipedia-API/last.svg
+	:target: https://github.com/martin-majlis/Wikipedia-API/
+	:alt: Last commit
+
+.. |github-code-size| image:: https://img.shields.io/github/languages/code-size/martin-majlis/Wikipedia-API.svg
+	:target: https://github.com/martin-majlis/Wikipedia-API/
+	:alt: GitHub code size in bytes
+
+.. |github-repo-size| image:: https://img.shields.io/github/repo-size/martin-majlis/Wikipedia-API.svg
+	:target: https://github.com/martin-majlis/Wikipedia-API/
+	:alt: GitHub repo size in bytes
+
+.. |pypi-license| image:: https://img.shields.io/pypi/l/Wikipedia-API.svg
+	:target: https://pypi.python.org/pypi/Wikipedia-API/
+	:alt: PyPi License
+
+.. |pypi-wheel| image:: https://img.shields.io/pypi/wheel/Wikipedia-API.svg
+	:target: https://pypi.python.org/pypi/Wikipedia-API/
+	:alt: PyPi Wheel
+
+.. |pypi-format| image:: https://img.shields.io/pypi/format/Wikipedia-API.svg
+	:target: https://pypi.python.org/pypi/Wikipedia-API/
+	:alt: PyPi Format
+
+.. |pypi-pyversions| image:: https://img.shields.io/pypi/pyversions/Wikipedia-API.svg
+	:target: https://pypi.python.org/pypi/Wikipedia-API/
+	:alt: PyPi PyVersions
+
+.. |pypi-implementations| image:: https://img.shields.io/pypi/implementation/Wikipedia-API.svg
+	:target: https://pypi.python.org/pypi/Wikipedia-API/
+	:alt: PyPi Implementations
+
+.. |pypi-status| image:: https://img.shields.io/pypi/status/Wikipedia-API.svg
+	:target: https://pypi.python.org/pypi/Wikipedia-API/
+	:alt: PyPi Status
 
