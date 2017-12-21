@@ -12,6 +12,7 @@ python:
 install:
 - pip install -r requirements.txt
 - pip install coverage
+- pip install coveralls
 before_script:
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
@@ -22,6 +23,7 @@ script:
 - coverage xml
 after_script:
 - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+- coveralls
 deploy:
   provider: pypi
   user: martin.majlis
