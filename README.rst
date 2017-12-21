@@ -5,7 +5,7 @@ Wikipedia API
 
 .. _Wikipedias': https://www.mediawiki.org/wiki/API:Main_page
 
-|build-status| |docs| |cc-coverage| |version| |pyversions|
+|build-status| |docs| |cc-coverage| |version| |pyversions| |github-stars-flat|
 
 Installation
 ------------
@@ -300,15 +300,15 @@ Other Pages
 	:target: https://coveralls.io/github/martin-majlis/Wikipedia-API?branch=master
 	:alt: Coveralls
 
-.. |version| image:: https://img.shields.io/pypi/v/wikipedia-api.svg?style=flat-square
+.. |version| image:: https://img.shields.io/pypi/v/wikipedia-api.svg?style=flat
 	:target: https://pypi.python.org/pypi/Wikipedia-API
 	:alt: Version
 
-.. |pyversions| image:: https://img.shields.io/pypi/pyversions/wikipedia-api.svg?style=flat-square
+.. |pyversions| image:: https://img.shields.io/pypi/pyversions/wikipedia-api.svg?style=flat
 	:target: https://pypi.python.org/pypi/Wikipedia-API
 	:alt: Py Versions
 
-.. |implementations| image:: https://img.shields.io/pypi/implementation/wikipedia-api.svg?style=flat-square
+.. |implementations| image:: https://img.shields.io/pypi/implementation/wikipedia-api.svg?style=flat
     :target: https://pypi.python.org/pypi/Wikipedia-API
 	:alt: Implementations
 
@@ -332,6 +332,10 @@ Other Pages
 	:alt: GitHub forks
 
 .. |github-stars| image:: https://img.shields.io/github/stars/martin-majlis/Wikipedia-API.svg?style=social&label=Stars
+	:target: https://github.com/martin-majlis/Wikipedia-API/
+	:alt: GitHub stars
+
+.. |github-stars-flat| image:: https://img.shields.io/github/stars/martin-majlis/Wikipedia-API.svg?style=flat&label=Stars
 	:target: https://github.com/martin-majlis/Wikipedia-API/
 	:alt: GitHub stars
 
