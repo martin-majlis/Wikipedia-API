@@ -2,8 +2,6 @@ import os
 import re
 from setuptools import setup
 
-import wikipediaapi
-
 
 def fix_doc(txt):
     return re.sub(r'\.\. PYPI-BEGIN([\r\n]|.)*?PYPI-END', '', txt, re.DOTALL)
@@ -23,7 +21,7 @@ tests_require = []
 
 setup(
     name='Wikipedia-API',
-    version='.'.join(map(str, wikipediaapi.__version__)),
+    version='0.3.5',
     description='Python Wrapper for Wikipedia',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
