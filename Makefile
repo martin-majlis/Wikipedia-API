@@ -29,7 +29,7 @@ release: run-tests pypi-html
 		echo "Use make release MSG='some msg'"; \
 		exit 1; \
 	fi; \
-	version=`grep version wikipediaapi/__init__.py | sed -r 's/.*= \( *(.*), *(.*), *(.*)\)/\1.\2.\3/'`; \
+	version=`grep __version__ wikipediaapi/__init__.py | sed -r 's/.*= \( *(.*), *(.*), *(.*)\)/\1.\2.\3/'`; \
 	if [ "x$$version" = "x" ]; then \
 		echo "Unable to extract version"; \
 		exit 1; \
