@@ -108,3 +108,19 @@ class TestHtmlFormatExtracts(unittest.TestCase):
                 "<p>Text for section 5.1\n\n\n</p>"
             )
         )
+
+    def test_with_erroneous_edit(self):
+        page = self.wiki.page('Test_Edit')
+        self.maxDiff = None
+        section = page.section_by_title('Section with Edit')
+        self.assertEqual(section.title, 'Section with Edit')
+        self.assertEqual(
+            page.text,
+            (
+                "<p><b>Summary</b> text\n\n</p>\n\n" +
+                "<h2>Section 1</h2>\n" +
+                "<p>Text for section 1</p>\n\n"
+                "<h3>Section with Edit</h3>\n" +
+                "<p>Text for section with edit\n\n\n</p>"
+            )
+        )

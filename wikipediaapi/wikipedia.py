@@ -65,7 +65,7 @@ RE_SECTION = {
     ExtractFormat.HTML: re.compile(
         r'\n? *<h(\d)[^>]*?>(<span[^>]*><\/span>)? *' +
         '(<span[^>]*>)? *(<span[^>]*><\/span>)? *(.*?) *' +
-        '(<\/span>)?<\/h\d>\n?'
+        '(<\/span>)?(<span>Edit<\/span>)?<\/h\d>\n?'            # Example page with 'Edit' erroneous links: https://bit.ly/2ui4FWs
     ),
     # ExtractFormat.PLAIN.value: re.compile(r'\n\n *(===*) (.*?) (===*) *\n'),
 }
