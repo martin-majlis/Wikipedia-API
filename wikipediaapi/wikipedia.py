@@ -244,6 +244,37 @@ class Wikipedia(object):
 
                 return self._build_links(v, page)
 
+    def _backlinks(
+        self,
+        page: 'WikipediaPage'
+    ) -> 'WikipediaPage':
+        """
+        https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bbacklinks
+        https://www.mediawiki.org/wiki/API:Backlinks
+        """
+
+        params = {
+            'action': 'query',
+            'list': 'backlinks',
+            'bltitle': page.title,
+            'bllimit': 500,
+        }
+        raw = self._query(
+            page,
+            params
+        )
+        self._common_attributes(raw['query'], page)
+        v = raw['query']
+        while 'continue' in raw:
+            params['blcontinue'] = raw['continue']['blcontinue']
+            raw = self._query(
+                page,
+                params
+            )
+            v['backlinks'] += raw['query']['backlinks']
+        return self._build_backlinks(v, page)
+    
+    
     def _categories(
         self,
         page: 'WikipediaPage'
@@ -438,6 +469,23 @@ class Wikipedia(object):
 
         return page
 
+    def _build_backlinks(
+        self,
+        extract,
+        page
+    ):
+        self._common_attributes(extract, page)
+        for backlink in extract['backlinks']:
+            page._backlinks[backlink['title']] = WikipediaPage(
+                wiki=self,
+                title=backlink['title'],
+                ns=backlink['ns'],
+                language=page.language
+            )
+
+        return page
+
+
     def _build_categories(
         self,
         extract,
@@ -576,6 +624,7 @@ class WikipediaPage(object):
         self._section_mapping = {}
         self._langlinks = {}
         self._links = {}
+        self._backlinks = {}
         self._categories = {}
         self._categorymembers = {}
 
@@ -584,6 +633,7 @@ class WikipediaPage(object):
             'info': False,
             'langlinks': False,
             'links': False,
+            'backlinks': False,
             'categories': False,
             'categorymembers': False,
         }
@@ -669,6 +719,12 @@ class WikipediaPage(object):
         if not self._called['links']:
             self._fetch('links')
         return self._links
+
+    @property
+    def backlinks(self):
+        if not self._called['backlinks']:
+            self._fetch('backlinks')
+        return self._backlinks
 
     @property
     def categories(self):
