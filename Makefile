@@ -37,10 +37,11 @@ release: run-tests pypi-html
 	echo "Current version: $$version"; \
 	short=`echo $$version | cut -f1-2 -d.`; \
 	echo "Short version: $$short"; \
-	sed -ri 's/version=.*/version = "'$$version'",/' setup.py; \
+	sed -ri 's/version=.*/version="'$$version'",/' setup.py; \
 	sed -ri 's/^release = .*/release = "'$$version'"/' conf.py; \
 	sed -ri 's/^version = .*/version = "'$$short'"/' conf.py; \
-	git commit setup.py conf.py -m "Update version to $$version in conf.py"; \
+	sed -ri 's/^Current version is: = .*/Current version is: "'$$version'"/' wikipediaapi/__init__.py; \
+	git commit setup.py conf.py wikipediaapi/__init__.py -m "Update version to $$version for releasing new version."; \
 	git push; \
 	git tag $$version -m "$(MSG)"; \
 	git push --tags origin master
