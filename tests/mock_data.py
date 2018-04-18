@@ -108,6 +108,36 @@ _MOCK_DATA = {
             }
         }
     },
+    'en:action=query&prop=extracts&titles=Test_Edit&': {
+        "batchcomplete": "",
+        "warnings": {
+            "extracts": {
+                "*": "\"exlimit\" was too large for a whole article extracts request, lowered to 1."
+            }
+        },
+        "query": {
+            "normalized": [
+                {
+                    "from": "Test_Edit",
+                    "to": "Test Edit"
+                }
+            ],
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test Edit",
+                    "extract": (
+                        "<p><b>Summary</b> text\n\n</p>\n" +
+                        "<h2>Section 1</h2>\n" +
+                        "<p>Text for section 1</p>\n\n\n" +
+                        "<h3><span id=\"s1.Edit\">Section with Edit</span><span>Edit</span></h3>\n" +
+                        "<p>Text for section with edit\n\n\n</p>"
+                    )
+                }
+            }
+        }
+    },
     'en:action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=Test_1&': {
         "batchcomplete": "",
         "query": {
