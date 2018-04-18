@@ -5,4 +5,4 @@ You can learn more at: http://wikipedia-api.readthedocs.io/en/latest/
 Current version is: 0.3.6
 '''
 from .wikipedia import *
-__version__ = (0, 3, 6)
+__version__ = (0, 3, 7)
