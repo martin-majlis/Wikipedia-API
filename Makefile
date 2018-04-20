@@ -25,8 +25,8 @@ run-coverage:
 	coverage report -m
 
 release: run-tests pypi-html
-	if [ "x$(MSG)" = "x" ]; then \
-		echo "Use make release MSG='some msg'"; \
+	if [ "x$(MSG)" = "x" -o "x$(VERSION)" = "x" ]; then \
+		echo "Use make release MSG='some msg' VERSION='1.2.3'"; \
 		exit 1; \
 	fi; \
 	version=`grep __version__ wikipediaapi/__init__.py | sed -r 's/.*= \( *(.*), *(.*), *(.*)\)/\1.\2.\3/'`; \
@@ -35,15 +35,43 @@ release: run-tests pypi-html
 		exit 1; \
 	fi; \
 	echo "Current version: $$version"; \
-	short=`echo $$version | cut -f1-2 -d.`; \
-	echo "Short version: $$short"; \
-	sed -ri 's/version=.*/version="'$$version'",/' setup.py; \
-	sed -ri 's/^release = .*/release = "'$$version'"/' conf.py; \
-	sed -ri 's/^version = .*/version = "'$$short'"/' conf.py; \
-	sed -ri 's/^Current version is: .*/Current version is: "'$$version'"/' wikipediaapi/__init__.py; \
-	git commit setup.py conf.py wikipediaapi/__init__.py -m "Update version to $$version for releasing new version."; \
+	as_number() { \
+		total=0; \
+		for p in `echo $$1 | tr "." "\n"`; do \
+			total=$$(( $$total * 1000 + $$p )); \
+		done; \
+		echo $$total; \
+	}; \
+	number_dots=`echo -n $(VERSION) | sed -r 's/[^.]//g' | wc -c`; \
+	if [ ! "$${number_dots}" = "2" ]; then \
+		echo "Version has to have format X.Y.Z"; \
+		echo "Specified version is $(VERSION)"; \
+		exit 2; \
+	fi; \
+	number_version=`as_number $$version`; \
+	number_VERSION=`as_number $(VERSION);`; \
+	if [ $$number_version -ge $$number_VERSION ]; then \
+		echo -n "Specified version $(VERSION) ($$number_VERSION) is lower than"; \
+		echo "current version $$version ($$number_version)"; \
+		echo "New version has to be greater"; \
+		exit 2; \
+	fi; \
+	has_documentation=`grep -c "^$(VERSION)\\$$" CHANGES.rst`; \
+	if [ $$has_documentation -eq 0 ]; then \
+		echo "There is no information about $(VERSION) in CHANGES.rst"; \
+		exit 3; \
+	fi; \
+	short_VERSION=`echo $(VERSION) | cut -f1-2 -d.`; \
+	commas_VERSION=`echo $(VERSION) | sed -r 's/\./, /g'`; \
+	echo "Short version: $$short_VERSION"; \
+	sed -ri 's/version=.*/version="'$(VERSION)'",/' setup.py; \
+	sed -ri 's/^release = .*/release = "'$(VERSION)'"/' conf.py; \
+	sed -ri 's/^version = .*/version = "'$$short_VERSION'"/' conf.py; \
+	sed -ri 's/^Current version is: .*/Current version is: "'$(VERSION)'"/' wikipediaapi/__init__.py; \
+	sed -ri 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/__init__.py; \
+	git commit setup.py conf.py wikipediaapi/__init__.py -m "Update version to $(VERSION) for new release."; \
 	git push; \
-	git tag $$version -m "$(MSG)"; \
+	git tag $(VERSION) -m "$(MSG)"; \
 	git push --tags origin master
 
 # Catch-all target: route all unknown targets to Sphinx using the new
