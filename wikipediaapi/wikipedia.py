@@ -1,9 +1,12 @@
 import logging
 import re
 import requests
+from typing import Dict, Any, List
 log = logging.getLogger(__name__)
 
 # https://www.mediawiki.org/wiki/API:Main_page
+
+PagesDict = Dict[str, 'WikipediaPage']
 
 
 class ExtractFormat(object):  # (Enum):
@@ -82,7 +85,7 @@ class Wikipedia(object):
             'Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)'
             ),
             timeout=10.0
-    ):
+    ) -> None:
         '''
         Language of the API being requested.
         Select language from `list of all Wikipedias:
@@ -97,7 +100,7 @@ class Wikipedia(object):
             self,
             title: str,
             ns: int = 0
-    ):
+    ) -> 'WikipediaPage':
         return WikipediaPage(
             self,
             title=title,
@@ -141,6 +144,7 @@ class Wikipedia(object):
                 return page
             else:
                 return self._build_structured(v, page)
+        return page
 
     def _info(
         self,
@@ -180,6 +184,7 @@ class Wikipedia(object):
                 return page
             else:
                 return self._build_info(v, page)
+        return page
 
     def _langlinks(
         self,
@@ -209,7 +214,8 @@ class Wikipedia(object):
                 return page
             else:
                 return self._build_langlinks(v, page)
-
+        return page
+    
     def _links(
         self,
         page: 'WikipediaPage'
@@ -245,7 +251,8 @@ class Wikipedia(object):
                     v['links'] += raw['query']['pages'][k]['links']
 
                 return self._build_links(v, page)
-
+        return page
+    
     def _backlinks(
         self,
         page: 'WikipediaPage'
@@ -304,6 +311,7 @@ class Wikipedia(object):
                 return page
             else:
                 return self._build_categories(v, page)
+        return page
 
     def _categorymembers(
         self,
@@ -339,7 +347,7 @@ class Wikipedia(object):
     def _query(
         self,
         page: 'WikipediaPage',
-        params: {}
+        params: Dict[str, Any]
     ):
         base_url = 'http://' + page.language + '.wikipedia.org/w/api.php'
         headers = {
@@ -551,13 +559,13 @@ class WikipediaPageSection(object):
     def __init__(
             self,
             title: str,
-            level=0,
-            text=''
-    ):
+            level: int =0,
+            text: str =''
+    ) -> None:
         self._title = title
         self._level = level
         self._text = text
-        self._section = []
+        self._section = [] # type: List['WikipediaPageSection']
 
     @property
     def title(self) -> str:
@@ -572,7 +580,7 @@ class WikipediaPageSection(object):
         return self._text
 
     @property
-    def sections(self) -> ['WikipediaPageSection']:
+    def sections(self) -> List['WikipediaPageSection']:
         return self._section
 
     def __repr__(self):
@@ -619,16 +627,16 @@ class WikipediaPage(object):
             ns: int = 0,
             language: str = 'en',
             url: str = None
-    ):
+    ) -> None:
         self.wiki = wiki
-        self._summary = ''
-        self._section = []
-        self._section_mapping = {}
-        self._langlinks = {}
-        self._links = {}
-        self._backlinks = {}
-        self._categories = {}
-        self._categorymembers = {}
+        self._summary = '' # type: str
+        self._section = [] # type: List[WikipediaPageSection]
+        self._section_mapping = {} # type: Dict[str, WikipediaPageSection]
+        self._langlinks = {} # type: PagesDict
+        self._links = {} # type: PagesDict
+        self._backlinks = {} # type: PagesDict
+        self._categories = {} # type: PagesDict
+        self._categorymembers = {} # type: PagesDict
 
         self._called = {
             'structured': False,
@@ -671,18 +679,18 @@ class WikipediaPage(object):
         return self._summary
 
     @property
-    def sections(self) -> [WikipediaPageSection]:
+    def sections(self) -> List[WikipediaPageSection]:
         if not self._called['structured']:
             self._fetch('structured')
         return self._section
 
-    def section_by_title(self, title) -> WikipediaPageSection:
+    def section_by_title(self, title: str) -> WikipediaPageSection:
         if not self._called['structured']:
             self._fetch('structured')
         return self._section_mapping[title]
 
     @property
-    def text(self):
+    def text(self) -> str:
         txt = self.summary
         if len(txt) > 0:
             txt += "\n\n"
@@ -711,31 +719,31 @@ class WikipediaPage(object):
         return txt.strip()
 
     @property
-    def langlinks(self):
+    def langlinks(self) -> PagesDict:
         if not self._called['langlinks']:
             self._fetch('langlinks')
         return self._langlinks
 
     @property
-    def links(self):
+    def links(self) -> PagesDict:
         if not self._called['links']:
             self._fetch('links')
         return self._links
 
     @property
-    def backlinks(self):
+    def backlinks(self) -> PagesDict:
         if not self._called['backlinks']:
             self._fetch('backlinks')
         return self._backlinks
 
     @property
-    def categories(self):
+    def categories(self) -> PagesDict:
         if not self._called['categories']:
             self._fetch('categories')
         return self._categories
 
     @property
-    def categorymembers(self):
+    def categorymembers(self) -> PagesDict:
         if not self._called['categorymembers']:
             self._fetch('categorymembers')
         return self._categorymembers

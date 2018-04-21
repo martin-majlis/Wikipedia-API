@@ -19,12 +19,20 @@ pypi-html:
 
 run-tests:
 	python3 -m unittest discover tests/ '*test.py'
+	
+run-type-check:
+	mypy ./example.py
 
 run-coverage:
 	coverage run --source=wikipediaapi -m unittest discover tests/ '*test.py'
 	coverage report -m
 
-release: run-tests pypi-html
+requirements-dev:
+	pip3 install -r requirements-dev.txt
+
+pre-release-check: run-tests run-coverage pypi-html run-type-check
+
+release: pre-release-check
 	if [ "x$(MSG)" = "x" -o "x$(VERSION)" = "x" ]; then \
 		echo "Use make release MSG='some msg' VERSION='1.2.3'"; \
 		exit 1; \
@@ -78,6 +86,7 @@ release: run-tests pypi-html
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
 
 
 
