@@ -27,6 +27,9 @@ run-coverage:
 	coverage run --source=wikipediaapi -m unittest discover tests/ '*test.py'
 	coverage report -m
 
+requirements:
+	pip3 install -r requirements.txt
+
 requirements-dev:
 	pip3 install -r requirements-dev.txt
 
