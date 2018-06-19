@@ -81,20 +81,21 @@ class Wikipedia(object):
             self,
             language='en',
             extract_format=ExtractFormat.WIKI,
-            user_agent=(
-            'Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)'
-            ),
-            timeout=10.0
+            headers=None,
+            **kwargs
     ) -> None:
         '''
         Language of the API being requested.
         Select language from `list of all Wikipedias:
             <http://meta.wikimedia.org/wiki/List_of_Wikipedias>`.
         '''
+        kwargs.setdefault('timeout', 10.0)
+
         self.language = language.strip().lower()
-        self.user_agent = user_agent
         self.extract_format = extract_format
-        self.timeout = timeout
+        self.__headers = dict() if headers is None else headers
+        self.__headers.setdefault('User-Agent', 'Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)')
+        self.__request_kwargs = kwargs
 
     def page(
             self,
@@ -350,10 +351,7 @@ class Wikipedia(object):
         params: Dict[str, Any]
     ):
         base_url = 'http://' + page.language + '.wikipedia.org/w/api.php'
-        headers = {
-            'User-Agent': self.user_agent,
-            'Accept-Encoding': 'gzip',
-        }
+        headers = self.__headers.copy()
         logging.info(
             "Request URL: %s",
             base_url + "?" + "&".join(
@@ -366,7 +364,7 @@ class Wikipedia(object):
             base_url,
             params=params,
             headers=headers,
-            timeout=self.timeout,
+            **self.__request_kwargs
         )
         return r.json()
 
