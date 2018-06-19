@@ -94,7 +94,10 @@ class Wikipedia(object):
         self.language = language.strip().lower()
         self.extract_format = extract_format
         self.__headers = dict() if headers is None else headers
-        self.__headers.setdefault('User-Agent', 'Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)')
+        self.__headers.setdefault(
+            'User-Agent',
+            'Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)'
+        )
         self.__request_kwargs = kwargs
 
     def page(
