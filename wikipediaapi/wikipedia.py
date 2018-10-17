@@ -219,7 +219,7 @@ class Wikipedia(object):
             else:
                 return self._build_langlinks(v, page)
         return page
-    
+
     def _links(
         self,
         page: 'WikipediaPage'
@@ -256,7 +256,7 @@ class Wikipedia(object):
 
                 return self._build_links(v, page)
         return page
-    
+
     def _backlinks(
         self,
         page: 'WikipediaPage'
@@ -286,8 +286,8 @@ class Wikipedia(object):
             )
             v['backlinks'] += raw['query']['backlinks']
         return self._build_backlinks(v, page)
-    
-    
+
+
     def _categories(
         self,
         page: 'WikipediaPage'
@@ -430,6 +430,7 @@ class Wikipedia(object):
             sec_level = int(match.group(1).strip())
 
         section = WikipediaPageSection(
+            self,
             sec_title,
             sec_level - 1
         )
@@ -559,10 +560,12 @@ class Wikipedia(object):
 class WikipediaPageSection(object):
     def __init__(
             self,
+            wiki: Wikipedia,
             title: str,
             level: int =0,
             text: str =''
     ) -> None:
+        self.wiki = wiki
         self._title = title
         self._level = level
         self._text = text
@@ -583,6 +586,23 @@ class WikipediaPageSection(object):
     @property
     def sections(self) -> List['WikipediaPageSection']:
         return self._section
+
+    def full_text(self, level=1):
+        res = ""
+        if self.wiki.extract_format == ExtractFormat.WIKI:
+            res += self.title
+        elif self.wiki.extract_format == ExtractFormat.HTML:
+            res += "<h{}>{}</h{}>".format(level, self.title, level)
+        else:
+            raise NotImplementedError("Unknown ExtractFormat type")
+
+        res += "\n"
+        res += self._text
+        if len(self._text) > 0:
+            res += "\n\n"
+        for sec in self.sections:
+            res += sec.full_text(level+1)
+        return res
 
     def __repr__(self):
         return "Section: {} ({}):\n{}\nSubsections ({}):\n{}".format(
@@ -695,28 +715,8 @@ class WikipediaPage(object):
         txt = self.summary
         if len(txt) > 0:
             txt += "\n\n"
-
-        def combine(sections, level):
-            res = ""
-            for sec in sections:
-                if self.wiki.extract_format == ExtractFormat.WIKI:
-                    res += sec.title
-                elif self.wiki.extract_format == ExtractFormat.HTML:
-                    res += "<h{}>{}</h{}>".format(level, sec.title, level)
-                else:
-                    raise NotImplementedError("Unknown ExtractFormat type")
-
-                res += "\n"
-                res += sec.text
-                if len(sec.text) > 0:
-                    res += "\n\n"
-
-                res += combine(sec.sections, level + 1)
-
-            return res
-
-        txt += combine(self.sections, 2)
-
+        for sec in self.sections:
+            txt += sec.full_text(level=2)
         return txt.strip()
 
     @property
