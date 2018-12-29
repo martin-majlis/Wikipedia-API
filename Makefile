@@ -34,6 +34,7 @@ requirements-dev:
 	pip3 install -r requirements-dev.txt
 
 pre-release-check: run-tests run-coverage pypi-html run-type-check
+	echo "Pre-release check was successful"
 
 release: pre-release-check
 	if [ "x$(MSG)" = "x" -o "x$(VERSION)" = "x" ]; then \

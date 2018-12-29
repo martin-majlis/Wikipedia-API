@@ -1,10 +1,26 @@
 Changelog
 =========
 
+0.4.0
+-----
+* Uses type annotations => minimal requirement is now Python 3.5
+* Adds possibility to use more parameters for `request`_. For example:
+
+.. code:: python
+
+    api = wikipediaapi.Wikipedia(
+            language='en',
+            proxies={'http': 'http://localhost:1234'}
+          )
+
+* Extended documentation
+
+.. _request: http://docs.python-requests.org/en/master/api/#requests.request
+
 0.3.4
 -----
-* Added support for `property Categorymembers`_
-* Added property ``text`` for retrieving complete text of the page
+* Adds support for `property Categorymembers`_
+* Adds property ``text`` for retrieving complete text of the page
 
 .. _property Categorymembers: https://www.mediawiki.org/wiki/API:Categorymembers
 

@@ -58,9 +58,11 @@ print("Categories")
 print_categories(page_py)
 
 section_py = page_py.section_by_title('Features and philosophy')
-print("Section - Title: %s" % section_py.title)
-print("Section - Text: %s" % section_py.text[0:60])
-
+if section_py is not None:
+    print("Section - Title: %s" % section_py.title)
+    print("Section - Text: %s" % section_py.text[0:60])
+else:
+    print("Section does not exist.")
 
 wiki_html = wikipediaapi.Wikipedia(
     language='cs',
@@ -75,8 +77,11 @@ print("Page - Summary: %s" % page_ostrava.summary[0:60])
 print_sections(page_ostrava.sections)
 
 section_ostrava = page_ostrava.section_by_title('Heraldický znak')
-print("Section - Title: %s" % section_ostrava.title)
-print("Section - Text: %s" % section_ostrava.text[0:60])
+if section_ostrava is not None:
+    print("Section - Title: %s" % section_ostrava.title)
+    print("Section - Text: %s" % section_ostrava.text[0:60])
+else:
+    print("Section does not exists")
 
 page_nonexisting = wiki_wiki.page('Wikipedia-API-FooBar')
 print("Page - Exists: %s" % page_nonexisting.exists())
