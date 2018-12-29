@@ -481,7 +481,7 @@ class Wikipedia(object):
             p = WikipediaPage(
                 wiki=self,
                 title=langlink['*'],
-                ns=0,
+                ns=Namespace.MAIN,
                 language=langlink['lang'],
                 url=langlink['url']
             )
