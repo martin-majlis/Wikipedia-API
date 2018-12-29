@@ -84,11 +84,16 @@ class Wikipedia(object):
             headers=None,
             **kwargs
     ) -> None:
-        '''
-        Language of the API being requested.
-        Select language from `list of all Wikipedias:
-            <http://meta.wikimedia.org/wiki/List_of_Wikipedias>`.
-        '''
+        """
+        Constructs
+
+        List of supported languages: <http://meta.wikimedia.org/wiki/List_of_Wikipedias>
+
+        :param language: Language of the API being requested.
+        :param extract_format:
+        :param headers:
+        :param kwargs:
+        """
         kwargs.setdefault('timeout', 10.0)
 
         self.language = language.strip().lower()

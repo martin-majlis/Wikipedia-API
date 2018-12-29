@@ -33,6 +33,9 @@ sys.path.insert(0, os.path.abspath('wikipedia'))
 # ones.
 extensions = ['sphinx.ext.autodoc']
 
+# Autodoc settings
+autodoc_default_flags = ["members", "special-members"]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -115,7 +118,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'MailGunV3doc'
+htmlhelp_basename = 'Wikipedia-API'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -142,7 +145,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'MailGunV3.tex', 'MailGun V3 Documentation',
+    (master_doc, 'Wikipedia-API.tex', 'Wikipedia-API Documentation',
      'Martin Majlis', 'manual'),
 ]
 
@@ -152,7 +155,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'mailgunv3', 'MailGun V3 Documentation',
+    (master_doc, 'wikipedia-api', 'Wikipedia-API Documentation',
      [author], 1)
 ]
 
@@ -188,3 +191,13 @@ epub_copyright = copyright
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
+
+html_context = {
+    "display_github": True, # Integrate GitHub
+    "github_user": "martin-majlis", # Username
+    "github_repo": "Wikipedia-API", # Repo name
+    "github_version": "master", # Version
+    "conf_py_path": "/_build/html/", # Path in the checkout to the docs root,
+    "travis_button": True,
+    "codecov_button": True,
+}
