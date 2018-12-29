@@ -3,7 +3,7 @@ from collections import defaultdict
 import unittest
 import wikipediaapi
 
-from mock_data import wikipedia_api_request
+from tests.mock_data import wikipedia_api_request
 
 
 class TestCategoryMembers(unittest.TestCase):

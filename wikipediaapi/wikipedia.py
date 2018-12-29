@@ -1,5 +1,7 @@
 import logging
 import re
+from enum import IntEnum
+
 import requests
 from typing import Dict, Any, List
 log = logging.getLogger(__name__)
@@ -9,24 +11,41 @@ log = logging.getLogger(__name__)
 PagesDict = Dict[str, 'WikipediaPage']
 
 
-class ExtractFormat(object):  # (Enum):
-    # Wiki: https://goo.gl/PScNVV
-    # Allows recognizing subsections
-    WIKI = 1
+class ExtractFormat(IntEnum):
+    """
+    Represents extraction format.
+    """
 
-    # HTML: https://goo.gl/1Jwwpr
-    # Text contains HTML tags
+
+    WIKI = 1
+    """
+    Allows recognizing subsections
+
+    Example: https://goo.gl/PScNVV
+    """
+
     HTML = 2
+    """
+    Alows retrieval of HTML tags
+
+    Example: https://goo.gl/1Jwwpr
+    """
 
     # Plain: https://goo.gl/MAv2qz
     # Doesn't allow to recognize subsections
     # PLAIN = 3
 
 
-class Namespace(object):
+class Namespace(IntEnum):
     """
-    https://en.wikipedia.org/wiki/Wikipedia:Namespace
-    https://en.wikipedia.org/wiki/Wikipedia:Namespace#Programming
+    Represents namespace in Wikipedia
+
+    You can gen list of possible namespaces here:
+
+    * https://en.wikipedia.org/wiki/Wikipedia:Namespace
+    * https://en.wikipedia.org/wiki/Wikipedia:Namespace#Programming
+
+    Currently following namespaces are supported:
     """
 
     MAIN = 0
@@ -108,7 +127,7 @@ class Wikipedia(object):
     def page(
             self,
             title: str,
-            ns: int = 0
+            ns: Namespace = Namespace.MAIN
     ) -> 'WikipediaPage':
         return WikipediaPage(
             self,
@@ -480,7 +499,7 @@ class Wikipedia(object):
             page._links[link['title']] = WikipediaPage(
                 wiki=self,
                 title=link['title'],
-                ns=link['ns'],
+                ns=Namespace(link['ns']),
                 language=page.language
             )
 
@@ -496,7 +515,7 @@ class Wikipedia(object):
             page._backlinks[backlink['title']] = WikipediaPage(
                 wiki=self,
                 title=backlink['title'],
-                ns=backlink['ns'],
+                ns=Namespace(backlink['ns']),
                 language=page.language
             )
 
@@ -513,7 +532,7 @@ class Wikipedia(object):
             page._categories[category['title']] = WikipediaPage(
                 wiki=self,
                 title=category['title'],
-                ns=category['ns'],
+                ns=Namespace(category['ns']),
                 language=page.language
             )
 
@@ -529,7 +548,7 @@ class Wikipedia(object):
             p = WikipediaPage(
                 wiki=self,
                 title=member['title'],
-                ns=member['ns'],
+                ns=Namespace(member['ns']),
                 language=page.language
             )
             p.pageid = member['pageid']
@@ -557,7 +576,7 @@ class Wikipedia(object):
     def article(
             self,
             title: str,
-            ns: int = 0
+            ns: Namespace = Namespace.MAIN,
     ):
         return self.page(title, ns)
 
@@ -650,7 +669,7 @@ class WikipediaPage(object):
             self,
             wiki: Wikipedia,
             title: str,
-            ns: int = 0,
+            ns: Namespace = Namespace.MAIN,
             language: str = 'en',
             url: str = None
     ) -> None:
@@ -676,7 +695,7 @@ class WikipediaPage(object):
 
         self._attributes = {
             'title': title,
-            'ns': ns,
+            'ns': ns.value,
             'language': language
         }
 
