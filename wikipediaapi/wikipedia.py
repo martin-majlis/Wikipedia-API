@@ -3,7 +3,8 @@ import re
 from enum import IntEnum
 
 import requests
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
+
 log = logging.getLogger(__name__)
 
 # https://www.mediawiki.org/wiki/API:Main_page
@@ -98,20 +99,18 @@ RE_SECTION = {
 class Wikipedia(object):
     def __init__(
             self,
-            language='en',
-            extract_format=ExtractFormat.WIKI,
-            headers=None,
+            language: str='en',
+            extract_format: ExtractFormat=ExtractFormat.WIKI,
+            headers: Optional[Dict[str, Any]]=None,
             **kwargs
     ) -> None:
         """
-        Constructs
+        Constructs Wikipedia object for extracting information Wikipedia.
 
-        List of supported languages: <http://meta.wikimedia.org/wiki/List_of_Wikipedias>
-
-        :param language: Language of the API being requested.
-        :param extract_format:
-        :param headers:
-        :param kwargs:
+        :param language: Language mutation of Wikipedia - http://meta.wikimedia.org/wiki/List_of_Wikipedias
+        :param extract_format: Format used for extractions  :class:`ExtractFormat` object.
+        :param headers:  Headers sent as part of HTTP request
+        :param kwargs: Optional parameters used in - http://docs.python-requests.org/en/master/api/#requests.request
         """
         kwargs.setdefault('timeout', 10.0)
 
@@ -129,6 +128,22 @@ class Wikipedia(object):
             title: str,
             ns: Namespace = Namespace.MAIN
     ) -> 'WikipediaPage':
+        """
+        Constructs Wikipedia page with title `title`.
+
+        Creating `WikipediaPage` object is always the first step for extracting any information.
+
+        Example::
+
+            wiki_wiki = wikipediaapi.Wikipedia('en')
+            page_py = wiki_wiki.page('Python_(programming_language)')
+            print(page_py.title)
+            # Python (programming language)
+
+        :param title: page title as used in Wikipedia URL
+        :param ns: namespace :class:`Namespace`
+        :return: object representing WikipediaPage :class:`WikipediaPage`
+        """
         return WikipediaPage(
             self,
             title=title,
