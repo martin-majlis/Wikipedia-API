@@ -272,7 +272,7 @@ Other Pages
 	API
 	CHANGES
 	DEVELOPMENT
-	wikipedia
+	wikipediaapi/wikipedia
 
 .. PYPI-END
 

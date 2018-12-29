@@ -78,7 +78,6 @@ release: pre-release-check
 	sed -ri 's/version=.*/version="'$(VERSION)'",/' setup.py; \
 	sed -ri 's/^release = .*/release = "'$(VERSION)'"/' conf.py; \
 	sed -ri 's/^version = .*/version = "'$$short_VERSION'"/' conf.py; \
-	sed -ri 's/^Current version is: .*/Current version is: "'$(VERSION)'"/' wikipediaapi/__init__.py; \
 	sed -ri 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/__init__.py; \
 	git commit setup.py conf.py wikipediaapi/__init__.py -m "Update version to $(VERSION) for new release."; \
 	git push; \

@@ -1,6 +1,11 @@
-=============
-``wikipedia``
-=============
+================
+``wikipediaapi``
+================
+
+.. automodule:: wikipediaapi
+
+Classes
+-------
 
 .. autoclass:: wikipediaapi.Wikipedia
 .. autoclass:: wikipediaapi.WikipediaPageSection
