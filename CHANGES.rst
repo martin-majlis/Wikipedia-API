@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.4.1
+-----
+* Uses code style enforced by flake8
+* Increased code coverage
+
 0.4.0
 -----
 * Uses type annotations => minimal requirement is now Python 3.5
