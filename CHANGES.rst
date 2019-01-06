@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.4.2
+-----
+* Add support for Python 3.4 by not using f-strings
+
 0.4.1
 -----
 * Uses code style enforced by flake8
