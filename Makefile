@@ -23,6 +23,9 @@ run-tests:
 run-type-check:
 	mypy ./example.py
 
+run-flake8:
+	flake8 --max-line-length=100 wikipediaapi tests
+
 run-coverage:
 	coverage run --source=wikipediaapi -m unittest discover tests/ '*test.py'
 	coverage report -m
@@ -33,7 +36,7 @@ requirements:
 requirements-dev:
 	pip3 install -r requirements-dev.txt
 
-pre-release-check: run-tests run-coverage pypi-html run-type-check
+pre-release-check: run-coverage pypi-html run-type-check run-flake8
 	echo "Pre-release check was successful"
 
 release: pre-release-check

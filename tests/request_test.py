@@ -11,15 +11,21 @@ class TestRequest(unittest.TestCase):
 
         try:
             page = wiki.page(self.query)
-            summary = page.summary
+            page.summary
         except Exception as e:
-            self.fail('TestRequest::test_request_without_kwargs failed due to the exception: {}'.format(str(e)))
+            self.fail(
+                f'TestRequest::test_request_without_kwargs '
+                f'failed due to the exception: {e}'
+            )
 
     def test_request_with_kwargs(self):
         wiki = wikipediaapi.Wikipedia(timeout=30.0)
 
         try:
             page = wiki.page(self.query)
-            summary = page.summary
+            page.summary
         except Exception as e:
-            self.fail('TestRequest::test_request_with_kwargs failed due to the exception: {}'.format(str(e)))
+            self.fail(
+                f'TestRequest::test_request_with_kwargs '
+                f'failed due to the exception: {e}'
+            )

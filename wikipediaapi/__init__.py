@@ -1,10 +1,10 @@
-'''
-Wikipedia-API is easy to use Python wrapper for extracting information from Wikipedia.
+"""
+Wikipedia-API is easy to use wrapper for extracting information from Wikipedia.
 
-It supports extracting texts, sections, links, categories, translations, etc from Wikipedia.
-Documentation provides code snippets for the most common use cases.
-
-'''
+It supports extracting texts, sections, links, categories, translations, etc
+from Wikipedia. Documentation provides code snippets for the most common use
+cases.
+"""
 
 __version__ = (0, 4, 0)
 import logging
@@ -28,7 +28,6 @@ class ExtractFormat(IntEnum):
     """
     Represents extraction format.
     """
-
 
     WIKI = 1
     """
@@ -98,9 +97,9 @@ class Namespace(IntEnum):
 RE_SECTION = {
     ExtractFormat.WIKI: re.compile(r'\n\n *(===*) (.*?) (===*) *\n'),
     ExtractFormat.HTML: re.compile(
-        r'\n? *<h(\d)[^>]*?>(<span[^>]*><\/span>)? *' +
-        '(<span[^>]*>)? *(<span[^>]*><\/span>)? *(.*?) *' +
-        '(<\/span>)?(<span>Edit<\/span>)?<\/h\d>\n?'
+        r'\n? *<h([1-9])[^>]*?>(<span[^>]*></span>)? *' +
+        '(<span[^>]*>)? *(<span[^>]*></span>)? *(.*?) *' +
+        '(</span>)?(<span>Edit</span>)?</h[1-9]>\n?'
         #                  ^^^^
         # Example page with 'Edit' erroneous links: https://bit.ly/2ui4FWs
     ),
@@ -115,18 +114,21 @@ class Wikipedia(object):
 
     def __init__(
             self,
-            language: str='en',
-            extract_format: ExtractFormat=ExtractFormat.WIKI,
-            headers: Optional[Dict[str, Any]]=None,
+            language: str = 'en',
+            extract_format: ExtractFormat = ExtractFormat.WIKI,
+            headers: Optional[Dict[str, Any]] = None,
             **kwargs
     ) -> None:
         """
         Constructs Wikipedia object for extracting information Wikipedia.
 
-        :param language: Language mutation of Wikipedia - http://meta.wikimedia.org/wiki/List_of_Wikipedias
-        :param extract_format: Format used for extractions  :class:`ExtractFormat` object.
+        :param language: Language mutation of Wikipedia -
+                http://meta.wikimedia.org/wiki/List_of_Wikipedias
+        :param extract_format: Format used for extractions
+                :class:`ExtractFormat` object.
         :param headers:  Headers sent as part of HTTP request
-        :param kwargs: Optional parameters used in - http://docs.python-requests.org/en/master/api/#requests.request
+        :param kwargs: Optional parameters used in -
+                http://docs.python-requests.org/en/master/api/#requests.request
 
         Examples:
 
@@ -188,8 +190,8 @@ class Wikipedia(object):
         return self.page(title, ns)
 
     def _structured(
-        self,
-        page: 'WikipediaPage'
+            self,
+            page: 'WikipediaPage'
     ) -> 'WikipediaPage':
         """
         https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bextracts
@@ -226,8 +228,8 @@ class Wikipedia(object):
         return page
 
     def _info(
-        self,
-        page: 'WikipediaPage'
+            self,
+            page: 'WikipediaPage'
     ) -> 'WikipediaPage':
         """
         https://www.mediawiki.org/w/api.php?action=help&modules=query%2Binfo
@@ -266,8 +268,8 @@ class Wikipedia(object):
         return page
 
     def _langlinks(
-        self,
-        page: 'WikipediaPage'
+            self,
+            page: 'WikipediaPage'
     ) -> 'WikipediaPage':
         """
         https://www.mediawiki.org/w/api.php?action=help&modules=query%2Blanglinks
@@ -296,8 +298,8 @@ class Wikipedia(object):
         return page
 
     def _links(
-        self,
-        page: 'WikipediaPage'
+            self,
+            page: 'WikipediaPage'
     ) -> 'WikipediaPage':
         """
         https://www.mediawiki.org/w/api.php?action=help&modules=query%2Blinks
@@ -333,8 +335,8 @@ class Wikipedia(object):
         return page
 
     def _backlinks(
-        self,
-        page: 'WikipediaPage'
+            self,
+            page: 'WikipediaPage'
     ) -> 'WikipediaPage':
         """
         https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bbacklinks
@@ -362,10 +364,9 @@ class Wikipedia(object):
             v['backlinks'] += raw['query']['backlinks']
         return self._build_backlinks(v, page)
 
-
     def _categories(
-        self,
-        page: 'WikipediaPage'
+            self,
+            page: 'WikipediaPage'
     ) -> 'WikipediaPage':
         """
         https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bcategories
@@ -393,8 +394,8 @@ class Wikipedia(object):
         return page
 
     def _categorymembers(
-        self,
-        page: 'WikipediaPage'
+            self,
+            page: 'WikipediaPage'
     ) -> 'WikipediaPage':
         """
         https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bcategorymembers
@@ -424,9 +425,9 @@ class Wikipedia(object):
         return self._build_categorymembers(v, page)
 
     def _query(
-        self,
-        page: 'WikipediaPage',
-        params: Dict[str, Any]
+            self,
+            page: 'WikipediaPage',
+            params: Dict[str, Any]
     ):
         base_url = 'http://' + page.language + '.wikipedia.org/w/api.php'
         headers = self.__headers.copy()
@@ -447,9 +448,9 @@ class Wikipedia(object):
         return r.json()
 
     def _build_structured(
-        self,
-        extract,
-        page
+            self,
+            extract,
+            page
     ):
         self._common_attributes(extract, page)
         section_stack = [page]
@@ -457,8 +458,8 @@ class Wikipedia(object):
         prev_pos = 0
 
         for match in re.finditer(
-            RE_SECTION[self.extract_format],
-            extract['extract']
+                RE_SECTION[self.extract_format],
+                extract['extract']
         ):
             # print(match.start(), match.end())
             if page._summary == '':
@@ -512,9 +513,9 @@ class Wikipedia(object):
         return section
 
     def _build_info(
-        self,
-        extract,
-        page
+            self,
+            extract,
+            page
     ):
         self._common_attributes(extract, page)
         for k, v in extract.items():
@@ -523,9 +524,9 @@ class Wikipedia(object):
         return page
 
     def _build_langlinks(
-        self,
-        extract,
-        page
+            self,
+            extract,
+            page
     ):
         self._common_attributes(extract, page)
         for langlink in extract['langlinks']:
@@ -541,9 +542,9 @@ class Wikipedia(object):
         return page
 
     def _build_links(
-        self,
-        extract,
-        page
+            self,
+            extract,
+            page
     ):
         self._common_attributes(extract, page)
         for link in extract['links']:
@@ -557,9 +558,9 @@ class Wikipedia(object):
         return page
 
     def _build_backlinks(
-        self,
-        extract,
-        page
+            self,
+            extract,
+            page
     ):
         self._common_attributes(extract, page)
         for backlink in extract['backlinks']:
@@ -572,11 +573,10 @@ class Wikipedia(object):
 
         return page
 
-
     def _build_categories(
-        self,
-        extract,
-        page
+            self,
+            extract,
+            page
     ):
         self._common_attributes(extract, page)
         for category in extract['categories']:
@@ -590,9 +590,9 @@ class Wikipedia(object):
         return page
 
     def _build_categorymembers(
-        self,
-        extract,
-        page
+            self,
+            extract,
+            page
     ):
         self._common_attributes(extract, page)
         for member in extract['categorymembers']:
@@ -609,9 +609,9 @@ class Wikipedia(object):
         return page
 
     def _common_attributes(
-        self,
-        extract,
-        page
+            self,
+            extract,
+            page
     ):
         common_attributes = [
             'title',
@@ -634,14 +634,14 @@ class WikipediaPageSection(object):
             self,
             wiki: Wikipedia,
             title: str,
-            level: int =0,
-            text: str =''
+            level: int = 0,
+            text: str = ''
     ) -> None:
         self.wiki = wiki
         self._title = title
         self._level = level
         self._text = text
-        self._section = [] # type: List['WikipediaPageSection']
+        self._section = []  # type: List['WikipediaPageSection']
 
     @property
     def title(self) -> str:
@@ -679,7 +679,7 @@ class WikipediaPageSection(object):
         """
         return self._section
 
-    def full_text(self, level: int=1) -> str:
+    def full_text(self, level: int = 1) -> str:
         """
         Returns text of the current section as well as all its subsections.
 
@@ -699,7 +699,7 @@ class WikipediaPageSection(object):
         if len(self._text) > 0:
             res += "\n\n"
         for sec in self.sections:
-            res += sec.full_text(level+1)
+            res += sec.full_text(level + 1)
         return res
 
     def __repr__(self):
@@ -761,14 +761,14 @@ class WikipediaPage(object):
             url: str = None
     ) -> None:
         self.wiki = wiki
-        self._summary = '' # type: str
-        self._section = [] # type: List[WikipediaPageSection]
-        self._section_mapping = {} # type: Dict[str, WikipediaPageSection]
-        self._langlinks = {} # type: PagesDict
-        self._links = {} # type: PagesDict
-        self._backlinks = {} # type: PagesDict
-        self._categories = {} # type: PagesDict
-        self._categorymembers = {} # type: PagesDict
+        self._summary = ''  # type: str
+        self._section = []  # type: List[WikipediaPageSection]
+        self._section_mapping = {}  # type: Dict[str, WikipediaPageSection]
+        self._langlinks = {}  # type: PagesDict
+        self._links = {}  # type: PagesDict
+        self._backlinks = {}  # type: PagesDict
+        self._categories = {}  # type: PagesDict
+        self._categorymembers = {}  # type: PagesDict
 
         self._called = {
             'structured': False,
@@ -819,7 +819,6 @@ class WikipediaPage(object):
         """
         return self._attributes['title']
 
-
     @property
     def namespace(self) -> Namespace:
         """
@@ -828,6 +827,7 @@ class WikipediaPage(object):
         :return: namespace
         """
         return Namespace(self._attributes['ns'])
+
     #
     # @property
     # def pageid(self) -> int:

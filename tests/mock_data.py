@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# flake8: noqa
 
 def wikipedia_api_request(page, params):
     query = ""
