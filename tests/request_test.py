@@ -14,8 +14,8 @@ class TestRequest(unittest.TestCase):
             page.summary
         except Exception as e:
             self.fail(
-                f'TestRequest::test_request_without_kwargs '
-                f'failed due to the exception: {e}'
+                'TestRequest::test_request_without_kwargs '
+                'failed due to the exception: ' + str(e)
             )
 
     def test_request_with_kwargs(self):
@@ -26,6 +26,6 @@ class TestRequest(unittest.TestCase):
             page.summary
         except Exception as e:
             self.fail(
-                f'TestRequest::test_request_with_kwargs '
-                f'failed due to the exception: {e}'
+                'TestRequest::test_request_with_kwargs '
+                'failed due to the exception: ' + str(e)
             )
