@@ -431,6 +431,12 @@ _MOCK_DATA = {
             ]
         }
     },
+    'en:action=query&bllimit=500&bltitle=Non_Existent&list=backlinks&': {
+        "query": {
+            "backlinks": [
+            ]
+        }
+    },
     'en:action=query&bllimit=500&bltitle=Test_1&list=backlinks&': {
         "query": {
             "backlinks": [

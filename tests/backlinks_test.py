@@ -10,6 +10,10 @@ class TestBackLinks(unittest.TestCase):
         self.wiki = wikipediaapi.Wikipedia("en")
         self.wiki._query = wikipedia_api_request
 
+    def test_backlinks_nonexistent_count(self):
+        page = self.wiki.page('Non_Existent')
+        self.assertEqual(len(page.backlinks), 0)
+
     def test_backlinks_single_page_count(self):
         page = self.wiki.page('Test_1')
         self.assertEqual(len(page.backlinks), 3)
