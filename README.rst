@@ -10,6 +10,8 @@ Wikipedia API
 Installation
 ------------
 
+This package requires at least Python 3.4 to install because it's using IntEnum.
+
 .. code-block:: python
 
     pip3 install wikipedia-api
