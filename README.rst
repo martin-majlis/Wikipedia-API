@@ -40,9 +40,11 @@ It's parameter language has be one of `supported languages`_.
 
 .. code-block:: python
 
+    import wikipediaapi
 	wiki_wiki = wikipediaapi.Wikipedia('en')
 
 	page_py = wiki_wiki.page('Python_(programming_language)')
+
 
 How To Check If Wiki Page Exists
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -66,11 +68,16 @@ Class ``WikipediaPage`` has property ``summary``, which returns description of W
 
 .. code-block:: python
 
+
+    import wikipediaapi
+	wiki_wiki = wikipediaapi.Wikipedia('en')
+
 	print("Page - Title: %s" % page_py.title)
 	# Page - Title: Python (programming language)
 
 	print("Page - Summary: %s" % page_py.summary[0:60])
 	# Page - Summary: Python is a widely used high-level programming language for
+
 
 How To Get Page URL
 ~~~~~~~~~~~~~~~~~~~
@@ -219,11 +226,11 @@ You have to implement recursion and deduplication by yourself.
 
 .. code-block:: python
 
-	def print_categorymembers(categorymembers, level=0, max_level=2):
+	def print_categorymembers(categorymembers, level=0, max_level=1):
 		for c in categorymembers.values():
 		    print("%s: %s (ns: %d)" % ("*" * (level + 1), c.title, c.ns))
-		    if c.ns == wikipediaapi.Namespace.CATEGORY and level <= max_level:
-		        print_categorymembers(c.categorymembers, level + 1)
+		    if c.ns == wikipediaapi.Namespace.CATEGORY and level < max_level:
+		        print_categorymembers(c.categorymembers, level=level + 1, max_level=max_level)
 
 
 	cat = wiki_wiki.page("Category:Physics")
@@ -239,6 +246,30 @@ You have to implement recursion and deduplication by yourself.
 	# ** Specific weight (ns: 0)
 	# ** Category:Viscosity (ns: 14)
 	# *** Brookfield Engineering (ns: 0)
+
+How To See Underlying API Call
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you have problems with retrieving data you can get URL of undrerlying API call.
+This will help you determine if the problem is in the library or somewhere else.
+
+.. code-block:: python
+
+    import wikipediaapi
+    import sys
+    wikipediaapi.log.setLevel(level=wikipediaapi.logging.DEBUG)
+
+    # Set handler if you use Python in interactive mode
+    out_hdlr = wikipediaapi.logging.StreamHandler(sys.stderr)
+    out_hdlr.setFormatter(wikipediaapi.logging.Formatter('%(asctime)s %(message)s'))
+    out_hdlr.setLevel(wikipediaapi.logging.DEBUG)
+    wikipediaapi.log.addHandler(out_hdlr)
+
+    wiki = wikipediaapi.Wikipedia(language='en')
+
+    page_ostrava = wiki.page('Ostrava')
+    print(page_ostrava.summary)
+    # logger prints out: Request URL: http://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Ostrava&explaintext=1&exsectionformat=wiki
 
 External Links
 --------------

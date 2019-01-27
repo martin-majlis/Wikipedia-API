@@ -2,6 +2,11 @@
 ``wikipediaapi``
 ================
 
+.. automodule:: wikipediaapi
+    :members:
+    :exclude-members: Wikipedia, WikipediaPage, WikipediaPageSection, ExtractFormat, Namespace
+    :member-order: bysource
+
 .. autoclass:: wikipediaapi.Wikipedia
     :exclude-members: __module__, __weakref__
 .. autoclass:: wikipediaapi.WikipediaPage
@@ -16,4 +21,3 @@
     :undoc-members:
     :member-order: bysource
     :exclude-members: __module__, __weakref__
-.. autoclass:: wikipediaapi.PagesDict

@@ -16,6 +16,9 @@ from typing import Dict, Any, List, Optional
 from urllib import parse
 
 log = logging.getLogger(__name__)
+"""
+Instance of logging.Logger used for logging inside Wikipedia-API.
+"""
 
 # https://www.mediawiki.org/wiki/API:Main_page
 
@@ -453,7 +456,7 @@ class Wikipedia(object):
     ):
         base_url = 'http://' + page.language + '.wikipedia.org/w/api.php'
         headers = self.__headers.copy()
-        logging.info(
+        log.info(
             "Request URL: %s",
             base_url + "?" + "&".join(
                 [k + "=" + str(v) for k, v in params.items()]
