@@ -13,6 +13,7 @@ from enum import IntEnum
 
 import requests
 from typing import Dict, Any, List, Optional
+from urllib import parse
 
 log = logging.getLogger(__name__)
 
@@ -148,7 +149,8 @@ class Wikipedia(object):
     def page(
             self,
             title: str,
-            ns: Namespace = Namespace.MAIN
+            ns: Namespace = Namespace.MAIN,
+            unquote: bool = False,
     ) -> 'WikipediaPage':
         """
         Constructs Wikipedia page with title `title`.
@@ -162,10 +164,24 @@ class Wikipedia(object):
             print(page_py.title)
             # Python (programming language)
 
+            wiki_hi = wikipediaapi.Wikipedia('hi')
+
+            page_hi_py = wiki_hi.article(
+                title='%E0%A4%AA%E0%A4%BE%E0%A4%87%E0%A4%A5%E0%A4%A8',
+                unquote=True,
+            )
+            print(page_hi_py.title)
+            # पाइथन
+
         :param title: page title as used in Wikipedia URL
         :param ns: :class:`Namespace`
+        :param unquote: if true it will unquote title
         :return: object representing :class:`WikipediaPage`
         """
+
+        if unquote:
+            title = parse.unquote(title)
+
         return WikipediaPage(
             self,
             title=title,
@@ -177,6 +193,7 @@ class Wikipedia(object):
             self,
             title: str,
             ns: Namespace = Namespace.MAIN,
+            unquote: bool = False
     ) -> 'WikipediaPage':
         """
         Constructs Wikipedia page with title `title`.
@@ -185,9 +202,14 @@ class Wikipedia(object):
 
         :param title: page title as used in Wikipedia URL
         :param ns: :class:`Namespace`
+        :param unquote: if true it will unquote title
         :return: object representing :class:`WikipediaPage`
         """
-        return self.page(title, ns)
+        return self.page(
+            title=title,
+            ns=ns,
+            unquote=unquote,
+        )
 
     def _structured(
             self,

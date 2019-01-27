@@ -491,4 +491,38 @@ _MOCK_DATA = {
             ]
         }
     },
+    'hi:action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=पाइथन&': {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "10": {
+                    "pageid": 10,
+                    "ns": 0,
+                    "title": "पाइथन",
+                    "missing": "",
+                    "contentmodel": "wikitext",
+                    "pagelanguage": "hi",
+                    "pagelanguagehtmlcode": "hi",
+                    "pagelanguagedir": "ltr",
+                    "protection": [
+                        {
+                            "type": "create",
+                            "level": "sysop",
+                            "expiry": "infinity"
+                        }
+                    ],
+                    "restrictiontypes": [
+                        "create"
+                    ],
+                    "notificationtimestamp": "",
+                    "fullurl": "https://l1.wikipedia.org/wiki/Test 1 - 1",
+                    "editurl": "https://l1.wikipedia.org/w/index.php?title=Test 1 - 1&action=edit",
+                    "canonicalurl": "https://l1.wikipedia.org/wiki/Test 1 - 1",
+                    "readable": "",
+                    "preload": None,
+                    "displaytitle": "पाइथन"
+                }
+            }
+        }
+    },
 }

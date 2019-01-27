@@ -37,3 +37,29 @@ class TestWikipediaPage(unittest.TestCase):
         p = self.wiki.page('Test_1')
         a = self.wiki.article('Test_1')
         self.assertEqual(p.pageid, a.pageid)
+
+    def test_article_title_unquote(self):
+        # https://github.com/goldsmith/Wikipedia/issues/190
+        w = wikipediaapi.Wikipedia('hi')
+        w._query = wikipedia_api_request
+        p_encoded = w.article(
+            '%E0%A4%AA%E0%A4%BE%E0%A4%87%E0%A4%A5%E0%A4%A8',
+            unquote=True,
+        )
+        p_decoded = w.article(
+            'पाइथन'
+        )
+        self.assertEqual(p_encoded.pageid, p_decoded.pageid)
+
+    def test_page_title_unquote(self):
+        # https://github.com/goldsmith/Wikipedia/issues/190
+        w = wikipediaapi.Wikipedia('hi')
+        w._query = wikipedia_api_request
+        p_encoded = w.page(
+            '%E0%A4%AA%E0%A4%BE%E0%A4%87%E0%A4%A5%E0%A4%A8',
+            unquote=True,
+        )
+        p_decoded = w.page(
+            'पाइथन'
+        )
+        self.assertEqual(p_encoded.pageid, p_decoded.pageid)
