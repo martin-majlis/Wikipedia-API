@@ -27,3 +27,14 @@ Usage Statistics
 .. _Downloads comparison: https://bigquery.cloud.google.com/savedquery/35201106510:40051d42809040a3937b8efce9ea7053
 .. _Downloads comparison with installer: https://bigquery.cloud.google.com/savedquery/35201106510:b94e978a4c1b4d3985c15b54ba33610e
 
+
+Underlying API
+--------------
+
+* `API - HP`_
+* `Module - Parse`_
+* `Module - Query`_
+
+.. _API - HP: https://www.mediawiki.org/wiki/API:Main_page
+.. _Module - Parse: https://en.wikipedia.org/w/api.php?action=help&modules=parse
+.. _Module - Query: https://en.wikipedia.org/w/api.php?action=help&modules=query
