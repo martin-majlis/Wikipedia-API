@@ -96,3 +96,19 @@ class TestWikiFormatExtracts(unittest.TestCase):
                 "Text for section 5.1"
             )
         )
+
+    def test_text_and_summary_without_sections(self):
+        page = self.wiki.page('No_Sections')
+        self.maxDiff = None
+        self.assertEqual(
+            page.text,
+            (
+                "Summary text"
+            )
+        )
+        self.assertEqual(
+            page.summary,
+            (
+                "Summary text"
+            )
+        )

@@ -512,6 +512,10 @@ class Wikipedia(object):
             prev_pos = match.end()
             page._section_mapping[section._title] = section
 
+        # pages without sections have only summary
+        if page._summary == '':
+            page._summary = extract['extract'].strip()
+
         if prev_pos > 0:
             section._text = extract['extract'][prev_pos:]
 

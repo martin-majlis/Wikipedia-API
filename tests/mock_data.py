@@ -59,6 +59,32 @@ _MOCK_DATA = {
             }
         }
     },
+    'en:action=query&explaintext=1&exsectionformat=wiki&prop=extracts&titles=No_Sections&': {
+        "batchcomplete": "",
+        "warnings": {
+            "extracts": {
+                "*": "\"exlimit\" was too large for a whole article extracts request, lowered to 1."
+            }
+        },
+        "query": {
+            "normalized": [
+                {
+                    "from": "No_Sections",
+                    "to": "No Sections"
+                }
+            ],
+            "pages": {
+                "4": {
+                    "pageid": 5,
+                    "ns": 0,
+                    "title": "No Sections",
+                    "extract": (
+                            "Summary text\n\n\n"
+                    )
+                }
+            }
+        }
+    },
     'en:action=query&prop=extracts&titles=Test_1&': {
         "batchcomplete": "",
         "warnings": {
