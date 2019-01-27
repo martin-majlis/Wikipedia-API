@@ -1,9 +1,25 @@
 Changelog
 =========
 
+0.4.3
+-----
+* Correctly extracts text from pages without sections
+* Adds support for quoted page titles
+
+.. code:: python
+
+    api = wikipediaapi.Wikipedia(
+        language='hi',
+    )
+    python = api.article(
+        title='%E0%A4%AA%E0%A4%BE%E0%A4%87%E0%A4%A5%E0%A4%A8',
+        unquote=True,
+    )
+    print(python.summary)
+
 0.4.2
 -----
-* Add support for Python 3.4 by not using f-strings
+* Adds support for Python 3.4 by not using f-strings
 
 0.4.1
 -----
@@ -18,11 +34,11 @@ Changelog
 .. code:: python
 
     api = wikipediaapi.Wikipedia(
-            language='en',
-            proxies={'http': 'http://localhost:1234'}
-          )
+        language='en',
+        proxies={'http': 'http://localhost:1234'}
+    )
 
-* Extended documentation
+* Extends documentation
 
 .. _request: http://docs.python-requests.org/en/master/api/#requests.request
 
