@@ -292,7 +292,8 @@ Other Badges
 |github-commits-since-latest| |github-forks| |github-stars| |github-watches|
 |github-commit-activity| |github-last-commit| |github-code-size| |github-repo-size|
 |pypi-license| |pypi-wheel| |pypi-format| |pypi-pyversions| |pypi-implementations|
-|pypi-status|
+|pypi-status| |pypi-downloads-dd| |pypi-downloads-dw| |pypi-downloads-dm|
+|libraries-io-sourcerank| |libraries-io-dependent-repos|
 
 
 Other Pages
@@ -416,4 +417,25 @@ Other Pages
 .. |pypi-status| image:: https://img.shields.io/pypi/status/Wikipedia-API.svg
 	:target: https://pypi.python.org/pypi/Wikipedia-API/
 	:alt: PyPi Status
+
+.. |pypi-downloads-dd| image:: https://img.shields.io/pypi/dd/Wikipedia-API.svg
+	:target: https://pypi.python.org/pypi/Wikipedia-API/
+	:alt: PyPi Downloads - Day
+
+.. |pypi-downloads-dw| image:: https://img.shields.io/pypi/dw/Wikipedia-API.svg
+	:target: https://pypi.python.org/pypi/Wikipedia-API/
+	:alt: PyPi Downloads - Week
+
+.. |pypi-downloads-dm| image:: https://img.shields.io/pypi/dm/Wikipedia-API.svg
+	:target: https://pypi.python.org/pypi/Wikipedia-API/
+	:alt: PyPi Downloads - Month
+
+.. |libraries-io-sourcerank| image:: https://img.shields.io/librariesio/sourcerank/pypi/Wikipedia-API.svg
+	:target: https://libraries.io/pypi/Wikipedia-API
+	:alt: Libraries.io - SourceRank
+
+.. |libraries-io-dependent-repos| image:: https://img.shields.io/librariesio/dependent-repos/pypi/Wikipedia-API.svg
+	:target: https://libraries.io/pypi/Wikipedia-API
+	:alt: Libraries.io - Dependent Repos
+
 
