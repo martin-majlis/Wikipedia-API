@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.4.4
+-----
+* Uses HTTPS directly instead of HTTP to avoid redirect
+
 0.4.3
 -----
 * Correctly extracts text from pages without sections

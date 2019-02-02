@@ -454,7 +454,7 @@ class Wikipedia(object):
             page: 'WikipediaPage',
             params: Dict[str, Any]
     ):
-        base_url = 'http://' + page.language + '.wikipedia.org/w/api.php'
+        base_url = 'https://' + page.language + '.wikipedia.org/w/api.php'
         headers = self.__headers.copy()
         log.info(
             "Request URL: %s",
