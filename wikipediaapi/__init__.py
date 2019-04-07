@@ -214,7 +214,7 @@ class Wikipedia(object):
             unquote=unquote,
         )
 
-    def _extracts(
+    def extracts(
             self,
             page: 'WikipediaPage'
     ) -> 'WikipediaPage':
@@ -252,7 +252,7 @@ class Wikipedia(object):
                 return self._build_extracts(v, page)
         return page
 
-    def _info(
+    def info(
             self,
             page: 'WikipediaPage'
     ) -> 'WikipediaPage':
@@ -292,7 +292,7 @@ class Wikipedia(object):
                 return self._build_info(v, page)
         return page
 
-    def _langlinks(
+    def langlinks(
             self,
             page: 'WikipediaPage'
     ) -> 'WikipediaPage':
@@ -322,7 +322,7 @@ class Wikipedia(object):
                 return self._build_langlinks(v, page)
         return page
 
-    def _links(
+    def links(
             self,
             page: 'WikipediaPage'
     ) -> 'WikipediaPage':
@@ -359,7 +359,7 @@ class Wikipedia(object):
                 return self._build_links(v, page)
         return page
 
-    def _backlinks(
+    def backlinks(
             self,
             page: 'WikipediaPage'
     ) -> 'WikipediaPage':
@@ -389,7 +389,7 @@ class Wikipedia(object):
             v['backlinks'] += raw['query']['backlinks']
         return self._build_backlinks(v, page)
 
-    def _categories(
+    def categories(
             self,
             page: 'WikipediaPage'
     ) -> 'WikipediaPage':
@@ -418,7 +418,7 @@ class Wikipedia(object):
                 return self._build_categories(v, page)
         return page
 
-    def _categorymembers(
+    def categorymembers(
             self,
             page: 'WikipediaPage'
     ) -> 'WikipediaPage':
@@ -1014,7 +1014,7 @@ class WikipediaPage(object):
         return self._categorymembers
 
     def _fetch(self, call) -> 'WikipediaPage':
-        getattr(self.wiki, '_' + call)(self)
+        getattr(self.wiki, call)(self)
         self._called[call] = True
         return self
 
