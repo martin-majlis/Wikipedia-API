@@ -6,7 +6,7 @@ from Wikipedia. Documentation provides code snippets for the most common use
 cases.
 """
 
-__version__ = (0, 4, 4)
+__version__ = (0, 4, 5)
 import logging
 import re
 from enum import IntEnum
