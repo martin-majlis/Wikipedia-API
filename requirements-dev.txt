@@ -3,3 +3,4 @@ sphinx
 pygments
 coverage
 flake8
+tox

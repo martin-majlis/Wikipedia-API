@@ -217,7 +217,7 @@ class Wikipedia(object):
     def extracts(
             self,
             page: 'WikipediaPage',
-            **kwargs,
+            **kwargs
     ) -> str:
         """
         Returns summary of the page with respect to parameters
@@ -414,7 +414,7 @@ class Wikipedia(object):
     def backlinks(
             self,
             page: 'WikipediaPage',
-            **kwargs,
+            **kwargs
     ) -> PagesDict:
         """
         Returns backlinks from other pages with respect to parameters

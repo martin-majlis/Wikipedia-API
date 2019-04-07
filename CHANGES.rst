@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.5.1
+-----
+
+* Adds tox for testing different Python versions
+
 0.5.0
 -----
 
