@@ -214,7 +214,7 @@ class Wikipedia(object):
             unquote=unquote,
         )
 
-    def _structured(
+    def _extracts(
             self,
             page: 'WikipediaPage'
     ) -> 'WikipediaPage':
@@ -249,7 +249,7 @@ class Wikipedia(object):
                 page._attributes['pageid'] = -1
                 return page
             else:
-                return self._build_structured(v, page)
+                return self._build_extracts(v, page)
         return page
 
     def _info(
@@ -472,7 +472,7 @@ class Wikipedia(object):
         )
         return r.json()
 
-    def _build_structured(
+    def _build_extracts(
             self,
             extract,
             page
@@ -757,9 +757,9 @@ class WikipediaPage(object):
     """
     ATTRIBUTES_MAPPING = {
         "language": [],
-        "pageid": ["info", "structured", "langlinks"],
-        "ns": ["info", "structured", "langlinks"],
-        "title": ["info", "structured", "langlinks"],
+        "pageid": ["info", "extracts", "langlinks"],
+        "ns": ["info", "extracts", "langlinks"],
+        "title": ["info", "extracts", "langlinks"],
         "contentmodel": ["info"],
         "pagelanguage": ["info"],
         "pagelanguagehtmlcode": ["info"],
@@ -800,7 +800,7 @@ class WikipediaPage(object):
         self._categorymembers = {}  # type: PagesDict
 
         self._called = {
-            'structured': False,
+            'extracts': False,
             'info': False,
             'langlinks': False,
             'links': False,
@@ -890,8 +890,8 @@ class WikipediaPage(object):
 
         :return: summary
         """
-        if not self._called['structured']:
-            self._fetch('structured')
+        if not self._called['extracts']:
+            self._fetch('extracts')
         return self._summary
 
     @property
@@ -901,8 +901,8 @@ class WikipediaPage(object):
 
         :return: List of :class:`WikipediaPageSection`
         """
-        if not self._called['structured']:
-            self._fetch('structured')
+        if not self._called['extracts']:
+            self._fetch('extracts')
         return self._section
 
     def section_by_title(
@@ -915,8 +915,8 @@ class WikipediaPage(object):
         :param title: section title
         :return: :class:`WikipediaPageSection`
         """
-        if not self._called['structured']:
-            self._fetch('structured')
+        if not self._called['extracts']:
+            self._fetch('extracts')
         return self._section_mapping.get(title)
 
     @property
