@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.4.5
+-----
+
+* Handles missing sections correctly
+* Fixes `Issue 20`_
+
+.. _Issue 20: https://github.com/martin-majlis/Wikipedia-API/issues/20
+
+
 0.4.4
 -----
 * Uses HTTPS directly instead of HTTP to avoid redirect
