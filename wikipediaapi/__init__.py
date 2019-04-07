@@ -558,7 +558,7 @@ class Wikipedia(object):
             page
     ):
         self._common_attributes(extract, page)
-        for langlink in extract['langlinks']:
+        for langlink in extract.get('langlinks', []):
             p = WikipediaPage(
                 wiki=self,
                 title=langlink['*'],
@@ -576,7 +576,7 @@ class Wikipedia(object):
             page
     ):
         self._common_attributes(extract, page)
-        for link in extract['links']:
+        for link in extract.get('links', []):
             page._links[link['title']] = WikipediaPage(
                 wiki=self,
                 title=link['title'],
@@ -592,7 +592,7 @@ class Wikipedia(object):
             page
     ):
         self._common_attributes(extract, page)
-        for backlink in extract['backlinks']:
+        for backlink in extract.get('backlinks', []):
             page._backlinks[backlink['title']] = WikipediaPage(
                 wiki=self,
                 title=backlink['title'],
@@ -608,7 +608,7 @@ class Wikipedia(object):
             page
     ):
         self._common_attributes(extract, page)
-        for category in extract['categories']:
+        for category in extract.get('categories', []):
             page._categories[category['title']] = WikipediaPage(
                 wiki=self,
                 title=category['title'],
@@ -624,7 +624,7 @@ class Wikipedia(object):
             page
     ):
         self._common_attributes(extract, page)
-        for member in extract['categorymembers']:
+        for member in extract.get('categorymembers', []):
             p = WikipediaPage(
                 wiki=self,
                 title=member['title'],

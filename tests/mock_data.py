@@ -294,6 +294,18 @@ _MOCK_DATA = {
             }
         }
     },
+    'en:action=query&lllimit=500&llprop=url&prop=langlinks&titles=No_LangLinks&': {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "10": {
+                    "pageid": 10,
+                    "ns": 0,
+                    "title": "No LangLinks",
+                }
+            }
+        }
+    },
     'en:action=query&pllimit=500&prop=links&titles=Test_1&': {
         "query": {
             "pages": {
@@ -365,6 +377,17 @@ _MOCK_DATA = {
                             "title": "Title - 5"
                         },
                     ]
+                }
+            }
+        }
+    },
+    'en:action=query&pllimit=500&prop=links&titles=No_Links&': {
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 11,
+                    "ns": 0,
+                    "title": "No_Links",
                 }
             }
         }
@@ -455,6 +478,18 @@ _MOCK_DATA = {
                     "title": "Title - 5"
                 },
             ]
+        }
+    },
+    'en:action=query&cllimit=500&prop=categories&titles=No_Categories&': {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                }
+            }
         }
     },
     'en:action=query&bllimit=500&bltitle=Non_Existent&list=backlinks&': {

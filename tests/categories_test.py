@@ -27,3 +27,7 @@ class TestCategories(unittest.TestCase):
             list(sorted(map(lambda s: s.ns, page.categories.values()))),
             [14] * 3
         )
+
+    def test_no_categories_count(self):
+        page = self.wiki.page('No_Categories')
+        self.assertEqual(len(page.categories), 0)
