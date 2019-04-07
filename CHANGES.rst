@@ -1,6 +1,17 @@
 Changelog
 =========
 
+0.5.0
+-----
+
+* Allows modifying API call parameters
+* Fixes `Issue 16`_ - hidden categories
+* Fixes `Issue 21`_ - summary extraction
+
+.. _Issue 16: https://github.com/martin-majlis/Wikipedia-API/issues/16
+.. _Issue 21: https://github.com/martin-majlis/Wikipedia-API/issues/21
+
+
 0.4.5
 -----
 
