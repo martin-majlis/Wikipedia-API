@@ -543,6 +543,22 @@ class Wikipedia(object):
 
         return self._build_categorymembers(v, page)
 
+    def wikitext(self, title: str) -> str:
+        """
+        Returns wikitext of a page
+
+        :param title: page title as used in Wikipedia URL
+        :return: wikitext of the page
+        """
+        page = self.page(title)
+        params = {
+            'page': title,
+            'action': 'parse',
+            'prop': 'wikitext'
+        }
+        raw = self._query(page, params)
+        return raw['parse']['wikitext']['*']
+
     def _query(
             self,
             page: 'WikipediaPage',
