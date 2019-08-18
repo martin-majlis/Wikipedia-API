@@ -82,6 +82,8 @@ class Namespace(IntEnum):
     CATEGORY_TALK = 15
     PORTAL = 100
     PORTAL_TALK = 101
+    PROJECT = 102
+    REFERENCE = 104
     BOOK = 108
     BOOK_TALK = 109
     DRAFT = 118
