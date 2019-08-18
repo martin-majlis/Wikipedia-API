@@ -6,7 +6,7 @@ from Wikipedia. Documentation provides code snippets for the most common use
 cases.
 """
 
-__version__ = (0, 5, 1)
+__version__ = (0, 5, 2)
 import logging
 import re
 from enum import IntEnum
@@ -83,7 +83,9 @@ class Namespace(IntEnum):
     PORTAL = 100
     PORTAL_TALK = 101
     PROJECT = 102
+    PROJECT_TALK = 103
     REFERENCE = 104
+    REFERENCE_TALK = 105
     BOOK = 108
     BOOK_TALK = 109
     DRAFT = 118

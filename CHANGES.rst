@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.5.2
+-----
+
+* Adds namespaces 102 - 105 - `Issue 24`_
+
+.. _Issue 24: https://github.com/martin-majlis/Wikipedia-API/issues/24
+
 0.5.1
 -----
 
