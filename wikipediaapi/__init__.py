@@ -146,12 +146,17 @@ class Wikipedia(object):
 
         self.language = language.strip().lower()
         self.extract_format = extract_format
-        self.__headers = dict() if headers is None else headers
-        self.__headers.setdefault(
+        default_headers = dict() if headers is None else headers
+        default_headers.setdefault(
             'User-Agent',
             'Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)'
         )
-        self.__request_kwargs = kwargs
+        self._session = requests.Session()
+        self._session.headers.update(default_headers)
+        self._request_kwargs = kwargs
+
+    def __del__(self) -> None:
+        self._session.close()
 
     def page(
             self,
@@ -553,7 +558,6 @@ class Wikipedia(object):
             params: Dict[str, Any]
     ):
         base_url = 'https://' + page.language + '.wikipedia.org/w/api.php'
-        headers = self.__headers.copy()
         log.info(
             "Request URL: %s",
             base_url + "?" + "&".join(
@@ -562,11 +566,10 @@ class Wikipedia(object):
         )
         params['format'] = 'json'
         params['redirects'] = 1
-        r = requests.get(
+        r = self._session.get(
             base_url,
             params=params,
-            headers=headers,
-            **self.__request_kwargs
+            **self._request_kwargs
         )
         return r.json()
 

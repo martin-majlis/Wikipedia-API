@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.5.3
+-----
+
+* Adds persistent HTTP connection - `Issue 26`_
+    * Downloading 50 pages reduced from 13s to 8s => 40% speed up
+
+.. _Issue 26: https://github.com/martin-majlis/Wikipedia-API/issues/26
+
+
 0.5.2
 -----
 
