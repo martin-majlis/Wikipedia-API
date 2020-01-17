@@ -88,6 +88,7 @@ class Namespace(IntEnum):
     REFERENCE_TALK = 105
     BOOK = 108
     BOOK_TALK = 109
+    FIX = 110
     DRAFT = 118
     DRAFT_TALK = 119
     EDUCATION_PROGRAM = 446
