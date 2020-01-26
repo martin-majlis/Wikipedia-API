@@ -1,6 +1,14 @@
 Changelog
 =========
 
+0.5.4
+-----
+
+* Namespace could be arbitrary integer - `Issue 29`_
+
+.. _Issue 29: https://github.com/martin-majlis/Wikipedia-API/issues/29
+
+
 0.5.3
 -----
 
