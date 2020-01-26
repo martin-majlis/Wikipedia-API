@@ -10,6 +10,7 @@ __version__ = (0, 5, 3)
 import logging
 import re
 from enum import IntEnum
+from typing import Union
 
 import requests
 from typing import Dict, Any, List, Optional
@@ -88,7 +89,6 @@ class Namespace(IntEnum):
     REFERENCE_TALK = 105
     BOOK = 108
     BOOK_TALK = 109
-    FIX = 110
     DRAFT = 118
     DRAFT_TALK = 119
     EDUCATION_PROGRAM = 446
@@ -101,6 +101,16 @@ class Namespace(IntEnum):
     GADGET_TALK = 2301
     GADGET_DEFINITION = 2302
     GADGET_DEFINITION_TALK = 2303
+
+
+WikiNamespace = Union[Namespace, int]
+
+
+def namespace2int(namespace: WikiNamespace) -> int:
+    if isinstance(namespace, Namespace):
+        return namespace.value
+    else:
+        return namespace
 
 
 RE_SECTION = {
@@ -162,7 +172,7 @@ class Wikipedia(object):
     def page(
             self,
             title: str,
-            ns: Namespace = Namespace.MAIN,
+            ns: WikiNamespace = Namespace.MAIN,
             unquote: bool = False,
     ) -> 'WikipediaPage':
         """
@@ -187,7 +197,7 @@ class Wikipedia(object):
             # पाइथन
 
         :param title: page title as used in Wikipedia URL
-        :param ns: :class:`Namespace`
+        :param ns: :class:`WikiNamespace`
         :param unquote: if true it will unquote title
         :return: object representing :class:`WikipediaPage`
         """
@@ -205,7 +215,7 @@ class Wikipedia(object):
     def article(
             self,
             title: str,
-            ns: Namespace = Namespace.MAIN,
+            ns: WikiNamespace = Namespace.MAIN,
             unquote: bool = False
     ) -> 'WikipediaPage':
         """
@@ -214,7 +224,7 @@ class Wikipedia(object):
         This function is an alias for :func:`page`
 
         :param title: page title as used in Wikipedia URL
-        :param ns: :class:`Namespace`
+        :param ns: :class:`WikiNamespace`
         :param unquote: if true it will unquote title
         :return: object representing :class:`WikipediaPage`
         """
@@ -692,7 +702,7 @@ class Wikipedia(object):
             page._links[link['title']] = WikipediaPage(
                 wiki=self,
                 title=link['title'],
-                ns=Namespace(link['ns']),
+                ns=int(link['ns']),
                 language=page.language
             )
 
@@ -711,7 +721,7 @@ class Wikipedia(object):
             page._backlinks[backlink['title']] = WikipediaPage(
                 wiki=self,
                 title=backlink['title'],
-                ns=Namespace(backlink['ns']),
+                ns=int(backlink['ns']),
                 language=page.language
             )
 
@@ -730,7 +740,7 @@ class Wikipedia(object):
             page._categories[category['title']] = WikipediaPage(
                 wiki=self,
                 title=category['title'],
-                ns=Namespace(category['ns']),
+                ns=int(category['ns']),
                 language=page.language
             )
 
@@ -749,7 +759,7 @@ class Wikipedia(object):
             p = WikipediaPage(
                 wiki=self,
                 title=member['title'],
-                ns=Namespace(member['ns']),
+                ns=int(member['ns']),
                 language=page.language
             )
             p.pageid = member['pageid']  # type: ignore
@@ -906,7 +916,7 @@ class WikipediaPage(object):
             self,
             wiki: Wikipedia,
             title: str,
-            ns: Namespace = Namespace.MAIN,
+            ns: WikiNamespace = Namespace.MAIN,
             language: str = 'en',
             url: str = None
     ) -> None:
@@ -932,7 +942,7 @@ class WikipediaPage(object):
 
         self._attributes = {
             'title': title,
-            'ns': ns.value,
+            'ns': namespace2int(ns),
             'language': language
         }  # type: Dict[str, Any]
 
@@ -970,13 +980,13 @@ class WikipediaPage(object):
         return self._attributes['title']
 
     @property
-    def namespace(self) -> Namespace:
+    def namespace(self) -> int:
         """
         Returns namespace of the current page.
 
         :return: namespace
         """
-        return Namespace(self._attributes['ns'])
+        return int(self._attributes['ns'])
 
     #
     # @property

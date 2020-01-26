@@ -63,3 +63,8 @@ class TestWikipediaPage(unittest.TestCase):
             'पाइथन'
         )
         self.assertEqual(p_encoded.pageid, p_decoded.pageid)
+
+    def test_page_with_int_namespace(self):
+        page = self.wiki.page('NonExisting', ns=110)
+        self.assertFalse(page.exists())
+        self.assertEqual(110, page.namespace)
