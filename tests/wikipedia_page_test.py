@@ -20,6 +20,22 @@ class TestWikipediaPage(unittest.TestCase):
         self.assertEqual(page.pageid, 4)
         self.assertEqual(repr(page), 'Test 1 (id: 4, ns: 0)')
 
+    def test_extract(self):
+        page = self.wiki.page('Test_1')
+        self.assertEqual(page.pageid, 4)
+        self.assertEqual(page.title, 'Test 1')
+        self.assertEqual(page.ns, 0)
+        self.assertEqual(page.contentmodel, 'wikitext')
+        self.assertEqual(page.pagelanguage, 'en')
+        self.assertEqual(page.pagelanguagedir, 'ltr')
+        self.assertEqual(page.fullurl, 'https://en.wikipedia.org/wiki/Test_1')
+        self.assertEqual(
+            page.editurl,
+            'https://en.wikipedia.org/w/index.php?title=Test_1&action=edit',
+        )
+        self.assertEqual(page.canonicalurl, 'https://en.wikipedia.org/wiki/Test_1')
+        self.assertEqual(page.displaytitle, 'Test 1')
+
     def test_unknown_property(self):
         page = self.wiki.page('Test_1')
         with self.assertRaises(AttributeError):
