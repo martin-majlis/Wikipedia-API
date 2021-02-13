@@ -97,6 +97,38 @@ class TestWikiFormatExtracts(unittest.TestCase):
             )
         )
 
+    def test_wikitext(self):
+        wikitext = self.wiki.wikitext('Test_1')
+        self.assertEqual(
+            wikitext,
+            (
+            "Summary text\n\n\n" +
+            "== Section 1 ==\n" +
+            "Text for section 1\n\n\n" +
+            "=== Section 1.1 ===\n" +
+            "Text for section 1.1\n\n\n" +
+            "=== Section 1.2 ===\n" +
+            "Text for section 1.2\n\n\n" +
+            "== Section 2 ==\n" +
+            "Text for section 2\n\n\n" +
+            "== Section 3 ==\n" +
+            "Text for section 3\n\n\n" +
+            "== Section 4 ==\n\n\n" +
+            "=== Section 4.1 ===\n" +
+            "Text for section 4.1\n\n\n" +
+            "=== Section 4.2 ===\n" +
+            "Text for section 4.2\n\n\n" +
+            "==== Section 4.2.1 ====\n" +
+            "Text for section 4.2.1\n\n\n" +
+            "==== Section 4.2.2 ====\n" +
+            "Text for section 4.2.2\n\n\n" +
+            "== Section 5 ==\n" +
+            "Text for section 5\n\n\n" +
+            "=== Section 5.1 ===\n" +
+            "Text for section 5.1\n"
+            )
+        )
+
     def test_text_and_summary_without_sections(self):
         page = self.wiki.page('No_Sections')
         self.maxDiff = None

@@ -586,4 +586,36 @@ _MOCK_DATA = {
             }
         }
     },
+    'en:action=parse&page=Test_1&prop=wikitext&': {
+        "parse": {
+            "wikitext": {
+                "*": (
+                    "Summary text\n\n\n" +
+                    "== Section 1 ==\n" +
+                    "Text for section 1\n\n\n" +
+                    "=== Section 1.1 ===\n" +
+                    "Text for section 1.1\n\n\n" +
+                    "=== Section 1.2 ===\n" +
+                    "Text for section 1.2\n\n\n" +
+                    "== Section 2 ==\n" +
+                    "Text for section 2\n\n\n" +
+                    "== Section 3 ==\n" +
+                    "Text for section 3\n\n\n" +
+                    "== Section 4 ==\n\n\n" +
+                    "=== Section 4.1 ===\n" +
+                    "Text for section 4.1\n\n\n" +
+                    "=== Section 4.2 ===\n" +
+                    "Text for section 4.2\n\n\n" +
+                    "==== Section 4.2.1 ====\n" +
+                    "Text for section 4.2.1\n\n\n" +
+                    "==== Section 4.2.2 ====\n" +
+                    "Text for section 4.2.2\n\n\n" +
+                    "== Section 5 ==\n" +
+                    "Text for section 5\n\n\n" +
+                    "=== Section 5.1 ===\n" +
+                    "Text for section 5.1\n"
+                )
+            }
+        }
+    }
 }
