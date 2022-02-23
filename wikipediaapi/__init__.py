@@ -7,13 +7,13 @@ cases.
 """
 
 __version__ = (0, 5, 4)
+
 import logging
 import re
-from enum import IntEnum
-from typing import Union
-
 import requests
+from enum import IntEnum
 from typing import Dict, Any, List, Optional
+from typing import Union
 from urllib import parse
 
 log = logging.getLogger(__name__)
@@ -563,6 +563,40 @@ class Wikipedia(object):
 
         return self._build_categorymembers(v, page)
 
+    def pageterms(self,
+                  page: 'WikipediaPage',
+                  **kwargs,
+                  ):
+        """
+        https://www.mediawiki.org/w/api.php?action=query&prop=pageterms
+        https://www.wikidata.org/wiki/Help:Aliases
+
+        :param page: :class:`WikipediaPage`
+        :param kwargs: parameters used in API call
+        :return: Alias,label and description of given page
+        """
+        params = {
+            'action': 'query',
+            'prop': 'pageterms',
+            'titles': page.title,
+        }
+        used_params = kwargs
+        used_params.update(params)
+
+        raw = self._query(
+            page,
+            used_params
+        )
+        self._common_attributes(raw['query'], page)
+        pages = raw['query']['pages']
+        for k, v in pages.items():
+            if k == '-1':
+                page._attributes['pageid'] = -1
+                return page._pageterms
+            else:
+                return self._build_pageterms(v, page)
+        return page._pageterms
+
     def _query(
             self,
             page: 'WikipediaPage',
@@ -768,6 +802,17 @@ class Wikipedia(object):
 
         return page._categorymembers
 
+    def _build_pageterms(
+            self,
+            extract,
+            page
+    ) -> PagesDict:
+
+        self._common_attributes(extract, page)
+
+        page._pageterms = extract.get('terms', [])
+        return page._pageterms
+
     def _common_attributes(
             self,
             extract,
@@ -909,7 +954,10 @@ class WikipediaPage(object):
         "canonicalurl": ["info"],
         "readable": ["info"],
         "preload": ["info"],
-        "displaytitle": ["info"]
+        "displaytitle": ["info"],
+        "alias": ["pageterms"],
+        "label": ["pageterms"],
+        "description": ["pageterms"]
     }
 
     def __init__(
@@ -929,6 +977,7 @@ class WikipediaPage(object):
         self._backlinks = {}  # type: PagesDict
         self._categories = {}  # type: PagesDict
         self._categorymembers = {}  # type: PagesDict
+        self._pageterms = {'alias': [], 'label': [], 'description': []}  # type : PagesDict
 
         self._called = {
             'extracts': False,
@@ -938,6 +987,7 @@ class WikipediaPage(object):
             'backlinks': False,
             'categories': False,
             'categorymembers': False,
+            'pageterms': False,
         }
 
         self._attributes = {
@@ -1143,6 +1193,39 @@ class WikipediaPage(object):
         if not self._called['categorymembers']:
             self._fetch('categorymembers')
         return self._categorymembers
+
+    @property
+    def alias(self) -> List[str]:
+        """
+        Returns the list alias of the current page.
+
+        :return: alias
+        """
+        if not self._called['pageterms']:
+            self._fetch('pageterms')
+        return self._pageterms['alias']
+
+    @property
+    def label(self) -> List[str]:
+        """
+        Returns the list of label of the current page.
+
+        :return: label
+        """
+        if not self._called['pageterms']:
+            self._fetch('pageterms')
+        return self._pageterms['label']
+
+    @property
+    def desc(self) -> List[str]:
+        """
+        Returns the list of descriptive word of the current page.
+
+        :return: description
+        """
+        if not self._called['pageterms']:
+            self._fetch('pageterms')
+        return self._pageterms['description']
 
     def _fetch(self, call) -> 'WikipediaPage':
         getattr(self.wiki, call)(self)
