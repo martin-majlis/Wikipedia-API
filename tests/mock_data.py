@@ -586,4 +586,41 @@ _MOCK_DATA = {
             }
         }
     },
+    'en:action=query&prop=pageterms&titles=Test1&': {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "1": {
+                    "pageid": 1,
+                    "ns": 0,
+                    "title": "Test1",
+                    "terms": {
+                        "alias": [
+                            "Test 1",
+                            "Test one",
+                            "Test ONE"
+                        ],
+                        "label": [
+                            "Test 1"
+                        ],
+                        "description": [
+                            "test"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    'en:action=query&prop=pageterms&titles=Non_Existent&': {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "ns": 0,
+                    "title": "Non Existent",
+                    "missing": ""
+                }
+            }
+        }
+    },
 }
