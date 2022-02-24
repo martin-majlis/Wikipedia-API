@@ -809,7 +809,6 @@ class Wikipedia(object):
     ) -> PagesDict:
 
         self._common_attributes(extract, page)
-
         page._pageterms = extract.get('terms', [])
         return page._pageterms
 
@@ -977,7 +976,7 @@ class WikipediaPage(object):
         self._backlinks = {}  # type: PagesDict
         self._categories = {}  # type: PagesDict
         self._categorymembers = {}  # type: PagesDict
-        self._pageterms = {'alias': [], 'label': [], 'description': []}  # type : PagesDict
+        self._pageterms = {}  # type : PagesDict
 
         self._called = {
             'extracts': False,
@@ -1203,7 +1202,7 @@ class WikipediaPage(object):
         """
         if not self._called['pageterms']:
             self._fetch('pageterms')
-        return self._pageterms['alias']
+        return self._pageterms.get('alias', [])
 
     @property
     def label(self) -> List[str]:
@@ -1214,7 +1213,7 @@ class WikipediaPage(object):
         """
         if not self._called['pageterms']:
             self._fetch('pageterms')
-        return self._pageterms['label']
+        return self._pageterms.get('label', [])
 
     @property
     def desc(self) -> List[str]:
@@ -1225,7 +1224,7 @@ class WikipediaPage(object):
         """
         if not self._called['pageterms']:
             self._fetch('pageterms')
-        return self._pageterms['description']
+        return self._pageterms.get('description', [])
 
     def _fetch(self, call) -> 'WikipediaPage':
         getattr(self.wiki, call)(self)
