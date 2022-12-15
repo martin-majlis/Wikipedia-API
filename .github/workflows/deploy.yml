@@ -1,0 +1,94 @@
+name: Build and upload to PyPI
+
+# Build on every branch push, tag push, and pull request change:
+# on: [push, pull_request]
+on: [push]
+# Alternatively, to publish when a (published) GitHub Release is created, use the following:
+# on:
+#   push:
+#   pull_request:
+#   release:
+#     types:
+#       - published
+
+jobs:
+  build_wheels:
+    name: Build wheels on ${{ matrix.os }} and ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+#        os: [windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ['3.7', '3.8', '3.9', '3.10', '3.11']
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        name: Install Python
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install Python 3
+        if: runner.os == 'Windows'
+        run: |
+          choco install python3 -f -y
+      - name: Install Visual Studio 2019
+        if: runner.os == 'Windows'
+        run: |
+          choco install visualstudio2019buildtools
+#          choco install vcredist2015 -f -y
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade setuptools
+          python -m pip install --upgrade wheel
+          make requirements-dev
+      - name: Build wheels
+        run: |
+          pip wheel -w wheelhouse .
+#         python -m cibuildwheel --output-dir wheelhouse
+        env:
+          CIBW_SKIP: cp27-win*
+      - uses: actions/upload-artifact@v2
+        with:
+          path: ./wheelhouse/*.whl
+#          name: wheel-${{ matrix.os }}-${{ matrix.python }}.whl
+
+  build_sdist:
+    name: Build source distribution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        name: Install Python
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Build sdist
+        run: python setup.py sdist
+
+      - uses: actions/upload-artifact@v2
+        with:
+          path: dist/*.tar.gz
+#          name: sdist.tar.gz
+
+  upload_pypi:
+    needs: [build_wheels, build_sdist]
+    runs-on: ubuntu-latest
+    # upload to PyPI on every tag starting with 'v'
+    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags/v')
+    # alternatively, to publish when a GitHub Release is created, use the following rule:
+    # if: github.event_name == 'release' && github.event.action == 'published'
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: artifact
+          path: dist
+
+      - uses: pypa/gh-action-pypi-publish@master
+        with:
+          user: martin.majlis
+          password: ${{ secrets.pypi_password }}
+          # To test: repository_url: https://test.pypi.org/legacy/
