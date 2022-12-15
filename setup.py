@@ -1,9 +1,11 @@
-import os
 import re
 from setuptools import setup
 
 
 def fix_doc(txt):
+    """
+    Fixes documentation so that it's readable in pypi website.
+    """
     return re.sub(r'\.\. PYPI-BEGIN([\r\n]|.)*?PYPI-END', '', txt, re.DOTALL)
 
 
