@@ -7,32 +7,24 @@ cases.
 """
 
 __version__ = (0, 5, 4)
+from collections import defaultdict
+from enum import IntEnum
 import logging
 import re
-from enum import IntEnum
-from typing import Union
-
-import requests
-from typing import Dict, Any, List, Optional
+from typing import Any, Dict, List, Optional, Union
 from urllib import parse
 
+import requests
+
 log = logging.getLogger(__name__)
-"""
-Instance of logging.Logger used for logging inside Wikipedia-API.
-"""
+
 
 # https://www.mediawiki.org/wiki/API:Main_page
-
-PagesDict = Dict[str, 'WikipediaPage']
-"""
-Map from Title to :class:`WikipediaPage` with given title
-"""
+PagesDict = Dict[str, "WikipediaPage"]
 
 
 class ExtractFormat(IntEnum):
-    """
-    Represents extraction format.
-    """
+    """Represents extraction format."""
 
     WIKI = 1
     """
@@ -107,18 +99,19 @@ WikiNamespace = Union[Namespace, int]
 
 
 def namespace2int(namespace: WikiNamespace) -> int:
+    """Converts namespace into integer"""
     if isinstance(namespace, Namespace):
         return namespace.value
-    else:
-        return namespace
+
+    return namespace
 
 
 RE_SECTION = {
-    ExtractFormat.WIKI: re.compile(r'\n\n *(===*) (.*?) (===*) *\n'),
+    ExtractFormat.WIKI: re.compile(r"\n\n *(===*) (.*?) (===*) *\n"),
     ExtractFormat.HTML: re.compile(
-        r'\n? *<h([1-9])[^>]*?>(<span[^>]*></span>)? *' +
-        '(<span[^>]*>)? *(<span[^>]*></span>)? *(.*?) *' +
-        '(</span>)?(<span>Edit</span>)?</h[1-9]>\n?'
+        r"\n? *<h([1-9])[^>]*?>(<span[^>]*></span>)? *"
+        + "(<span[^>]*>)? *(<span[^>]*></span>)? *(.*?) *"
+        + "(</span>)?(<span>Edit</span>)?</h[1-9]>\n?"
         #                  ^^^^
         # Example page with 'Edit' erroneous links: https://bit.ly/2ui4FWs
     ),
@@ -126,17 +119,15 @@ RE_SECTION = {
 }
 
 
-class Wikipedia(object):
-    """
-    Wikipedia is wrapper for Wikipedia API.
-    """
+class Wikipedia:
+    """Wikipedia is wrapper for Wikipedia API."""
 
     def __init__(
-            self,
-            language: str = 'en',
-            extract_format: ExtractFormat = ExtractFormat.WIKI,
-            headers: Optional[Dict[str, Any]] = None,
-            **kwargs
+        self,
+        language: str = "en",
+        extract_format: ExtractFormat = ExtractFormat.WIKI,
+        headers: Optional[Dict[str, Any]] = None,
+        **kwargs,
     ) -> None:
         """
         Constructs Wikipedia object for extracting information Wikipedia.
@@ -153,32 +144,34 @@ class Wikipedia(object):
 
         * Use proxy: ``Wikipedia('en', proxies={'http': 'http://localhost:1234'})``
         """
-        kwargs.setdefault('timeout', 10.0)
+        kwargs.setdefault("timeout", 10.0)
 
         self.language = language.strip().lower()
         self.extract_format = extract_format
         default_headers = dict() if headers is None else headers
         default_headers.setdefault(
-            'User-Agent',
-            'Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)'
+            "User-Agent",
+            "Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)",
         )
         self._session = requests.Session()
         self._session.headers.update(default_headers)
         self._request_kwargs = kwargs
 
     def __del__(self) -> None:
+        """Closes session."""
         self._session.close()
 
     def page(
-            self,
-            title: str,
-            ns: WikiNamespace = Namespace.MAIN,
-            unquote: bool = False,
-    ) -> 'WikipediaPage':
+        self,
+        title: str,
+        ns: WikiNamespace = Namespace.MAIN,
+        unquote: bool = False,
+    ) -> "WikipediaPage":
         """
         Constructs Wikipedia page with title `title`.
 
-        Creating `WikipediaPage` object is always the first step for extracting any information.
+        Creating `WikipediaPage` object is always the first step for extracting
+        any information.
 
         Example::
 
@@ -201,23 +194,14 @@ class Wikipedia(object):
         :param unquote: if true it will unquote title
         :return: object representing :class:`WikipediaPage`
         """
-
         if unquote:
             title = parse.unquote(title)
 
-        return WikipediaPage(
-            self,
-            title=title,
-            ns=ns,
-            language=self.language
-        )
+        return WikipediaPage(self, title=title, ns=ns, language=self.language)
 
     def article(
-            self,
-            title: str,
-            ns: WikiNamespace = Namespace.MAIN,
-            unquote: bool = False
-    ) -> 'WikipediaPage':
+        self, title: str, ns: WikiNamespace = Namespace.MAIN, unquote: bool = False
+    ) -> "WikipediaPage":
         """
         Constructs Wikipedia page with title `title`.
 
@@ -234,11 +218,7 @@ class Wikipedia(object):
             unquote=unquote,
         )
 
-    def extracts(
-            self,
-            page: 'WikipediaPage',
-            **kwargs
-    ) -> str:
+    def extracts(self, page: "WikipediaPage", **kwargs) -> str:
         """
         Returns summary of the page with respect to parameters
 
@@ -264,83 +244,68 @@ class Wikipedia(object):
 
         """
         params = {
-            'action': 'query',
-            'prop': 'extracts',
-            'titles': page.title
+            "action": "query",
+            "prop": "extracts",
+            "titles": page.title,
         }  # type: Dict[str, Any]
 
         if self.extract_format == ExtractFormat.HTML:
             # we do nothing, when format is HTML
             pass
         elif self.extract_format == ExtractFormat.WIKI:
-            params['explaintext'] = 1
-            params['exsectionformat'] = 'wiki'
-        # elif self.extract_format == ExtractFormat.PLAIN:
-        #    params['explaintext'] = 1
-        #    params['exsectionformat'] = 'plain'
+            params["explaintext"] = 1
+            params["exsectionformat"] = "wiki"
 
         used_params = kwargs
         used_params.update(params)
 
-        raw = self._query(
-            page,
-            used_params
-        )
-        self._common_attributes(raw['query'], page)
-        pages = raw['query']['pages']
+        raw = self._query(page, used_params)
+        self._common_attributes(raw["query"], page)
+        pages = raw["query"]["pages"]
         for k, v in pages.items():
-            if k == '-1':
-                page._attributes['pageid'] = -1
-                return ''
-            else:
-                return self._build_extracts(v, page)
-        return ''
+            if k == "-1":
+                page._attributes["pageid"] = -1
+                return ""
+            return self._build_extracts(v, page)
+        return ""
 
-    def info(
-            self,
-            page: 'WikipediaPage'
-    ) -> 'WikipediaPage':
+    def info(self, page: "WikipediaPage") -> "WikipediaPage":
         """
         https://www.mediawiki.org/w/api.php?action=help&modules=query%2Binfo
         https://www.mediawiki.org/wiki/API:Info
         """
         params = {
-            'action': 'query',
-            'prop': 'info',
-            'titles': page.title,
-            'inprop': '|'.join([
-                'protection',
-                'talkid',
-                'watched',
-                'watchers',
-                'visitingwatchers',
-                'notificationtimestamp',
-                'subjectid',
-                'url',
-                'readable',
-                'preload',
-                'displaytitle'
-            ])
+            "action": "query",
+            "prop": "info",
+            "titles": page.title,
+            "inprop": "|".join(
+                [
+                    "protection",
+                    "talkid",
+                    "watched",
+                    "watchers",
+                    "visitingwatchers",
+                    "notificationtimestamp",
+                    "subjectid",
+                    "url",
+                    "readable",
+                    "preload",
+                    "displaytitle",
+                ]
+            ),
         }
-        raw = self._query(
-            page,
-            params
-        )
-        self._common_attributes(raw['query'], page)
-        pages = raw['query']['pages']
+        raw = self._query(page, params)
+        self._common_attributes(raw["query"], page)
+        pages = raw["query"]["pages"]
         for k, v in pages.items():
-            if k == '-1':
-                page._attributes['pageid'] = -1
+            if k == "-1":
+                page._attributes["pageid"] = -1
                 return page
-            else:
-                return self._build_info(v, page)
+
+            return self._build_info(v, page)
         return page
 
-    def langlinks(
-            self,
-            page: 'WikipediaPage',
-            **kwargs
-    ) -> PagesDict:
+    def langlinks(self, page: "WikipediaPage", **kwargs) -> PagesDict:
         """
         Returns langlinks of the page with respect to parameters
 
@@ -354,37 +319,28 @@ class Wikipedia(object):
         :return: links to pages in other languages
 
         """
-
         params = {
-            'action': 'query',
-            'prop': 'langlinks',
-            'titles': page.title,
-            'lllimit': 500,
-            'llprop': 'url',
+            "action": "query",
+            "prop": "langlinks",
+            "titles": page.title,
+            "lllimit": 500,
+            "llprop": "url",
         }
 
         used_params = kwargs
         used_params.update(params)
 
-        raw = self._query(
-            page,
-            used_params
-        )
-        self._common_attributes(raw['query'], page)
-        pages = raw['query']['pages']
+        raw = self._query(page, used_params)
+        self._common_attributes(raw["query"], page)
+        pages = raw["query"]["pages"]
         for k, v in pages.items():
-            if k == '-1':
-                page._attributes['pageid'] = -1
+            if k == "-1":
+                page._attributes["pageid"] = -1
                 return {}
-            else:
-                return self._build_langlinks(v, page)
+            return self._build_langlinks(v, page)
         return {}
 
-    def links(
-            self,
-            page: 'WikipediaPage',
-            **kwargs
-    ) -> PagesDict:
+    def links(self, page: "WikipediaPage", **kwargs) -> PagesDict:
         """
         Returns links to other pages with respect to parameters
 
@@ -398,44 +354,33 @@ class Wikipedia(object):
         :return: links to linked pages
 
         """
-
         params = {
-            'action': 'query',
-            'prop': 'links',
-            'titles': page.title,
-            'pllimit': 500,
+            "action": "query",
+            "prop": "links",
+            "titles": page.title,
+            "pllimit": 500,
         }
 
         used_params = kwargs
         used_params.update(params)
 
-        raw = self._query(
-            page,
-            used_params
-        )
-        self._common_attributes(raw['query'], page)
-        pages = raw['query']['pages']
+        raw = self._query(page, used_params)
+        self._common_attributes(raw["query"], page)
+        pages = raw["query"]["pages"]
         for k, v in pages.items():
-            if k == '-1':
-                page._attributes['pageid'] = -1
+            if k == "-1":
+                page._attributes["pageid"] = -1
                 return {}
-            else:
-                while 'continue' in raw:
-                    params['plcontinue'] = raw['continue']['plcontinue']
-                    raw = self._query(
-                        page,
-                        params
-                    )
-                    v['links'] += raw['query']['pages'][k]['links']
 
-                return self._build_links(v, page)
+            while "continue" in raw:
+                params["plcontinue"] = raw["continue"]["plcontinue"]
+                raw = self._query(page, params)
+                v["links"] += raw["query"]["pages"][k]["links"]
+
+            return self._build_links(v, page)
         return {}
 
-    def backlinks(
-            self,
-            page: 'WikipediaPage',
-            **kwargs
-    ) -> PagesDict:
+    def backlinks(self, page: "WikipediaPage", **kwargs) -> PagesDict:
         """
         Returns backlinks from other pages with respect to parameters
 
@@ -449,38 +394,27 @@ class Wikipedia(object):
         :return: backlinks from other pages
 
         """
-
         params = {
-            'action': 'query',
-            'list': 'backlinks',
-            'bltitle': page.title,
-            'bllimit': 500,
+            "action": "query",
+            "list": "backlinks",
+            "bltitle": page.title,
+            "bllimit": 500,
         }
 
         used_params = kwargs
         used_params.update(params)
 
-        raw = self._query(
-            page,
-            used_params
-        )
+        raw = self._query(page, used_params)
 
-        self._common_attributes(raw['query'], page)
-        v = raw['query']
-        while 'continue' in raw:
-            params['blcontinue'] = raw['continue']['blcontinue']
-            raw = self._query(
-                page,
-                params
-            )
-            v['backlinks'] += raw['query']['backlinks']
+        self._common_attributes(raw["query"], page)
+        v = raw["query"]
+        while "continue" in raw:
+            params["blcontinue"] = raw["continue"]["blcontinue"]
+            raw = self._query(page, params)
+            v["backlinks"] += raw["query"]["backlinks"]
         return self._build_backlinks(v, page)
 
-    def categories(
-            self,
-            page: 'WikipediaPage',
-            **kwargs
-    ) -> PagesDict:
+    def categories(self, page: "WikipediaPage", **kwargs) -> PagesDict:
         """
         Returns categories for page with respect to parameters
 
@@ -493,36 +427,27 @@ class Wikipedia(object):
         :param kwargs: parameters used in API call
         :return: categories for page
         """
-
         params = {
-            'action': 'query',
-            'prop': 'categories',
-            'titles': page.title,
-            'cllimit': 500,
+            "action": "query",
+            "prop": "categories",
+            "titles": page.title,
+            "cllimit": 500,
         }
 
         used_params = kwargs
         used_params.update(params)
 
-        raw = self._query(
-            page,
-            used_params
-        )
-        self._common_attributes(raw['query'], page)
-        pages = raw['query']['pages']
+        raw = self._query(page, used_params)
+        self._common_attributes(raw["query"], page)
+        pages = raw["query"]["pages"]
         for k, v in pages.items():
-            if k == '-1':
-                page._attributes['pageid'] = -1
+            if k == "-1":
+                page._attributes["pageid"] = -1
                 return {}
-            else:
-                return self._build_categories(v, page)
+            return self._build_categories(v, page)
         return {}
 
-    def categorymembers(
-            self,
-            page: 'WikipediaPage',
-            **kwargs
-    ) -> PagesDict:
+    def categorymembers(self, page: "WikipediaPage", **kwargs) -> PagesDict:
         """
         Returns pages in given category with respect to parameters
 
@@ -535,62 +460,43 @@ class Wikipedia(object):
         :param kwargs: parameters used in API call
         :return: pages in given category
         """
-
         params = {
-            'action': 'query',
-            'list': 'categorymembers',
-            'cmtitle': page.title,
-            'cmlimit': 500,
+            "action": "query",
+            "list": "categorymembers",
+            "cmtitle": page.title,
+            "cmlimit": 500,
         }
 
         used_params = kwargs
         used_params.update(params)
 
-        raw = self._query(
-            page,
-            used_params
-        )
+        raw = self._query(page, used_params)
 
-        self._common_attributes(raw['query'], page)
-        v = raw['query']
-        while 'continue' in raw:
-            params['cmcontinue'] = raw['continue']['cmcontinue']
-            raw = self._query(
-                page,
-                params
-            )
-            v['categorymembers'] += raw['query']['categorymembers']
+        self._common_attributes(raw["query"], page)
+        v = raw["query"]
+        while "continue" in raw:
+            params["cmcontinue"] = raw["continue"]["cmcontinue"]
+            raw = self._query(page, params)
+            v["categorymembers"] += raw["query"]["categorymembers"]
 
         return self._build_categorymembers(v, page)
 
-    def _query(
-            self,
-            page: 'WikipediaPage',
-            params: Dict[str, Any]
-    ):
-        base_url = 'https://' + page.language + '.wikipedia.org/w/api.php'
+    def _query(self, page: "WikipediaPage", params: Dict[str, Any]):
+        """Queries Wikimedia API to fetch content."""
+        base_url = "https://" + page.language + ".wikipedia.org/w/api.php"
         log.info(
             "Request URL: %s",
-            base_url + "?" + "&".join(
-                [k + "=" + str(v) for k, v in params.items()]
-            )
+            base_url + "?" + "&".join([k + "=" + str(v) for k, v in params.items()]),
         )
-        params['format'] = 'json'
-        params['redirects'] = 1
-        r = self._session.get(
-            base_url,
-            params=params,
-            **self._request_kwargs
-        )
+        params["format"] = "json"
+        params["redirects"] = 1
+        r = self._session.get(base_url, params=params, **self._request_kwargs)
         return r.json()
 
-    def _build_extracts(
-            self,
-            extract,
-            page
-    ) -> str:
-        page._summary = ''
-        page._section_mapping = {}
+    def _build_extracts(self, extract, page: "WikipediaPage") -> str:
+        """Constructs summary of given page."""
+        page._summary = ""
+        page._section_mapping = defaultdict(list)
 
         self._common_attributes(extract, page)
 
@@ -598,17 +504,11 @@ class Wikipedia(object):
         section = None
         prev_pos = 0
 
-        for match in re.finditer(
-                RE_SECTION[self.extract_format],
-                extract['extract']
-        ):
-            # print(match.start(), match.end())
+        for match in re.finditer(RE_SECTION[self.extract_format], extract["extract"]):
             if len(page._section_mapping) == 0:
-                page._summary = extract['extract'][0:match.start()].strip()
+                page._summary = extract["extract"][0 : match.start()].strip()
             elif section is not None:
-                section._text = (
-                    extract['extract'][prev_pos:match.start()]
-                ).strip()
+                section._text = (extract["extract"][prev_pos : match.start()]).strip()
 
             section = self._create_section(match)
             sec_level = section.level + 1
@@ -626,22 +526,21 @@ class Wikipedia(object):
             section_stack[len(section_stack) - 2]._section.append(section)
             # section_stack[sec_level - 1]._section.append(section)
 
-            # section_stack_pos = sec_level
-
             prev_pos = match.end()
-            page._section_mapping[section._title] = section
+            page._section_mapping[section.title].append(section)
 
         # pages without sections have only summary
-        if page._summary == '':
-            page._summary = extract['extract'].strip()
+        if page._summary == "":
+            page._summary = extract["extract"].strip()
 
         if prev_pos > 0 and section is not None:
-            section._text = extract['extract'][prev_pos:]
+            section._text = extract["extract"][prev_pos:]
 
         return page._summary
 
     def _create_section(self, match):
-        sec_title = ''
+        """Creates section."""
+        sec_title = ""
         sec_level = 2
         if self.extract_format == ExtractFormat.WIKI:
             sec_title = match.group(2).strip()
@@ -650,153 +549,119 @@ class Wikipedia(object):
             sec_title = match.group(5).strip()
             sec_level = int(match.group(1).strip())
 
-        section = WikipediaPageSection(
-            self,
-            sec_title,
-            sec_level - 1
-        )
+        section = WikipediaPageSection(self, sec_title, sec_level - 1)
         return section
 
-    def _build_info(
-            self,
-            extract,
-            page
-    ):
+    def _build_info(self, extract, page: "WikipediaPage") -> "WikipediaPage":
+        """Builds page from API call info."""
         self._common_attributes(extract, page)
         for k, v in extract.items():
             page._attributes[k] = v
 
         return page
 
-    def _build_langlinks(
-            self,
-            extract,
-            page
-    ) -> PagesDict:
+    def _build_langlinks(self, extract, page) -> PagesDict:
+        """Builds page from API call langlinks."""
         page._langlinks = {}
 
         self._common_attributes(extract, page)
 
-        for langlink in extract.get('langlinks', []):
+        for langlink in extract.get("langlinks", []):
             p = WikipediaPage(
                 wiki=self,
-                title=langlink['*'],
+                title=langlink["*"],
                 ns=Namespace.MAIN,
-                language=langlink['lang'],
-                url=langlink['url']
+                language=langlink["lang"],
+                url=langlink["url"],
             )
             page._langlinks[p.language] = p
 
         return page._langlinks
 
-    def _build_links(
-            self,
-            extract,
-            page
-    ) -> PagesDict:
+    def _build_links(self, extract, page) -> PagesDict:
+        """Builds page from API call links."""
         page._links = {}
 
         self._common_attributes(extract, page)
 
-        for link in extract.get('links', []):
-            page._links[link['title']] = WikipediaPage(
+        for link in extract.get("links", []):
+            page._links[link["title"]] = WikipediaPage(
                 wiki=self,
-                title=link['title'],
-                ns=int(link['ns']),
-                language=page.language
+                title=link["title"],
+                ns=int(link["ns"]),
+                language=page.language,
             )
 
         return page._links
 
-    def _build_backlinks(
-            self,
-            extract,
-            page
-    ) -> PagesDict:
+    def _build_backlinks(self, extract, page) -> PagesDict:
+        """Builds page from API call backlinks."""
         page._backlinks = {}
 
         self._common_attributes(extract, page)
 
-        for backlink in extract.get('backlinks', []):
-            page._backlinks[backlink['title']] = WikipediaPage(
+        for backlink in extract.get("backlinks", []):
+            page._backlinks[backlink["title"]] = WikipediaPage(
                 wiki=self,
-                title=backlink['title'],
-                ns=int(backlink['ns']),
-                language=page.language
+                title=backlink["title"],
+                ns=int(backlink["ns"]),
+                language=page.language,
             )
 
         return page._backlinks
 
-    def _build_categories(
-            self,
-            extract,
-            page
-    ):
+    def _build_categories(self, extract, page) -> PagesDict:
+        """Builds page from API call categories."""
         page._categories = {}
 
         self._common_attributes(extract, page)
 
-        for category in extract.get('categories', []):
-            page._categories[category['title']] = WikipediaPage(
+        for category in extract.get("categories", []):
+            page._categories[category["title"]] = WikipediaPage(
                 wiki=self,
-                title=category['title'],
-                ns=int(category['ns']),
-                language=page.language
+                title=category["title"],
+                ns=int(category["ns"]),
+                language=page.language,
             )
 
         return page._categories
 
-    def _build_categorymembers(
-            self,
-            extract,
-            page
-    ) -> PagesDict:
+    def _build_categorymembers(self, extract, page) -> PagesDict:
+        """Builds page from API call categorymembers."""
         page._categorymembers = {}
 
         self._common_attributes(extract, page)
 
-        for member in extract.get('categorymembers', []):
+        for member in extract.get("categorymembers", []):
             p = WikipediaPage(
                 wiki=self,
-                title=member['title'],
-                ns=int(member['ns']),
-                language=page.language
+                title=member["title"],
+                ns=int(member["ns"]),
+                language=page.language,
             )
-            p.pageid = member['pageid']  # type: ignore
+            p.pageid = member["pageid"]  # type: ignore
 
-            page._categorymembers[member['title']] = p
+            page._categorymembers[member["title"]] = p
 
         return page._categorymembers
 
-    def _common_attributes(
-            self,
-            extract,
-            page
-    ):
-        common_attributes = [
-            'title',
-            'pageid',
-            'ns',
-            'redirects'
-        ]
+    @staticmethod
+    def _common_attributes(extract, page: "WikipediaPage"):
+        """Fills in common attributes for page."""
+        common_attributes = ["title", "pageid", "ns", "redirects"]
 
         for attr in common_attributes:
             if attr in extract:
                 page._attributes[attr] = extract[attr]
 
 
-class WikipediaPageSection(object):
-    """
-    WikipediaPageSection represents section in the page.
-    """
+class WikipediaPageSection:
+    """WikipediaPageSection represents section in the page."""
 
     def __init__(
-            self,
-            wiki: Wikipedia,
-            title: str,
-            level: int = 0,
-            text: str = ''
+        self, wiki: Wikipedia, title: str, level: int = 0, text: str = ""
     ) -> None:
+        """Constructs WikipediaPageSection."""
         self.wiki = wiki
         self._title = title
         self._level = level
@@ -831,13 +696,25 @@ class WikipediaPageSection(object):
         return self._text
 
     @property
-    def sections(self) -> List['WikipediaPageSection']:
+    def sections(self) -> List["WikipediaPageSection"]:
         """
         Returns subsections of the current section.
 
         :return: subsections of the current section
         """
         return self._section
+
+    def section_by_title(self, title: str) -> Optional["WikipediaPageSection"]:
+        """
+        Returns subsections of the current section with given title.
+
+        :param title: title of the subsection
+        :return: subsection if it exists
+        """
+        sections = [s for s in self._section if s.title == title]
+        if sections:
+            return sections[-1]
+        return None
 
     def full_text(self, level: int = 1) -> str:
         """
@@ -850,7 +727,7 @@ class WikipediaPageSection(object):
         if self.wiki.extract_format == ExtractFormat.WIKI:
             res += self.title
         elif self.wiki.extract_format == ExtractFormat.HTML:
-            res += "<h{}>{}</h{}>".format(level, self.title, level)
+            res += f"<h{level}>{self.title}</h{level}>"
         else:
             raise NotImplementedError("Unknown ExtractFormat type")
 
@@ -868,11 +745,11 @@ class WikipediaPageSection(object):
             self._level,
             self._text,
             len(self._section),
-            "\n".join(map(repr, self._section))
+            "\n".join(map(repr, self._section)),
         )
 
 
-class WikipediaPage(object):
+class WikipediaPage:
     """
     Represents Wikipedia page.
 
@@ -886,6 +763,7 @@ class WikipediaPage(object):
     * `talkid` - id of the page with discussion
 
     """
+
     ATTRIBUTES_MAPPING = {
         "language": [],
         "pageid": ["info", "extracts", "langlinks"],
@@ -909,21 +787,21 @@ class WikipediaPage(object):
         "canonicalurl": ["info"],
         "readable": ["info"],
         "preload": ["info"],
-        "displaytitle": ["info"]
+        "displaytitle": ["info"],
     }
 
     def __init__(
-            self,
-            wiki: Wikipedia,
-            title: str,
-            ns: WikiNamespace = Namespace.MAIN,
-            language: str = 'en',
-            url: str = None
+        self,
+        wiki: Wikipedia,
+        title: str,
+        ns: WikiNamespace = Namespace.MAIN,
+        language: str = "en",
+        url: Optional[str] = None,
     ) -> None:
         self.wiki = wiki
-        self._summary = ''  # type: str
+        self._summary = ""  # type: str
         self._section = []  # type: List[WikipediaPageSection]
-        self._section_mapping = {}  # type: Dict[str, WikipediaPageSection]
+        self._section_mapping = {}  # type: Dict[str, List[WikipediaPageSection]]
         self._langlinks = {}  # type: PagesDict
         self._links = {}  # type: PagesDict
         self._backlinks = {}  # type: PagesDict
@@ -931,23 +809,23 @@ class WikipediaPage(object):
         self._categorymembers = {}  # type: PagesDict
 
         self._called = {
-            'extracts': False,
-            'info': False,
-            'langlinks': False,
-            'links': False,
-            'backlinks': False,
-            'categories': False,
-            'categorymembers': False,
+            "extracts": False,
+            "info": False,
+            "langlinks": False,
+            "links": False,
+            "backlinks": False,
+            "categories": False,
+            "categorymembers": False,
         }
 
         self._attributes = {
-            'title': title,
-            'ns': namespace2int(ns),
-            'language': language
+            "title": title,
+            "ns": namespace2int(ns),
+            "language": language,
         }  # type: Dict[str, Any]
 
         if url is not None:
-            self._attributes['fullurl'] = url
+            self._attributes["fullurl"] = url
 
     def __getattr__(self, name):
         if name not in self.ATTRIBUTES_MAPPING:
@@ -958,7 +836,7 @@ class WikipediaPage(object):
 
         for call in self.ATTRIBUTES_MAPPING[name]:
             if not self._called[call]:
-                getattr(self, "_fetch")(call)
+                self._fetch(call)
                 return self._attributes[name]
 
     @property
@@ -968,7 +846,7 @@ class WikipediaPage(object):
 
         :return: language
         """
-        return self._attributes['language']
+        return str(self._attributes["language"])
 
     @property
     def title(self) -> str:
@@ -977,7 +855,7 @@ class WikipediaPage(object):
 
         :return: title
         """
-        return self._attributes['title']
+        return str(self._attributes["title"])
 
     @property
     def namespace(self) -> int:
@@ -986,25 +864,7 @@ class WikipediaPage(object):
 
         :return: namespace
         """
-        return int(self._attributes['ns'])
-
-    #
-    # @property
-    # def pageid(self) -> int:
-    #     """
-    #     Returns summary of the current page.
-    #
-    #     :return: summary
-    #     """
-    #     if not any([
-    #         self._called[k] for k in self.ATTRIBUTES_MAPPING['pageid']
-    #     ]):
-    #         self._fetch('info')
-    #     return self._attributes['pageid']
-    #
-    # @pageid.setter
-    # def pageid(self, value: int):
-    #     self._attributes['pageid'] = value
+        return int(self._attributes["ns"])
 
     def exists(self) -> bool:
         """
@@ -1012,7 +872,7 @@ class WikipediaPage(object):
 
         :return: if current page existst or not
         """
-        return self.pageid != -1
+        return bool(self.pageid != -1)
 
     @property
     def summary(self) -> str:
@@ -1021,8 +881,8 @@ class WikipediaPage(object):
 
         :return: summary
         """
-        if not self._called['extracts']:
-            self._fetch('extracts')
+        if not self._called["extracts"]:
+            self._fetch("extracts")
         return self._summary
 
     @property
@@ -1032,23 +892,43 @@ class WikipediaPage(object):
 
         :return: List of :class:`WikipediaPageSection`
         """
-        if not self._called['extracts']:
-            self._fetch('extracts')
+        if not self._called["extracts"]:
+            self._fetch("extracts")
         return self._section
 
     def section_by_title(
-            self,
-            title: str,
+        self,
+        title: str,
     ) -> Optional[WikipediaPageSection]:
         """
-        Returns section of the current page with given `title`.
+        Returns last section of the current page with given `title`.
 
         :param title: section title
         :return: :class:`WikipediaPageSection`
         """
-        if not self._called['extracts']:
-            self._fetch('extracts')
-        return self._section_mapping.get(title)
+        if not self._called["extracts"]:
+            self._fetch("extracts")
+        sections = self._section_mapping.get(title)
+        if sections:
+            return sections[-1]
+        return None
+
+    def sections_by_title(
+        self,
+        title: str,
+    ) -> List[WikipediaPageSection]:
+        """
+        Returns all section of the current page with given `title`.
+
+        :param title: section title
+        :return: :class:`WikipediaPageSection`
+        """
+        if not self._called["extracts"]:
+            self._fetch("extracts")
+        sections = self._section_mapping.get(title)
+        if sections is None:
+            return []
+        return sections
 
     @property
     def text(self) -> str:
@@ -1076,8 +956,8 @@ class WikipediaPage(object):
 
         :return: :class:`PagesDict`
         """
-        if not self._called['langlinks']:
-            self._fetch('langlinks')
+        if not self._called["langlinks"]:
+            self._fetch("langlinks")
         return self._langlinks
 
     @property
@@ -1092,8 +972,8 @@ class WikipediaPage(object):
 
         :return: :class:`PagesDict`
         """
-        if not self._called['links']:
-            self._fetch('links')
+        if not self._called["links"]:
+            self._fetch("links")
         return self._links
 
     @property
@@ -1108,8 +988,8 @@ class WikipediaPage(object):
 
         :return: :class:`PagesDict`
         """
-        if not self._called['backlinks']:
-            self._fetch('backlinks')
+        if not self._called["backlinks"]:
+            self._fetch("backlinks")
         return self._backlinks
 
     @property
@@ -1124,8 +1004,8 @@ class WikipediaPage(object):
 
         :return: :class:`PagesDict`
         """
-        if not self._called['categories']:
-            self._fetch('categories')
+        if not self._called["categories"]:
+            self._fetch("categories")
         return self._categories
 
     @property
@@ -1140,24 +1020,17 @@ class WikipediaPage(object):
 
         :return: :class:`PagesDict`
         """
-        if not self._called['categorymembers']:
-            self._fetch('categorymembers')
+        if not self._called["categorymembers"]:
+            self._fetch("categorymembers")
         return self._categorymembers
 
-    def _fetch(self, call) -> 'WikipediaPage':
+    def _fetch(self, call) -> "WikipediaPage":
+        """Fetches some data?."""
         getattr(self.wiki, call)(self)
         self._called[call] = True
         return self
 
     def __repr__(self):
         if any(self._called.values()):
-            return "{} (id: {}, ns: {})".format(
-                self.title,
-                self.pageid,
-                self.ns
-            )
-        else:
-            return "{} (id: ??, ns: {})".format(
-                self.title,
-                self.ns
-            )
+            return f"{self.title} (id: {self.pageid}, ns: {self.ns})"
+        return f"{self.title} (id: ??, ns: {self.ns})"

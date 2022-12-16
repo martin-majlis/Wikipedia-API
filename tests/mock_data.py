@@ -134,6 +134,50 @@ _MOCK_DATA = {
             }
         }
     },
+    'en:action=query&prop=extracts&titles=Test_Nested&': {
+        "batchcomplete": "",
+        "warnings": {
+            "extracts": {
+                "*": "\"exlimit\" was too large for a whole article extracts request, lowered to 1."
+            }
+        },
+        "query": {
+            "normalized": [
+                {
+                    "from": "Test_Nested",
+                    "to": "Test Nested"
+                }
+            ],
+            "pages": {
+                "4": {
+                    "pageid": 14,
+                    "ns": 0,
+                    "title": "Test Nested",
+                    "extract": (
+                            "<p><b>Summary</b> text\n\n</p>\n" +
+                            "<h2>Section 1</h2>\n" +
+                            "<p>Text for section 1</p>\n\n\n" +
+                            "<h3><span id=\"s1.1\">Subsection A</span></h3>\n" +
+                            "<p><b>Text for section 1.A</b>\n\n\n</p>" +
+                            "<h3>Subsection B</h3>\n" +
+                            "<p><b>Text for section 1.B</b>\n\n\n</p>" +
+                            "<h2><span id=\"s2\">Section 2</span></h2>\n" +
+                            "<p><b>Text for section 2</b>\n\n\n</p>" +
+                            "<h3><span id=\"s2.1\">Subsection A</span></h3>\n" +
+                            "<p><b>Text for section 2.A</b>\n\n\n</p>" +
+                            "<h3>Subsection B</h3>\n" +
+                            "<p><b>Text for section 2.B</b>\n\n\n</p>" +
+                            "<h2><span id=\'s3\'>Section 3</span></h2>\n" +
+                            "<p><b>Text for section 3</b>\n\n\n</p>" +
+                            "<h3><span id=\"s3.1\">Subsection A</span></h3>\n" +
+                            "<p><b>Text for section 3.A</b>\n\n\n</p>" +
+                            "<h3>Subsection B</h3>\n" +
+                            "<p><b>Text for section 3.B</b>\n\n\n</p>"
+                    )
+                }
+            }
+        }
+    },
     'en:action=query&prop=extracts&titles=Test_Edit&': {
         "batchcomplete": "",
         "warnings": {

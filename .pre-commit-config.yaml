@@ -1,0 +1,62 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+exclude: original
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-yaml
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      # - id: double-quote-string-fixer
+      - id: check-yaml
+      # - id: check-added-large-files
+      - id: requirements-txt-fixer
+      - id: name-tests-test
+        args: ["--django"]
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v2.7.1"
+    hooks:
+      - id: prettier
+
+  #  - repo: https://github.com/pre-commit/mirrors-autopep8
+  #    rev: "v1.5.6"
+  #    hooks:
+  #      - id: autopep8
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.8.0
+    hooks:
+      - id: isort
+        args: ["--profile", "google", "--filter-files"]
+
+  #  - repo: https://github.com/asottile/pyupgrade
+  #    rev: v3.2.2
+  #    hooks:
+  #      - id: pyupgrade
+  #        args: [--py36-plus]
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+        additional_dependencies: [flake8-bugbear]
+
+  - repo: https://github.com/psf/black
+    rev: 22.10.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.991
+    hooks:
+      - id: mypy
+        additional_dependencies:
+          ["types-requests", "types-cachetools", "types-aiofiles"]

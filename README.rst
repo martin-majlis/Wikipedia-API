@@ -143,12 +143,44 @@ To get all top level sections of page, you have to use property ``sections``. It
 
 
 	print_sections(page_py.sections)
-	# *: History - Python was conceived in the late 1980s, 
+	# *: History - Python was conceived in the late 1980s,
 	# *: Features and philosophy - Python is a multi-paradigm programming l
 	# *: Syntax and semantics - Python is meant to be an easily readable
 	# **: Indentation - Python uses whitespace indentation, rath
 	# **: Statements and control flow - Python's statements include (among other
 	# **: Expressions - Some Python expressions are similar to l
+
+How To Get Page Section By Title
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To get last section of page with given title, you have to use function ``section_by_title``.
+It returns the last ``WikipediaPageSection`` with this title.
+
+.. code-block:: python
+
+	section_history = page_py.section_by_title('History')
+	print("%s - %s" % (section_history.title, section_history.text[0:40]))
+
+	# History - Python was conceived in the late 1980s b
+
+How To Get All Page Sections By Title
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To get all sections of page with given title, you have to use function ``sections_by_title``.
+It returns the all ``WikipediaPageSection`` with this title.
+
+.. code-block:: python
+
+	page_1920 = wiki_wiki.page('1920')
+	sections_january = page_1920.sections_by_title('January')
+	for s in sections_january:
+	    print("* %s - %s" % (s.title, s.text[0:40]))
+
+    # * January - January 1
+    # Polish–Soviet War in 1920: The
+    # * January - January 2
+    # Isaac Asimov, American author
+    # * January - January 1 – Zygmunt Gorazdowski, Polish
 
 How To Get Page In Other Languages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -437,5 +469,3 @@ Other Pages
 .. |libraries-io-dependent-repos| image:: https://img.shields.io/librariesio/dependent-repos/pypi/Wikipedia-API.svg
 	:target: https://libraries.io/pypi/Wikipedia-API
 	:alt: Libraries.io - Dependent Repos
-
-

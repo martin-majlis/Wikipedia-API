@@ -75,6 +75,26 @@ class TestHtmlFormatExtracts(unittest.TestCase):
         )
         self.assertEqual(len(section.sections), 0)
 
+    def test_subsection_by_title_return_last(self):
+        page = self.wiki.page('Test_Nested')
+        section = page.section_by_title('Subsection B')
+        self.assertEqual(section.title, 'Subsection B')
+        self.assertEqual(section.text, '<p><b>Text for section 3.B</b>\n\n\n</p>')
+        self.assertEqual(len(section.sections), 0)
+
+    def test_subsections_by_title(self):
+        page = self.wiki.page('Test_Nested')
+        sections = page.sections_by_title('Subsection B')
+        self.assertEqual(len(sections), 3)
+        self.assertEqual(
+            [s.text for s in sections],
+            [
+                '<p><b>Text for section 1.B</b>\n\n\n</p>',
+                '<p><b>Text for section 2.B</b>\n\n\n</p>',
+                '<p><b>Text for section 3.B</b>\n\n\n</p>'
+            ]
+        )
+
     def test_text(self):
         page = self.wiki.page('Test_1')
         self.maxDiff = None
