@@ -9,6 +9,7 @@ cases.
 __version__ = (0, 5, 4)
 import logging
 import re
+from collections import defaultdict
 from enum import IntEnum
 from typing import Union
 
@@ -590,7 +591,7 @@ class Wikipedia(object):
             page
     ) -> str:
         page._summary = ''
-        page._section_mapping = {}
+        page._section_mapping = defaultdict(list)
 
         self._common_attributes(extract, page)
 
@@ -629,7 +630,7 @@ class Wikipedia(object):
             # section_stack_pos = sec_level
 
             prev_pos = match.end()
-            page._section_mapping[section._title] = section
+            page._section_mapping[section.title].append(section)
 
         # pages without sections have only summary
         if page._summary == '':
@@ -839,6 +840,19 @@ class WikipediaPageSection(object):
         """
         return self._section
 
+    def by_title(self, title: str) -> Optional['WikipediaPageSection']:
+        """
+        Returns subsections of the current section with given title.
+
+        :param title: title of the subsection
+        :return: subsection if it exists
+        """
+        sections = [s for s in self._section if s.title == title]
+        if not sections:
+            return None
+        else:
+            return sections[-1]
+
     def full_text(self, level: int = 1) -> str:
         """
         Returns text of the current section as well as all its subsections.
@@ -1041,7 +1055,25 @@ class WikipediaPage(object):
             title: str,
     ) -> Optional[WikipediaPageSection]:
         """
-        Returns section of the current page with given `title`.
+        Returns last section of the current page with given `title`.
+
+        :param title: section title
+        :return: :class:`WikipediaPageSection`
+        """
+        if not self._called['extracts']:
+            self._fetch('extracts')
+        sections = self._section_mapping.get(title)
+        if not sections:
+            return None
+        else:
+            return sections[-1]
+
+    def sections_by_title(
+            self,
+            title: str,
+    ) -> List[WikipediaPageSection]:
+        """
+        Returns all section of the current page with given `title`.
 
         :param title: section title
         :return: :class:`WikipediaPageSection`

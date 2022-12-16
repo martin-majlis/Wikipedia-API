@@ -15,7 +15,8 @@ WikipediaPage
 * ``text`` - returns text of the page
 * ``sections`` - list of all sections (list of ``WikipediaPageSection``)
 * ``langlinks`` - language links to other languages ({lang: ``WikipediaLangLink``})
-* ``section_by_title(name)`` - finds section by title (``WikipediaPageSection``)
+* ``section_by_title(name)`` - finds last section by title (``WikipediaPageSection``)
+* ``sections_by_title(name)`` - finds all section by title (``WikipediaPageSection``)
 * ``links`` - links to other pages ({title: ``WikipediaPage``})
 * ``categories`` - all categories ({title: ``WikipediaPage``})
 * ``displaytitle``
@@ -45,6 +46,7 @@ WikipediaPageSection
 * ``level``
 * ``text``
 * ``sections``
+* ``by_title(title)``
 
 ExtractFormat
 -------------
