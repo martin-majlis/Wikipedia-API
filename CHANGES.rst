@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.5.5
+-----
+
+* Adds support for retrieving all sections with given name - `Issue 39`_
+
+.. _Issue 39: https://github.com/martin-majlis/Wikipedia-API/issues/39
+
 0.5.4
 -----
 
