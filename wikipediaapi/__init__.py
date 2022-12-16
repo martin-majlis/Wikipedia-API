@@ -129,7 +129,7 @@ class Wikipedia:
         self,
         language: str = "en",
         extract_format: ExtractFormat = ExtractFormat.WIKI,
-        headers: Dict[str, Any] | None = None,
+        headers: Optional[Dict[str, Any]] = None,
         **kwargs,
     ) -> None:
         """
@@ -921,7 +921,7 @@ class WikipediaPage:
     def section_by_title(
         self,
         title: str,
-    ) -> WikipediaPageSection | None:
+    ) -> Optional[WikipediaPageSection]:
         """
         Returns last section of the current page with given `title`.
 
