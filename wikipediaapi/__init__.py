@@ -704,7 +704,7 @@ class WikipediaPageSection:
         """
         return self._section
 
-    def by_title(self, title: str) -> Optional["WikipediaPageSection"]:
+    def section_by_title(self, title: str) -> Optional["WikipediaPageSection"]:
         """
         Returns subsections of the current section with given title.
 

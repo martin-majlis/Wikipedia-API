@@ -46,7 +46,7 @@ WikipediaPageSection
 * ``level``
 * ``text``
 * ``sections``
-* ``by_title(title)``
+* ``section_by_title(title)``
 
 ExtractFormat
 -------------
