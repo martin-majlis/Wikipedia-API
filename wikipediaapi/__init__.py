@@ -24,9 +24,7 @@ PagesDict = Dict[str, "WikipediaPage"]
 
 
 class ExtractFormat(IntEnum):
-    """
-    Represents extraction format.
-    """
+    """Represents extraction format."""
 
     WIKI = 1
     """
@@ -121,9 +119,7 @@ RE_SECTION = {
 
 
 class Wikipedia:
-    """
-    Wikipedia is wrapper for Wikipedia API.
-    """
+    """Wikipedia is wrapper for Wikipedia API."""
 
     def __init__(
         self,
@@ -196,7 +192,6 @@ class Wikipedia:
         :param unquote: if true it will unquote title
         :return: object representing :class:`WikipediaPage`
         """
-
         if unquote:
             title = parse.unquote(title)
 
@@ -258,9 +253,6 @@ class Wikipedia:
         elif self.extract_format == ExtractFormat.WIKI:
             params["explaintext"] = 1
             params["exsectionformat"] = "wiki"
-        # elif self.extract_format == ExtractFormat.PLAIN:
-        #    params['explaintext'] = 1
-        #    params['exsectionformat'] = 'plain'
 
         used_params = kwargs
         used_params.update(params)
@@ -325,7 +317,6 @@ class Wikipedia:
         :return: links to pages in other languages
 
         """
-
         params = {
             "action": "query",
             "prop": "langlinks",
@@ -361,7 +352,6 @@ class Wikipedia:
         :return: links to linked pages
 
         """
-
         params = {
             "action": "query",
             "prop": "links",
@@ -402,7 +392,6 @@ class Wikipedia:
         :return: backlinks from other pages
 
         """
-
         params = {
             "action": "query",
             "list": "backlinks",
@@ -436,7 +425,6 @@ class Wikipedia:
         :param kwargs: parameters used in API call
         :return: categories for page
         """
-
         params = {
             "action": "query",
             "prop": "categories",
@@ -470,7 +458,6 @@ class Wikipedia:
         :param kwargs: parameters used in API call
         :return: pages in given category
         """
-
         params = {
             "action": "query",
             "list": "categorymembers",
@@ -514,7 +501,6 @@ class Wikipedia:
         prev_pos = 0
 
         for match in re.finditer(RE_SECTION[self.extract_format], extract["extract"]):
-            # print(match.start(), match.end())
             if len(page._section_mapping) == 0:
                 page._summary = extract["extract"][0 : match.start()].strip()
             elif section is not None:
@@ -536,7 +522,6 @@ class Wikipedia:
             section_stack[len(section_stack) - 2]._section.append(section)
             # section_stack[sec_level - 1]._section.append(section)
 
-            # section_stack_pos = sec_level
 
             prev_pos = match.end()
             page._section_mapping[section.title].append(section)
@@ -650,7 +635,8 @@ class Wikipedia:
 
         return page._categorymembers
 
-    def _common_attributes(self, extract, page: "WikipediaPage"):
+    @staticmethod
+    def _common_attributes(extract, page: "WikipediaPage"):
         common_attributes = ["title", "pageid", "ns", "redirects"]
 
         for attr in common_attributes:
@@ -659,9 +645,7 @@ class Wikipedia:
 
 
 class WikipediaPageSection:
-    """
-    WikipediaPageSection represents section in the page.
-    """
+    """WikipediaPageSection represents section in the page."""
 
     def __init__(
         self, wiki: Wikipedia, title: str, level: int = 0, text: str = ""
@@ -870,23 +854,6 @@ class WikipediaPage:
         """
         return int(self._attributes["ns"])
 
-    #
-    # @property
-    # def pageid(self) -> int:
-    #     """
-    #     Returns summary of the current page.
-    #
-    #     :return: summary
-    #     """
-    #     if not any([
-    #         self._called[k] for k in self.ATTRIBUTES_MAPPING['pageid']
-    #     ]):
-    #         self._fetch('info')
-    #     return self._attributes['pageid']
-    #
-    # @pageid.setter
-    # def pageid(self, value: int):
-    #     self._attributes['pageid'] = value
 
     def exists(self) -> bool:
         """
