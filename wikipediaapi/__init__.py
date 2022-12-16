@@ -1025,6 +1025,7 @@ class WikipediaPage:
         return self._categorymembers
 
     def _fetch(self, call) -> "WikipediaPage":
+        """Fetches some data?."""
         getattr(self.wiki, call)(self)
         self._called[call] = True
         return self
