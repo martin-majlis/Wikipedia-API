@@ -99,6 +99,7 @@ WikiNamespace = Union[Namespace, int]
 
 
 def namespace2int(namespace: WikiNamespace) -> int:
+    """Converts namespace into integer"""
     if isinstance(namespace, Namespace):
         return namespace.value
 
@@ -157,6 +158,7 @@ class Wikipedia:
         self._request_kwargs = kwargs
 
     def __del__(self) -> None:
+        """Closes session."""
         self._session.close()
 
     def page(
@@ -480,6 +482,7 @@ class Wikipedia:
         return self._build_categorymembers(v, page)
 
     def _query(self, page: "WikipediaPage", params: Dict[str, Any]):
+        """Queries Wikimedia API to fetch content."""
         base_url = "https://" + page.language + ".wikipedia.org/w/api.php"
         log.info(
             "Request URL: %s",
@@ -491,6 +494,7 @@ class Wikipedia:
         return r.json()
 
     def _build_extracts(self, extract, page: "WikipediaPage") -> str:
+        """Constructs summary of given page."""
         page._summary = ""
         page._section_mapping = defaultdict(list)
 
@@ -522,7 +526,6 @@ class Wikipedia:
             section_stack[len(section_stack) - 2]._section.append(section)
             # section_stack[sec_level - 1]._section.append(section)
 
-
             prev_pos = match.end()
             page._section_mapping[section.title].append(section)
 
@@ -536,6 +539,7 @@ class Wikipedia:
         return page._summary
 
     def _create_section(self, match):
+        """Creates section."""
         sec_title = ""
         sec_level = 2
         if self.extract_format == ExtractFormat.WIKI:
@@ -549,6 +553,7 @@ class Wikipedia:
         return section
 
     def _build_info(self, extract, page: "WikipediaPage") -> "WikipediaPage":
+        """Builds page from API call info."""
         self._common_attributes(extract, page)
         for k, v in extract.items():
             page._attributes[k] = v
@@ -556,6 +561,7 @@ class Wikipedia:
         return page
 
     def _build_langlinks(self, extract, page) -> PagesDict:
+        """Builds page from API call langlinks."""
         page._langlinks = {}
 
         self._common_attributes(extract, page)
@@ -573,6 +579,7 @@ class Wikipedia:
         return page._langlinks
 
     def _build_links(self, extract, page) -> PagesDict:
+        """Builds page from API call links."""
         page._links = {}
 
         self._common_attributes(extract, page)
@@ -588,6 +595,7 @@ class Wikipedia:
         return page._links
 
     def _build_backlinks(self, extract, page) -> PagesDict:
+        """Builds page from API call backlinks."""
         page._backlinks = {}
 
         self._common_attributes(extract, page)
@@ -603,6 +611,7 @@ class Wikipedia:
         return page._backlinks
 
     def _build_categories(self, extract, page) -> PagesDict:
+        """Builds page from API call categories."""
         page._categories = {}
 
         self._common_attributes(extract, page)
@@ -618,6 +627,7 @@ class Wikipedia:
         return page._categories
 
     def _build_categorymembers(self, extract, page) -> PagesDict:
+        """Builds page from API call categorymembers."""
         page._categorymembers = {}
 
         self._common_attributes(extract, page)
@@ -637,6 +647,7 @@ class Wikipedia:
 
     @staticmethod
     def _common_attributes(extract, page: "WikipediaPage"):
+        """Fills in common attributes for page."""
         common_attributes = ["title", "pageid", "ns", "redirects"]
 
         for attr in common_attributes:
@@ -650,6 +661,7 @@ class WikipediaPageSection:
     def __init__(
         self, wiki: Wikipedia, title: str, level: int = 0, text: str = ""
     ) -> None:
+        """Constructs WikipediaPageSection."""
         self.wiki = wiki
         self._title = title
         self._level = level
@@ -853,7 +865,6 @@ class WikipediaPage:
         :return: namespace
         """
         return int(self._attributes["ns"])
-
 
     def exists(self) -> bool:
         """
