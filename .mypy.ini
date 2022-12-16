@@ -1,0 +1,4 @@
+[mypy]
+python_version = 3.10
+warn_return_any = True
+warn_unused_configs = True
