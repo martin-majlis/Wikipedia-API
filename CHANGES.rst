@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.5.5
+0.5.6
 -----
 
 * Adds support for retrieving all sections with given name - `Issue 39`_
