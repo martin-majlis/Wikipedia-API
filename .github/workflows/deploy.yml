@@ -52,7 +52,7 @@ jobs:
           CIBW_SKIP: cp27-win*
       - uses: actions/upload-artifact@v2
         with:
-          path: ./wheelhouse/*.whl
+          path: ./wheelhouse/Wikipedia*.whl
   #          name: wheel-${{ matrix.os }}-${{ matrix.python }}.whl
 
   build_sdist:
@@ -71,7 +71,7 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          path: dist/*.tar.gz
+          path: dist/Wikipedia*.tar.gz
   #          name: sdist.tar.gz
 
   upload_pypi:
@@ -87,7 +87,7 @@ jobs:
           name: artifact
           path: dist
 
-      - uses: pypa/gh-action-pypi-publish@master
+      - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           user: __token__
           password: ${{ secrets.pypi_password }}
