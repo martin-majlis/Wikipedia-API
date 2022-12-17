@@ -88,7 +88,7 @@ release:
 	sed -ri 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/__init__.py; \
 	git commit setup.py conf.py wikipediaapi/__init__.py -m "Update version to $(VERSION) for new release."; \
 	git push; \
-	git tag $(VERSION) -m "$(MSG)"; \
+	git tag v$(VERSION) -m "$(MSG)"; \
 	git push --tags origin master
 
 # Catch-all target: route all unknown targets to Sphinx using the new
