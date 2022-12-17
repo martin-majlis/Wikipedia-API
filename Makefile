@@ -21,7 +21,7 @@ run-tests:
 	python3 -m unittest discover tests/ '*test.py'
 
 run-type-check:
-	mypy ./example.py
+	mypy ./wikipediaapi
 
 run-flake8:
 	flake8 --max-line-length=100 wikipediaapi tests
@@ -42,7 +42,7 @@ requirements-dev:
 pre-release-check: run-type-check run-flake8 run-coverage pypi-html run-tox
 	echo "Pre-release check was successful"
 
-release: pre-release-check
+release:
 	if [ "x$(MSG)" = "x" -o "x$(VERSION)" = "x" ]; then \
 		echo "Use make release MSG='some msg' VERSION='1.2.3'"; \
 		exit 1; \
@@ -95,7 +95,3 @@ release: pre-release-check
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-
-
-
-
