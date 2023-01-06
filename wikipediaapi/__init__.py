@@ -218,25 +218,35 @@ class Wikipedia:
             unquote=unquote,
         )
 
-    def thumbnails(self, page: "WikipediaPage", **kwargs) -> dict[str, Any]:
-        """Returns the thumbnail for a page if any thumbnail is available"""
+    def thumbnails(
+        self, page: "WikipediaPage", **kwargs: dict[str, Union[str, int]]
+    ) -> dict[str, Union[str, int]]:
+        """Returns the thumbnail for a page if any thumbnail is available
+
+        :param page: :class:`WikipediaPage`
+        :kwargs: parameters used in API call
+        :return: returns a dict of information about the thumbnail
+        :rtype: dict[str, str | int]
+        """
         params = {
             "action": "query",
             "prop": "pageimages",
             "piprop": "thumbnail",
             "titles": page.title,
-        }  # type: Dict[str, Any]
+        }
 
         used_params = kwargs
         used_params.update(params)
 
         raw = self._query(page, used_params)
+
         try:
-            return raw["query"]["pages"][str(page._attributes["pageid"])][
-                "thumbnail"
-            ]
+            thumbnail_info: dict[str, Union[str, int]] = raw["query"]["pages"][
+                str(page._attributes["pageid"])
+            ]["thumbnail"]
+            return thumbnail_info
         except KeyError as e:
-            print(f"Error: {e}")
+            log.error(f"Keyerror while looking for thumbnail: {e}")
             return {}
 
     def extracts(self, page: "WikipediaPage", **kwargs) -> str:
@@ -918,7 +928,14 @@ class WikipediaPage:
             self._fetch("extracts")
         return self._section
 
-    def thumbnail(self, width=50) -> dict:
+    def thumbnail(self, width: int = 50) -> dict[str, Union[str, int]]:
+        """Returns information about the thumbnail of the given page.
+
+        :param width: Thumbnail width, defaults to 50
+        :type width: int, optional
+        :return: Dict with thumbnail information
+        :rtype: dict[str, Union[str, int]]
+        """
         if not self._thumbnail:
             self._thumbnail = self.wiki.thumbnails(self, pithumbsize=width)
         return self._thumbnail
