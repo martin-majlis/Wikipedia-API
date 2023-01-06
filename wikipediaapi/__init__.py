@@ -223,6 +223,10 @@ class Wikipedia:
     ) -> dict[str, Union[str, int]]:
         """Returns the thumbnail for a page if any thumbnail is available
 
+        API Calls for parameters:
+
+        - https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bpageimages
+
         :param page: :class:`WikipediaPage`
         :kwargs: parameters used in API call
         :return: returns a dict of information about the thumbnail
