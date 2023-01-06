@@ -122,4 +122,3 @@ p_hi_python_quoted = wiki_hi.article(
 )
 print(p_hi_python_quoted.title)
 print(p_hi_python_quoted.summary[0:60])
-

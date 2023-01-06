@@ -219,7 +219,7 @@ class Wikipedia:
         )
 
     def thumbnails(
-        self, page: "WikipediaPage", **kwargs: dict[str, Union[str, int]]
+        self, page: "WikipediaPage", **kwargs: Union[str, int]
     ) -> dict[str, Union[str, int]]:
         """Returns the thumbnail for a page if any thumbnail is available
 
@@ -246,7 +246,7 @@ class Wikipedia:
             ]["thumbnail"]
             return thumbnail_info
         except KeyError as e:
-            log.error(f"Keyerror while looking for thumbnail: {e}")
+            log.error("Keyerror while looking for thumbnail: %s", e)
             return {}
 
     def extracts(self, page: "WikipediaPage", **kwargs) -> str:
