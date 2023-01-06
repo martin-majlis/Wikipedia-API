@@ -218,6 +218,27 @@ class Wikipedia:
             unquote=unquote,
         )
 
+    def thumbnails(self, page: "WikipediaPage", **kwargs) -> dict[str, Any]:
+        """Returns the thumbnail for a page if any thumbnail is available"""
+        params = {
+            "action": "query",
+            "prop": "pageimages",
+            "piprop": "thumbnail",
+            "titles": page.title,
+        }  # type: Dict[str, Any]
+
+        used_params = kwargs
+        used_params.update(params)
+
+        raw = self._query(page, used_params)
+        try:
+            return raw["query"]["pages"][str(page._attributes["pageid"])][
+                "thumbnail"
+            ]
+        except KeyError as e:
+            print(f"Error: {e}")
+            return {}
+
     def extracts(self, page: "WikipediaPage", **kwargs) -> str:
         """
         Returns summary of the page with respect to parameters
@@ -807,6 +828,7 @@ class WikipediaPage:
         self._backlinks = {}  # type: PagesDict
         self._categories = {}  # type: PagesDict
         self._categorymembers = {}  # type: PagesDict
+        self._thumbnail = {}  # type: PagesDict
 
         self._called = {
             "extracts": False,
@@ -895,6 +917,11 @@ class WikipediaPage:
         if not self._called["extracts"]:
             self._fetch("extracts")
         return self._section
+
+    def thumbnail(self, width=50) -> dict:
+        if not self._thumbnail:
+            self._thumbnail = self.wiki.thumbnails(self, pithumbsize=width)
+        return self._thumbnail
 
     def section_by_title(
         self,

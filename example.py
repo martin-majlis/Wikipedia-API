@@ -15,6 +15,7 @@ print("Page - Exists: %s" % page_py.exists())
 print("Page - Id: %s" % page_py.pageid)
 print("Page - Title: %s" % page_py.title)
 print("Page - Summary: %s" % page_py.summary[0:60])
+print("Page - Thumbnail: %s" % page_py.thumbnail())
 
 
 def print_sections(sections, level=0):
