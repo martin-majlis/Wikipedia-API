@@ -161,6 +161,27 @@ class Wikipedia:
         """Closes session."""
         self._session.close()
 
+    def search_pages(self, query: str, limit: int = 10) -> list:
+        """
+        Searches for pages using a text query.
+
+        :param query: The search query.
+        :param limit: The maximum number of results to return. Default is 10.
+        :return: A list of page titles.
+        """
+        params = {
+            "action": "query",
+            "list": "search",
+            "srsearch": query,
+            "srlimit": limit,
+        }
+
+        dummy_page = WikipediaPage(self, 0)  # Create a dummy page object for the _query method
+        data = self._query(dummy_page, params)
+        pageids = [result["pageid"] for result in data["query"]["search"]]
+
+        return [WikipediaPage(self, pageid) for pageid in pageids]
+
     def page(
         self,
         title: str,
