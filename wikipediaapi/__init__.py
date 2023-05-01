@@ -178,9 +178,9 @@ class Wikipedia:
 
         dummy_page = WikipediaPage(self, 0)  # Create a dummy page object for the _query method
         data = self._query(dummy_page, params)
-        pageids = [result["pageid"] for result in data["query"]["search"]]
+        titles = [result["title"] for result in data["query"]["search"]]
 
-        return [WikipediaPage(self, pageid) for pageid in pageids]
+        return [WikipediaPage(self, title) for title in titles]
 
     def page(
         self,
