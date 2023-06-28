@@ -16,6 +16,12 @@ from urllib import parse
 
 import requests
 
+USER_AGENT = (
+    "Wikipedia-API/"
+    + ".".join(str(s) for s in __version__)
+    + "; https://github.com/martin-majlis/Wikipedia-API/"
+)
+
 log = logging.getLogger(__name__)
 
 
@@ -124,6 +130,7 @@ class Wikipedia:
 
     def __init__(
         self,
+        user_agent: str,
         language: str = "en",
         extract_format: ExtractFormat = ExtractFormat.WIKI,
         headers: Optional[Dict[str, Any]] = None,
@@ -132,6 +139,8 @@ class Wikipedia:
         """
         Constructs Wikipedia object for extracting information Wikipedia.
 
+        :param user_agent: HTTP User-Agent used in requests
+                https://meta.wikimedia.org/wiki/User-Agent_policy
         :param language: Language mutation of Wikipedia -
                 http://meta.wikimedia.org/wiki/List_of_Wikipedias
         :param extract_format: Format used for extractions
@@ -142,24 +151,48 @@ class Wikipedia:
 
         Examples:
 
-        * Use proxy: ``Wikipedia('en', proxies={'http': 'http://localhost:1234'})``
+        * Proxy: ``Wikipedia('foo (merlin@example.com)', proxies={'http': 'http://proxy:1234'})``
         """
         kwargs.setdefault("timeout", 10.0)
 
-        self.language = language.strip().lower()
-        self.extract_format = extract_format
         default_headers = dict() if headers is None else headers
-        default_headers.setdefault(
-            "User-Agent",
-            "Wikipedia-API (https://github.com/martin-majlis/Wikipedia-API)",
+        if user_agent:
+            default_headers.setdefault(
+                "User-Agent",
+                user_agent,
+            )
+        used_user_agent = default_headers.get("User-Agent")
+        assert used_user_agent and len(used_user_agent) > 5, (
+            "Please, be nice to Wikipedia and specify user agent - "
+            + "https://meta.wikimedia.org/wiki/User-Agent_policy. Current user_agent: '"
+            + str(used_user_agent)
+            + "' is not sufficient."
         )
+        default_headers["User-Agent"] += " (" + USER_AGENT + ")"
+
+        self.language = language.strip().lower()
+        assert self.language, (
+            "Specify language. Current language: '"
+            + str(self.language)
+            + "' is not sufficient."
+        )
+        self.extract_format = extract_format
+
+        log.info(
+            "Wikipedia: language=%s, user_agent: %s, extract_format=%s",
+            self.language,
+            default_headers["User-Agent"],
+            self.extract_format,
+        )
+
         self._session = requests.Session()
         self._session.headers.update(default_headers)
         self._request_kwargs = kwargs
 
     def __del__(self) -> None:
         """Closes session."""
-        self._session.close()
+        if hasattr(self, "_session") and self._session:
+            self._session.close()
 
     def page(
         self,

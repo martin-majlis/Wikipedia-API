@@ -6,10 +6,11 @@ import wikipediaapi
 
 logging.basicConfig(level=logging.INFO)
 
+user_agent = "Wikipedia-API Example (merlin@example.com)"
 
-wiki_wiki = wikipediaapi.Wikipedia('en')
+wiki_wiki = wikipediaapi.Wikipedia(user_agent, "en")
 
-page_py = wiki_wiki.page('Python_(programming_language)')
+page_py = wiki_wiki.page("Python_(programming_language)")
 
 print("Page - Exists: %s" % page_py.exists())
 print("Page - Id: %s" % page_py.pageid)
@@ -57,7 +58,7 @@ def print_categories(page):
 print("Categories")
 print_categories(page_py)
 
-section_py = page_py.section_by_title('Features and philosophy')
+section_py = page_py.section_by_title("Features and philosophy")
 if section_py is not None:
     print("Section - Title: %s" % section_py.title)
     print("Section - Text: %s" % section_py.text[0:60])
@@ -65,37 +66,36 @@ else:
     print("Section does not exist.")
 
 wiki_html = wikipediaapi.Wikipedia(
-    language='cs',
-    extract_format=wikipediaapi.ExtractFormat.HTML
+    user_agent=user_agent, language="cs", extract_format=wikipediaapi.ExtractFormat.HTML
 )
 
-page_ostrava = wiki_html.page('Ostrava')
+page_ostrava = wiki_html.page("Ostrava")
 print("Page - Exists: %s" % page_ostrava.exists())
 print("Page - Id: %s" % page_ostrava.pageid)
 print("Page - Title: %s" % page_ostrava.title)
 print("Page - Summary: %s" % page_ostrava.summary[0:60])
 print_sections(page_ostrava.sections)
 
-section_ostrava = page_ostrava.section_by_title('Heraldický znak')
+section_ostrava = page_ostrava.section_by_title("Heraldický znak")
 if section_ostrava is not None:
     print("Section - Title: %s" % section_ostrava.title)
     print("Section - Text: %s" % section_ostrava.text[0:60])
 else:
     print("Section does not exists")
 
-page_nonexisting = wiki_wiki.page('Wikipedia-API-FooBar')
+page_nonexisting = wiki_wiki.page("Wikipedia-API-FooBar")
 print("Page - Exists: %s" % page_nonexisting.exists())
 print("Page - Id: %s" % page_nonexisting.pageid)
 print("Page - Title: %s" % page_nonexisting.title)
 print("Page - Summary: %s" % page_nonexisting.summary[0:60])
 
 
-wiki_de = wikipediaapi.Wikipedia('de')
-de_page = wiki_de.page('Deutsche Sprache')
+wiki_de = wikipediaapi.Wikipedia(user_agent, "de")
+de_page = wiki_de.page("Deutsche Sprache")
 print(de_page.title + ": " + de_page.fullurl)
 print(de_page.summary[0:60])
 
-en_page = de_page.langlinks['en']
+en_page = de_page.langlinks["en"]
 print(en_page.title + ": " + en_page.fullurl)
 print(en_page.summary[0:60])
 
@@ -111,14 +111,13 @@ cat = wiki_wiki.page("Category:Physics")
 print("Category members: Category:Physics")
 print_categorymembers(cat.categorymembers, max_level=1)
 
-wiki_hi = wikipediaapi.Wikipedia('hi')
+wiki_hi = wikipediaapi.Wikipedia(user_agent, "hi")
 # fetch page about Python in Hindu
 # https://hi.wikipedia.org/wiki/%E0%A4%AA%E0%A4%BE%E0%A4%87%E0%A4%A5%E0%A4%A8
 
 p_hi_python_quoted = wiki_hi.article(
-    title='%E0%A4%AA%E0%A4%BE%E0%A4%87%E0%A4%A5%E0%A4%A8',
+    title="%E0%A4%AA%E0%A4%BE%E0%A4%87%E0%A4%A5%E0%A4%A8",
     unquote=True,
 )
 print(p_hi_python_quoted.title)
 print(p_hi_python_quoted.summary[0:60])
-
