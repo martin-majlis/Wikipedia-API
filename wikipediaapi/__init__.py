@@ -155,27 +155,29 @@ class Wikipedia:
         """
         kwargs.setdefault("timeout", 10.0)
 
-        default_headers = dict() if headers is None else headers
+        default_headers = {} if headers is None else headers
         if user_agent:
             default_headers.setdefault(
                 "User-Agent",
                 user_agent,
             )
         used_user_agent = default_headers.get("User-Agent")
-        assert used_user_agent and len(used_user_agent) > 5, (
-            "Please, be nice to Wikipedia and specify user agent - "
-            + "https://meta.wikimedia.org/wiki/User-Agent_policy. Current user_agent: '"
-            + str(used_user_agent)
-            + "' is not sufficient."
-        )
+        if not (used_user_agent and len(used_user_agent) > 5):
+            raise AssertionError(
+                "Please, be nice to Wikipedia and specify user agent - "
+                + "https://meta.wikimedia.org/wiki/User-Agent_policy. Current user_agent: '"
+                + str(used_user_agent)
+                + "' is not sufficient."
+            )
         default_headers["User-Agent"] += " (" + USER_AGENT + ")"
 
         self.language = language.strip().lower()
-        assert self.language, (
-            "Specify language. Current language: '"
-            + str(self.language)
-            + "' is not sufficient."
-        )
+        if not self.language:
+            raise AssertionError(
+                "Specify language. Current language: '"
+                + str(self.language)
+                + "' is not sufficient."
+            )
         self.extract_format = extract_format
 
         log.info(
