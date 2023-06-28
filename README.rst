@@ -33,15 +33,18 @@ How To Get Single Page
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Getting single page is straightforward. You have to initialize ``Wikipedia`` object and ask for page by its name.
-It's parameter language has be one of `supported languages`_.
+To initialize it, you have to provide:
 
+* `user_agent` to identify your project. Please follow the recommended `format`_.
+* `language` to specify language mutation. It has to be one of `supported languages`_.
+
+.. _format: https://meta.wikimedia.org/wiki/User-Agent_policy
 .. _supported languages: http://meta.wikimedia.org/wiki/List_of_Wikipedias
-
 
 .. code-block:: python
 
     import wikipediaapi
-	wiki_wiki = wikipediaapi.Wikipedia('en')
+	wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'en')
 
 	page_py = wiki_wiki.page('Python_(programming_language)')
 
@@ -70,7 +73,7 @@ Class ``WikipediaPage`` has property ``summary``, which returns description of W
 
 
     import wikipediaapi
-	wiki_wiki = wikipediaapi.Wikipedia('en')
+	wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'en')
 
 	print("Page - Title: %s" % page_py.title)
 	# Page - Title: Python (programming language)
@@ -101,6 +104,7 @@ as concatanation of summary and sections with their titles and texts.
 .. code-block:: python
 
 	wiki_wiki = wikipediaapi.Wikipedia(
+	    user_agent='MyProjectName (merlin@example.com)',
 		language='en',
 		extract_format=wikipediaapi.ExtractFormat.WIKI
 	)
@@ -116,6 +120,7 @@ as concatanation of summary and sections with their titles and texts.
 
 
 	wiki_html = wikipediaapi.Wikipedia(
+	    user_agent='MyProjectName (merlin@example.com)',
 		language='en',
 		extract_format=wikipediaapi.ExtractFormat.HTML
 	)
@@ -297,7 +302,7 @@ This will help you determine if the problem is in the library or somewhere else.
     out_hdlr.setLevel(wikipediaapi.logging.DEBUG)
     wikipediaapi.log.addHandler(out_hdlr)
 
-    wiki = wikipediaapi.Wikipedia(language='en')
+    wiki = wikipediaapi.Wikipedia(user_agent='MyProjectName (merlin@example.com)', language='en')
 
     page_ostrava = wiki.page('Ostrava')
     print(page_ostrava.summary)

@@ -18,8 +18,8 @@ repos:
       - id: check-yaml
       # - id: check-added-large-files
       - id: requirements-txt-fixer
-      - id: name-tests-test
-        args: ["--django"]
+      # - id: name-tests-test
+      #   args: ["--django"]
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: "v2.7.1"
