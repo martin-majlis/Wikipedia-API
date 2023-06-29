@@ -1,7 +1,7 @@
 """
 Wikipedia-API is easy to use wrapper for extracting information from Wikipedia.
 
-It supports extracting texts, sections, links, categories, translations, etc
+It supports extracting texts, sections, links, categories, translations, etc.
 from Wikipedia. Documentation provides code snippets for the most common use
 cases.
 """
@@ -113,7 +113,7 @@ def namespace2int(namespace: WikiNamespace) -> int:
 
 
 RE_SECTION = {
-    ExtractFormat.WIKI: re.compile(r"\n\n *(===*) (.*?) (===*) *\n"),
+    ExtractFormat.WIKI: re.compile(r"\n\n *(==+) (.*?) (==+) *\n"),
     ExtractFormat.HTML: re.compile(
         r"\n? *<h([1-9])[^>]*?>(<span[^>]*></span>)? *"
         + "(<span[^>]*>)? *(<span[^>]*></span>)? *(.*?) *"
@@ -836,12 +836,12 @@ class WikipediaPage:
         self.wiki = wiki
         self._summary = ""  # type: str
         self._section = []  # type: List[WikipediaPageSection]
-        self._section_mapping = {}  # type: Dict[str, List[WikipediaPageSection]]
-        self._langlinks = {}  # type: PagesDict
-        self._links = {}  # type: PagesDict
-        self._backlinks = {}  # type: PagesDict
-        self._categories = {}  # type: PagesDict
-        self._categorymembers = {}  # type: PagesDict
+        self._section_mapping = dict()  # type: Dict[str, List[WikipediaPageSection]]
+        self._langlinks = dict()  # type: PagesDict
+        self._links = dict()  # type: PagesDict
+        self._backlinks = dict()  # type: PagesDict
+        self._categories = dict()  # type: PagesDict
+        self._categorymembers = dict()  # type: PagesDict
 
         self._called = {
             "extracts": False,
