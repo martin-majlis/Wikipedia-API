@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.6.0
+-----
+
+* Make user agent mandatory - `Issue 63`_
+* This breaks the API since `user_agent` is now the first parameter.
+
+.. _Issue 63: https://github.com/martin-majlis/Wikipedia-API/issues/63
+
+
 0.5.8
 -----
 
