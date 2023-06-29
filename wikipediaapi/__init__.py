@@ -1,7 +1,7 @@
 """
 Wikipedia-API is easy to use wrapper for extracting information from Wikipedia.
 
-It supports extracting texts, sections, links, categories, translations, etc
+It supports extracting texts, sections, links, categories, translations, etc.
 from Wikipedia. Documentation provides code snippets for the most common use
 cases.
 """
@@ -113,7 +113,7 @@ def namespace2int(namespace: WikiNamespace) -> int:
 
 
 RE_SECTION = {
-    ExtractFormat.WIKI: re.compile(r"\n\n *(===*) (.*?) (===*) *\n"),
+    ExtractFormat.WIKI: re.compile(r"\n\n *(==+) (.*?) (==+) *\n"),
     ExtractFormat.HTML: re.compile(
         r"\n? *<h([1-9])[^>]*?>(<span[^>]*></span>)? *"
         + "(<span[^>]*>)? *(<span[^>]*></span>)? *(.*?) *"
