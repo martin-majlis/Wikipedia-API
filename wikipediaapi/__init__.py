@@ -836,12 +836,12 @@ class WikipediaPage:
         self.wiki = wiki
         self._summary = ""  # type: str
         self._section = []  # type: List[WikipediaPageSection]
-        self._section_mapping = dict()  # type: Dict[str, List[WikipediaPageSection]]
-        self._langlinks = dict()  # type: PagesDict
-        self._links = dict()  # type: PagesDict
-        self._backlinks = dict()  # type: PagesDict
-        self._categories = dict()  # type: PagesDict
-        self._categorymembers = dict()  # type: PagesDict
+        self._section_mapping = {}  # type: Dict[str, List[WikipediaPageSection]]
+        self._langlinks = {}  # type: PagesDict
+        self._links = {}  # type: PagesDict
+        self._backlinks = {}  # type: PagesDict
+        self._categories = {}  # type: PagesDict
+        self._categorymembers = {}  # type: PagesDict
 
         self._called = {
             "extracts": False,
