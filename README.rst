@@ -1,9 +1,9 @@
 Wikipedia API
 =============
 
-``Wikipedia-API`` is easy to use Python wrapper for `Wikipedias'`_ API. It supports extracting texts, sections, links, categories, translations, etc from Wikipedia. Documentation provides code snippets for the most common use cases.
+``Wikipedia-API`` is an easy-to-use Python wrapper for `Wikipedia's`_ API. It supports extracting texts, sections, links, categories, translations, etc from Wikipedia. Documentation provides code snippets for the most common use cases.
 
-.. _Wikipedias': https://www.mediawiki.org/wiki/API:Main_page
+.. _Wikipedia's: https://www.mediawiki.org/wiki/API:Main_page
 
 |build-status| |docs| |cc-coverage| |version| |pyversions| |github-stars-flat|
 
@@ -20,7 +20,7 @@ This package requires at least Python 3.4 to install because it's using IntEnum.
 Usage
 -----
 
-Goal of ``Wikipedia-API`` is to provide simple and easy to use API for retrieving informations from Wikipedia. Bellow are examples of common use cases.
+The goal of ``Wikipedia-API`` is to provide a simple and easy-to-use API for retrieving information from Wikipedia. Below are examples of common use cases.
 
 Importing
 ~~~~~~~~~
@@ -29,14 +29,14 @@ Importing
 
 	import wikipediaapi
 
-How To Get Single Page
+How To Get a Single Page
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Getting single page is straightforward. You have to initialize ``Wikipedia`` object and ask for page by its name.
+Getting a single page is straightforward. You have to initialize ``Wikipedia`` object and ask for the page by its name.
 To initialize it, you have to provide:
 
 * `user_agent` to identify your project. Please follow the recommended `format`_.
-* `language` to specify language mutation. It has to be one of `supported languages`_.
+* `language` to specify language mutation. It has to be one of the `supported languages`_.
 
 .. _format: https://meta.wikimedia.org/wiki/User-Agent_policy
 .. _supported languages: http://meta.wikimedia.org/wiki/List_of_Wikipedias
@@ -52,7 +52,7 @@ To initialize it, you have to provide:
 How To Check If Wiki Page Exists
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For checking, whether page exists, you can use function ``exists``.
+For checking, whether a page exists, you can use the function ``exists``.
 
 .. code-block:: python
 
@@ -67,7 +67,7 @@ For checking, whether page exists, you can use function ``exists``.
 How To Get Page Summary
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Class ``WikipediaPage`` has property ``summary``, which returns description of Wiki page.
+Class ``WikipediaPage`` has the property ``summary``, which returns a description of the Wiki page.
 
 .. code-block:: python
 
@@ -85,7 +85,7 @@ Class ``WikipediaPage`` has property ``summary``, which returns description of W
 How To Get Page URL
 ~~~~~~~~~~~~~~~~~~~
 
-``WikipediaPage`` has two properties with URL of the page. It is ``fullurl`` and ``canonicalurl``.
+``WikipediaPage`` has two properties with the URL of the page. They are ``fullurl`` and ``canonicalurl``.
 
 .. code-block:: python
 
@@ -98,8 +98,8 @@ How To Get Page URL
 How To Get Full Text
 ~~~~~~~~~~~~~~~~~~~~
 
-To get full text of Wikipedia page you should use property ``text`` which constructs text of the page
-as concatanation of summary and sections with their titles and texts.
+To get the full text of the Wikipedia page you should use the property ``text`` which constructs the text of the page
+as a concatenation of the summary and the title and text of each section.
 
 .. code-block:: python
 
@@ -136,7 +136,7 @@ as concatanation of summary and sections with their titles and texts.
 How To Get Page Sections
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-To get all top level sections of page, you have to use property ``sections``. It returns list of
+To get all top-level sections of a page, you have to use the property ``sections``. It returns a list of
 ``WikipediaPageSection``, so you have to use recursion to get all subsections.
 
 .. code-block:: python
@@ -158,7 +158,7 @@ To get all top level sections of page, you have to use property ``sections``. It
 How To Get Page Section By Title
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To get last section of page with given title, you have to use function ``section_by_title``.
+To get the last section of a page with a given title, you have to use the function ``section_by_title``.
 It returns the last ``WikipediaPageSection`` with this title.
 
 .. code-block:: python
@@ -171,8 +171,8 @@ It returns the last ``WikipediaPageSection`` with this title.
 How To Get All Page Sections By Title
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To get all sections of page with given title, you have to use function ``sections_by_title``.
-It returns the all ``WikipediaPageSection`` with this title.
+To get all sections of a page with a given title, you have to use the function ``sections_by_title``.
+It returns all ``WikipediaPageSection`` with this title.
 
 .. code-block:: python
 
@@ -187,11 +187,11 @@ It returns the all ``WikipediaPageSection`` with this title.
     # Isaac Asimov, American author
     # * January - January 1 – Zygmunt Gorazdowski, Polish
 
-How To Get Page In Other Languages
+How To Get a Page In Another Language
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you want to get other translations of given page, you should use property ``langlinks``. It is map,
-where key is language code and value is ``WikipediaPage``.
+If you want to get other translations of a given page, you should use the property ``langlinks``. It is a map,
+where the key is language code and the value is ``WikipediaPage``.
 
 .. code-block:: python
 
@@ -215,8 +215,8 @@ where key is language code and value is ``WikipediaPage``.
 How To Get Links To Other Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you want to get all links to other wiki pages from given page, you need to use property ``links``.
-It's map, where key is page title and value is ``WikipediaPage``.
+If you want to get all links to other wiki pages from a given page, you need to use the property ``links``.
+It's a map, where the keys are page titles and the values are ``WikipediaPage`` objects.
 
 .. code-block:: python
 
@@ -236,8 +236,8 @@ It's map, where key is page title and value is ``WikipediaPage``.
 How To Get Page Categories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you want to get all categories under which page belongs, you should use property ``categories``.
-It's map, where key is category title and value is ``WikipediaPage``.
+If you want to get all the categories under which a page belongs, you should use the property ``categories``.
+It's a map, where the keys are the category titles and the values are ``WikipediaPage`` objects.
 
 .. code-block:: python
 
@@ -258,7 +258,7 @@ It's map, where key is category title and value is ``WikipediaPage``.
 How To Get All Pages From Category
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To get all pages from given category, you should use property ``categorymembers``. It returns all members of given category.
+To get all pages from a given category, you should use the property ``categorymembers``. It returns all members of a given category.
 You have to implement recursion and deduplication by yourself.
 
 .. code-block:: python
@@ -287,7 +287,7 @@ You have to implement recursion and deduplication by yourself.
 How To See Underlying API Call
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you have problems with retrieving data you can get URL of undrerlying API call.
+If you have problems with retrieving data you can get the URL of the underlying API call.
 This will help you determine if the problem is in the library or somewhere else.
 
 .. code-block:: python
