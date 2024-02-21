@@ -8,7 +8,9 @@ def fix_doc(txt):
     """
     Fixes documentation so that it's readable in pypi website.
     """
-    return re.sub(r"\.\. PYPI-BEGIN([\r\n]|.)*?PYPI-END", "", txt, re.DOTALL)
+    return re.sub(
+        r"\.\. PYPI-BEGIN([\r\n]|[^\r\n])*?PYPI-END", "", txt, flags=re.DOTALL
+    )
 
 
 with open("README.rst", encoding="utf8") as fileR:
@@ -34,14 +36,11 @@ setup(
         "Intended Audience :: Developers",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
         "License :: OSI Approved :: MIT License",
