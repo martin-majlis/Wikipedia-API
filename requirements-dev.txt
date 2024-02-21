@@ -3,6 +3,6 @@ coverage==7.2.7
 flake8==6.0.0
 isort==5.12.0
 mypy==1.4.1
-pygments==2.15.1
+pygments==2.17.2
 sphinx==7.0.1
 tox==4.6.3
