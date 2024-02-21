@@ -8,7 +8,9 @@ def fix_doc(txt):
     """
     Fixes documentation so that it's readable in pypi website.
     """
-    return re.sub(r"\.\. PYPI-BEGIN([\r\n]|.)*?PYPI-END", "", txt, flags=re.DOTALL)
+    return re.sub(
+        r"\.\. PYPI-BEGIN([\r\n]|[^\r\n])*?PYPI-END", "", txt, flags=re.DOTALL
+    )
 
 
 with open("README.rst", encoding="utf8") as fileR:
