@@ -40,6 +40,9 @@ requirements:
 requirements-dev:
 	pip3 install -r requirements-dev.txt
 
+requirements-build:
+	pip3 install -r requirements-build.txt
+
 pre-release-check: run-type-check run-flake8 run-coverage pypi-html run-tox
 	echo "Pre-release check was successful"
 
