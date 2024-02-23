@@ -17,5 +17,5 @@ engines:
 
 ratings:
   paths:
-  - "wikipediaapi/**.py"
-  - "tests/**.py"
+    - "wikipediaapi/**.py"
+    - "tests/**.py"
