@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        python:
+          ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13", "pypy3.9", "pypy3.10"]
 
     steps:
       - uses: actions/checkout@v4
@@ -15,6 +16,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
+          cache: "pip"
       - name: Install Tox and any other packages
         run: make requirements-dev
       - name: Run Tox
