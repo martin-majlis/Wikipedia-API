@@ -42,6 +42,7 @@ jobs:
           python -m pip install --upgrade pip
           make requirements
           make requirements-build
+          pip install --upgrade setuptools
       - name: Build wheels
         run: |
           pip wheel -w wheelhouse .
