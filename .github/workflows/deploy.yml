@@ -53,7 +53,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           path: ./wheelhouse/Wikipedia*.whl
-  #          name: wheel-${{ matrix.os }}-${{ matrix.python }}.whl
+          name: wikipedia-api-${{ matrix.os }}-${{ matrix.python }}.whl
 
   build_sdist:
     name: Build source distribution
@@ -72,7 +72,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           path: dist/Wikipedia*.tar.gz
-  #          name: sdist.tar.gz
+          name: wikipedia-api-sdist.tar.gz
 
   upload_pypi:
     needs: [build_wheels, build_sdist]
@@ -84,7 +84,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: artifact
+          name: wikipedia-api-*
           path: dist
 
       - uses: pypa/gh-action-pypi-publish@release/v1
