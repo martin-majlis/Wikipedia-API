@@ -292,8 +292,9 @@ This will help you determine if the problem is in the library or somewhere else.
 
 .. code-block:: python
 
-    import wikipediaapi
     import sys
+
+    import wikipediaapi
     wikipediaapi.log.setLevel(level=wikipediaapi.logging.DEBUG)
 
     # Set handler if you use Python in interactive mode

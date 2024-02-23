@@ -5,28 +5,28 @@ env:
 
 language: python
 python:
-- '3.4'
-- '3.5'
-- '3.6'
-- '3.7'
-- '3.8'
-- '3.9'
-- '3.10'
-- '3.11'
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "3.7"
+  - "3.8"
+  - "3.9"
+  - "3.10"
+  - "3.11"
 install:
-- pip install -r requirements.txt
-- pip install coverage
-- pip install coveralls
+  - pip install -r requirements.txt
+  - pip install coverage
+  - pip install coveralls
 before_script:
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-- chmod +x ./cc-test-reporter
-- ./cc-test-reporter before-build
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
-- make run-coverage
-- coverage xml
+  - make run-coverage
+  - coverage xml
 after_script:
-- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-- coveralls
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - coveralls
 deploy:
   provider: pypi
   skip_existing: true
@@ -36,4 +36,4 @@ deploy:
   on:
     tags: true
 after_sucess:
-- CODECLIMATE_REPO_TOKEN=d62b9e265b625e28f256147e9636d8fc1abe9f540d4fc82f9f8976171676cec4 codeclimate-test-reporter
+  - CODECLIMATE_REPO_TOKEN=d62b9e265b625e28f256147e9636d8fc1abe9f540d4fc82f9f8976171676cec4 codeclimate-test-reporter
