@@ -5,14 +5,11 @@ env:
 
 language: python
 python:
-  - "3.4"
-  - "3.5"
-  - "3.6"
-  - "3.7"
   - "3.8"
   - "3.9"
   - "3.10"
   - "3.11"
+  - "3.12"
 install:
   - pip install -r requirements.txt
   - pip install coverage
@@ -23,7 +20,6 @@ before_script:
   - ./cc-test-reporter before-build
 script:
   - make run-coverage
-  - coverage xml
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - coveralls
