@@ -3,6 +3,9 @@ coverage==7.4.2
 flake8==7.0.0
 isort==5.12.0
 mypy==1.4.1
+pre-commit==3.3
 pygments==2.17.2
 sphinx==7.0.1
 tox==4.6.3
+types-requests==2.31.0
+types-setuptools==69.1.0.20240223
