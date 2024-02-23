@@ -72,7 +72,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           path: dist/Wikipedia*.tar.gz
-  #          name: sdist.tar.gz
+          name: wikipedia-api-${{ matrix.os }}-${{ matrix.python }}.tar.gz
 
   upload_pypi:
     needs: [build_wheels, build_sdist]
