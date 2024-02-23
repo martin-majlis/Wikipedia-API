@@ -30,7 +30,7 @@ jobs:
           pre-commit run -a
       - name: Code coverage
         run: |
-          make coverage
+          make run-coverage
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4.0.1
         with:
