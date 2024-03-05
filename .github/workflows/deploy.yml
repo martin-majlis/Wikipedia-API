@@ -94,12 +94,7 @@ jobs:
         run: ls -R
       - uses: actions/download-artifact@v4
         with:
-          name: Wikipedia-api-*
-          path: dist
-      - uses: actions/download-artifact@v4
-        with:
-          name: Wikipedia-api-*
-          path: wheelhouse
+          pattern: Wikipedia-api-*
       - name: Display structure of downloaded files
         run: ls -R
 
