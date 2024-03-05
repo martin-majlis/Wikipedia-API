@@ -105,9 +105,11 @@ jobs:
       - name: Prepare distribution structure
         run: |
           mkdir -p dist
-          for f in $( find downloaded -type f );
-            d=$( dirname ${f}  | rev | cut -d'/' -f 1 | rev );
-            cp -v ${f} dist/${d};
+          for f in $( find downloaded -type f ); do \
+            echo ${f}; \
+            d=$( dirname ${f} | rev | cut -d'/' -f 1 | rev ); \
+            echo ${d}; \
+            cp -v ${f} dist/${d}; \
           done
       - name: Display structure of dist files
         run: ls -lR dist
