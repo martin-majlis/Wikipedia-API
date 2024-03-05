@@ -50,8 +50,8 @@ jobs:
           CIBW_SKIP: cp27-win*
       - uses: actions/upload-artifact@v4
         with:
-          path: ./wheelhouse/Wikipedia*.whl
-          name: wikipedia-api-${{ matrix.os }}-${{ matrix.python }}.whl
+          path: wheelhouse/Wikipedia*.whl
+          name: Wikipedia-api-${{ matrix.os }}-${{ matrix.python }}.whl
 
   build_sdist:
     name: Build source dist on ${{ matrix.os }} and ${{ matrix.python }}
@@ -80,7 +80,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           path: dist/Wikipedia*.tar.gz
-          name: wikipedia-api-${{ matrix.os }}-${{ matrix.python }}.tar.gz
+          name: Wikipedia-api-${{ matrix.os }}-${{ matrix.python }}.tar.gz
 
   upload_pypi:
     needs: [build_wheels, build_sdist]
@@ -90,10 +90,18 @@ jobs:
     # alternatively, to publish when a GitHub Release is created, use the following rule:
     # if: github.event_name == 'release' && github.event.action == 'published'
     steps:
+      - name: Display structure of downloaded files
+        run: ls -R
       - uses: actions/download-artifact@v4
         with:
-          name: wikipedia-api-*
+          name: Wikipedia-api-*
           path: dist
+      - uses: actions/download-artifact@v4
+        with:
+          name: Wikipedia-api-*
+          path: wheelhouse
+      - name: Display structure of downloaded files
+        run: ls -R
 
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:

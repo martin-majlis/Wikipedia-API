@@ -6,7 +6,7 @@ from Wikipedia. Documentation provides code snippets for the most common use
 cases.
 """
 
-__version__ = (0, 6, 2)
+__version__ = (0, 6, 3)
 from collections import defaultdict
 from enum import IntEnum
 import logging
