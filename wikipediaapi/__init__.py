@@ -253,6 +253,41 @@ class Wikipedia:
             unquote=unquote,
         )
 
+    def thumbnails(
+        self, page: "WikipediaPage", **kwargs: Union[str, int]
+    ) -> dict[str, Union[str, int]]:
+        """Returns the thumbnail for a page if any thumbnail is available
+
+        API Calls for parameters:
+
+        - https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bpageimages
+
+        :param page: :class:`WikipediaPage`
+        :kwargs: parameters used in API call
+        :return: returns a dict of information about the thumbnail
+        :rtype: dict[str, str | int]
+        """
+        params = {
+            "action": "query",
+            "prop": "pageimages",
+            "piprop": "thumbnail",
+            "titles": page.title,
+        }
+
+        used_params = kwargs
+        used_params.update(params)
+
+        raw = self._query(page, used_params)
+
+        try:
+            thumbnail_info: dict[str, Union[str, int]] = raw["query"]["pages"][
+                str(page._attributes["pageid"])
+            ]["thumbnail"]
+            return thumbnail_info
+        except KeyError as e:
+            log.error("Keyerror while looking for thumbnail: %s", e)
+            return {}
+
     def extracts(self, page: "WikipediaPage", **kwargs) -> str:
         """
         Returns summary of the page with respect to parameters
@@ -842,6 +877,7 @@ class WikipediaPage:
         self._backlinks = {}  # type: PagesDict
         self._categories = {}  # type: PagesDict
         self._categorymembers = {}  # type: PagesDict
+        self._thumbnail = {}  # type: PagesDict
 
         self._called = {
             "extracts": False,
@@ -930,6 +966,18 @@ class WikipediaPage:
         if not self._called["extracts"]:
             self._fetch("extracts")
         return self._section
+
+    def thumbnail(self, width: int = 50) -> dict[str, Union[str, int]]:
+        """Returns information about the thumbnail of the given page.
+
+        :param width: Thumbnail width, defaults to 50
+        :type width: int, optional
+        :return: Dict with thumbnail information
+        :rtype: dict[str, Union[str, int]]
+        """
+        if not self._thumbnail:
+            self._thumbnail = self.wiki.thumbnails(self, pithumbsize=width)
+        return self._thumbnail
 
     def section_by_title(
         self,
