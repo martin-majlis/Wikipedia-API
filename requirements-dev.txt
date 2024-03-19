@@ -7,5 +7,5 @@ pre-commit==3.3
 pygments==2.17.2
 sphinx==7.0.1
 tox==4.14.1
-types-requests==2.31.0.20240218
+types-requests==2.31.0.20240311
 types-setuptools==69.1.0.20240223
