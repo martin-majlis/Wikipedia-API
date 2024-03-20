@@ -1,4 +1,4 @@
-black==24.2.0
+black==24.3.0
 coverage==7.4.3
 flake8==7.0.0
 isort==5.13.2
