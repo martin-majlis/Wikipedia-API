@@ -17,17 +17,17 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        #        os: [windows-latest]
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python: ["3.8", "3.9", "3.10", "3.11"]
+        python: ["3.8", "3.9", "3.10", "3.11", "3.12", "pypy3.9", "pypy3.10"]
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v5
         name: Install Python
         with:
           python-version: ${{ matrix.python }}
+          cache: "pip"
 
       - name: Install Python 3
         if: runner.os == 'Windows'
@@ -37,42 +37,50 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           choco install visualstudio2019buildtools
-      #          choco install vcredist2015 -f -y
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install --upgrade setuptools
-          python -m pip install --upgrade wheel
-          make requirements-dev
+          make requirements
+          make requirements-build
+          pip install --upgrade setuptools
       - name: Build wheels
         run: |
           pip wheel -w wheelhouse .
-        #         python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_SKIP: cp27-win*
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
-          path: ./wheelhouse/Wikipedia*.whl
-  #          name: wheel-${{ matrix.os }}-${{ matrix.python }}.whl
+          path: wheelhouse/Wikipedia*.whl
+          name: Wikipedia-api-${{ matrix.os }}-${{ matrix.python }}.whl
 
   build_sdist:
-    name: Build source distribution
-    runs-on: ubuntu-latest
+    name: Build source dist on ${{ matrix.os }} and ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ["3.8", "3.9", "3.10", "3.11", "3.12", "pypy3.9", "pypy3.10"]
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v5
         name: Install Python
         with:
           python-version: ${{ matrix.python }}
-
+          cache: "pip"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          make requirements
+          make requirements-build
+          pip install --upgrade setuptools
       - name: Build sdist
         run: python setup.py sdist
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           path: dist/Wikipedia*.tar.gz
-  #          name: sdist.tar.gz
+          name: Wikipedia-api-${{ matrix.os }}-${{ matrix.python }}.tar.gz
 
   upload_pypi:
     needs: [build_wheels, build_sdist]
@@ -81,14 +89,31 @@ jobs:
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags/v')
     # alternatively, to publish when a GitHub Release is created, use the following rule:
     # if: github.event_name == 'release' && github.event.action == 'published'
+    environment:
+      name: pypi
+      url: https://pypi.org/p/Wikipedia-API
+    permissions:
+      id-token: write
     steps:
-      - uses: actions/download-artifact@v4
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
         with:
-          name: artifact
-          path: dist
-
-      - uses: pypa/gh-action-pypi-publish@release/v1
+          pattern: Wikipedia-api-*
+          path: downloaded
+      - name: Display structure of downloaded files
+        run: ls -lR downloaded
+      - name: Prepare distribution structure
+        run: |
+          mkdir -p dist
+          for f in $( find downloaded -type f ); do \
+            echo ${f}; \
+            d=$( dirname ${f} | rev | cut -d'/' -f 1 | rev ); \
+            echo ${d}; \
+            cp -v ${f} dist/${d}; \
+          done
+      - name: Display structure of dist files
+        run: ls -lR dist
+      - uses: pypa/gh-action-pypi-publish@v1.8.14
         with:
-          user: __token__
-          password: ${{ secrets.pypi_password }}
-          # To test: repository_url: https://test.pypi.org/legacy/
+          verbose: true
+          print-hash: true

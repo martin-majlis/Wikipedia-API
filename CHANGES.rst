@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.6.8
+-----
+
+* Update dependencies
+* Add tests for more platforms
+
 0.6.0
 -----
 
