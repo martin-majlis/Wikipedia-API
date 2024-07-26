@@ -6,6 +6,6 @@ mypy==1.11.0
 pre-commit==3.3
 pygments==2.18.0
 sphinx==7.0.1
-tox==4.14.2
+tox==4.16.0
 types-requests==2.32.0.20240712
-types-setuptools==69.5.0.20240423
+types-setuptools==71.0.0.20240722
