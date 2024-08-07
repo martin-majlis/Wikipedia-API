@@ -482,6 +482,23 @@ class Wikipedia:
             return self._build_categories(v, page)
         return {}
 
+    def pageprops(self, page: "WikipediaPage") -> "WikipediaPage":
+        """
+        https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bpageprops
+        https://www.mediawiki.org/wiki/API:Pageprops
+        """
+        params = {
+            "action": "query",
+            "prop": "pageprops",
+            "titles": page.title,
+        }
+        raw = self._query(page, params)
+        self._common_attributes(raw["query"], page)
+        pages = raw["query"]["pages"]
+        for k, v in pages.items():
+            return self._build_pageprops(v, page)
+        return page
+
     def categorymembers(self, page: "WikipediaPage", **kwargs) -> PagesDict:
         """
         Returns pages in given category with respect to parameters
@@ -680,6 +697,14 @@ class Wikipedia:
 
         return page._categorymembers
 
+    def _build_pageprops(self, extract, page: "WikipediaPage") -> "WikipediaPage":
+        """Builds page from API call pageprops."""
+        self._common_attributes(extract, page)
+        page._attributes['pageprops'] = pageprops = extract.get('pageprops', {})
+        page._attributes['wikibase_item'] = pageprops.get('wikibase_item')
+
+        return page
+
     @staticmethod
     def _common_attributes(extract, page: "WikipediaPage"):
         """Fills in common attributes for page."""
@@ -823,6 +848,7 @@ class WikipediaPage:
         "readable": ["info"],
         "preload": ["info"],
         "displaytitle": ["info"],
+        "wikibase_item": ["pageprops"],
     }
 
     def __init__(
@@ -851,6 +877,7 @@ class WikipediaPage:
             "backlinks": False,
             "categories": False,
             "categorymembers": False,
+            "pageprops": False,
         }
 
         self._attributes = {
