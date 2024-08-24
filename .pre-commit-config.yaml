@@ -50,3 +50,9 @@ repos:
         entry: mypy
         language: python
         types: [file, python]
+      - id: pyupgrade
+        name: Run pyupgrade
+        entry: pyupgrade
+        language: python
+        args: ["--py39-plus"]
+        types: [file, python]

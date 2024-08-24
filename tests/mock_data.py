@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # flake8: noqa
 
 user_agent = "UnitTests (bot@example.com)"
