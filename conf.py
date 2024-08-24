@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 #
 # Wikipedia-API documentation build configuration file, created by
 # sphinx-quickstart on Mon Jul  3 09:08:55 2017.

@@ -7,11 +7,12 @@ cases.
 """
 
 __version__ = (0, 6, 9)
+
 from collections import defaultdict
 from enum import IntEnum
 import logging
 import re
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Optional, Union
 from urllib import parse
 
 import requests
@@ -26,7 +27,7 @@ log = logging.getLogger(__name__)
 
 
 # https://www.mediawiki.org/wiki/API:Main_page
-PagesDict = Dict[str, "WikipediaPage"]
+PagesDict = dict[str, "WikipediaPage"]
 
 
 class ExtractFormat(IntEnum):
@@ -133,7 +134,7 @@ class Wikipedia:
         user_agent: str,
         language: str = "en",
         extract_format: ExtractFormat = ExtractFormat.WIKI,
-        headers: Optional[Dict[str, Any]] = None,
+        headers: Optional[dict[str, Any]] = None,
         **kwargs,
     ) -> None:
         """
@@ -282,7 +283,7 @@ class Wikipedia:
             "action": "query",
             "prop": "extracts",
             "titles": page.title,
-        }  # type: Dict[str, Any]
+        }  # type: dict[str, Any]
 
         if self.extract_format == ExtractFormat.HTML:
             # we do nothing, when format is HTML
@@ -516,7 +517,7 @@ class Wikipedia:
 
         return self._build_categorymembers(v, page)
 
-    def _query(self, page: "WikipediaPage", params: Dict[str, Any]):
+    def _query(self, page: "WikipediaPage", params: dict[str, Any]):
         """Queries Wikimedia API to fetch content."""
         base_url = "https://" + page.language + ".wikipedia.org/w/api.php"
         log.info(
@@ -701,7 +702,7 @@ class WikipediaPageSection:
         self._title = title
         self._level = level
         self._text = text
-        self._section = []  # type: List['WikipediaPageSection']
+        self._section = []  # type: list['WikipediaPageSection']
 
     @property
     def title(self) -> str:
@@ -731,7 +732,7 @@ class WikipediaPageSection:
         return self._text
 
     @property
-    def sections(self) -> List["WikipediaPageSection"]:
+    def sections(self) -> list["WikipediaPageSection"]:
         """
         Returns subsections of the current section.
 
@@ -835,8 +836,8 @@ class WikipediaPage:
     ) -> None:
         self.wiki = wiki
         self._summary = ""  # type: str
-        self._section = []  # type: List[WikipediaPageSection]
-        self._section_mapping = {}  # type: Dict[str, List[WikipediaPageSection]]
+        self._section = []  # type: list[WikipediaPageSection]
+        self._section_mapping = {}  # type: dict[str, list[WikipediaPageSection]]
         self._langlinks = {}  # type: PagesDict
         self._links = {}  # type: PagesDict
         self._backlinks = {}  # type: PagesDict
@@ -857,7 +858,7 @@ class WikipediaPage:
             "title": title,
             "ns": namespace2int(ns),
             "language": language,
-        }  # type: Dict[str, Any]
+        }  # type: dict[str, Any]
 
         if url is not None:
             self._attributes["fullurl"] = url
@@ -921,7 +922,7 @@ class WikipediaPage:
         return self._summary
 
     @property
-    def sections(self) -> List[WikipediaPageSection]:
+    def sections(self) -> list[WikipediaPageSection]:
         """
         Returns all sections of the curent page.
 
@@ -951,7 +952,7 @@ class WikipediaPage:
     def sections_by_title(
         self,
         title: str,
-    ) -> List[WikipediaPageSection]:
+    ) -> list[WikipediaPageSection]:
         """
         Returns all section of the current page with given `title`.
 
