@@ -7,12 +7,17 @@ cases.
 """
 
 __version__ = (0, 6, 9)
+
 from collections import defaultdict
 from enum import IntEnum
 import logging
 import re
-from typing import Any, Dict, List, Optional, Union
+import typing
+from typing import Any, Optional, Union
 from urllib import parse
+
+if typing.TYPE_CHECKING:
+    from typing import Dict, List  # noqa: F401
 
 import requests
 
@@ -26,7 +31,7 @@ log = logging.getLogger(__name__)
 
 
 # https://www.mediawiki.org/wiki/API:Main_page
-PagesDict = Dict[str, "WikipediaPage"]
+PagesDict = dict[str, "WikipediaPage"]
 
 
 class ExtractFormat(IntEnum):
@@ -133,7 +138,7 @@ class Wikipedia:
         user_agent: str,
         language: str = "en",
         extract_format: ExtractFormat = ExtractFormat.WIKI,
-        headers: Optional[Dict[str, Any]] = None,
+        headers: Optional[dict[str, Any]] = None,
         **kwargs,
     ) -> None:
         """
@@ -516,7 +521,7 @@ class Wikipedia:
 
         return self._build_categorymembers(v, page)
 
-    def _query(self, page: "WikipediaPage", params: Dict[str, Any]):
+    def _query(self, page: "WikipediaPage", params: dict[str, Any]):
         """Queries Wikimedia API to fetch content."""
         base_url = "https://" + page.language + ".wikipedia.org/w/api.php"
         log.info(
@@ -731,7 +736,7 @@ class WikipediaPageSection:
         return self._text
 
     @property
-    def sections(self) -> List["WikipediaPageSection"]:
+    def sections(self) -> list["WikipediaPageSection"]:
         """
         Returns subsections of the current section.
 
@@ -921,7 +926,7 @@ class WikipediaPage:
         return self._summary
 
     @property
-    def sections(self) -> List[WikipediaPageSection]:
+    def sections(self) -> list[WikipediaPageSection]:
         """
         Returns all sections of the curent page.
 
@@ -951,7 +956,7 @@ class WikipediaPage:
     def sections_by_title(
         self,
         title: str,
-    ) -> List[WikipediaPageSection]:
+    ) -> list[WikipediaPageSection]:
         """
         Returns all section of the current page with given `title`.
 
