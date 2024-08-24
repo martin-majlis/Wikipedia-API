@@ -18,6 +18,28 @@ permissions:
   contents: read
 
 jobs:
+  code-quality:
+    name: Code quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+          cache: "pip"
+      - name: Install dependencies
+        run: |
+          python -m pip install -U pip
+          make requirements-dev
+          make requirements
+      - name: Install pre-commit hooks
+        run: |
+          pre-commit install
+      - name: Run pre-commit
+        run: |
+          pre-commit run -a
+
   run-tests:
     name: Tests on ${{ matrix.os }} and ${{ matrix.python }}
     needs: [code-quality]
