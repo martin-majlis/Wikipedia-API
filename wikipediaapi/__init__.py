@@ -12,12 +12,8 @@ from collections import defaultdict
 from enum import IntEnum
 import logging
 import re
-import typing
 from typing import Any, Optional, Union
 from urllib import parse
-
-if typing.TYPE_CHECKING:
-    from typing import Dict, List  # noqa: F401
 
 import requests
 
@@ -287,7 +283,7 @@ class Wikipedia:
             "action": "query",
             "prop": "extracts",
             "titles": page.title,
-        }  # type: Dict[str, Any]
+        }  # type: dict[str, Any]
 
         if self.extract_format == ExtractFormat.HTML:
             # we do nothing, when format is HTML
@@ -706,7 +702,7 @@ class WikipediaPageSection:
         self._title = title
         self._level = level
         self._text = text
-        self._section = []  # type: List['WikipediaPageSection']
+        self._section = []  # type: list['WikipediaPageSection']
 
     @property
     def title(self) -> str:
@@ -840,8 +836,8 @@ class WikipediaPage:
     ) -> None:
         self.wiki = wiki
         self._summary = ""  # type: str
-        self._section = []  # type: List[WikipediaPageSection]
-        self._section_mapping = {}  # type: Dict[str, List[WikipediaPageSection]]
+        self._section = []  # type: list[WikipediaPageSection]
+        self._section_mapping = {}  # type: dict[str, list[WikipediaPageSection]]
         self._langlinks = {}  # type: PagesDict
         self._links = {}  # type: PagesDict
         self._backlinks = {}  # type: PagesDict
@@ -862,7 +858,7 @@ class WikipediaPage:
             "title": title,
             "ns": namespace2int(ns),
             "language": language,
-        }  # type: Dict[str, Any]
+        }  # type: dict[str, Any]
 
         if url is not None:
             self._attributes["fullurl"] = url
