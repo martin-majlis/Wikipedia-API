@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.7.0
+0.7.1
 -----
 
 * Drop support for Python 3.8
