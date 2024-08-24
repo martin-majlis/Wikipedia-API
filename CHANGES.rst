@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.6.8
+0.6.9
 -----
 
 * Update dependencies
