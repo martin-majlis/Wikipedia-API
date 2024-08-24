@@ -5,6 +5,7 @@ isort==5.13.2
 mypy==1.11.0
 pre-commit==3.3
 pygments==2.18.0
+pyupgrade==3.17.0
 sphinx==7.0.1
 tox==4.16.0
 types-requests==2.32.0.20240712

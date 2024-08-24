@@ -1,7 +1,12 @@
 Changelog
 =========
 
-0.6.8
+0.7.0
+-----
+
+* Drop support for Python 3.8
+
+0.6.9
 -----
 
 * Update dependencies

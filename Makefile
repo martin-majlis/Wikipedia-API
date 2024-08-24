@@ -17,6 +17,9 @@ help:
 pypi-html:
 	python3 setup.py --long-description | rst2html.py > pypi-doc.html
 
+run-pre-commit:
+	pre-commit run -a
+
 run-tests:
 	python3 -m unittest discover tests/ '*test.py'
 
@@ -35,18 +38,18 @@ run-coverage:
 	coverage xml
 
 requirements:
-	pip3 install -r requirements.txt
+	pip install -r requirements.txt
 
 requirements-dev:
-	pip3 install -r requirements-dev.txt
+	pip install -r requirements-dev.txt
 
 requirements-build:
-	pip3 install -r requirements-build.txt
+	pip install -r requirements-build.txt
 
-pre-release-check: run-type-check run-flake8 run-coverage pypi-html run-tox
+pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage pypi-html run-tox
 	echo "Pre-release check was successful"
 
-release:
+release: pre-release-check
 	if [ "x$(MSG)" = "x" -o "x$(VERSION)" = "x" ]; then \
 		echo "Use make release MSG='some msg' VERSION='1.2.3'"; \
 		exit 1; \
@@ -90,10 +93,14 @@ release:
 	sed -ri 's/^release = .*/release = "'$(VERSION)'"/' conf.py; \
 	sed -ri 's/^version = .*/version = "'$$short_VERSION'"/' conf.py; \
 	sed -ri 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/__init__.py; \
-	git commit setup.py conf.py wikipediaapi/__init__.py -m "Update version to $(VERSION) for new release."; \
-	git push; \
-	git tag v$(VERSION) -m "$(MSG)"; \
+	git commit .github CHANGES.rst setup.py conf.py wikipediaapi/__init__.py -m "Update version to $(VERSION) for new release." && \
+	git push && \
+	git tag v$(VERSION) -m "$(MSG)" && \
 	git push --tags origin master
+
+
+build-package:
+	python setup.py sdist
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
