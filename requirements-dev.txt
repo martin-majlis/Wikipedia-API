@@ -2,11 +2,11 @@ black==24.4.2
 coverage==7.6.0
 flake8==7.1.1
 isort==5.13.2
-mypy==1.11.0
+mypy==1.11.2
 pre-commit==3.8.0
 pygments==2.18.0
 pyupgrade==3.17.0
 sphinx==7.0.1
 tox==4.18.0
 types-requests==2.32.0.20240712
-types-setuptools==71.1.0.20240726
+types-setuptools==73.0.0.20240822
