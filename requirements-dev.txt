@@ -8,5 +8,5 @@ pygments==2.18.0
 pyupgrade==3.17.0
 sphinx==7.0.1
 tox==4.18.0
-types-requests==2.32.0.20240712
+types-requests==2.32.0.20240907
 types-setuptools==73.0.0.20240822
