@@ -1,6 +1,5 @@
 name: Dependabot Pull Request
 on: pull_request
-if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'martin-majlis/Wikipedia-API'
 
 permissions:
   contents: write
@@ -9,6 +8,7 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'martin-majlis/Wikipedia-API'
     steps:
       - name: Fetch Dependabot metadata
         id: dependabot-metadata
