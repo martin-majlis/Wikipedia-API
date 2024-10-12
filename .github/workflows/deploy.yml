@@ -113,7 +113,7 @@ jobs:
           done
       - name: Display structure of dist files
         run: ls -lR dist
-      - uses: pypa/gh-action-pypi-publish@v1.10.0
+      - uses: pypa/gh-action-pypi-publish@v1.10.3
         with:
           verbose: true
           print-hash: true
