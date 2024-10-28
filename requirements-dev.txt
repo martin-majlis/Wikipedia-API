@@ -7,6 +7,6 @@ pre-commit==4.0.1
 pygments==2.18.0
 pyupgrade==3.19.0
 sphinx==7.0.1
-tox==4.21.2
+tox==4.23.2
 types-requests==2.32.0.20241016
 types-setuptools==75.2.0.20241025
