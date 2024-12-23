@@ -9,4 +9,4 @@ pyupgrade==3.19.1
 sphinx==7.0.1
 tox==4.23.2
 types-requests==2.32.0.20241016
-types-setuptools==75.6.0.20241126
+types-setuptools==75.6.0.20241223
