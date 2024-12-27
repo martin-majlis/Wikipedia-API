@@ -1,5 +1,4 @@
 import re
-from typing import List  # noqa
 
 from setuptools import setup
 
@@ -23,7 +22,7 @@ requires = [
     "requests",
 ]
 
-tests_require = []  # type: List[str]
+tests_require = []  # type: list[str]
 
 setup(
     name="Wikipedia-API",
@@ -36,7 +35,6 @@ setup(
         "Intended Audience :: Developers",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
