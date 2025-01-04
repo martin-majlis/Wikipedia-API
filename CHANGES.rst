@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.7.3
+-----
+
+* Regenerate stable documentation
+
 0.7.2
 -----
 
