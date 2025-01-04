@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.7.3
+-----
+
+* Small fixes in the documentation
+
 0.7.2
 -----
 
