@@ -43,6 +43,9 @@ requirements:
 requirements-dev:
 	pip install -r requirements-dev.txt
 
+requirements-docs:
+	pip install -r requirements-docs.txt
+
 requirements-build:
 	pip install -r requirements-build.txt
 

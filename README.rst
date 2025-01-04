@@ -5,7 +5,7 @@ Wikipedia API
 
 .. _Wikipedias': https://www.mediawiki.org/wiki/API:Main_page
 
-|build-status| |docs| |cc-coverage| |version| |pyversions| |github-stars-flat|
+|github-stars-flat| |cc-coverage| |docs| |version| |pyversions|
 
 Installation
 ------------
@@ -314,12 +314,10 @@ External Links
 
 * `GitHub`_
 * `PyPi`_
-* `Travis`_
 * `ReadTheDocs`_
 
 .. _GitHub: https://github.com/martin-majlis/Wikipedia-API/
 .. _PyPi: https://pypi.python.org/pypi/Wikipedia-API/
-.. _Travis: https://travis-ci.org/martin-majlis/Wikipedia-API/
 .. _ReadTheDocs: http://wikipedia-api.readthedocs.io/
 
 Other Badges
@@ -348,10 +346,6 @@ Other Pages
 
 .. PYPI-END
 
-
-.. |build-status| image:: https://travis-ci.org/martin-majlis/Wikipedia-API.svg?branch=master
-    :alt: build status
-    :target: https://travis-ci.org/martin-majlis/Wikipedia-API
 
 .. |docs| image:: https://readthedocs.org/projects/wikipedia-api/badge/?version=latest
     :target: http://wikipedia-api.readthedocs.io/en/latest/?badge=latest
