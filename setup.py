@@ -26,7 +26,7 @@ tests_require = []  # type: list[str]
 
 setup(
     name="Wikipedia-API",
-    version="0.7.1",
+    version="0.7.2",
     description="Python Wrapper for Wikipedia",
     long_description=README + "\n\n" + CHANGES,
     classifiers=[
@@ -39,6 +39,7 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
         "License :: OSI Approved :: MIT License",
