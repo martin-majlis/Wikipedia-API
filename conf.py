@@ -50,7 +50,7 @@ master_doc = "README"
 
 # General information about the project.
 project = "Wikipedia Python API"
-copyright = '2017-2023, <a href="http://martin.majlis.cz">Martin Majlis</a>'
+copyright = '2017-2025, <a href="http://martin.majlis.cz">Martin Majlis</a>'
 author = "Martin Majlis"
 
 # The version info for the project you're documenting, acts as replacement for

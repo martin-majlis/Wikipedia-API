@@ -1,7 +1,7 @@
 .. toctree::
 	:maxdepth: 2
 
-    README
+	README
 	API
 	CHANGES
 	DEVELOPMENT
