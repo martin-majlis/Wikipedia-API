@@ -27,7 +27,7 @@ tests_require = []  # type: List[str]
 
 setup(
     name="Wikipedia-API",
-    version="0.7.1",
+    version="0.7.2",
     description="Python Wrapper for Wikipedia",
     long_description=README + "\n\n" + CHANGES,
     classifiers=[

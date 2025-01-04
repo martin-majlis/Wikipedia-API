@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.7.2
+-----
+
+* Add support for Python 3.13
+* Regenerate stable documentation
+
 0.7.1
 -----
 
