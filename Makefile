@@ -37,14 +37,16 @@ run-coverage:
 	coverage report -m
 	coverage xml
 
+requirements-all: requirements requirements-dev requirements-doc
+
 requirements:
 	pip install -r requirements.txt
 
 requirements-dev:
 	pip install -r requirements-dev.txt
 
-requirements-docs:
-	pip install -r requirements-docs.txt
+requirements-doc:
+	pip install -r requirements-doc.txt
 
 requirements-build:
 	pip install -r requirements-build.txt

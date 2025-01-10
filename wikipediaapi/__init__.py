@@ -133,8 +133,10 @@ class Wikipedia:
         self,
         user_agent: str,
         language: str = "en",
+        variant: Optional[str] = None,
         extract_format: ExtractFormat = ExtractFormat.WIKI,
         headers: Optional[dict[str, Any]] = None,
+        extra_api_params: Optional[dict[str, Any]] = None,
         **kwargs,
     ) -> None:
         """
@@ -144,9 +146,12 @@ class Wikipedia:
                 https://meta.wikimedia.org/wiki/User-Agent_policy
         :param language: Language mutation of Wikipedia -
                 http://meta.wikimedia.org/wiki/List_of_Wikipedias
+        :param variant: Language variant.
+                Only works if the base language supports variant conversion.
         :param extract_format: Format used for extractions
                 :class:`ExtractFormat` object.
         :param headers:  Headers sent as part of HTTP request
+        :param extra_api_params:  Headers sent as part of HTTP request
         :param kwargs: Optional parameters used in -
                 http://docs.python-requests.org/en/master/api/#requests.request
 
@@ -179,6 +184,7 @@ class Wikipedia:
                 + str(self.language)
                 + "' is not sufficient."
             )
+        self.variant = variant.strip().lower() if variant else variant
         self.extract_format = extract_format
 
         log.info(
@@ -187,6 +193,8 @@ class Wikipedia:
             default_headers["User-Agent"],
             self.extract_format,
         )
+
+        self._extra_api_params = extra_api_params
 
         self._session = requests.Session()
         self._session.headers.update(default_headers)
@@ -233,7 +241,9 @@ class Wikipedia:
         if unquote:
             title = parse.unquote(title)
 
-        return WikipediaPage(self, title=title, ns=ns, language=self.language)
+        return WikipediaPage(
+            self, title=title, ns=ns, language=self.language, variant=self.variant
+        )
 
     def article(
         self, title: str, ns: WikiNamespace = Namespace.MAIN, unquote: bool = False
@@ -520,13 +530,23 @@ class Wikipedia:
     def _query(self, page: "WikipediaPage", params: dict[str, Any]):
         """Queries Wikimedia API to fetch content."""
         base_url = "https://" + page.language + ".wikipedia.org/w/api.php"
+        used_params = {}
+        if self.variant or self._extra_api_params:
+            if self.variant:
+                used_params["variant"] = self.variant
+            if self._extra_api_params:
+                used_params.update(self._extra_api_params)
+        used_params.update(params)
+
         log.info(
             "Request URL: %s",
-            base_url + "?" + "&".join([k + "=" + str(v) for k, v in params.items()]),
+            base_url
+            + "?"
+            + "&".join([k + "=" + str(v) for k, v in used_params.items()]),
         )
         params["format"] = "json"
         params["redirects"] = 1
-        r = self._session.get(base_url, params=params, **self._request_kwargs)
+        r = self._session.get(base_url, params=used_params, **self._request_kwargs)
         return r.json()
 
     def _build_extracts(self, extract, page: "WikipediaPage") -> str:
@@ -626,6 +646,7 @@ class Wikipedia:
                 title=link["title"],
                 ns=int(link["ns"]),
                 language=page.language,
+                variant=page.variant,
             )
 
         return page._links
@@ -642,6 +663,7 @@ class Wikipedia:
                 title=backlink["title"],
                 ns=int(backlink["ns"]),
                 language=page.language,
+                variant=page.variant,
             )
 
         return page._backlinks
@@ -658,6 +680,7 @@ class Wikipedia:
                 title=category["title"],
                 ns=int(category["ns"]),
                 language=page.language,
+                variant=page.variant,
             )
 
         return page._categories
@@ -674,6 +697,7 @@ class Wikipedia:
                 title=member["title"],
                 ns=int(member["ns"]),
                 language=page.language,
+                variant=page.variant,
             )
             p.pageid = member["pageid"]  # type: ignore
 
@@ -802,6 +826,7 @@ class WikipediaPage:
 
     ATTRIBUTES_MAPPING = {
         "language": [],
+        "variant": [],
         "pageid": ["info", "extracts", "langlinks"],
         "ns": ["info", "extracts", "langlinks"],
         "title": ["info", "extracts", "langlinks"],
@@ -832,6 +857,7 @@ class WikipediaPage:
         title: str,
         ns: WikiNamespace = Namespace.MAIN,
         language: str = "en",
+        variant: Optional[str] = None,
         url: Optional[str] = None,
     ) -> None:
         self.wiki = wiki
@@ -858,6 +884,7 @@ class WikipediaPage:
             "title": title,
             "ns": namespace2int(ns),
             "language": language,
+            "variant": variant,
         }  # type: dict[str, Any]
 
         if url is not None:
@@ -883,6 +910,15 @@ class WikipediaPage:
         :return: language
         """
         return str(self._attributes["language"])
+
+    @property
+    def variant(self) -> str:
+        """
+        Returns language variant of the current page.
+
+        :return: language variant
+        """
+        return self._attributes["variant"]
 
     @property
     def title(self) -> str:
@@ -1068,5 +1104,5 @@ class WikipediaPage:
 
     def __repr__(self):
         if any(self._called.values()):
-            return f"{self.title} (id: {self.pageid}, ns: {self.ns})"
-        return f"{self.title} (id: ??, ns: {self.ns})"
+            return f"{self.title} (lang: {self.language}, variant: {self.variant}, id: {self.pageid}, ns: {self.ns})"
+        return f"{self.title} (lang: {self.language}, variant: {self.variant}, id: ??, ns: {self.ns})"

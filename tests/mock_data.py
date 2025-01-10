@@ -479,4 +479,39 @@ _MOCK_DATA = {
             }
         },
     },
+    "zh:action=query&variant=zh-tw&explaintext=1&exsectionformat=wiki&prop=extracts&titles=Test_Zh-Tw&": {
+        "batchcomplete": "",
+        "warnings": {
+            "extracts": {
+                "*": '"exlimit" was too large for a whole article extracts request, lowered to 1.'
+            }
+        },
+        "query": {
+            "normalized": [{"from": "Test_Zh-Tw", "to": "Test Zh-Tw"}],
+            "pages": {
+                "4": {
+                    "pageid": 44,
+                    "ns": 0,
+                    "title": "Test Zh-Tw",
+                    "extract": ("ZH-TW\n\n\n"),
+                }
+            },
+        },
+    },
+    "zh:action=query&variant=zh-tw&pllimit=500&prop=links&titles=Test_Zh-Tw&": {
+        "query": {
+            "pages": {
+                "44": {
+                    "pageid": 44,
+                    "ns": 0,
+                    "title": "Test Zh-Tw",
+                    "links": [
+                        {"ns": 0, "title": "Title - Zh-Tw - 1"},
+                        {"ns": 0, "title": "Title - Zh-Tw - 2"},
+                        {"ns": 0, "title": "Title - Zh-Tw - 3"},
+                    ],
+                }
+            }
+        }
+    },
 }
