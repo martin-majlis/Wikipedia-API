@@ -137,7 +137,7 @@ class Wikipedia:
         extract_format: ExtractFormat = ExtractFormat.WIKI,
         headers: Optional[dict[str, Any]] = None,
         extra_api_params: Optional[dict[str, Any]] = None,
-        **kwargs,
+        **request_kwargs,
     ) -> None:
         """
         Constructs Wikipedia object for extracting information Wikipedia.
@@ -151,15 +151,16 @@ class Wikipedia:
         :param extract_format: Format used for extractions
                 :class:`ExtractFormat` object.
         :param headers:  Headers sent as part of HTTP request
-        :param extra_api_params:  Headers sent as part of HTTP request
-        :param kwargs: Optional parameters used in -
+        :param extra_api_params:  Extra parameters that are used to construct
+                query string when calling Wikipedia API
+        :param request_kwargs: Optional parameters used in -
                 http://docs.python-requests.org/en/master/api/#requests.request
 
         Examples:
 
         * Proxy: ``Wikipedia('foo (merlin@example.com)', proxies={'http': 'http://proxy:1234'})``
         """
-        kwargs.setdefault("timeout", 10.0)
+        request_kwargs.setdefault("timeout", 10.0)
 
         default_headers = {} if headers is None else headers
         if user_agent:
@@ -198,7 +199,7 @@ class Wikipedia:
 
         self._session = requests.Session()
         self._session.headers.update(default_headers)
-        self._request_kwargs = kwargs
+        self._request_kwargs = request_kwargs
 
     def __del__(self) -> None:
         """Closes session."""
@@ -530,13 +531,7 @@ class Wikipedia:
     def _query(self, page: "WikipediaPage", params: dict[str, Any]):
         """Queries Wikimedia API to fetch content."""
         base_url = "https://" + page.language + ".wikipedia.org/w/api.php"
-        used_params = {}
-        if self.variant or self._extra_api_params:
-            if self.variant:
-                used_params["variant"] = self.variant
-            if self._extra_api_params:
-                used_params.update(self._extra_api_params)
-        used_params.update(params)
+        used_params = self._construct_params(page, params)
 
         log.info(
             "Request URL: %s",
@@ -544,10 +539,22 @@ class Wikipedia:
             + "?"
             + "&".join([k + "=" + str(v) for k, v in used_params.items()]),
         )
-        params["format"] = "json"
-        params["redirects"] = 1
+
         r = self._session.get(base_url, params=used_params, **self._request_kwargs)
         return r.json()
+
+    def _construct_params(
+        self, page: "WikipediaPage", params: dict[str, Any]
+    ) -> dict[str, Any]:
+        used_params = {}  # type: dict[str, Any]
+        if page.variant:
+            used_params["variant"] = page.variant
+        used_params["format"] = "json"
+        used_params["redirects"] = 1
+        used_params.update(params)
+        if self._extra_api_params:
+            used_params.update(self._extra_api_params)
+        return used_params
 
     def _build_extracts(self, extract, page: "WikipediaPage") -> str:
         """Constructs summary of given page."""
@@ -912,13 +919,14 @@ class WikipediaPage:
         return str(self._attributes["language"])
 
     @property
-    def variant(self) -> str:
+    def variant(self) -> Optional[str]:
         """
         Returns language variant of the current page.
 
         :return: language variant
         """
-        return self._attributes["variant"]
+        v = self._attributes["variant"]
+        return str(v) if v else None
 
     @property
     def title(self) -> str:
@@ -1103,6 +1111,11 @@ class WikipediaPage:
         return self
 
     def __repr__(self):
+        r = f"{self.title} (lang: {self.language}, variant: {self.variant}, "
         if any(self._called.values()):
-            return f"{self.title} (lang: {self.language}, variant: {self.variant}, id: {self.pageid}, ns: {self.ns})"
-        return f"{self.title} (lang: {self.language}, variant: {self.variant}, id: ??, ns: {self.ns})"
+            r += f"id: {self.pageid}, "
+        else:
+            r += "id: ??, "
+
+        r += f"ns: {self.ns})"
+        return r

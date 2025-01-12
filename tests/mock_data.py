@@ -3,16 +3,20 @@
 user_agent = "UnitTests (bot@example.com)"
 
 
-def wikipedia_api_request(page, params):
-    query = ""
-    for k in sorted(params.keys()):
-        query += k + "=" + str(params[k]) + "&"
+def wikipedia_api_request(wiki):
+    def api_request(page, params):
+        used_params = wiki._construct_params(page, params)
+        query = ""
+        for k in sorted(used_params.keys()):
+            query += k + "=" + str(used_params[k]) + "&"
 
-    return _MOCK_DATA[page.language + ":" + query]
+        return _MOCK_DATA[page.language + ":" + query]
+
+    return api_request
 
 
 _MOCK_DATA = {
-    "en:action=query&explaintext=1&exsectionformat=wiki&prop=extracts&titles=Test_1&": {
+    "en:action=query&explaintext=1&exsectionformat=wiki&format=json&prop=extracts&redirects=1&titles=Test_1&": {
         "batchcomplete": "",
         "warnings": {
             "extracts": {
@@ -56,7 +60,7 @@ _MOCK_DATA = {
             },
         },
     },
-    "en:action=query&explaintext=1&exsectionformat=wiki&prop=extracts&titles=No_Sections&": {
+    "en:action=query&explaintext=1&exsectionformat=wiki&format=json&prop=extracts&redirects=1&titles=No_Sections&": {
         "batchcomplete": "",
         "warnings": {
             "extracts": {
@@ -75,7 +79,7 @@ _MOCK_DATA = {
             },
         },
     },
-    "en:action=query&prop=extracts&titles=Test_1&": {
+    "en:action=query&format=json&prop=extracts&redirects=1&titles=Test_1&": {
         "batchcomplete": "",
         "warnings": {
             "extracts": {
@@ -119,7 +123,7 @@ _MOCK_DATA = {
             },
         },
     },
-    "en:action=query&prop=extracts&titles=Test_Nested&": {
+    "en:action=query&format=json&prop=extracts&redirects=1&titles=Test_Nested&": {
         "batchcomplete": "",
         "warnings": {
             "extracts": {
@@ -158,7 +162,7 @@ _MOCK_DATA = {
             },
         },
     },
-    "en:action=query&prop=extracts&titles=Test_Edit&": {
+    "en:action=query&format=json&prop=extracts&redirects=1&titles=Test_Edit&": {
         "batchcomplete": "",
         "warnings": {
             "extracts": {
@@ -183,7 +187,7 @@ _MOCK_DATA = {
             },
         },
     },
-    "en:action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=Test_1&": {
+    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&redirects=1&titles=Test_1&": {
         "batchcomplete": "",
         "query": {
             "normalized": [{"from": "Test_1", "to": "Test 1"}],
@@ -212,7 +216,7 @@ _MOCK_DATA = {
             },
         },
     },
-    "l1:action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=Test 1 - 1&": {
+    "l1:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&redirects=1&titles=Test 1 - 1&": {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -240,7 +244,7 @@ _MOCK_DATA = {
             }
         },
     },
-    "en:action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=NonExisting&": {
+    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&redirects=1&titles=NonExisting&": {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -265,7 +269,7 @@ _MOCK_DATA = {
             }
         },
     },
-    "en:action=query&lllimit=500&llprop=url&prop=langlinks&titles=Test_1&": {
+    "en:action=query&format=json&lllimit=500&llprop=url&prop=langlinks&redirects=1&titles=Test_1&": {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -294,7 +298,7 @@ _MOCK_DATA = {
             }
         },
     },
-    "en:action=query&lllimit=500&llprop=url&prop=langlinks&titles=No_LangLinks&": {
+    "en:action=query&format=json&lllimit=500&llprop=url&prop=langlinks&redirects=1&titles=No_LangLinks&": {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -306,7 +310,7 @@ _MOCK_DATA = {
             }
         },
     },
-    "en:action=query&pllimit=500&prop=links&titles=Test_1&": {
+    "en:action=query&format=json&pllimit=500&prop=links&redirects=1&titles=Test_1&": {
         "query": {
             "pages": {
                 "4": {
@@ -322,7 +326,7 @@ _MOCK_DATA = {
             }
         }
     },
-    "en:action=query&pllimit=500&prop=links&titles=Test_2&": {
+    "en:action=query&format=json&pllimit=500&prop=links&redirects=1&titles=Test_2&": {
         "continue": {"plcontinue": "5|0|Title_-_4", "continue": "||"},
         "query": {
             "pages": {
@@ -339,7 +343,7 @@ _MOCK_DATA = {
             }
         },
     },
-    "en:action=query&plcontinue=5|0|Title_-_4&pllimit=500&prop=links&titles=Test_2&": {
+    "en:action=query&format=json&plcontinue=5|0|Title_-_4&pllimit=500&prop=links&redirects=1&titles=Test_2&": {
         "query": {
             "pages": {
                 "4": {
@@ -354,7 +358,7 @@ _MOCK_DATA = {
             }
         }
     },
-    "en:action=query&pllimit=500&prop=links&titles=No_Links&": {
+    "en:action=query&format=json&pllimit=500&prop=links&redirects=1&titles=No_Links&": {
         "query": {
             "pages": {
                 "4": {
@@ -365,7 +369,7 @@ _MOCK_DATA = {
             }
         }
     },
-    "en:action=query&cllimit=500&prop=categories&titles=Test_1&": {
+    "en:action=query&cllimit=500&format=json&prop=categories&redirects=1&titles=Test_1&": {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -382,7 +386,7 @@ _MOCK_DATA = {
             }
         },
     },
-    "en:action=query&cmlimit=500&cmtitle=Category:C1&list=categorymembers&": {
+    "en:action=query&cmlimit=500&cmtitle=Category:C1&format=json&list=categorymembers&redirects=1&": {
         "query": {
             "categorymembers": [
                 {"ns": 0, "pageid": 4, "title": "Title - 1"},
@@ -391,7 +395,7 @@ _MOCK_DATA = {
             ]
         }
     },
-    "en:action=query&cmlimit=500&cmtitle=Category:C2&list=categorymembers&": {
+    "en:action=query&cmlimit=500&cmtitle=Category:C2&format=json&list=categorymembers&redirects=1&": {
         "continue": {"cmcontinue": "5|0|Title_-_4", "continue": "-||"},
         "query": {
             "categorymembers": [
@@ -401,7 +405,7 @@ _MOCK_DATA = {
             ]
         },
     },
-    "en:action=query&cmcontinue=5|0|Title_-_4&cmlimit=500&cmtitle=Category:C2&list=categorymembers&": {
+    "en:action=query&cmcontinue=5|0|Title_-_4&cmlimit=500&cmtitle=Category:C2&format=json&list=categorymembers&redirects=1&": {
         "query": {
             "categorymembers": [
                 {"ns": 0, "pageid": 7, "title": "Title - 4"},
@@ -409,7 +413,7 @@ _MOCK_DATA = {
             ]
         }
     },
-    "en:action=query&cllimit=500&prop=categories&titles=No_Categories&": {
+    "en:action=query&cllimit=500&format=json&prop=categories&redirects=1&titles=No_Categories&": {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -421,10 +425,10 @@ _MOCK_DATA = {
             }
         },
     },
-    "en:action=query&bllimit=500&bltitle=Non_Existent&list=backlinks&": {
+    "en:action=query&bllimit=500&bltitle=Non_Existent&format=json&list=backlinks&redirects=1&": {
         "query": {"backlinks": []}
     },
-    "en:action=query&bllimit=500&bltitle=Test_1&list=backlinks&": {
+    "en:action=query&bllimit=500&bltitle=Test_1&format=json&list=backlinks&redirects=1&": {
         "query": {
             "backlinks": [
                 {"ns": 0, "title": "Title - 1"},
@@ -433,7 +437,7 @@ _MOCK_DATA = {
             ]
         }
     },
-    "en:action=query&bllimit=500&bltitle=Test_2&list=backlinks&": {
+    "en:action=query&bllimit=500&bltitle=Test_2&format=json&list=backlinks&redirects=1&": {
         "continue": {"blcontinue": "5|0|Title_-_4", "continue": "||"},
         "query": {
             "backlinks": [
@@ -443,7 +447,7 @@ _MOCK_DATA = {
             ]
         },
     },
-    "en:action=query&blcontinue=5|0|Title_-_4&bllimit=500&bltitle=Test_2&list=backlinks&": {
+    "en:action=query&blcontinue=5|0|Title_-_4&bllimit=500&bltitle=Test_2&format=json&list=backlinks&redirects=1&": {
         "query": {
             "backlinks": [
                 {"ns": 0, "title": "Title - 4"},
@@ -451,7 +455,7 @@ _MOCK_DATA = {
             ]
         }
     },
-    "hi:action=query&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&titles=पाइथन&": {
+    "hi:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&redirects=1&titles=पाइथन&": {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -479,7 +483,7 @@ _MOCK_DATA = {
             }
         },
     },
-    "zh:action=query&variant=zh-tw&explaintext=1&exsectionformat=wiki&prop=extracts&titles=Test_Zh-Tw&": {
+    "zh:action=query&explaintext=1&exsectionformat=wiki&format=json&prop=extracts&redirects=1&titles=Test_Zh-Tw&variant=zh-tw&": {
         "batchcomplete": "",
         "warnings": {
             "extracts": {
@@ -498,7 +502,7 @@ _MOCK_DATA = {
             },
         },
     },
-    "zh:action=query&variant=zh-tw&pllimit=500&prop=links&titles=Test_Zh-Tw&": {
+    "zh:action=query&format=json&pllimit=500&prop=links&redirects=1&titles=Test_Zh-Tw&variant=zh-tw&": {
         "query": {
             "pages": {
                 "44": {
@@ -513,5 +517,33 @@ _MOCK_DATA = {
                 }
             }
         }
+    },
+    "zh:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&redirects=1&titles=Test_Zh-Tw&variant=zh-tw&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "44": {
+                    "pageid": 44,
+                    "ns": 0,
+                    "title": "Test Zh-Tw",
+                    "missing": "",
+                    "contentmodel": "wikitext",
+                    "pagelanguage": "zh",
+                    "pagelanguagehtmlcode": "zh",
+                    "pagelanguagedir": "ltr",
+                    "protection": [
+                        {"type": "create", "level": "sysop", "expiry": "infinity"}
+                    ],
+                    "restrictiontypes": ["create"],
+                    "notificationtimestamp": "",
+                    "fullurl": "https://zh.wikipedia.org/wiki/Test Zh-Tw",
+                    "editurl": "https://zh.wikipedia.org/w/index.php?title=Test Zh-Tw&action=edit",
+                    "canonicalurl": "https://zh.wikipedia.org/wiki/Test Zh-Tw",
+                    "readable": "",
+                    "preload": None,
+                    "displaytitle": "Test Zh-Tw",
+                }
+            }
+        },
     },
 }

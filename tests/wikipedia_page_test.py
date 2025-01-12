@@ -8,7 +8,7 @@ import wikipediaapi
 class TestWikipediaPage(unittest.TestCase):
     def setUp(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
-        self.wiki._query = wikipedia_api_request
+        self.wiki._query = wikipedia_api_request(self.wiki)
 
     def test_repr_before_fetching(self):
         page = self.wiki.page("Test_1")
@@ -35,6 +35,7 @@ class TestWikipediaPage(unittest.TestCase):
         )
         self.assertEqual(page.canonicalurl, "https://en.wikipedia.org/wiki/Test_1")
         self.assertEqual(page.displaytitle, "Test 1")
+        self.assertEqual(page.variant, None)
 
     def test_unknown_property(self):
         page = self.wiki.page("Test_1")
@@ -57,7 +58,7 @@ class TestWikipediaPage(unittest.TestCase):
     def test_article_title_unquote(self):
         # https://github.com/goldsmith/Wikipedia/issues/190
         w = wikipediaapi.Wikipedia(user_agent, "hi")
-        w._query = wikipedia_api_request
+        w._query = wikipedia_api_request(w)
         p_encoded = w.article(
             "%E0%A4%AA%E0%A4%BE%E0%A4%87%E0%A4%A5%E0%A4%A8",
             unquote=True,
@@ -68,7 +69,7 @@ class TestWikipediaPage(unittest.TestCase):
     def test_page_title_unquote(self):
         # https://github.com/goldsmith/Wikipedia/issues/190
         w = wikipediaapi.Wikipedia(user_agent, "hi")
-        w._query = wikipedia_api_request
+        w._query = wikipedia_api_request(w)
         p_encoded = w.page(
             "%E0%A4%AA%E0%A4%BE%E0%A4%87%E0%A4%A5%E0%A4%A8",
             unquote=True,
@@ -80,3 +81,12 @@ class TestWikipediaPage(unittest.TestCase):
         page = self.wiki.page("NonExisting", ns=110)
         self.assertFalse(page.exists())
         self.assertEqual(110, page.namespace)
+
+    def test_page_with_variant(self):
+        wiki = wikipediaapi.Wikipedia(user_agent, "zh", "zh-tw")
+        wiki._query = wikipedia_api_request(wiki)
+        page = wiki.page("Test_Zh-Tw")
+        self.assertTrue(page.exists())
+        self.assertEqual(page.pageid, 44)
+        self.assertEqual(page.title, "Test Zh-Tw")
+        self.assertEqual(page.variant, "zh-tw")
