@@ -293,6 +293,10 @@ you can pass them as additional parameters in the constructor. For the `info API
 specify parameter `converttitles`. If you want to specify it, you can use:
 
 .. code-block:: python
+
+    import sys
+
+    import wikipediaapi
 	wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'zh', 'zh-tw', extra_api_params={'converttitles': 1})
 	page = wiki_wiki.page("孟卯")
 	print(repr(page.varianttitles))
@@ -300,6 +304,7 @@ specify parameter `converttitles`. If you want to specify it, you can use:
 
 .. _sandbox: https://en.wikipedia.org/wiki/Special:ApiSandbox
 .. _info API call: https://zh.wikipedia.org/wiki/Special:API%E6%B2%99%E7%9B%92#action=query&format=json&variant=zh-tw&prop=info&titles=%E5%AD%9F%E5%8D%AF&converttitles=1&formatversion=2&inprop=varianttitles%7Cdisplaytitle
+
 How To See Underlying API Call
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
