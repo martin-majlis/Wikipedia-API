@@ -3,7 +3,7 @@ API
 
 Wikipedia
 ---------
-* ``__init__(user_agent: str, language='en', extract_format=ExtractFormat.WIKI, headers: Optional[Dict[str, Any]] = None, **kwargs)``
+* ``__init__(user_agent: str, language='en', variant=Optional[str] = None, extract_format=ExtractFormat.WIKI, headers: Optional[Dict[str, Any]] = None, extra_api_params: Optional[dict[str, Any]] = None, **request_kwargs)``
 * ``page(title)``
 
 WikipediaPage
@@ -20,6 +20,7 @@ WikipediaPage
 * ``links`` - links to other pages ({title: ``WikipediaPage``})
 * ``categories`` - all categories ({title: ``WikipediaPage``})
 * ``displaytitle``
+* ``varianttitles``
 * ``canonicalurl``
 * ``ns``
 * ``contentmodel``

@@ -10,7 +10,7 @@ Wikipedia API
 Installation
 ------------
 
-This package requires at least Python 3.8 to install because it's using IntEnum.
+This package requires at least Python 3.9 to install because it's using IntEnum.
 
 .. code-block:: python
 
@@ -284,6 +284,22 @@ You have to implement recursion and deduplication by yourself.
 	# ** Category:Viscosity (ns: 14)
 	# *** Brookfield Engineering (ns: 0)
 
+Use Extra API Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Official API supports many different parameters. You can see them in the `sandbox`_. Not all these
+parameters are supported directly as parameters of the functions. If you want to specify them,
+you can pass them as additional parameters in the constructor. For the `info API call`_ you can
+specify parameter `converttitles`. If you want to specify it, you can use:
+
+.. code-block:: python
+	wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'zh', 'zh-tw', extra_api_params={'converttitles': 1})
+	page = wiki_wiki.page("孟卯")
+	print(repr(page.varianttitles))
+
+
+.. _sandbox: https://en.wikipedia.org/wiki/Special:ApiSandbox
+.. _info API call: https://zh.wikipedia.org/wiki/Special:API%E6%B2%99%E7%9B%92#action=query&format=json&variant=zh-tw&prop=info&titles=%E5%AD%9F%E5%8D%AF&converttitles=1&formatversion=2&inprop=varianttitles%7Cdisplaytitle
 How To See Underlying API Call
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

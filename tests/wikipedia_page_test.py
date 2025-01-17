@@ -90,3 +90,13 @@ class TestWikipediaPage(unittest.TestCase):
         self.assertEqual(page.pageid, 44)
         self.assertEqual(page.title, "Test Zh-Tw")
         self.assertEqual(page.variant, "zh-tw")
+        self.assertEqual(
+            page.varianttitles,
+            {"zh": "Test Zh", "zh-hans": "Test Zh-Hans", "zh-tw": "Test Zh-Tw"},
+        )
+
+    def test_page_with_extra_parameters(self):
+        wiki = wikipediaapi.Wikipedia(user_agent, "en", extra_api_params={"foo": "bar"})
+        wiki._query = wikipedia_api_request(wiki)
+        page = wiki.page("Extra_API_Params")
+        self.assertTrue(page.exists())

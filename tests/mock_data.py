@@ -187,7 +187,7 @@ _MOCK_DATA = {
             },
         },
     },
-    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&redirects=1&titles=Test_1&": {
+    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=Test_1&": {
         "batchcomplete": "",
         "query": {
             "normalized": [{"from": "Test_1", "to": "Test 1"}],
@@ -216,7 +216,7 @@ _MOCK_DATA = {
             },
         },
     },
-    "l1:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&redirects=1&titles=Test 1 - 1&": {
+    "l1:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=Test 1 - 1&": {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -244,7 +244,7 @@ _MOCK_DATA = {
             }
         },
     },
-    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&redirects=1&titles=NonExisting&": {
+    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=NonExisting&": {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -455,7 +455,7 @@ _MOCK_DATA = {
             ]
         }
     },
-    "hi:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&redirects=1&titles=पाइथन&": {
+    "hi:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=पाइथन&": {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -518,7 +518,7 @@ _MOCK_DATA = {
             }
         }
     },
-    "zh:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle&prop=info&redirects=1&titles=Test_Zh-Tw&variant=zh-tw&": {
+    "zh:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=Test_Zh-Tw&variant=zh-tw&": {
         "batchcomplete": "",
         "query": {
             "pages": {
@@ -542,8 +542,42 @@ _MOCK_DATA = {
                     "readable": "",
                     "preload": None,
                     "displaytitle": "Test Zh-Tw",
+                    "varianttitles": {
+                        "zh": "Test Zh",
+                        "zh-hans": "Test Zh-Hans",
+                        "zh-tw": "Test Zh-Tw",
+                    },
                 }
             }
+        },
+    },
+    "en:action=query&foo=bar&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=Extra_API_Params&": {
+        "batchcomplete": "",
+        "query": {
+            "normalized": [{"from": "Extra_API_Params", "to": "Extra API Params"}],
+            "pages": {
+                "4": {
+                    "pageid": 9,
+                    "ns": 0,
+                    "title": "Extra API Params",
+                    "missing": "",
+                    "contentmodel": "wikitext",
+                    "pagelanguage": "en",
+                    "pagelanguagehtmlcode": "en",
+                    "pagelanguagedir": "ltr",
+                    "protection": [
+                        {"type": "create", "level": "sysop", "expiry": "infinity"}
+                    ],
+                    "restrictiontypes": ["create"],
+                    "notificationtimestamp": "",
+                    "fullurl": "https://en.wikipedia.org/wiki/Extra_API_Params",
+                    "editurl": "https://en.wikipedia.org/w/index.php?title=Extra_API_Params&action=edit",
+                    "canonicalurl": "https://en.wikipedia.org/wiki/Extra_API_Params",
+                    "readable": "",
+                    "preload": None,
+                    "displaytitle": "Extra API Params",
+                }
+            },
         },
     },
 }

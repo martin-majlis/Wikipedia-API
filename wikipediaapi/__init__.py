@@ -338,6 +338,7 @@ class Wikipedia:
                     "readable",
                     "preload",
                     "displaytitle",
+                    "varianttitles",
                 ]
             ),
         }
@@ -856,6 +857,7 @@ class WikipediaPage:
         "readable": ["info"],
         "preload": ["info"],
         "displaytitle": ["info"],
+        "varianttitles": ["info"],
     }
 
     def __init__(
