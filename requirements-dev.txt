@@ -4,8 +4,8 @@ flake8==7.1.1
 isort==5.13.2
 mypy==1.14.1
 pre-commit==4.0.1
-pygments==2.19.0
+pygments==2.19.1
 pyupgrade==3.19.1
 tox==4.23.2
 types-requests==2.32.0.20241016
-types-setuptools==75.6.0.20241223
+types-setuptools==75.8.0.20250110
