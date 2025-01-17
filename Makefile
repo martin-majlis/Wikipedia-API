@@ -16,6 +16,7 @@ help:
 
 pypi-html:
 	python3 setup.py --long-description | rst2html.py > pypi-doc.html
+	echo file://$$( pwd )/pypi-doc.html
 
 run-pre-commit:
 	pre-commit run -a

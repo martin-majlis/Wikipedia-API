@@ -3,7 +3,15 @@ API
 
 Wikipedia
 ---------
-* ``__init__(user_agent: str, language='en', variant=Optional[str] = None, extract_format=ExtractFormat.WIKI, headers: Optional[Dict[str, Any]] = None, extra_api_params: Optional[dict[str, Any]] = None, **request_kwargs)``
+* ``__init__(
+        user_agent: str,
+        language='en',
+        variant=Optional[str] = None,
+        extract_format=ExtractFormat.WIKI,
+        headers: Optional[Dict[str, Any]] = None,
+        extra_api_params: Optional[dict[str, Any]] = None,
+        **request_kwargs
+    )``
 * ``page(title)``
 
 WikipediaPage
