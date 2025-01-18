@@ -1,5 +1,4 @@
 import re
-from typing import List  # noqa
 
 from setuptools import setup
 
@@ -23,7 +22,7 @@ requires = [
     "requests",
 ]
 
-tests_require = []  # type: List[str]
+tests_require = []  # type: list[str]
 
 setup(
     name="Wikipedia-API",
