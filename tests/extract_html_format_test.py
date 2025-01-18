@@ -10,7 +10,7 @@ class TestHtmlFormatExtracts(unittest.TestCase):
         self.wiki = wikipediaapi.Wikipedia(
             user_agent, "en", extract_format=wikipediaapi.ExtractFormat.HTML
         )
-        self.wiki._query = wikipedia_api_request
+        self.wiki._query = wikipedia_api_request(self.wiki)
 
     def test_title_before_fetching(self):
         page = self.wiki.page("Test_1")

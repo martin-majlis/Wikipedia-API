@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import logging
 
 import wikipediaapi
@@ -119,3 +120,31 @@ p_hi_python_quoted = wiki_hi.article(
 )
 print(p_hi_python_quoted.title)
 print(p_hi_python_quoted.summary[0:60])
+
+# Fetch page about Python in Chinese
+wiki_zh = wikipediaapi.Wikipedia(user_agent, "zh")
+zh_page = wiki_zh.page("Python")
+print(zh_page.title + ": " + zh_page.fullurl)
+print(zh_page.summary[0:60])
+print(repr(zh_page.varianttitles))
+
+# https://zh.wikipedia.org/zh-cn/Python
+wiki_zh_cn = wikipediaapi.Wikipedia(user_agent, "zh", "zh-cn")
+zh_page_cn = wiki_zh_cn.page("Python")
+print(zh_page_cn.title + ": " + zh_page_cn.fullurl)
+print(zh_page_cn.summary[0:60])
+print(repr(zh_page_cn.varianttitles))
+
+# https://zh.wikipedia.org/zh-tw/Python
+wiki_zh_tw = wikipediaapi.Wikipedia(user_agent, "zh", "zh-tw")
+zh_page_tw = wiki_zh_tw.page("Python")
+print(zh_page_tw.title + ": " + zh_page_tw.fullurl)
+print(zh_page_tw.summary[0:60])
+print(repr(zh_page_tw.varianttitles))
+
+# https://zh.wikipedia.org/zh-sg/Python
+wiki_zh_sg = wikipediaapi.Wikipedia(user_agent, "zh", "zh-sg")
+zh_page_sg = wiki_zh_sg.page("Python")
+print(zh_page_sg.title + ": " + zh_page_sg.fullurl)
+print(zh_page_sg.summary[0:60])
+print(repr(zh_page_sg.varianttitles))

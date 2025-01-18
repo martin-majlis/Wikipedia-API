@@ -10,7 +10,7 @@ Wikipedia API
 Installation
 ------------
 
-This package requires at least Python 3.8 to install because it's using IntEnum.
+This package requires at least Python 3.9 to install because it's using IntEnum.
 
 .. code-block:: python
 
@@ -27,7 +27,7 @@ Importing
 
 .. code-block:: python
 
-	import wikipediaapi
+    import wikipediaapi
 
 How To Get Single Page
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -44,9 +44,9 @@ To initialize it, you have to provide:
 .. code-block:: python
 
     import wikipediaapi
-	wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'en')
+    wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'en')
 
-	page_py = wiki_wiki.page('Python_(programming_language)')
+    page_py = wiki_wiki.page('Python_(programming_language)')
 
 
 How To Check If Wiki Page Exists
@@ -56,13 +56,13 @@ For checking, whether page exists, you can use function ``exists``.
 
 .. code-block:: python
 
-	page_py = wiki_wiki.page('Python_(programming_language)')
-	print("Page - Exists: %s" % page_py.exists())
-	# Page - Exists: True
+    page_py = wiki_wiki.page('Python_(programming_language)')
+    print("Page - Exists: %s" % page_py.exists())
+    # Page - Exists: True
 
-	page_missing = wiki_wiki.page('NonExistingPageWithStrangeName')
-	print("Page - Exists: %s" % 	page_missing.exists())
-	# Page - Exists: False
+    page_missing = wiki_wiki.page('NonExistingPageWithStrangeName')
+    print("Page - Exists: %s" %     page_missing.exists())
+    # Page - Exists: False
 
 How To Get Page Summary
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,13 +73,13 @@ Class ``WikipediaPage`` has property ``summary``, which returns description of W
 
 
     import wikipediaapi
-	wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'en')
+    wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'en')
 
-	print("Page - Title: %s" % page_py.title)
-	# Page - Title: Python (programming language)
+    print("Page - Title: %s" % page_py.title)
+    # Page - Title: Python (programming language)
 
-	print("Page - Summary: %s" % page_py.summary[0:60])
-	# Page - Summary: Python is a widely used high-level programming language for
+    print("Page - Summary: %s" % page_py.summary[0:60])
+    # Page - Summary: Python is a widely used high-level programming language for
 
 
 How To Get Page URL
@@ -89,11 +89,11 @@ How To Get Page URL
 
 .. code-block:: python
 
-	print(page_py.fullurl)
-	# https://en.wikipedia.org/wiki/Python_(programming_language)
+    print(page_py.fullurl)
+    # https://en.wikipedia.org/wiki/Python_(programming_language)
 
-	print(page_py.canonicalurl)
-	# https://en.wikipedia.org/wiki/Python_(programming_language)
+    print(page_py.canonicalurl)
+    # https://en.wikipedia.org/wiki/Python_(programming_language)
 
 How To Get Full Text
 ~~~~~~~~~~~~~~~~~~~~
@@ -103,35 +103,35 @@ as concatanation of summary and sections with their titles and texts.
 
 .. code-block:: python
 
-	wiki_wiki = wikipediaapi.Wikipedia(
-	    user_agent='MyProjectName (merlin@example.com)',
-		language='en',
-		extract_format=wikipediaapi.ExtractFormat.WIKI
-	)
+    wiki_wiki = wikipediaapi.Wikipedia(
+        user_agent='MyProjectName (merlin@example.com)',
+        language='en',
+        extract_format=wikipediaapi.ExtractFormat.WIKI
+    )
 
-	p_wiki = wiki_wiki.page("Test 1")
-	print(p_wiki.text)
-	# Summary
-	# Section 1
-	# Text of section 1
-	# Section 1.1
-	# Text of section 1.1
-	# ...
+    p_wiki = wiki_wiki.page("Test 1")
+    print(p_wiki.text)
+    # Summary
+    # Section 1
+    # Text of section 1
+    # Section 1.1
+    # Text of section 1.1
+    # ...
 
 
-	wiki_html = wikipediaapi.Wikipedia(
-	    user_agent='MyProjectName (merlin@example.com)',
-		language='en',
-		extract_format=wikipediaapi.ExtractFormat.HTML
-	)
-	p_html = wiki_html.page("Test 1")
-	print(p_html.text)
-	# <p>Summary</p>
-	# <h2>Section 1</h2>
-	# <p>Text of section 1</p>
-	# <h3>Section 1.1</h3>
-	# <p>Text of section 1.1</p>
-	# ...
+    wiki_html = wikipediaapi.Wikipedia(
+        user_agent='MyProjectName (merlin@example.com)',
+        language='en',
+        extract_format=wikipediaapi.ExtractFormat.HTML
+    )
+    p_html = wiki_html.page("Test 1")
+    print(p_html.text)
+    # <p>Summary</p>
+    # <h2>Section 1</h2>
+    # <p>Text of section 1</p>
+    # <h3>Section 1.1</h3>
+    # <p>Text of section 1.1</p>
+    # ...
 
 How To Get Page Sections
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -141,19 +141,19 @@ To get all top level sections of page, you have to use property ``sections``. It
 
 .. code-block:: python
 
-	def print_sections(sections, level=0):
-		for s in sections:
-			print("%s: %s - %s" % ("*" * (level + 1), s.title, s.text[0:40]))
-			print_sections(s.sections, level + 1)
+    def print_sections(sections, level=0):
+        for s in sections:
+            print("%s: %s - %s" % ("*" * (level + 1), s.title, s.text[0:40]))
+            print_sections(s.sections, level + 1)
 
 
-	print_sections(page_py.sections)
-	# *: History - Python was conceived in the late 1980s,
-	# *: Features and philosophy - Python is a multi-paradigm programming l
-	# *: Syntax and semantics - Python is meant to be an easily readable
-	# **: Indentation - Python uses whitespace indentation, rath
-	# **: Statements and control flow - Python's statements include (among other
-	# **: Expressions - Some Python expressions are similar to l
+    print_sections(page_py.sections)
+    # *: History - Python was conceived in the late 1980s,
+    # *: Features and philosophy - Python is a multi-paradigm programming l
+    # *: Syntax and semantics - Python is meant to be an easily readable
+    # **: Indentation - Python uses whitespace indentation, rath
+    # **: Statements and control flow - Python's statements include (among other
+    # **: Expressions - Some Python expressions are similar to l
 
 How To Get Page Section By Title
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -163,10 +163,10 @@ It returns the last ``WikipediaPageSection`` with this title.
 
 .. code-block:: python
 
-	section_history = page_py.section_by_title('History')
-	print("%s - %s" % (section_history.title, section_history.text[0:40]))
+    section_history = page_py.section_by_title('History')
+    print("%s - %s" % (section_history.title, section_history.text[0:40]))
 
-	# History - Python was conceived in the late 1980s b
+    # History - Python was conceived in the late 1980s b
 
 How To Get All Page Sections By Title
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -176,10 +176,10 @@ It returns the all ``WikipediaPageSection`` with this title.
 
 .. code-block:: python
 
-	page_1920 = wiki_wiki.page('1920')
-	sections_january = page_1920.sections_by_title('January')
-	for s in sections_january:
-	    print("* %s - %s" % (s.title, s.text[0:40]))
+    page_1920 = wiki_wiki.page('1920')
+    sections_january = page_1920.sections_by_title('January')
+    for s in sections_january:
+        print("* %s - %s" % (s.title, s.text[0:40]))
 
     # * January - January 1
     # Polish–Soviet War in 1920: The
@@ -195,22 +195,22 @@ where key is language code and value is ``WikipediaPage``.
 
 .. code-block:: python
 
-	def print_langlinks(page):
-		langlinks = page.langlinks
-		for k in sorted(langlinks.keys()):
-		    v = langlinks[k]
-		    print("%s: %s - %s: %s" % (k, v.language, v.title, v.fullurl))
+    def print_langlinks(page):
+        langlinks = page.langlinks
+        for k in sorted(langlinks.keys()):
+            v = langlinks[k]
+            print("%s: %s - %s: %s" % (k, v.language, v.title, v.fullurl))
 
-	print_langlinks(page_py)
-	# af: af - Python (programmeertaal): https://af.wikipedia.org/wiki/Python_(programmeertaal)
-	# als: als - Python (Programmiersprache): https://als.wikipedia.org/wiki/Python_(Programmiersprache)
-	# an: an - Python: https://an.wikipedia.org/wiki/Python
-	# ar: ar - بايثون: https://ar.wikipedia.org/wiki/%D8%A8%D8%A7%D9%8A%D8%AB%D9%88%D9%86
-	# as: as - পাইথন: https://as.wikipedia.org/wiki/%E0%A6%AA%E0%A6%BE%E0%A6%87%E0%A6%A5%E0%A6%A8
+    print_langlinks(page_py)
+    # af: af - Python (programmeertaal): https://af.wikipedia.org/wiki/Python_(programmeertaal)
+    # als: als - Python (Programmiersprache): https://als.wikipedia.org/wiki/Python_(Programmiersprache)
+    # an: an - Python: https://an.wikipedia.org/wiki/Python
+    # ar: ar - بايثون: https://ar.wikipedia.org/wiki/%D8%A8%D8%A7%D9%8A%D8%AB%D9%88%D9%86
+    # as: as - পাইথন: https://as.wikipedia.org/wiki/%E0%A6%AA%E0%A6%BE%E0%A6%87%E0%A6%A5%E0%A6%A8
 
-	page_py_cs = page_py.langlinks['cs']
-	print("Page - Summary: %s" % page_py_cs.summary[0:60])
-	# Page - Summary: Python (anglická výslovnost [ˈpaiθtən]) je vysokoúrovňový sk
+    page_py_cs = page_py.langlinks['cs']
+    print("Page - Summary: %s" % page_py_cs.summary[0:60])
+    # Page - Summary: Python (anglická výslovnost [ˈpaiθtən]) je vysokoúrovňový sk
 
 How To Get Links To Other Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -220,18 +220,18 @@ It's map, where key is page title and value is ``WikipediaPage``.
 
 .. code-block:: python
 
-	def print_links(page):
-		links = page.links
-		for title in sorted(links.keys()):
-		    print("%s: %s" % (title, links[title]))
+    def print_links(page):
+        links = page.links
+        for title in sorted(links.keys()):
+            print("%s: %s" % (title, links[title]))
 
-	print_links(page_py)
-	# 3ds Max: 3ds Max (id: ??, ns: 0)
-	# ?:: ?: (id: ??, ns: 0)
-	# ABC (programming language): ABC (programming language) (id: ??, ns: 0)
-	# ALGOL 68: ALGOL 68 (id: ??, ns: 0)
-	# Abaqus: Abaqus (id: ??, ns: 0)
-	# ...
+    print_links(page_py)
+    # 3ds Max: 3ds Max (id: ??, ns: 0)
+    # ?:: ?: (id: ??, ns: 0)
+    # ABC (programming language): ABC (programming language) (id: ??, ns: 0)
+    # ALGOL 68: ALGOL 68 (id: ??, ns: 0)
+    # Abaqus: Abaqus (id: ??, ns: 0)
+    # ...
 
 How To Get Page Categories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -241,19 +241,19 @@ It's map, where key is category title and value is ``WikipediaPage``.
 
 .. code-block:: python
 
-	def print_categories(page):
-		categories = page.categories
-		for title in sorted(categories.keys()):
-		    print("%s: %s" % (title, categories[title]))
+    def print_categories(page):
+        categories = page.categories
+        for title in sorted(categories.keys()):
+            print("%s: %s" % (title, categories[title]))
 
 
-	print("Categories")
-	print_categories(page_py)
-	# Category:All articles containing potentially dated statements: ...
-	# Category:All articles with unsourced statements: ...
-	# Category:Articles containing potentially dated statements from August 2016: ...
-	# Category:Articles containing potentially dated statements from March 2017: ...
-	# Category:Articles containing potentially dated statements from September 2017: ...
+    print("Categories")
+    print_categories(page_py)
+    # Category:All articles containing potentially dated statements: ...
+    # Category:All articles with unsourced statements: ...
+    # Category:Articles containing potentially dated statements from August 2016: ...
+    # Category:Articles containing potentially dated statements from March 2017: ...
+    # Category:Articles containing potentially dated statements from September 2017: ...
 
 How To Get All Pages From Category
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -263,26 +263,47 @@ You have to implement recursion and deduplication by yourself.
 
 .. code-block:: python
 
-	def print_categorymembers(categorymembers, level=0, max_level=1):
-		for c in categorymembers.values():
-		    print("%s: %s (ns: %d)" % ("*" * (level + 1), c.title, c.ns))
-		    if c.ns == wikipediaapi.Namespace.CATEGORY and level < max_level:
-		        print_categorymembers(c.categorymembers, level=level + 1, max_level=max_level)
+    def print_categorymembers(categorymembers, level=0, max_level=1):
+        for c in categorymembers.values():
+            print("%s: %s (ns: %d)" % ("*" * (level + 1), c.title, c.ns))
+            if c.ns == wikipediaapi.Namespace.CATEGORY and level < max_level:
+                print_categorymembers(c.categorymembers, level=level + 1, max_level=max_level)
 
 
-	cat = wiki_wiki.page("Category:Physics")
-	print("Category members: Category:Physics")
-	print_categorymembers(cat.categorymembers)
+    cat = wiki_wiki.page("Category:Physics")
+    print("Category members: Category:Physics")
+    print_categorymembers(cat.categorymembers)
 
-	# Category members: Category:Physics
-	# * Statistical mechanics (ns: 0)
-	# * Category:Physical quantities (ns: 14)
-	# ** Refractive index (ns: 0)
-	# ** Vapor quality (ns: 0)
-	# ** Electric susceptibility (ns: 0)
-	# ** Specific weight (ns: 0)
-	# ** Category:Viscosity (ns: 14)
-	# *** Brookfield Engineering (ns: 0)
+    # Category members: Category:Physics
+    # * Statistical mechanics (ns: 0)
+    # * Category:Physical quantities (ns: 14)
+    # ** Refractive index (ns: 0)
+    # ** Vapor quality (ns: 0)
+    # ** Electric susceptibility (ns: 0)
+    # ** Specific weight (ns: 0)
+    # ** Category:Viscosity (ns: 14)
+    # *** Brookfield Engineering (ns: 0)
+
+Use Extra API Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Official API supports many different parameters. You can see them in the `sandbox`_. Not all these
+parameters are supported directly as parameters of the functions. If you want to specify them,
+you can pass them as additional parameters in the constructor. For the `info API call`_ you can
+specify parameter `converttitles`. If you want to specify it, you can use:
+
+.. code-block:: python
+
+    import sys
+
+    import wikipediaapi
+    wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'zh', 'zh-tw', extra_api_params={'converttitles': 1})
+    page = wiki_wiki.page("孟卯")
+    print(repr(page.varianttitles))
+
+
+.. _sandbox: https://en.wikipedia.org/wiki/Special:ApiSandbox
+.. _info API call: https://zh.wikipedia.org/wiki/Special:API%E6%B2%99%E7%9B%92#action=query&format=json&variant=zh-tw&prop=info&titles=%E5%AD%9F%E5%8D%AF&converttitles=1&formatversion=2&inprop=varianttitles%7Cdisplaytitle
 
 How To See Underlying API Call
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -337,12 +358,12 @@ Other Pages
 
 .. PYPI-BEGIN
 .. toctree::
-	:maxdepth: 2
+    :maxdepth: 2
 
-	API
-	CHANGES
-	DEVELOPMENT
-	wikipediaapi/api
+    API
+    CHANGES
+    DEVELOPMENT
+    wikipediaapi/api
 
 .. PYPI-END
 
@@ -364,108 +385,108 @@ Other Pages
     :alt: Test Coverage
 
 .. |coveralls| image:: https://coveralls.io/repos/github/martin-majlis/Wikipedia-API/badge.svg?branch=master
-	:target: https://coveralls.io/github/martin-majlis/Wikipedia-API?branch=master
-	:alt: Coveralls
+    :target: https://coveralls.io/github/martin-majlis/Wikipedia-API?branch=master
+    :alt: Coveralls
 
 .. |version| image:: https://img.shields.io/pypi/v/wikipedia-api.svg?style=flat
-	:target: https://pypi.python.org/pypi/Wikipedia-API
-	:alt: Version
+    :target: https://pypi.python.org/pypi/Wikipedia-API
+    :alt: Version
 
 .. |pyversions| image:: https://img.shields.io/pypi/pyversions/wikipedia-api.svg?style=flat
-	:target: https://pypi.python.org/pypi/Wikipedia-API
-	:alt: Py Versions
+    :target: https://pypi.python.org/pypi/Wikipedia-API
+    :alt: Py Versions
 
 .. |implementations| image:: https://img.shields.io/pypi/implementation/wikipedia-api.svg?style=flat
     :target: https://pypi.python.org/pypi/Wikipedia-API
-	:alt: Implementations
+    :alt: Implementations
 
 .. |github-downloads| image:: https://img.shields.io/github/downloads/martin-majlis/Wikipedia-API/total.svg
-	:target: https://github.com/martin-majlis/Wikipedia-API/releases
-	:alt: Downloads
+    :target: https://github.com/martin-majlis/Wikipedia-API/releases
+    :alt: Downloads
 
 .. |github-tag| image:: https://img.shields.io/github/tag/martin-majlis/Wikipedia-API.svg
-	:target: https://github.com/martin-majlis/Wikipedia-API/tags
-	:alt: Tags
+    :target: https://github.com/martin-majlis/Wikipedia-API/tags
+    :alt: Tags
 
 .. |github-release| image:: https://img.shields.io/github/release/martin-majlis/Wikipedia-API.svg
-	:target: https://github.com/martin-majlis/Wikipedia-API/
+    :target: https://github.com/martin-majlis/Wikipedia-API/
 
 .. |github-commits-since-latest| image:: https://img.shields.io/github/commits-since/martin-majlis/Wikipedia-API/latest.svg
-	:target: https://github.com/martin-majlis/Wikipedia-API/
-	:alt: Github commits (since latest release)
+    :target: https://github.com/martin-majlis/Wikipedia-API/
+    :alt: Github commits (since latest release)
 
 .. |github-forks| image:: https://img.shields.io/github/forks/martin-majlis/Wikipedia-API.svg?style=social&label=Fork
-	:target: https://github.com/martin-majlis/Wikipedia-API/
-	:alt: GitHub forks
+    :target: https://github.com/martin-majlis/Wikipedia-API/
+    :alt: GitHub forks
 
 .. |github-stars| image:: https://img.shields.io/github/stars/martin-majlis/Wikipedia-API.svg?style=social&label=Stars
-	:target: https://github.com/martin-majlis/Wikipedia-API/
-	:alt: GitHub stars
+    :target: https://github.com/martin-majlis/Wikipedia-API/
+    :alt: GitHub stars
 
 .. |github-stars-flat| image:: https://img.shields.io/github/stars/martin-majlis/Wikipedia-API.svg?style=flat&label=Stars
-	:target: https://github.com/martin-majlis/Wikipedia-API/
-	:alt: GitHub stars
+    :target: https://github.com/martin-majlis/Wikipedia-API/
+    :alt: GitHub stars
 
 .. |github-watches| image:: https://img.shields.io/github/watchers/martin-majlis/Wikipedia-API.svg?style=social&label=Watch
-	:target: https://github.com/martin-majlis/Wikipedia-API/
-	:alt: GitHub watchers
+    :target: https://github.com/martin-majlis/Wikipedia-API/
+    :alt: GitHub watchers
 
 .. |github-commit-activity| image:: https://img.shields.io/github/commit-activity/y/martin-majlis/Wikipedia-API.svg
-	:target: https://github.com/martin-majlis/Wikipedia-API/commits/master
-	:alt: GitHub commit activity the past week, 4 weeks, year
+    :target: https://github.com/martin-majlis/Wikipedia-API/commits/master
+    :alt: GitHub commit activity the past week, 4 weeks, year
 
 .. |github-last-commit| image:: https://img.shields.io/github/commits/martin-majlis/Wikipedia-API/last.svg
-	:target: https://github.com/martin-majlis/Wikipedia-API/
-	:alt: Last commit
+    :target: https://github.com/martin-majlis/Wikipedia-API/
+    :alt: Last commit
 
 .. |github-code-size| image:: https://img.shields.io/github/languages/code-size/martin-majlis/Wikipedia-API.svg
-	:target: https://github.com/martin-majlis/Wikipedia-API/
-	:alt: GitHub code size in bytes
+    :target: https://github.com/martin-majlis/Wikipedia-API/
+    :alt: GitHub code size in bytes
 
 .. |github-repo-size| image:: https://img.shields.io/github/repo-size/martin-majlis/Wikipedia-API.svg
-	:target: https://github.com/martin-majlis/Wikipedia-API/
-	:alt: GitHub repo size in bytes
+    :target: https://github.com/martin-majlis/Wikipedia-API/
+    :alt: GitHub repo size in bytes
 
 .. |pypi-license| image:: https://img.shields.io/pypi/l/Wikipedia-API.svg
-	:target: https://pypi.python.org/pypi/Wikipedia-API/
-	:alt: PyPi License
+    :target: https://pypi.python.org/pypi/Wikipedia-API/
+    :alt: PyPi License
 
 .. |pypi-wheel| image:: https://img.shields.io/pypi/wheel/Wikipedia-API.svg
-	:target: https://pypi.python.org/pypi/Wikipedia-API/
-	:alt: PyPi Wheel
+    :target: https://pypi.python.org/pypi/Wikipedia-API/
+    :alt: PyPi Wheel
 
 .. |pypi-format| image:: https://img.shields.io/pypi/format/Wikipedia-API.svg
-	:target: https://pypi.python.org/pypi/Wikipedia-API/
-	:alt: PyPi Format
+    :target: https://pypi.python.org/pypi/Wikipedia-API/
+    :alt: PyPi Format
 
 .. |pypi-pyversions| image:: https://img.shields.io/pypi/pyversions/Wikipedia-API.svg
-	:target: https://pypi.python.org/pypi/Wikipedia-API/
-	:alt: PyPi PyVersions
+    :target: https://pypi.python.org/pypi/Wikipedia-API/
+    :alt: PyPi PyVersions
 
 .. |pypi-implementations| image:: https://img.shields.io/pypi/implementation/Wikipedia-API.svg
-	:target: https://pypi.python.org/pypi/Wikipedia-API/
-	:alt: PyPi Implementations
+    :target: https://pypi.python.org/pypi/Wikipedia-API/
+    :alt: PyPi Implementations
 
 .. |pypi-status| image:: https://img.shields.io/pypi/status/Wikipedia-API.svg
-	:target: https://pypi.python.org/pypi/Wikipedia-API/
-	:alt: PyPi Status
+    :target: https://pypi.python.org/pypi/Wikipedia-API/
+    :alt: PyPi Status
 
 .. |pypi-downloads-dd| image:: https://img.shields.io/pypi/dd/Wikipedia-API.svg
-	:target: https://pypi.python.org/pypi/Wikipedia-API/
-	:alt: PyPi Downloads - Day
+    :target: https://pypi.python.org/pypi/Wikipedia-API/
+    :alt: PyPi Downloads - Day
 
 .. |pypi-downloads-dw| image:: https://img.shields.io/pypi/dw/Wikipedia-API.svg
-	:target: https://pypi.python.org/pypi/Wikipedia-API/
-	:alt: PyPi Downloads - Week
+    :target: https://pypi.python.org/pypi/Wikipedia-API/
+    :alt: PyPi Downloads - Week
 
 .. |pypi-downloads-dm| image:: https://img.shields.io/pypi/dm/Wikipedia-API.svg
-	:target: https://pypi.python.org/pypi/Wikipedia-API/
-	:alt: PyPi Downloads - Month
+    :target: https://pypi.python.org/pypi/Wikipedia-API/
+    :alt: PyPi Downloads - Month
 
 .. |libraries-io-sourcerank| image:: https://img.shields.io/librariesio/sourcerank/pypi/Wikipedia-API.svg
-	:target: https://libraries.io/pypi/Wikipedia-API
-	:alt: Libraries.io - SourceRank
+    :target: https://libraries.io/pypi/Wikipedia-API
+    :alt: Libraries.io - SourceRank
 
 .. |libraries-io-dependent-repos| image:: https://img.shields.io/librariesio/dependent-repos/pypi/Wikipedia-API.svg
-	:target: https://libraries.io/pypi/Wikipedia-API
-	:alt: Libraries.io - Dependent Repos
+    :target: https://libraries.io/pypi/Wikipedia-API
+    :alt: Libraries.io - Dependent Repos

@@ -16,6 +16,7 @@ help:
 
 pypi-html:
 	python3 setup.py --long-description | rst2html.py > pypi-doc.html
+	echo file://$$( pwd )/pypi-doc.html
 
 run-pre-commit:
 	pre-commit run -a
@@ -37,19 +38,24 @@ run-coverage:
 	coverage report -m
 	coverage xml
 
+run-example:
+	./example.py
+
+requirements-all: requirements requirements-dev requirements-doc
+
 requirements:
 	pip install -r requirements.txt
 
 requirements-dev:
 	pip install -r requirements-dev.txt
 
-requirements-docs:
-	pip install -r requirements-docs.txt
+requirements-doc:
+	pip install -r requirements-doc.txt
 
 requirements-build:
 	pip install -r requirements-build.txt
 
-pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage pypi-html run-tox
+pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage pypi-html run-tox run-example
 	echo "Pre-release check was successful"
 
 release: pre-release-check

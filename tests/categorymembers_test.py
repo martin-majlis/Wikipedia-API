@@ -8,7 +8,7 @@ import wikipediaapi
 class TestCategoryMembers(unittest.TestCase):
     def setUp(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
-        self.wiki._query = wikipedia_api_request
+        self.wiki._query = wikipedia_api_request(self.wiki)
 
     def test_links_single_page_count(self):
         page = self.wiki.page("Category:C1")
