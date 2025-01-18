@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.8.0
+-----
+
+* Allow specifying language variant - `Issue 209`_
+* Allow passing additional parameters for API calls.
+* This breaks the API since `variant` is now the third parameter.
+
+.. _Issue 209: https://github.com/martin-majlis/Wikipedia-API/issues/209
+
 0.7.3
 -----
 
