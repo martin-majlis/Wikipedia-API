@@ -177,7 +177,7 @@ class Wikipedia:
             default_headers.get("User-Agent"),
         )
 
-        default_headers["User-Agent"] += " (" + USER_AGENT + ")"
+        default_headers["User-Agent"] = used_language + " (" + USER_AGENT + ")"
 
         self.language = used_language
         self.variant = used_variant
@@ -721,6 +721,14 @@ class Wikipedia:
     def _check_and_correct_params(
         language: Optional[str], variant: Optional[str], user_agent: Optional[str]
     ) -> tuple[str, Optional[str], str]:
+        """
+        Checks the constructor parameters and throws AssertionError if they are incorrect.
+        Otherwise, it normalises them to easy use later on.
+        :param language: Language mutation of Wikipedia
+        :param variant: Language variant
+        :param user_agent: HTTP User-Agent used in requests
+        :return: tupple of langage, variant, user_agent
+        """
         if not user_agent or len(user_agent) < MIN_USER_AGENT_LEN:
             raise AssertionError(
                 "Please, be nice to Wikipedia and specify user agent - "
