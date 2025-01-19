@@ -177,7 +177,7 @@ class Wikipedia:
             default_headers.get("User-Agent"),
         )
 
-        default_headers["User-Agent"] = used_language + " (" + USER_AGENT + ")"
+        default_headers["User-Agent"] = used_user_agent + " (" + USER_AGENT + ")"
 
         self.language = used_language
         self.variant = used_variant
@@ -727,7 +727,7 @@ class Wikipedia:
         :param language: Language mutation of Wikipedia
         :param variant: Language variant
         :param user_agent: HTTP User-Agent used in requests
-        :return: tupple of langage, variant, user_agent
+        :return: tuple of language, variant, user_agent
         """
         if not user_agent or len(user_agent) < MIN_USER_AGENT_LEN:
             raise AssertionError(
