@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO)
 
 user_agent = "Wikipedia-API Example (merlin@example.com)"
 
-wiki_wiki = wikipediaapi.Wikipedia(user_agent, "en")
+wiki_wiki = wikipediaapi.Wikipedia(user_agent=user_agent, language="en")
 
 page_py = wiki_wiki.page("Python_(programming_language)")
 
@@ -89,7 +89,7 @@ print("Page - Title: %s" % page_nonexisting.title)
 print("Page - Summary: %s" % page_nonexisting.summary[0:60])
 
 
-wiki_de = wikipediaapi.Wikipedia(user_agent, "de")
+wiki_de = wikipediaapi.Wikipedia(user_agent=user_agent, language="de")
 de_page = wiki_de.page("Deutsche Sprache")
 print(de_page.title + ": " + de_page.fullurl)
 print(de_page.summary[0:60])
@@ -110,7 +110,7 @@ cat = wiki_wiki.page("Category:Physics")
 print("Category members: Category:Physics")
 print_categorymembers(cat.categorymembers, max_level=1)
 
-wiki_hi = wikipediaapi.Wikipedia(user_agent, "hi")
+wiki_hi = wikipediaapi.Wikipedia(user_agent=user_agent, language="hi")
 # fetch page about Python in Hindu
 # https://hi.wikipedia.org/wiki/%E0%A4%AA%E0%A4%BE%E0%A4%87%E0%A4%A5%E0%A4%A8
 
@@ -122,28 +122,34 @@ print(p_hi_python_quoted.title)
 print(p_hi_python_quoted.summary[0:60])
 
 # Fetch page about Python in Chinese
-wiki_zh = wikipediaapi.Wikipedia(user_agent, "zh")
+wiki_zh = wikipediaapi.Wikipedia(user_agent=user_agent, language="zh")
 zh_page = wiki_zh.page("Python")
 print(zh_page.title + ": " + zh_page.fullurl)
 print(zh_page.summary[0:60])
 print(repr(zh_page.varianttitles))
 
 # https://zh.wikipedia.org/zh-cn/Python
-wiki_zh_cn = wikipediaapi.Wikipedia(user_agent, "zh", "zh-cn")
+wiki_zh_cn = wikipediaapi.Wikipedia(
+    user_agent=user_agent, language="zh", variant="zh-cn"
+)
 zh_page_cn = wiki_zh_cn.page("Python")
 print(zh_page_cn.title + ": " + zh_page_cn.fullurl)
 print(zh_page_cn.summary[0:60])
 print(repr(zh_page_cn.varianttitles))
 
 # https://zh.wikipedia.org/zh-tw/Python
-wiki_zh_tw = wikipediaapi.Wikipedia(user_agent, "zh", "zh-tw")
+wiki_zh_tw = wikipediaapi.Wikipedia(
+    user_agent=user_agent, language="zh", variant="zh-tw"
+)
 zh_page_tw = wiki_zh_tw.page("Python")
 print(zh_page_tw.title + ": " + zh_page_tw.fullurl)
 print(zh_page_tw.summary[0:60])
 print(repr(zh_page_tw.varianttitles))
 
 # https://zh.wikipedia.org/zh-sg/Python
-wiki_zh_sg = wikipediaapi.Wikipedia(user_agent, "zh", "zh-sg")
+wiki_zh_sg = wikipediaapi.Wikipedia(
+    user_agent=user_agent, language="zh", variant="zh-sg"
+)
 zh_page_sg = wiki_zh_sg.page("Python")
 print(zh_page_sg.title + ": " + zh_page_sg.fullurl)
 print(zh_page_sg.summary[0:60])
