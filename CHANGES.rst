@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.8.1
+-----
+
+* More user friendly error messages to make ChatGPT users happy
+
 0.8.0
 -----
 

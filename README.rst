@@ -44,7 +44,7 @@ To initialize it, you have to provide:
 .. code-block:: python
 
     import wikipediaapi
-    wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'en')
+    wiki_wiki = wikipediaapi.Wikipedia(user_agent='MyProjectName (merlin@example.com)', language='en')
 
     page_py = wiki_wiki.page('Python_(programming_language)')
 
