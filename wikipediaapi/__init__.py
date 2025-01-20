@@ -6,7 +6,7 @@ from Wikipedia. Documentation provides code snippets for the most common use
 cases.
 """
 
-__version__ = (0, 8, 0)
+__version__ = (0, 8, 1)
 
 from collections import defaultdict
 from enum import IntEnum
@@ -22,6 +22,9 @@ USER_AGENT = (
     + ".".join(str(s) for s in __version__)
     + "; https://github.com/martin-majlis/Wikipedia-API/"
 )
+
+MIN_USER_AGENT_LEN = 5
+MAX_LANG_LEN = 5
 
 log = logging.getLogger(__name__)
 
@@ -163,29 +166,21 @@ class Wikipedia:
         request_kwargs.setdefault("timeout", 10.0)
 
         default_headers = {} if headers is None else headers
-        if user_agent:
+        if user_agent is not None:
             default_headers.setdefault(
                 "User-Agent",
                 user_agent,
             )
-        used_user_agent = default_headers.get("User-Agent")
-        if not (used_user_agent and len(used_user_agent) > 5):
-            raise AssertionError(
-                "Please, be nice to Wikipedia and specify user agent - "
-                + "https://meta.wikimedia.org/wiki/User-Agent_policy. Current user_agent: '"
-                + str(used_user_agent)
-                + "' is not sufficient."
-            )
-        default_headers["User-Agent"] += " (" + USER_AGENT + ")"
+        used_language, used_variant, used_user_agent = self._check_and_correct_params(
+            language,
+            variant,
+            default_headers.get("User-Agent"),
+        )
 
-        self.language = language.strip().lower()
-        if not self.language:
-            raise AssertionError(
-                "Specify language. Current language: '"
-                + str(self.language)
-                + "' is not sufficient."
-            )
-        self.variant = variant.strip().lower() if variant else variant
+        default_headers["User-Agent"] = used_user_agent + " (" + USER_AGENT + ")"
+
+        self.language = used_language
+        self.variant = used_variant
         self.extract_format = extract_format
 
         log.info(
@@ -721,6 +716,53 @@ class Wikipedia:
         for attr in common_attributes:
             if attr in extract:
                 page._attributes[attr] = extract[attr]
+
+    @staticmethod
+    def _check_and_correct_params(
+        language: Optional[str], variant: Optional[str], user_agent: Optional[str]
+    ) -> tuple[str, Optional[str], str]:
+        """
+        Checks the constructor parameters and throws AssertionError if they are incorrect.
+        Otherwise, it normalises them to easy use later on.
+        :param language: Language mutation of Wikipedia
+        :param variant: Language variant
+        :param user_agent: HTTP User-Agent used in requests
+        :return: tuple of language, variant, user_agent
+        """
+        if not user_agent or len(user_agent) < MIN_USER_AGENT_LEN:
+            raise AssertionError(
+                "Please, be nice to Wikipedia and specify user agent - "
+                + "https://meta.wikimedia.org/wiki/User-Agent_policy. Current user_agent: '"
+                + str(user_agent)
+                + "' is not sufficient. "
+                + "Use Wikipedia(user_agent='your-user-agent', language='"
+                + (str(user_agent) or "your-language")
+                + "')"
+            )
+
+        if not language:
+            raise AssertionError(
+                "Specify language. Current language: '"
+                + str(language)
+                + "' is not sufficient. "
+                + "Use Wikipedia(user_agent='"
+                + str(user_agent)
+                + "', language='your-language')"
+            )
+
+        used_language = language.strip().lower()
+        if len(used_language) > MAX_LANG_LEN:
+            log.warning(
+                "Used language '%s' is longer than %d. It is suspicious",
+                used_language,
+                MAX_LANG_LEN,
+            )
+
+        return (
+            used_language,
+            variant.strip().lower() if variant else variant,
+            user_agent,
+        )
 
 
 class WikipediaPageSection:
