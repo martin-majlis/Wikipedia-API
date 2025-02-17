@@ -140,6 +140,7 @@ class Wikipedia:
         extract_format: ExtractFormat = ExtractFormat.WIKI,
         headers: Optional[dict[str, Any]] = None,
         extra_api_params: Optional[dict[str, Any]] = None,
+        session: Optional[requests.Session] = None,
         **request_kwargs,
     ) -> None:
         """
@@ -192,7 +193,9 @@ class Wikipedia:
 
         self._extra_api_params = extra_api_params
 
-        self._session = requests.Session()
+        if session is None:
+            session = requests.Session()
+        self._session = session
         self._session.headers.update(default_headers)
         self._request_kwargs = request_kwargs
 
