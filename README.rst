@@ -330,6 +330,25 @@ This will help you determine if the problem is in the library or somewhere else.
     print(page_ostrava.summary)
     # logger prints out: Request URL: http://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Ostrava&explaintext=1&exsectionformat=wiki
 
+How To Use a Custom Session
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want a session to handle caching and retrying, you can inject a requests
+session via the constructor to wikipediaapi.
+
+.. code-block:: python
+
+    import sys
+
+    import requests
+    import wikipediaapi
+
+    session = requests.Session()
+    wiki = wikipediaapi.Wikipedia(user_agent='MyProjectName (merlin@example.com)', session=session)
+
+    page_ostrava = wiki.page('Ostrava')
+    print(page_ostrava.summary)
+
 External Links
 --------------
 

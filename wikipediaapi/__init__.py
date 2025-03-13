@@ -157,6 +157,8 @@ class Wikipedia:
         :param headers:  Headers sent as part of HTTP request
         :param extra_api_params:  Extra parameters that are used to construct
                 query string when calling Wikipedia API
+        :param session: The session to use when making HTTP calls.
+                :class:`requests.Session` object.
         :param request_kwargs: Optional parameters used in -
                 http://docs.python-requests.org/en/master/api/#requests.request
 
