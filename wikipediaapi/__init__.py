@@ -140,6 +140,7 @@ class Wikipedia:
         extract_format: ExtractFormat = ExtractFormat.WIKI,
         headers: Optional[dict[str, Any]] = None,
         extra_api_params: Optional[dict[str, Any]] = None,
+        session: Optional[requests.Session] = None,
         **request_kwargs,
     ) -> None:
         """
@@ -156,6 +157,8 @@ class Wikipedia:
         :param headers:  Headers sent as part of HTTP request
         :param extra_api_params:  Extra parameters that are used to construct
                 query string when calling Wikipedia API
+        :param session: The session to use when making HTTP calls.
+                :class:`requests.Session` object.
         :param request_kwargs: Optional parameters used in -
                 http://docs.python-requests.org/en/master/api/#requests.request
 
@@ -192,7 +195,9 @@ class Wikipedia:
 
         self._extra_api_params = extra_api_params
 
-        self._session = requests.Session()
+        if session is None:
+            session = requests.Session()
+        self._session = session
         self._session.headers.update(default_headers)
         self._request_kwargs = request_kwargs
 
