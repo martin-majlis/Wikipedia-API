@@ -1,5 +1,6 @@
 import unittest
 
+import requests
 import wikipediaapi
 
 
@@ -105,3 +106,8 @@ class TestWikipedia(unittest.TestCase):
             user_agent,
             "header-user-agent (" + wikipediaapi.USER_AGENT + ")",
         )
+
+    def test_injecting_session(self):
+        session = requests.Session()
+        wiki = wikipediaapi.Wikipedia(session=session)
+        self.assertEqual(wiki._session, session)
