@@ -1,6 +1,6 @@
 black==25.1.0
 coverage==7.9.2
-flake8==7.2.0
+flake8==7.3.0
 isort==6.0.1
 mypy==1.15.0
 pre-commit==4.2.0
