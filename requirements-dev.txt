@@ -6,6 +6,6 @@ mypy==1.15.0
 pre-commit==4.2.0
 pygments==2.19.2
 pyupgrade==3.20.0
-tox==4.26.0
+tox==4.28.0
 types-requests==2.32.4.20250611
 types-setuptools==80.9.0.20250529
