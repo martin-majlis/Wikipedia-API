@@ -96,7 +96,7 @@ jobs:
       id-token: write
     steps:
       - name: Download Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           pattern: Wikipedia-api-*
           path: downloaded
