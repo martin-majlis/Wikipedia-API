@@ -12,13 +12,23 @@ on: [push]
 #       - published
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: set-matrix
+        run: echo "matrix=$(jq -c . < .github/workflows/matrix.json)" >> $GITHUB_OUTPUT
+
   build_wheels:
     name: Build wheels on ${{ matrix.os }} and ${{ matrix.python }}
+    needs: setup
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python: ["3.9", "3.10", "3.11", "3.12", "pypy3.9", "pypy3.10"]
+        os: ${{ fromJSON(needs.setup.outputs.matrix).os }}
+        python: ${{ fromJSON(needs.setup.outputs.matrix).python }}
 
     steps:
       - uses: actions/checkout@v4
@@ -55,11 +65,12 @@ jobs:
 
   build_sdist:
     name: Build source dist on ${{ matrix.os }} and ${{ matrix.python }}
+    needs: setup
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python: ["3.9", "3.10", "3.11", "3.12", "pypy3.9", "pypy3.10"]
+        os: ${{ fromJSON(needs.setup.outputs.matrix).os }}
+        python: ${{ fromJSON(needs.setup.outputs.matrix).python }}
     steps:
       - uses: actions/checkout@v4
 

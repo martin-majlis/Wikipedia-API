@@ -18,6 +18,15 @@ permissions:
   contents: read
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: set-matrix
+        run: echo "matrix=$(jq -c . < .github/workflows/matrix.json)" >> $GITHUB_OUTPUT
+
   code-quality:
     name: Code quality
     runs-on: ubuntu-latest
@@ -42,12 +51,12 @@ jobs:
 
   run-tests:
     name: Tests on ${{ matrix.os }} and ${{ matrix.python }}
-    needs: [code-quality]
+    needs: [code-quality, setup]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python: ["3.9", "3.10", "3.11", "3.12", "3.13", "pypy3.9", "pypy3.10"]
+        os: ${{ fromJSON(needs.setup.outputs.matrix).os }}
+        python: ${{ fromJSON(needs.setup.outputs.matrix).python }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
