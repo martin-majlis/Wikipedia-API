@@ -58,7 +58,7 @@ jobs:
           pip wheel -w wheelhouse .
         env:
           CIBW_SKIP: cp27-win*
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           path: wheelhouse/Wikipedia*.whl
           name: Wikipedia-api-${{ matrix.os }}-${{ matrix.python }}.whl
@@ -88,7 +88,7 @@ jobs:
       - name: Build sdist
         run: python setup.py sdist
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           path: dist/Wikipedia*.tar.gz
           name: Wikipedia-api-${{ matrix.os }}-${{ matrix.python }}.tar.gz
