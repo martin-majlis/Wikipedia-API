@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.9.0
+-----
+
+* Drop support for Python 3.9 - `PR 378`_
+* Add support for Python 3.14 - `PR 378`_
+* Update dependencies
+
+.. _PR 378: https://github.com/martin-majlis/Wikipedia-API/pull/378
+
 0.8.1
 -----
 
