@@ -1,2 +1,3 @@
+rst2html==2020.7.4
 setuptools==80.9.0
 wheel==0.46.2
