@@ -76,9 +76,11 @@ release: pre-release-check
 		done; \
 		echo $$total; \
 	}; \
-	number_dots=`echo -n $(VERSION) | sed -r 's/[^.]//g' | wc -c`; \
+	number_dots=`echo $(VERSION) | tr -cd '.' | wc -c | tr -d ' '`; \
+	echo "$(VERSION) has $${number_dots} dots"; \
 	if [ ! "$${number_dots}" = "2" ]; then \
 		echo "Version has to have format X.Y.Z"; \
+		echo "Number of dots: $${number_dots}"; \
 		echo "Specified version is $(VERSION)"; \
 		exit 2; \
 	fi; \
