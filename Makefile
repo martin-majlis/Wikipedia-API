@@ -63,7 +63,7 @@ release: pre-release-check
 		echo "Use make release MSG='some msg' VERSION='1.2.3'"; \
 		exit 1; \
 	fi; \
-	version=`grep __version__ wikipediaapi/__init__.py | sed -r 's/.*= \( *(.*), *(.*), *(.*)\)/\1.\2.\3/'`; \
+	version=`grep __version__ wikipediaapi/__init__.py | sed -E 's/.*= \( *(.*), *(.*), *(.*)\)/\1.\2.\3/'`; \
 	if [ "x$$version" = "x" ]; then \
 		echo "Unable to extract version"; \
 		exit 1; \
@@ -98,12 +98,12 @@ release: pre-release-check
 		exit 3; \
 	fi; \
 	short_VERSION=`echo $(VERSION) | cut -f1-2 -d.`; \
-	commas_VERSION=`echo $(VERSION) | sed -r 's/\./, /g'`; \
+	commas_VERSION=`echo $(VERSION) | sed -E 's/\./, /g'`; \
 	echo "Short version: $$short_VERSION"; \
-	sed -ri 's/version=.*/version="'$(VERSION)'",/' setup.py; \
-	sed -ri 's/^release = .*/release = "'$(VERSION)'"/' conf.py; \
-	sed -ri 's/^version = .*/version = "'$$short_VERSION'"/' conf.py; \
-	sed -ri 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/__init__.py; \
+	sed -i.bak -E 's/version=.*/version="'$(VERSION)'",/' setup.py; rm setup.py.bak; \
+	sed -i.bak -E 's/^release = .*/release = "'$(VERSION)'"/' conf.py; rm conf.py.bak; \
+	sed -i.bak -E 's/^version = .*/version = "'$$short_VERSION'"/' conf.py; rm conf.py.bak; \
+	sed -i.bak -E 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/__init__.py; rm wikipediaapi/__init__.py.bak; \
 	git commit .github CHANGES.rst setup.py conf.py wikipediaapi/__init__.py -m "Update version to $(VERSION) for new release." && \
 	git push && \
 	git tag v$(VERSION) -m "$(MSG)" && \
