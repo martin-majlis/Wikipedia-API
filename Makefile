@@ -42,6 +42,7 @@ run-example:
 	./example.py
 
 requirements-all: requirements requirements-dev requirements-doc requirements-build
+	echo "Requirements were installed"
 
 requirements:
 	pip install -r requirements.txt
@@ -54,6 +55,12 @@ requirements-doc:
 
 requirements-build:
 	pip install -r requirements-build.txt
+
+update-pre-commit:
+	for repo in `grep "repo: " .pre-commit-config.yaml | grep http | cut -f5 -d" "`; do \
+		echo $$repo; \
+		pre-commit autoupdate --repo "$${repo}"; \
+	done;
 
 pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage pypi-html run-tox run-example
 	echo "Pre-release check was successful"

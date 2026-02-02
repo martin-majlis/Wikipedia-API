@@ -619,7 +619,7 @@ class Wikipedia:
 
         return page
 
-    def _build_langlinks(self, extract, page) -> PagesDict:
+    def _build_langlinks(self, extract, page: "WikipediaPage") -> PagesDict:
         """Builds page from API call langlinks."""
         page._langlinks = {}
 
@@ -637,7 +637,7 @@ class Wikipedia:
 
         return page._langlinks
 
-    def _build_links(self, extract, page) -> PagesDict:
+    def _build_links(self, extract, page: "WikipediaPage") -> PagesDict:
         """Builds page from API call links."""
         page._links = {}
 
@@ -654,7 +654,7 @@ class Wikipedia:
 
         return page._links
 
-    def _build_backlinks(self, extract, page) -> PagesDict:
+    def _build_backlinks(self, extract, page: "WikipediaPage") -> PagesDict:
         """Builds page from API call backlinks."""
         page._backlinks = {}
 
@@ -671,7 +671,7 @@ class Wikipedia:
 
         return page._backlinks
 
-    def _build_categories(self, extract, page) -> PagesDict:
+    def _build_categories(self, extract, page: "WikipediaPage") -> PagesDict:
         """Builds page from API call categories."""
         page._categories = {}
 
@@ -688,7 +688,7 @@ class Wikipedia:
 
         return page._categories
 
-    def _build_categorymembers(self, extract, page) -> PagesDict:
+    def _build_categorymembers(self, extract, page: "WikipediaPage") -> PagesDict:
         """Builds page from API call categorymembers."""
         page._categorymembers = {}
 
