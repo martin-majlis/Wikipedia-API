@@ -8,4 +8,4 @@ pygments==2.19.2
 pyupgrade==3.21.2
 tox==4.34.1
 types-requests==2.32.4.20260107
-types-setuptools==81.0.0.20260209
+types-setuptools==82.0.0.20260210
