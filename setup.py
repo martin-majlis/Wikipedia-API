@@ -21,6 +21,7 @@ with open("CHANGES.rst", encoding="utf8") as fileC:
 
 requires = [
     "requests",
+    "click",
 ]
 
 tests_require = []  # type: List[str]
@@ -57,6 +58,11 @@ setup(
     packages=["wikipediaapi"],
     include_package_data=True,
     zip_safe=False,
+    entry_points={
+        "console_scripts": [
+            "wikipedia-api=wikipediaapi.cli:main",
+        ],
+    },
     extras_require={
         "testing": tests_require,
     },

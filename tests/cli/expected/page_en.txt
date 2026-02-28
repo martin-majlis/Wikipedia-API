@@ -1,0 +1,8 @@
+title: Earth
+exists: True
+language: en
+namespace: 0
+pageid: 9228
+fullurl: https://en.wikipedia.org/wiki/Earth
+canonicalurl: https://en.wikipedia.org/wiki/Earth
+displaytitle: Earth

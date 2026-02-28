@@ -1,0 +1,187 @@
+[
+  {
+    "title": "Etymology",
+    "level": 1,
+    "indent": 0
+  },
+  {
+    "title": "Natural history",
+    "level": 1,
+    "indent": 0
+  },
+  {
+    "title": "Formation",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "After formation",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Future",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Bulk properties",
+    "level": 1,
+    "indent": 0
+  },
+  {
+    "title": "Size and shape",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Internal structure",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Chemical composition",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Internal heat",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Magnetic field",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Surface environment",
+    "level": 1,
+    "indent": 0
+  },
+  {
+    "title": "Tectonic plates",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Hydrosphere",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Atmosphere",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Upper atmosphere",
+    "level": 3,
+    "indent": 2
+  },
+  {
+    "title": "Weather and climate",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Orbit and rotation",
+    "level": 1,
+    "indent": 0
+  },
+  {
+    "title": "Rotation",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Orbit and location",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Axial tilt and seasons",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Gravitational domain and influence",
+    "level": 1,
+    "indent": 0
+  },
+  {
+    "title": "Gravitational field",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Moon",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Asteroids and artificial satellites",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Life on Earth",
+    "level": 1,
+    "indent": 0
+  },
+  {
+    "title": "Origin of life and evolution",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Challenges for life on Earth",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Earth and humans",
+    "level": 1,
+    "indent": 0
+  },
+  {
+    "title": "Human geography",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Natural resources and land use",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Environmental impact",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "Cultural and historical viewpoint",
+    "level": 2,
+    "indent": 1
+  },
+  {
+    "title": "See also",
+    "level": 1,
+    "indent": 0
+  },
+  {
+    "title": "Notes",
+    "level": 1,
+    "indent": 0
+  },
+  {
+    "title": "References",
+    "level": 1,
+    "indent": 0
+  },
+  {
+    "title": "External links",
+    "level": 1,
+    "indent": 0
+  }
+]

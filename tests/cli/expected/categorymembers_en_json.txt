@@ -1,0 +1,152 @@
+[
+  {
+    "title": "Category:Astronomical catalogues of planets",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Atmosphere",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Definition of planet",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Exoplanets",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Fiction about planets",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Hypothetical planets",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Impact craters on planets",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Lists of planets",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Planetary images",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Planets in astrology",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Planets of the Solar System",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Surface features of planets",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Types of planet",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Category:Wikipedia categories named after planets",
+    "ns": 14,
+    "level": 0
+  },
+  {
+    "title": "Definition of planet",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Equatorial bulge",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Geophysical definition of planet",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Giant impacts phase of planetary formation",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Habitability of G-type main-sequence star systems",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "IAU definition of planet",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "List of planet types",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Nebular hypothesis",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Photo-erosion",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Planet",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Planetary rotation",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Planetary-mass moon",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Planetary-mass object",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Planetesimal",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Substellar object",
+    "ns": 0,
+    "level": 0
+  },
+  {
+    "title": "Titius–Bode law",
+    "ns": 0,
+    "level": 0
+  }
+]

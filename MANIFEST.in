@@ -3,4 +3,5 @@ include CHANGES.rst
 include README.rst
 include DEVELOPMENT.rst
 include API.rst
+include CLI.rst
 recursive-include wikipedia *.py
