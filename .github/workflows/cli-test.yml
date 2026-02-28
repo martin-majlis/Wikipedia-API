@@ -26,6 +26,8 @@ jobs:
     name: CLI integration tests (verify)
     if: github.event_name != 'workflow_dispatch' || inputs.mode == 'verify'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v6.0.2
 
