@@ -101,11 +101,11 @@ jobs:
 
       - name: Create Pull Request
         if: steps.commit.outputs.branch_name
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ steps.commit.outputs.branch_name }}
-          base: master
-          title: "Update CLI test fixtures [automated]"
-          body: "This PR updates CLI test fixtures automatically. Please review and merge if the changes look correct."
-          delete-branch: true
+        run: |
+          # Use GitHub CLI to create PR
+          echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+          gh pr create \
+            --base master \
+            --head ${{ steps.commit.outputs.branch_name }} \
+            --title "Update CLI test fixtures [automated]" \
+            --body "This PR updates CLI test fixtures automatically. Please review and merge if the changes look correct."
