@@ -1,0 +1,6102 @@
+{
+"10 Hygiea": {
+"title": "10 Hygiea",
+"language": "en",
+"ns": 0
+},
+"120347 Salacia": {
+"title": "120347 Salacia",
+"language": "en",
+"ns": 0
+},
+"2 Pallas": {
+"title": "2 Pallas",
+"language": "en",
+"ns": 0
+},
+"20000 Varuna": {
+"title": "20000 Varuna",
+"language": "en",
+"ns": 0
+},
+"2006 RH120": {
+"title": "2006 RH120",
+"language": "en",
+"ns": 0
+},
+"2010 TK7": {
+"title": "2010 TK7",
+"language": "en",
+"ns": 0
+},
+"2013 ND15": {
+"title": "2013 ND15",
+"language": "en",
+"ns": 0
+},
+"2019 UO14": {
+"title": "2019 UO14",
+"language": "en",
+"ns": 0
+},
+"2060 Chiron": {
+"title": "2060 Chiron",
+"language": "en",
+"ns": 0
+},
+"28978 Ixion": {
+"title": "28978 Ixion",
+"language": "en",
+"ns": 0
+},
+"4 Vesta": {
+"title": "4 Vesta",
+"language": "en",
+"ns": 0
+},
+"469219 Kamoʻoalewa": {
+"title": "469219 Kamoʻoalewa",
+"language": "en",
+"ns": 0
+},
+"Abel Méndez": {
+"title": "Abel Méndez",
+"language": "en",
+"ns": 0
+},
+"Abiogenesis": {
+"title": "Abiogenesis",
+"language": "en",
+"ns": 0
+},
+"Absolute magnitude": {
+"title": "Absolute magnitude",
+"language": "en",
+"ns": 0
+},
+"Abundance of elements in Earth's crust": {
+"title": "Abundance of elements in Earth's crust",
+"language": "en",
+"ns": 0
+},
+"Abundance of the chemical elements": {
+"title": "Abundance of the chemical elements",
+"language": "en",
+"ns": 0
+},
+"Abyssal plain": {
+"title": "Abyssal plain",
+"language": "en",
+"ns": 0
+},
+"Acceleration": {
+"title": "Acceleration",
+"language": "en",
+"ns": 0
+},
+"Accretion (astrophysics)": {
+"title": "Accretion (astrophysics)",
+"language": "en",
+"ns": 0
+},
+"Accretion disk": {
+"title": "Accretion disk",
+"language": "en",
+"ns": 0
+},
+"Acid rain": {
+"title": "Acid rain",
+"language": "en",
+"ns": 0
+},
+"Active asteroid": {
+"title": "Active asteroid",
+"language": "en",
+"ns": 0
+},
+"Aerobic organisms": {
+"title": "Aerobic organisms",
+"language": "en",
+"ns": 0
+},
+"Africa": {
+"title": "Africa",
+"language": "en",
+"ns": 0
+},
+"African Plate": {
+"title": "African Plate",
+"language": "en",
+"ns": 0
+},
+"Afro-Eurasia": {
+"title": "Afro-Eurasia",
+"language": "en",
+"ns": 0
+},
+"Afterglow": {
+"title": "Afterglow",
+"language": "en",
+"ns": 0
+},
+"Age of Earth": {
+"title": "Age of Earth",
+"language": "en",
+"ns": 0
+},
+"Airglow": {
+"title": "Airglow",
+"language": "en",
+"ns": 0
+},
+"Albedo": {
+"title": "Albedo",
+"language": "en",
+"ns": 0
+},
+"Alessandro Morbidelli (astronomer)": {
+"title": "Alessandro Morbidelli (astronomer)",
+"language": "en",
+"ns": 0
+},
+"Alpine glaciers": {
+"title": "Alpine glaciers",
+"language": "en",
+"ns": 0
+},
+"Alpine tundra": {
+"title": "Alpine tundra",
+"language": "en",
+"ns": 0
+},
+"Aluminium": {
+"title": "Aluminium",
+"language": "en",
+"ns": 0
+},
+"American Museum of Natural History": {
+"title": "American Museum of Natural History",
+"language": "en",
+"ns": 0
+},
+"Americas": {
+"title": "Americas",
+"language": "en",
+"ns": 0
+},
+"Ancient Greece": {
+"title": "Ancient Greece",
+"language": "en",
+"ns": 0
+},
+"Andrew Goudie (geographer)": {
+"title": "Andrew Goudie (geographer)",
+"language": "en",
+"ns": 0
+},
+"Angular size": {
+"title": "Angular size",
+"language": "en",
+"ns": 0
+},
+"Angular velocity": {
+"title": "Angular velocity",
+"language": "en",
+"ns": 0
+},
+"Animal": {
+"title": "Animal",
+"language": "en",
+"ns": 0
+},
+"Annum": {
+"title": "Annum",
+"language": "en",
+"ns": 0
+},
+"Anny Cazenave": {
+"title": "Anny Cazenave",
+"language": "en",
+"ns": 0
+},
+"Antarctic Circle": {
+"title": "Antarctic Circle",
+"language": "en",
+"ns": 0
+},
+"Antarctic Plate": {
+"title": "Antarctic Plate",
+"language": "en",
+"ns": 0
+},
+"Antarctic Treaty System": {
+"title": "Antarctic Treaty System",
+"language": "en",
+"ns": 0
+},
+"Antarctic ice sheet": {
+"title": "Antarctic ice sheet",
+"language": "en",
+"ns": 0
+},
+"Antarctic sea ice": {
+"title": "Antarctic sea ice",
+"language": "en",
+"ns": 0
+},
+"Antarctica": {
+"title": "Antarctica",
+"language": "en",
+"ns": 0
+},
+"Ape": {
+"title": "Ape",
+"language": "en",
+"ns": 0
+},
+"Aphelion": {
+"title": "Aphelion",
+"language": "en",
+"ns": 0
+},
+"Apoapsis": {
+"title": "Apoapsis",
+"language": "en",
+"ns": 0
+},
+"Apollo 17": {
+"title": "Apollo 17",
+"language": "en",
+"ns": 0
+},
+"Apsis": {
+"title": "Apsis",
+"language": "en",
+"ns": 0
+},
+"ArXiv (identifier)": {
+"title": "ArXiv (identifier)",
+"language": "en",
+"ns": 0
+},
+"Arabian Plate": {
+"title": "Arabian Plate",
+"language": "en",
+"ns": 0
+},
+"Arable land": {
+"title": "Arable land",
+"language": "en",
+"ns": 0
+},
+"Archaea": {
+"title": "Archaea",
+"language": "en",
+"ns": 0
+},
+"Archean": {
+"title": "Archean",
+"language": "en",
+"ns": 0
+},
+"Arctic Circle": {
+"title": "Arctic Circle",
+"language": "en",
+"ns": 0
+},
+"Arctic Ocean": {
+"title": "Arctic Ocean",
+"language": "en",
+"ns": 0
+},
+"Argon": {
+"title": "Argon",
+"language": "en",
+"ns": 0
+},
+"Argument of periapsis": {
+"title": "Argument of periapsis",
+"language": "en",
+"ns": 0
+},
+"Arid": {
+"title": "Arid",
+"language": "en",
+"ns": 0
+},
+"Ariel (moon)": {
+"title": "Ariel (moon)",
+"language": "en",
+"ns": 0
+},
+"Arizona State University": {
+"title": "Arizona State University",
+"language": "en",
+"ns": 0
+},
+"Artificial satellite": {
+"title": "Artificial satellite",
+"language": "en",
+"ns": 0
+},
+"Asia": {
+"title": "Asia",
+"language": "en",
+"ns": 0
+},
+"Associated Press": {
+"title": "Associated Press",
+"language": "en",
+"ns": 0
+},
+"Asteroid": {
+"title": "Asteroid",
+"language": "en",
+"ns": 0
+},
+"Asteroid belt": {
+"title": "Asteroid belt",
+"language": "en",
+"ns": 0
+},
+"Asteroid family": {
+"title": "Asteroid family",
+"language": "en",
+"ns": 0
+},
+"Asteroid mining": {
+"title": "Asteroid mining",
+"language": "en",
+"ns": 0
+},
+"Asthenosphere": {
+"title": "Asthenosphere",
+"language": "en",
+"ns": 0
+},
+"Astrobiology": {
+"title": "Astrobiology",
+"language": "en",
+"ns": 0
+},
+"Astrobiology (journal)": {
+"title": "Astrobiology (journal)",
+"language": "en",
+"ns": 0
+},
+"Astronomical Unit": {
+"title": "Astronomical Unit",
+"language": "en",
+"ns": 0
+},
+"Astronomical nutation": {
+"title": "Astronomical nutation",
+"language": "en",
+"ns": 0
+},
+"Astronomical object": {
+"title": "Astronomical object",
+"language": "en",
+"ns": 0
+},
+"Astronomical symbols": {
+"title": "Astronomical symbols",
+"language": "en",
+"ns": 0
+},
+"Astronomical unit": {
+"title": "Astronomical unit",
+"language": "en",
+"ns": 0
+},
+"Astronomy": {
+"title": "Astronomy",
+"language": "en",
+"ns": 0
+},
+"Astronomy (magazine)": {
+"title": "Astronomy (magazine)",
+"language": "en",
+"ns": 0
+},
+"Atlantic Ocean": {
+"title": "Atlantic Ocean",
+"language": "en",
+"ns": 0
+},
+"Atmosphere of Earth": {
+"title": "Atmosphere of Earth",
+"language": "en",
+"ns": 0
+},
+"Atmospheric chemistry": {
+"title": "Atmospheric chemistry",
+"language": "en",
+"ns": 0
+},
+"Atmospheric circulation": {
+"title": "Atmospheric circulation",
+"language": "en",
+"ns": 0
+},
+"Atmospheric escape": {
+"title": "Atmospheric escape",
+"language": "en",
+"ns": 0
+},
+"Atmospheric pressure": {
+"title": "Atmospheric pressure",
+"language": "en",
+"ns": 0
+},
+"Atmospheric science": {
+"title": "Atmospheric science",
+"language": "en",
+"ns": 0
+},
+"Aurora": {
+"title": "Aurora",
+"language": "en",
+"ns": 0
+},
+"Australia (continent)": {
+"title": "Australia (continent)",
+"language": "en",
+"ns": 0
+},
+"Axial precession": {
+"title": "Axial precession",
+"language": "en",
+"ns": 0
+},
+"Axial tilt": {
+"title": "Axial tilt",
+"language": "en",
+"ns": 0
+},
+"BBC": {
+"title": "BBC",
+"language": "en",
+"ns": 0
+},
+"BBC Bitesize": {
+"title": "BBC Bitesize",
+"language": "en",
+"ns": 0
+},
+"Bacteria": {
+"title": "Bacteria",
+"language": "en",
+"ns": 0
+},
+"Barycenter": {
+"title": "Barycenter",
+"language": "en",
+"ns": 0
+},
+"Basalt": {
+"title": "Basalt",
+"language": "en",
+"ns": 0
+},
+"Bathymetric": {
+"title": "Bathymetric",
+"language": "en",
+"ns": 0
+},
+"Bibcode (identifier)": {
+"title": "Bibcode (identifier)",
+"language": "en",
+"ns": 0
+},
+"Billiard ball": {
+"title": "Billiard ball",
+"language": "en",
+"ns": 0
+},
+"Billion years": {
+"title": "Billion years",
+"language": "en",
+"ns": 0
+},
+"Biodiversity": {
+"title": "Biodiversity",
+"language": "en",
+"ns": 0
+},
+"Biodiversity loss": {
+"title": "Biodiversity loss",
+"language": "en",
+"ns": 0
+},
+"Biogenic substance": {
+"title": "Biogenic substance",
+"language": "en",
+"ns": 0
+},
+"Biogeochemical cycle": {
+"title": "Biogeochemical cycle",
+"language": "en",
+"ns": 0
+},
+"Biogeology": {
+"title": "Biogeology",
+"language": "en",
+"ns": 0
+},
+"Biological organisation": {
+"title": "Biological organisation",
+"language": "en",
+"ns": 0
+},
+"Biological processes": {
+"title": "Biological processes",
+"language": "en",
+"ns": 0
+},
+"Biology": {
+"title": "Biology",
+"language": "en",
+"ns": 0
+},
+"Biomass": {
+"title": "Biomass",
+"language": "en",
+"ns": 0
+},
+"Biomass (ecology)": {
+"title": "Biomass (ecology)",
+"language": "en",
+"ns": 0
+},
+"Biome": {
+"title": "Biome",
+"language": "en",
+"ns": 0
+},
+"Biosphere": {
+"title": "Biosphere",
+"language": "en",
+"ns": 0
+},
+"Biotic material": {
+"title": "Biotic material",
+"language": "en",
+"ns": 0
+},
+"Blizzard": {
+"title": "Blizzard",
+"language": "en",
+"ns": 0
+},
+"Bond albedo": {
+"title": "Bond albedo",
+"language": "en",
+"ns": 0
+},
+"Border": {
+"title": "Border",
+"language": "en",
+"ns": 0
+},
+"Boris Worm": {
+"title": "Boris Worm",
+"language": "en",
+"ns": 0
+},
+"Bow shock": {
+"title": "Bow shock",
+"language": "en",
+"ns": 0
+},
+"Brent Dalrymple": {
+"title": "Brent Dalrymple",
+"language": "en",
+"ns": 0
+},
+"Building material": {
+"title": "Building material",
+"language": "en",
+"ns": 0
+},
+"C4 carbon fixation": {
+"title": "C4 carbon fixation",
+"language": "en",
+"ns": 0
+},
+"Calcium": {
+"title": "Calcium",
+"language": "en",
+"ns": 0
+},
+"Calculus": {
+"title": "Calculus",
+"language": "en",
+"ns": 0
+},
+"Caleb Scharf": {
+"title": "Caleb Scharf",
+"language": "en",
+"ns": 0
+},
+"California State Polytechnic University, Pomona": {
+"title": "California State Polytechnic University, Pomona",
+"language": "en",
+"ns": 0
+},
+"Callisto (moon)": {
+"title": "Callisto (moon)",
+"language": "en",
+"ns": 0
+},
+"Cambrian explosion": {
+"title": "Cambrian explosion",
+"language": "en",
+"ns": 0
+},
+"Capitalization in English": {
+"title": "Capitalization in English",
+"language": "en",
+"ns": 0
+},
+"Capture of Triton": {
+"title": "Capture of Triton",
+"language": "en",
+"ns": 0
+},
+"Carbon cycle": {
+"title": "Carbon cycle",
+"language": "en",
+"ns": 0
+},
+"Carbon dioxide": {
+"title": "Carbon dioxide",
+"language": "en",
+"ns": 0
+},
+"Carbonate–silicate cycle": {
+"title": "Carbonate–silicate cycle",
+"language": "en",
+"ns": 0
+},
+"Caribbean Plate": {
+"title": "Caribbean Plate",
+"language": "en",
+"ns": 0
+},
+"Carl Zimmer": {
+"title": "Carl Zimmer",
+"language": "en",
+"ns": 0
+},
+"Carleton University": {
+"title": "Carleton University",
+"language": "en",
+"ns": 0
+},
+"Cartography": {
+"title": "Cartography",
+"language": "en",
+"ns": 0
+},
+"Category:Earth": {
+"title": "Category:Earth",
+"language": "en",
+"ns": 14
+},
+"Category:Earth sciences": {
+"title": "Category:Earth sciences",
+"language": "en",
+"ns": 14
+},
+"Category:Geology": {
+"title": "Category:Geology",
+"language": "en",
+"ns": 14
+},
+"Category:Nature": {
+"title": "Category:Nature",
+"language": "en",
+"ns": 14
+},
+"Category:Structure of the Earth": {
+"title": "Category:Structure of the Earth",
+"language": "en",
+"ns": 14
+},
+"Celestial Poles": {
+"title": "Celestial Poles",
+"language": "en",
+"ns": 0
+},
+"Celestial equator": {
+"title": "Celestial equator",
+"language": "en",
+"ns": 0
+},
+"Celestial pole": {
+"title": "Celestial pole",
+"language": "en",
+"ns": 0
+},
+"Celestial sphere": {
+"title": "Celestial sphere",
+"language": "en",
+"ns": 0
+},
+"Centaur (small Solar System body)": {
+"title": "Centaur (small Solar System body)",
+"language": "en",
+"ns": 0
+},
+"Center of mass": {
+"title": "Center of mass",
+"language": "en",
+"ns": 0
+},
+"Center of the universe": {
+"title": "Center of the universe",
+"language": "en",
+"ns": 0
+},
+"Ceres (dwarf planet)": {
+"title": "Ceres (dwarf planet)",
+"language": "en",
+"ns": 0
+},
+"Chandler wobble": {
+"title": "Chandler wobble",
+"language": "en",
+"ns": 0
+},
+"Charged particle": {
+"title": "Charged particle",
+"language": "en",
+"ns": 0
+},
+"Charles H. Kahn": {
+"title": "Charles H. Kahn",
+"language": "en",
+"ns": 0
+},
+"Charon (moon)": {
+"title": "Charon (moon)",
+"language": "en",
+"ns": 0
+},
+"Chemical": {
+"title": "Chemical",
+"language": "en",
+"ns": 0
+},
+"Chemical element": {
+"title": "Chemical element",
+"language": "en",
+"ns": 0
+},
+"Chemical reaction": {
+"title": "Chemical reaction",
+"language": "en",
+"ns": 0
+},
+"Chicxulub impactor": {
+"title": "Chicxulub impactor",
+"language": "en",
+"ns": 0
+},
+"Chimborazo": {
+"title": "Chimborazo",
+"language": "en",
+"ns": 0
+},
+"Chiron (hypothetical moon)": {
+"title": "Chiron (hypothetical moon)",
+"language": "en",
+"ns": 0
+},
+"Christopher Hawkesworth": {
+"title": "Christopher Hawkesworth",
+"language": "en",
+"ns": 0
+},
+"Christopher McKay": {
+"title": "Christopher McKay",
+"language": "en",
+"ns": 0
+},
+"Chrysalis (hypothetical moon)": {
+"title": "Chrysalis (hypothetical moon)",
+"language": "en",
+"ns": 0
+},
+"Circumference": {
+"title": "Circumference",
+"language": "en",
+"ns": 0
+},
+"Circumplanetary disk": {
+"title": "Circumplanetary disk",
+"language": "en",
+"ns": 0
+},
+"Circumstellar disc": {
+"title": "Circumstellar disc",
+"language": "en",
+"ns": 0
+},
+"Circumstellar disk": {
+"title": "Circumstellar disk",
+"language": "en",
+"ns": 0
+},
+"Circumstellar envelope": {
+"title": "Circumstellar envelope",
+"language": "en",
+"ns": 0
+},
+"CiteSeerX (identifier)": {
+"title": "CiteSeerX (identifier)",
+"language": "en",
+"ns": 0
+},
+"Clabon Allen": {
+"title": "Clabon Allen",
+"language": "en",
+"ns": 0
+},
+"Claimed moons of Earth": {
+"title": "Claimed moons of Earth",
+"language": "en",
+"ns": 0
+},
+"Classical Kuiper belt object": {
+"title": "Classical Kuiper belt object",
+"language": "en",
+"ns": 0
+},
+"Claude Jaupart": {
+"title": "Claude Jaupart",
+"language": "en",
+"ns": 0
+},
+"Climate": {
+"title": "Climate",
+"language": "en",
+"ns": 0
+},
+"Climate change": {
+"title": "Climate change",
+"language": "en",
+"ns": 0
+},
+"Climate region": {
+"title": "Climate region",
+"language": "en",
+"ns": 0
+},
+"Climate system": {
+"title": "Climate system",
+"language": "en",
+"ns": 0
+},
+"Climate variability and change": {
+"title": "Climate variability and change",
+"language": "en",
+"ns": 0
+},
+"Climatology": {
+"title": "Climatology",
+"language": "en",
+"ns": 0
+},
+"Cloud": {
+"title": "Cloud",
+"language": "en",
+"ns": 0
+},
+"Cloud cover": {
+"title": "Cloud cover",
+"language": "en",
+"ns": 0
+},
+"Co-orbital configuration": {
+"title": "Co-orbital configuration",
+"language": "en",
+"ns": 0
+},
+"Coatlicue (star)": {
+"title": "Coatlicue (star)",
+"language": "en",
+"ns": 0
+},
+"Cocos Plate": {
+"title": "Cocos Plate",
+"language": "en",
+"ns": 0
+},
+"Colony (biology)": {
+"title": "Colony (biology)",
+"language": "en",
+"ns": 0
+},
+"Comet": {
+"title": "Comet",
+"language": "en",
+"ns": 0
+},
+"Compositing": {
+"title": "Compositing",
+"language": "en",
+"ns": 0
+},
+"Computer cartography": {
+"title": "Computer cartography",
+"language": "en",
+"ns": 0
+},
+"Conrad discontinuity": {
+"title": "Conrad discontinuity",
+"language": "en",
+"ns": 0
+},
+"Continent": {
+"title": "Continent",
+"language": "en",
+"ns": 0
+},
+"Continental climate": {
+"title": "Continental climate",
+"language": "en",
+"ns": 0
+},
+"Continental crust": {
+"title": "Continental crust",
+"language": "en",
+"ns": 0
+},
+"Continental shelf": {
+"title": "Continental shelf",
+"language": "en",
+"ns": 0
+},
+"Continentality": {
+"title": "Continentality",
+"language": "en",
+"ns": 0
+},
+"Convergent boundary": {
+"title": "Convergent boundary",
+"language": "en",
+"ns": 0
+},
+"Core–mantle boundary": {
+"title": "Core–mantle boundary",
+"language": "en",
+"ns": 0
+},
+"Cosmic Eye": {
+"title": "Cosmic Eye",
+"language": "en",
+"ns": 0
+},
+"Cosmic View": {
+"title": "Cosmic View",
+"language": "en",
+"ns": 0
+},
+"Cosmic Voyage (1996 film)": {
+"title": "Cosmic Voyage (1996 film)",
+"language": "en",
+"ns": 0
+},
+"Cosmic Zoom": {
+"title": "Cosmic Zoom",
+"language": "en",
+"ns": 0
+},
+"Cosmic dust": {
+"title": "Cosmic dust",
+"language": "en",
+"ns": 0
+},
+"Cosmic radiation": {
+"title": "Cosmic radiation",
+"language": "en",
+"ns": 0
+},
+"Cosmochemistry": {
+"title": "Cosmochemistry",
+"language": "en",
+"ns": 0
+},
+"Counter-Earth": {
+"title": "Counter-Earth",
+"language": "en",
+"ns": 0
+},
+"Counterclockwise": {
+"title": "Counterclockwise",
+"language": "en",
+"ns": 0
+},
+"Creation myth": {
+"title": "Creation myth",
+"language": "en",
+"ns": 0
+},
+"Cretaceous–Paleogene extinction event": {
+"title": "Cretaceous–Paleogene extinction event",
+"language": "en",
+"ns": 0
+},
+"Crustal recycling": {
+"title": "Crustal recycling",
+"language": "en",
+"ns": 0
+},
+"Cryosphere": {
+"title": "Cryosphere",
+"language": "en",
+"ns": 0
+},
+"Crystallography": {
+"title": "Crystallography",
+"language": "en",
+"ns": 0
+},
+"Culture": {
+"title": "Culture",
+"language": "en",
+"ns": 0
+},
+"Cupola (ISS module)": {
+"title": "Cupola (ISS module)",
+"language": "en",
+"ns": 0
+},
+"D. S. Brewer": {
+"title": "D. S. Brewer",
+"language": "en",
+"ns": 0
+},
+"Damocloid": {
+"title": "Damocloid",
+"language": "en",
+"ns": 0
+},
+"David Catling": {
+"title": "David Catling",
+"language": "en",
+"ns": 0
+},
+"David J. Asher": {
+"title": "David J. Asher",
+"language": "en",
+"ns": 0
+},
+"Dead Sea": {
+"title": "Dead Sea",
+"language": "en",
+"ns": 0
+},
+"Death Valley National Park": {
+"title": "Death Valley National Park",
+"language": "en",
+"ns": 0
+},
+"Debris disk": {
+"title": "Debris disk",
+"language": "en",
+"ns": 0
+},
+"Deep space exploration": {
+"title": "Deep space exploration",
+"language": "en",
+"ns": 0
+},
+"Definite article": {
+"title": "Definite article",
+"language": "en",
+"ns": 0
+},
+"Deforestation": {
+"title": "Deforestation",
+"language": "en",
+"ns": 0
+},
+"Deimos (moon)": {
+"title": "Deimos (moon)",
+"language": "en",
+"ns": 0
+},
+"Deity": {
+"title": "Deity",
+"language": "en",
+"ns": 0
+},
+"Dennis McCarthy (scientist)": {
+"title": "Dennis McCarthy (scientist)",
+"language": "en",
+"ns": 0
+},
+"Dennis Overbye": {
+"title": "Dennis Overbye",
+"language": "en",
+"ns": 0
+},
+"Density": {
+"title": "Density",
+"language": "en",
+"ns": 0
+},
+"Dependent territory": {
+"title": "Dependent territory",
+"language": "en",
+"ns": 0
+},
+"Desert": {
+"title": "Desert",
+"language": "en",
+"ns": 0
+},
+"Desertification": {
+"title": "Desertification",
+"language": "en",
+"ns": 0
+},
+"Detached object": {
+"title": "Detached object",
+"language": "en",
+"ns": 0
+},
+"Dione (moon)": {
+"title": "Dione (moon)",
+"language": "en",
+"ns": 0
+},
+"Dipole": {
+"title": "Dipole",
+"language": "en",
+"ns": 0
+},
+"Discovery and exploration of the Solar System": {
+"title": "Discovery and exploration of the Solar System",
+"language": "en",
+"ns": 0
+},
+"Disrupted planet": {
+"title": "Disrupted planet",
+"language": "en",
+"ns": 0
+},
+"Divergent boundary": {
+"title": "Divergent boundary",
+"language": "en",
+"ns": 0
+},
+"Doi (identifier)": {
+"title": "Doi (identifier)",
+"language": "en",
+"ns": 0
+},
+"Donal Bradley": {
+"title": "Donal Bradley",
+"language": "en",
+"ns": 0
+},
+"Donald E. Brownlee": {
+"title": "Donald E. Brownlee",
+"language": "en",
+"ns": 0
+},
+"Donald L. Turcotte": {
+"title": "Donald L. Turcotte",
+"language": "en",
+"ns": 0
+},
+"Dose rate": {
+"title": "Dose rate",
+"language": "en",
+"ns": 0
+},
+"Double planet": {
+"title": "Double planet",
+"language": "en",
+"ns": 0
+},
+"Drought": {
+"title": "Drought",
+"language": "en",
+"ns": 0
+},
+"Dwarf planet": {
+"title": "Dwarf planet",
+"language": "en",
+"ns": 0
+},
+"Dynamo theory": {
+"title": "Dynamo theory",
+"language": "en",
+"ns": 0
+},
+"Dysnomia (moon)": {
+"title": "Dysnomia (moon)",
+"language": "en",
+"ns": 0
+},
+"ETRS89": {
+"title": "ETRS89",
+"language": "en",
+"ns": 0
+},
+"Earliest known life forms": {
+"title": "Earliest known life forms",
+"language": "en",
+"ns": 0
+},
+"Early Earth": {
+"title": "Early Earth",
+"language": "en",
+"ns": 0
+},
+"Early Middle English": {
+"title": "Early Middle English",
+"language": "en",
+"ns": 0
+},
+"Early Modern English": {
+"title": "Early Modern English",
+"language": "en",
+"ns": 0
+},
+"Earth": {
+"title": "Earth",
+"language": "en",
+"ns": 0
+},
+"Earth (disambiguation)": {
+"title": "Earth (disambiguation)",
+"language": "en",
+"ns": 0
+},
+"Earth Day": {
+"title": "Earth Day",
+"language": "en",
+"ns": 0
+},
+"Earth ellipsoid": {
+"title": "Earth ellipsoid",
+"language": "en",
+"ns": 0
+},
+"Earth goddess": {
+"title": "Earth goddess",
+"language": "en",
+"ns": 0
+},
+"Earth in culture": {
+"title": "Earth in culture",
+"language": "en",
+"ns": 0
+},
+"Earth in science fiction": {
+"title": "Earth in science fiction",
+"language": "en",
+"ns": 0
+},
+"Earth mass": {
+"title": "Earth mass",
+"language": "en",
+"ns": 0
+},
+"Earth observation": {
+"title": "Earth observation",
+"language": "en",
+"ns": 0
+},
+"Earth phase": {
+"title": "Earth phase",
+"language": "en",
+"ns": 0
+},
+"Earth radius": {
+"title": "Earth radius",
+"language": "en",
+"ns": 0
+},
+"Earth science": {
+"title": "Earth science",
+"language": "en",
+"ns": 0
+},
+"Earth symbol": {
+"title": "Earth symbol",
+"language": "en",
+"ns": 0
+},
+"Earth trojan": {
+"title": "Earth trojan",
+"language": "en",
+"ns": 0
+},
+"Earth's age": {
+"title": "Earth's age",
+"language": "en",
+"ns": 0
+},
+"Earth's circumference": {
+"title": "Earth's circumference",
+"language": "en",
+"ns": 0
+},
+"Earth's core": {
+"title": "Earth's core",
+"language": "en",
+"ns": 0
+},
+"Earth's crust": {
+"title": "Earth's crust",
+"language": "en",
+"ns": 0
+},
+"Earth's energy budget": {
+"title": "Earth's energy budget",
+"language": "en",
+"ns": 0
+},
+"Earth's history": {
+"title": "Earth's history",
+"language": "en",
+"ns": 0
+},
+"Earth's inner core": {
+"title": "Earth's inner core",
+"language": "en",
+"ns": 0
+},
+"Earth's internal heat budget": {
+"title": "Earth's internal heat budget",
+"language": "en",
+"ns": 0
+},
+"Earth's lithosphere": {
+"title": "Earth's lithosphere",
+"language": "en",
+"ns": 0
+},
+"Earth's location": {
+"title": "Earth's location",
+"language": "en",
+"ns": 0
+},
+"Earth's magnetic field": {
+"title": "Earth's magnetic field",
+"language": "en",
+"ns": 0
+},
+"Earth's mantle": {
+"title": "Earth's mantle",
+"language": "en",
+"ns": 0
+},
+"Earth's orbit": {
+"title": "Earth's orbit",
+"language": "en",
+"ns": 0
+},
+"Earth's outer core": {
+"title": "Earth's outer core",
+"language": "en",
+"ns": 0
+},
+"Earth's rotation": {
+"title": "Earth's rotation",
+"language": "en",
+"ns": 0
+},
+"Earthquake": {
+"title": "Earthquake",
+"language": "en",
+"ns": 0
+},
+"Earthquakes": {
+"title": "Earthquakes",
+"language": "en",
+"ns": 0
+},
+"Eastern Hemisphere": {
+"title": "Eastern Hemisphere",
+"language": "en",
+"ns": 0
+},
+"Ecliptic": {
+"title": "Ecliptic",
+"language": "en",
+"ns": 0
+},
+"Ecological network": {
+"title": "Ecological network",
+"language": "en",
+"ns": 0
+},
+"Ecology": {
+"title": "Ecology",
+"language": "en",
+"ns": 0
+},
+"Economic geology": {
+"title": "Economic geology",
+"language": "en",
+"ns": 0
+},
+"Ecosystem": {
+"title": "Ecosystem",
+"language": "en",
+"ns": 0
+},
+"Ediacaran": {
+"title": "Ediacaran",
+"language": "en",
+"ns": 0
+},
+"Edward L. Widmer": {
+"title": "Edward L. Widmer",
+"language": "en",
+"ns": 0
+},
+"Edward Maibach": {
+"title": "Edward Maibach",
+"language": "en",
+"ns": 0
+},
+"Effective temperature": {
+"title": "Effective temperature",
+"language": "en",
+"ns": 0
+},
+"Effects of Planet Nine on trans-Neptunian objects": {
+"title": "Effects of Planet Nine on trans-Neptunian objects",
+"language": "en",
+"ns": 0
+},
+"Effects of climate change": {
+"title": "Effects of climate change",
+"language": "en",
+"ns": 0
+},
+"El Niño–Southern Oscillation": {
+"title": "El Niño–Southern Oscillation",
+"language": "en",
+"ns": 0
+},
+"Enceladus": {
+"title": "Enceladus",
+"language": "en",
+"ns": 0
+},
+"Endosymbiotic theory": {
+"title": "Endosymbiotic theory",
+"language": "en",
+"ns": 0
+},
+"Energy": {
+"title": "Energy",
+"language": "en",
+"ns": 0
+},
+"Engineering geology": {
+"title": "Engineering geology",
+"language": "en",
+"ns": 0
+},
+"Environmental geology": {
+"title": "Environmental geology",
+"language": "en",
+"ns": 0
+},
+"Environmental science": {
+"title": "Environmental science",
+"language": "en",
+"ns": 0
+},
+"Environmentalism": {
+"title": "Environmentalism",
+"language": "en",
+"ns": 0
+},
+"Eoarchean": {
+"title": "Eoarchean",
+"language": "en",
+"ns": 0
+},
+"Epoch (astronomy)": {
+"title": "Epoch (astronomy)",
+"language": "en",
+"ns": 0
+},
+"Equator": {
+"title": "Equator",
+"language": "en",
+"ns": 0
+},
+"Equatorial bulge": {
+"title": "Equatorial bulge",
+"language": "en",
+"ns": 0
+},
+"Equatorial region": {
+"title": "Equatorial region",
+"language": "en",
+"ns": 0
+},
+"Equinox": {
+"title": "Equinox",
+"language": "en",
+"ns": 0
+},
+"Equivalent dose": {
+"title": "Equivalent dose",
+"language": "en",
+"ns": 0
+},
+"Erik Ian Asphaug": {
+"title": "Erik Ian Asphaug",
+"language": "en",
+"ns": 0
+},
+"Eris (dwarf planet)": {
+"title": "Eris (dwarf planet)",
+"language": "en",
+"ns": 0
+},
+"Erosion": {
+"title": "Erosion",
+"language": "en",
+"ns": 0
+},
+"Escape velocity": {
+"title": "Escape velocity",
+"language": "en",
+"ns": 0
+},
+"Eukaryote": {
+"title": "Eukaryote",
+"language": "en",
+"ns": 0
+},
+"Eurasian Plate": {
+"title": "Eurasian Plate",
+"language": "en",
+"ns": 0
+},
+"Europa (moon)": {
+"title": "Europa (moon)",
+"language": "en",
+"ns": 0
+},
+"Europe": {
+"title": "Europe",
+"language": "en",
+"ns": 0
+},
+"European Environment Agency": {
+"title": "European Environment Agency",
+"language": "en",
+"ns": 0
+},
+"European Union": {
+"title": "European Union",
+"language": "en",
+"ns": 0
+},
+"Excite (web portal)": {
+"title": "Excite (web portal)",
+"language": "en",
+"ns": 0
+},
+"Exoplanetary Circumstellar Environments and Disk Explorer": {
+"title": "Exoplanetary Circumstellar Environments and Disk Explorer",
+"language": "en",
+"ns": 0
+},
+"Exosphere": {
+"title": "Exosphere",
+"language": "en",
+"ns": 0
+},
+"Exozodiacal dust": {
+"title": "Exozodiacal dust",
+"language": "en",
+"ns": 0
+},
+"Exploration of Jupiter": {
+"title": "Exploration of Jupiter",
+"language": "en",
+"ns": 0
+},
+"Exploration of Mars": {
+"title": "Exploration of Mars",
+"language": "en",
+"ns": 0
+},
+"Exploration of Mercury": {
+"title": "Exploration of Mercury",
+"language": "en",
+"ns": 0
+},
+"Exploration of Neptune": {
+"title": "Exploration of Neptune",
+"language": "en",
+"ns": 0
+},
+"Exploration of Pluto": {
+"title": "Exploration of Pluto",
+"language": "en",
+"ns": 0
+},
+"Exploration of Saturn": {
+"title": "Exploration of Saturn",
+"language": "en",
+"ns": 0
+},
+"Exploration of Uranus": {
+"title": "Exploration of Uranus",
+"language": "en",
+"ns": 0
+},
+"Exploration of the Moon": {
+"title": "Exploration of the Moon",
+"language": "en",
+"ns": 0
+},
+"Extinction": {
+"title": "Extinction",
+"language": "en",
+"ns": 0
+},
+"Extinction event": {
+"title": "Extinction event",
+"language": "en",
+"ns": 0
+},
+"Extraterrestrial liquid water": {
+"title": "Extraterrestrial liquid water",
+"language": "en",
+"ns": 0
+},
+"Extraterrestrial materials": {
+"title": "Extraterrestrial materials",
+"language": "en",
+"ns": 0
+},
+"Extraterrestrial sample curation": {
+"title": "Extraterrestrial sample curation",
+"language": "en",
+"ns": 0
+},
+"Extreme weather": {
+"title": "Extreme weather",
+"language": "en",
+"ns": 0
+},
+"Extremes on Earth": {
+"title": "Extremes on Earth",
+"language": "en",
+"ns": 0
+},
+"Faint young Sun paradox": {
+"title": "Faint young Sun paradox",
+"language": "en",
+"ns": 0
+},
+"Fauna": {
+"title": "Fauna",
+"language": "en",
+"ns": 0
+},
+"Felsic": {
+"title": "Felsic",
+"language": "en",
+"ns": 0
+},
+"Fertility deity": {
+"title": "Fertility deity",
+"language": "en",
+"ns": 0
+},
+"Field (physics)": {
+"title": "Field (physics)",
+"language": "en",
+"ns": 0
+},
+"Fifth Giant": {
+"title": "Fifth Giant",
+"language": "en",
+"ns": 0
+},
+"Figure of the Earth": {
+"title": "Figure of the Earth",
+"language": "en",
+"ns": 0
+},
+"File:En-Earth-article.ogg": {
+"title": "File:En-Earth-article.ogg",
+"language": "en",
+"ns": 6
+},
+"Fiona Harvey": {
+"title": "Fiona Harvey",
+"language": "en",
+"ns": 0
+},
+"Five-planet Nice model": {
+"title": "Five-planet Nice model",
+"language": "en",
+"ns": 0
+},
+"Fixed star": {
+"title": "Fixed star",
+"language": "en",
+"ns": 0
+},
+"Flag of Earth": {
+"title": "Flag of Earth",
+"language": "en",
+"ns": 0
+},
+"Flag of the United Nations": {
+"title": "Flag of the United Nations",
+"language": "en",
+"ns": 0
+},
+"Flat Earth": {
+"title": "Flat Earth",
+"language": "en",
+"ns": 0
+},
+"Flattening": {
+"title": "Flattening",
+"language": "en",
+"ns": 0
+},
+"Flood": {
+"title": "Flood",
+"language": "en",
+"ns": 0
+},
+"Flood basalt": {
+"title": "Flood basalt",
+"language": "en",
+"ns": 0
+},
+"Flora": {
+"title": "Flora",
+"language": "en",
+"ns": 0
+},
+"Ford Doolittle": {
+"title": "Ford Doolittle",
+"language": "en",
+"ns": 0
+},
+"Forensic geology": {
+"title": "Forensic geology",
+"language": "en",
+"ns": 0
+},
+"Forensic geophysics": {
+"title": "Forensic geophysics",
+"language": "en",
+"ns": 0
+},
+"Formation and evolution of the Solar System": {
+"title": "Formation and evolution of the Solar System",
+"language": "en",
+"ns": 0
+},
+"Fossil": {
+"title": "Fossil",
+"language": "en",
+"ns": 0
+},
+"Fossil fuel": {
+"title": "Fossil fuel",
+"language": "en",
+"ns": 0
+},
+"Four corners of the world": {
+"title": "Four corners of the world",
+"language": "en",
+"ns": 0
+},
+"Francis Albarède": {
+"title": "Francis Albarède",
+"language": "en",
+"ns": 0
+},
+"Fred Espenak": {
+"title": "Fred Espenak",
+"language": "en",
+"ns": 0
+},
+"Frequency": {
+"title": "Frequency",
+"language": "en",
+"ns": 0
+},
+"Fresh water": {
+"title": "Fresh water",
+"language": "en",
+"ns": 0
+},
+"Frost line (astrophysics)": {
+"title": "Frost line (astrophysics)",
+"language": "en",
+"ns": 0
+},
+"Fungus": {
+"title": "Fungus",
+"language": "en",
+"ns": 0
+},
+"Future of Earth": {
+"title": "Future of Earth",
+"language": "en",
+"ns": 0
+},
+"Gaia": {
+"title": "Gaia",
+"language": "en",
+"ns": 0
+},
+"Gaia hypothesis": {
+"title": "Gaia hypothesis",
+"language": "en",
+"ns": 0
+},
+"Galactic plane": {
+"title": "Galactic plane",
+"language": "en",
+"ns": 0
+},
+"Ganymede (moon)": {
+"title": "Ganymede (moon)",
+"language": "en",
+"ns": 0
+},
+"Gas giant": {
+"title": "Gas giant",
+"language": "en",
+"ns": 0
+},
+"Geobiology": {
+"title": "Geobiology",
+"language": "en",
+"ns": 0
+},
+"Geocentrism": {
+"title": "Geocentrism",
+"language": "en",
+"ns": 0
+},
+"Geochemistry": {
+"title": "Geochemistry",
+"language": "en",
+"ns": 0
+},
+"Geochronology": {
+"title": "Geochronology",
+"language": "en",
+"ns": 0
+},
+"Geodesy": {
+"title": "Geodesy",
+"language": "en",
+"ns": 0
+},
+"Geodetic astronomy": {
+"title": "Geodetic astronomy",
+"language": "en",
+"ns": 0
+},
+"Geodynamics": {
+"title": "Geodynamics",
+"language": "en",
+"ns": 0
+},
+"Geographical pole": {
+"title": "Geographical pole",
+"language": "en",
+"ns": 0
+},
+"Geoid": {
+"title": "Geoid",
+"language": "en",
+"ns": 0
+},
+"Geologic modelling": {
+"title": "Geologic modelling",
+"language": "en",
+"ns": 0
+},
+"Geologic record": {
+"title": "Geologic record",
+"language": "en",
+"ns": 0
+},
+"Geologic time scale": {
+"title": "Geologic time scale",
+"language": "en",
+"ns": 0
+},
+"Geological history of Earth": {
+"title": "Geological history of Earth",
+"language": "en",
+"ns": 0
+},
+"Geologist": {
+"title": "Geologist",
+"language": "en",
+"ns": 0
+},
+"Geology": {
+"title": "Geology",
+"language": "en",
+"ns": 0
+},
+"Geology of solar terrestrial planets": {
+"title": "Geology of solar terrestrial planets",
+"language": "en",
+"ns": 0
+},
+"Geomagnetic reversal": {
+"title": "Geomagnetic reversal",
+"language": "en",
+"ns": 0
+},
+"Geomagnetic secular variation": {
+"title": "Geomagnetic secular variation",
+"language": "en",
+"ns": 0
+},
+"Geomagnetism": {
+"title": "Geomagnetism",
+"language": "en",
+"ns": 0
+},
+"Geomatics": {
+"title": "Geomatics",
+"language": "en",
+"ns": 0
+},
+"Geometric albedo": {
+"title": "Geometric albedo",
+"language": "en",
+"ns": 0
+},
+"Geomorphology": {
+"title": "Geomorphology",
+"language": "en",
+"ns": 0
+},
+"Geophysical fluid dynamics": {
+"title": "Geophysical fluid dynamics",
+"language": "en",
+"ns": 0
+},
+"Geophysical imaging": {
+"title": "Geophysical imaging",
+"language": "en",
+"ns": 0
+},
+"Geophysical survey": {
+"title": "Geophysical survey",
+"language": "en",
+"ns": 0
+},
+"Geophysics": {
+"title": "Geophysics",
+"language": "en",
+"ns": 0
+},
+"Geopositioning": {
+"title": "Geopositioning",
+"language": "en",
+"ns": 0
+},
+"Geosynchronous orbit": {
+"title": "Geosynchronous orbit",
+"language": "en",
+"ns": 0
+},
+"Germanic language": {
+"title": "Germanic language",
+"language": "en",
+"ns": 0
+},
+"Germanic paganism": {
+"title": "Germanic paganism",
+"language": "en",
+"ns": 0
+},
+"Giant impact hypothesis": {
+"title": "Giant impact hypothesis",
+"language": "en",
+"ns": 0
+},
+"Giant planet": {
+"title": "Giant planet",
+"language": "en",
+"ns": 0
+},
+"Giant-impact hypothesis": {
+"title": "Giant-impact hypothesis",
+"language": "en",
+"ns": 0
+},
+"Gigaannum": {
+"title": "Gigaannum",
+"language": "en",
+"ns": 0
+},
+"Glacier": {
+"title": "Glacier",
+"language": "en",
+"ns": 0
+},
+"Glaciology": {
+"title": "Glaciology",
+"language": "en",
+"ns": 0
+},
+"Global catastrophic risk": {
+"title": "Global catastrophic risk",
+"language": "en",
+"ns": 0
+},
+"Global ocean": {
+"title": "Global ocean",
+"language": "en",
+"ns": 0
+},
+"Global warming": {
+"title": "Global warming",
+"language": "en",
+"ns": 0
+},
+"Globe": {
+"title": "Globe",
+"language": "en",
+"ns": 0
+},
+"Globus cruciger": {
+"title": "Globus cruciger",
+"language": "en",
+"ns": 0
+},
+"Glossary of geology": {
+"title": "Glossary of geology",
+"language": "en",
+"ns": 0
+},
+"Gonggong (dwarf planet)": {
+"title": "Gonggong (dwarf planet)",
+"language": "en",
+"ns": 0
+},
+"Gordon Orians": {
+"title": "Gordon Orians",
+"language": "en",
+"ns": 0
+},
+"Gould Belt": {
+"title": "Gould Belt",
+"language": "en",
+"ns": 0
+},
+"Grand tack hypothesis": {
+"title": "Grand tack hypothesis",
+"language": "en",
+"ns": 0
+},
+"Granite": {
+"title": "Granite",
+"language": "en",
+"ns": 0
+},
+"Graphite": {
+"title": "Graphite",
+"language": "en",
+"ns": 0
+},
+"Gravitational acceleration": {
+"title": "Gravitational acceleration",
+"language": "en",
+"ns": 0
+},
+"Gravitational collapse": {
+"title": "Gravitational collapse",
+"language": "en",
+"ns": 0
+},
+"Gravity anomaly": {
+"title": "Gravity anomaly",
+"language": "en",
+"ns": 0
+},
+"Gravity of Earth": {
+"title": "Gravity of Earth",
+"language": "en",
+"ns": 0
+},
+"Great Oxidation Event": {
+"title": "Great Oxidation Event",
+"language": "en",
+"ns": 0
+},
+"Great Plains": {
+"title": "Great Plains",
+"language": "en",
+"ns": 0
+},
+"Greeks": {
+"title": "Greeks",
+"language": "en",
+"ns": 0
+},
+"Greenhouse effect": {
+"title": "Greenhouse effect",
+"language": "en",
+"ns": 0
+},
+"Greenhouse gas": {
+"title": "Greenhouse gas",
+"language": "en",
+"ns": 0
+},
+"Greenland": {
+"title": "Greenland",
+"language": "en",
+"ns": 0
+},
+"Ground water": {
+"title": "Ground water",
+"language": "en",
+"ns": 0
+},
+"Groundwater": {
+"title": "Groundwater",
+"language": "en",
+"ns": 0
+},
+"Hadean": {
+"title": "Hadean",
+"language": "en",
+"ns": 0
+},
+"Hadean zircon": {
+"title": "Hadean zircon",
+"language": "en",
+"ns": 0
+},
+"Hafnium": {
+"title": "Hafnium",
+"language": "en",
+"ns": 0
+},
+"Hannah Ritchie": {
+"title": "Hannah Ritchie",
+"language": "en",
+"ns": 0
+},
+"Haumea": {
+"title": "Haumea",
+"language": "en",
+"ns": 0
+},
+"Hdl (identifier)": {
+"title": "Hdl (identifier)",
+"language": "en",
+"ns": 0
+},
+"Heat flow": {
+"title": "Heat flow",
+"language": "en",
+"ns": 0
+},
+"Heat reservoir": {
+"title": "Heat reservoir",
+"language": "en",
+"ns": 0
+},
+"Heliocentrism": {
+"title": "Heliocentrism",
+"language": "en",
+"ns": 0
+},
+"Helium": {
+"title": "Helium",
+"language": "en",
+"ns": 0
+},
+"Help:Authority control": {
+"title": "Help:Authority control",
+"language": "en",
+"ns": 12
+},
+"Help:IPA/English": {
+"title": "Help:IPA/English",
+"language": "en",
+"ns": 12
+},
+"Help:IPA/Greek": {
+"title": "Help:IPA/Greek",
+"language": "en",
+"ns": 12
+},
+"Help:Pronunciation respelling key": {
+"title": "Help:Pronunciation respelling key",
+"language": "en",
+"ns": 12
+},
+"Hemispheres of Earth": {
+"title": "Hemispheres of Earth",
+"language": "en",
+"ns": 0
+},
+"Henry Pollack (geophysicist)": {
+"title": "Henry Pollack (geophysicist)",
+"language": "en",
+"ns": 0
+},
+"High latitude": {
+"title": "High latitude",
+"language": "en",
+"ns": 0
+},
+"Highest temperature recorded on Earth": {
+"title": "Highest temperature recorded on Earth",
+"language": "en",
+"ns": 0
+},
+"Hill radius": {
+"title": "Hill radius",
+"language": "en",
+"ns": 0
+},
+"Hill sphere": {
+"title": "Hill sphere",
+"language": "en",
+"ns": 0
+},
+"Hills cloud": {
+"title": "Hills cloud",
+"language": "en",
+"ns": 0
+},
+"Historical geology": {
+"title": "Historical geology",
+"language": "en",
+"ns": 0
+},
+"Historical models of the Solar System": {
+"title": "Historical models of the Solar System",
+"language": "en",
+"ns": 0
+},
+"History of Earth": {
+"title": "History of Earth",
+"language": "en",
+"ns": 0
+},
+"History of Solar System formation and evolution hypotheses": {
+"title": "History of Solar System formation and evolution hypotheses",
+"language": "en",
+"ns": 0
+},
+"History of agriculture": {
+"title": "History of agriculture",
+"language": "en",
+"ns": 0
+},
+"History of geology": {
+"title": "History of geology",
+"language": "en",
+"ns": 0
+},
+"History of human migration": {
+"title": "History of human migration",
+"language": "en",
+"ns": 0
+},
+"History of life": {
+"title": "History of life",
+"language": "en",
+"ns": 0
+},
+"Hiʻiaka (moon)": {
+"title": "Hiʻiaka (moon)",
+"language": "en",
+"ns": 0
+},
+"Holocene extinction": {
+"title": "Holocene extinction",
+"language": "en",
+"ns": 0
+},
+"Horseshoe orbit": {
+"title": "Horseshoe orbit",
+"language": "en",
+"ns": 0
+},
+"Hot desert": {
+"title": "Hot desert",
+"language": "en",
+"ns": 0
+},
+"Hotspot (geology)": {
+"title": "Hotspot (geology)",
+"language": "en",
+"ns": 0
+},
+"Human": {
+"title": "Human",
+"language": "en",
+"ns": 0
+},
+"Human evolution": {
+"title": "Human evolution",
+"language": "en",
+"ns": 0
+},
+"Human geography": {
+"title": "Human geography",
+"language": "en",
+"ns": 0
+},
+"Human history": {
+"title": "Human history",
+"language": "en",
+"ns": 0
+},
+"Human impact on the environment": {
+"title": "Human impact on the environment",
+"language": "en",
+"ns": 0
+},
+"Human spaceflight": {
+"title": "Human spaceflight",
+"language": "en",
+"ns": 0
+},
+"Human spaceflight programs": {
+"title": "Human spaceflight programs",
+"language": "en",
+"ns": 0
+},
+"Humid": {
+"title": "Humid",
+"language": "en",
+"ns": 0
+},
+"Humid subtropical climate": {
+"title": "Humid subtropical climate",
+"language": "en",
+"ns": 0
+},
+"Humidity": {
+"title": "Humidity",
+"language": "en",
+"ns": 0
+},
+"Hydra (moon)": {
+"title": "Hydra (moon)",
+"language": "en",
+"ns": 0
+},
+"Hydrogen": {
+"title": "Hydrogen",
+"language": "en",
+"ns": 0
+},
+"Hydrogeology": {
+"title": "Hydrogeology",
+"language": "en",
+"ns": 0
+},
+"Hydrology": {
+"title": "Hydrology",
+"language": "en",
+"ns": 0
+},
+"Hydrosphere": {
+"title": "Hydrosphere",
+"language": "en",
+"ns": 0
+},
+"Hydrostatic equilibrium": {
+"title": "Hydrostatic equilibrium",
+"language": "en",
+"ns": 0
+},
+"Hyperion (hypothetical planet)": {
+"title": "Hyperion (hypothetical planet)",
+"language": "en",
+"ns": 0
+},
+"Hyperion (moon)": {
+"title": "Hyperion (moon)",
+"language": "en",
+"ns": 0
+},
+"Hypothetical moon of Mercury": {
+"title": "Hypothetical moon of Mercury",
+"language": "en",
+"ns": 0
+},
+"Hypsometry": {
+"title": "Hypsometry",
+"language": "en",
+"ns": 0
+},
+"IPCC": {
+"title": "IPCC",
+"language": "en",
+"ns": 0
+},
+"IPCC Sixth Assessment Report": {
+"title": "IPCC Sixth Assessment Report",
+"language": "en",
+"ns": 0
+},
+"ISBN (identifier)": {
+"title": "ISBN (identifier)",
+"language": "en",
+"ns": 0
+},
+"ISSN (identifier)": {
+"title": "ISSN (identifier)",
+"language": "en",
+"ns": 0
+},
+"ITCZ": {
+"title": "ITCZ",
+"language": "en",
+"ns": 0
+},
+"Iapetus (moon)": {
+"title": "Iapetus (moon)",
+"language": "en",
+"ns": 0
+},
+"Iberdrola": {
+"title": "Iberdrola",
+"language": "en",
+"ns": 0
+},
+"Ice age": {
+"title": "Ice age",
+"language": "en",
+"ns": 0
+},
+"Ice cap": {
+"title": "Ice cap",
+"language": "en",
+"ns": 0
+},
+"Ice formation": {
+"title": "Ice formation",
+"language": "en",
+"ns": 0
+},
+"Ice giant": {
+"title": "Ice giant",
+"language": "en",
+"ns": 0
+},
+"Ice sheet": {
+"title": "Ice sheet",
+"language": "en",
+"ns": 0
+},
+"Ice sheets": {
+"title": "Ice sheets",
+"language": "en",
+"ns": 0
+},
+"Ice shelf": {
+"title": "Ice shelf",
+"language": "en",
+"ns": 0
+},
+"Igneous rock": {
+"title": "Igneous rock",
+"language": "en",
+"ns": 0
+},
+"Impact event": {
+"title": "Impact event",
+"language": "en",
+"ns": 0
+},
+"Index of Earth science articles": {
+"title": "Index of Earth science articles",
+"language": "en",
+"ns": 0
+},
+"Index of geology articles": {
+"title": "Index of geology articles",
+"language": "en",
+"ns": 0
+},
+"Indian Ocean": {
+"title": "Indian Ocean",
+"language": "en",
+"ns": 0
+},
+"Indo-Australian Plate": {
+"title": "Indo-Australian Plate",
+"language": "en",
+"ns": 0
+},
+"Inner Solar System": {
+"title": "Inner Solar System",
+"language": "en",
+"ns": 0
+},
+"Inner core": {
+"title": "Inner core",
+"language": "en",
+"ns": 0
+},
+"Intergovernmental organization": {
+"title": "Intergovernmental organization",
+"language": "en",
+"ns": 0
+},
+"Internal structure of Earth": {
+"title": "Internal structure of Earth",
+"language": "en",
+"ns": 0
+},
+"International Earth Rotation and Reference Systems Service": {
+"title": "International Earth Rotation and Reference Systems Service",
+"language": "en",
+"ns": 0
+},
+"International Space Station": {
+"title": "International Space Station",
+"language": "en",
+"ns": 0
+},
+"Interplanetary dust cloud": {
+"title": "Interplanetary dust cloud",
+"language": "en",
+"ns": 0
+},
+"Interplanetary medium": {
+"title": "Interplanetary medium",
+"language": "en",
+"ns": 0
+},
+"Interstellar cloud": {
+"title": "Interstellar cloud",
+"language": "en",
+"ns": 0
+},
+"Interstellar medium": {
+"title": "Interstellar medium",
+"language": "en",
+"ns": 0
+},
+"Invariable plane": {
+"title": "Invariable plane",
+"language": "en",
+"ns": 0
+},
+"Io (moon)": {
+"title": "Io (moon)",
+"language": "en",
+"ns": 0
+},
+"Ionosphere": {
+"title": "Ionosphere",
+"language": "en",
+"ns": 0
+},
+"Island": {
+"title": "Island",
+"language": "en",
+"ns": 0
+},
+"Isotope": {
+"title": "Isotope",
+"language": "en",
+"ns": 0
+},
+"J2000.0": {
+"title": "J2000.0",
+"language": "en",
+"ns": 0
+},
+"JSTOR (identifier)": {
+"title": "JSTOR (identifier)",
+"language": "en",
+"ns": 0
+},
+"James Lovelock": {
+"title": "James Lovelock",
+"language": "en",
+"ns": 0
+},
+"Jamuna Sharan Singh": {
+"title": "Jamuna Sharan Singh",
+"language": "en",
+"ns": 0
+},
+"Janne Blichert-Toft": {
+"title": "Janne Blichert-Toft",
+"language": "en",
+"ns": 0
+},
+"Jean Meeus": {
+"title": "Jean Meeus",
+"language": "en",
+"ns": 0
+},
+"Jerry X. Mitrovica": {
+"title": "Jerry X. Mitrovica",
+"language": "en",
+"ns": 0
+},
+"Jet Propulsion Laboratory": {
+"title": "Jet Propulsion Laboratory",
+"language": "en",
+"ns": 0
+},
+"John Lloyd (producer)": {
+"title": "John Lloyd (producer)",
+"language": "en",
+"ns": 0
+},
+"John Mitchinson (researcher)": {
+"title": "John Mitchinson (researcher)",
+"language": "en",
+"ns": 0
+},
+"Jonathan Lunine": {
+"title": "Jonathan Lunine",
+"language": "en",
+"ns": 0
+},
+"Joseph Kirschvink": {
+"title": "Joseph Kirschvink",
+"language": "en",
+"ns": 0
+},
+"Journal of African Earth Sciences": {
+"title": "Journal of African Earth Sciences",
+"language": "en",
+"ns": 0
+},
+"Judith Lean": {
+"title": "Judith Lean",
+"language": "en",
+"ns": 0
+},
+"Julian year (astronomy)": {
+"title": "Julian year (astronomy)",
+"language": "en",
+"ns": 0
+},
+"Jupiter": {
+"title": "Jupiter",
+"language": "en",
+"ns": 0
+},
+"Jupiter trojan": {
+"title": "Jupiter trojan",
+"language": "en",
+"ns": 0
+},
+"Jörð": {
+"title": "Jörð",
+"language": "en",
+"ns": 0
+},
+"Katherine Joy": {
+"title": "Katherine Joy",
+"language": "en",
+"ns": 0
+},
+"Kerberos (moon)": {
+"title": "Kerberos (moon)",
+"language": "en",
+"ns": 0
+},
+"Kevin J. Zahnle": {
+"title": "Kevin J. Zahnle",
+"language": "en",
+"ns": 0
+},
+"Kilogram": {
+"title": "Kilogram",
+"language": "en",
+"ns": 0
+},
+"Kirkwood gap": {
+"title": "Kirkwood gap",
+"language": "en",
+"ns": 0
+},
+"Komatiite": {
+"title": "Komatiite",
+"language": "en",
+"ns": 0
+},
+"Krypton": {
+"title": "Krypton",
+"language": "en",
+"ns": 0
+},
+"Kuiper belt": {
+"title": "Kuiper belt",
+"language": "en",
+"ns": 0
+},
+"Kuiper cliff": {
+"title": "Kuiper cliff",
+"language": "en",
+"ns": 0
+},
+"Kármán line": {
+"title": "Kármán line",
+"language": "en",
+"ns": 0
+},
+"Köppen climate classification": {
+"title": "Köppen climate classification",
+"language": "en",
+"ns": 0
+},
+"Lagrange point": {
+"title": "Lagrange point",
+"language": "en",
+"ns": 0
+},
+"Lagrangian point": {
+"title": "Lagrangian point",
+"language": "en",
+"ns": 0
+},
+"Land": {
+"title": "Land",
+"language": "en",
+"ns": 0
+},
+"Land cover": {
+"title": "Land cover",
+"language": "en",
+"ns": 0
+},
+"Land hemisphere": {
+"title": "Land hemisphere",
+"language": "en",
+"ns": 0
+},
+"Land use": {
+"title": "Land use",
+"language": "en",
+"ns": 0
+},
+"Landform": {
+"title": "Landform",
+"language": "en",
+"ns": 0
+},
+"Landmass": {
+"title": "Landmass",
+"language": "en",
+"ns": 0
+},
+"Landslide": {
+"title": "Landslide",
+"language": "en",
+"ns": 0
+},
+"Laniakea Supercluster": {
+"title": "Laniakea Supercluster",
+"language": "en",
+"ns": 0
+},
+"Lapse rate": {
+"title": "Lapse rate",
+"language": "en",
+"ns": 0
+},
+"Large low-shear-velocity provinces": {
+"title": "Large low-shear-velocity provinces",
+"language": "en",
+"ns": 0
+},
+"Last Glacial Period": {
+"title": "Last Glacial Period",
+"language": "en",
+"ns": 0
+},
+"Last universal common ancestor": {
+"title": "Last universal common ancestor",
+"language": "en",
+"ns": 0
+},
+"Late Heavy Bombardment": {
+"title": "Late Heavy Bombardment",
+"language": "en",
+"ns": 0
+},
+"Latitude": {
+"title": "Latitude",
+"language": "en",
+"ns": 0
+},
+"Latitudinal gradients in species diversity": {
+"title": "Latitudinal gradients in species diversity",
+"language": "en",
+"ns": 0
+},
+"Law of the Sea": {
+"title": "Law of the Sea",
+"language": "en",
+"ns": 0
+},
+"Leaf Group": {
+"title": "Leaf Group",
+"language": "en",
+"ns": 0
+},
+"Lehmann discontinuity": {
+"title": "Lehmann discontinuity",
+"language": "en",
+"ns": 0
+},
+"Lexico": {
+"title": "Lexico",
+"language": "en",
+"ns": 0
+},
+"Libration": {
+"title": "Libration",
+"language": "en",
+"ns": 0
+},
+"Life": {
+"title": "Life",
+"language": "en",
+"ns": 0
+},
+"Light minute": {
+"title": "Light minute",
+"language": "en",
+"ns": 0
+},
+"Light pollution": {
+"title": "Light pollution",
+"language": "en",
+"ns": 0
+},
+"Light-minute": {
+"title": "Light-minute",
+"language": "en",
+"ns": 0
+},
+"Light-year": {
+"title": "Light-year",
+"language": "en",
+"ns": 0
+},
+"Liquid": {
+"title": "Liquid",
+"language": "en",
+"ns": 0
+},
+"List of Earth-crossing asteroids": {
+"title": "List of Earth-crossing asteroids",
+"language": "en",
+"ns": 0
+},
+"List of Jupiter trojans (Greek camp)": {
+"title": "List of Jupiter trojans (Greek camp)",
+"language": "en",
+"ns": 0
+},
+"List of Jupiter trojans (Trojan camp)": {
+"title": "List of Jupiter trojans (Trojan camp)",
+"language": "en",
+"ns": 0
+},
+"List of Jupiter-crossing minor planets": {
+"title": "List of Jupiter-crossing minor planets",
+"language": "en",
+"ns": 0
+},
+"List of Mars-crossing minor planets": {
+"title": "List of Mars-crossing minor planets",
+"language": "en",
+"ns": 0
+},
+"List of Mercury-crossing minor planets": {
+"title": "List of Mercury-crossing minor planets",
+"language": "en",
+"ns": 0
+},
+"List of Neptune-crossing minor planets": {
+"title": "List of Neptune-crossing minor planets",
+"language": "en",
+"ns": 0
+},
+"List of Saturn-crossing minor planets": {
+"title": "List of Saturn-crossing minor planets",
+"language": "en",
+"ns": 0
+},
+"List of Solar System extremes": {
+"title": "List of Solar System extremes",
+"language": "en",
+"ns": 0
+},
+"List of Solar System objects": {
+"title": "List of Solar System objects",
+"language": "en",
+"ns": 0
+},
+"List of Solar System objects by size": {
+"title": "List of Solar System objects by size",
+"language": "en",
+"ns": 0
+},
+"List of Solar System probes": {
+"title": "List of Solar System probes",
+"language": "en",
+"ns": 0
+},
+"List of Uranus-crossing minor planets": {
+"title": "List of Uranus-crossing minor planets",
+"language": "en",
+"ns": 0
+},
+"List of Venus-crossing minor planets": {
+"title": "List of Venus-crossing minor planets",
+"language": "en",
+"ns": 0
+},
+"List of adjectivals and demonyms of astronomical bodies": {
+"title": "List of adjectivals and demonyms of astronomical bodies",
+"language": "en",
+"ns": 0
+},
+"List of ancient civilizations": {
+"title": "List of ancient civilizations",
+"language": "en",
+"ns": 0
+},
+"List of crewed spacecraft": {
+"title": "List of crewed spacecraft",
+"language": "en",
+"ns": 0
+},
+"List of exceptional asteroids": {
+"title": "List of exceptional asteroids",
+"language": "en",
+"ns": 0
+},
+"List of gravitationally rounded objects of the Solar System": {
+"title": "List of gravitationally rounded objects of the Solar System",
+"language": "en",
+"ns": 0
+},
+"List of highest mountains on Earth": {
+"title": "List of highest mountains on Earth",
+"language": "en",
+"ns": 0
+},
+"List of hypothetical Solar System objects": {
+"title": "List of hypothetical Solar System objects",
+"language": "en",
+"ns": 0
+},
+"List of interstellar and circumstellar molecules": {
+"title": "List of interstellar and circumstellar molecules",
+"language": "en",
+"ns": 0
+},
+"List of largest lakes and seas in the Solar System": {
+"title": "List of largest lakes and seas in the Solar System",
+"language": "en",
+"ns": 0
+},
+"List of minor planets": {
+"title": "List of minor planets",
+"language": "en",
+"ns": 0
+},
+"List of missions to comets": {
+"title": "List of missions to comets",
+"language": "en",
+"ns": 0
+},
+"List of natural satellites": {
+"title": "List of natural satellites",
+"language": "en",
+"ns": 0
+},
+"List of possible dwarf planets": {
+"title": "List of possible dwarf planets",
+"language": "en",
+"ns": 0
+},
+"List of sovereign states": {
+"title": "List of sovereign states",
+"language": "en",
+"ns": 0
+},
+"List of space travellers by first flight": {
+"title": "List of space travellers by first flight",
+"language": "en",
+"ns": 0
+},
+"List of tectonic plates": {
+"title": "List of tectonic plates",
+"language": "en",
+"ns": 0
+},
+"Lists of comets": {
+"title": "Lists of comets",
+"language": "en",
+"ns": 0
+},
+"Lithosphere": {
+"title": "Lithosphere",
+"language": "en",
+"ns": 0
+},
+"Lithosphere–asthenosphere boundary": {
+"title": "Lithosphere–asthenosphere boundary",
+"language": "en",
+"ns": 0
+},
+"Lithospheric mantle": {
+"title": "Lithospheric mantle",
+"language": "en",
+"ns": 0
+},
+"Liu Shaw-chen": {
+"title": "Liu Shaw-chen",
+"language": "en",
+"ns": 0
+},
+"Lloyd Berkner": {
+"title": "Lloyd Berkner",
+"language": "en",
+"ns": 0
+},
+"Local Bubble": {
+"title": "Local Bubble",
+"language": "en",
+"ns": 0
+},
+"Local Group": {
+"title": "Local Group",
+"language": "en",
+"ns": 0
+},
+"Local Hole": {
+"title": "Local Hole",
+"language": "en",
+"ns": 0
+},
+"Local Interstellar Cloud": {
+"title": "Local Interstellar Cloud",
+"language": "en",
+"ns": 0
+},
+"Local Sheet": {
+"title": "Local Sheet",
+"language": "en",
+"ns": 0
+},
+"Local Volume": {
+"title": "Local Volume",
+"language": "en",
+"ns": 0
+},
+"Location of Earth": {
+"title": "Location of Earth",
+"language": "en",
+"ns": 0
+},
+"Longitude": {
+"title": "Longitude",
+"language": "en",
+"ns": 0
+},
+"Longitude of the ascending node": {
+"title": "Longitude of the ascending node",
+"language": "en",
+"ns": 0
+},
+"Lord Kelvin": {
+"title": "Lord Kelvin",
+"language": "en",
+"ns": 0
+},
+"Low Earth orbit": {
+"title": "Low Earth orbit",
+"language": "en",
+"ns": 0
+},
+"Lower mantle": {
+"title": "Lower mantle",
+"language": "en",
+"ns": 0
+},
+"Lower mantle (Earth)": {
+"title": "Lower mantle (Earth)",
+"language": "en",
+"ns": 0
+},
+"Lowest temperature recorded on Earth": {
+"title": "Lowest temperature recorded on Earth",
+"language": "en",
+"ns": 0
+},
+"Lunar and Planetary Institute": {
+"title": "Lunar and Planetary Institute",
+"language": "en",
+"ns": 0
+},
+"Lunar distance": {
+"title": "Lunar distance",
+"language": "en",
+"ns": 0
+},
+"Lunar eclipse": {
+"title": "Lunar eclipse",
+"language": "en",
+"ns": 0
+},
+"Lunar phase": {
+"title": "Lunar phase",
+"language": "en",
+"ns": 0
+},
+"Lunar resources": {
+"title": "Lunar resources",
+"language": "en",
+"ns": 0
+},
+"Lunar theory": {
+"title": "Lunar theory",
+"language": "en",
+"ns": 0
+},
+"Lunar tide": {
+"title": "Lunar tide",
+"language": "en",
+"ns": 0
+},
+"Lynn Margulis": {
+"title": "Lynn Margulis",
+"language": "en",
+"ns": 0
+},
+"Mafic": {
+"title": "Mafic",
+"language": "en",
+"ns": 0
+},
+"Magmatism": {
+"title": "Magmatism",
+"language": "en",
+"ns": 0
+},
+"Magnesium": {
+"title": "Magnesium",
+"language": "en",
+"ns": 0
+},
+"Magnetic dipole moment": {
+"title": "Magnetic dipole moment",
+"language": "en",
+"ns": 0
+},
+"Magnetic storm": {
+"title": "Magnetic storm",
+"language": "en",
+"ns": 0
+},
+"Magnetosphere": {
+"title": "Magnetosphere",
+"language": "en",
+"ns": 0
+},
+"Mainland Australia": {
+"title": "Mainland Australia",
+"language": "en",
+"ns": 0
+},
+"Makemake": {
+"title": "Makemake",
+"language": "en",
+"ns": 0
+},
+"Mammal": {
+"title": "Mammal",
+"language": "en",
+"ns": 0
+},
+"Mantle (geology)": {
+"title": "Mantle (geology)",
+"language": "en",
+"ns": 0
+},
+"Mantle convection": {
+"title": "Mantle convection",
+"language": "en",
+"ns": 0
+},
+"Mantle plume": {
+"title": "Mantle plume",
+"language": "en",
+"ns": 0
+},
+"March equinox": {
+"title": "March equinox",
+"language": "en",
+"ns": 0
+},
+"Mariana Trench": {
+"title": "Mariana Trench",
+"language": "en",
+"ns": 0
+},
+"Marine geology": {
+"title": "Marine geology",
+"language": "en",
+"ns": 0
+},
+"Mars": {
+"title": "Mars",
+"language": "en",
+"ns": 0
+},
+"Mars Reconnaissance Orbiter": {
+"title": "Mars Reconnaissance Orbiter",
+"language": "en",
+"ns": 0
+},
+"Mars trojan": {
+"title": "Mars trojan",
+"language": "en",
+"ns": 0
+},
+"Mass": {
+"title": "Mass",
+"language": "en",
+"ns": 0
+},
+"Mass fraction (chemistry)": {
+"title": "Mass fraction (chemistry)",
+"language": "en",
+"ns": 0
+},
+"Matter": {
+"title": "Matter",
+"language": "en",
+"ns": 0
+},
+"Max Roser": {
+"title": "Max Roser",
+"language": "en",
+"ns": 0
+},
+"Mean anomaly": {
+"title": "Mean anomaly",
+"language": "en",
+"ns": 0
+},
+"Mean radius (astronomy)": {
+"title": "Mean radius (astronomy)",
+"language": "en",
+"ns": 0
+},
+"Mean sea level": {
+"title": "Mean sea level",
+"language": "en",
+"ns": 0
+},
+"Meanings of minor-planet names": {
+"title": "Meanings of minor-planet names",
+"language": "en",
+"ns": 0
+},
+"Meenakshi Wadhwa": {
+"title": "Meenakshi Wadhwa",
+"language": "en",
+"ns": 0
+},
+"Megaannum": {
+"title": "Megaannum",
+"language": "en",
+"ns": 0
+},
+"Mercury (planet)": {
+"title": "Mercury (planet)",
+"language": "en",
+"ns": 0
+},
+"Meridian (astronomy)": {
+"title": "Meridian (astronomy)",
+"language": "en",
+"ns": 0
+},
+"Meridian (geography)": {
+"title": "Meridian (geography)",
+"language": "en",
+"ns": 0
+},
+"Mesosphere": {
+"title": "Mesosphere",
+"language": "en",
+"ns": 0
+},
+"Mesosphere (mantle)": {
+"title": "Mesosphere (mantle)",
+"language": "en",
+"ns": 0
+},
+"Metabolism": {
+"title": "Metabolism",
+"language": "en",
+"ns": 0
+},
+"Metasediment": {
+"title": "Metasediment",
+"language": "en",
+"ns": 0
+},
+"Meteoritics": {
+"title": "Meteoritics",
+"language": "en",
+"ns": 0
+},
+"Meteoroid": {
+"title": "Meteoroid",
+"language": "en",
+"ns": 0
+},
+"Meteorology": {
+"title": "Meteorology",
+"language": "en",
+"ns": 0
+},
+"Methane": {
+"title": "Methane",
+"language": "en",
+"ns": 0
+},
+"Metric ton": {
+"title": "Metric ton",
+"language": "en",
+"ns": 0
+},
+"Michael J. Kennish": {
+"title": "Michael J. Kennish",
+"language": "en",
+"ns": 0
+},
+"Michael Manga": {
+"title": "Michael Manga",
+"language": "en",
+"ns": 0
+},
+"Microbial mat": {
+"title": "Microbial mat",
+"language": "en",
+"ns": 0
+},
+"Microorganism": {
+"title": "Microorganism",
+"language": "en",
+"ns": 0
+},
+"Microsecond": {
+"title": "Microsecond",
+"language": "en",
+"ns": 0
+},
+"Mid-ocean ridge": {
+"title": "Mid-ocean ridge",
+"language": "en",
+"ns": 0
+},
+"Middle English": {
+"title": "Middle English",
+"language": "en",
+"ns": 0
+},
+"Middle latitude": {
+"title": "Middle latitude",
+"language": "en",
+"ns": 0
+},
+"Midnight sun": {
+"title": "Midnight sun",
+"language": "en",
+"ns": 0
+},
+"Milankovitch cycles": {
+"title": "Milankovitch cycles",
+"language": "en",
+"ns": 0
+},
+"Milky Way": {
+"title": "Milky Way",
+"language": "en",
+"ns": 0
+},
+"Millisecond": {
+"title": "Millisecond",
+"language": "en",
+"ns": 0
+},
+"Mimas": {
+"title": "Mimas",
+"language": "en",
+"ns": 0
+},
+"Mindspark Interactive Network": {
+"title": "Mindspark Interactive Network",
+"language": "en",
+"ns": 0
+},
+"Mineral physics": {
+"title": "Mineral physics",
+"language": "en",
+"ns": 0
+},
+"Mineralogy": {
+"title": "Mineralogy",
+"language": "en",
+"ns": 0
+},
+"Mining geology": {
+"title": "Mining geology",
+"language": "en",
+"ns": 0
+},
+"Minor planet": {
+"title": "Minor planet",
+"language": "en",
+"ns": 0
+},
+"Minor-planet moon": {
+"title": "Minor-planet moon",
+"language": "en",
+"ns": 0
+},
+"Miranda (moon)": {
+"title": "Miranda (moon)",
+"language": "en",
+"ns": 0
+},
+"Modern English": {
+"title": "Modern English",
+"language": "en",
+"ns": 0
+},
+"Mohorovičić discontinuity": {
+"title": "Mohorovičić discontinuity",
+"language": "en",
+"ns": 0
+},
+"Molecular cloud": {
+"title": "Molecular cloud",
+"language": "en",
+"ns": 0
+},
+"Molecular mass": {
+"title": "Molecular mass",
+"language": "en",
+"ns": 0
+},
+"Molecular oxygen": {
+"title": "Molecular oxygen",
+"language": "en",
+"ns": 0
+},
+"Moment of inertia factor": {
+"title": "Moment of inertia factor",
+"language": "en",
+"ns": 0
+},
+"Mongabay": {
+"title": "Mongabay",
+"language": "en",
+"ns": 0
+},
+"Monthly Notices of the Royal Astronomical Society": {
+"title": "Monthly Notices of the Royal Astronomical Society",
+"language": "en",
+"ns": 0
+},
+"Moon": {
+"title": "Moon",
+"language": "en",
+"ns": 0
+},
+"Moonlet": {
+"title": "Moonlet",
+"language": "en",
+"ns": 0
+},
+"Moonlight": {
+"title": "Moonlight",
+"language": "en",
+"ns": 0
+},
+"Moons of Haumea": {
+"title": "Moons of Haumea",
+"language": "en",
+"ns": 0
+},
+"Moons of Jupiter": {
+"title": "Moons of Jupiter",
+"language": "en",
+"ns": 0
+},
+"Moons of Mars": {
+"title": "Moons of Mars",
+"language": "en",
+"ns": 0
+},
+"Moons of Neptune": {
+"title": "Moons of Neptune",
+"language": "en",
+"ns": 0
+},
+"Moons of Pluto": {
+"title": "Moons of Pluto",
+"language": "en",
+"ns": 0
+},
+"Moons of Saturn": {
+"title": "Moons of Saturn",
+"language": "en",
+"ns": 0
+},
+"Moons of Uranus": {
+"title": "Moons of Uranus",
+"language": "en",
+"ns": 0
+},
+"Mother goddess": {
+"title": "Mother goddess",
+"language": "en",
+"ns": 0
+},
+"Mount Everest": {
+"title": "Mount Everest",
+"language": "en",
+"ns": 0
+},
+"NASA": {
+"title": "NASA",
+"language": "en",
+"ns": 0
+},
+"NASA Goddard Space Flight Center": {
+"title": "NASA Goddard Space Flight Center",
+"language": "en",
+"ns": 0
+},
+"NSSDCA": {
+"title": "NSSDCA",
+"language": "en",
+"ns": 0
+},
+"Nadia Drake": {
+"title": "Nadia Drake",
+"language": "en",
+"ns": 0
+},
+"Namaka (moon)": {
+"title": "Namaka (moon)",
+"language": "en",
+"ns": 0
+},
+"Naomi Oreskes": {
+"title": "Naomi Oreskes",
+"language": "en",
+"ns": 0
+},
+"National Geographic": {
+"title": "National Geographic",
+"language": "en",
+"ns": 0
+},
+"National Geospatial-Intelligence Agency": {
+"title": "National Geospatial-Intelligence Agency",
+"language": "en",
+"ns": 0
+},
+"National Institute of Standards and Technology": {
+"title": "National Institute of Standards and Technology",
+"language": "en",
+"ns": 0
+},
+"National Ocean Service": {
+"title": "National Ocean Service",
+"language": "en",
+"ns": 0
+},
+"Natural environment": {
+"title": "Natural environment",
+"language": "en",
+"ns": 0
+},
+"Natural resource": {
+"title": "Natural resource",
+"language": "en",
+"ns": 0
+},
+"Natural satellite": {
+"title": "Natural satellite",
+"language": "en",
+"ns": 0
+},
+"Nature": {
+"title": "Nature",
+"language": "en",
+"ns": 0
+},
+"Nature Geoscience": {
+"title": "Nature Geoscience",
+"language": "en",
+"ns": 0
+},
+"Nature-based solutions": {
+"title": "Nature-based solutions",
+"language": "en",
+"ns": 0
+},
+"Navigation": {
+"title": "Navigation",
+"language": "en",
+"ns": 0
+},
+"Nazca Plate": {
+"title": "Nazca Plate",
+"language": "en",
+"ns": 0
+},
+"Near side of the Moon": {
+"title": "Near side of the Moon",
+"language": "en",
+"ns": 0
+},
+"Near-Earth asteroid": {
+"title": "Near-Earth asteroid",
+"language": "en",
+"ns": 0
+},
+"Near-Earth object": {
+"title": "Near-Earth object",
+"language": "en",
+"ns": 0
+},
+"Nebular hypothesis": {
+"title": "Nebular hypothesis",
+"language": "en",
+"ns": 0
+},
+"Nebular theory": {
+"title": "Nebular theory",
+"language": "en",
+"ns": 0
+},
+"Neith (hypothetical moon)": {
+"title": "Neith (hypothetical moon)",
+"language": "en",
+"ns": 0
+},
+"Nemesis (hypothetical star)": {
+"title": "Nemesis (hypothetical star)",
+"language": "en",
+"ns": 0
+},
+"Neodymium": {
+"title": "Neodymium",
+"language": "en",
+"ns": 0
+},
+"Neon": {
+"title": "Neon",
+"language": "en",
+"ns": 0
+},
+"Neoproterozoic": {
+"title": "Neoproterozoic",
+"language": "en",
+"ns": 0
+},
+"Neptune": {
+"title": "Neptune",
+"language": "en",
+"ns": 0
+},
+"Neptune trojan": {
+"title": "Neptune trojan",
+"language": "en",
+"ns": 0
+},
+"Nereid (moon)": {
+"title": "Nereid (moon)",
+"language": "en",
+"ns": 0
+},
+"Nibiru cataclysm": {
+"title": "Nibiru cataclysm",
+"language": "en",
+"ns": 0
+},
+"Nice 2 model": {
+"title": "Nice 2 model",
+"language": "en",
+"ns": 0
+},
+"Nice model": {
+"title": "Nice model",
+"language": "en",
+"ns": 0
+},
+"Nickel": {
+"title": "Nickel",
+"language": "en",
+"ns": 0
+},
+"Nikki Tate": {
+"title": "Nikki Tate",
+"language": "en",
+"ns": 0
+},
+"Nitrogen": {
+"title": "Nitrogen",
+"language": "en",
+"ns": 0
+},
+"Nitrogen cycle": {
+"title": "Nitrogen cycle",
+"language": "en",
+"ns": 0
+},
+"Nitrous oxide": {
+"title": "Nitrous oxide",
+"language": "en",
+"ns": 0
+},
+"Nix (moon)": {
+"title": "Nix (moon)",
+"language": "en",
+"ns": 0
+},
+"Non-renewable resource": {
+"title": "Non-renewable resource",
+"language": "en",
+"ns": 0
+},
+"Nora Noffke": {
+"title": "Nora Noffke",
+"language": "en",
+"ns": 0
+},
+"Norse mythology": {
+"title": "Norse mythology",
+"language": "en",
+"ns": 0
+},
+"North America": {
+"title": "North America",
+"language": "en",
+"ns": 0
+},
+"North American Plate": {
+"title": "North American Plate",
+"language": "en",
+"ns": 0
+},
+"Northern Hemisphere": {
+"title": "Northern Hemisphere",
+"language": "en",
+"ns": 0
+},
+"Nutrient": {
+"title": "Nutrient",
+"language": "en",
+"ns": 0
+},
+"OCLC (identifier)": {
+"title": "OCLC (identifier)",
+"language": "en",
+"ns": 0
+},
+"Oberon (moon)": {
+"title": "Oberon (moon)",
+"language": "en",
+"ns": 0
+},
+"Observable universe": {
+"title": "Observable universe",
+"language": "en",
+"ns": 0
+},
+"Observations and explorations of Venus": {
+"title": "Observations and explorations of Venus",
+"language": "en",
+"ns": 0
+},
+"Ocean": {
+"title": "Ocean",
+"language": "en",
+"ns": 0
+},
+"Ocean current": {
+"title": "Ocean current",
+"language": "en",
+"ns": 0
+},
+"Ocean depths": {
+"title": "Ocean depths",
+"language": "en",
+"ns": 0
+},
+"Ocean floor": {
+"title": "Ocean floor",
+"language": "en",
+"ns": 0
+},
+"Ocean heat content": {
+"title": "Ocean heat content",
+"language": "en",
+"ns": 0
+},
+"Ocean surface": {
+"title": "Ocean surface",
+"language": "en",
+"ns": 0
+},
+"Ocean surface topography": {
+"title": "Ocean surface topography",
+"language": "en",
+"ns": 0
+},
+"Ocean world": {
+"title": "Ocean world",
+"language": "en",
+"ns": 0
+},
+"Oceanic basin": {
+"title": "Oceanic basin",
+"language": "en",
+"ns": 0
+},
+"Oceanic crust": {
+"title": "Oceanic crust",
+"language": "en",
+"ns": 0
+},
+"Oceanic plateau": {
+"title": "Oceanic plateau",
+"language": "en",
+"ns": 0
+},
+"Oceanic ridge": {
+"title": "Oceanic ridge",
+"language": "en",
+"ns": 0
+},
+"Oceanic trench": {
+"title": "Oceanic trench",
+"language": "en",
+"ns": 0
+},
+"Oceanography": {
+"title": "Oceanography",
+"language": "en",
+"ns": 0
+},
+"Old English": {
+"title": "Old English",
+"language": "en",
+"ns": 0
+},
+"Oort cloud": {
+"title": "Oort cloud",
+"language": "en",
+"ns": 0
+},
+"Oort limit": {
+"title": "Oort limit",
+"language": "en",
+"ns": 0
+},
+"Ophiuchus Supercluster": {
+"title": "Ophiuchus Supercluster",
+"language": "en",
+"ns": 0
+},
+"Orbit": {
+"title": "Orbit",
+"language": "en",
+"ns": 0
+},
+"Orbit of the Moon": {
+"title": "Orbit of the Moon",
+"language": "en",
+"ns": 0
+},
+"Orbital eccentricity": {
+"title": "Orbital eccentricity",
+"language": "en",
+"ns": 0
+},
+"Orbital inclination": {
+"title": "Orbital inclination",
+"language": "en",
+"ns": 0
+},
+"Orbital period": {
+"title": "Orbital period",
+"language": "en",
+"ns": 0
+},
+"Orbital speed": {
+"title": "Orbital speed",
+"language": "en",
+"ns": 0
+},
+"Orcus (dwarf planet)": {
+"title": "Orcus (dwarf planet)",
+"language": "en",
+"ns": 0
+},
+"Order of magnitude": {
+"title": "Order of magnitude",
+"language": "en",
+"ns": 0
+},
+"Ore": {
+"title": "Ore",
+"language": "en",
+"ns": 0
+},
+"Ore genesis": {
+"title": "Ore genesis",
+"language": "en",
+"ns": 0
+},
+"Organic compound": {
+"title": "Organic compound",
+"language": "en",
+"ns": 0
+},
+"Organism": {
+"title": "Organism",
+"language": "en",
+"ns": 0
+},
+"Origin of water on Earth": {
+"title": "Origin of water on Earth",
+"language": "en",
+"ns": 0
+},
+"Orion Arm": {
+"title": "Orion Arm",
+"language": "en",
+"ns": 0
+},
+"Orogeny": {
+"title": "Orogeny",
+"language": "en",
+"ns": 0
+},
+"Osculating orbit": {
+"title": "Osculating orbit",
+"language": "en",
+"ns": 0
+},
+"Outer core": {
+"title": "Outer core",
+"language": "en",
+"ns": 0
+},
+"Outer space": {
+"title": "Outer space",
+"language": "en",
+"ns": 0
+},
+"Outgassing": {
+"title": "Outgassing",
+"language": "en",
+"ns": 0
+},
+"Outline of Earth": {
+"title": "Outline of Earth",
+"language": "en",
+"ns": 0
+},
+"Outline of Earth sciences": {
+"title": "Outline of Earth sciences",
+"language": "en",
+"ns": 0
+},
+"Outline of geology": {
+"title": "Outline of geology",
+"language": "en",
+"ns": 0
+},
+"Outline of space exploration": {
+"title": "Outline of space exploration",
+"language": "en",
+"ns": 0
+},
+"Outline of the Solar System": {
+"title": "Outline of the Solar System",
+"language": "en",
+"ns": 0
+},
+"Overgrazing": {
+"title": "Overgrazing",
+"language": "en",
+"ns": 0
+},
+"Overview effect": {
+"title": "Overview effect",
+"language": "en",
+"ns": 0
+},
+"Oxford": {
+"title": "Oxford",
+"language": "en",
+"ns": 0
+},
+"Oxford English Dictionary": {
+"title": "Oxford English Dictionary",
+"language": "en",
+"ns": 0
+},
+"Oxford University Press": {
+"title": "Oxford University Press",
+"language": "en",
+"ns": 0
+},
+"Oxford spelling": {
+"title": "Oxford spelling",
+"language": "en",
+"ns": 0
+},
+"Oxide": {
+"title": "Oxide",
+"language": "en",
+"ns": 0
+},
+"Oxygen": {
+"title": "Oxygen",
+"language": "en",
+"ns": 0
+},
+"Oxygen catastrophe": {
+"title": "Oxygen catastrophe",
+"language": "en",
+"ns": 0
+},
+"Oxygen evolution": {
+"title": "Oxygen evolution",
+"language": "en",
+"ns": 0
+},
+"Ozone": {
+"title": "Ozone",
+"language": "en",
+"ns": 0
+},
+"Ozone layer": {
+"title": "Ozone layer",
+"language": "en",
+"ns": 0
+},
+"Ozone–oxygen cycle": {
+"title": "Ozone–oxygen cycle",
+"language": "en",
+"ns": 0
+},
+"PMC (identifier)": {
+"title": "PMC (identifier)",
+"language": "en",
+"ns": 0
+},
+"PMID (identifier)": {
+"title": "PMID (identifier)",
+"language": "en",
+"ns": 0
+},
+"Pacific Ocean": {
+"title": "Pacific Ocean",
+"language": "en",
+"ns": 0
+},
+"Pacific Plate": {
+"title": "Pacific Plate",
+"language": "en",
+"ns": 0
+},
+"Palaeogeography": {
+"title": "Palaeogeography",
+"language": "en",
+"ns": 0
+},
+"Paleoclimatology": {
+"title": "Paleoclimatology",
+"language": "en",
+"ns": 0
+},
+"Paleogeoscience": {
+"title": "Paleogeoscience",
+"language": "en",
+"ns": 0
+},
+"Paleontology": {
+"title": "Paleontology",
+"language": "en",
+"ns": 0
+},
+"Pangaea": {
+"title": "Pangaea",
+"language": "en",
+"ns": 0
+},
+"Pannotia": {
+"title": "Pannotia",
+"language": "en",
+"ns": 0
+},
+"Parmenides": {
+"title": "Parmenides",
+"language": "en",
+"ns": 0
+},
+"Particle": {
+"title": "Particle",
+"language": "en",
+"ns": 0
+},
+"Parts per million": {
+"title": "Parts per million",
+"language": "en",
+"ns": 0
+},
+"Pascal (unit)": {
+"title": "Pascal (unit)",
+"language": "en",
+"ns": 0
+},
+"Pedosphere": {
+"title": "Pedosphere",
+"language": "en",
+"ns": 0
+},
+"Peplosphere": {
+"title": "Peplosphere",
+"language": "en",
+"ns": 0
+},
+"Percentage point": {
+"title": "Percentage point",
+"language": "en",
+"ns": 0
+},
+"Periapsis": {
+"title": "Periapsis",
+"language": "en",
+"ns": 0
+},
+"Perihelion": {
+"title": "Perihelion",
+"language": "en",
+"ns": 0
+},
+"Perihelion and aphelion": {
+"title": "Perihelion and aphelion",
+"language": "en",
+"ns": 0
+},
+"Permafrost": {
+"title": "Permafrost",
+"language": "en",
+"ns": 0
+},
+"Personification": {
+"title": "Personification",
+"language": "en",
+"ns": 0
+},
+"Peter A. Rona": {
+"title": "Peter A. Rona",
+"language": "en",
+"ns": 0
+},
+"Peter Doran": {
+"title": "Peter Doran",
+"language": "en",
+"ns": 0
+},
+"Peter Ward (paleontologist)": {
+"title": "Peter Ward (paleontologist)",
+"language": "en",
+"ns": 0
+},
+"Petroleum geologist": {
+"title": "Petroleum geologist",
+"language": "en",
+"ns": 0
+},
+"Petrology": {
+"title": "Petrology",
+"language": "en",
+"ns": 0
+},
+"Phaeton (hypothetical planet)": {
+"title": "Phaeton (hypothetical planet)",
+"language": "en",
+"ns": 0
+},
+"Pharmaceutical": {
+"title": "Pharmaceutical",
+"language": "en",
+"ns": 0
+},
+"Phase transition": {
+"title": "Phase transition",
+"language": "en",
+"ns": 0
+},
+"Phil Jones (climatologist)": {
+"title": "Phil Jones (climatologist)",
+"language": "en",
+"ns": 0
+},
+"Phobos (moon)": {
+"title": "Phobos (moon)",
+"language": "en",
+"ns": 0
+},
+"Phoebe (moon)": {
+"title": "Phoebe (moon)",
+"language": "en",
+"ns": 0
+},
+"Photosynthesis": {
+"title": "Photosynthesis",
+"language": "en",
+"ns": 0
+},
+"Phys.org": {
+"title": "Phys.org",
+"language": "en",
+"ns": 0
+},
+"Physical geography": {
+"title": "Physical geography",
+"language": "en",
+"ns": 0
+},
+"Pisces–Cetus Supercluster Complex": {
+"title": "Pisces–Cetus Supercluster Complex",
+"language": "en",
+"ns": 0
+},
+"Plain": {
+"title": "Plain",
+"language": "en",
+"ns": 0
+},
+"Planet": {
+"title": "Planet",
+"language": "en",
+"ns": 0
+},
+"Planet Earth (disambiguation)": {
+"title": "Planet Earth (disambiguation)",
+"language": "en",
+"ns": 0
+},
+"Planet Nine": {
+"title": "Planet Nine",
+"language": "en",
+"ns": 0
+},
+"Planet V": {
+"title": "Planet V",
+"language": "en",
+"ns": 0
+},
+"Planet symbols": {
+"title": "Planet symbols",
+"language": "en",
+"ns": 0
+},
+"Planetary boundaries": {
+"title": "Planetary boundaries",
+"language": "en",
+"ns": 0
+},
+"Planetary differentiation": {
+"title": "Planetary differentiation",
+"language": "en",
+"ns": 0
+},
+"Planetary geology": {
+"title": "Planetary geology",
+"language": "en",
+"ns": 0
+},
+"Planetary habitability": {
+"title": "Planetary habitability",
+"language": "en",
+"ns": 0
+},
+"Planetary migration": {
+"title": "Planetary migration",
+"language": "en",
+"ns": 0
+},
+"Planetary objects proposed in religion, astrology, ufology and pseudoscience": {
+"title": "Planetary objects proposed in religion, astrology, ufology and pseudoscience",
+"language": "en",
+"ns": 0
+},
+"Planetary science": {
+"title": "Planetary science",
+"language": "en",
+"ns": 0
+},
+"Planetary surface": {
+"title": "Planetary surface",
+"language": "en",
+"ns": 0
+},
+"Planetary system": {
+"title": "Planetary system",
+"language": "en",
+"ns": 0
+},
+"Planetary-mass moon": {
+"title": "Planetary-mass moon",
+"language": "en",
+"ns": 0
+},
+"Planetesimal": {
+"title": "Planetesimal",
+"language": "en",
+"ns": 0
+},
+"Planets beyond Neptune": {
+"title": "Planets beyond Neptune",
+"language": "en",
+"ns": 0
+},
+"Plant": {
+"title": "Plant",
+"language": "en",
+"ns": 0
+},
+"Plate tectonic": {
+"title": "Plate tectonic",
+"language": "en",
+"ns": 0
+},
+"Plate tectonics": {
+"title": "Plate tectonics",
+"language": "en",
+"ns": 0
+},
+"Plateau": {
+"title": "Plateau",
+"language": "en",
+"ns": 0
+},
+"Pleistocene": {
+"title": "Pleistocene",
+"language": "en",
+"ns": 0
+},
+"Plutino": {
+"title": "Plutino",
+"language": "en",
+"ns": 0
+},
+"Pluto": {
+"title": "Pluto",
+"language": "en",
+"ns": 0
+},
+"Polar climate": {
+"title": "Polar climate",
+"language": "en",
+"ns": 0
+},
+"Polar desert": {
+"title": "Polar desert",
+"language": "en",
+"ns": 0
+},
+"Polar ice cap": {
+"title": "Polar ice cap",
+"language": "en",
+"ns": 0
+},
+"Polar motion": {
+"title": "Polar motion",
+"language": "en",
+"ns": 0
+},
+"Polar night": {
+"title": "Polar night",
+"language": "en",
+"ns": 0
+},
+"Polar region": {
+"title": "Polar region",
+"language": "en",
+"ns": 0
+},
+"Polar regions of Earth": {
+"title": "Polar regions of Earth",
+"language": "en",
+"ns": 0
+},
+"Population density": {
+"title": "Population density",
+"language": "en",
+"ns": 0
+},
+"Portal:Astronomy": {
+"title": "Portal:Astronomy",
+"language": "en",
+"ns": 100
+},
+"Portal:Biology": {
+"title": "Portal:Biology",
+"language": "en",
+"ns": 100
+},
+"Portal:Earth sciences": {
+"title": "Portal:Earth sciences",
+"language": "en",
+"ns": 100
+},
+"Portal:Ecology": {
+"title": "Portal:Ecology",
+"language": "en",
+"ns": 100
+},
+"Portal:Geography": {
+"title": "Portal:Geography",
+"language": "en",
+"ns": 100
+},
+"Portal:Geology": {
+"title": "Portal:Geology",
+"language": "en",
+"ns": 100
+},
+"Portal:Outer space": {
+"title": "Portal:Outer space",
+"language": "en",
+"ns": 100
+},
+"Portal:Solar System": {
+"title": "Portal:Solar System",
+"language": "en",
+"ns": 100
+},
+"Portal:Solar system": {
+"title": "Portal:Solar system",
+"language": "en",
+"ns": 100
+},
+"Portal:Space": {
+"title": "Portal:Space",
+"language": "en",
+"ns": 100
+},
+"Portal:Volcanoes": {
+"title": "Portal:Volcanoes",
+"language": "en",
+"ns": 100
+},
+"Portal:Weather": {
+"title": "Portal:Weather",
+"language": "en",
+"ns": 100
+},
+"Portal:World": {
+"title": "Portal:World",
+"language": "en",
+"ns": 100
+},
+"Potassium-40": {
+"title": "Potassium-40",
+"language": "en",
+"ns": 0
+},
+"Potentially hazardous object": {
+"title": "Potentially hazardous object",
+"language": "en",
+"ns": 0
+},
+"Pound per square inch": {
+"title": "Pound per square inch",
+"language": "en",
+"ns": 0
+},
+"Powers of Ten (film series)": {
+"title": "Powers of Ten (film series)",
+"language": "en",
+"ns": 0
+},
+"Prebiotic atmosphere": {
+"title": "Prebiotic atmosphere",
+"language": "en",
+"ns": 0
+},
+"Precession (astronomy)": {
+"title": "Precession (astronomy)",
+"language": "en",
+"ns": 0
+},
+"Precipitation": {
+"title": "Precipitation",
+"language": "en",
+"ns": 0
+},
+"Primary production": {
+"title": "Primary production",
+"language": "en",
+"ns": 0
+},
+"Primate": {
+"title": "Primate",
+"language": "en",
+"ns": 0
+},
+"Primordial nuclide": {
+"title": "Primordial nuclide",
+"language": "en",
+"ns": 0
+},
+"Proc Natl Acad Sci U S A": {
+"title": "Proc Natl Acad Sci U S A",
+"language": "en",
+"ns": 0
+},
+"Proceedings of the National Academy of Sciences of the United States of America": {
+"title": "Proceedings of the National Academy of Sciences of the United States of America",
+"language": "en",
+"ns": 0
+},
+"Prokaryote": {
+"title": "Prokaryote",
+"language": "en",
+"ns": 0
+},
+"Proteus (moon)": {
+"title": "Proteus (moon)",
+"language": "en",
+"ns": 0
+},
+"Protist": {
+"title": "Protist",
+"language": "en",
+"ns": 0
+},
+"Proto-Germanic": {
+"title": "Proto-Germanic",
+"language": "en",
+"ns": 0
+},
+"Protoplanet": {
+"title": "Protoplanet",
+"language": "en",
+"ns": 0
+},
+"Protoplanetary disk": {
+"title": "Protoplanetary disk",
+"language": "en",
+"ns": 0
+},
+"Provisional designation in astronomy": {
+"title": "Provisional designation in astronomy",
+"language": "en",
+"ns": 0
+},
+"Pythagoras": {
+"title": "Pythagoras",
+"language": "en",
+"ns": 0
+},
+"Quaoar": {
+"title": "Quaoar",
+"language": "en",
+"ns": 0
+},
+"Quasi-satellite": {
+"title": "Quasi-satellite",
+"language": "en",
+"ns": 0
+},
+"Quasiperiodic motion": {
+"title": "Quasiperiodic motion",
+"language": "en",
+"ns": 0
+},
+"Radiation": {
+"title": "Radiation",
+"language": "en",
+"ns": 0
+},
+"Radiometric dating": {
+"title": "Radiometric dating",
+"language": "en",
+"ns": 0
+},
+"Rain": {
+"title": "Rain",
+"language": "en",
+"ns": 0
+},
+"Red giant": {
+"title": "Red giant",
+"language": "en",
+"ns": 0
+},
+"Redox": {
+"title": "Redox",
+"language": "en",
+"ns": 0
+},
+"Remote Sensing": {
+"title": "Remote Sensing",
+"language": "en",
+"ns": 0
+},
+"Remote sensing": {
+"title": "Remote sensing",
+"language": "en",
+"ns": 0
+},
+"Retreat of glaciers since 1850": {
+"title": "Retreat of glaciers since 1850",
+"language": "en",
+"ns": 0
+},
+"Rhea (moon)": {
+"title": "Rhea (moon)",
+"language": "en",
+"ns": 0
+},
+"Rheology": {
+"title": "Rheology",
+"language": "en",
+"ns": 0
+},
+"Ring system": {
+"title": "Ring system",
+"language": "en",
+"ns": 0
+},
+"Rings of Chariklo": {
+"title": "Rings of Chariklo",
+"language": "en",
+"ns": 0
+},
+"Rings of Jupiter": {
+"title": "Rings of Jupiter",
+"language": "en",
+"ns": 0
+},
+"Rings of Neptune": {
+"title": "Rings of Neptune",
+"language": "en",
+"ns": 0
+},
+"Rings of Rhea": {
+"title": "Rings of Rhea",
+"language": "en",
+"ns": 0
+},
+"Rings of Saturn": {
+"title": "Rings of Saturn",
+"language": "en",
+"ns": 0
+},
+"Rings of Uranus": {
+"title": "Rings of Uranus",
+"language": "en",
+"ns": 0
+},
+"Robert Hazen": {
+"title": "Robert Hazen",
+"language": "en",
+"ns": 0
+},
+"Robert Krulwich": {
+"title": "Robert Krulwich",
+"language": "en",
+"ns": 0
+},
+"Robin Canup": {
+"title": "Robin Canup",
+"language": "en",
+"ns": 0
+},
+"Roche limit": {
+"title": "Roche limit",
+"language": "en",
+"ns": 0
+},
+"Rocky planets": {
+"title": "Rocky planets",
+"language": "en",
+"ns": 0
+},
+"Rodinia": {
+"title": "Rodinia",
+"language": "en",
+"ns": 0
+},
+"Roman Empire": {
+"title": "Roman Empire",
+"language": "en",
+"ns": 0
+},
+"Romance languages": {
+"title": "Romance languages",
+"language": "en",
+"ns": 0
+},
+"Ronnagram": {
+"title": "Ronnagram",
+"language": "en",
+"ns": 0
+},
+"Roy M. Harrison": {
+"title": "Roy M. Harrison",
+"language": "en",
+"ns": 0
+},
+"Rubble pile": {
+"title": "Rubble pile",
+"language": "en",
+"ns": 0
+},
+"Rudolf Simek": {
+"title": "Rudolf Simek",
+"language": "en",
+"ns": 0
+},
+"Runaway greenhouse effect": {
+"title": "Runaway greenhouse effect",
+"language": "en",
+"ns": 0
+},
+"S. P. Singh (biochemist)": {
+"title": "S. P. Singh (biochemist)",
+"language": "en",
+"ns": 0
+},
+"S/2015 (136472) 1": {
+"title": "S/2015 (136472) 1",
+"language": "en",
+"ns": 0
+},
+"SI": {
+"title": "SI",
+"language": "en",
+"ns": 0
+},
+"Saline water": {
+"title": "Saline water",
+"language": "en",
+"ns": 0
+},
+"Salinity": {
+"title": "Salinity",
+"language": "en",
+"ns": 0
+},
+"Sample-return mission": {
+"title": "Sample-return mission",
+"language": "en",
+"ns": 0
+},
+"Samuel Bowring": {
+"title": "Samuel Bowring",
+"language": "en",
+"ns": 0
+},
+"Sandstone": {
+"title": "Sandstone",
+"language": "en",
+"ns": 0
+},
+"Sara Russell": {
+"title": "Sara Russell",
+"language": "en",
+"ns": 0
+},
+"Satellite": {
+"title": "Satellite",
+"language": "en",
+"ns": 0
+},
+"Satellite galaxies of the Milky Way": {
+"title": "Satellite galaxies of the Milky Way",
+"language": "en",
+"ns": 0
+},
+"Satellite system (astronomy)": {
+"title": "Satellite system (astronomy)",
+"language": "en",
+"ns": 0
+},
+"Saturn": {
+"title": "Saturn",
+"language": "en",
+"ns": 0
+},
+"Scale height": {
+"title": "Scale height",
+"language": "en",
+"ns": 0
+},
+"Scattered disc": {
+"title": "Scattered disc",
+"language": "en",
+"ns": 0
+},
+"Scientific American": {
+"title": "Scientific American",
+"language": "en",
+"ns": 0
+},
+"Scotia Plate": {
+"title": "Scotia Plate",
+"language": "en",
+"ns": 0
+},
+"Sea": {
+"title": "Sea",
+"language": "en",
+"ns": 0
+},
+"Sea ice": {
+"title": "Sea ice",
+"language": "en",
+"ns": 0
+},
+"Sea level rise": {
+"title": "Sea level rise",
+"language": "en",
+"ns": 0
+},
+"Seamount": {
+"title": "Seamount",
+"language": "en",
+"ns": 0
+},
+"Secular phenomena": {
+"title": "Secular phenomena",
+"language": "en",
+"ns": 0
+},
+"Sedentism": {
+"title": "Sedentism",
+"language": "en",
+"ns": 0
+},
+"Sedimentary rock": {
+"title": "Sedimentary rock",
+"language": "en",
+"ns": 0
+},
+"Sedimentology": {
+"title": "Sedimentology",
+"language": "en",
+"ns": 0
+},
+"Sedna (dwarf planet)": {
+"title": "Sedna (dwarf planet)",
+"language": "en",
+"ns": 0
+},
+"Sednoid": {
+"title": "Sednoid",
+"language": "en",
+"ns": 0
+},
+"Seismology": {
+"title": "Seismology",
+"language": "en",
+"ns": 0
+},
+"Semi-major and semi-minor axes": {
+"title": "Semi-major and semi-minor axes",
+"language": "en",
+"ns": 0
+},
+"September equinox": {
+"title": "September equinox",
+"language": "en",
+"ns": 0
+},
+"Shapley Supercluster": {
+"title": "Shapley Supercluster",
+"language": "en",
+"ns": 0
+},
+"Sharon L. Smith": {
+"title": "Sharon L. Smith",
+"language": "en",
+"ns": 0
+},
+"Shelf sea": {
+"title": "Shelf sea",
+"language": "en",
+"ns": 0
+},
+"Sidereal rotation period": {
+"title": "Sidereal rotation period",
+"language": "en",
+"ns": 0
+},
+"Sidereal year": {
+"title": "Sidereal year",
+"language": "en",
+"ns": 0
+},
+"Signal processing": {
+"title": "Signal processing",
+"language": "en",
+"ns": 0
+},
+"Silicate mineral": {
+"title": "Silicate mineral",
+"language": "en",
+"ns": 0
+},
+"Silicate minerals": {
+"title": "Silicate minerals",
+"language": "en",
+"ns": 0
+},
+"Silicon": {
+"title": "Silicon",
+"language": "en",
+"ns": 0
+},
+"Small Solar System body": {
+"title": "Small Solar System body",
+"language": "en",
+"ns": 0
+},
+"Snow": {
+"title": "Snow",
+"language": "en",
+"ns": 0
+},
+"Snowball Earth": {
+"title": "Snowball Earth",
+"language": "en",
+"ns": 0
+},
+"Soil": {
+"title": "Soil",
+"language": "en",
+"ns": 0
+},
+"Soil degradation": {
+"title": "Soil degradation",
+"language": "en",
+"ns": 0
+},
+"Soil depletion": {
+"title": "Soil depletion",
+"language": "en",
+"ns": 0
+},
+"Soil formation": {
+"title": "Soil formation",
+"language": "en",
+"ns": 0
+},
+"Soil science": {
+"title": "Soil science",
+"language": "en",
+"ns": 0
+},
+"Solar System": {
+"title": "Solar System",
+"language": "en",
+"ns": 0
+},
+"Solar System model": {
+"title": "Solar System model",
+"language": "en",
+"ns": 0
+},
+"Solar day": {
+"title": "Solar day",
+"language": "en",
+"ns": 0
+},
+"Solar eclipse": {
+"title": "Solar eclipse",
+"language": "en",
+"ns": 0
+},
+"Solar irradiance": {
+"title": "Solar irradiance",
+"language": "en",
+"ns": 0
+},
+"Solar luminosity": {
+"title": "Solar luminosity",
+"language": "en",
+"ns": 0
+},
+"Solar nebula": {
+"title": "Solar nebula",
+"language": "en",
+"ns": 0
+},
+"Solar radiation": {
+"title": "Solar radiation",
+"language": "en",
+"ns": 0
+},
+"Solar wind": {
+"title": "Solar wind",
+"language": "en",
+"ns": 0
+},
+"Solid angle": {
+"title": "Solid angle",
+"language": "en",
+"ns": 0
+},
+"Solstice": {
+"title": "Solstice",
+"language": "en",
+"ns": 0
+},
+"Somali Plate": {
+"title": "Somali Plate",
+"language": "en",
+"ns": 0
+},
+"South America": {
+"title": "South America",
+"language": "en",
+"ns": 0
+},
+"South American Plate": {
+"title": "South American Plate",
+"language": "en",
+"ns": 0
+},
+"Southern Hemisphere": {
+"title": "Southern Hemisphere",
+"language": "en",
+"ns": 0
+},
+"Southern Ocean": {
+"title": "Southern Ocean",
+"language": "en",
+"ns": 0
+},
+"Sovereign state": {
+"title": "Sovereign state",
+"language": "en",
+"ns": 0
+},
+"Space": {
+"title": "Space",
+"language": "en",
+"ns": 0
+},
+"Space colonization": {
+"title": "Space colonization",
+"language": "en",
+"ns": 0
+},
+"Space debris": {
+"title": "Space debris",
+"language": "en",
+"ns": 0
+},
+"Space exploration": {
+"title": "Space exploration",
+"language": "en",
+"ns": 0
+},
+"Space probe": {
+"title": "Space probe",
+"language": "en",
+"ns": 0
+},
+"Space station": {
+"title": "Space station",
+"language": "en",
+"ns": 0
+},
+"Space.com": {
+"title": "Space.com",
+"language": "en",
+"ns": 0
+},
+"Sphere of influence (astrodynamics)": {
+"title": "Sphere of influence (astrodynamics)",
+"language": "en",
+"ns": 0
+},
+"Spherical Earth": {
+"title": "Spherical Earth",
+"language": "en",
+"ns": 0
+},
+"Spheroid": {
+"title": "Spheroid",
+"language": "en",
+"ns": 0
+},
+"Standard gravity": {
+"title": "Standard gravity",
+"language": "en",
+"ns": 0
+},
+"Star formation": {
+"title": "Star formation",
+"language": "en",
+"ns": 0
+},
+"Stefan Rahmstorf": {
+"title": "Stefan Rahmstorf",
+"language": "en",
+"ns": 0
+},
+"Stellar collision": {
+"title": "Stellar collision",
+"language": "en",
+"ns": 0
+},
+"Stellar evolution": {
+"title": "Stellar evolution",
+"language": "en",
+"ns": 0
+},
+"Stephan Lewandowsky": {
+"title": "Stephan Lewandowsky",
+"language": "en",
+"ns": 0
+},
+"Steven M. Stanley": {
+"title": "Steven M. Stanley",
+"language": "en",
+"ns": 0
+},
+"Stratigraphy": {
+"title": "Stratigraphy",
+"language": "en",
+"ns": 0
+},
+"Stratosphere": {
+"title": "Stratosphere",
+"language": "en",
+"ns": 0
+},
+"Stratospheric": {
+"title": "Stratospheric",
+"language": "en",
+"ns": 0
+},
+"Stromatolite": {
+"title": "Stromatolite",
+"language": "en",
+"ns": 0
+},
+"Structural geology": {
+"title": "Structural geology",
+"language": "en",
+"ns": 0
+},
+"Style guide": {
+"title": "Style guide",
+"language": "en",
+"ns": 0
+},
+"Styx (moon)": {
+"title": "Styx (moon)",
+"language": "en",
+"ns": 0
+},
+"Sub-Saharan Africa": {
+"title": "Sub-Saharan Africa",
+"language": "en",
+"ns": 0
+},
+"Subduction": {
+"title": "Subduction",
+"language": "en",
+"ns": 0
+},
+"Submarine canyon": {
+"title": "Submarine canyon",
+"language": "en",
+"ns": 0
+},
+"Submarine volcano": {
+"title": "Submarine volcano",
+"language": "en",
+"ns": 0
+},
+"Subsatellite": {
+"title": "Subsatellite",
+"language": "en",
+"ns": 0
+},
+"Substorm": {
+"title": "Substorm",
+"language": "en",
+"ns": 0
+},
+"Subtropics": {
+"title": "Subtropics",
+"language": "en",
+"ns": 0
+},
+"Sulfur": {
+"title": "Sulfur",
+"language": "en",
+"ns": 0
+},
+"Summer solstice": {
+"title": "Summer solstice",
+"language": "en",
+"ns": 0
+},
+"Sun": {
+"title": "Sun",
+"language": "en",
+"ns": 0
+},
+"Sunlight": {
+"title": "Sunlight",
+"language": "en",
+"ns": 0
+},
+"Supercontinent": {
+"title": "Supercontinent",
+"language": "en",
+"ns": 0
+},
+"Surface gravity": {
+"title": "Surface gravity",
+"language": "en",
+"ns": 0
+},
+"Surface water": {
+"title": "Surface water",
+"language": "en",
+"ns": 0
+},
+"Synestia": {
+"title": "Synestia",
+"language": "en",
+"ns": 0
+},
+"Synodic month": {
+"title": "Synodic month",
+"language": "en",
+"ns": 0
+},
+"Synodic rotation period": {
+"title": "Synodic rotation period",
+"language": "en",
+"ns": 0
+},
+"Syzygy (astronomy)": {
+"title": "Syzygy (astronomy)",
+"language": "en",
+"ns": 0
+},
+"T. Mark Harrison": {
+"title": "T. Mark Harrison",
+"language": "en",
+"ns": 0
+},
+"Table of physical properties of planets in the Solar System": {
+"title": "Table of physical properties of planets in the Solar System",
+"language": "en",
+"ns": 0
+},
+"Tectonic plates": {
+"title": "Tectonic plates",
+"language": "en",
+"ns": 0
+},
+"Tectonophysics": {
+"title": "Tectonophysics",
+"language": "en",
+"ns": 0
+},
+"Temperate": {
+"title": "Temperate",
+"language": "en",
+"ns": 0
+},
+"Temperature": {
+"title": "Temperature",
+"language": "en",
+"ns": 0
+},
+"Template talk:Earth": {
+"title": "Template talk:Earth",
+"language": "en",
+"ns": 11
+},
+"Template talk:Earth science": {
+"title": "Template talk:Earth science",
+"language": "en",
+"ns": 11
+},
+"Template talk:Earth's location": {
+"title": "Template talk:Earth's location",
+"language": "en",
+"ns": 11
+},
+"Template talk:Earthsinterior": {
+"title": "Template talk:Earthsinterior",
+"language": "en",
+"ns": 11
+},
+"Template talk:Geology": {
+"title": "Template talk:Geology",
+"language": "en",
+"ns": 11
+},
+"Template talk:Nature": {
+"title": "Template talk:Nature",
+"language": "en",
+"ns": 11
+},
+"Template talk:Solar System": {
+"title": "Template talk:Solar System",
+"language": "en",
+"ns": 11
+},
+"Template:Earth": {
+"title": "Template:Earth",
+"language": "en",
+"ns": 10
+},
+"Template:Earth science": {
+"title": "Template:Earth science",
+"language": "en",
+"ns": 10
+},
+"Template:Earth's location": {
+"title": "Template:Earth's location",
+"language": "en",
+"ns": 10
+},
+"Template:Earthsinterior": {
+"title": "Template:Earthsinterior",
+"language": "en",
+"ns": 10
+},
+"Template:Geology": {
+"title": "Template:Geology",
+"language": "en",
+"ns": 10
+},
+"Template:Nature": {
+"title": "Template:Nature",
+"language": "en",
+"ns": 10
+},
+"Template:Solar System": {
+"title": "Template:Solar System",
+"language": "en",
+"ns": 10
+},
+"Terra (goddess)": {
+"title": "Terra (goddess)",
+"language": "en",
+"ns": 0
+},
+"Terra (mythology)": {
+"title": "Terra (mythology)",
+"language": "en",
+"ns": 0
+},
+"Terra nullius": {
+"title": "Terra nullius",
+"language": "en",
+"ns": 0
+},
+"Terrain": {
+"title": "Terrain",
+"language": "en",
+"ns": 0
+},
+"Terrestrial planet": {
+"title": "Terrestrial planet",
+"language": "en",
+"ns": 0
+},
+"Tesla (unit)": {
+"title": "Tesla (unit)",
+"language": "en",
+"ns": 0
+},
+"Tethys (moon)": {
+"title": "Tethys (moon)",
+"language": "en",
+"ns": 0
+},
+"The Blue Marble": {
+"title": "The Blue Marble",
+"language": "en",
+"ns": 0
+},
+"The New York Times": {
+"title": "The New York Times",
+"language": "en",
+"ns": 0
+},
+"Theia (hypothetical planet)": {
+"title": "Theia (hypothetical planet)",
+"language": "en",
+"ns": 0
+},
+"Themis (hypothetical moon)": {
+"title": "Themis (hypothetical moon)",
+"language": "en",
+"ns": 0
+},
+"Thermal energy": {
+"title": "Thermal energy",
+"language": "en",
+"ns": 0
+},
+"Thermodynamics": {
+"title": "Thermodynamics",
+"language": "en",
+"ns": 0
+},
+"Thermohaline circulation": {
+"title": "Thermohaline circulation",
+"language": "en",
+"ns": 0
+},
+"Thermosphere": {
+"title": "Thermosphere",
+"language": "en",
+"ns": 0
+},
+"Thomas Michael Donahue": {
+"title": "Thomas Michael Donahue",
+"language": "en",
+"ns": 0
+},
+"Thor": {
+"title": "Thor",
+"language": "en",
+"ns": 0
+},
+"Thorium-232": {
+"title": "Thorium-232",
+"language": "en",
+"ns": 0
+},
+"Tidal acceleration": {
+"title": "Tidal acceleration",
+"language": "en",
+"ns": 0
+},
+"Tidal interactions": {
+"title": "Tidal interactions",
+"language": "en",
+"ns": 0
+},
+"Tidal locking": {
+"title": "Tidal locking",
+"language": "en",
+"ns": 0
+},
+"Tidally locked": {
+"title": "Tidally locked",
+"language": "en",
+"ns": 0
+},
+"Tide": {
+"title": "Tide",
+"language": "en",
+"ns": 0
+},
+"Time": {
+"title": "Time",
+"language": "en",
+"ns": 0
+},
+"Time zone": {
+"title": "Time zone",
+"language": "en",
+"ns": 0
+},
+"Time-lapse photography": {
+"title": "Time-lapse photography",
+"language": "en",
+"ns": 0
+},
+"Timeline of Earth estimates": {
+"title": "Timeline of Earth estimates",
+"language": "en",
+"ns": 0
+},
+"Timeline of Solar System exploration": {
+"title": "Timeline of Solar System exploration",
+"language": "en",
+"ns": 0
+},
+"Timeline of discovery of Solar System planets and their moons": {
+"title": "Timeline of discovery of Solar System planets and their moons",
+"language": "en",
+"ns": 0
+},
+"Timeline of first images of Earth from space": {
+"title": "Timeline of first images of Earth from space",
+"language": "en",
+"ns": 0
+},
+"Timeline of geology": {
+"title": "Timeline of geology",
+"language": "en",
+"ns": 0
+},
+"Timeline of natural history": {
+"title": "Timeline of natural history",
+"language": "en",
+"ns": 0
+},
+"Timeline of the far future": {
+"title": "Timeline of the far future",
+"language": "en",
+"ns": 0
+},
+"Titan (moon)": {
+"title": "Titan (moon)",
+"language": "en",
+"ns": 0
+},
+"Titania (moon)": {
+"title": "Titania (moon)",
+"language": "en",
+"ns": 0
+},
+"To the Moon and Beyond": {
+"title": "To the Moon and Beyond",
+"language": "en",
+"ns": 0
+},
+"Topography": {
+"title": "Topography",
+"language": "en",
+"ns": 0
+},
+"Topsoil": {
+"title": "Topsoil",
+"language": "en",
+"ns": 0
+},
+"Tornado": {
+"title": "Tornado",
+"language": "en",
+"ns": 0
+},
+"Torque": {
+"title": "Torque",
+"language": "en",
+"ns": 0
+},
+"Tracy Caldwell Dyson": {
+"title": "Tracy Caldwell Dyson",
+"language": "en",
+"ns": 0
+},
+"Trade winds": {
+"title": "Trade winds",
+"language": "en",
+"ns": 0
+},
+"Trans-Neptunian object": {
+"title": "Trans-Neptunian object",
+"language": "en",
+"ns": 0
+},
+"Transform fault": {
+"title": "Transform fault",
+"language": "en",
+"ns": 0
+},
+"Transition zone (Earth)": {
+"title": "Transition zone (Earth)",
+"language": "en",
+"ns": 0
+},
+"Triton (moon)": {
+"title": "Triton (moon)",
+"language": "en",
+"ns": 0
+},
+"Trojan (celestial body)": {
+"title": "Trojan (celestial body)",
+"language": "en",
+"ns": 0
+},
+"Tropic of Cancer": {
+"title": "Tropic of Cancer",
+"language": "en",
+"ns": 0
+},
+"Tropic of Capricorn": {
+"title": "Tropic of Capricorn",
+"language": "en",
+"ns": 0
+},
+"Tropical climate": {
+"title": "Tropical climate",
+"language": "en",
+"ns": 0
+},
+"Tropical cyclone": {
+"title": "Tropical cyclone",
+"language": "en",
+"ns": 0
+},
+"Tropical rainforest": {
+"title": "Tropical rainforest",
+"language": "en",
+"ns": 0
+},
+"Tropical year": {
+"title": "Tropical year",
+"language": "en",
+"ns": 0
+},
+"Troposphere": {
+"title": "Troposphere",
+"language": "en",
+"ns": 0
+},
+"Tsunami": {
+"title": "Tsunami",
+"language": "en",
+"ns": 0
+},
+"Tyche (hypothetical planet)": {
+"title": "Tyche (hypothetical planet)",
+"language": "en",
+"ns": 0
+},
+"U-shaped valley": {
+"title": "U-shaped valley",
+"language": "en",
+"ns": 0
+},
+"UT1": {
+"title": "UT1",
+"language": "en",
+"ns": 0
+},
+"Ultraviolet radiation": {
+"title": "Ultraviolet radiation",
+"language": "en",
+"ns": 0
+},
+"Umbriel": {
+"title": "Umbriel",
+"language": "en",
+"ns": 0
+},
+"Underground living": {
+"title": "Underground living",
+"language": "en",
+"ns": 0
+},
+"Underwater living": {
+"title": "Underwater living",
+"language": "en",
+"ns": 0
+},
+"Union of Concerned Scientists": {
+"title": "Union of Concerned Scientists",
+"language": "en",
+"ns": 0
+},
+"United Nations": {
+"title": "United Nations",
+"language": "en",
+"ns": 0
+},
+"United States Department of Commerce": {
+"title": "United States Department of Commerce",
+"language": "en",
+"ns": 0
+},
+"Universe": {
+"title": "Universe",
+"language": "en",
+"ns": 0
+},
+"Universities Space Research Association": {
+"title": "Universities Space Research Association",
+"language": "en",
+"ns": 0
+},
+"University of British Columbia, Okanagan": {
+"title": "University of British Columbia, Okanagan",
+"language": "en",
+"ns": 0
+},
+"University of Toronto": {
+"title": "University of Toronto",
+"language": "en",
+"ns": 0
+},
+"University of Wisconsin–Madison": {
+"title": "University of Wisconsin–Madison",
+"language": "en",
+"ns": 0
+},
+"Upper mantle": {
+"title": "Upper mantle",
+"language": "en",
+"ns": 0
+},
+"Upper mantle (Earth)": {
+"title": "Upper mantle (Earth)",
+"language": "en",
+"ns": 0
+},
+"Uranium-238": {
+"title": "Uranium-238",
+"language": "en",
+"ns": 0
+},
+"Uranus": {
+"title": "Uranus",
+"language": "en",
+"ns": 0
+},
+"Uranus trojans": {
+"title": "Uranus trojans",
+"language": "en",
+"ns": 0
+},
+"Van Allen radiation belt": {
+"title": "Van Allen radiation belt",
+"language": "en",
+"ns": 0
+},
+"Vanguard 1": {
+"title": "Vanguard 1",
+"language": "en",
+"ns": 0
+},
+"Vanth (moon)": {
+"title": "Vanth (moon)",
+"language": "en",
+"ns": 0
+},
+"Vector Map": {
+"title": "Vector Map",
+"language": "en",
+"ns": 0
+},
+"Venus": {
+"title": "Venus",
+"language": "en",
+"ns": 0
+},
+"Vertical datum": {
+"title": "Vertical datum",
+"language": "en",
+"ns": 0
+},
+"Vincent Courtillot": {
+"title": "Vincent Courtillot",
+"language": "en",
+"ns": 0
+},
+"Virgo Supercluster": {
+"title": "Virgo Supercluster",
+"language": "en",
+"ns": 0
+},
+"Virtual globe": {
+"title": "Virtual globe",
+"language": "en",
+"ns": 0
+},
+"Virus": {
+"title": "Virus",
+"language": "en",
+"ns": 0
+},
+"Viscous": {
+"title": "Viscous",
+"language": "en",
+"ns": 0
+},
+"Volcanic eruption": {
+"title": "Volcanic eruption",
+"language": "en",
+"ns": 0
+},
+"Volcanism": {
+"title": "Volcanism",
+"language": "en",
+"ns": 0
+},
+"Volcano": {
+"title": "Volcano",
+"language": "en",
+"ns": 0
+},
+"Volcanologist": {
+"title": "Volcanologist",
+"language": "en",
+"ns": 0
+},
+"Volcanology": {
+"title": "Volcanology",
+"language": "en",
+"ns": 0
+},
+"Volume": {
+"title": "Volume",
+"language": "en",
+"ns": 0
+},
+"Vulcan (hypothetical planet)": {
+"title": "Vulcan (hypothetical planet)",
+"language": "en",
+"ns": 0
+},
+"Vulcanoid": {
+"title": "Vulcanoid",
+"language": "en",
+"ns": 0
+},
+"WMO": {
+"title": "WMO",
+"language": "en",
+"ns": 0
+},
+"Walter H. F. Smith": {
+"title": "Walter H. F. Smith",
+"language": "en",
+"ns": 0
+},
+"Water cycle": {
+"title": "Water cycle",
+"language": "en",
+"ns": 0
+},
+"Water distribution on Earth": {
+"title": "Water distribution on Earth",
+"language": "en",
+"ns": 0
+},
+"Water vapor": {
+"title": "Water vapor",
+"language": "en",
+"ns": 0
+},
+"Wayback Machine": {
+"title": "Wayback Machine",
+"language": "en",
+"ns": 0
+},
+"Weather": {
+"title": "Weather",
+"language": "en",
+"ns": 0
+},
+"Weathering": {
+"title": "Weathering",
+"language": "en",
+"ns": 0
+},
+"Wendy Mao": {
+"title": "Wendy Mao",
+"language": "en",
+"ns": 0
+},
+"Westerlies": {
+"title": "Westerlies",
+"language": "en",
+"ns": 0
+},
+"Western Australia": {
+"title": "Western Australia",
+"language": "en",
+"ns": 0
+},
+"Western Greenland": {
+"title": "Western Greenland",
+"language": "en",
+"ns": 0
+},
+"Western Hemisphere": {
+"title": "Western Hemisphere",
+"language": "en",
+"ns": 0
+},
+"Weywot": {
+"title": "Weywot",
+"language": "en",
+"ns": 0
+},
+"Wikipedia:Citing sources": {
+"title": "Wikipedia:Citing sources",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Contents/Portals": {
+"title": "Wikipedia:Contents/Portals",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Featured articles*": {
+"title": "Wikipedia:Featured articles*",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Geology": {
+"title": "Wikipedia:Geology",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Media help": {
+"title": "Wikipedia:Media help",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Protection policy": {
+"title": "Wikipedia:Protection policy",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Spoken articles": {
+"title": "Wikipedia:Spoken articles",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Wikimedia sister projects": {
+"title": "Wikipedia:Wikimedia sister projects",
+"language": "en",
+"ns": 4
+},
+"Wilderness": {
+"title": "Wilderness",
+"language": "en",
+"ns": 0
+},
+"Wildfire": {
+"title": "Wildfire",
+"language": "en",
+"ns": 0
+},
+"William Anderegg": {
+"title": "William Anderegg",
+"language": "en",
+"ns": 0
+},
+"Wind": {
+"title": "Wind",
+"language": "en",
+"ns": 0
+},
+"Winter solstice": {
+"title": "Winter solstice",
+"language": "en",
+"ns": 0
+},
+"Wolfgang H. Berger": {
+"title": "Wolfgang H. Berger",
+"language": "en",
+"ns": 0
+},
+"World": {
+"title": "World",
+"language": "en",
+"ns": 0
+},
+"World Geodetic System": {
+"title": "World Geodetic System",
+"language": "en",
+"ns": 0
+},
+"World Nuclear Association": {
+"title": "World Nuclear Association",
+"language": "en",
+"ns": 0
+},
+"World economy": {
+"title": "World economy",
+"language": "en",
+"ns": 0
+},
+"World population": {
+"title": "World population",
+"language": "en",
+"ns": 0
+},
+"Xiangliu (moon)": {
+"title": "Xiangliu (moon)",
+"language": "en",
+"ns": 0
+},
+"Yuk L. Yung": {
+"title": "Yuk L. Yung",
+"language": "en",
+"ns": 0
+},
+"Zircon": {
+"title": "Zircon",
+"language": "en",
+"ns": 0
+}
+}
