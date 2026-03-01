@@ -102,9 +102,9 @@ jobs:
 
       - name: Create Pull Request
         if: steps.commit.outputs.branch_name
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          # Use GitHub CLI to create PR
-          echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
           gh pr create \
             --base master \
             --head ${{ steps.commit.outputs.branch_name }} \
