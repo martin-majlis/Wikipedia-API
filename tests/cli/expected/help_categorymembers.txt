@@ -1,0 +1,31 @@
+Usage: wikipedia-api categorymembers [OPTIONS] TITLE
+
+List pages in a Wikipedia category.
+
+TITLE is the category page title (e.g. "Category:Physics").
+
+Use --max-level to recursively list subcategory members.
+
+Examples:
+wikipedia-api categorymembers "Category:Physics"
+wikipedia-api categorymembers "Category:Physics" --max-level 1
+wikipedia-api categorymembers "Category:Physics" --json
+
+Options:
+--max-level INTEGER             Maximum depth for recursive category member
+listing.  [default: 0]
+-l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
+de, zh).  [default: en]
+-u, --user-agent TEXT           HTTP User-Agent string sent with requests.
+[default: wikipedia-api-cli
+(https://github.com/martin-majlis/Wikipedia-
+API)]
+-v, --variant TEXT              Language variant (e.g. zh-cn, zh-tw). Only
+for languages that support variants.
+-f, --extract-format [wiki|html]
+Extraction format for page text.  [default:
+wiki]
+-n, --namespace INTEGER         Wikipedia namespace (0=Main, 14=Category,
+etc.).  [default: 0]
+--json                          Output results as JSON.
+-h, --help                      Show this message and exit.

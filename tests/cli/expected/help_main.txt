@@ -1,0 +1,30 @@
+Usage: wikipedia-api [OPTIONS] COMMAND [ARGS]...
+
+Command line tool for querying Wikipedia using Wikipedia-API.
+
+Supports fetching page summaries, full text, sections, links, backlinks,
+language links, categories, and category members.
+
+Every command requires a TITLE argument — the Wikipedia page title.
+
+Examples:
+
+wikipedia-api summary "Python (programming language)"
+wikipedia-api links "Python (programming language)" --language cs
+wikipedia-api categories "Python (programming language)" --json
+
+Options:
+--version   Show the version and exit.
+-h, --help  Show this message and exit.
+
+Commands:
+backlinks        List pages that link to a Wikipedia page.
+categories       List categories for a Wikipedia page.
+categorymembers  List pages in a Wikipedia category.
+langlinks        List language links for a Wikipedia page.
+links            List pages linked from a Wikipedia page.
+page             Show metadata and existence info for a Wikipedia page.
+section          Print the text of a specific section.
+sections         List sections of a Wikipedia page.
+summary          Print the summary of a Wikipedia page.
+text             Print the full text of a Wikipedia page.
