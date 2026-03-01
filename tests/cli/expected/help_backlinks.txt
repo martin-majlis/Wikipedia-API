@@ -1,26 +1,26 @@
 Usage: wikipedia-api backlinks [OPTIONS] TITLE
 
-  List pages that link to a Wikipedia page.
+List pages that link to a Wikipedia page.
 
-  TITLE is the Wikipedia page title.
+TITLE is the Wikipedia page title.
 
-  Examples:
-      wikipedia-api backlinks "Python (programming language)"
-      wikipedia-api backlinks "Python (programming language)" --json
+Examples:
+wikipedia-api backlinks "Python (programming language)"
+wikipedia-api backlinks "Python (programming language)" --json
 
 Options:
-  -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
-                                  de, zh).  [default: en]
-  -u, --user-agent TEXT           HTTP User-Agent string sent with requests.
-                                  [default: wikipedia-api-cli
-                                  (https://github.com/martin-majlis/Wikipedia-
-                                  API)]
-  -v, --variant TEXT              Language variant (e.g. zh-cn, zh-tw). Only
-                                  for languages that support variants.
-  -f, --extract-format [wiki|html]
-                                  Extraction format for page text.  [default:
-                                  wiki]
-  -n, --namespace INTEGER         Wikipedia namespace (0=Main, 14=Category,
-                                  etc.).  [default: 0]
-  --json                          Output results as JSON.
-  -h, --help                      Show this message and exit.
+-l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
+de, zh).  [default: en]
+-u, --user-agent TEXT           HTTP User-Agent string sent with requests.
+[default: wikipedia-api-cli
+(https://github.com/martin-majlis/Wikipedia-
+API)]
+-v, --variant TEXT              Language variant (e.g. zh-cn, zh-tw). Only
+for languages that support variants.
+-f, --extract-format [wiki|html]
+Extraction format for page text.  [default:
+wiki]
+-n, --namespace INTEGER         Wikipedia namespace (0=Main, 14=Category,
+etc.).  [default: 0]
+--json                          Output results as JSON.
+-h, --help                      Show this message and exit.

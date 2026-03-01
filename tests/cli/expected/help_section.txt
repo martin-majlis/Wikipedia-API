@@ -1,25 +1,25 @@
 Usage: wikipedia-api section [OPTIONS] TITLE SECTION_TITLE
 
-  Print the text of a specific section.
+Print the text of a specific section.
 
-  TITLE is the Wikipedia page title. SECTION_TITLE is the name of the section
-  to retrieve.
+TITLE is the Wikipedia page title. SECTION_TITLE is the name of the section
+to retrieve.
 
-  Examples:
-      wikipedia-api section "Python (programming language)" "Features and philosophy"
+Examples:
+wikipedia-api section "Python (programming language)" "Features and philosophy"
 
 Options:
-  -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
-                                  de, zh).  [default: en]
-  -u, --user-agent TEXT           HTTP User-Agent string sent with requests.
-                                  [default: wikipedia-api-cli
-                                  (https://github.com/martin-majlis/Wikipedia-
-                                  API)]
-  -v, --variant TEXT              Language variant (e.g. zh-cn, zh-tw). Only
-                                  for languages that support variants.
-  -f, --extract-format [wiki|html]
-                                  Extraction format for page text.  [default:
-                                  wiki]
-  -n, --namespace INTEGER         Wikipedia namespace (0=Main, 14=Category,
-                                  etc.).  [default: 0]
-  -h, --help                      Show this message and exit.
+-l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
+de, zh).  [default: en]
+-u, --user-agent TEXT           HTTP User-Agent string sent with requests.
+[default: wikipedia-api-cli
+(https://github.com/martin-majlis/Wikipedia-
+API)]
+-v, --variant TEXT              Language variant (e.g. zh-cn, zh-tw). Only
+for languages that support variants.
+-f, --extract-format [wiki|html]
+Extraction format for page text.  [default:
+wiki]
+-n, --namespace INTEGER         Wikipedia namespace (0=Main, 14=Category,
+etc.).  [default: 0]
+-h, --help                      Show this message and exit.

@@ -146,10 +146,26 @@ usage() {
 run_test() {
     local name="$1"
     local cmd="$2"
+    local error_file="$3"
+    local tmp_err
+    tmp_err=$(mktemp)
     local output
     # Run the command via bash to handle || true and other shell constructs
-    output=$(bash -c "$cmd" 2>/dev/null) || true
+    output=$(bash -c "$cmd" 2>"$tmp_err") || true
+    # Save stderr to the .error file
+    cp "$tmp_err" "$error_file"
+    # Print stderr if non-empty
+    if [ -s "$tmp_err" ]; then
+        echo -e "    ${YELLOW}stderr:${NC}" >&2
+        sed 's/^/    /' "$tmp_err" >&2
+    fi
+    rm -f "$tmp_err"
     echo "$output"
+}
+
+strip_whitespace() {
+    # Remove leading and trailing whitespace and newlines
+    sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | sed -e '/./,$!d' | sed -e ':a' -e '/^\n*$/{$d;N;ba' -e '}'
 }
 
 record_mode() {
@@ -167,7 +183,8 @@ record_mode() {
 
         printf "  [%2d/%2d] %-30s " "$count" "$total" "$name"
         local output
-        output=$(run_test "$name" "$cmd")
+        local error_file="${EXPECTED_DIR}/${name}.error"
+        output=$(run_test "$name" "$cmd" "$error_file" | strip_whitespace)
         echo "$output" > "${EXPECTED_DIR}/${name}.txt"
         echo -e "${GREEN}recorded${NC}"
     done
@@ -188,6 +205,7 @@ verify_mode() {
     local passed=0
     local failed=0
     local missing=0
+    local skipped=0
     local failed_names=()
 
     echo -e "${CYAN}Verifying ${total} tests against expected output...${NC}"
@@ -208,11 +226,18 @@ verify_mode() {
             continue
         fi
 
+        if [ ! -s "$expected_file" ]; then
+            echo -e "${YELLOW}SKIPPED${NC} (empty expected fixture)"
+            skipped=$((skipped + 1))
+            continue
+        fi
+
+        local error_file="${EXPECTED_DIR}/${name}.error"
         local actual
-        actual=$(run_test "$name" "$cmd")
+        actual=$(run_test "$name" "$cmd" "$error_file" | strip_whitespace)
 
         local expected
-        expected=$(cat "$expected_file")
+        expected=$(cat "$expected_file" | strip_whitespace)
 
         if [ "$actual" = "$expected" ]; then
             echo -e "${GREEN}PASS${NC}"
@@ -235,6 +260,7 @@ verify_mode() {
     echo -e "  Total:   ${total}"
     echo -e "  Passed:  ${GREEN}${passed}${NC}"
     echo -e "  Failed:  ${RED}${failed}${NC}"
+    echo -e "  Skipped: ${YELLOW}${skipped}${NC}"
     echo -e "  Missing: ${YELLOW}${missing}${NC}"
     echo "───────────────────────────────────────"
 

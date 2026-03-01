@@ -220,3 +220,6 @@ modules.xml
 
 
 # End of https://www.gitignore.io/api/pycharm+all,jetbrains+all
+
+# CLI integration test error logs
+tests/cli/expected/*.error

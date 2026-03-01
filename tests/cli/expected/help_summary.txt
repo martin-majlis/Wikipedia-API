@@ -1,26 +1,26 @@
 Usage: wikipedia-api summary [OPTIONS] TITLE
 
-  Print the summary of a Wikipedia page.
+Print the summary of a Wikipedia page.
 
-  TITLE is the Wikipedia page title (e.g. "Python_(programming_language)").
+TITLE is the Wikipedia page title (e.g. "Python_(programming_language)").
 
-  Examples:
-      wikipedia-api summary "Python (programming language)"
-      wikipedia-api summary "Ostrava" -l cs
-      wikipedia-api summary "Python" -l zh -v zh-cn
+Examples:
+wikipedia-api summary "Python (programming language)"
+wikipedia-api summary "Ostrava" -l cs
+wikipedia-api summary "Python" -l zh -v zh-cn
 
 Options:
-  -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
-                                  de, zh).  [default: en]
-  -u, --user-agent TEXT           HTTP User-Agent string sent with requests.
-                                  [default: wikipedia-api-cli
-                                  (https://github.com/martin-majlis/Wikipedia-
-                                  API)]
-  -v, --variant TEXT              Language variant (e.g. zh-cn, zh-tw). Only
-                                  for languages that support variants.
-  -f, --extract-format [wiki|html]
-                                  Extraction format for page text.  [default:
-                                  wiki]
-  -n, --namespace INTEGER         Wikipedia namespace (0=Main, 14=Category,
-                                  etc.).  [default: 0]
-  -h, --help                      Show this message and exit.
+-l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
+de, zh).  [default: en]
+-u, --user-agent TEXT           HTTP User-Agent string sent with requests.
+[default: wikipedia-api-cli
+(https://github.com/martin-majlis/Wikipedia-
+API)]
+-v, --variant TEXT              Language variant (e.g. zh-cn, zh-tw). Only
+for languages that support variants.
+-f, --extract-format [wiki|html]
+Extraction format for page text.  [default:
+wiki]
+-n, --namespace INTEGER         Wikipedia namespace (0=Main, 14=Category,
+etc.).  [default: 0]
+-h, --help                      Show this message and exit.
