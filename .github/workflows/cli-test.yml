@@ -83,6 +83,7 @@ jobs:
           bash tests/cli/test_cli.sh verify
 
       - name: Commit updated fixtures
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -90,6 +91,21 @@ jobs:
           if git diff --cached --quiet; then
             echo "No fixture changes detected."
           else
+            # Create new branch for fixture updates
+            BRANCH_NAME="update-cli-fixtures-$(date +%Y%m%d-%H%M%S)"
+            git checkout -b $BRANCH_NAME
             git commit -m "Update CLI test fixtures [automated]"
-            git push
+            git push origin $BRANCH_NAME
+            echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
           fi
+
+      - name: Create Pull Request
+        if: steps.commit.outputs.branch_name
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ steps.commit.outputs.branch_name }}
+          base: master
+          title: "Update CLI test fixtures [automated]"
+          body: "This PR updates CLI test fixtures automatically. Please review and merge if the changes look correct."
+          delete-branch: true
