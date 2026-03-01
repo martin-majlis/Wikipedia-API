@@ -56,6 +56,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v6.0.2
 
@@ -101,11 +102,11 @@ jobs:
 
       - name: Create Pull Request
         if: steps.commit.outputs.branch_name
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ steps.commit.outputs.branch_name }}
-          base: master
-          title: "Update CLI test fixtures [automated]"
-          body: "This PR updates CLI test fixtures automatically. Please review and merge if the changes look correct."
-          delete-branch: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create \
+            --base master \
+            --head ${{ steps.commit.outputs.branch_name }} \
+            --title "Update CLI test fixtures [automated]" \
+            --body "This PR updates CLI test fixtures automatically. Please review and merge if the changes look correct."
