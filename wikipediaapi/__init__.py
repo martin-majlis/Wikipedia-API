@@ -298,8 +298,8 @@ class Wikipedia:
             params["explaintext"] = 1
             params["exsectionformat"] = "wiki"
 
-        used_params = kwargs
-        used_params.update(params)
+        used_params = params.copy()
+        used_params.update(kwargs)
 
         raw = self._query(page, used_params)
         self._common_attributes(raw["query"], page)
@@ -370,8 +370,8 @@ class Wikipedia:
             "llprop": "url",
         }
 
-        used_params = kwargs
-        used_params.update(params)
+        used_params = params.copy()
+        used_params.update(kwargs)
 
         raw = self._query(page, used_params)
         self._common_attributes(raw["query"], page)
@@ -404,8 +404,8 @@ class Wikipedia:
             "pllimit": 500,
         }
 
-        used_params = kwargs
-        used_params.update(params)
+        used_params = params.copy()
+        used_params.update(kwargs)
 
         raw = self._query(page, used_params)
         self._common_attributes(raw["query"], page)
@@ -444,8 +444,8 @@ class Wikipedia:
             "bllimit": 500,
         }
 
-        used_params = kwargs
-        used_params.update(params)
+        used_params = params.copy()
+        used_params.update(kwargs)
 
         raw = self._query(page, used_params)
 
@@ -477,8 +477,8 @@ class Wikipedia:
             "cllimit": 500,
         }
 
-        used_params = kwargs
-        used_params.update(params)
+        used_params = params.copy()
+        used_params.update(kwargs)
 
         raw = self._query(page, used_params)
         self._common_attributes(raw["query"], page)
@@ -510,8 +510,8 @@ class Wikipedia:
             "cmlimit": 500,
         }
 
-        used_params = kwargs
-        used_params.update(params)
+        used_params = params.copy()
+        used_params.update(kwargs)
 
         raw = self._query(page, used_params)
 
