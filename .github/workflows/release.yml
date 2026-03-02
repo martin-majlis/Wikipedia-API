@@ -96,7 +96,7 @@ jobs:
           make build-package
 
       - name: Upload distributions
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7.0.0
         with:
           name: release-dists
           path: dist/
