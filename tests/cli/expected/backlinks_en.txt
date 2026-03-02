@@ -2202,6 +2202,7 @@ User talk:Fotaun
 User talk:Freedom1234
 User talk:Frinkus
 User talk:Frog luva96
+User talk:Gazamp/Archive 2
 User talk:Gglee
 User talk:Glenncando
 User talk:GoldenTie
@@ -2361,6 +2362,7 @@ User talk:Wonton
 User talk:Yann/archive 3
 User talk:YearsBeyondtheOceans
 User talk:Zereshk/Archive4
+User talk:~2026-13727-05
 User talk:Švitrigaila
 User:- LeLo -
 User:-Midorihana-/Userboxes
@@ -2781,6 +2783,7 @@ User:Dan027/user boxes
 User:DanHobley
 User:Dana boomer
 User:Dancingturtle8205
+User:Daniel Mietchen/Wikidata lists/Items with MeSH Codes
 User:Daniel Olsen/VandalismLog
 User:DanielChelien/Books/Space Vol 3
 User:DanielChelien/Books/Space Vol 4
@@ -3248,6 +3251,7 @@ User:Jrtman
 User:Jsc1973
 User:Jshflynn/All Expanded
 User:Jshflynn/The State/Astronomy
+User:Judas34/sandbox
 User:Julio Enriquez
 User:JumpingInSlowMotion
 User:JunCTionS
@@ -3963,6 +3967,7 @@ User:Squall1991
 User:Srpbm
 User:Ss265
 User:Ssilvers
+User:StallingScholar
 User:Stanthejeep
 User:Star Mississippi
 User:Starbuster
@@ -4403,7 +4408,6 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
-Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1
