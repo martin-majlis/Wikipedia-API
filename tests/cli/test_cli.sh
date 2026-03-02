@@ -204,9 +204,11 @@ verify_mode() {
     local count=0
     local passed=0
     local failed=0
+    local small_mismatch=0
     local missing=0
     local skipped=0
     local failed_names=()
+    local mismatched_names=()
 
     echo -e "${CYAN}Verifying ${total} tests against expected output...${NC}"
     echo ""
@@ -243,15 +245,36 @@ verify_mode() {
             echo -e "${GREEN}PASS${NC}"
             passed=$((passed + 1))
         else
-            echo -e "${RED}FAIL${NC}"
-            failed=$((failed + 1))
-            failed_names+=("$name")
+            local words_actual
+            words_actual=$(echo "$actual" | wc -w | tr -d ' ')
+            local words_expected
+            words_expected=$(echo "$expected" | wc -w | tr -d ' ')
 
-            # Show a short diff for debugging
-            diff_output=$(diff <(echo "$expected") <(echo "$actual") | head -20) || true
-            echo -e "    ${YELLOW}Diff (first 20 lines):${NC}"
-            echo "$diff_output" | sed 's/^/    /'
-            echo ""
+            if [ "$words_expected" -eq 0 ]; then
+                echo -e "${RED}FAIL${NC}"
+                failed=$((failed + 1))
+                failed_names+=("$name")
+            else
+                # Calculate if mismatch is small (< 5% word count difference)
+                local diff=$(( words_actual - words_expected ))
+                local abs_diff=${diff#-}
+                local percentage=$(( (abs_diff * 100) / words_expected ))
+
+                if [ "$percentage" -lt 5 ]; then
+                    echo -e "${YELLOW}SMALL MISMATCH${NC}"
+                    small_mismatch=$((small_mismatch + 1))
+                    mismatched_names+=("$name")
+                else
+                    echo -e "${RED}FAIL${NC}"
+                    failed=$((failed + 1))
+                    failed_names+=("$name")
+
+                    diff_output=$(diff <(echo "$expected") <(echo "$actual") | head -20) || true
+                    echo -e "    ${YELLOW}Diff (first 20 lines):${NC}"
+                    echo "$diff_output" | sed 's/^/    /'
+                    echo ""
+                fi
+            fi
         fi
     done
 
@@ -260,16 +283,26 @@ verify_mode() {
     echo -e "  Total:   ${total}"
     echo -e "  Passed:  ${GREEN}${passed}${NC}"
     echo -e "  Failed:  ${RED}${failed}${NC}"
+    echo -e "  Small Mismatch: ${YELLOW}${small_mismatch}${NC}"
     echo -e "  Skipped: ${YELLOW}${skipped}${NC}"
     echo -e "  Missing: ${YELLOW}${missing}${NC}"
     echo "───────────────────────────────────────"
 
-    if [ ${#failed_names[@]} -gt 0 ]; then
+    if [ ${#failed_names[@]} -gt 0 ] || [ ${#mismatched_names[@]} -gt 0 ]; then
         echo ""
-        echo -e "${RED}Failed tests:${NC}"
-        for name in "${failed_names[@]}"; do
-            echo "  - $name"
-        done
+        if [ ${#failed_names[@]} -gt 0 ]; then
+            echo -e "${RED}Failed tests:${NC}"
+            for name in "${failed_names[@]}"; do
+                echo "  - $name"
+            done
+        fi
+        if [ ${#mismatched_names[@]} -gt 0 ]; then
+            echo ""
+            echo -e "${YELLOW}Tests with small mismatches (<5% word diff):${NC}"
+            for name in "${mismatched_names[@]}"; do
+                echo "  - $name"
+            done
+        fi
         echo ""
         echo "To update expected output, run: $0 record"
         exit 1
