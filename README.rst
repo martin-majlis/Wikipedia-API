@@ -330,15 +330,15 @@ exceptions are exposed. You can catch specific exceptions or the base ``Wikipedi
     try:
         page = wiki_wiki.page('Python_(programming_language)')
         print(page.summary[0:60])
-    except wikipediaapi.RateLimitError as e:
+    except wikipediaapi.WikiRateLimitError as e:
         print("Rate limited! Retry after: %s seconds" % e.retry_after)
-    except wikipediaapi.HttpError as e:
+    except wikipediaapi.WikiHttpError as e:
         print("HTTP error %d: %s" % (e.status_code, e))
-    except wikipediaapi.HttpTimeoutError:
+    except wikipediaapi.WikiHttpTimeoutError:
         print("Request timed out")
-    except wikipediaapi.ConnectionError:
+    except wikipediaapi.WikiConnectionError:
         print("Could not connect to Wikipedia")
-    except wikipediaapi.InvalidJsonError:
+    except wikipediaapi.WikiInvalidJsonError:
         print("Received invalid response from Wikipedia")
 
 Retry Configuration

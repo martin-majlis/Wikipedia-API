@@ -61,20 +61,20 @@ All exceptions raised by the library inherit from ``WikipediaException``.
 No ``requests`` or ``json`` exceptions are exposed.
 
 * ``WikipediaException`` - base exception for all Wikipedia-API errors
-* ``HttpError(status_code, url)`` - non-success HTTP status from Wikipedia API
-* ``RateLimitError(url, retry_after=None)`` - HTTP 429 Too Many Requests; subclass of ``HttpError``
-* ``HttpTimeoutError(url)`` - request to Wikipedia API timed out
-* ``InvalidJsonError(url)`` - response body was not valid JSON
-* ``ConnectionError(url)`` - could not connect to Wikipedia API
+* ``WikiHttpError(status_code, url)`` - non-success HTTP status from Wikipedia API
+* ``WikiRateLimitError(url, retry_after=None)`` - HTTP 429 Too Many Requests; subclass of ``WikiHttpError``
+* ``WikiHttpTimeoutError(url)`` - request to Wikipedia API timed out
+* ``WikiInvalidJsonError(url)`` - response body was not valid JSON
+* ``WikiConnectionError(url)`` - could not connect to Wikipedia API
 
 Exception hierarchy::
 
     WikipediaException
-    ├── HttpError
-    │   └── RateLimitError
-    ├── HttpTimeoutError
-    ├── InvalidJsonError
-    └── ConnectionError
+    ├── WikiHttpError
+    │   └── WikiRateLimitError
+    ├── WikiHttpTimeoutError
+    ├── WikiInvalidJsonError
+    └── WikiConnectionError
 
 Retry Behavior
 --------------
