@@ -341,6 +341,11 @@ class Wikipedia:
         :param page: :class:`WikipediaPage`
         :param kwargs: parameters used in API call
         :return: summary of the page
+        :raises HttpTimeoutError: if the request times out
+        :raises ConnectionError: if a connection cannot be established
+        :raises RateLimitError: if the API returns HTTP 429
+        :raises HttpError: if the API returns a non-success HTTP status
+        :raises InvalidJsonError: if the response is not valid JSON
 
         """
         params = {
@@ -373,6 +378,12 @@ class Wikipedia:
         """
         https://www.mediawiki.org/w/api.php?action=help&modules=query%2Binfo
         https://www.mediawiki.org/wiki/API:Info
+
+        :raises HttpTimeoutError: if the request times out
+        :raises ConnectionError: if a connection cannot be established
+        :raises RateLimitError: if the API returns HTTP 429
+        :raises HttpError: if the API returns a non-success HTTP status
+        :raises InvalidJsonError: if the response is not valid JSON
         """
         params = {
             "action": "query",
@@ -418,6 +429,11 @@ class Wikipedia:
         :param page: :class:`WikipediaPage`
         :param kwargs: parameters used in API call
         :return: links to pages in other languages
+        :raises HttpTimeoutError: if the request times out
+        :raises ConnectionError: if a connection cannot be established
+        :raises RateLimitError: if the API returns HTTP 429
+        :raises HttpError: if the API returns a non-success HTTP status
+        :raises InvalidJsonError: if the response is not valid JSON
 
         """
         params = {
@@ -453,6 +469,11 @@ class Wikipedia:
         :param page: :class:`WikipediaPage`
         :param kwargs: parameters used in API call
         :return: links to linked pages
+        :raises HttpTimeoutError: if the request times out
+        :raises ConnectionError: if a connection cannot be established
+        :raises RateLimitError: if the API returns HTTP 429
+        :raises HttpError: if the API returns a non-success HTTP status
+        :raises InvalidJsonError: if the response is not valid JSON
 
         """
         params = {
@@ -493,6 +514,11 @@ class Wikipedia:
         :param page: :class:`WikipediaPage`
         :param kwargs: parameters used in API call
         :return: backlinks from other pages
+        :raises HttpTimeoutError: if the request times out
+        :raises ConnectionError: if a connection cannot be established
+        :raises RateLimitError: if the API returns HTTP 429
+        :raises HttpError: if the API returns a non-success HTTP status
+        :raises InvalidJsonError: if the response is not valid JSON
 
         """
         params = {
@@ -527,6 +553,11 @@ class Wikipedia:
         :param page: :class:`WikipediaPage`
         :param kwargs: parameters used in API call
         :return: categories for page
+        :raises HttpTimeoutError: if the request times out
+        :raises ConnectionError: if a connection cannot be established
+        :raises RateLimitError: if the API returns HTTP 429
+        :raises HttpError: if the API returns a non-success HTTP status
+        :raises InvalidJsonError: if the response is not valid JSON
         """
         params = {
             "action": "query",
@@ -560,6 +591,11 @@ class Wikipedia:
         :param page: :class:`WikipediaPage`
         :param kwargs: parameters used in API call
         :return: pages in given category
+        :raises HttpTimeoutError: if the request times out
+        :raises ConnectionError: if a connection cannot be established
+        :raises RateLimitError: if the API returns HTTP 429
+        :raises HttpError: if the API returns a non-success HTTP status
+        :raises InvalidJsonError: if the response is not valid JSON
         """
         params = {
             "action": "query",
@@ -583,7 +619,20 @@ class Wikipedia:
         return self._build_categorymembers(v, page)
 
     def _query(self, page: "WikipediaPage", params: dict[str, Any]):
-        """Queries Wikimedia API to fetch content."""
+        """Queries Wikimedia API to fetch content.
+
+        Transient errors (HTTP 429, 5xx, timeouts, connection errors) are
+        retried up to ``max_retries`` times with exponential backoff.
+
+        :param page: :class:`WikipediaPage`
+        :param params: parameters used in API call
+        :return: parsed JSON response as dict
+        :raises HttpTimeoutError: if the request times out after all retries
+        :raises ConnectionError: if a connection cannot be established
+        :raises RateLimitError: if the API returns HTTP 429 after all retries
+        :raises HttpError: if the API returns a non-success HTTP status
+        :raises InvalidJsonError: if the response is not valid JSON
+        """
         base_url = "https://" + page.language + ".wikipedia.org/w/api.php"
         used_params = self._construct_params(page, params)
 
