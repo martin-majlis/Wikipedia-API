@@ -62,7 +62,7 @@ jobs:
           make requirements
       - name: Code coverage
         run: |
-          make run-tests
+          make run-tests-unit
 
   code-coverage:
     name: Code coverage

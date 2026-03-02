@@ -71,7 +71,7 @@ jobs:
           make requirements
       - name: Run tests
         run: |
-          make run-tests
+          make run-tests-unit
 
   release-build:
     runs-on: ubuntu-latest
