@@ -5,7 +5,7 @@ Wikipedia API
 
 .. _Wikipedias': https://www.mediawiki.org/wiki/API:Main_page
 
-|github-stars-flat| |cc-coverage| |docs| |version| |pyversions|
+|github-stars-flat| |codecov-coverage| |docs| |version| |pyversions|
 
 Installation
 ------------
@@ -380,8 +380,8 @@ Other Pages
     :target: https://codeclimate.com/github/martin-majlis/Wikipedia-API
     :alt: Issue Count
 
-.. |cc-coverage| image:: https://api.codeclimate.com/v1/badges/6e2c24d72438b39e5c26/test_coverage
-    :target: https://codeclimate.com/github/martin-majlis/Wikipedia-API
+.. |codecov-coverage| image:: https://codecov.io/gh/martin-majlis/Wikipedia-API/graph/badge.svg?token=C4MgwR5nrm
+    :target: https://app.codecov.io/gh/martin-majlis/Wikipedia-API
     :alt: Test Coverage
 
 .. |coveralls| image:: https://coveralls.io/repos/github/martin-majlis/Wikipedia-API/badge.svg?branch=master
