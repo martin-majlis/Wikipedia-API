@@ -21,8 +21,16 @@ pypi-html:
 run-pre-commit:
 	pre-commit run -a
 
-run-tests:
+run-tests: run-tests-unit run-test-cli-verify
+
+run-tests-unit:
 	python3 -m unittest discover tests/ '*test.py'
+
+run-test-cli-verify: install
+	./tests/cli/test_cli.sh verify
+
+run-test-cli-record: install
+	./tests/cli/test_cli.sh record
 
 run-type-check:
 	mypy ./wikipediaapi
@@ -119,6 +127,9 @@ release: pre-release-check
 
 build-package:
 	python setup.py sdist
+
+install:
+	pip install -e .
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
