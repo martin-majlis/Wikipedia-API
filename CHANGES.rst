@@ -1,6 +1,19 @@
 Changelog
 =========
 
+0.10.0
+------
+
+* Introduce command line tool - `wikipedia-cli` - `PR 402`_
+* Kwargs are overwriting default API params (**breaking**) - `PR 408`_
+* Handle HTTP errors, add retries (**breaking**) - `PR 417`_
+* Split `__init__.py` into smaller files - `PR 422`_
+
+.. _PR 402: https://github.com/martin-majlis/Wikipedia-API/pull/402
+.. _PR 408: https://github.com/martin-majlis/Wikipedia-API/pull/408
+.. _PR 417: https://github.com/martin-majlis/Wikipedia-API/pull/417
+.. _PR 422: https://github.com/martin-majlis/Wikipedia-API/pull/422
+
 0.9.0
 -----
 
