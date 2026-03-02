@@ -52,13 +52,26 @@ make html
 
 ## Test
 
-### Run Unit Tests
+### Run Tests
 
 ```bash
 make run-tests
 ```
 
-This runs `python3 -m unittest discover tests/ '*test.py'`. All test files are in the `tests/` directory and follow the `*test.py` naming pattern.
+This command runs both the unit tests and the CLI verification tests.
+
+- The unit tests are executed via `python3 -m unittest discover tests/ '*test.py'`. All test files are in the `tests/` directory and follow the `*test.py` naming pattern.
+- The CLI verification tests are run using `./tests/cli/test_cli.sh verify`.
+
+### CLI Tests
+
+You can run the CLI tests independently.
+
+- **Verify CLI:** `make run-test-cli-verify`
+  - This runs the CLI tests to verify that the output matches the recorded snapshots. It uses `./tests/cli/test_cli.sh verify`.
+
+- **Record CLI Snapshots:** `make run-test-cli-record`
+  - This command updates the CLI test snapshots with the current output. Use this when you have intentionally changed the CLI's output. It runs `./tests/cli/test_cli.sh record`.
 
 ### Run Tests with Coverage
 
