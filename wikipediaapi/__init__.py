@@ -12,6 +12,7 @@ from collections import defaultdict
 from enum import IntEnum
 import logging
 import re
+import time
 from typing import Any, Optional, Union
 from urllib import parse
 
@@ -27,6 +28,53 @@ MIN_USER_AGENT_LEN = 5
 MAX_LANG_LEN = 5
 
 log = logging.getLogger(__name__)
+
+
+class WikipediaException(Exception):
+    """Base exception for Wikipedia-API."""
+
+
+class WikiHttpTimeoutError(WikipediaException):
+    """Request to Wikipedia API timed out."""
+
+    def __init__(self, url: str) -> None:
+        self.url = url
+        super().__init__(url)
+
+
+class WikiHttpError(WikipediaException):
+    """Non-success HTTP status from Wikipedia API."""
+
+    def __init__(self, status_code: int, url: str) -> None:
+        self.status_code = status_code
+        self.url = url
+        super().__init__(status_code, url)
+
+
+class WikiRateLimitError(WikiHttpError):
+    """HTTP 429 - Too Many Requests."""
+
+    def __init__(
+        self, url: str, retry_after: Optional[int] = None
+    ) -> None:  # noqa: B042
+        self.retry_after = retry_after
+        super().__init__(429, url)
+
+
+class WikiInvalidJsonError(WikipediaException):
+    """Response body was not valid JSON."""
+
+    def __init__(self, url: str) -> None:
+        self.url = url
+        super().__init__(url)
+
+
+class WikiConnectionError(WikipediaException):
+    """Could not connect to Wikipedia API."""
+
+    def __init__(self, url: str) -> None:
+        self.url = url
+        super().__init__(url)
 
 
 # https://www.mediawiki.org/wiki/API:Main_page
@@ -140,6 +188,8 @@ class Wikipedia:
         extract_format: ExtractFormat = ExtractFormat.WIKI,
         headers: Optional[dict[str, Any]] = None,
         extra_api_params: Optional[dict[str, Any]] = None,
+        max_retries: int = 3,
+        retry_wait: float = 1.0,
         **request_kwargs,
     ) -> None:
         """
@@ -156,6 +206,12 @@ class Wikipedia:
         :param headers:  Headers sent as part of HTTP request
         :param extra_api_params:  Extra parameters that are used to construct
                 query string when calling Wikipedia API
+        :param max_retries: Maximum number of retries for transient errors
+                (HTTP 429, 5xx, timeouts, connection errors). Set to 0 to
+                disable retries.
+        :param retry_wait: Base wait time in seconds between retries.
+                Uses exponential backoff: retry_wait * 2^attempt.
+                For HTTP 429, the Retry-After header is used if present.
         :param request_kwargs: Optional parameters used in -
                 http://docs.python-requests.org/en/master/api/#requests.request
 
@@ -191,6 +247,8 @@ class Wikipedia:
         )
 
         self._extra_api_params = extra_api_params
+        self._max_retries = max_retries
+        self._retry_wait = retry_wait
 
         self._session = requests.Session()
         self._session.headers.update(default_headers)
@@ -283,6 +341,11 @@ class Wikipedia:
         :param page: :class:`WikipediaPage`
         :param kwargs: parameters used in API call
         :return: summary of the page
+        :raises WikiHttpTimeoutError: if the request times out
+        :raises WikiConnectionError: if a connection cannot be established
+        :raises WikiRateLimitError: if the API returns HTTP 429
+        :raises WikiHttpError: if the API returns a non-success HTTP status
+        :raises WikiInvalidJsonError: if the response is not valid JSON
 
         """
         params = {
@@ -315,6 +378,12 @@ class Wikipedia:
         """
         https://www.mediawiki.org/w/api.php?action=help&modules=query%2Binfo
         https://www.mediawiki.org/wiki/API:Info
+
+        :raises WikiHttpTimeoutError: if the request times out
+        :raises WikiConnectionError: if a connection cannot be established
+        :raises WikiRateLimitError: if the API returns HTTP 429
+        :raises WikiHttpError: if the API returns a non-success HTTP status
+        :raises WikiInvalidJsonError: if the response is not valid JSON
         """
         params = {
             "action": "query",
@@ -360,6 +429,11 @@ class Wikipedia:
         :param page: :class:`WikipediaPage`
         :param kwargs: parameters used in API call
         :return: links to pages in other languages
+        :raises WikiHttpTimeoutError: if the request times out
+        :raises WikiConnectionError: if a connection cannot be established
+        :raises WikiRateLimitError: if the API returns HTTP 429
+        :raises WikiHttpError: if the API returns a non-success HTTP status
+        :raises WikiInvalidJsonError: if the response is not valid JSON
 
         """
         params = {
@@ -395,6 +469,11 @@ class Wikipedia:
         :param page: :class:`WikipediaPage`
         :param kwargs: parameters used in API call
         :return: links to linked pages
+        :raises WikiHttpTimeoutError: if the request times out
+        :raises WikiConnectionError: if a connection cannot be established
+        :raises WikiRateLimitError: if the API returns HTTP 429
+        :raises WikiHttpError: if the API returns a non-success HTTP status
+        :raises WikiInvalidJsonError: if the response is not valid JSON
 
         """
         params = {
@@ -435,6 +514,11 @@ class Wikipedia:
         :param page: :class:`WikipediaPage`
         :param kwargs: parameters used in API call
         :return: backlinks from other pages
+        :raises WikiHttpTimeoutError: if the request times out
+        :raises WikiConnectionError: if a connection cannot be established
+        :raises WikiRateLimitError: if the API returns HTTP 429
+        :raises WikiHttpError: if the API returns a non-success HTTP status
+        :raises WikiInvalidJsonError: if the response is not valid JSON
 
         """
         params = {
@@ -469,6 +553,11 @@ class Wikipedia:
         :param page: :class:`WikipediaPage`
         :param kwargs: parameters used in API call
         :return: categories for page
+        :raises WikiHttpTimeoutError: if the request times out
+        :raises WikiConnectionError: if a connection cannot be established
+        :raises WikiRateLimitError: if the API returns HTTP 429
+        :raises WikiHttpError: if the API returns a non-success HTTP status
+        :raises WikiInvalidJsonError: if the response is not valid JSON
         """
         params = {
             "action": "query",
@@ -502,6 +591,11 @@ class Wikipedia:
         :param page: :class:`WikipediaPage`
         :param kwargs: parameters used in API call
         :return: pages in given category
+        :raises WikiHttpTimeoutError: if the request times out
+        :raises WikiConnectionError: if a connection cannot be established
+        :raises WikiRateLimitError: if the API returns HTTP 429
+        :raises WikiHttpError: if the API returns a non-success HTTP status
+        :raises WikiInvalidJsonError: if the response is not valid JSON
         """
         params = {
             "action": "query",
@@ -524,8 +618,95 @@ class Wikipedia:
 
         return self._build_categorymembers(v, page)
 
+    def _attempt_request(
+        self, base_url: str, used_params: dict[str, Any]
+    ) -> tuple[Optional[Any], Optional[WikipediaException], bool]:
+        """Perform a single HTTP GET and convert request-layer exceptions.
+
+        :return: ``(response, exc, retryable)`` where *response* is the
+            ``requests.Response`` on success, *exc* is a
+            :class:`WikipediaException` when a request-layer error occurred,
+            and *retryable* indicates whether the caller may retry.
+        """
+        try:
+            return (
+                self._session.get(base_url, params=used_params, **self._request_kwargs),
+                None,
+                False,
+            )
+        except requests.exceptions.Timeout:
+            return None, WikiHttpTimeoutError(base_url), True
+        except requests.exceptions.ConnectionError:
+            return None, WikiConnectionError(base_url), True
+        except requests.exceptions.RequestException:
+            raise WikiConnectionError(base_url)
+
+    def _handle_response(
+        self, r: Any, base_url: str, attempt: int
+    ) -> tuple[Optional[WikipediaException], bool, float]:
+        """Inspect an HTTP response and decide what to do next.
+
+        :return: ``(exc, retryable, wait)`` where *exc* is set for retryable
+            errors, *retryable* is ``True`` when the caller should retry, and
+            *wait* is the number of seconds to sleep before the next attempt.
+            Raises immediately for non-retryable errors.
+        :raises WikiHttpError: for non-retryable 4xx responses
+        :raises WikiInvalidJsonError: when the 200 response body is not JSON
+        """
+        if r.status_code == 429:
+            retry_after = r.headers.get("Retry-After")
+            wait: float = (
+                int(retry_after)
+                if retry_after and retry_after.isdigit()
+                else self._retry_wait * (2**attempt)
+            )
+            exc = WikiRateLimitError(
+                base_url,
+                int(retry_after) if retry_after and retry_after.isdigit() else None,
+            )
+            log.warning(
+                "Rate limited (attempt %d/%d), waiting %.1fs: %s",
+                attempt + 1,
+                1 + self._max_retries,
+                wait,
+                base_url,
+            )
+            return exc, True, wait
+
+        if r.status_code >= 500:
+            log.warning(
+                "Server error %d (attempt %d/%d): %s",
+                r.status_code,
+                attempt + 1,
+                1 + self._max_retries,
+                base_url,
+            )
+            return (
+                WikiHttpError(r.status_code, base_url),
+                True,
+                self._retry_wait * (2**attempt),
+            )
+
+        if r.status_code != 200:
+            raise WikiHttpError(r.status_code, base_url)
+
+        return None, False, 0.0
+
     def _query(self, page: "WikipediaPage", params: dict[str, Any]):
-        """Queries Wikimedia API to fetch content."""
+        """Queries Wikimedia API to fetch content.
+
+        Transient errors (HTTP 429, 5xx, timeouts, connection errors) are
+        retried up to ``max_retries`` times with exponential backoff.
+
+        :param page: :class:`WikipediaPage`
+        :param params: parameters used in API call
+        :return: parsed JSON response as dict
+        :raises WikiHttpTimeoutError: if the request times out after all retries
+        :raises WikiConnectionError: if a connection cannot be established
+        :raises WikiRateLimitError: if the API returns HTTP 429 after all retries
+        :raises WikiHttpError: if the API returns a non-success HTTP status
+        :raises WikiInvalidJsonError: if the response is not valid JSON
+        """
         base_url = "https://" + page.language + ".wikipedia.org/w/api.php"
         used_params = self._construct_params(page, params)
 
@@ -536,8 +717,37 @@ class Wikipedia:
             + "&".join([k + "=" + str(v) for k, v in used_params.items()]),
         )
 
-        r = self._session.get(base_url, params=used_params, **self._request_kwargs)
-        return r.json()
+        last_exc: Optional[WikipediaException] = None
+        for attempt in range(1 + self._max_retries):
+            r, exc, retryable = self._attempt_request(base_url, used_params)
+            if exc is not None:
+                last_exc = exc
+                log.warning(
+                    "%s (attempt %d/%d): %s",
+                    exc.__class__.__name__,
+                    attempt + 1,
+                    1 + self._max_retries,
+                    base_url,
+                )
+                if retryable and attempt < self._max_retries:
+                    time.sleep(self._retry_wait * (2**attempt))
+                continue
+
+            exc, retryable, wait = self._handle_response(r, base_url, attempt)
+            if retryable:
+                last_exc = exc
+                if attempt < self._max_retries:
+                    time.sleep(wait)
+                continue
+
+            assert r is not None
+            try:
+                return r.json()
+            except ValueError:
+                raise WikiInvalidJsonError(base_url)
+
+        assert last_exc is not None
+        raise last_exc
 
     def _construct_params(
         self, page: "WikipediaPage", params: dict[str, Any]

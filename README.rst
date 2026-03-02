@@ -305,6 +305,69 @@ specify parameter `converttitles`. If you want to specify it, you can use:
 .. _sandbox: https://en.wikipedia.org/wiki/Special:ApiSandbox
 .. _info API call: https://zh.wikipedia.org/wiki/Special:API%E6%B2%99%E7%9B%92#action=query&format=json&variant=zh-tw&prop=info&titles=%E5%AD%9F%E5%8D%AF&converttitles=1&formatversion=2&inprop=varianttitles%7Cdisplaytitle
 
+Error Handling
+~~~~~~~~~~~~~~
+
+All exceptions raised by the library inherit from ``WikipediaException``. No ``requests`` or ``json``
+exceptions are exposed. You can catch specific exceptions or the base ``WikipediaException``.
+
+.. code-block:: python
+
+    import wikipediaapi
+
+    wiki_wiki = wikipediaapi.Wikipedia(user_agent='MyProjectName (merlin@example.com)', language='en')
+
+    # Catch any Wikipedia-API error
+    try:
+        page = wiki_wiki.page('Python_(programming_language)')
+        print(page.summary[0:60])
+    except wikipediaapi.WikipediaException as e:
+        print("Error: %s" % e)
+
+.. code-block:: python
+
+    # Handle rate limiting specifically
+    try:
+        page = wiki_wiki.page('Python_(programming_language)')
+        print(page.summary[0:60])
+    except wikipediaapi.WikiRateLimitError as e:
+        print("Rate limited! Retry after: %s seconds" % e.retry_after)
+    except wikipediaapi.WikiHttpError as e:
+        print("HTTP error %d: %s" % (e.status_code, e))
+    except wikipediaapi.WikiHttpTimeoutError:
+        print("Request timed out")
+    except wikipediaapi.WikiConnectionError:
+        print("Could not connect to Wikipedia")
+    except wikipediaapi.WikiInvalidJsonError:
+        print("Received invalid response from Wikipedia")
+
+Retry Configuration
+~~~~~~~~~~~~~~~~~~~
+
+By default, transient errors (HTTP 429, 5xx, timeouts, connection errors) are retried up to 3 times
+with exponential backoff. You can configure this behavior in the constructor.
+
+.. code-block:: python
+
+    import wikipediaapi
+
+    # Custom retry: 5 retries with 2-second base wait
+    wiki_wiki = wikipediaapi.Wikipedia(
+        user_agent='MyProjectName (merlin@example.com)',
+        language='en',
+        max_retries=5,
+        retry_wait=2.0,
+    )
+
+.. code-block:: python
+
+    # Disable retries entirely
+    wiki_wiki = wikipediaapi.Wikipedia(
+        user_agent='MyProjectName (merlin@example.com)',
+        language='en',
+        max_retries=0,
+    )
+
 How To See Underlying API Call
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
