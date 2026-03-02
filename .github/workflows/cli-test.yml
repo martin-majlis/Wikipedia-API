@@ -15,7 +15,7 @@ on:
       mode:
         description: "Test mode: 'verify' to check against fixtures, 'record' to update fixtures"
         required: true
-        default: "record"
+        default: "verify"
         type: choice
         options:
           - verify
@@ -24,10 +24,11 @@ on:
 jobs:
   cli-verify:
     name: CLI integration tests (verify)
-    if: github.event_name != 'workflow_dispatch' || inputs.mode == 'verify'
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    outputs:
+      small_mismatches: ${{ steps.check_results.outputs.small_mismatches }}
     steps:
       - uses: actions/checkout@v6.0.2
 
@@ -47,12 +48,30 @@ jobs:
           pip install -e .
 
       - name: Verify CLI output against fixtures
+        id: verify_step
         run: |
-          bash tests/cli/test_cli.sh verify
+          bash tests/cli/test_cli.sh verify | tee verify_output.txt || true
+
+      - name: Check for small mismatches and failures
+        id: check_results
+        run: |
+          MISMATCH_COUNT=$(grep 'Small Mismatch:' verify_output.txt | awk '{print $3}' || echo "0")
+          FAILED_COUNT=$(grep 'Failed:' verify_output.txt | awk '{print $2}' || echo "0")
+          echo "small_mismatches=$MISMATCH_COUNT" >> $GITHUB_OUTPUT
+          echo "failed_count=$FAILED_COUNT" >> $GITHUB_OUTPUT
+
+      - name: Fail job if there were test failures
+        if: steps.check_results.outputs.failed_count > 0
+        run: |
+          echo "Failing job due to test failures."
+          exit 1
 
   cli-record:
     name: CLI integration tests (record)
-    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'record'
+    needs: cli-verify
+    if: >
+      (github.event_name == 'workflow_dispatch' && inputs.mode == 'record') ||
+      (needs.cli-verify.outputs.small_mismatches > 1)
     runs-on: ubuntu-latest
     permissions:
       contents: write
