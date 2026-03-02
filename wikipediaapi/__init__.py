@@ -12,6 +12,7 @@ from collections import defaultdict
 from enum import IntEnum
 import logging
 import re
+import time
 from typing import Any, Optional, Union
 from urllib import parse
 
@@ -27,6 +28,53 @@ MIN_USER_AGENT_LEN = 5
 MAX_LANG_LEN = 5
 
 log = logging.getLogger(__name__)
+
+
+class WikipediaException(Exception):
+    """Base exception for Wikipedia-API."""
+
+
+class HttpTimeoutError(WikipediaException):
+    """Request to Wikipedia API timed out."""
+
+    def __init__(self, url: str) -> None:
+        self.url = url
+        super().__init__(url)
+
+
+class HttpError(WikipediaException):
+    """Non-success HTTP status from Wikipedia API."""
+
+    def __init__(self, status_code: int, url: str) -> None:
+        self.status_code = status_code
+        self.url = url
+        super().__init__(status_code, url)
+
+
+class RateLimitError(HttpError):
+    """HTTP 429 - Too Many Requests."""
+
+    def __init__(
+        self, url: str, retry_after: Optional[int] = None
+    ) -> None:  # noqa: B042
+        self.retry_after = retry_after
+        super().__init__(429, url)
+
+
+class InvalidJsonError(WikipediaException):
+    """Response body was not valid JSON."""
+
+    def __init__(self, url: str) -> None:
+        self.url = url
+        super().__init__(url)
+
+
+class ConnectionError(WikipediaException):
+    """Could not connect to Wikipedia API."""
+
+    def __init__(self, url: str) -> None:
+        self.url = url
+        super().__init__(url)
 
 
 # https://www.mediawiki.org/wiki/API:Main_page
@@ -140,6 +188,8 @@ class Wikipedia:
         extract_format: ExtractFormat = ExtractFormat.WIKI,
         headers: Optional[dict[str, Any]] = None,
         extra_api_params: Optional[dict[str, Any]] = None,
+        max_retries: int = 3,
+        retry_wait: float = 1.0,
         **request_kwargs,
     ) -> None:
         """
@@ -156,6 +206,12 @@ class Wikipedia:
         :param headers:  Headers sent as part of HTTP request
         :param extra_api_params:  Extra parameters that are used to construct
                 query string when calling Wikipedia API
+        :param max_retries: Maximum number of retries for transient errors
+                (HTTP 429, 5xx, timeouts, connection errors). Set to 0 to
+                disable retries.
+        :param retry_wait: Base wait time in seconds between retries.
+                Uses exponential backoff: retry_wait * 2^attempt.
+                For HTTP 429, the Retry-After header is used if present.
         :param request_kwargs: Optional parameters used in -
                 http://docs.python-requests.org/en/master/api/#requests.request
 
@@ -191,6 +247,8 @@ class Wikipedia:
         )
 
         self._extra_api_params = extra_api_params
+        self._max_retries = max_retries
+        self._retry_wait = retry_wait
 
         self._session = requests.Session()
         self._session.headers.update(default_headers)
@@ -536,8 +594,82 @@ class Wikipedia:
             + "&".join([k + "=" + str(v) for k, v in used_params.items()]),
         )
 
-        r = self._session.get(base_url, params=used_params, **self._request_kwargs)
-        return r.json()
+        last_exc: Optional[WikipediaException] = None
+        for attempt in range(1 + self._max_retries):
+            try:
+                r = self._session.get(
+                    base_url, params=used_params, **self._request_kwargs
+                )
+            except requests.exceptions.Timeout:
+                last_exc = HttpTimeoutError(base_url)
+                log.warning(
+                    "Timeout (attempt %d/%d): %s",
+                    attempt + 1,
+                    1 + self._max_retries,
+                    base_url,
+                )
+                if attempt < self._max_retries:
+                    time.sleep(self._retry_wait * (2**attempt))
+                continue
+            except requests.exceptions.ConnectionError:
+                last_exc = ConnectionError(base_url)
+                log.warning(
+                    "Connection error (attempt %d/%d): %s",
+                    attempt + 1,
+                    1 + self._max_retries,
+                    base_url,
+                )
+                if attempt < self._max_retries:
+                    time.sleep(self._retry_wait * (2**attempt))
+                continue
+            except requests.exceptions.RequestException:
+                raise ConnectionError(base_url)
+
+            if r.status_code == 429:
+                retry_after = r.headers.get("Retry-After")
+                wait = (
+                    int(retry_after)
+                    if retry_after and retry_after.isdigit()
+                    else self._retry_wait * (2**attempt)
+                )
+                last_exc = RateLimitError(
+                    base_url,
+                    int(retry_after) if retry_after and retry_after.isdigit() else None,
+                )
+                log.warning(
+                    "Rate limited (attempt %d/%d), waiting %.1fs: %s",
+                    attempt + 1,
+                    1 + self._max_retries,
+                    wait,
+                    base_url,
+                )
+                if attempt < self._max_retries:
+                    time.sleep(wait)
+                continue
+
+            if r.status_code >= 500:
+                last_exc = HttpError(r.status_code, base_url)
+                log.warning(
+                    "Server error %d (attempt %d/%d): %s",
+                    r.status_code,
+                    attempt + 1,
+                    1 + self._max_retries,
+                    base_url,
+                )
+                if attempt < self._max_retries:
+                    time.sleep(self._retry_wait * (2**attempt))
+                continue
+
+            if r.status_code != 200:
+                raise HttpError(r.status_code, base_url)
+
+            try:
+                return r.json()
+            except ValueError:
+                raise InvalidJsonError(base_url)
+
+        assert last_exc is not None
+        raise last_exc
 
     def _construct_params(
         self, page: "WikipediaPage", params: dict[str, Any]
