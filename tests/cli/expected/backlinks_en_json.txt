@@ -7609,6 +7609,11 @@
 "language": "en",
 "ns": 100
 },
+"Portal:Spaceflight": {
+"title": "Portal:Spaceflight",
+"language": "en",
+"ns": 100
+},
 "Portal:Spaceflight/Did you know": {
 "title": "Portal:Spaceflight/Did you know",
 "language": "en",
@@ -11016,11 +11021,6 @@
 },
 "User talk:Frog luva96": {
 "title": "User talk:Frog luva96",
-"language": "en",
-"ns": 3
-},
-"User talk:Gazamp/Archive 2": {
-"title": "User talk:Gazamp/Archive 2",
 "language": "en",
 "ns": 3
 },
