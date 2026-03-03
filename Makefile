@@ -126,7 +126,7 @@ release: pre-release-check
 
 
 build-package:
-	python setup.py sdist
+	python -m build
 
 install:
 	pip install -e .

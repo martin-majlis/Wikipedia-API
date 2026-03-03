@@ -28,11 +28,11 @@ Or install individual dependency groups:
 - **Runtime dependencies:** `make requirements` (installs `requirements.txt` — `requests`)
 - **Dev dependencies:** `make requirements-dev` (installs `requirements-dev.txt` — black, coverage, flake8, isort, mypy, pre-commit, tox, etc.)
 - **Doc dependencies:** `make requirements-doc` (installs `requirements-doc.txt` — sphinx)
-- **Build dependencies:** `make requirements-build` (installs `requirements-build.txt` — rst2html, setuptools, wheel)
+- **Build dependencies:** `make requirements-build` (installs `requirements-build.txt` — rst2html, build)
 
 ## Build
 
-Build the source distribution package:
+Build the distribution packages:
 
 ```bash
 make build-package
