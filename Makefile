@@ -33,18 +33,18 @@ run-test-cli-record: install
 	./tests/cli/test_cli.sh record
 
 run-type-check:
-	mypy ./wikipediaapi
+	uv run mypy ./wikipediaapi
 
 run-flake8:
-	flake8 --max-line-length=100 wikipediaapi tests
+	uv run flake8 --max-line-length=100 wikipediaapi tests
 
 run-tox:
-	tox
+	uv run tox
 
 run-coverage:
-	coverage run --source=wikipediaapi -m unittest discover tests/ '*test.py'
-	coverage report -m
-	coverage xml
+	uv run coverage run --source=wikipediaapi -m unittest discover tests/ '*test.py'
+	uv run coverage report -m
+	uv run coverage xml
 
 run-example:
 	./example.py
@@ -67,7 +67,7 @@ requirements-build:
 update-pre-commit:
 	for repo in `grep "repo: " .pre-commit-config.yaml | grep http | cut -f5 -d" "`; do \
 		echo $$repo; \
-		pre-commit autoupdate --repo "$${repo}"; \
+		uv run pre-commit autoupdate --repo "$${repo}"; \
 	done;
 
 pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage pypi-html run-tox run-example
@@ -115,11 +115,11 @@ release: pre-release-check
 	short_VERSION=`echo $(VERSION) | cut -f1-2 -d.`; \
 	commas_VERSION=`echo $(VERSION) | sed -E 's/\./, /g'`; \
 	echo "Short version: $$short_VERSION"; \
-	sed -i.bak -E 's/version=.*/version="'$(VERSION)'",/' setup.py; rm setup.py.bak; \
+	sed -i.bak -E 's/version=.*/version = "'$(VERSION)'",/' pyproject.toml; rm pyproject.toml.bak; \
 	sed -i.bak -E 's/^release = .*/release = "'$(VERSION)'"/' conf.py; rm conf.py.bak; \
 	sed -i.bak -E 's/^version = .*/version = "'$$short_VERSION'"/' conf.py; rm conf.py.bak; \
 	sed -i.bak -E 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/_version.py; rm wikipediaapi/_version.py.bak; \
-	git commit .github CHANGES.rst setup.py conf.py wikipediaapi/_version.py -m "Update version to $(VERSION) for new release." && \
+	git commit .github CHANGES.rst pyproject.toml conf.py wikipediaapi/_version.py -m "Update version to $(VERSION) for new release." && \
 	git push && \
 	git tag v$(VERSION) -m "$(MSG)" && \
 	git push --tags origin master
@@ -128,8 +128,12 @@ release: pre-release-check
 build-package:
 	uv build
 
-install:
+install: install-package
+install-package:
 	uv pip install -e .
+
+install-pre-commit:
+	uv run pre-commit install
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

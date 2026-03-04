@@ -38,10 +38,10 @@ jobs:
           make requirements
       - name: Install pre-commit hooks
         run: |
-          pre-commit install
+          make install-pre-commit
       - name: Run pre-commit
         run: |
-          pre-commit run -a
+          make run-pre-commit
 
   run-tests:
     name: Tests on ${{ matrix.os }} and ${{ matrix.python }}
