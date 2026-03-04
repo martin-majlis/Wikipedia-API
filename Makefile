@@ -23,7 +23,7 @@ run-pre-commit:
 
 run-tests: run-tests-unit run-test-cli-verify
 
-run-tests-unit:
+run-tests-unit: install
 	uv run python3 -m unittest discover tests/ '*test.py'
 
 run-test-cli-verify: install
