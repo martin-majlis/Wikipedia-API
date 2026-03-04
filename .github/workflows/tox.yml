@@ -34,4 +34,4 @@ jobs:
         run: make requirements-dev
       - name: Run Tox
         # Run tox using the version of Python in `PATH`
-        run: tox --version; tox -e py
+        run: make run-tox-ci

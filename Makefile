@@ -39,7 +39,12 @@ run-flake8:
 	uv run flake8 --max-line-length=100 wikipediaapi tests
 
 run-tox:
+	uv run tox --version
 	uv run tox
+
+run-tox-ci:
+	uv run tox --version
+	uv run tox -e py
 
 run-coverage:
 	uv run coverage run --source=wikipediaapi -m unittest discover tests/ '*test.py'
