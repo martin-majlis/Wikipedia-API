@@ -15,11 +15,11 @@ help:
 .PHONY: help Makefile
 
 pypi-html:
-	python3 setup.py --long-description | rst2html > pypi-doc.html
+	cat README.rst | uv run rst2html > pypi-doc.html
 	echo file://$$( pwd )/pypi-doc.html
 
 run-pre-commit:
-	pre-commit run -a
+	uv run pre-commit run -a
 
 run-tests: run-tests-unit run-test-cli-verify
 
@@ -49,11 +49,11 @@ run-coverage:
 run-example:
 	./example.py
 
-requirements-all: requirements requirements-dev requirements-doc requirements-build
-	echo "Requirements were installed"
+requirements-all:
+	uv sync
 
 requirements:
-	uv sync
+	uv sync --no-group dev --no-group doc --no-group build
 
 requirements-dev:
 	uv sync --group dev

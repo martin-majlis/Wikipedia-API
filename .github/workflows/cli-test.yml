@@ -48,6 +48,10 @@ jobs:
         run: |
           make install
 
+      - name: Verify wikipedia-api command is available
+        run: |
+          wikipedia-api --version
+
       - name: Verify CLI output against fixtures
         id: verify_step
         run: |
@@ -95,6 +99,10 @@ jobs:
       - name: Install package
         run: |
           make install
+
+      - name: Verify wikipedia-api command is available
+        run: |
+          wikipedia-api --version
 
       - name: Record CLI fixtures
         run: |
