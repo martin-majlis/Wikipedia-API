@@ -52,7 +52,6 @@ jobs:
           choco install visualstudio2019buildtools
       - name: Install dependencies
         run: |
-          make requirements
           make requirements-build
       - name: Build wheels
         run: |
@@ -86,7 +85,6 @@ jobs:
           enable-cache: true
       - name: Install dependencies
         run: |
-          make requirements
           make requirements-build
       - name: Build sdist
         run: uv build --sdist

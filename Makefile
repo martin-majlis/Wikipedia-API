@@ -61,13 +61,13 @@ requirements:
 	uv sync --no-group dev --no-group doc --no-group build
 
 requirements-dev:
-	uv sync --group dev
+	uv sync --no-group doc --no-group build
 
 requirements-doc:
 	uv sync --group doc
 
 requirements-build:
-	uv sync --group build
+	uv sync --no-group doc
 
 update-pre-commit:
 	for repo in `grep "repo: " .pre-commit-config.yaml | grep http | cut -f5 -d" "`; do \

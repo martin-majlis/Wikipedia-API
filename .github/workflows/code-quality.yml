@@ -35,7 +35,6 @@ jobs:
       - name: Install dependencies
         run: |
           make requirements-dev
-          make requirements
       - name: Install pre-commit hooks
         run: |
           make install-pre-commit
@@ -65,7 +64,6 @@ jobs:
       - name: Install dependencies
         run: |
           make requirements-dev
-          make requirements
       - name: Code coverage
         run: |
           make run-tests-unit
@@ -88,7 +86,6 @@ jobs:
       - name: Install dependencies
         run: |
           make requirements-dev
-          make requirements
       - name: Code coverage
         run: |
           make run-coverage
