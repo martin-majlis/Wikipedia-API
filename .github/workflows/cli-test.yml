@@ -44,9 +44,6 @@ jobs:
       - name: Install dependencies
         run: |
           make requirements
-      - name: Install package
-        run: |
-          make install
 
       - name: Verify wikipedia-api command is available
         run: |
@@ -96,9 +93,6 @@ jobs:
       - name: Install dependencies
         run: |
           make requirements
-      - name: Install package
-        run: |
-          make install
 
       - name: Verify wikipedia-api command is available
         run: |
