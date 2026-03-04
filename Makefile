@@ -24,13 +24,13 @@ run-pre-commit:
 run-tests: run-tests-unit run-test-cli-verify
 
 run-tests-unit:
-	python3 -m unittest discover tests/ '*test.py'
+	uv run python3 -m unittest discover tests/ '*test.py'
 
 run-test-cli-verify: install
-	./tests/cli/test_cli.sh verify
+	uv run ./tests/cli/test_cli.sh verify
 
 run-test-cli-record: install
-	./tests/cli/test_cli.sh record
+	uv run ./tests/cli/test_cli.sh record
 
 run-type-check:
 	uv run mypy ./wikipediaapi
@@ -55,19 +55,19 @@ run-example:
 	./example.py
 
 requirements-all:
-	uv sync
+	uv sync -v
 
 requirements:
-	uv sync --no-group dev --no-group doc --no-group build
+	uv sync -v --no-group dev --no-group doc --no-group build
 
 requirements-dev:
-	uv sync --no-group doc --no-group build
+	uv sync -v --no-group doc --no-group build
 
 requirements-doc:
-	uv sync --group doc
+	uv sync -v --group doc
 
 requirements-build:
-	uv sync --no-group doc
+	uv sync -v --no-group doc
 
 update-pre-commit:
 	for repo in `grep "repo: " .pre-commit-config.yaml | grep http | cut -f5 -d" "`; do \

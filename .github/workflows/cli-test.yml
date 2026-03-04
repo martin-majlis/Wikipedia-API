@@ -50,12 +50,12 @@ jobs:
 
       - name: Verify wikipedia-api command is available
         run: |
-          wikipedia-api --version
+          uv run wikipedia-api --version
 
       - name: Verify CLI output against fixtures
         id: verify_step
         run: |
-          bash tests/cli/test_cli.sh verify | tee verify_output.txt || true
+          uv run tests/cli/test_cli.sh verify | tee verify_output.txt || true
 
       - name: Check for small mismatches and failures
         id: check_results
@@ -102,15 +102,15 @@ jobs:
 
       - name: Verify wikipedia-api command is available
         run: |
-          wikipedia-api --version
+          uv run wikipedia-api --version
 
       - name: Record CLI fixtures
         run: |
-          bash tests/cli/test_cli.sh record
+          uv run bash tests/cli/test_cli.sh record
 
       - name: Verify freshly recorded fixtures
         run: |
-          bash tests/cli/test_cli.sh verify
+          uv run bash tests/cli/test_cli.sh verify
 
       - name: Commit updated fixtures
         id: commit
