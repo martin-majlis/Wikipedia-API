@@ -5,7 +5,7 @@ Wikipedia API
 
 .. _Wikipedias': https://www.mediawiki.org/wiki/API:Main_page
 
-|github-stars-flat| |codecov-coverage| |docs| |version| |pyversions|
+|github-stars-flat| |codecov-coverage| |docs| |version| |pyversions| |openssf-best-practices|
 
 Installation
 ------------
@@ -554,3 +554,7 @@ Other Pages
 .. |libraries-io-dependent-repos| image:: https://img.shields.io/librariesio/dependent-repos/pypi/Wikipedia-API.svg
     :target: https://libraries.io/pypi/Wikipedia-API
     :alt: Libraries.io - Dependent Repos
+
+.. |openssf-best-practices| image:: https://www.bestpractices.dev/projects/12083/badge
+    :target: https://www.bestpractices.dev/projects/12083
+    :alt: OpenSSF Best Practices
