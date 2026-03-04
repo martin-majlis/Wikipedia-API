@@ -32,7 +32,6 @@ repos:
         name: Run isort
         entry: isort
         language: python
-        args: ["--profile", "google", "--filter-files"]
         types: [file, python]
       - id: black
         name: Run black
@@ -54,5 +53,5 @@ repos:
         name: Run pyupgrade
         entry: pyupgrade
         language: python
-        args: ["--py39-plus"]
+        args: ["--py310-plus"]
         types: [file, python]

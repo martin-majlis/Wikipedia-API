@@ -53,16 +53,16 @@ requirements-all: requirements requirements-dev requirements-doc requirements-bu
 	echo "Requirements were installed"
 
 requirements:
-	pip install -r requirements.txt
+	uv sync
 
 requirements-dev:
-	pip install -r requirements-dev.txt
+	uv sync --group dev
 
 requirements-doc:
-	pip install -r requirements-doc.txt
+	uv sync --group doc
 
 requirements-build:
-	pip install -r requirements-build.txt
+	uv sync --group build
 
 update-pre-commit:
 	for repo in `grep "repo: " .pre-commit-config.yaml | grep http | cut -f5 -d" "`; do \
@@ -126,10 +126,10 @@ release: pre-release-check
 
 
 build-package:
-	python setup.py sdist
+	uv build
 
 install:
-	pip install -e .
+	uv pip install -e .
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

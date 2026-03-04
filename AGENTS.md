@@ -5,15 +5,8 @@ Guide for AI agents (and developers) on how to install, build, and test the Wiki
 ## Prerequisites
 
 - **Python 3.10+** (supported: 3.10, 3.11, 3.12, 3.13, 3.14)
-- **Virtual environment** already set up in `.venv/`
-
-## Virtual Environment
-
-**Always activate the virtual environment before running any command:**
-
-```bash
-source .venv/bin/activate
-```
+- **uv** (Python package manager and installer)
+- **Make**
 
 ## Install
 
@@ -25,10 +18,12 @@ make requirements-all
 
 Or install individual dependency groups:
 
-- **Runtime dependencies:** `make requirements` (installs `requirements.txt` — `requests`)
-- **Dev dependencies:** `make requirements-dev` (installs `requirements-dev.txt` — black, coverage, flake8, isort, mypy, pre-commit, tox, etc.)
-- **Doc dependencies:** `make requirements-doc` (installs `requirements-doc.txt` — sphinx)
-- **Build dependencies:** `make requirements-build` (installs `requirements-build.txt` — rst2html, setuptools, wheel)
+- **Runtime dependencies:** `make requirements` (installs core dependencies)
+- **Dev dependencies:** `make requirements-dev` (installs black, coverage, flake8, isort, mypy, pre-commit, tox, etc.)
+- **Doc dependencies:** `make requirements-doc` (installs sphinx)
+- **Build dependencies:** `make requirements-build` (installs rst2html, setuptools, wheel)
+
+Note: uv automatically creates and manages a virtual environment in `.venv/`.
 
 ## Build
 
@@ -116,11 +111,7 @@ make pre-release-check
 
 - `wikipediaapi/` — Main package (single `__init__.py` module)
 - `tests/` — Unit tests (`*test.py` files, `mock_data.py` for test fixtures)
-- `setup.py` — Package metadata and build configuration
+- `pyproject.toml` — Package metadata, dependencies, and build configuration
 - `Makefile` — All build, test, and release commands
-- `requirements.txt` — Runtime dependencies
-- `requirements-dev.txt` — Development dependencies
-- `requirements-doc.txt` — Documentation dependencies
-- `requirements-build.txt` — Build/packaging dependencies
 - `tox.ini` — Multi-Python test configuration
 - `.pre-commit-config.yaml` — Pre-commit hook definitions

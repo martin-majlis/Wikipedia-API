@@ -36,16 +36,17 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: "pip"
-
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+          enable-cache: true
       - name: Install dependencies
         run: |
-          python -m pip install -U pip
           make requirements
-
       - name: Install package
         run: |
-          pip install -e .
+          make install
 
       - name: Verify CLI output against fixtures
         id: verify_step
@@ -83,16 +84,17 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: "pip"
-
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+          enable-cache: true
       - name: Install dependencies
         run: |
-          python -m pip install -U pip
           make requirements
-
       - name: Install package
         run: |
-          pip install -e .
+          make install
 
       - name: Record CLI fixtures
         run: |
