@@ -425,6 +425,7 @@ Other Pages
 
     API
     CHANGES
+    CLI
     DEVELOPMENT
     wikipediaapi/api
 
