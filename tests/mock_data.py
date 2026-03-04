@@ -201,9 +201,7 @@ _MOCK_DATA = {
                     "pagelanguage": "en",
                     "pagelanguagehtmlcode": "en",
                     "pagelanguagedir": "ltr",
-                    "protection": [
-                        {"type": "create", "level": "sysop", "expiry": "infinity"}
-                    ],
+                    "protection": [{"type": "create", "level": "sysop", "expiry": "infinity"}],
                     "restrictiontypes": ["create"],
                     "notificationtimestamp": "",
                     "fullurl": "https://en.wikipedia.org/wiki/Test_1",
@@ -229,9 +227,7 @@ _MOCK_DATA = {
                     "pagelanguage": "l1",
                     "pagelanguagehtmlcode": "l1",
                     "pagelanguagedir": "ltr",
-                    "protection": [
-                        {"type": "create", "level": "sysop", "expiry": "infinity"}
-                    ],
+                    "protection": [{"type": "create", "level": "sysop", "expiry": "infinity"}],
                     "restrictiontypes": ["create"],
                     "notificationtimestamp": "",
                     "fullurl": "https://l1.wikipedia.org/wiki/Test 1 - 1",
@@ -468,9 +464,7 @@ _MOCK_DATA = {
                     "pagelanguage": "hi",
                     "pagelanguagehtmlcode": "hi",
                     "pagelanguagedir": "ltr",
-                    "protection": [
-                        {"type": "create", "level": "sysop", "expiry": "infinity"}
-                    ],
+                    "protection": [{"type": "create", "level": "sysop", "expiry": "infinity"}],
                     "restrictiontypes": ["create"],
                     "notificationtimestamp": "",
                     "fullurl": "https://l1.wikipedia.org/wiki/Test 1 - 1",
@@ -531,9 +525,7 @@ _MOCK_DATA = {
                     "pagelanguage": "zh",
                     "pagelanguagehtmlcode": "zh",
                     "pagelanguagedir": "ltr",
-                    "protection": [
-                        {"type": "create", "level": "sysop", "expiry": "infinity"}
-                    ],
+                    "protection": [{"type": "create", "level": "sysop", "expiry": "infinity"}],
                     "restrictiontypes": ["create"],
                     "notificationtimestamp": "",
                     "fullurl": "https://zh.wikipedia.org/wiki/Test Zh-Tw",
@@ -565,9 +557,7 @@ _MOCK_DATA = {
                     "pagelanguage": "en",
                     "pagelanguagehtmlcode": "en",
                     "pagelanguagedir": "ltr",
-                    "protection": [
-                        {"type": "create", "level": "sysop", "expiry": "infinity"}
-                    ],
+                    "protection": [{"type": "create", "level": "sysop", "expiry": "infinity"}],
                     "restrictiontypes": ["create"],
                     "notificationtimestamp": "",
                     "fullurl": "https://en.wikipedia.org/wiki/Extra_API_Params",

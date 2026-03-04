@@ -30,21 +30,14 @@ class TestLangLinks(unittest.TestCase):
 
     def test_langlinks_lang_keys(self):
         page = self.wiki.page("Test_1")
-        self.assertEqual(
-            list(sorted(page.langlinks.keys())), ["l" + str(i + 1) for i in range(3)]
-        )
+        self.assertEqual(list(sorted(page.langlinks.keys())), ["l" + str(i + 1) for i in range(3)])
 
     def test_langlinks_urls(self):
         page = self.wiki.page("Test_1")
         self.assertEqual(
             list(sorted(map(lambda s: s.fullurl, page.langlinks.values()))),
             [
-                (
-                    "https://l"
-                    + str(i + 1)
-                    + ".wikipedia.org/wiki/Test_1_-_"
-                    + str(i + 1)
-                )
+                ("https://l" + str(i + 1) + ".wikipedia.org/wiki/Test_1_-_" + str(i + 1))
                 for i in range(3)
             ],
         )

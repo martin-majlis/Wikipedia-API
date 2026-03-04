@@ -63,9 +63,7 @@ class TestWikipedia(unittest.TestCase):
         )
 
     def test_long_language_and_user_agent(self):
-        wiki = wikipediaapi.Wikipedia(
-            user_agent="param-user-agent", language="very-long-language"
-        )
+        wiki = wikipediaapi.Wikipedia(user_agent="param-user-agent", language="very-long-language")
         self.assertIsNotNone(wiki)
         self.assertEqual(wiki.language, "very-long-language")
         self.assertIsNone(wiki.variant)

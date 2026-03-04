@@ -8,8 +8,7 @@ Prerequisites
 
 * **Python 3.10+** (supported: 3.10, 3.11, 3.12, 3.13, 3.14)
 * **Make**
-* **Pip**
-* **Virtual environment** already set up in ``.venv/``
+* **uv** (Python package manager and installer)
 
 Getting Started
 ---------------
@@ -19,20 +18,18 @@ Getting Started
     git clone https://github.com/martin-majlis/Wikipedia-API.git
     cd Wikipedia-API
 
-2. Activate the virtual environment (always required before running any command)::
-
-    source .venv/bin/activate
-
-3. Install all dependencies::
+2. Install all dependencies using uv::
 
     make requirements-all
 
    Or install individual dependency groups:
 
-   * **Runtime dependencies:** ``make requirements`` (installs ``requirements.txt`` — ``requests``)
-   * **Dev dependencies:** ``make requirements-dev`` (installs ``requirements-dev.txt`` — black, coverage, flake8, isort, mypy, pre-commit, tox, etc.)
-   * **Doc dependencies:** ``make requirements-doc`` (installs ``requirements-doc.txt`` — sphinx)
-   * **Build dependencies:** ``make requirements-build`` (installs ``requirements-build.txt`` — rst2html, setuptools, wheel)
+   * **Runtime dependencies:** ``make requirements`` (installs core dependencies)
+   * **Dev dependencies:** ``make requirements-dev`` (installs black, coverage, flake8, isort, mypy, pre-commit, tox, etc.)
+   * **Doc dependencies:** ``make requirements-doc`` (installs sphinx)
+   * **Build dependencies:** ``make requirements-build`` (installs rst2html, setuptools, wheel)
+
+   Note: uv automatically creates and manages a virtual environment in ``.venv/``.
 
 Development Workflow
 --------------------
@@ -136,12 +133,8 @@ Project Structure
 
 * ``wikipediaapi/`` — Main package (single ``__init__.py`` module)
 * ``tests/`` — Unit tests (``*test.py`` files, ``mock_data.py`` for test fixtures)
-* ``setup.py`` — Package metadata and build configuration
+* ``pyproject.toml`` — Package metadata, dependencies, and build configuration
 * ``Makefile`` — All build, test, and release commands
-* ``requirements.txt`` — Runtime dependencies
-* ``requirements-dev.txt`` — Development dependencies
-* ``requirements-doc.txt`` — Documentation dependencies
-* ``requirements-build.txt`` — Build/packaging dependencies
 * ``tox.ini`` — Multi-Python test configuration
 * ``.pre-commit-config.yaml`` — Pre-commit hook definitions
 

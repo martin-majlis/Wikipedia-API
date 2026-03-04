@@ -23,9 +23,7 @@ class TestCategories(unittest.TestCase):
 
     def test_categories_nss(self):
         page = self.wiki.page("Test_1")
-        self.assertEqual(
-            list(sorted(map(lambda s: s.ns, page.categories.values()))), [14] * 3
-        )
+        self.assertEqual(list(sorted(map(lambda s: s.ns, page.categories.values()))), [14] * 3)
 
     def test_no_categories_count(self):
         page = self.wiki.page("No_Categories")

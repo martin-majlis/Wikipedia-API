@@ -178,9 +178,7 @@ def text(title, language, user_agent, variant, extract_format, namespace):
 @click.argument("title")
 @add_options(_common_options)
 @_json_option
-def sections(
-    title, language, user_agent, variant, extract_format, namespace, output_format
-):
+def sections(title, language, user_agent, variant, extract_format, namespace, output_format):
     """List sections of a Wikipedia page.
 
     TITLE is the Wikipedia page title.
@@ -217,9 +215,7 @@ def sections(
 @click.argument("title")
 @click.argument("section_title")
 @add_options(_common_options)
-def section(
-    title, section_title, language, user_agent, variant, extract_format, namespace
-):
+def section(title, section_title, language, user_agent, variant, extract_format, namespace):
     """Print the text of a specific section.
 
     TITLE is the Wikipedia page title.
@@ -245,9 +241,7 @@ def section(
 @click.argument("title")
 @add_options(_common_options)
 @_json_option
-def links(
-    title, language, user_agent, variant, extract_format, namespace, output_format
-):
+def links(title, language, user_agent, variant, extract_format, namespace, output_format):
     """List pages linked from a Wikipedia page.
 
     TITLE is the Wikipedia page title.
@@ -269,9 +263,7 @@ def links(
 @click.argument("title")
 @add_options(_common_options)
 @_json_option
-def backlinks(
-    title, language, user_agent, variant, extract_format, namespace, output_format
-):
+def backlinks(title, language, user_agent, variant, extract_format, namespace, output_format):
     """List pages that link to a Wikipedia page.
 
     TITLE is the Wikipedia page title.
@@ -293,9 +285,7 @@ def backlinks(
 @click.argument("title")
 @add_options(_common_options)
 @_json_option
-def langlinks(
-    title, language, user_agent, variant, extract_format, namespace, output_format
-):
+def langlinks(title, language, user_agent, variant, extract_format, namespace, output_format):
     """List language links for a Wikipedia page.
 
     Shows the page title in other language editions of Wikipedia.
@@ -335,9 +325,7 @@ def langlinks(
 @click.argument("title")
 @add_options(_common_options)
 @_json_option
-def categories(
-    title, language, user_agent, variant, extract_format, namespace, output_format
-):
+def categories(title, language, user_agent, variant, extract_format, namespace, output_format):
     """List categories for a Wikipedia page.
 
     TITLE is the Wikipedia page title.
@@ -417,9 +405,7 @@ def categorymembers(
 @click.argument("title")
 @add_options(_common_options)
 @_json_option
-def page(
-    title, language, user_agent, variant, extract_format, namespace, output_format
-):
+def page(title, language, user_agent, variant, extract_format, namespace, output_format):
     """Show metadata and existence info for a Wikipedia page.
 
     TITLE is the Wikipedia page title.

@@ -36,18 +36,21 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.11
-          cache: "pip"
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+          enable-cache: true
       - name: Install dependencies
         run: |
-          python -m pip install -U pip
           make requirements-dev
           make requirements
       - name: Install pre-commit hooks
         run: |
-          pre-commit install
+          make install-pre-commit
       - name: Run pre-commit
         run: |
-          pre-commit run -a
+          make run-pre-commit
 
   run-tests:
     name: Tests on ${{ matrix.os }} and ${{ matrix.python }}
@@ -63,10 +66,13 @@ jobs:
         name: Install Python
         with:
           python-version: ${{ matrix.python }}
-          cache: "pip"
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+          enable-cache: true
       - name: Install dependencies
         run: |
-          python -m pip install -U pip
           make requirements-dev
           make requirements
       - name: Run tests
@@ -84,10 +90,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+          enable-cache: true
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           make requirements
           make requirements-build
 
