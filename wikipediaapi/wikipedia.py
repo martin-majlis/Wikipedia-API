@@ -51,10 +51,10 @@ class Wikipedia:
         self,
         user_agent: str,
         language: str = "en",
-        variant: Optional[str] = None,
+        variant: str | None = None,
         extract_format: ExtractFormat = ExtractFormat.WIKI,
-        headers: Optional[dict[str, Any]] = None,
-        extra_api_params: Optional[dict[str, Any]] = None,
+        headers: dict[str, Any] | None = None,
+        extra_api_params: dict[str, Any] | None = None,
         max_retries: int = 3,
         retry_wait: float = 1.0,
         **request_kwargs,
@@ -485,7 +485,7 @@ class Wikipedia:
 
     def _attempt_request(
         self, base_url: str, used_params: dict[str, Any]
-    ) -> tuple[Optional[Any], Optional[WikiConnectionError | WikiHttpTimeoutError], bool]:
+    ) -> tuple[Any | None, WikiConnectionError | WikiHttpTimeoutError | None, bool]:
         """Perform a single HTTP GET and convert request-layer exceptions.
 
         :return: ``(response, exc, retryable)`` where *response* is the
@@ -508,7 +508,7 @@ class Wikipedia:
 
     def _handle_response(
         self, r: Any, base_url: str, attempt: int
-    ) -> tuple[Optional[WikiHttpError], bool, float]:
+    ) -> tuple[WikiHttpError | None, bool, float]:
         """Inspect an HTTP response and decide what to do next.
 
         :return: ``(exc, retryable, wait)`` where *exc* is set for retryable
@@ -580,7 +580,7 @@ class Wikipedia:
             base_url + "?" + "&".join([k + "=" + str(v) for k, v in used_params.items()]),
         )
 
-        last_exc: Optional[WikipediaException] = None
+        last_exc: WikipediaException | None = None
         for attempt in range(1 + self._max_retries):
             r, exc, retryable_req = self._attempt_request(base_url, used_params)
             if exc is not None:
@@ -792,8 +792,8 @@ class Wikipedia:
 
     @staticmethod
     def _check_and_correct_params(
-        language: Optional[str], variant: Optional[str], user_agent: Optional[str]
-    ) -> tuple[str, Optional[str], str]:
+        language: str | None, variant: str | None, user_agent: str | None
+    ) -> tuple[str, str | None, str]:
         """
         Checks the constructor parameters and throws AssertionError if they are incorrect.
         Otherwise, it normalises them to easy use later on.

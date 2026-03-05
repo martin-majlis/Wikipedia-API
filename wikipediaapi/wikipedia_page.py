@@ -1,4 +1,4 @@
-from typing import Any, Optional, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from .wikipedia import Wikipedia
@@ -60,8 +60,8 @@ class WikipediaPage:
         title: str,
         ns: WikiNamespace = Namespace.MAIN,
         language: str = "en",
-        variant: Optional[str] = None,
-        url: Optional[str] = None,
+        variant: str | None = None,
+        url: str | None = None,
     ) -> None:
         self.wiki = wiki
         self._summary = ""  # type: str
@@ -115,7 +115,7 @@ class WikipediaPage:
         return str(self._attributes["language"])
 
     @property
-    def variant(self) -> Optional[str]:
+    def variant(self) -> str | None:
         """
         Returns language variant of the current page.
 
@@ -175,7 +175,7 @@ class WikipediaPage:
     def section_by_title(
         self,
         title: str,
-    ) -> Optional[WikipediaPageSection]:
+    ) -> WikipediaPageSection | None:
         """
         Returns last section of the current page with given `title`.
 
