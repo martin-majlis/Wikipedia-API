@@ -15,7 +15,7 @@ help:
 .PHONY: help Makefile
 
 process-readme:
-	awk '/^\\.\\. PYPI-BEGIN$$/,/^\\.\\. PYPI-END$$/ {next} {print}' README.rst > README_processed.rst
+	awk '/^.. PYPI-BEGIN$$/,/^.. PYPI-END$$/ {next} {print}' README.rst > README_processed.rst
 
 pypi-html: process-readme
 	cat README_processed.rst | uv run rst2html > pypi-doc.html
@@ -128,6 +128,7 @@ release: process-readme pre-release-check
 	sed -i.bak -E 's/^version = .*/version = "'$$short_VERSION'"/' conf.py && rm conf.py.bak && \
 	sed -i.bak -E 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/_version.py && rm wikipediaapi/_version.py.bak; \
 	uv sync; \
+	make build-package check-package && \
 	git commit .github CHANGES.rst pyproject.toml uv.lock conf.py wikipediaapi/_version.py -m "Update version to $(VERSION) for new release." && \
 	git push && \
 	git tag v$(VERSION) -m "$(MSG)" && \
@@ -135,7 +136,11 @@ release: process-readme pre-release-check
 
 
 build-package: process-readme
+	rm -rf dist/*.tar.gz dist/*.whl
 	uv build
+
+check-package:
+	uv run twine check dist/*
 
 install: install-package
 install-package: process-readme
