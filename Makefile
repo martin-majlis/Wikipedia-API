@@ -123,7 +123,7 @@ release: process-readme pre-release-check
 	short_VERSION=`echo $(VERSION) | cut -f1-2 -d.`; \
 	commas_VERSION=`echo $(VERSION) | sed -E 's/\./, /g'`; \
 	echo "Short version: $$short_VERSION"; \
-	sed -i.bak -E 's/version =.*/version = "'$(VERSION)'",/' pyproject.toml && rm pyproject.toml.bak && \
+	sed -i.bak -E 's/version =.*/version = "'$(VERSION)'"/' pyproject.toml && rm pyproject.toml.bak && \
 	sed -i.bak -E 's/^release = .*/release = "'$(VERSION)'"/' conf.py && rm conf.py.bak && \
 	sed -i.bak -E 's/^version = .*/version = "'$$short_VERSION'"/' conf.py && rm conf.py.bak && \
 	sed -i.bak -E 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/_version.py && rm wikipediaapi/_version.py.bak;
