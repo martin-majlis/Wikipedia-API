@@ -136,7 +136,7 @@ release: process-readme pre-release-check
 
 
 build-package: process-readme
-	rm -rf dist/*.tar.gz dist/*.whl
+	rm -rfv dist/*.tar.gz dist/*.whl
 	uv build
 
 check-package:

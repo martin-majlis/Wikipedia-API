@@ -4,4 +4,50 @@ include README.rst
 include DEVELOPMENT.rst
 include API.rst
 include CLI.rst
+include pyproject.toml
 recursive-include wikipedia *.py
+
+# Exclude test files and directories
+prune tests
+prune .github
+prune docs
+prune .venv
+prune venv
+prune env
+prune build
+prune dist
+prune *.egg-info
+
+# Exclude development and configuration files
+exclude Makefile
+exclude tox.ini
+exclude uv.lock
+exclude example.py
+exclude conf.py
+exclude context7.json
+exclude index.rst
+exclude MANIFEST.in
+
+# Exclude dot files
+exclude .gitignore
+exclude .deepsource.toml
+exclude .dockerignore
+exclude .flake8
+exclude .isort.cfg
+exclude .mypy.ini
+exclude .pre-commit-config.yaml
+exclude .readthedocs.yml
+exclude .travis.yml
+
+# Exclude documentation files
+exclude AGENTS.md
+exclude CODE_OF_CONDUCT.md
+exclude CONTRIBUTING.rst
+exclude SECURITY.md
+exclude SECURITY.rst
+
+# Exclude cache and temporary files
+global-exclude *.pyc *.pyo *.pyd __pycache__
+global-exclude .pytest_cache .coverage .coverage.* .cache
+global-exclude .mypy_cache htmlcov
+global-exclude .*_cache .*log .*tmp

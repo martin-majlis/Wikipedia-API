@@ -73,6 +73,45 @@ wikipedia-api = "wikipediaapi.cli:main"
 [tool.doc-build]
 requires-python = ">=3.12"
 
+[tool.hatch.build]
+include = [
+    "wikipediaapi/**/*.py",
+    "LICENSE",
+    "CHANGES.rst",
+    "README.rst",
+    "DEVELOPMENT.rst",
+    "API.rst",
+    "CLI.rst",
+    "pyproject.toml"
+]
+exclude = [
+    "tests/**",
+    ".github/**",
+    "docs/**",
+    "Makefile",
+    "tox.ini",
+    "uv.lock",
+    "example.py",
+    "conf.py",
+    "context7.json",
+    "index.rst",
+    "MANIFEST.in",
+    ".gitignore",
+    ".deepsource.toml",
+    ".dockerignore",
+    ".flake8",
+    ".isort.cfg",
+    ".mypy.ini",
+    ".pre-commit-config.yaml",
+    ".readthedocs.yml",
+    ".travis.yml",
+    "AGENTS.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.rst",
+    "SECURITY.md",
+    "SECURITY.rst"
+]
+
 [tool.hatch.build.targets.wheel]
 packages = ["wikipediaapi"]
 
