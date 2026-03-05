@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.10.1
+------
+
+* Switch to uv - `PR 432`_
+
+.. _PR 432: https://github.com/martin-majlis/Wikipedia-API/pull/432
+
 0.10.0
 ------
 
