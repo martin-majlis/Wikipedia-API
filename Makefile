@@ -58,19 +58,19 @@ run-example:
 	./example.py
 
 requirements-all: process-readme
-	uv sync -v
+	uv sync -v --group dev --group build --group doc
 
 requirements: process-readme
 	uv sync -v --no-group dev --no-group doc --no-group build
 
 requirements-dev: process-readme
-	uv sync -v --no-group doc --no-group build
+	uv sync -v --group dev
 
 requirements-doc: process-readme
 	uv sync -v --group doc
 
 requirements-build: process-readme
-	uv sync -v --no-group doc
+	uv sync -v --group build
 
 update-pre-commit:
 	for repo in `grep "repo: " .pre-commit-config.yaml | grep http | cut -f5 -d" "`; do \
@@ -126,8 +126,9 @@ release: process-readme pre-release-check
 	sed -i.bak -E 's/version =.*/version = "'$(VERSION)'"/' pyproject.toml && rm pyproject.toml.bak && \
 	sed -i.bak -E 's/^release = .*/release = "'$(VERSION)'"/' conf.py && rm conf.py.bak && \
 	sed -i.bak -E 's/^version = .*/version = "'$$short_VERSION'"/' conf.py && rm conf.py.bak && \
-	sed -i.bak -E 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/_version.py && rm wikipediaapi/_version.py.bak;
-	git commit .github CHANGES.rst pyproject.toml conf.py wikipediaapi/_version.py -m "Update version to $(VERSION) for new release." && \
+	sed -i.bak -E 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/_version.py && rm wikipediaapi/_version.py.bak; \
+	uv sync; \
+	git commit .github CHANGES.rst pyproject.toml uv.lock conf.py wikipediaapi/_version.py -m "Update version to $(VERSION) for new release." && \
 	git push && \
 	git tag v$(VERSION) -m "$(MSG)" && \
 	git push --tags origin master
