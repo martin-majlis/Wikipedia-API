@@ -73,7 +73,7 @@ jobs:
     needs: cli-verify
     if: >
       (github.event_name == 'workflow_dispatch' && inputs.mode == 'record') ||
-      (needs.cli-verify.outputs.small_mismatches > 1)
+      (needs.cli-verify.outputs.small_mismatches > 1 && github.event_name != 'pull_request')
     runs-on: ubuntu-latest
     permissions:
       contents: write
