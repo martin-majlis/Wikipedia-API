@@ -58,19 +58,19 @@ run-example:
 	./example.py
 
 requirements-all: process-readme
-	uv sync -v
+	uv sync -v --group dev --group build --group doc
 
 requirements: process-readme
 	uv sync -v --no-group dev --no-group doc --no-group build
 
 requirements-dev: process-readme
-	uv sync -v --no-group doc --no-group build
+	uv sync -v --group dev
 
 requirements-doc: process-readme
 	uv sync -v --group doc
 
 requirements-build: process-readme
-	uv sync -v --no-group doc
+	uv sync -v --group build
 
 update-pre-commit:
 	for repo in `grep "repo: " .pre-commit-config.yaml | grep http | cut -f5 -d" "`; do \
