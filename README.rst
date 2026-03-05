@@ -407,13 +407,13 @@ External Links
 Other Badges
 ------------
 
-|cc-badge| |cc-issues| |coveralls| |version| |pyversions| |implementations|
+|version| |pyversions| |implementations|
 |github-downloads| |github-tag| |github-release|
 |github-commits-since-latest| |github-forks| |github-stars| |github-watches|
 |github-commit-activity| |github-last-commit| |github-code-size| |github-repo-size|
 |pypi-license| |pypi-wheel| |pypi-format| |pypi-pyversions| |pypi-implementations|
 |pypi-status| |pypi-downloads-dd| |pypi-downloads-dw| |pypi-downloads-dm|
-|libraries-io-sourcerank| |libraries-io-dependent-repos|
+|libraries-io-sourcerank| |libraries-io-dependent-repos| |coveralls|
 
 
 Other Pages
@@ -435,14 +435,6 @@ Other Pages
 .. |docs| image:: https://readthedocs.org/projects/wikipedia-api/badge/?version=latest
     :target: http://wikipedia-api.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
-
-.. |cc-badge| image:: https://codeclimate.com/github/martin-majlis/Wikipedia-API/badges/gpa.svg
-    :target: https://codeclimate.com/github/martin-majlis/Wikipedia-API
-    :alt: Code Climate
-
-.. |cc-issues| image:: https://codeclimate.com/github/martin-majlis/Wikipedia-API/badges/issue_count.svg
-    :target: https://codeclimate.com/github/martin-majlis/Wikipedia-API
-    :alt: Issue Count
 
 .. |codecov-coverage| image:: https://codecov.io/gh/martin-majlis/Wikipedia-API/graph/badge.svg?token=C4MgwR5nrm
     :target: https://app.codecov.io/gh/martin-majlis/Wikipedia-API
