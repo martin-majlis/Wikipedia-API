@@ -53,5 +53,5 @@ repos:
         name: Run pyupgrade
         entry: uv run pyupgrade
         language: system
-        args: ["--py39-plus"]
+        args: ["--py310-plus"]
         types: [file, python]
