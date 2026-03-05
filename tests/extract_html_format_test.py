@@ -135,7 +135,6 @@ class TestHtmlFormatExtracts(unittest.TestCase):
                 "<p><b>Summary</b> text\n\n</p>\n\n"
                 + "<h2>Section 1</h2>\n"
                 + "<p>Text for section 1</p>\n\n"
-                "<h3>Section with Edit</h3>\n"
-                + "<p>Text for section with edit\n\n\n</p>"
+                "<h3>Section with Edit</h3>\n" + "<p>Text for section with edit\n\n\n</p>"
             ),
         )

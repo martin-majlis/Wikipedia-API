@@ -58,9 +58,7 @@ class TestWikiFormatExtracts(unittest.TestCase):
         self.assertEqual(section.text, "Text for section 4.2.2")
         self.assertEqual(
             repr(section),
-            "Section: Section 4.2.2 (3):\n"
-            + "Text for section 4.2.2\n"
-            + "Subsections (0):\n",
+            "Section: Section 4.2.2 (3):\n" + "Text for section 4.2.2\n" + "Subsections (0):\n",
         )
         self.assertEqual(len(section.sections), 0)
 

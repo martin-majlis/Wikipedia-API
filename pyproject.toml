@@ -1,0 +1,101 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "Wikipedia-API"
+version = "0.10.0"
+description = "Python Wrapper for Wikipedia"
+readme = {file = "README.rst", content-type = "text/x-rst"}
+license = {text = "MIT"}
+authors = [
+    {name = "Martin Majlis", email = "martin@majlis.cz"},
+]
+keywords = ["Wikipedia", "API", "wrapper"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Communications :: Email",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "click==8.3.1",
+    "requests==2.32.5",
+]
+
+[dependency-groups]
+dev = [
+    "black==26.1.0",
+    "coverage==7.13.4",
+    "flake8==7.3.0",
+    "isort==8.0.1",
+    "mypy==1.19.1",
+    "pre-commit==4.5.1",
+    "pygments==2.19.2",
+    "pyupgrade==3.21.2",
+    "tox==4.47.0",
+    "types-requests==2.32.4.20260107",
+    "types-setuptools==82.0.0.20260210",
+]
+doc = [
+    "sphinx==9.1.0; python_version >= '3.12'",
+]
+build = [
+    "rst2html==2020.7.4",
+    "setuptools==82.0.0",
+    "wheel==0.46.3",
+]
+testing = []
+
+[project.urls]
+Homepage = "https://github.com/martin-majlis/Wikipedia-API"
+Repository = "https://github.com/martin-majlis/Wikipedia-API"
+"Bug Tracker" = "https://github.com/martin-majlis/Wikipedia-API/issues"
+
+[project.scripts]
+wikipedia-api = "wikipediaapi.cli:main"
+
+# Tool-specific Python version requirements
+[tool.doc-build]
+requires-python = ">=3.12"
+
+[tool.hatch.build.targets.wheel]
+packages = ["wikipediaapi"]
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+
+[tool.isort]
+profile = "google"
+line_length = 100
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.flake8]
+max-line-length = 100
+extend-ignore = ["E203", "W503"]
+
+[tool.coverage.run]
+source = ["wikipediaapi"]
+
+[tool.coverage.report]
+show_missing = true

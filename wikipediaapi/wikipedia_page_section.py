@@ -9,9 +9,7 @@ from .extract_format import ExtractFormat
 class WikipediaPageSection:
     """WikipediaPageSection represents section in the page."""
 
-    def __init__(
-        self, wiki: "Wikipedia", title: str, level: int = 0, text: str = ""
-    ) -> None:
+    def __init__(self, wiki: "Wikipedia", title: str, level: int = 0, text: str = "") -> None:
         """Constructs WikipediaPageSection."""
         self.wiki = wiki
         self._title = title
