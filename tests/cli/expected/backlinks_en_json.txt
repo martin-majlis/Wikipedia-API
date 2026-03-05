@@ -7519,6 +7519,11 @@
 "language": "en",
 "ns": 100
 },
+"Portal:Science": {
+"title": "Portal:Science",
+"language": "en",
+"ns": 100
+},
 "Portal:Science/News/2007": {
 "title": "Portal:Science/News/2007",
 "language": "en",
@@ -7606,6 +7611,11 @@
 },
 "Portal:Somerset/Nominate/Did you know": {
 "title": "Portal:Somerset/Nominate/Did you know",
+"language": "en",
+"ns": 100
+},
+"Portal:Spaceflight": {
+"title": "Portal:Spaceflight",
 "language": "en",
 "ns": 100
 },

@@ -1502,6 +1502,7 @@ Portal:Physics/News/Archive
 Portal:Physics/Selected images
 Portal:Physics/Selected images/14
 Portal:Physics/Selected picture/August 2012
+Portal:Science
 Portal:Science/News/2007
 Portal:Science/Recognized content
 Portal:Solar System
@@ -1520,6 +1521,7 @@ Portal:Solar System/Solar System topics/imagebox
 Portal:Somerset/Did you know
 Portal:Somerset/Did you know/2
 Portal:Somerset/Nominate/Did you know
+Portal:Spaceflight
 Portal:Spaceflight/Did you know
 Portal:Spaceflight/Did you know/2008 Fortnight 1
 Portal:Spaceflight/Did you know/2008 Fortnight 2
