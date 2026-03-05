@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "Wikipedia-API"
 version = "0.10.0"
 description = "Python Wrapper for Wikipedia"
-readme = {file = "README.rst", content-type = "text/x-rst"}
+readme = {file = "README_processed.rst", content-type = "text/x-rst"}
 license = {text = "MIT"}
 authors = [
     {name = "Martin Majlis", email = "martin@majlis.cz"},

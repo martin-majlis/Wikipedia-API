@@ -14,8 +14,11 @@ help:
 
 .PHONY: help Makefile
 
-pypi-html:
-	cat README.rst | uv run rst2html > pypi-doc.html
+process-readme:
+	awk '/^\\.\\. PYPI-BEGIN$$/,/^\\.\\. PYPI-END$$/ {next} {print}' README.rst > README_processed.rst
+
+pypi-html: process-readme
+	cat README_processed.rst | uv run rst2html > pypi-doc.html
 	echo file://$$( pwd )/pypi-doc.html
 
 run-pre-commit:
@@ -54,19 +57,19 @@ run-coverage:
 run-example:
 	./example.py
 
-requirements-all:
+requirements-all: process-readme
 	uv sync -v
 
-requirements:
+requirements: process-readme
 	uv sync -v --no-group dev --no-group doc --no-group build
 
-requirements-dev:
+requirements-dev: process-readme
 	uv sync -v --no-group doc --no-group build
 
-requirements-doc:
+requirements-doc: process-readme
 	uv sync -v --group doc
 
-requirements-build:
+requirements-build: process-readme
 	uv sync -v --no-group doc
 
 update-pre-commit:
@@ -78,7 +81,7 @@ update-pre-commit:
 pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage pypi-html run-tox run-example
 	echo "Pre-release check was successful"
 
-release: pre-release-check
+release: process-readme pre-release-check
 	if [ "x$(MSG)" = "x" -o "x$(VERSION)" = "x" ]; then \
 		echo "Use make release MSG='some msg' VERSION='1.2.3'"; \
 		exit 1; \
@@ -120,21 +123,21 @@ release: pre-release-check
 	short_VERSION=`echo $(VERSION) | cut -f1-2 -d.`; \
 	commas_VERSION=`echo $(VERSION) | sed -E 's/\./, /g'`; \
 	echo "Short version: $$short_VERSION"; \
-	sed -i.bak -E 's/version=.*/version = "'$(VERSION)'",/' pyproject.toml; rm pyproject.toml.bak; \
-	sed -i.bak -E 's/^release = .*/release = "'$(VERSION)'"/' conf.py; rm conf.py.bak; \
-	sed -i.bak -E 's/^version = .*/version = "'$$short_VERSION'"/' conf.py; rm conf.py.bak; \
-	sed -i.bak -E 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/_version.py; rm wikipediaapi/_version.py.bak; \
+	sed -i.bak -E 's/version =.*/version = "'$(VERSION)'",/' pyproject.toml && rm pyproject.toml.bak && \
+	sed -i.bak -E 's/^release = .*/release = "'$(VERSION)'"/' conf.py && rm conf.py.bak && \
+	sed -i.bak -E 's/^version = .*/version = "'$$short_VERSION'"/' conf.py && rm conf.py.bak && \
+	sed -i.bak -E 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/_version.py && rm wikipediaapi/_version.py.bak;
 	git commit .github CHANGES.rst pyproject.toml conf.py wikipediaapi/_version.py -m "Update version to $(VERSION) for new release." && \
 	git push && \
 	git tag v$(VERSION) -m "$(MSG)" && \
 	git push --tags origin master
 
 
-build-package:
+build-package: process-readme
 	uv build
 
 install: install-package
-install-package:
+install-package: process-readme
 	uv pip install -e .
 
 install-pre-commit:
