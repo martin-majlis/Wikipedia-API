@@ -57,19 +57,19 @@ run-coverage:
 run-example:
 	./example.py
 
-requirements-all:
+requirements-all: process-readme
 	uv sync -v
 
-requirements:
+requirements: process-readme
 	uv sync -v --no-group dev --no-group doc --no-group build
 
-requirements-dev:
+requirements-dev: process-readme
 	uv sync -v --no-group doc --no-group build
 
-requirements-doc:
+requirements-doc: process-readme
 	uv sync -v --group doc
 
-requirements-build:
+requirements-build: process-readme
 	uv sync -v --no-group doc
 
 update-pre-commit:
@@ -81,7 +81,7 @@ update-pre-commit:
 pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage pypi-html run-tox run-example
 	echo "Pre-release check was successful"
 
-release: pre-release-check
+release: process-readme pre-release-check
 	if [ "x$(MSG)" = "x" -o "x$(VERSION)" = "x" ]; then \
 		echo "Use make release MSG='some msg' VERSION='1.2.3'"; \
 		exit 1; \
@@ -137,7 +137,7 @@ build-package: process-readme
 	uv build
 
 install: install-package
-install-package:
+install-package: process-readme
 	uv pip install -e .
 
 install-pre-commit:
