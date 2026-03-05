@@ -7699,11 +7699,6 @@
 "language": "en",
 "ns": 100
 },
-"Portal:United States": {
-"title": "Portal:United States",
-"language": "en",
-"ns": 100
-},
 "Portal:United States/Anniversaries/April/April 25": {
 "title": "Portal:United States/Anniversaries/April/April 25",
 "language": "en",
