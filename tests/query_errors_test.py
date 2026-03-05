@@ -10,9 +10,7 @@ class TestQueryHttpErrors(unittest.TestCase):
     """Tests for _query HTTP error handling."""
 
     def setUp(self):
-        self.wiki = wikipediaapi.Wikipedia(
-            user_agent, "en", max_retries=0, retry_wait=0.0
-        )
+        self.wiki = wikipediaapi.Wikipedia(user_agent, "en", max_retries=0, retry_wait=0.0)
         self.page = self.wiki.page("Test")
 
     def _mock_response(self, status_code=200, json_data=None, headers=None):
@@ -42,9 +40,7 @@ class TestQueryHttpErrors(unittest.TestCase):
 
     @patch("requests.Session.get")
     def test_http_429_raises_rate_limit_error(self, mock_get):
-        mock_get.return_value = self._mock_response(
-            status_code=429, headers={"Retry-After": "5"}
-        )
+        mock_get.return_value = self._mock_response(status_code=429, headers={"Retry-After": "5"})
         with self.assertRaises(wikipediaapi.WikiRateLimitError) as ctx:
             self.wiki._query(self.page, {"action": "query"})
         self.assertEqual(ctx.exception.status_code, 429)
@@ -114,9 +110,7 @@ class TestQueryRetryLogic(unittest.TestCase):
     """Tests for _query retry behavior."""
 
     def setUp(self):
-        self.wiki = wikipediaapi.Wikipedia(
-            user_agent, "en", max_retries=2, retry_wait=0.0
-        )
+        self.wiki = wikipediaapi.Wikipedia(user_agent, "en", max_retries=2, retry_wait=0.0)
         self.page = self.wiki.page("Test")
 
     def _mock_response(self, status_code=200, json_data=None, headers=None):
@@ -247,29 +241,19 @@ class TestExceptionHierarchy(unittest.TestCase):
     """Tests for custom exception class hierarchy."""
 
     def test_wikipedia_exception_is_base(self):
+        self.assertTrue(issubclass(wikipediaapi.WikiHttpError, wikipediaapi.WikipediaException))
         self.assertTrue(
-            issubclass(wikipediaapi.WikiHttpError, wikipediaapi.WikipediaException)
+            issubclass(wikipediaapi.WikiHttpTimeoutError, wikipediaapi.WikipediaException)
         )
         self.assertTrue(
-            issubclass(
-                wikipediaapi.WikiHttpTimeoutError, wikipediaapi.WikipediaException
-            )
+            issubclass(wikipediaapi.WikiInvalidJsonError, wikipediaapi.WikipediaException)
         )
         self.assertTrue(
-            issubclass(
-                wikipediaapi.WikiInvalidJsonError, wikipediaapi.WikipediaException
-            )
-        )
-        self.assertTrue(
-            issubclass(
-                wikipediaapi.WikiConnectionError, wikipediaapi.WikipediaException
-            )
+            issubclass(wikipediaapi.WikiConnectionError, wikipediaapi.WikipediaException)
         )
 
     def test_rate_limit_error_is_http_error(self):
-        self.assertTrue(
-            issubclass(wikipediaapi.WikiRateLimitError, wikipediaapi.WikiHttpError)
-        )
+        self.assertTrue(issubclass(wikipediaapi.WikiRateLimitError, wikipediaapi.WikiHttpError))
 
     def test_exception_messages(self):
         e = wikipediaapi.WikiHttpError(404, "http://example.com")

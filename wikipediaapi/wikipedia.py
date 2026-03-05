@@ -22,9 +22,7 @@ from .wikipedia_page import WikipediaPage
 from .wikipedia_page_section import WikipediaPageSection
 
 USER_AGENT = (
-    "Wikipedia-API/"
-    + __version_str__
-    + "; https://github.com/martin-majlis/Wikipedia-API/"
+    "Wikipedia-API/" + __version_str__ + "; https://github.com/martin-majlis/Wikipedia-API/"
 )
 
 MIN_USER_AGENT_LEN = 5
@@ -164,9 +162,7 @@ class Wikipedia:
         if unquote:
             title = parse.unquote(title)
 
-        return WikipediaPage(
-            self, title=title, ns=ns, language=self.language, variant=self.variant
-        )
+        return WikipediaPage(self, title=title, ns=ns, language=self.language, variant=self.variant)
 
     def article(
         self, title: str, ns: WikiNamespace = Namespace.MAIN, unquote: bool = False
@@ -489,9 +485,7 @@ class Wikipedia:
 
     def _attempt_request(
         self, base_url: str, used_params: dict[str, Any]
-    ) -> tuple[
-        Optional[Any], Optional[WikiConnectionError | WikiHttpTimeoutError], bool
-    ]:
+    ) -> tuple[Optional[Any], Optional[WikiConnectionError | WikiHttpTimeoutError], bool]:
         """Perform a single HTTP GET and convert request-layer exceptions.
 
         :return: ``(response, exc, retryable)`` where *response* is the
@@ -583,9 +577,7 @@ class Wikipedia:
 
         log.info(
             "Request URL: %s",
-            base_url
-            + "?"
-            + "&".join([k + "=" + str(v) for k, v in used_params.items()]),
+            base_url + "?" + "&".join([k + "=" + str(v) for k, v in used_params.items()]),
         )
 
         last_exc: Optional[WikipediaException] = None
@@ -622,9 +614,7 @@ class Wikipedia:
         assert last_exc is not None
         raise last_exc
 
-    def _construct_params(
-        self, page: WikipediaPage, params: dict[str, Any]
-    ) -> dict[str, Any]:
+    def _construct_params(self, page: WikipediaPage, params: dict[str, Any]) -> dict[str, Any]:
         used_params = {}  # type: dict[str, Any]
         if page.variant:
             used_params["variant"] = page.variant
