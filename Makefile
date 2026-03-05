@@ -14,8 +14,11 @@ help:
 
 .PHONY: help Makefile
 
-pypi-html:
-	cat README.rst | uv run rst2html > pypi-doc.html
+process-readme:
+	awk '/^\\.\\. PYPI-BEGIN$$/,/^\\.\\. PYPI-END$$/ {next} {print}' README.rst > README_processed.rst
+
+pypi-html: process-readme
+	cat README_processed.rst | uv run rst2html > pypi-doc.html
 	echo file://$$( pwd )/pypi-doc.html
 
 run-pre-commit:
@@ -130,7 +133,7 @@ release: pre-release-check
 	git push --tags origin master
 
 
-build-package:
+build-package: process-readme
 	uv build
 
 install: install-package

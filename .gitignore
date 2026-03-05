@@ -110,6 +110,9 @@ ENV/
 _build/
 pypi-doc.html
 
+# Generated files
+README_processed.rst
+
 
 # Created by https://www.gitignore.io/api/pycharm+all,jetbrains+all
 
