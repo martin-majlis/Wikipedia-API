@@ -25,9 +25,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-          cache: "pip"
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+          enable-cache: true
       - name: Install Tox and any other packages
         run: make requirements-dev
       - name: Run Tox
         # Run tox using the version of Python in `PATH`
-        run: tox --version; tox -e py
+        run: make run-tox-ci

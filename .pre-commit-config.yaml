@@ -30,29 +30,28 @@ repos:
     hooks:
       - id: isort
         name: Run isort
-        entry: isort
-        language: python
+        entry: uv run isort
+        language: system
         args: ["--profile", "google", "--filter-files"]
         types: [file, python]
       - id: black
         name: Run black
-        entry: black
-        language: python
+        entry: uv run black
+        language: system
         types: [file, python]
       - id: flake8
         name: Run flake8
-        entry: flake8
-        language: python
-        additional_dependencies: [flake8-bugbear]
+        entry: uv run flake8
+        language: system
         types: [file, python]
       - id: mypy
         name: Run mypy
-        entry: mypy
-        language: python
+        entry: uv run mypy
+        language: system
         types: [file, python]
       - id: pyupgrade
         name: Run pyupgrade
-        entry: pyupgrade
-        language: python
+        entry: uv run pyupgrade
+        language: system
         args: ["--py39-plus"]
         types: [file, python]

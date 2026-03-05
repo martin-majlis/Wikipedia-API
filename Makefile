@@ -15,59 +15,64 @@ help:
 .PHONY: help Makefile
 
 pypi-html:
-	python3 setup.py --long-description | rst2html > pypi-doc.html
+	cat README.rst | uv run rst2html > pypi-doc.html
 	echo file://$$( pwd )/pypi-doc.html
 
 run-pre-commit:
-	pre-commit run -a
+	uv run pre-commit run -a
 
 run-tests: run-tests-unit run-test-cli-verify
 
 run-tests-unit:
-	python3 -m unittest discover tests/ '*test.py'
+	uv run python -m unittest discover tests/ '*test.py'
 
 run-test-cli-verify: install
-	./tests/cli/test_cli.sh verify
+	uv run ./tests/cli/test_cli.sh verify
 
 run-test-cli-record: install
-	./tests/cli/test_cli.sh record
+	uv run ./tests/cli/test_cli.sh record
 
 run-type-check:
-	mypy ./wikipediaapi
+	uv run mypy ./wikipediaapi
 
 run-flake8:
-	flake8 --max-line-length=100 wikipediaapi tests
+	uv run flake8 --max-line-length=100 wikipediaapi tests
 
 run-tox:
-	tox
+	uv run tox --version
+	uv run tox
+
+run-tox-ci:
+	uv run tox --version
+	uv run tox -e py
 
 run-coverage:
-	coverage run --source=wikipediaapi -m unittest discover tests/ '*test.py'
-	coverage report -m
-	coverage xml
+	uv run coverage run --source=wikipediaapi -m unittest discover tests/ '*test.py'
+	uv run coverage report -m
+	uv run coverage xml
 
 run-example:
 	./example.py
 
-requirements-all: requirements requirements-dev requirements-doc requirements-build
-	echo "Requirements were installed"
+requirements-all:
+	uv sync -v
 
 requirements:
-	pip install -r requirements.txt
+	uv sync -v --no-group dev --no-group doc --no-group build
 
 requirements-dev:
-	pip install -r requirements-dev.txt
+	uv sync -v --no-group doc --no-group build
 
 requirements-doc:
-	pip install -r requirements-doc.txt
+	uv sync -v --group doc
 
 requirements-build:
-	pip install -r requirements-build.txt
+	uv sync -v --no-group doc
 
 update-pre-commit:
 	for repo in `grep "repo: " .pre-commit-config.yaml | grep http | cut -f5 -d" "`; do \
 		echo $$repo; \
-		pre-commit autoupdate --repo "$${repo}"; \
+		uv run pre-commit autoupdate --repo "$${repo}"; \
 	done;
 
 pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage pypi-html run-tox run-example
@@ -115,21 +120,25 @@ release: pre-release-check
 	short_VERSION=`echo $(VERSION) | cut -f1-2 -d.`; \
 	commas_VERSION=`echo $(VERSION) | sed -E 's/\./, /g'`; \
 	echo "Short version: $$short_VERSION"; \
-	sed -i.bak -E 's/version=.*/version="'$(VERSION)'",/' setup.py; rm setup.py.bak; \
+	sed -i.bak -E 's/version=.*/version = "'$(VERSION)'",/' pyproject.toml; rm pyproject.toml.bak; \
 	sed -i.bak -E 's/^release = .*/release = "'$(VERSION)'"/' conf.py; rm conf.py.bak; \
 	sed -i.bak -E 's/^version = .*/version = "'$$short_VERSION'"/' conf.py; rm conf.py.bak; \
 	sed -i.bak -E 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/_version.py; rm wikipediaapi/_version.py.bak; \
-	git commit .github CHANGES.rst setup.py conf.py wikipediaapi/_version.py -m "Update version to $(VERSION) for new release." && \
+	git commit .github CHANGES.rst pyproject.toml conf.py wikipediaapi/_version.py -m "Update version to $(VERSION) for new release." && \
 	git push && \
 	git tag v$(VERSION) -m "$(MSG)" && \
 	git push --tags origin master
 
 
 build-package:
-	python setup.py sdist
+	uv build
 
-install:
-	pip install -e .
+install: install-package
+install-package:
+	uv pip install -e .
+
+install-pre-commit:
+	uv run pre-commit install
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

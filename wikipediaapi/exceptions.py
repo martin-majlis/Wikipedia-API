@@ -25,9 +25,7 @@ class WikiHttpError(WikipediaException):
 class WikiRateLimitError(WikiHttpError):
     """HTTP 429 - Too Many Requests."""
 
-    def __init__(
-        self, url: str, retry_after: Optional[int] = None
-    ) -> None:  # noqa: B042
+    def __init__(self, url: str, retry_after: Optional[int] = None) -> None:  # noqa: B042
         self.retry_after = retry_after
         super().__init__(429, url)
 
