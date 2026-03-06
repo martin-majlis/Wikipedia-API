@@ -571,3 +571,444 @@ _MOCK_DATA = {
         },
     },
 }
+
+
+# ── CLI-specific mock data and helpers ───────────────────────────────────────────
+
+
+def create_mock_wikipedia(language="en", variant=None, extract_format="wiki"):
+    """Create a mock Wikipedia instance for testing CLI functions."""
+    import wikipediaapi
+
+    wiki = wikipediaapi.Wikipedia(
+        user_agent=user_agent,
+        language=language,
+        variant=variant,
+        extract_format=(
+            wikipediaapi.ExtractFormat.WIKI
+            if extract_format == "wiki"
+            else wikipediaapi.ExtractFormat.HTML
+        ),
+    )
+    wiki._query = wikipedia_api_request(wiki)
+    return wiki
+
+
+def create_mock_page(title, pageid=1, exists=True, language="en", namespace=0):
+    """Create a mock Wikipedia page for testing."""
+    import wikipediaapi
+
+    wiki = create_mock_wikipedia(language)
+    page = wikipediaapi.WikipediaPage(
+        wiki=wiki,
+        title=title,
+        ns=wikipediaapi.Namespace.MAIN if namespace == 0 else wikipediaapi.Namespace.CATEGORY,
+        language=language,
+    )
+
+    if exists:
+        # Set up mock attributes for existing pages
+        page._attributes = {
+            "fullurl": f"https://{language}.wikipedia.org/wiki/{title}",
+            "canonicalurl": f"https://{language}.wikipedia.org/wiki/{title}",
+            "displaytitle": title,
+            "pageid": pageid,
+        }
+    else:
+        # Mock non-existent page
+        page._attributes = {"missing": ""}
+
+    return page
+
+
+# CLI-specific mock responses for different scenarios
+CLI_MOCK_PAGES = {
+    "summary_test": {
+        "title": "Test Page",
+        "summary": "This is a test summary for the Wikipedia page.",
+        "exists": True,
+    },
+    "text_test": {
+        "title": "Test Page",
+        "text": "This is the full text of the test page.\n\n== Section 1 ==\nContent for section 1.",
+        "exists": True,
+    },
+    "sections_test": {
+        "title": "Test Page",
+        "sections": [
+            {"title": "Introduction", "level": 1, "indent": 0},
+            {"title": "History", "level": 1, "indent": 0},
+            {"title": "Early History", "level": 2, "indent": 1},
+            {"title": "Modern History", "level": 2, "indent": 1},
+            {"title": "Geography", "level": 1, "indent": 0},
+        ],
+        "exists": True,
+    },
+    "links_test": {
+        "title": "Test Page",
+        "links": {
+            "Related Page 1": create_mock_page("Related Page 1", 2, True),
+            "Related Page 2": create_mock_page("Related Page 2", 3, True),
+            "Related Page 3": create_mock_page("Related Page 3", 4, True),
+        },
+        "exists": True,
+    },
+    "langlinks_test": {
+        "title": "Test Page",
+        "langlinks": {
+            "de": create_mock_page("Test Seite", 5, True, "de"),
+            "fr": create_mock_page("Page de test", 6, True, "fr"),
+            "es": create_mock_page("Página de prueba", 7, True, "es"),
+        },
+        "exists": True,
+    },
+    "categories_test": {
+        "title": "Test Page",
+        "categories": {
+            "Category:Test": create_mock_page("Category:Test", 8, True),
+            "Category:Example": create_mock_page("Category:Example", 9, True),
+        },
+        "exists": True,
+    },
+    "categorymembers_test": {
+        "title": "Category:Test",
+        "members": [
+            {"title": "Test Page 1", "ns": 0, "level": 0},
+            {"title": "Test Page 2", "ns": 0, "level": 0},
+            {"title": "Subcategory", "ns": 14, "level": 0},
+            {"title": "Subcategory Page", "ns": 0, "level": 1},
+        ],
+        "exists": True,
+    },
+    "nonexistent": {
+        "title": "Nonexistent Page",
+        "exists": False,
+    },
+}
+
+
+# Additional mock API responses for CLI-specific scenarios
+_CLI_MOCK_DATA = {
+    # Mock response for section queries
+    "en:action=query&explaintext=1&exsectionformat=wiki&format=json&prop=extracts&redirects=1&titles=CLI_Section_Test&": {
+        "batchcomplete": "",
+        "query": {
+            "normalized": [{"from": "CLI_Section_Test", "to": "CLI Section Test"}],
+            "pages": {
+                "100": {
+                    "pageid": 100,
+                    "ns": 0,
+                    "title": "CLI Section Test",
+                    "extract": (
+                        "Summary for CLI section test.\n\n\n"
+                        + "== Section 1 ==\n"
+                        + "Content for section 1.\n\n\n"
+                        + "== Section 2 ==\n"
+                        + "Content for section 2.\n\n\n"
+                        + "=== Subsection 2.1 ===\n"
+                        + "Content for subsection 2.1.\n\n\n"
+                        + "== Section 3 ==\n"
+                        + "Content for section 3."
+                    ),
+                }
+            },
+        },
+    },
+    # Mock response for backlinks
+    "en:action=query&format=json&prop=backlinks&redirects=1&titles=CLI_Backlinks_Test&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "101": {
+                    "pageid": 101,
+                    "ns": 0,
+                    "title": "CLI Backlinks Test",
+                    "backlinks": [
+                        {"ns": 0, "title": "Page linking to test 1"},
+                        {"ns": 0, "title": "Page linking to test 2"},
+                        {"ns": 14, "title": "Category linking to test"},
+                    ],
+                }
+            },
+        },
+    },
+    # Mock response for categories
+    "en:action=query&format=json&prop=categories&redirects=1&titles=CLI_Categories_Test&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "102": {
+                    "pageid": 102,
+                    "ns": 0,
+                    "title": "CLI Categories Test",
+                    "categories": [
+                        {"ns": 14, "title": "Category:Test Category 1"},
+                        {"ns": 14, "title": "Category:Test Category 2"},
+                    ],
+                }
+            },
+        },
+    },
+    # Mock response for category members
+    "en:action=query&format=json&prop=categorymembers&redirects=1&titles=Category:CLI_Test&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "103": {
+                    "pageid": 103,
+                    "ns": 14,
+                    "title": "Category:CLI Test",
+                    "categorymembers": [
+                        {"ns": 0, "title": "CLI Test Page 1"},
+                        {"ns": 0, "title": "CLI Test Page 2"},
+                        {"ns": 14, "title": "Category:CLI Subcategory"},
+                    ],
+                }
+            },
+        },
+    },
+    # Mock response for non-existent page
+    "en:action=query&explaintext=1&exsectionformat=wiki&format=json&prop=extracts&redirects=1&titles=CLI_Nonexistent_Test&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "ns": 0,
+                    "title": "CLI Nonexistent Test",
+                    "missing": "",
+                }
+            },
+        },
+    },
+    # Add normalized version of Test_1 key for CLI tests
+    "en:action=query&explaintext=1&exsectionformat=wiki&format=json&prop=extracts&redirects=1&titles=Test 1&": _MOCK_DATA.get(
+        "en:action=query&explaintext=1&exsectionformat=wiki&format=json&prop=extracts&redirects=1&titles=Test_1&",
+        {},
+    ),
+    # Add info queries for CLI tests
+    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=Category:CLI_Test&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "103": {
+                    "pageid": 103,
+                    "ns": 14,
+                    "title": "Category:CLI Test",
+                    "contentmodel": "wikitext",
+                    "pagelanguage": "en",
+                    "pagelanguagehtmlcode": "en",
+                    "pagelanguagedir": "ltr",
+                    "protection": [],
+                    "restrictiontypes": ["create"],
+                    "notificationtimestamp": "",
+                    "fullurl": "https://en.wikipedia.org/wiki/Category:CLI_Test",
+                    "editurl": "https://en.wikipedia.org/w/index.php?title=Category:CLI_Test&action=edit",
+                    "canonicalurl": "https://en.wikipedia.org/wiki/Category:CLI_Test",
+                    "readable": "",
+                    "preload": None,
+                    "displaytitle": "Category:CLI Test",
+                }
+            },
+        },
+    },
+    # Add backlinks query for CLI tests
+    "en:action=query&format=json&prop=backlinks&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "backlinks": [
+                        {"ns": 0, "title": "Backlink Page 1"},
+                        {"ns": 0, "title": "Backlink Page 2"},
+                    ],
+                }
+            },
+        },
+    },
+    # Add categories query for CLI tests
+    "en:action=query&format=json&prop=categories&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "categories": [
+                        {"ns": 14, "title": "Category:Test Category 1"},
+                        {"ns": 14, "title": "Category:Test Category 2"},
+                    ],
+                }
+            },
+        },
+    },
+    # Add categorymembers query for CLI tests
+    "en:action=query&format=json&prop=categorymembers&redirects=1&titles=Category:CLI_Test&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "103": {
+                    "pageid": 103,
+                    "ns": 14,
+                    "title": "Category:CLI Test",
+                    "categorymembers": [
+                        {"ns": 0, "title": "CLI Test Page 1"},
+                        {"ns": 0, "title": "CLI Test Page 2"},
+                        {"ns": 14, "title": "Category:CLI Subcategory"},
+                    ],
+                }
+            },
+        },
+    },
+    # Add normalized versions for common queries
+    "en:action=query&format=json&prop=backlinks&redirects=1&titles=Test 1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "backlinks": [
+                        {"ns": 0, "title": "Backlink Page 1"},
+                        {"ns": 0, "title": "Backlink Page 2"},
+                    ],
+                }
+            },
+        },
+    },
+    "en:action=query&format=json&prop=categories&redirects=1&titles=Test 1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "categories": [
+                        {"ns": 14, "title": "Category:Test Category 1"},
+                        {"ns": 14, "title": "Category:Test Category 2"},
+                    ],
+                }
+            },
+        },
+    },
+    # Add categorymembers list query for CLI tests
+    "en:action=query&cmlimit=500&cmtitle=Category:CLI Test&format=json&list=categorymembers&redirects=1&": {
+        "batchcomplete": "",
+        "query": {
+            "categorymembers": [
+                {"ns": 0, "title": "CLI Test Page 1", "pageid": 1001},
+                {"ns": 0, "title": "CLI Test Page 2", "pageid": 1002},
+                {"ns": 14, "title": "Category:CLI Subcategory", "pageid": 1003},
+            ],
+        },
+    },
+    # Add list-based queries for CLI tests
+    "en:action=query&bllimit=500&bltitle=Test 1&format=json&list=backlinks&redirects=1&": {
+        "batchcomplete": "",
+        "query": {
+            "backlinks": [
+                {"ns": 0, "title": "Backlink Page 1", "pageid": 2001},
+                {"ns": 0, "title": "Backlink Page 2", "pageid": 2002},
+            ],
+        },
+    },
+    "en:action=query&cllimit=500&format=json&prop=categories&redirects=1&titles=Test 1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "categories": [
+                        {"ns": 14, "title": "Category:Test Category 1"},
+                        {"ns": 14, "title": "Category:Test Category 2"},
+                    ],
+                }
+            },
+        },
+    },
+    "en:action=query&format=json&lllimit=500&llprop=url&prop=langlinks&redirects=1&titles=Test 1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "langlinks": [
+                        {
+                            "lang": "de",
+                            "url": "https://de.wikipedia.org/wiki/Test",
+                            "*": "Test Seite",
+                        },
+                        {
+                            "lang": "fr",
+                            "url": "https://fr.wikipedia.org/wiki/Test",
+                            "*": "Page de test",
+                        },
+                    ],
+                }
+            },
+        },
+    },
+    "en:action=query&format=json&pllimit=500&prop=links&redirects=1&titles=Test 1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "links": [
+                        {"ns": 0, "title": "Linked Page 1"},
+                        {"ns": 0, "title": "Linked Page 2"},
+                    ],
+                }
+            },
+        },
+    },
+    # Add subcategory query for recursive category members
+    "en:action=query&cmlimit=500&cmtitle=Category:CLI Subcategory&format=json&list=categorymembers&redirects=1&": {
+        "batchcomplete": "",
+        "query": {
+            "categorymembers": [
+                {"ns": 0, "title": "Subcategory Page", "pageid": 3001},
+            ],
+        },
+    },
+    # Add nonexistent category info query
+    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=Category:Nonexistent&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "ns": 14,
+                    "title": "Category:Nonexistent",
+                    "missing": "",
+                    "contentmodel": "wikitext",
+                    "pagelanguage": "en",
+                    "pagelanguagehtmlcode": "en",
+                    "pagelanguagedir": "ltr",
+                    "protection": [],
+                    "restrictiontypes": ["create"],
+                    "notificationtimestamp": "",
+                    "fullurl": "https://en.wikipedia.org/wiki/Category:Nonexistent",
+                    "editurl": "https://en.wikipedia.org/w/index.php?title=Category:Nonexistent&action=edit",
+                    "canonicalurl": "https://en.wikipedia.org/wiki/Category:Nonexistent",
+                    "readable": "",
+                    "preload": None,
+                    "displaytitle": "Category:Nonexistent",
+                }
+            },
+        },
+    },
+}
+
+# Merge CLI mock data with main mock data
+_MOCK_DATA.update(_CLI_MOCK_DATA)
