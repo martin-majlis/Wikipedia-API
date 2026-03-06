@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "Wikipedia-API"
-version = "0.10.1"
+version = "0.10.2"
 description = "Python Wrapper for Wikipedia"
 readme = {file = "README_processed.rst", content-type = "text/x-rst"}
 license = {text = "MIT"}

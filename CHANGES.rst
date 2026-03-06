@@ -1,6 +1,17 @@
 Changelog
 =========
 
+0.10.2
+------
+
+* Apply security best practices - `PR 447`_
+* Increase CLI test coverage - `PR 449`_
+* Increase code coverage - `PR 451`_
+
+.. _PR 447: https://github.com/martin-majlis/Wikipedia-API/pull/447
+.. _PR 449: https://github.com/martin-majlis/Wikipedia-API/pull/449
+.. _PR 451: https://github.com/martin-majlis/Wikipedia-API/pull/451
+
 0.10.1
 ------
 
