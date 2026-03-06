@@ -1520,7 +1520,6 @@ Portal:Solar System/Solar System topics/imagebox
 Portal:Somerset/Did you know
 Portal:Somerset/Did you know/2
 Portal:Somerset/Nominate/Did you know
-Portal:Spaceflight
 Portal:Spaceflight/Did you know
 Portal:Spaceflight/Did you know/2008 Fortnight 1
 Portal:Spaceflight/Did you know/2008 Fortnight 2
@@ -4408,7 +4407,6 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
-Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1
