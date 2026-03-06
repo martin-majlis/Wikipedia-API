@@ -1,5 +1,7 @@
 import unittest
+from unittest.mock import MagicMock
 
+from tests.mock_data import user_agent
 import wikipediaapi
 
 
@@ -103,3 +105,131 @@ class TestWikipedia(unittest.TestCase):
             user_agent,
             "header-user-agent (" + wikipediaapi.USER_AGENT + ")",
         )
+
+    def test_extracts_nonexistent_page(self):
+        """Test extracts method when page doesn't exist (pageid = -1)."""
+        wiki = wikipediaapi.Wikipedia(user_agent, "en")
+
+        page = MagicMock()
+        page.language = "en"
+        page._attributes = {}
+
+        # Mock the API response to return pageid = -1 (nonexistent page)
+        def mock_query(page_obj, params):
+            return {"query": {"pages": {"-1": {}}}}
+
+        wiki._query = mock_query
+
+        result = wiki.extracts(page)
+        self.assertEqual(result, "")
+        # The pageid should be set to -1 in the attributes
+        self.assertIn("pageid", page._attributes)
+        self.assertEqual(page._attributes["pageid"], -1)
+
+    def test_info_nonexistent_page(self):
+        """Test info method when page doesn't exist (pageid = -1)."""
+        wiki = wikipediaapi.Wikipedia(user_agent, "en")
+
+        page = MagicMock()
+        page.language = "en"
+        page._attributes = {}
+
+        # Mock the API response to return pageid = -1 (nonexistent page)
+        def mock_query(page_obj, params):
+            return {"query": {"pages": {"-1": {}}}}
+
+        wiki._query = mock_query
+
+        result = wiki.info(page)
+        self.assertEqual(result, page)
+
+    def test_langlinks_nonexistent_page(self):
+        """Test langlinks method when page doesn't exist (pageid = -1)."""
+        wiki = wikipediaapi.Wikipedia(user_agent, "en")
+
+        page = MagicMock()
+        page.language = "en"
+        page._attributes = {}
+
+        # Mock the API response to return pageid = -1 (nonexistent page)
+        def mock_query(page_obj, params):
+            return {"query": {"pages": {"-1": {}}}}
+
+        wiki._query = mock_query
+
+        result = wiki.langlinks(page)
+        self.assertEqual(result, {})
+        # The pageid should be set to -1 in the attributes
+        self.assertIn("pageid", page._attributes)
+        self.assertEqual(page._attributes["pageid"], -1)
+
+    def test_links_nonexistent_page(self):
+        """Test links method when page doesn't exist (pageid = -1)."""
+        wiki = wikipediaapi.Wikipedia(user_agent, "en")
+
+        page = MagicMock()
+        page.language = "en"
+        page._attributes = {}
+
+        # Mock the API response to return pageid = -1 (nonexistent page)
+        def mock_query(page_obj, params):
+            return {"query": {"pages": {"-1": {}}}}
+
+        wiki._query = mock_query
+
+        result = wiki.links(page)
+        self.assertEqual(result, {})
+        # The pageid should be set to -1 in the attributes
+        self.assertIn("pageid", page._attributes)
+        self.assertEqual(page._attributes["pageid"], -1)
+
+    def test_backlinks_nonexistent_page(self):
+        """Test backlinks method when page doesn't exist (pageid = -1)."""
+        wiki = wikipediaapi.Wikipedia(user_agent, "en")
+
+        page = MagicMock()
+        page.language = "en"
+        page._attributes = {}
+
+        # Mock the API response to return pageid = -1 (nonexistent page)
+        def mock_query(page_obj, params):
+            return {"query": {"pages": {"-1": {}}}}
+
+        wiki._query = mock_query
+
+        result = wiki.backlinks(page)
+        self.assertEqual(result, {})
+
+    def test_categories_nonexistent_page(self):
+        """Test categories method when page doesn't exist (pageid = -1)."""
+        wiki = wikipediaapi.Wikipedia(user_agent, "en")
+
+        page = MagicMock()
+        page.language = "en"
+        page._attributes = {}
+
+        # Mock the API response to return pageid = -1 (nonexistent page)
+        def mock_query(page_obj, params):
+            return {"query": {"pages": {"-1": {}}}}
+
+        wiki._query = mock_query
+
+        result = wiki.categories(page)
+        self.assertEqual(result, {})
+
+    def test_categorymembers_nonexistent_page(self):
+        """Test categorymembers method when page doesn't exist (pageid = -1)."""
+        wiki = wikipediaapi.Wikipedia(user_agent, "en")
+
+        page = MagicMock()
+        page.language = "en"
+        page._attributes = {}
+
+        # Mock the API response to return pageid = -1 (nonexistent page)
+        def mock_query(page_obj, params):
+            return {"query": {"pages": {"-1": {}}}}
+
+        wiki._query = mock_query
+
+        result = wiki.categorymembers(page)
+        self.assertEqual(result, {})

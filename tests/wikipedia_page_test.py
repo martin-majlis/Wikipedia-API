@@ -100,3 +100,20 @@ class TestWikipediaPage(unittest.TestCase):
         wiki._query = wikipedia_api_request(wiki)
         page = wiki.page("Extra_API_Params")
         self.assertTrue(page.exists())
+
+    def test_sections_by_title_not_found(self):
+        """Test sections_by_title method when section doesn't exist."""
+        wiki = wikipediaapi.Wikipedia(user_agent, "en")
+        wiki._query = wikipedia_api_request(wiki)
+        page = wiki.page("Test_1")
+
+        # Access sections to build the mapping
+        _ = page.sections
+
+        # Test with a section that doesn't exist
+        result = page.sections_by_title("Nonexistent Section")
+        self.assertEqual(result, [])
+
+        # Also test with a section that definitely doesn't exist
+        result2 = page.sections_by_title("Section That Does Not Exist At All")
+        self.assertEqual(result2, [])
