@@ -271,7 +271,7 @@ verify_mode() {
 
                     diff_output=$(diff <(echo "$expected") <(echo "$actual") | head -20) || true
                     echo -e "    ${YELLOW}Diff (first 20 lines):${NC}"
-                    echo "$diff_output" | sed 's/^/    /'
+                    echo "${diff_output//^/    }"
                     echo ""
                 fi
             fi

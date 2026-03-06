@@ -29,10 +29,10 @@ run-tests: run-tests-unit run-test-cli-verify
 run-tests-unit:
 	uv run python -m unittest discover tests/ '*test.py'
 
-run-test-cli-verify: install
+run-test-cli-verify:
 	uv run ./tests/cli/test_cli.sh verify
 
-run-test-cli-record: install
+run-test-cli-record:
 	uv run ./tests/cli/test_cli.sh record
 
 run-type-check:
