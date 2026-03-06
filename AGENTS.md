@@ -76,6 +76,67 @@ make run-coverage
 
 Produces a coverage report and `coverage.xml` for the `wikipediaapi` package.
 
+### Code Coverage Requirements
+
+**🎯 CRITICAL: Always maintain code coverage above 90%**
+
+Before submitting any changes, ensure that:
+
+1. **Run coverage check**: `make run-coverage`
+2. **Verify coverage**: All modules must have ≥90% coverage
+3. **CLI module special attention**: The `wikipediaapi/cli.py` module must maintain ≥90% coverage
+4. **If coverage drops**: Add appropriate tests to bring coverage back above 90%
+5. **Coverage report**: Check the output for any modules below 90% and address them
+
+Current coverage targets:
+
+- **Overall project**: ≥90%
+- **CLI module**: ≥90% (currently 96%)
+- **Core modules**: ≥95%
+
+The coverage report will show:
+
+```
+Name                                     Stmts   Miss  Cover   Missing
+wikipediaapi/cli.py                        289     11    96%   28, 38, 60-61, 367-376, 730
+```
+
+If any module shows coverage below 90%, you must:
+
+1. Identify the missing lines in the `Missing` column
+2. Write tests to cover the uncovered code paths
+3. Re-run coverage until all modules meet the 90% threshold
+
+### Code Quality Requirements
+
+**🔧 CRITICAL: All pre-commit hooks must pass**
+
+Before submitting any changes, ensure that:
+
+1. **Run pre-commit checks**: `make run-pre-commit`
+2. **All hooks must pass**: No failures allowed
+3. **Fix any issues**: Address linting, formatting, type checking, and other violations
+4. **Re-run until clean**: Continue fixing and re-running until all checks pass
+
+The pre-commit hooks include:
+
+- **isort**: Import sorting
+- **black**: Code formatting
+- **flake8**: Linting (max line length: 100)
+- **mypy**: Type checking
+- **pyupgrade**: Python syntax upgrades
+- **trailing whitespace**: Whitespace cleanup
+- **YAML validation**: YAML file checks
+
+Common issues to fix:
+
+- Remove unused imports (F401)
+- Fix line length violations (E501: max 100 characters)
+- Resolve type checking errors
+- Fix undefined variables (F821)
+- Avoid lambda assignments (E731)
+- Fix redefinition errors (F811)
+
 ### Run Tests Across Python Versions (tox)
 
 ```bash

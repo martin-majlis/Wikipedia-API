@@ -24,7 +24,7 @@ pypi-html: process-readme
 run-pre-commit:
 	uv run pre-commit run -a
 
-run-tests: run-tests-unit run-test-cli-verify
+run-tests: run-tests-unit run-test-cli-verify run-tests-cli-unit
 
 run-tests-unit:
 	uv run python -m unittest discover tests/ '*test.py'
@@ -34,6 +34,9 @@ run-test-cli-verify:
 
 run-test-cli-record:
 	uv run ./tests/cli/test_cli.sh record
+
+run-tests-cli-unit:
+	uv run python -m unittest tests.cli_test -v
 
 run-type-check:
 	uv run mypy ./wikipediaapi
