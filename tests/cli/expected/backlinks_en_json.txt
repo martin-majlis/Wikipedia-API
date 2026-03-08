@@ -7369,6 +7369,11 @@
 "language": "en",
 "ns": 100
 },
+"Portal:History of science": {
+"title": "Portal:History of science",
+"language": "en",
+"ns": 100
+},
 "Portal:History of science/Selected anniversaries/April": {
 "title": "Portal:History of science/Selected anniversaries/April",
 "language": "en",
@@ -7491,6 +7496,11 @@
 },
 "Portal:Outer space/Selected article/7": {
 "title": "Portal:Outer space/Selected article/7",
+"language": "en",
+"ns": 100
+},
+"Portal:Physics": {
+"title": "Portal:Physics",
 "language": "en",
 "ns": 100
 },
@@ -22044,6 +22054,11 @@
 "language": "en",
 "ns": 5
 },
+"Wikipedia talk:WikiProject Portals/Design/Archive 3": {
+"title": "Wikipedia talk:WikiProject Portals/Design/Archive 3",
+"language": "en",
+"ns": 5
+},
 "Wikipedia talk:WikiProject Solar System/Archive 1": {
 "title": "Wikipedia talk:WikiProject Solar System/Archive 1",
 "language": "en",
@@ -24961,11 +24976,6 @@
 },
 "Zodiacal light": {
 "title": "Zodiacal light",
-"language": "en",
-"ns": 0
-},
-"Zymal": {
-"title": "Zymal",
 "language": "en",
 "ns": 0
 }
