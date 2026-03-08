@@ -128,16 +128,30 @@ jobs:
           if git diff --cached --quiet; then
             echo "No fixture changes detected."
           else
-            # Create new branch for fixture updates
-            BRANCH_NAME="update-cli-fixtures-$(date +%Y%m%d-%H%M%S)"
-            git checkout -b $BRANCH_NAME
-            git commit -m "Update CLI test fixtures [automated]"
-            git push origin $BRANCH_NAME
-            echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+            # Check if there's an existing open PR for fixture updates
+            EXISTING_PR=$(gh pr list --state open --search "Update CLI test fixtures" --json number --jq '.[0].number' || echo "")
+
+            if [ -n "$EXISTING_PR" ]; then
+              # Update existing PR
+              EXISTING_BRANCH=$(gh pr view $EXISTING_PR --json headRefName --jq '.headRefName')
+              git checkout $EXISTING_BRANCH
+              git commit -m "Update CLI test fixtures [automated]"
+              git push origin $EXISTING_BRANCH
+              echo "branch_name=$EXISTING_BRANCH" >> $GITHUB_OUTPUT
+              echo "existing_pr=true" >> $GITHUB_OUTPUT
+            else
+              # Create new branch for fixture updates
+              BRANCH_NAME="update-cli-fixtures-$(date +%Y%m%d-%H%M%S)"
+              git checkout -b $BRANCH_NAME
+              git commit -m "Update CLI test fixtures [automated]"
+              git push origin $BRANCH_NAME
+              echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+              echo "existing_pr=false" >> $GITHUB_OUTPUT
+            fi
           fi
 
       - name: Create Pull Request
-        if: steps.commit.outputs.branch_name
+        if: steps.commit.outputs.branch_name && steps.commit.outputs.existing_pr == 'false'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
