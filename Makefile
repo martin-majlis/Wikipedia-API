@@ -58,7 +58,7 @@ run-coverage:
 	uv run coverage xml
 
 run-example:
-	./example.py
+	uv run python ./example.py
 
 requirements-all: process-readme
 	uv sync -v --group dev --group build --group doc
@@ -84,7 +84,7 @@ update-pre-commit:
 pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage pypi-html run-tox run-example
 	echo "Pre-release check was successful"
 
-release: process-readme pre-release-check
+release: requirements-build process-readme pre-release-check
 	if [ "x$(MSG)" = "x" -o "x$(VERSION)" = "x" ]; then \
 		echo "Use make release MSG='some msg' VERSION='1.2.3'"; \
 		exit 1; \
@@ -130,7 +130,6 @@ release: process-readme pre-release-check
 	sed -i.bak -E 's/^release = .*/release = "'$(VERSION)'"/' conf.py && rm conf.py.bak && \
 	sed -i.bak -E 's/^version = .*/version = "'$$short_VERSION'"/' conf.py && rm conf.py.bak && \
 	sed -i.bak -E 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/_version.py && rm wikipediaapi/_version.py.bak; \
-	uv sync; \
 	make build-package check-package && \
 	git commit .github CHANGES.rst pyproject.toml uv.lock conf.py wikipediaapi/_version.py -m "Update version to $(VERSION) for new release." && \
 	git push && \
