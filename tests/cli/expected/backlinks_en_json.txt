@@ -7499,11 +7499,6 @@
 "language": "en",
 "ns": 100
 },
-"Portal:Physics": {
-"title": "Portal:Physics",
-"language": "en",
-"ns": 100
-},
 "Portal:Physics/2012 Selected pictures": {
 "title": "Portal:Physics/2012 Selected pictures",
 "language": "en",
