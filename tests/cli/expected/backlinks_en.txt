@@ -1191,7 +1191,6 @@ Moons of Neptune
 Moons of Pluto
 Moons of Saturn
 Moons of Uranus
-Mordor Macula
 Morgoth Macula
 Mother of Storms
 Mothers and Daughters (comics)
@@ -1219,6 +1218,7 @@ Neptune
 Neptune All Night
 Neptune Odyssey
 Neptune trojan
+Neverland Regio
 New Frontiers program
 New Horizons
 New Horizons 2
@@ -1472,7 +1472,6 @@ Portal:Current events/November 2005
 Portal:Current events/November 2015
 Portal:Current events/October 2016
 Portal:Current events/October 2020
-Portal:History of science
 Portal:History of science/Selected anniversaries/April
 Portal:History of science/Selected anniversaries/April 30
 Portal:History of science/Selected anniversaries/August
@@ -4264,6 +4263,7 @@ User:YoureIronic/Userboxes/Pluto
 User:Ypnypn/Vital good articles
 User:Yume no Kishi
 User:Yuubel
+User:ZKang123
 User:ZLiang/userbox misc
 User:ZNomadYT/List of Baby Globe appearances
 User:ZabMilenko/wikipedia

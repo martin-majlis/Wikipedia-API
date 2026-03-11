@@ -5824,6 +5824,11 @@
 "language": "en",
 "ns": 0
 },
+"Urban area": {
+"title": "Urban area",
+"language": "en",
+"ns": 0
+},
 "Van Allen radiation belt": {
 "title": "Van Allen radiation belt",
 "language": "en",
