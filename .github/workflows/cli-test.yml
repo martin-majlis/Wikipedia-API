@@ -131,22 +131,45 @@ jobs:
             echo "No fixture changes detected."
           else
             # Check if there's an existing open PR for fixture updates
+            echo "Searching for existing PRs with 'Update CLI test fixtures'..."
             EXISTING_PR=$(gh pr list --state open --search "Update CLI test fixtures" --json number --jq '.[0].number' || echo "")
+            echo "Found existing PR: $EXISTING_PR"
 
             if [ -n "$EXISTING_PR" ]; then
               # Update existing PR
+              echo "Updating existing PR #$EXISTING_PR"
               EXISTING_BRANCH=$(gh pr view $EXISTING_PR --json headRefName --jq '.headRefName')
+              echo "Existing branch name: $EXISTING_BRANCH"
+
+              # Fetch the remote branch locally before checkout
+              echo "Fetching remote branch: origin/$EXISTING_BRANCH"
+              git fetch origin $EXISTING_BRANCH:$EXISTING_BRANCH
+
+              echo "Checking out branch: $EXISTING_BRANCH"
               git checkout $EXISTING_BRANCH
+
+              echo "Committing fixture changes to existing branch"
               git commit -m "Update CLI test fixtures [automated]"
+
+              echo "Pushing changes to origin/$EXISTING_BRANCH"
               git push origin $EXISTING_BRANCH
+
               echo "branch_name=$EXISTING_BRANCH" >> $GITHUB_OUTPUT
               echo "existing_pr=true" >> $GITHUB_OUTPUT
             else
               # Create new branch for fixture updates
+              echo "No existing PR found, creating new branch"
               BRANCH_NAME="update-cli-fixtures-$(date +%Y%m%d-%H%M%S)"
+              echo "Creating new branch: $BRANCH_NAME"
+
               git checkout -b $BRANCH_NAME
+
+              echo "Committing fixture changes to new branch"
               git commit -m "Update CLI test fixtures [automated]"
+
+              echo "Pushing new branch to origin"
               git push origin $BRANCH_NAME
+
               echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
               echo "existing_pr=false" >> $GITHUB_OUTPUT
             fi
@@ -157,8 +180,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          echo "Creating new pull request for branch: ${{ steps.commit.outputs.branch_name }}"
           gh pr create \
             --base master \
             --head ${{ steps.commit.outputs.branch_name }} \
             --title "Update CLI test fixtures [automated]" \
             --body "This PR updates CLI test fixtures automatically. Please review and merge if the changes look correct."
+          echo "Pull request created successfully"
