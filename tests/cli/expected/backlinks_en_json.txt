@@ -5964,11 +5964,6 @@
 "language": "en",
 "ns": 0
 },
-"Mordor Macula": {
-"title": "Mordor Macula",
-"language": "en",
-"ns": 0
-},
 "Morgoth Macula": {
 "title": "Morgoth Macula",
 "language": "en",
@@ -6101,6 +6096,11 @@
 },
 "Neptune trojan": {
 "title": "Neptune trojan",
+"language": "en",
+"ns": 0
+},
+"Neverland Regio": {
+"title": "Neverland Regio",
 "language": "en",
 "ns": 0
 },
@@ -7366,11 +7366,6 @@
 },
 "Portal:Current events/October 2020": {
 "title": "Portal:Current events/October 2020",
-"language": "en",
-"ns": 100
-},
-"Portal:History of science": {
-"title": "Portal:History of science",
 "language": "en",
 "ns": 100
 },
@@ -21326,6 +21321,11 @@
 },
 "User:Yuubel": {
 "title": "User:Yuubel",
+"language": "en",
+"ns": 2
+},
+"User:ZKang123": {
+"title": "User:ZKang123",
 "language": "en",
 "ns": 2
 },
