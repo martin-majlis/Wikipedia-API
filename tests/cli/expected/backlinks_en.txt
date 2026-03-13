@@ -1497,6 +1497,7 @@ Portal:Outer space/Selected article/30
 Portal:Outer space/Selected article/34
 Portal:Outer space/Selected article/39
 Portal:Outer space/Selected article/7
+Portal:Physics
 Portal:Physics/2012 Selected pictures
 Portal:Physics/News/Archive
 Portal:Physics/Selected images
@@ -2605,7 +2606,6 @@ User:Blurredandfaded/Books/cosmicHalmaFellowship
 User:Bmitchelf
 User:Bobby D. DS.
 User:Bobby D. DS./Userboxes
-User:Bobby43255/Vlogmations
 User:Bobbylon
 User:Bogdan u Gabriel
 User:Bolegash
@@ -3610,6 +3610,7 @@ User:Oriole92
 User:Oriole92/oldprofile
 User:Our Coven
 User:Out of this World Adventure
+User:OutOfThisWiki
 User:Outofthedim
 User:Owlofthewillows/Books/Astronomy
 User:PHENYLALANINE/Books/The Solar System
@@ -4408,7 +4409,6 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
-Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1

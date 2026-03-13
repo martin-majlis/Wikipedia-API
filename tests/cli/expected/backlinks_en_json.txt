@@ -7494,6 +7494,11 @@
 "language": "en",
 "ns": 100
 },
+"Portal:Physics": {
+"title": "Portal:Physics",
+"language": "en",
+"ns": 100
+},
 "Portal:Physics/2012 Selected pictures": {
 "title": "Portal:Physics/2012 Selected pictures",
 "language": "en",
@@ -13034,11 +13039,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Bobby43255/Vlogmations": {
-"title": "User:Bobby43255/Vlogmations",
-"language": "en",
-"ns": 2
-},
 "User:Bobbylon": {
 "title": "User:Bobbylon",
 "language": "en",
@@ -18059,6 +18059,11 @@
 "language": "en",
 "ns": 2
 },
+"User:OutOfThisWiki": {
+"title": "User:OutOfThisWiki",
+"language": "en",
+"ns": 2
+},
 "User:Outofthedim": {
 "title": "User:Outofthedim",
 "language": "en",
@@ -22046,11 +22051,6 @@
 },
 "Wikipedia talk:WikiProject Medicine/Archive 152": {
 "title": "Wikipedia talk:WikiProject Medicine/Archive 152",
-"language": "en",
-"ns": 5
-},
-"Wikipedia talk:WikiProject Portals/Design/Archive 3": {
-"title": "Wikipedia talk:WikiProject Portals/Design/Archive 3",
 "language": "en",
 "ns": 5
 },

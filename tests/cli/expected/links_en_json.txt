@@ -264,11 +264,6 @@
 "language": "en",
 "ns": 0
 },
-"Apollo 17": {
-"title": "Apollo 17",
-"language": "en",
-"ns": 0
-},
 "Apsis": {
 "title": "Apsis",
 "language": "en",
@@ -5481,11 +5476,6 @@
 },
 "Tethys (moon)": {
 "title": "Tethys (moon)",
-"language": "en",
-"ns": 0
-},
-"The Blue Marble": {
-"title": "The Blue Marble",
 "language": "en",
 "ns": 0
 },
