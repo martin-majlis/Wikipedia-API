@@ -33,7 +33,8 @@ classifiers = [
 requires-python = ">=3.10"
 dependencies = [
     "click==8.3.1",
-    "requests==2.32.5",
+    "httpx==0.28.1",
+    "tenacity==9.1.2",
 ]
 
 [dependency-groups]
@@ -47,7 +48,8 @@ dev = [
     "pygments==2.19.2",
     "pyupgrade==3.21.2",
     "tox==4.49.0",
-    "types-requests==2.32.4.20260107",
+    "anyio[trio]==4.9.0",
+    "respx==0.22.0",
     "types-setuptools==82.0.0.20260210",
 ]
 doc = [
@@ -59,7 +61,10 @@ build = [
     "twine>=6.2.0",
     "wheel==0.46.3",
 ]
-testing = []
+testing = [
+    "anyio[trio]==4.9.0",
+    "respx==0.22.0",
+]
 
 [project.urls]
 Homepage = "https://github.com/martin-majlis/Wikipedia-API"
@@ -80,10 +85,14 @@ include = [
     "CHANGES.rst",
     "README.rst",
     "DEVELOPMENT.rst",
+    "DESIGN.rst",
     "API.rst",
     "CLI.rst",
-    "pyproject.toml"
+    "pyproject.toml",
+    "example_sync.py",
+    "example_async.py",
 ]
+
 exclude = [
     "tests/**",
     ".github/**",
@@ -91,7 +100,6 @@ exclude = [
     "Makefile",
     "tox.ini",
     "uv.lock",
-    "example.py",
     "conf.py",
     "context7.json",
     "index.rst",

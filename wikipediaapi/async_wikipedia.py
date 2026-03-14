@@ -1,30 +1,38 @@
-from ._http_client import SyncHTTPClient
-from ._http_client import USER_AGENT  # noqa: F401
-from ._resources import WikipediaResource
+from ._http_client import AsyncHTTPClient
+from ._resources import AsyncWikipediaResource
 
 
-class Wikipedia(WikipediaResource, SyncHTTPClient):
+class AsyncWikipedia(AsyncWikipediaResource, AsyncHTTPClient):
     """
-    Synchronous client for the Wikipedia API.
+    Asynchronous client for the Wikipedia API.
 
-    Combines :class:`~wikipediaapi._resources.WikipediaResource` (public
-    API methods) and :class:`~wikipediaapi._http_client.SyncHTTPClient`
-    (blocking ``httpx`` transport with ``tenacity`` retry logic) via
-    multiple inheritance.
+    Combines :class:`~wikipediaapi._resources.AsyncWikipediaResource`
+    (public async API methods) and
+    :class:`~wikipediaapi._http_client.AsyncHTTPClient` (non-blocking
+    ``httpx`` transport with ``tenacity`` retry logic) via multiple
+    inheritance.
 
     All constructor parameters are forwarded to
     :class:`~wikipediaapi._http_client.BaseHTTPClient`.
 
+    Unlike :class:`~wikipediaapi.Wikipedia`, the page object returned by
+    :meth:`page` is an :class:`~wikipediaapi.AsyncWikipediaPage` whose
+    data-fetching methods are coroutines and must be ``await``-ed.
+
     Example usage::
 
+        import asyncio
         import wikipediaapi
 
-        wiki = wikipediaapi.Wikipedia(
-            user_agent='MyProject/1.0 (contact@example.com)',
-            language='en',
-        )
-        page = wiki.page('Python_(programming_language)')
-        print(page.summary[:200])
+        async def main():
+            wiki = wikipediaapi.AsyncWikipedia(
+                user_agent='MyProject/1.0 (contact@example.com)',
+                language='en',
+            )
+            page = wiki.page('Python_(programming_language)')
+            print(await page.summary())
+
+        asyncio.run(main())
 
     :param user_agent: HTTP ``User-Agent`` string identifying your
         project.  Must be at least 5 characters long.  See
@@ -49,7 +57,7 @@ class Wikipedia(WikipediaResource, SyncHTTPClient):
         ``Retry-After`` header value is used instead.  Defaults to
         ``1.0``.
     :param kwargs: additional keyword arguments forwarded to
-        ``httpx.Client`` (e.g. ``timeout=30.0``, ``proxies={…}``).
+        ``httpx.AsyncClient`` (e.g. ``timeout=30.0``).
     """
 
     pass

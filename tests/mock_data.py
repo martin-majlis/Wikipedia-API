@@ -4,13 +4,23 @@ user_agent = "UnitTests (bot@example.com)"
 
 
 def wikipedia_api_request(wiki):
-    def api_request(page, params):
-        used_params = wiki._construct_params(page, params)
+    def api_request(language, params):
         query = ""
-        for k in sorted(used_params.keys()):
-            query += k + "=" + str(used_params[k]) + "&"
+        for k in sorted(params.keys()):
+            query += k + "=" + str(params[k]) + "&"
 
-        return _MOCK_DATA[page.language + ":" + query]
+        return _MOCK_DATA[language + ":" + query]
+
+    return api_request
+
+
+def async_wikipedia_api_request(wiki):
+    async def api_request(language, params):
+        query = ""
+        for k in sorted(params.keys()):
+            query += k + "=" + str(params[k]) + "&"
+
+        return _MOCK_DATA[language + ":" + query]
 
     return api_request
 
@@ -590,7 +600,7 @@ def create_mock_wikipedia(language="en", variant=None, extract_format="wiki"):
             else wikipediaapi.ExtractFormat.HTML
         ),
     )
-    wiki._query = wikipedia_api_request(wiki)
+    wiki._get = wikipedia_api_request(wiki)
     return wiki
 
 

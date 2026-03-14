@@ -75,7 +75,7 @@ class TestWikipedia(unittest.TestCase):
             user_agent="param-user-agent",
         )
         self.assertIsNotNone(wiki)
-        user_agent = wiki._session.headers.get("User-Agent")
+        user_agent = wiki._client.headers.get("User-Agent")
         self.assertEqual(
             user_agent,
             "param-user-agent (" + wikipediaapi.USER_AGENT + ")",
@@ -88,7 +88,7 @@ class TestWikipedia(unittest.TestCase):
             headers={"User-Agent": "header-user-agent"},
         )
         self.assertIsNotNone(wiki)
-        user_agent = wiki._session.headers.get("User-Agent")
+        user_agent = wiki._client.headers.get("User-Agent")
         self.assertEqual(
             user_agent,
             "header-user-agent (" + wikipediaapi.USER_AGENT + ")",
@@ -100,7 +100,7 @@ class TestWikipedia(unittest.TestCase):
             headers={"User-Agent": "header-user-agent"},
         )
         self.assertIsNotNone(wiki)
-        user_agent = wiki._session.headers.get("User-Agent")
+        user_agent = wiki._client.headers.get("User-Agent")
         self.assertEqual(
             user_agent,
             "header-user-agent (" + wikipediaapi.USER_AGENT + ")",
@@ -115,10 +115,10 @@ class TestWikipedia(unittest.TestCase):
         page._attributes = {}
 
         # Mock the API response to return pageid = -1 (nonexistent page)
-        def mock_query(page_obj, params):
+        def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._query = mock_query
+        wiki._get = mock_get
 
         result = wiki.extracts(page)
         self.assertEqual(result, "")
@@ -135,10 +135,10 @@ class TestWikipedia(unittest.TestCase):
         page._attributes = {}
 
         # Mock the API response to return pageid = -1 (nonexistent page)
-        def mock_query(page_obj, params):
+        def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._query = mock_query
+        wiki._get = mock_get
 
         result = wiki.info(page)
         self.assertEqual(result, page)
@@ -152,10 +152,10 @@ class TestWikipedia(unittest.TestCase):
         page._attributes = {}
 
         # Mock the API response to return pageid = -1 (nonexistent page)
-        def mock_query(page_obj, params):
+        def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._query = mock_query
+        wiki._get = mock_get
 
         result = wiki.langlinks(page)
         self.assertEqual(result, {})
@@ -172,10 +172,10 @@ class TestWikipedia(unittest.TestCase):
         page._attributes = {}
 
         # Mock the API response to return pageid = -1 (nonexistent page)
-        def mock_query(page_obj, params):
+        def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._query = mock_query
+        wiki._get = mock_get
 
         result = wiki.links(page)
         self.assertEqual(result, {})
@@ -192,10 +192,10 @@ class TestWikipedia(unittest.TestCase):
         page._attributes = {}
 
         # Mock the API response to return pageid = -1 (nonexistent page)
-        def mock_query(page_obj, params):
+        def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._query = mock_query
+        wiki._get = mock_get
 
         result = wiki.backlinks(page)
         self.assertEqual(result, {})
@@ -209,10 +209,10 @@ class TestWikipedia(unittest.TestCase):
         page._attributes = {}
 
         # Mock the API response to return pageid = -1 (nonexistent page)
-        def mock_query(page_obj, params):
+        def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._query = mock_query
+        wiki._get = mock_get
 
         result = wiki.categories(page)
         self.assertEqual(result, {})
@@ -226,10 +226,10 @@ class TestWikipedia(unittest.TestCase):
         page._attributes = {}
 
         # Mock the API response to return pageid = -1 (nonexistent page)
-        def mock_query(page_obj, params):
+        def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._query = mock_query
+        wiki._get = mock_get
 
         result = wiki.categorymembers(page)
         self.assertEqual(result, {})
