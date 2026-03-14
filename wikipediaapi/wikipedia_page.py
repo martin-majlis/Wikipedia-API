@@ -13,17 +13,38 @@ PagesDict = dict[str, "WikipediaPage"]
 
 class WikipediaPage:
     """
-    Represents Wikipedia page.
+    Lazy representation of a Wikipedia page.
 
-    Except properties mentioned as part of documentation, there are also
-    these properties available:
+    A ``WikipediaPage`` is created by :meth:`~wikipediaapi.Wikipedia.page`
+    and requires no network call at construction time.  Data is fetched
+    from the MediaWiki API on demand: accessing a property triggers the
+    minimum API call needed to populate it, and the result is cached so
+    subsequent accesses are free.
 
-    * `fullurl` - full URL of the page
-    * `canonicalurl` - canonical URL of the page
-    * `pageid` - id of the current page
-    * `displaytitle` - title of the page to display
-    * `talkid` - id of the page with discussion
+    **Named properties** (always available without a network call):
 
+    :attr language: two-letter language code this page belongs to
+    :attr variant: language variant used for auto-conversion, or ``None``
+    :attr title: page title as passed to :meth:`~wikipediaapi.Wikipedia.page`
+    :attr namespace: integer namespace number (``0`` = main article)
+
+    **Dynamically resolved attributes** (fetched lazily via
+    :attr:`ATTRIBUTES_MAPPING`; trigger an ``info`` or ``extracts`` call
+    on first access):
+
+    * ``pageid`` — MediaWiki page ID (``-1`` for missing pages)
+    * ``fullurl`` — canonical read URL of the page
+    * ``canonicalurl`` — canonical URL
+    * ``editurl`` — URL for editing the page
+    * ``displaytitle`` — formatted display title
+    * ``talkid`` — ID of the associated talk page
+    * ``lastrevid`` — ID of the most recent revision
+    * ``length`` — page size in bytes
+    * ``touched`` — timestamp of the last cache invalidation
+    * ``contentmodel``, ``pagelanguage``, ``pagelanguagehtmlcode``,
+      ``pagelanguagedir``, ``protection``, ``restrictiontypes``,
+      ``watchers``, ``visitingwatchers``, ``notificationtimestamp``,
+      ``readable``, ``preload``, ``varianttitles``
     """
 
     ATTRIBUTES_MAPPING = {
@@ -63,6 +84,24 @@ class WikipediaPage:
         variant: str | None = None,
         url: str | None = None,
     ) -> None:
+        """
+        Initialise a lazy Wikipedia page stub.
+
+        No network call is made here.  All cache attributes are
+        initialised to empty values; they are populated by the first
+        access to the corresponding property.
+
+        :param wiki: the :class:`~wikipediaapi.Wikipedia` client used to
+            fetch data when properties are accessed
+        :param title: page title exactly as passed by the caller
+        :param ns: namespace; stored as an integer via
+            :func:`~wikipediaapi.namespace2int`
+        :param language: two-letter Wikipedia language code
+        :param variant: language variant for automatic conversion, or
+            ``None`` to disable
+        :param url: pre-set ``fullurl`` attribute; used when the page
+            stub is created from a lang-link response
+        """
         self.wiki = wiki
         self._summary = ""  # type: str
         self._section = []  # type: list[WikipediaPageSection]
@@ -93,7 +132,20 @@ class WikipediaPage:
         if url is not None:
             self._attributes["fullurl"] = url
 
-    def __getattr__(self, name):
+    def __getattr__(self, name: str) -> Any:
+        """
+        Resolve a lazily-fetched attribute by name.
+
+        If *name* is listed in :attr:`ATTRIBUTES_MAPPING` and is not yet
+        cached in ``_attributes``, each API call listed for that
+        attribute is invoked in order until the attribute is populated.
+        For attributes not in the mapping the normal
+        ``__getattribute__`` path is used (which raises
+        ``AttributeError`` for truly missing attributes).
+
+        :param name: attribute name to resolve
+        :return: the attribute value after fetching if necessary
+        """
         if name not in self.ATTRIBUTES_MAPPING:
             return self.__getattribute__(name)
 
@@ -108,18 +160,23 @@ class WikipediaPage:
     @property
     def language(self) -> str:
         """
-        Returns language of the current page.
+        Two-letter Wikipedia language code for this page.
 
-        :return: language
+        Set at construction time and never changed.
+
+        :return: language code string (e.g. ``"en"``, ``"de"``)
         """
         return str(self._attributes["language"])
 
     @property
     def variant(self) -> str | None:
         """
-        Returns language variant of the current page.
+        Language variant used for automatic text conversion, or ``None``.
 
-        :return: language variant
+        When set, the MediaWiki API converts the page content to the
+        specified variant (e.g. ``"zh-tw"`` for Traditional Chinese).
+
+        :return: variant string, or ``None`` if no conversion is applied
         """
         v = self._attributes["variant"]
         return str(v) if v else None
@@ -127,35 +184,47 @@ class WikipediaPage:
     @property
     def title(self) -> str:
         """
-        Returns title of the current page.
+        Title of this page as supplied to :meth:`~wikipediaapi.Wikipedia.page`.
 
-        :return: title
+        :return: page title string
         """
         return str(self._attributes["title"])
 
     @property
     def namespace(self) -> int:
         """
-        Returns namespace of the current page.
+        Integer namespace number of this page.
 
-        :return: namespace
+        ``0`` for main-namespace articles; see :class:`~wikipediaapi.Namespace`
+        for the full list of namespace values.
+
+        :return: namespace as an integer
         """
         return int(self._attributes["ns"])
 
     def exists(self) -> bool:
         """
-        Returns `True` if the current page exists, otherwise `False`.
+        Return ``True`` if this page exists on Wikipedia.
 
-        :return: if current page existst or not
+        Triggers an ``info`` API call on first invocation (via
+        ``pageid`` attribute resolution) and caches the result.
+        A ``pageid`` of ``-1`` indicates a missing page.
+
+        :return: ``True`` if the page exists, ``False`` otherwise
         """
         return bool(self.pageid != -1)
 
     @property
     def summary(self) -> str:
         """
-        Returns summary of the current page.
+        Introductory text of this page (the content before the first section).
 
-        :return: summary
+        Triggers an ``extracts`` API call on first access; subsequent
+        accesses return the cached value.  Returns an empty string for
+        pages that do not exist.
+
+        :return: plain-text or HTML summary string depending on
+            ``wiki.extract_format``
         """
         if not self._called["extracts"]:
             self._fetch("extracts")
@@ -164,9 +233,14 @@ class WikipediaPage:
     @property
     def sections(self) -> list[WikipediaPageSection]:
         """
-        Returns all sections of the curent page.
+        Top-level sections of this page.
 
-        :return: List of :class:`WikipediaPageSection`
+        Each element is a :class:`WikipediaPageSection` that may contain
+        its own child sections.  Triggers an ``extracts`` call on first
+        access.
+
+        :return: list of top-level :class:`WikipediaPageSection` objects
+            (may be empty for pages with no sections)
         """
         if not self._called["extracts"]:
             self._fetch("extracts")
@@ -177,10 +251,15 @@ class WikipediaPage:
         title: str,
     ) -> WikipediaPageSection | None:
         """
-        Returns last section of the current page with given `title`.
+        Return the last section on this page whose heading matches *title*.
 
-        :param title: section title
-        :return: :class:`WikipediaPageSection`
+        Triggers an ``extracts`` call on first access if needed.
+        When several sections share the same heading (e.g. multiple
+        "January" sections in a year page) the last one is returned.
+
+        :param title: exact heading text to look up
+        :return: the matching :class:`WikipediaPageSection`, or ``None``
+            if no section with that title exists
         """
         if not self._called["extracts"]:
             self._fetch("extracts")
@@ -194,10 +273,15 @@ class WikipediaPage:
         title: str,
     ) -> list[WikipediaPageSection]:
         """
-        Returns all section of the current page with given `title`.
+        Return all sections on this page whose heading matches *title*.
 
-        :param title: section title
-        :return: :class:`WikipediaPageSection`
+        Useful for year-type pages where multiple sections share the
+        same heading (e.g. ``"January"``).
+        Triggers an ``extracts`` call on first access if needed.
+
+        :param title: exact heading text to look up
+        :return: list of matching :class:`WikipediaPageSection` objects;
+            empty list if no section with that title exists
         """
         if not self._called["extracts"]:
             self._fetch("extracts")
@@ -209,9 +293,15 @@ class WikipediaPage:
     @property
     def text(self) -> str:
         """
-        Returns text of the current page.
+        Full text of this page: summary followed by all sections.
 
-        :return: text of the current page
+        Assembles the text by concatenating :attr:`summary` with the
+        :meth:`~WikipediaPageSection.full_text` of every top-level
+        section.  The result is stripped of leading/trailing whitespace.
+
+        Triggers an ``extracts`` call on first access.
+
+        :return: complete page text as a single string
         """
         txt = self.summary
         if len(txt) > 0:
@@ -223,14 +313,19 @@ class WikipediaPage:
     @property
     def langlinks(self) -> PagesDict:
         """
-        Returns all language links to pages in other languages.
+        Map of language codes to corresponding pages in other Wikipedias.
 
-        This is wrapper for:
+        Keys are two-letter language codes (e.g. ``"de"``, ``"fr"``),
+        values are stub :class:`WikipediaPage` objects with their
+        ``language`` and ``fullurl`` pre-set.  Triggers a ``langlinks``
+        API call on first access.
+
+        API reference:
 
         * https://www.mediawiki.org/w/api.php?action=help&modules=query%2Blanglinks
         * https://www.mediawiki.org/wiki/API:Langlinks
 
-        :return: :class:`PagesDict`
+        :return: ``{language_code: WikipediaPage}`` dict
         """
         if not self._called["langlinks"]:
             self._fetch("langlinks")
@@ -239,14 +334,18 @@ class WikipediaPage:
     @property
     def links(self) -> PagesDict:
         """
-        Returns all pages linked from the current page.
+        Map of page titles to stub pages linked from this page.
 
-        This is wrapper for:
+        All inter-wiki links are included, with automatic pagination so
+        the complete set is always returned.  Triggers a ``links`` API
+        call on first access.
+
+        API reference:
 
         * https://www.mediawiki.org/w/api.php?action=help&modules=query%2Blinks
         * https://www.mediawiki.org/wiki/API:Links
 
-        :return: :class:`PagesDict`
+        :return: ``{title: WikipediaPage}`` dict
         """
         if not self._called["links"]:
             self._fetch("links")
@@ -255,14 +354,17 @@ class WikipediaPage:
     @property
     def backlinks(self) -> PagesDict:
         """
-        Returns all pages linking to the current page.
+        Map of page titles to stub pages that link *to* this page.
 
-        This is wrapper for:
+        All backlinks are fetched with automatic pagination.  Triggers a
+        ``backlinks`` API call on first access.
+
+        API reference:
 
         * https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bbacklinks
         * https://www.mediawiki.org/wiki/API:Backlinks
 
-        :return: :class:`PagesDict`
+        :return: ``{title: WikipediaPage}`` dict
         """
         if not self._called["backlinks"]:
             self._fetch("backlinks")
@@ -271,14 +373,17 @@ class WikipediaPage:
     @property
     def categories(self) -> PagesDict:
         """
-        Returns categories associated with the current page.
+        Map of category titles to stub category pages for this page.
 
-        This is wrapper for:
+        Keys include the ``Category:`` prefix.  Triggers a ``categories``
+        API call on first access.
+
+        API reference:
 
         * https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bcategories
         * https://www.mediawiki.org/wiki/API:Categories
 
-        :return: :class:`PagesDict`
+        :return: ``{title: WikipediaPage}`` dict
         """
         if not self._called["categories"]:
             self._fetch("categories")
@@ -287,26 +392,50 @@ class WikipediaPage:
     @property
     def categorymembers(self) -> PagesDict:
         """
-        Returns all pages belonging to the current category.
+        Map of page titles to stub pages belonging to this category.
 
-        This is wrapper for:
+        Only meaningful when ``self.namespace == Namespace.CATEGORY``.
+        Fetched with automatic pagination.  Triggers a ``categorymembers``
+        API call on first access.
+
+        API reference:
 
         * https://www.mediawiki.org/w/api.php?action=help&modules=query%2Bcategorymembers
         * https://www.mediawiki.org/wiki/API:Categorymembers
 
-        :return: :class:`PagesDict`
+        :return: ``{title: WikipediaPage}`` dict
         """
         if not self._called["categorymembers"]:
             self._fetch("categorymembers")
         return self._categorymembers
 
-    def _fetch(self, call) -> "WikipediaPage":
-        """Fetches some data?."""
+    def _fetch(self, call: str) -> "WikipediaPage":
+        """
+        Invoke a named API method on ``self.wiki`` and mark it as called.
+
+        Calls ``getattr(self.wiki, call)(self)`` which populates the
+        corresponding cache attributes in-place, then records the call so
+        subsequent accesses skip the network round-trip.
+
+        :param call: name of the API method to invoke (one of
+            ``"extracts"``, ``"info"``, ``"langlinks"``, ``"links"``,
+            ``"backlinks"``, ``"categories"``, ``"categorymembers"``)
+        :return: ``self`` (for optional chaining)
+        """
         getattr(self.wiki, call)(self)
         self._called[call] = True
         return self
 
-    def __repr__(self):
+    def __repr__(self) -> str:
+        """
+        Return a compact human-readable representation of this page.
+
+        Shows title, language, variant, namespace, and page ID (if the
+        page has already been fetched; otherwise ``??``).
+
+        :return: string of the form
+            ``"<title> (lang: <lang>, variant: <variant>, id: <id>, ns: <ns>)"``
+        """
         r = f"{self.title} (lang: {self.language}, variant: {self.variant}, "
         if any(self._called.values()):
             r += f"id: {self.pageid}, "
