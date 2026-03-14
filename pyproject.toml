@@ -85,10 +85,14 @@ include = [
     "CHANGES.rst",
     "README.rst",
     "DEVELOPMENT.rst",
+    "DESIGN.rst",
     "API.rst",
     "CLI.rst",
-    "pyproject.toml"
+    "pyproject.toml",
+    "example_sync.py",
+    "example_async.py",
 ]
+
 exclude = [
     "tests/**",
     ".github/**",
@@ -96,7 +100,6 @@ exclude = [
     "Makefile",
     "tox.ini",
     "uv.lock",
-    "example.py",
     "conf.py",
     "context7.json",
     "index.rst",
