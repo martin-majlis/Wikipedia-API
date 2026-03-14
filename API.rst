@@ -3,25 +3,36 @@ API
 
 Wikipedia
 ---------
-* ``__init__(user_agent: str, language='en', variant=Optional[str] = None, extract_format=ExtractFormat.WIKI, headers: Optional[Dict[str, Any]] = None, extra_api_params: Optional[dict[str, Any]] = None, max_retries: int = 3, retry_wait: float = 1.0, **request_kwargs)``
-* ``page(title)``
+* ``__init__(user_agent: str, language='en', variant=None, extract_format=ExtractFormat.WIKI, headers=None, extra_api_params=None, max_retries=3, retry_wait=1.0, **kwargs)``
+* ``page(title, ns=Namespace.MAIN)``
+
+AsyncWikipedia
+--------------
+Same constructor parameters as ``Wikipedia``.
+
+* ``page(title, ns=Namespace.MAIN)`` — returns an ``AsyncWikipediaPage`` (no network call)
 
 WikipediaPage
 -------------
 * ``exists()``
 * ``pageid``
-* ``title`` - title
-* ``summary`` - summary of the page
-* ``text`` - returns text of the page
-* ``sections`` - list of all sections (list of ``WikipediaPageSection``)
-* ``langlinks`` - language links to other languages ({lang: ``WikipediaLangLink``})
-* ``section_by_title(name)`` - finds last section by title (``WikipediaPageSection``)
-* ``sections_by_title(name)`` - finds all section by title (``WikipediaPageSection``)
-* ``links`` - links to other pages ({title: ``WikipediaPage``})
-* ``categories`` - all categories ({title: ``WikipediaPage``})
+* ``title``
+* ``namespace``
+* ``summary`` - introductory text of the page
+* ``text`` - full page text (summary + all sections)
+* ``sections`` - top-level sections (list of ``WikipediaPageSection``)
+* ``section_by_title(title)`` - last section matching *title* (``WikipediaPageSection``)
+* ``sections_by_title(title)`` - all sections matching *title* (list of ``WikipediaPageSection``)
+* ``langlinks`` - pages in other languages ({lang: ``WikipediaPage``})
+* ``links`` - outbound links ({title: ``WikipediaPage``})
+* ``backlinks`` - pages linking to this page ({title: ``WikipediaPage``})
+* ``categories`` - categories this page belongs to ({title: ``WikipediaPage``})
+* ``categorymembers`` - pages in this category, when ``ns=Namespace.CATEGORY`` ({title: ``WikipediaPage``})
 * ``displaytitle``
 * ``varianttitles``
 * ``canonicalurl``
+* ``fullurl``
+* ``editurl``
 * ``ns``
 * ``contentmodel``
 * ``pagelanguage``
@@ -33,13 +44,26 @@ WikipediaPage
 * ``protection``
 * ``restrictiontypes``
 * ``watchers``
+* ``visitingwatchers``
 * ``notificationtimestamp``
 * ``talkid``
-* ``fullurl``
-* ``editurl``
 * ``readable``
 * ``preload``
 
+AsyncWikipediaPage
+------------------
+Same attributes as ``WikipediaPage``.  Data-fetching methods are coroutines
+and must be ``await``-ed.
+
+* ``await page.summary()``
+* ``await page.langlinks()``
+* ``await page.links()``
+* ``await page.backlinks()``
+* ``await page.categories()``
+* ``await page.categorymembers()``
+* ``page.exists()`` — synchronous; requires ``summary()`` to have been awaited first
+* ``page.sections`` — property; populated after ``await page.summary()``
+* ``page.section_by_title(title)`` — synchronous; populated after ``await page.summary()``
 
 WikipediaPageSection
 --------------------
@@ -48,17 +72,31 @@ WikipediaPageSection
 * ``text``
 * ``sections``
 * ``section_by_title(title)``
+* ``full_text(level=1)`` - rendered text of this section and all descendants
 
 ExtractFormat
 -------------
-* ``WIKI``
-* ``HTML``
+* ``WIKI`` - plain-text wiki markup (``==Heading==``)
+* ``HTML`` - HTML markup (``<h2>Heading</h2>``)
+
+Namespace
+---------
+Integer enumeration of MediaWiki namespaces.  Common values:
+
+* ``MAIN`` (0) - ordinary articles
+* ``TALK`` (1)
+* ``USER`` (2)
+* ``FILE`` (6)
+* ``TEMPLATE`` (10)
+* ``CATEGORY`` (14)
+
+Pass a ``Namespace`` member or a plain ``int`` wherever a namespace is accepted.
 
 Exceptions
 ----------
 
 All exceptions raised by the library inherit from ``WikipediaException``.
-No ``requests`` or ``json`` exceptions are exposed.
+No ``httpx`` or ``json`` exceptions are exposed.
 
 * ``WikipediaException`` - base exception for all Wikipedia-API errors
 * ``WikiHttpError(status_code, url)`` - non-success HTTP status from Wikipedia API
