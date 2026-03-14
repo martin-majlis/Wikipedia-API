@@ -1,6 +1,7 @@
 from collections import defaultdict
+from collections.abc import Callable
 import re
-from typing import Any, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING, TypeVar
 from urllib import parse
 
 from .extract_format import ExtractFormat
@@ -9,6 +10,9 @@ from .namespace import WikiNamespace
 from .wikipedia_page import PagesDict
 from .wikipedia_page import WikipediaPage
 from .wikipedia_page_section import WikipediaPageSection
+
+T = TypeVar("T")
+
 
 if TYPE_CHECKING:
     from .async_wikipedia_page import AsyncWikipediaPage
@@ -201,6 +205,226 @@ class BaseWikipediaResource:
             page._categorymembers[member["title"]] = p
         return page._categorymembers
 
+    def _process_prop_response(
+        self,
+        raw: dict[str, Any],
+        page: WikipediaPage,
+        empty: T,
+        builder: Callable[[Any, WikipediaPage], T],
+    ) -> T:
+        """Process a standard prop-query response (single fetch, no pagination)."""
+        self._common_attributes(raw["query"], page)
+        for k, v in raw["query"]["pages"].items():
+            if k == "-1":
+                page._attributes["pageid"] = -1
+                return empty
+            return builder(v, page)
+        return empty
+
+    def _dispatch_prop(
+        self,
+        page: WikipediaPage,
+        params: dict[str, Any],
+        empty: T,
+        builder: Callable[[Any, WikipediaPage], T],
+    ) -> T:
+        """Fetch a single prop-query page and process the response."""
+        raw = self._get(  # type: ignore[attr-defined]
+            page.language, self._construct_params(page, params)
+        )
+        return self._process_prop_response(raw, page, empty, builder)
+
+    async def _async_dispatch_prop(
+        self,
+        page: WikipediaPage,
+        params: dict[str, Any],
+        empty: T,
+        builder: Callable[[Any, WikipediaPage], T],
+    ) -> T:
+        """Async variant of :meth:`_dispatch_prop`."""
+        raw = await self._get(  # type: ignore[attr-defined]
+            page.language, self._construct_params(page, params)
+        )
+        return self._process_prop_response(raw, page, empty, builder)
+
+    def _dispatch_prop_paginated(
+        self,
+        page: WikipediaPage,
+        params: dict[str, Any],
+        continue_key: str,
+        list_key: str,
+        builder: Callable[[Any, WikipediaPage], PagesDict],
+    ) -> PagesDict:
+        """Fetch a prop-query with inner-loop pagination (e.g. links)."""
+        raw = self._get(  # type: ignore[attr-defined]
+            page.language, self._construct_params(page, params)
+        )
+        self._common_attributes(raw["query"], page)
+        for k, v in raw["query"]["pages"].items():
+            if k == "-1":
+                page._attributes["pageid"] = -1
+                return {}
+            while "continue" in raw:
+                params[continue_key] = raw["continue"][continue_key]
+                raw = self._get(  # type: ignore[attr-defined]
+                    page.language, self._construct_params(page, params)
+                )
+                v[list_key] += raw["query"]["pages"][k][list_key]
+            return builder(v, page)
+        return {}
+
+    async def _async_dispatch_prop_paginated(
+        self,
+        page: WikipediaPage,
+        params: dict[str, Any],
+        continue_key: str,
+        list_key: str,
+        builder: Callable[[Any, WikipediaPage], PagesDict],
+    ) -> PagesDict:
+        """Async variant of :meth:`_dispatch_prop_paginated`."""
+        raw = await self._get(  # type: ignore[attr-defined]
+            page.language, self._construct_params(page, params)
+        )
+        self._common_attributes(raw["query"], page)
+        for k, v in raw["query"]["pages"].items():
+            if k == "-1":
+                page._attributes["pageid"] = -1
+                return {}
+            while "continue" in raw:
+                params[continue_key] = raw["continue"][continue_key]
+                raw = await self._get(  # type: ignore[attr-defined]
+                    page.language, self._construct_params(page, params)
+                )
+                v[list_key] += raw["query"]["pages"][k][list_key]
+            return builder(v, page)
+        return {}
+
+    def _dispatch_list(
+        self,
+        page: WikipediaPage,
+        params: dict[str, Any],
+        continue_key: str,
+        list_key: str,
+        builder: Callable[[Any, WikipediaPage], PagesDict],
+    ) -> PagesDict:
+        """Fetch a list-query with top-level pagination (e.g. backlinks)."""
+        raw = self._get(  # type: ignore[attr-defined]
+            page.language, self._construct_params(page, params)
+        )
+        self._common_attributes(raw["query"], page)
+        v = raw["query"]
+        while "continue" in raw:
+            params[continue_key] = raw["continue"][continue_key]
+            raw = self._get(  # type: ignore[attr-defined]
+                page.language, self._construct_params(page, params)
+            )
+            v[list_key] += raw["query"][list_key]
+        return builder(v, page)
+
+    async def _async_dispatch_list(
+        self,
+        page: WikipediaPage,
+        params: dict[str, Any],
+        continue_key: str,
+        list_key: str,
+        builder: Callable[[Any, WikipediaPage], PagesDict],
+    ) -> PagesDict:
+        """Async variant of :meth:`_dispatch_list`."""
+        raw = await self._get(  # type: ignore[attr-defined]
+            page.language, self._construct_params(page, params)
+        )
+        self._common_attributes(raw["query"], page)
+        v = raw["query"]
+        while "continue" in raw:
+            params[continue_key] = raw["continue"][continue_key]
+            raw = await self._get(  # type: ignore[attr-defined]
+                page.language, self._construct_params(page, params)
+            )
+            v[list_key] += raw["query"][list_key]
+        return builder(v, page)
+
+    def _extracts_params(self, page: WikipediaPage, **kwargs: Any) -> dict[str, Any]:
+        params: dict[str, Any] = {
+            "action": "query",
+            "prop": "extracts",
+            "titles": page.title,
+        }
+        if self.extract_format == ExtractFormat.HTML:  # type: ignore[attr-defined]
+            pass
+        elif self.extract_format == ExtractFormat.WIKI:  # type: ignore[attr-defined]
+            params["explaintext"] = 1
+            params["exsectionformat"] = "wiki"
+        params.update(kwargs)
+        return params
+
+    def _info_params(self, page: WikipediaPage) -> dict[str, Any]:
+        return {
+            "action": "query",
+            "prop": "info",
+            "titles": page.title,
+            "inprop": "|".join(
+                [
+                    "protection",
+                    "talkid",
+                    "watched",
+                    "watchers",
+                    "visitingwatchers",
+                    "notificationtimestamp",
+                    "subjectid",
+                    "url",
+                    "readable",
+                    "preload",
+                    "displaytitle",
+                    "varianttitles",
+                ]
+            ),
+        }
+
+    def _langlinks_params(self, page: WikipediaPage, **kwargs: Any) -> dict[str, Any]:
+        params: dict[str, Any] = {
+            "action": "query",
+            "prop": "langlinks",
+            "titles": page.title,
+            "lllimit": 500,
+            "llprop": "url",
+        }
+        params.update(kwargs)
+        return params
+
+    def _links_params(self, page: WikipediaPage) -> dict[str, Any]:
+        return {
+            "action": "query",
+            "prop": "links",
+            "titles": page.title,
+            "pllimit": 500,
+        }
+
+    def _backlinks_params(self, page: WikipediaPage) -> dict[str, Any]:
+        return {
+            "action": "query",
+            "list": "backlinks",
+            "bltitle": page.title,
+            "bllimit": 500,
+        }
+
+    def _categories_params(self, page: WikipediaPage, **kwargs: Any) -> dict[str, Any]:
+        params: dict[str, Any] = {
+            "action": "query",
+            "prop": "categories",
+            "titles": page.title,
+            "cllimit": 500,
+        }
+        params.update(kwargs)
+        return params
+
+    def _categorymembers_params(self, page: WikipediaPage) -> dict[str, Any]:
+        return {
+            "action": "query",
+            "list": "categorymembers",
+            "cmtitle": page.title,
+            "cmlimit": 500,
+        }
+
 
 class WikipediaResource(BaseWikipediaResource):
     """Synchronous Wikipedia API methods."""
@@ -293,32 +517,9 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiInvalidJsonError: if the response is not valid JSON
 
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "prop": "extracts",
-            "titles": page.title,
-        }
-
-        if self.extract_format == ExtractFormat.HTML:  # type: ignore[attr-defined]
-            pass
-        elif self.extract_format == ExtractFormat.WIKI:  # type: ignore[attr-defined]
-            params["explaintext"] = 1
-            params["exsectionformat"] = "wiki"
-
-        used_params = params.copy()
-        used_params.update(kwargs)
-
-        raw = self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, used_params)
+        return self._dispatch_prop(
+            page, self._extracts_params(page, **kwargs), "", self._build_extracts
         )
-        self._common_attributes(raw["query"], page)
-        pages = raw["query"]["pages"]
-        for k, v in pages.items():
-            if k == "-1":
-                page._attributes["pageid"] = -1
-                return ""
-            return self._build_extracts(v, page)
-        return ""
 
     def info(self, page: WikipediaPage) -> WikipediaPage:
         """
@@ -331,38 +532,7 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "prop": "info",
-            "titles": page.title,
-            "inprop": "|".join(
-                [
-                    "protection",
-                    "talkid",
-                    "watched",
-                    "watchers",
-                    "visitingwatchers",
-                    "notificationtimestamp",
-                    "subjectid",
-                    "url",
-                    "readable",
-                    "preload",
-                    "displaytitle",
-                    "varianttitles",
-                ]
-            ),
-        }
-        raw = self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, params)
-        )
-        self._common_attributes(raw["query"], page)
-        pages = raw["query"]["pages"]
-        for k, v in pages.items():
-            if k == "-1":
-                page._attributes["pageid"] = -1
-                return page
-            return self._build_info(v, page)
-        return page
+        return self._dispatch_prop(page, self._info_params(page), page, self._build_info)
 
     def langlinks(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
         """
@@ -383,28 +553,9 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiInvalidJsonError: if the response is not valid JSON
 
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "prop": "langlinks",
-            "titles": page.title,
-            "lllimit": 500,
-            "llprop": "url",
-        }
-
-        used_params = params.copy()
-        used_params.update(kwargs)
-
-        raw = self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, used_params)
+        return self._dispatch_prop(
+            page, self._langlinks_params(page, **kwargs), {}, self._build_langlinks
         )
-        self._common_attributes(raw["query"], page)
-        pages = raw["query"]["pages"]
-        for k, v in pages.items():
-            if k == "-1":
-                page._attributes["pageid"] = -1
-                return {}
-            return self._build_langlinks(v, page)
-        return {}
 
     def links(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
         """
@@ -425,35 +576,9 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiInvalidJsonError: if the response is not valid JSON
 
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "prop": "links",
-            "titles": page.title,
-            "pllimit": 500,
-        }
-
-        used_params = params.copy()
-        used_params.update(kwargs)
-
-        raw = self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, used_params)
+        return self._dispatch_prop_paginated(
+            page, {**self._links_params(page), **kwargs}, "plcontinue", "links", self._build_links
         )
-        self._common_attributes(raw["query"], page)
-        pages = raw["query"]["pages"]
-        for k, v in pages.items():
-            if k == "-1":
-                page._attributes["pageid"] = -1
-                return {}
-
-            while "continue" in raw:
-                params["plcontinue"] = raw["continue"]["plcontinue"]
-                raw = self._get(  # type: ignore[attr-defined]
-                    page.language, self._construct_params(page, params)
-                )
-                v["links"] += raw["query"]["pages"][k]["links"]
-
-            return self._build_links(v, page)
-        return {}
 
     def backlinks(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
         """
@@ -474,28 +599,13 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiInvalidJsonError: if the response is not valid JSON
 
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "list": "backlinks",
-            "bltitle": page.title,
-            "bllimit": 500,
-        }
-
-        used_params = params.copy()
-        used_params.update(kwargs)
-
-        raw = self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, used_params)
+        return self._dispatch_list(
+            page,
+            {**self._backlinks_params(page), **kwargs},
+            "blcontinue",
+            "backlinks",
+            self._build_backlinks,
         )
-        self._common_attributes(raw["query"], page)
-        v = raw["query"]
-        while "continue" in raw:
-            params["blcontinue"] = raw["continue"]["blcontinue"]
-            raw = self._get(  # type: ignore[attr-defined]
-                page.language, self._construct_params(page, params)
-            )
-            v["backlinks"] += raw["query"]["backlinks"]
-        return self._build_backlinks(v, page)
 
     def categories(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
         """
@@ -515,27 +625,9 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "prop": "categories",
-            "titles": page.title,
-            "cllimit": 500,
-        }
-
-        used_params = params.copy()
-        used_params.update(kwargs)
-
-        raw = self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, used_params)
+        return self._dispatch_prop(
+            page, self._categories_params(page, **kwargs), {}, self._build_categories
         )
-        self._common_attributes(raw["query"], page)
-        pages = raw["query"]["pages"]
-        for k, v in pages.items():
-            if k == "-1":
-                page._attributes["pageid"] = -1
-                return {}
-            return self._build_categories(v, page)
-        return {}
 
     def categorymembers(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
         """
@@ -555,28 +647,13 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "list": "categorymembers",
-            "cmtitle": page.title,
-            "cmlimit": 500,
-        }
-
-        used_params = params.copy()
-        used_params.update(kwargs)
-
-        raw = self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, used_params)
+        return self._dispatch_list(
+            page,
+            {**self._categorymembers_params(page), **kwargs},
+            "cmcontinue",
+            "categorymembers",
+            self._build_categorymembers,
         )
-        self._common_attributes(raw["query"], page)
-        v = raw["query"]
-        while "continue" in raw:
-            params["cmcontinue"] = raw["continue"]["cmcontinue"]
-            raw = self._get(  # type: ignore[attr-defined]
-                page.language, self._construct_params(page, params)
-            )
-            v["categorymembers"] += raw["query"]["categorymembers"]
-        return self._build_categorymembers(v, page)
 
 
 class AsyncWikipediaResource(BaseWikipediaResource):
@@ -642,32 +719,9 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :param kwargs: parameters used in API call
         :return: summary of the page
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "prop": "extracts",
-            "titles": page.title,
-        }
-
-        if self.extract_format == ExtractFormat.HTML:  # type: ignore[attr-defined]
-            pass
-        elif self.extract_format == ExtractFormat.WIKI:  # type: ignore[attr-defined]
-            params["explaintext"] = 1
-            params["exsectionformat"] = "wiki"
-
-        used_params = params.copy()
-        used_params.update(kwargs)
-
-        raw = await self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, used_params)
+        return await self._async_dispatch_prop(
+            page, self._extracts_params(page, **kwargs), "", self._build_extracts
         )
-        self._common_attributes(raw["query"], page)
-        pages = raw["query"]["pages"]
-        for k, v in pages.items():
-            if k == "-1":
-                page._attributes["pageid"] = -1
-                return ""
-            return self._build_extracts(v, page)
-        return ""
 
     async def info(self, page: WikipediaPage) -> WikipediaPage:
         """
@@ -676,38 +730,9 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :param page: :class:`WikipediaPage`
         :return: populated :class:`WikipediaPage`
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "prop": "info",
-            "titles": page.title,
-            "inprop": "|".join(
-                [
-                    "protection",
-                    "talkid",
-                    "watched",
-                    "watchers",
-                    "visitingwatchers",
-                    "notificationtimestamp",
-                    "subjectid",
-                    "url",
-                    "readable",
-                    "preload",
-                    "displaytitle",
-                    "varianttitles",
-                ]
-            ),
-        }
-        raw = await self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, params)
+        return await self._async_dispatch_prop(
+            page, self._info_params(page), page, self._build_info
         )
-        self._common_attributes(raw["query"], page)
-        pages = raw["query"]["pages"]
-        for k, v in pages.items():
-            if k == "-1":
-                page._attributes["pageid"] = -1
-                return page
-            return self._build_info(v, page)
-        return page
 
     async def langlinks(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
         """
@@ -717,28 +742,9 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :param kwargs: parameters used in API call
         :return: links to pages in other languages
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "prop": "langlinks",
-            "titles": page.title,
-            "lllimit": 500,
-            "llprop": "url",
-        }
-
-        used_params = params.copy()
-        used_params.update(kwargs)
-
-        raw = await self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, used_params)
+        return await self._async_dispatch_prop(
+            page, self._langlinks_params(page, **kwargs), {}, self._build_langlinks
         )
-        self._common_attributes(raw["query"], page)
-        pages = raw["query"]["pages"]
-        for k, v in pages.items():
-            if k == "-1":
-                page._attributes["pageid"] = -1
-                return {}
-            return self._build_langlinks(v, page)
-        return {}
 
     async def links(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
         """
@@ -748,35 +754,9 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :param kwargs: parameters used in API call
         :return: links to linked pages
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "prop": "links",
-            "titles": page.title,
-            "pllimit": 500,
-        }
-
-        used_params = params.copy()
-        used_params.update(kwargs)
-
-        raw = await self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, used_params)
+        return await self._async_dispatch_prop_paginated(
+            page, {**self._links_params(page), **kwargs}, "plcontinue", "links", self._build_links
         )
-        self._common_attributes(raw["query"], page)
-        pages = raw["query"]["pages"]
-        for k, v in pages.items():
-            if k == "-1":
-                page._attributes["pageid"] = -1
-                return {}
-
-            while "continue" in raw:
-                params["plcontinue"] = raw["continue"]["plcontinue"]
-                raw = await self._get(  # type: ignore[attr-defined]
-                    page.language, self._construct_params(page, params)
-                )
-                v["links"] += raw["query"]["pages"][k]["links"]
-
-            return self._build_links(v, page)
-        return {}
 
     async def backlinks(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
         """
@@ -786,28 +766,13 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :param kwargs: parameters used in API call
         :return: backlinks from other pages
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "list": "backlinks",
-            "bltitle": page.title,
-            "bllimit": 500,
-        }
-
-        used_params = params.copy()
-        used_params.update(kwargs)
-
-        raw = await self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, used_params)
+        return await self._async_dispatch_list(
+            page,
+            {**self._backlinks_params(page), **kwargs},
+            "blcontinue",
+            "backlinks",
+            self._build_backlinks,
         )
-        self._common_attributes(raw["query"], page)
-        v = raw["query"]
-        while "continue" in raw:
-            params["blcontinue"] = raw["continue"]["blcontinue"]
-            raw = await self._get(  # type: ignore[attr-defined]
-                page.language, self._construct_params(page, params)
-            )
-            v["backlinks"] += raw["query"]["backlinks"]
-        return self._build_backlinks(v, page)
 
     async def categories(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
         """
@@ -817,27 +782,9 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :param kwargs: parameters used in API call
         :return: categories for page
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "prop": "categories",
-            "titles": page.title,
-            "cllimit": 500,
-        }
-
-        used_params = params.copy()
-        used_params.update(kwargs)
-
-        raw = await self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, used_params)
+        return await self._async_dispatch_prop(
+            page, self._categories_params(page, **kwargs), {}, self._build_categories
         )
-        self._common_attributes(raw["query"], page)
-        pages = raw["query"]["pages"]
-        for k, v in pages.items():
-            if k == "-1":
-                page._attributes["pageid"] = -1
-                return {}
-            return self._build_categories(v, page)
-        return {}
 
     async def categorymembers(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
         """
@@ -847,25 +794,10 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :param kwargs: parameters used in API call
         :return: pages in given category
         """
-        params: dict[str, Any] = {
-            "action": "query",
-            "list": "categorymembers",
-            "cmtitle": page.title,
-            "cmlimit": 500,
-        }
-
-        used_params = params.copy()
-        used_params.update(kwargs)
-
-        raw = await self._get(  # type: ignore[attr-defined]
-            page.language, self._construct_params(page, used_params)
+        return await self._async_dispatch_list(
+            page,
+            {**self._categorymembers_params(page), **kwargs},
+            "cmcontinue",
+            "categorymembers",
+            self._build_categorymembers,
         )
-        self._common_attributes(raw["query"], page)
-        v = raw["query"]
-        while "continue" in raw:
-            params["cmcontinue"] = raw["continue"]["cmcontinue"]
-            raw = await self._get(  # type: ignore[attr-defined]
-                page.language, self._construct_params(page, params)
-            )
-            v["categorymembers"] += raw["query"]["categorymembers"]
-        return self._build_categorymembers(v, page)
