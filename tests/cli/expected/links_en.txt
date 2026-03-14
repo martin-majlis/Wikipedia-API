@@ -51,7 +51,6 @@ Antarctica
 Ape
 Aphelion
 Apoapsis
-Apollo 17
 Apsis
 ArXiv (identifier)
 Arabian Plate
@@ -1095,7 +1094,6 @@ Terrain
 Terrestrial planet
 Tesla (unit)
 Tethys (moon)
-The Blue Marble
 The New York Times
 Theia (hypothetical planet)
 Themis (hypothetical moon)
