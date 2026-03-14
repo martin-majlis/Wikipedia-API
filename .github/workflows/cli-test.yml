@@ -122,7 +122,7 @@ jobs:
       - name: Commit updated fixtures
         id: commit
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.BOT_PAT }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -171,7 +171,7 @@ jobs:
       - name: Create Pull Request
         if: steps.commit.outputs.branch_name && steps.commit.outputs.existing_pr == 'false'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.BOT_PAT }}
         run: |
           echo "Creating new pull request for branch: ${{ steps.commit.outputs.branch_name }}"
           gh pr create \
