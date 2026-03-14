@@ -7,6 +7,8 @@ cases.
 """
 
 from ._version import __version__ as __version
+from .async_wikipedia import AsyncWikipedia
+from .async_wikipedia_page import AsyncWikipediaPage
 from .exceptions import WikiConnectionError
 from .exceptions import WikiHttpError
 from .exceptions import WikiHttpTimeoutError
@@ -26,7 +28,9 @@ __version__ = __version
 
 __all__ = [
     "Wikipedia",
+    "AsyncWikipedia",
     "WikipediaPage",
+    "AsyncWikipediaPage",
     "WikipediaPageSection",
     "WikipediaException",
     "WikiHttpTimeoutError",

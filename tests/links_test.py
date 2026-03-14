@@ -8,7 +8,7 @@ import wikipediaapi
 class TestLinks(unittest.TestCase):
     def setUp(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
-        self.wiki._query = wikipedia_api_request(self.wiki)
+        self.wiki._get = wikipedia_api_request(self.wiki)
 
     def test_links_single_page_count(self):
         page = self.wiki.page("Test_1")
@@ -38,7 +38,7 @@ class TestLinks(unittest.TestCase):
 
     def test_links_from_variant(self):
         wiki = wikipediaapi.Wikipedia(user_agent, "zh", "zh-tw")
-        wiki._query = wikipedia_api_request(wiki)
+        wiki._get = wikipedia_api_request(wiki)
         page = wiki.page("Test_Zh-Tw")
         self.assertEqual(
             list(sorted(map(lambda s: (s.title, s.variant), page.links.values()))),

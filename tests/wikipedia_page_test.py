@@ -8,7 +8,7 @@ import wikipediaapi
 class TestWikipediaPage(unittest.TestCase):
     def setUp(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
-        self.wiki._query = wikipedia_api_request(self.wiki)
+        self.wiki._get = wikipedia_api_request(self.wiki)
 
     def test_repr_before_fetching(self):
         page = self.wiki.page("Test_1")
@@ -58,7 +58,7 @@ class TestWikipediaPage(unittest.TestCase):
     def test_article_title_unquote(self):
         # https://github.com/goldsmith/Wikipedia/issues/190
         w = wikipediaapi.Wikipedia(user_agent, "hi")
-        w._query = wikipedia_api_request(w)
+        w._get = wikipedia_api_request(w)
         p_encoded = w.article(
             "%E0%A4%AA%E0%A4%BE%E0%A4%87%E0%A4%A5%E0%A4%A8",
             unquote=True,
@@ -69,7 +69,7 @@ class TestWikipediaPage(unittest.TestCase):
     def test_page_title_unquote(self):
         # https://github.com/goldsmith/Wikipedia/issues/190
         w = wikipediaapi.Wikipedia(user_agent, "hi")
-        w._query = wikipedia_api_request(w)
+        w._get = wikipedia_api_request(w)
         p_encoded = w.page(
             "%E0%A4%AA%E0%A4%BE%E0%A4%87%E0%A4%A5%E0%A4%A8",
             unquote=True,
@@ -84,7 +84,7 @@ class TestWikipediaPage(unittest.TestCase):
 
     def test_page_with_variant(self):
         wiki = wikipediaapi.Wikipedia(user_agent, "zh", "zh-tw")
-        wiki._query = wikipedia_api_request(wiki)
+        wiki._get = wikipedia_api_request(wiki)
         page = wiki.page("Test_Zh-Tw")
         self.assertTrue(page.exists())
         self.assertEqual(page.pageid, 44)
@@ -97,14 +97,14 @@ class TestWikipediaPage(unittest.TestCase):
 
     def test_page_with_extra_parameters(self):
         wiki = wikipediaapi.Wikipedia(user_agent, "en", extra_api_params={"foo": "bar"})
-        wiki._query = wikipedia_api_request(wiki)
+        wiki._get = wikipedia_api_request(wiki)
         page = wiki.page("Extra_API_Params")
         self.assertTrue(page.exists())
 
     def test_sections_by_title_not_found(self):
         """Test sections_by_title method when section doesn't exist."""
         wiki = wikipediaapi.Wikipedia(user_agent, "en")
-        wiki._query = wikipedia_api_request(wiki)
+        wiki._get = wikipedia_api_request(wiki)
         page = wiki.page("Test_1")
 
         # Access sections to build the mapping
