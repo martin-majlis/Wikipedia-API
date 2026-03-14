@@ -1497,7 +1497,6 @@ Portal:Outer space/Selected article/30
 Portal:Outer space/Selected article/34
 Portal:Outer space/Selected article/39
 Portal:Outer space/Selected article/7
-Portal:Physics
 Portal:Physics/2012 Selected pictures
 Portal:Physics/News/Archive
 Portal:Physics/Selected images
@@ -2996,7 +2995,6 @@ User:Galiaire
 User:Game90
 User:Gandalf61
 User:GargantuanMegafield 1982/sandbox
-User:Garo3/sandbox
 User:Gary1338/sandbox
 User:Gautham Pillai
 User:GenghisTheHun
@@ -3047,6 +3045,7 @@ User:Hagler11/Books/Astrobiology: A Textbook
 User:Hagler11/Books/Extraterrestials in Popular Culture
 User:Hagler11/Books/Solar System Bodies with Liquid Water
 User:Halfpast6
+User:Hamzyboo
 User:Hanaichi/more userboxes
 User:Hank von Helvete
 User:Happy Animals12345/Books/Solar System
@@ -4409,6 +4408,7 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
+Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1

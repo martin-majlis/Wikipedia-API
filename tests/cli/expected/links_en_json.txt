@@ -264,6 +264,11 @@
 "language": "en",
 "ns": 0
 },
+"Apollo 17": {
+"title": "Apollo 17",
+"language": "en",
+"ns": 0
+},
 "Apsis": {
 "title": "Apsis",
 "language": "en",
@@ -1061,11 +1066,6 @@
 },
 "Culture": {
 "title": "Culture",
-"language": "en",
-"ns": 0
-},
-"Cupola (ISS module)": {
-"title": "Cupola (ISS module)",
 "language": "en",
 "ns": 0
 },
@@ -5479,6 +5479,11 @@
 "language": "en",
 "ns": 0
 },
+"The Blue Marble": {
+"title": "The Blue Marble",
+"language": "en",
+"ns": 0
+},
 "The New York Times": {
 "title": "The New York Times",
 "language": "en",
@@ -5636,11 +5641,6 @@
 },
 "Torque": {
 "title": "Torque",
-"language": "en",
-"ns": 0
-},
-"Tracy Caldwell Dyson": {
-"title": "Tracy Caldwell Dyson",
 "language": "en",
 "ns": 0
 },
