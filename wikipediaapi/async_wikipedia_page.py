@@ -3,8 +3,10 @@ from typing import Any
 from ._base_wikipedia_page import BaseWikipediaPage
 from .wikipedia_page_section import WikipediaPageSection
 
+AsyncPagesDict = dict[str, "AsyncWikipediaPage"]
 
-class AsyncWikipediaPage(BaseWikipediaPage):
+
+class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
     """
     Lazy representation of a Wikipedia page for use with
     :class:`~wikipediaapi.AsyncWikipedia`.
@@ -175,7 +177,7 @@ class AsyncWikipediaPage(BaseWikipediaPage):
     def langlinks(self) -> Any:
         """Awaitable: ``{language_code: AsyncWikipediaPage}`` dict."""
 
-        async def _get() -> dict:
+        async def _get() -> AsyncPagesDict:
             if not self._called["langlinks"]:
                 await self._fetch("langlinks")
             return self._langlinks
@@ -186,7 +188,7 @@ class AsyncWikipediaPage(BaseWikipediaPage):
     def links(self) -> Any:
         """Awaitable: ``{title: AsyncWikipediaPage}`` dict of outbound links."""
 
-        async def _get() -> dict:
+        async def _get() -> AsyncPagesDict:
             if not self._called["links"]:
                 await self._fetch("links")
             return self._links
@@ -197,7 +199,7 @@ class AsyncWikipediaPage(BaseWikipediaPage):
     def backlinks(self) -> Any:
         """Awaitable: ``{title: AsyncWikipediaPage}`` dict of pages linking here."""
 
-        async def _get() -> dict:
+        async def _get() -> AsyncPagesDict:
             if not self._called["backlinks"]:
                 await self._fetch("backlinks")
             return self._backlinks
@@ -208,7 +210,7 @@ class AsyncWikipediaPage(BaseWikipediaPage):
     def categories(self) -> Any:
         """Awaitable: ``{title: AsyncWikipediaPage}`` dict of categories."""
 
-        async def _get() -> dict:
+        async def _get() -> AsyncPagesDict:
             if not self._called["categories"]:
                 await self._fetch("categories")
             return self._categories
@@ -219,7 +221,7 @@ class AsyncWikipediaPage(BaseWikipediaPage):
     def categorymembers(self) -> Any:
         """Awaitable: ``{title: AsyncWikipediaPage}`` dict of category members."""
 
-        async def _get() -> dict:
+        async def _get() -> AsyncPagesDict:
             if not self._called["categorymembers"]:
                 await self._fetch("categorymembers")
             return self._categorymembers

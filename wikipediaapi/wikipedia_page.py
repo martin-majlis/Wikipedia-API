@@ -6,7 +6,7 @@ from .wikipedia_page_section import WikipediaPageSection
 PagesDict = dict[str, "WikipediaPage"]
 
 
-class WikipediaPage(BaseWikipediaPage):
+class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
     """
     Lazy representation of a Wikipedia page.
 

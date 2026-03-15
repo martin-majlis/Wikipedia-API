@@ -5,6 +5,7 @@ import re
 from typing import Any, TYPE_CHECKING, TypeVar
 from urllib import parse
 
+from ._base_wikipedia_page import BaseWikipediaPage
 from .extract_format import ExtractFormat
 from .namespace import Namespace
 from .namespace import WikiNamespace
@@ -13,9 +14,11 @@ from .wikipedia_page import WikipediaPage
 from .wikipedia_page_section import WikipediaPageSection
 
 T = TypeVar("T")
+_PageP = TypeVar("_PageP", bound=BaseWikipediaPage)
 
 
 if TYPE_CHECKING:
+    from .async_wikipedia_page import AsyncPagesDict
     from .async_wikipedia_page import AsyncWikipediaPage
 
 RE_SECTION = {
@@ -48,7 +51,9 @@ class BaseWikipediaResource(ABC):
       :class:`~wikipediaapi._http_client.AsyncHTTPClient`.
     """
 
-    def _construct_params(self, page: WikipediaPage, params: dict[str, Any]) -> dict[str, Any]:
+    def _construct_params(
+        self, page: "BaseWikipediaPage[Any]", params: dict[str, Any]
+    ) -> dict[str, Any]:
         """
         Merge caller-supplied params with mandatory API defaults.
 
@@ -104,7 +109,7 @@ class BaseWikipediaResource(ABC):
         )
 
     @staticmethod
-    def _common_attributes(extract: Any, page: WikipediaPage) -> None:
+    def _common_attributes(extract: Any, page: "BaseWikipediaPage[Any]") -> None:
         """
         Copy standard API response fields into ``page._attributes``.
 
@@ -148,7 +153,7 @@ class BaseWikipediaResource(ABC):
         section = WikipediaPageSection(self, sec_title, sec_level - 1)  # type: ignore[arg-type]
         return section
 
-    def _build_extracts(self, extract: Any, page: WikipediaPage) -> str:
+    def _build_extracts(self, extract: Any, page: "BaseWikipediaPage[Any]") -> str:
         """
         Parse an ``extracts`` API response and populate page text structures.
 
@@ -211,7 +216,7 @@ class BaseWikipediaResource(ABC):
 
         return page._summary
 
-    def _build_info(self, extract: Any, page: WikipediaPage) -> WikipediaPage:
+    def _build_info(self, extract: Any, page: _PageP) -> _PageP:
         """
         Populate a page from an ``info`` API response.
 
@@ -230,7 +235,7 @@ class BaseWikipediaResource(ABC):
             page._attributes[k] = v
         return page
 
-    def _build_langlinks(self, extract: Any, page: WikipediaPage) -> PagesDict:
+    def _build_langlinks(self, extract: Any, page: "BaseWikipediaPage[Any]") -> dict[str, Any]:
         """
         Build the language-link map from a ``langlinks`` API response.
 
@@ -256,7 +261,7 @@ class BaseWikipediaResource(ABC):
             page._langlinks[p.language] = p
         return page._langlinks
 
-    def _build_links(self, extract: Any, page: WikipediaPage) -> PagesDict:
+    def _build_links(self, extract: Any, page: "BaseWikipediaPage[Any]") -> dict[str, Any]:
         """
         Build the outgoing-links map from a ``links`` API response.
 
@@ -281,7 +286,7 @@ class BaseWikipediaResource(ABC):
             )
         return page._links
 
-    def _build_backlinks(self, extract: Any, page: WikipediaPage) -> PagesDict:
+    def _build_backlinks(self, extract: Any, page: "BaseWikipediaPage[Any]") -> dict[str, Any]:
         """
         Build the backlinks map from a ``backlinks`` API response.
 
@@ -306,7 +311,7 @@ class BaseWikipediaResource(ABC):
             )
         return page._backlinks
 
-    def _build_categories(self, extract: Any, page: WikipediaPage) -> PagesDict:
+    def _build_categories(self, extract: Any, page: "BaseWikipediaPage[Any]") -> dict[str, Any]:
         """
         Build the categories map from a ``categories`` API response.
 
@@ -330,7 +335,9 @@ class BaseWikipediaResource(ABC):
             )
         return page._categories
 
-    def _build_categorymembers(self, extract: Any, page: WikipediaPage) -> PagesDict:
+    def _build_categorymembers(
+        self, extract: Any, page: "BaseWikipediaPage[Any]"
+    ) -> dict[str, Any]:
         """
         Build the category-members map from a ``categorymembers`` API response.
 
@@ -361,9 +368,9 @@ class BaseWikipediaResource(ABC):
     def _process_prop_response(
         self,
         raw: dict[str, Any],
-        page: WikipediaPage,
+        page: "BaseWikipediaPage[Any]",
         empty: T,
-        builder: Callable[[Any, WikipediaPage], T],
+        builder: Callable[[Any, Any], T],
     ) -> T:
         """
         Process a standard single-fetch prop-query response.
@@ -392,10 +399,10 @@ class BaseWikipediaResource(ABC):
 
     def _dispatch_prop(
         self,
-        page: WikipediaPage,
+        page: "BaseWikipediaPage[Any]",
         params: dict[str, Any],
         empty: T,
-        builder: Callable[[Any, WikipediaPage], T],
+        builder: Callable[[Any, Any], T],
     ) -> T:
         """
         Execute a single-fetch prop-query and return the parsed result.
@@ -426,10 +433,10 @@ class BaseWikipediaResource(ABC):
 
     async def _async_dispatch_prop(
         self,
-        page: WikipediaPage,
+        page: "BaseWikipediaPage[Any]",
         params: dict[str, Any],
         empty: T,
-        builder: Callable[[Any, WikipediaPage], T],
+        builder: Callable[[Any, Any], T],
     ) -> T:
         """
         Async version of :meth:`_dispatch_prop`.
@@ -458,12 +465,12 @@ class BaseWikipediaResource(ABC):
 
     def _dispatch_prop_paginated(
         self,
-        page: WikipediaPage,
+        page: "BaseWikipediaPage[Any]",
         params: dict[str, Any],
         continue_key: str,
         list_key: str,
-        builder: Callable[[Any, WikipediaPage], PagesDict],
-    ) -> PagesDict:
+        builder: Callable[[Any, Any], dict[str, Any]],
+    ) -> dict[str, Any]:
         """
         Execute a prop-query that may span multiple pages via inner-loop pagination.
 
@@ -512,12 +519,12 @@ class BaseWikipediaResource(ABC):
 
     async def _async_dispatch_prop_paginated(
         self,
-        page: WikipediaPage,
+        page: "BaseWikipediaPage[Any]",
         params: dict[str, Any],
         continue_key: str,
         list_key: str,
-        builder: Callable[[Any, WikipediaPage], PagesDict],
-    ) -> PagesDict:
+        builder: Callable[[Any, Any], dict[str, Any]],
+    ) -> dict[str, Any]:
         """
         Async version of :meth:`_dispatch_prop_paginated`.
 
@@ -559,12 +566,12 @@ class BaseWikipediaResource(ABC):
 
     def _dispatch_list(
         self,
-        page: WikipediaPage,
+        page: "BaseWikipediaPage[Any]",
         params: dict[str, Any],
         continue_key: str,
         list_key: str,
-        builder: Callable[[Any, WikipediaPage], PagesDict],
-    ) -> PagesDict:
+        builder: Callable[[Any, Any], dict[str, Any]],
+    ) -> dict[str, Any]:
         """
         Execute a list-query that may span multiple pages via top-level pagination.
 
@@ -606,12 +613,12 @@ class BaseWikipediaResource(ABC):
 
     async def _async_dispatch_list(
         self,
-        page: WikipediaPage,
+        page: "BaseWikipediaPage[Any]",
         params: dict[str, Any],
         continue_key: str,
         list_key: str,
-        builder: Callable[[Any, WikipediaPage], PagesDict],
-    ) -> PagesDict:
+        builder: Callable[[Any, Any], dict[str, Any]],
+    ) -> dict[str, Any]:
         """
         Async version of :meth:`_dispatch_list`.
 
@@ -646,7 +653,7 @@ class BaseWikipediaResource(ABC):
             v[list_key] += raw["query"][list_key]
         return builder(v, page)
 
-    def _extracts_params(self, page: WikipediaPage, **kwargs: Any) -> dict[str, Any]:
+    def _extracts_params(self, page: "BaseWikipediaPage[Any]", **kwargs: Any) -> dict[str, Any]:
         """
         Build params for the ``extracts`` prop query.
 
@@ -673,7 +680,7 @@ class BaseWikipediaResource(ABC):
         params.update(kwargs)
         return params
 
-    def _info_params(self, page: WikipediaPage) -> dict[str, Any]:
+    def _info_params(self, page: "BaseWikipediaPage[Any]") -> dict[str, Any]:
         """
         Build params for the ``info`` prop query.
 
@@ -707,7 +714,7 @@ class BaseWikipediaResource(ABC):
             ),
         }
 
-    def _langlinks_params(self, page: WikipediaPage, **kwargs: Any) -> dict[str, Any]:
+    def _langlinks_params(self, page: "BaseWikipediaPage[Any]", **kwargs: Any) -> dict[str, Any]:
         """
         Build params for the ``langlinks`` prop query.
 
@@ -729,7 +736,7 @@ class BaseWikipediaResource(ABC):
         params.update(kwargs)
         return params
 
-    def _links_params(self, page: WikipediaPage) -> dict[str, Any]:
+    def _links_params(self, page: "BaseWikipediaPage[Any]") -> dict[str, Any]:
         """
         Build params for the ``links`` prop query.
 
@@ -748,7 +755,7 @@ class BaseWikipediaResource(ABC):
             "pllimit": 500,
         }
 
-    def _backlinks_params(self, page: WikipediaPage) -> dict[str, Any]:
+    def _backlinks_params(self, page: "BaseWikipediaPage[Any]") -> dict[str, Any]:
         """
         Build params for the ``backlinks`` list query.
 
@@ -766,7 +773,7 @@ class BaseWikipediaResource(ABC):
             "bllimit": 500,
         }
 
-    def _categories_params(self, page: WikipediaPage, **kwargs: Any) -> dict[str, Any]:
+    def _categories_params(self, page: "BaseWikipediaPage[Any]", **kwargs: Any) -> dict[str, Any]:
         """
         Build params for the ``categories`` prop query.
 
@@ -786,7 +793,7 @@ class BaseWikipediaResource(ABC):
         params.update(kwargs)
         return params
 
-    def _categorymembers_params(self, page: WikipediaPage) -> dict[str, Any]:
+    def _categorymembers_params(self, page: "BaseWikipediaPage[Any]") -> dict[str, Any]:
         """
         Build params for the ``categorymembers`` list query.
 
@@ -1164,7 +1171,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         """
         return self.page(title=title, ns=ns, unquote=unquote)
 
-    async def extracts(self, page: WikipediaPage, **kwargs: Any) -> str:
+    async def extracts(self, page: "AsyncWikipediaPage", **kwargs: Any) -> str:
         """
         Async version of :meth:`WikipediaResource.extracts`.
 
@@ -1184,7 +1191,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             page, self._extracts_params(page, **kwargs), "", self._build_extracts
         )
 
-    async def info(self, page: WikipediaPage) -> WikipediaPage:
+    async def info(self, page: "AsyncWikipediaPage") -> "AsyncWikipediaPage":
         """
         Async version of :meth:`WikipediaResource.info`.
 
@@ -1204,7 +1211,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             page, self._info_params(page), page, self._build_info
         )
 
-    async def langlinks(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
+    async def langlinks(self, page: "AsyncWikipediaPage", **kwargs: Any) -> "AsyncPagesDict":
         """
         Async version of :meth:`WikipediaResource.langlinks`.
 
@@ -1224,7 +1231,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             page, self._langlinks_params(page, **kwargs), {}, self._build_langlinks
         )
 
-    async def links(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
+    async def links(self, page: "AsyncWikipediaPage", **kwargs: Any) -> "AsyncPagesDict":
         """
         Async version of :meth:`WikipediaResource.links`.
 
@@ -1244,7 +1251,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             page, {**self._links_params(page), **kwargs}, "plcontinue", "links", self._build_links
         )
 
-    async def backlinks(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
+    async def backlinks(self, page: "AsyncWikipediaPage", **kwargs: Any) -> "AsyncPagesDict":
         """
         Async version of :meth:`WikipediaResource.backlinks`.
 
@@ -1268,7 +1275,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             self._build_backlinks,
         )
 
-    async def categories(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
+    async def categories(self, page: "AsyncWikipediaPage", **kwargs: Any) -> "AsyncPagesDict":
         """
         Async version of :meth:`WikipediaResource.categories`.
 
@@ -1288,7 +1295,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             page, self._categories_params(page, **kwargs), {}, self._build_categories
         )
 
-    async def categorymembers(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
+    async def categorymembers(self, page: "AsyncWikipediaPage", **kwargs: Any) -> "AsyncPagesDict":
         """
         Async version of :meth:`WikipediaResource.categorymembers`.
 

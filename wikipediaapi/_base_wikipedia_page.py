@@ -1,14 +1,16 @@
 from abc import ABC
 from abc import abstractmethod
-from typing import Any
+from typing import Any, Generic, TypeVar
 
 from .namespace import Namespace
 from .namespace import namespace2int
 from .namespace import WikiNamespace
 from .wikipedia_page_section import WikipediaPageSection
 
+PageT = TypeVar("PageT", bound="BaseWikipediaPage[Any]")
 
-class BaseWikipediaPage(ABC):
+
+class BaseWikipediaPage(ABC, Generic[PageT]):
     """
     Common base for :class:`~wikipediaapi.WikipediaPage` and
     :class:`~wikipediaapi.AsyncWikipediaPage`.
@@ -102,11 +104,11 @@ class BaseWikipediaPage(ABC):
         self._summary = ""  # type: str
         self._section = []  # type: list[WikipediaPageSection]
         self._section_mapping = {}  # type: dict[str, list[WikipediaPageSection]]
-        self._langlinks: dict[str, Any] = {}
-        self._links: dict[str, Any] = {}
-        self._backlinks: dict[str, Any] = {}
-        self._categories: dict[str, Any] = {}
-        self._categorymembers: dict[str, Any] = {}
+        self._langlinks: dict[str, PageT] = {}
+        self._links: dict[str, PageT] = {}
+        self._backlinks: dict[str, PageT] = {}
+        self._categories: dict[str, PageT] = {}
+        self._categorymembers: dict[str, PageT] = {}
 
         self._called = {
             "extracts": False,
