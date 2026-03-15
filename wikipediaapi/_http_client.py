@@ -4,12 +4,11 @@ from collections.abc import Callable
 import logging
 from typing import Any
 
+import httpx
 from tenacity import AsyncRetrying
 from tenacity import retry_if_exception
 from tenacity import Retrying
 from tenacity import stop_after_attempt
-
-import httpx
 
 from ._version import __version_str__
 from .exceptions import WikiConnectionError

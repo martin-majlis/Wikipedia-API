@@ -1,8 +1,8 @@
 import unittest
 
+import httpx
 import respx
 
-import httpx
 from tests.mock_data import user_agent
 import wikipediaapi
 from wikipediaapi._http_client import SyncHTTPClient
