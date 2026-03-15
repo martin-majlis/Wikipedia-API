@@ -42,49 +42,118 @@ class WikipediaPage(BaseWikipediaPage):
       ``readable``, ``preload``, ``varianttitles``
     """
 
-    def __getattr__(self, name: str) -> Any:
-        """
-        Resolve a lazily-fetched attribute by name.
-
-        Three distinct cases mirror the async counterpart:
-
-        * **No-fetch attributes** (``language``, ``variant``) — returned
-          directly from the init-time cache; no network call is ever made.
-        * **Info-only attributes** (e.g. ``fullurl``, ``displaytitle``) —
-          the ``info`` API call is issued on the first access and the result
-          is cached for all subsequent reads.
-        * **Multi-source attributes** (e.g. ``pageid``) — fetched via the
-          first listed source in :attr:`ATTRIBUTES_MAPPING` if not already
-          cached.
-
-        For attributes not present in :attr:`ATTRIBUTES_MAPPING` the normal
-        ``__getattribute__`` path is used (raising ``AttributeError`` for
-        truly absent names).
-
-        :param name: attribute name to resolve
-        :return: the attribute value, fetching if necessary
-        """
-        if name not in self.ATTRIBUTES_MAPPING:
-            return self.__getattribute__(name)
-
-        calls = self.ATTRIBUTES_MAPPING[name]
-
-        if not calls:
-            # language, variant — set at init, no fetch needed
-            return self._attributes.get(name)
-
+    def _info_attr(self, name: str) -> Any:
+        """Return a cached ``info``-sourced attribute, fetching if not yet loaded."""
         if name in self._attributes:
             return self._attributes[name]
-
-        if calls == ["info"]:
-            if not self._called["info"]:
-                self._fetch("info")
-            return self._attributes.get(name)
-
-        # multi-source attributes: fetch via first listed source if not yet cached
-        if not self._called[calls[0]]:
-            self._fetch(calls[0])
+        if not self._called["info"]:
+            self._fetch("info")
         return self._attributes.get(name)
+
+    @property
+    def pageid(self) -> Any:
+        """MediaWiki numeric page ID (``-1`` for missing pages)."""
+        return self._info_attr("pageid")
+
+    @property
+    def contentmodel(self) -> Any:
+        """Content model of the page (e.g. ``"wikitext"``)."""
+        return self._info_attr("contentmodel")
+
+    @property
+    def pagelanguage(self) -> Any:
+        """BCP-47 language code of the page content."""
+        return self._info_attr("pagelanguage")
+
+    @property
+    def pagelanguagehtmlcode(self) -> Any:
+        """HTML ``lang`` attribute value for the page language."""
+        return self._info_attr("pagelanguagehtmlcode")
+
+    @property
+    def pagelanguagedir(self) -> Any:
+        """Text directionality of the page language (``"ltr"`` or ``"rtl"``)."""
+        return self._info_attr("pagelanguagedir")
+
+    @property
+    def touched(self) -> Any:
+        """ISO 8601 timestamp of the last cache invalidation."""
+        return self._info_attr("touched")
+
+    @property
+    def lastrevid(self) -> Any:
+        """Revision ID of the most recent edit."""
+        return self._info_attr("lastrevid")
+
+    @property
+    def length(self) -> Any:
+        """Page size in bytes."""
+        return self._info_attr("length")
+
+    @property
+    def protection(self) -> Any:
+        """List of active protection descriptors (type, level, expiry)."""
+        return self._info_attr("protection")
+
+    @property
+    def restrictiontypes(self) -> Any:
+        """List of protection types applicable to this page."""
+        return self._info_attr("restrictiontypes")
+
+    @property
+    def watchers(self) -> Any:
+        """Number of users watching this page (may be ``None``)."""
+        return self._info_attr("watchers")
+
+    @property
+    def visitingwatchers(self) -> Any:
+        """Watchers who recently visited the page (may be ``None``)."""
+        return self._info_attr("visitingwatchers")
+
+    @property
+    def notificationtimestamp(self) -> Any:
+        """Timestamp of the last change that triggered a notification."""
+        return self._info_attr("notificationtimestamp")
+
+    @property
+    def talkid(self) -> Any:
+        """Page ID of the associated talk page."""
+        return self._info_attr("talkid")
+
+    @property
+    def fullurl(self) -> Any:
+        """Canonical read URL of the page."""
+        return self._info_attr("fullurl")
+
+    @property
+    def editurl(self) -> Any:
+        """URL for editing the page in the browser."""
+        return self._info_attr("editurl")
+
+    @property
+    def canonicalurl(self) -> Any:
+        """Canonical URL of the page."""
+        return self._info_attr("canonicalurl")
+
+    @property
+    def readable(self) -> Any:
+        """Non-empty string if the page is readable by the current user."""
+        return self._info_attr("readable")
+
+    @property
+    def preload(self) -> Any:
+        """Preload template name if set, otherwise ``None``."""
+        return self._info_attr("preload")
+
+    @property
+    def displaytitle(self) -> Any:
+        """Formatted display title (may differ from :attr:`title` in casing)."""
+        return self._info_attr("displaytitle")
+
+    @property
+    def varianttitles(self) -> Any:
+        """Dict mapping variant codes to variant-specific titles."""
+        return self._info_attr("varianttitles")
 
     def exists(self) -> bool:
         """

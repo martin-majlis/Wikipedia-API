@@ -34,15 +34,13 @@ class BaseWikipediaPage(ABC):
 
     Subclass responsibilities:
 
-    * :meth:`__getattr__` — sync returns attribute values directly;
-      async returns coroutines.
     * :meth:`_fetch` — ``def`` in sync, ``async def`` in async.
     * ``sections`` — sync auto-fetches via ``_fetch``; async is a plain
       property populated after ``await page.summary``.
     * ``exists()`` — sync auto-fetches via ``self.pageid``; async is a
       coroutine that lazily fetches ``pageid`` via ``info``.
     * All data-fetching surface (``summary``, ``text``, ``langlinks``, …) —
-      ``@property`` in sync, awaitable property via ``__getattr__`` in async.
+      explicit ``@property`` in both; async properties return coroutines.
     """
 
     ATTRIBUTES_MAPPING: dict[str, list[str]] = {
@@ -186,22 +184,6 @@ class BaseWikipediaPage(ABC):
             ``14`` for categories)
         """
         return int(self._attributes["ns"])
-
-    @abstractmethod
-    def __getattr__(self, name: str) -> Any:
-        """
-        Resolve a lazily-fetched attribute by name.
-
-        Must be implemented by each subclass:
-
-        * :class:`~wikipediaapi.WikipediaPage` — returns the attribute
-          value directly, triggering a synchronous API fetch if needed.
-        * :class:`~wikipediaapi.AsyncWikipediaPage` — returns a
-          coroutine so callers can ``await`` the attribute.
-
-        :param name: attribute name to resolve
-        :return: attribute value (sync) or an awaitable thereof (async)
-        """
 
     @property
     @abstractmethod

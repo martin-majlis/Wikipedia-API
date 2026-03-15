@@ -354,7 +354,7 @@ class BaseWikipediaResource(ABC):
                 language=page.language,
                 variant=page.variant,
             )
-            p.pageid = member["pageid"]  # type: ignore[attr-defined]
+            p._attributes["pageid"] = member["pageid"]
             page._categorymembers[member["title"]] = p
         return page._categorymembers
 

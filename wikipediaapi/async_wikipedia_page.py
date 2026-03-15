@@ -49,95 +49,196 @@ class AsyncWikipediaPage(BaseWikipediaPage):
       ``await page.preload``, ``await page.varianttitles``
     """
 
-    COROUTINE_PROPERTIES: dict[str, tuple[str, str]] = {
-        "summary": ("extracts", "_summary"),
-        "langlinks": ("langlinks", "_langlinks"),
-        "links": ("links", "_links"),
-        "backlinks": ("backlinks", "_backlinks"),
-        "categories": ("categories", "_categories"),
-        "categorymembers": ("categorymembers", "_categorymembers"),
-    }
+    async def _info_attr(self, name: str) -> Any:
+        """Fetch via the ``info`` API call if not yet cached, then return the value."""
+        if name not in self._attributes and not self._called["info"]:
+            await self._fetch("info")
+        return self._attributes.get(name)
 
-    def __getattr__(self, name: str) -> Any:
-        """
-        Resolve an attribute, returning an awaitable.
+    @property
+    def pageid(self) -> Any:
+        """Awaitable: MediaWiki numeric page ID (``-1`` for missing pages)."""
+        return self._info_attr("pageid")
 
-        Three dispatch paths:
+    @property
+    def contentmodel(self) -> Any:
+        """Awaitable: content model of the page (e.g. ``"wikitext"``)."""
+        return self._info_attr("contentmodel")
 
-        1. **Coroutine properties** (``summary``, ``langlinks``, ``links``,
-           ``backlinks``, ``categories``, ``categorymembers``) — return a
-           coroutine that fetches via the corresponding API call on the
-           first ``await`` and caches the result::
+    @property
+    def pagelanguage(self) -> Any:
+        """Awaitable: BCP-47 language code of the page content."""
+        return self._info_attr("pagelanguage")
 
-               text = await page.summary
-               ll   = await page.langlinks
+    @property
+    def pagelanguagehtmlcode(self) -> Any:
+        """Awaitable: HTML ``lang`` attribute value for the page language."""
+        return self._info_attr("pagelanguagehtmlcode")
 
-        2. **Info-only attributes** (e.g. ``fullurl``, ``displaytitle``) —
-           return a coroutine that lazily fetches via the ``info`` API call::
+    @property
+    def pagelanguagedir(self) -> Any:
+        """Awaitable: text directionality of the page language."""
+        return self._info_attr("pagelanguagedir")
 
-               url   = await page.fullurl
-               title = await page.displaytitle
+    @property
+    def touched(self) -> Any:
+        """Awaitable: ISO 8601 timestamp of the last cache invalidation."""
+        return self._info_attr("touched")
 
-        3. **Multi-source attributes** (e.g. ``pageid``) — return a coroutine
-           that fetches via the first listed source in
-           :attr:`ATTRIBUTES_MAPPING` if not yet cached.
+    @property
+    def lastrevid(self) -> Any:
+        """Awaitable: revision ID of the most recent edit."""
+        return self._info_attr("lastrevid")
 
-        Attributes not in :attr:`COROUTINE_PROPERTIES` or
-        :attr:`ATTRIBUTES_MAPPING` follow the normal ``__getattribute__``
-        path (raising ``AttributeError`` if truly absent).
+    @property
+    def length(self) -> Any:
+        """Awaitable: page size in bytes."""
+        return self._info_attr("length")
 
-        :param name: attribute name to look up
-        :return: coroutine for all data-fetching attributes; result of
-            ``__getattribute__`` for unknown names
-        """
-        if name == "text":
+    @property
+    def protection(self) -> Any:
+        """Awaitable: list of active protection descriptors."""
+        return self._info_attr("protection")
 
-            async def _text() -> str:
-                txt: str = await self.summary
-                if len(txt) > 0:
-                    txt += "\n\n"
-                for sec in self.sections:
-                    txt += sec.full_text(level=2)
-                return txt.strip()
+    @property
+    def restrictiontypes(self) -> Any:
+        """Awaitable: list of protection types applicable to this page."""
+        return self._info_attr("restrictiontypes")
 
-            return _text()
+    @property
+    def watchers(self) -> Any:
+        """Awaitable: number of users watching this page (may be ``None``)."""
+        return self._info_attr("watchers")
 
-        if name in self.COROUTINE_PROPERTIES:
-            call, cache_attr = self.COROUTINE_PROPERTIES[name]
+    @property
+    def visitingwatchers(self) -> Any:
+        """Awaitable: watchers who recently visited the page (may be ``None``)."""
+        return self._info_attr("visitingwatchers")
 
-            async def _coroutine_property() -> Any:
-                if not self._called[call]:
-                    await self._fetch(call)
-                return object.__getattribute__(self, cache_attr)
+    @property
+    def notificationtimestamp(self) -> Any:
+        """Awaitable: timestamp of the last change that triggered a notification."""
+        return self._info_attr("notificationtimestamp")
 
-            return _coroutine_property()
+    @property
+    def talkid(self) -> Any:
+        """Awaitable: page ID of the associated talk page."""
+        return self._info_attr("talkid")
 
-        if name not in self.ATTRIBUTES_MAPPING:
-            return self.__getattribute__(name)
+    @property
+    def fullurl(self) -> Any:
+        """Awaitable: canonical read URL of the page."""
+        return self._info_attr("fullurl")
 
-        calls = self.ATTRIBUTES_MAPPING[name]
+    @property
+    def editurl(self) -> Any:
+        """Awaitable: URL for editing the page in the browser."""
+        return self._info_attr("editurl")
 
-        if not calls:
-            # language, variant — set at init, no fetch needed
-            return self._attributes.get(name)
+    @property
+    def canonicalurl(self) -> Any:
+        """Awaitable: canonical URL of the page."""
+        return self._info_attr("canonicalurl")
 
-        if calls == ["info"]:
-            # Return a coroutine so callers can do: value = await page.fullurl
-            async def _info_attr() -> Any:
-                if name not in self._attributes and not self._called["info"]:
-                    await self._fetch("info")
-                return self._attributes.get(name)
+    @property
+    def readable(self) -> Any:
+        """Awaitable: non-empty string if the page is readable by the current user."""
+        return self._info_attr("readable")
 
-            return _info_attr()
+    @property
+    def preload(self) -> Any:
+        """Awaitable: preload template name if set, otherwise ``None``."""
+        return self._info_attr("preload")
 
-        # pageid and other multi-source attributes — return awaitable that
-        # lazily fetches via the first listed source if not yet cached
-        async def _multi_source_attr() -> Any:
-            if name not in self._attributes:
-                await self._fetch(calls[0])
-            return self._attributes.get(name)
+    @property
+    def displaytitle(self) -> Any:
+        """Awaitable: formatted display title."""
+        return self._info_attr("displaytitle")
 
-        return _multi_source_attr()
+    @property
+    def varianttitles(self) -> Any:
+        """Awaitable: dict mapping variant codes to variant-specific titles."""
+        return self._info_attr("varianttitles")
+
+    @property
+    def summary(self) -> Any:
+        """Awaitable: introductory text of this page (before the first section)."""
+
+        async def _get() -> str:
+            if not self._called["extracts"]:
+                await self._fetch("extracts")
+            return self._summary
+
+        return _get()
+
+    @property
+    def langlinks(self) -> Any:
+        """Awaitable: ``{language_code: AsyncWikipediaPage}`` dict."""
+
+        async def _get() -> dict:
+            if not self._called["langlinks"]:
+                await self._fetch("langlinks")
+            return self._langlinks
+
+        return _get()
+
+    @property
+    def links(self) -> Any:
+        """Awaitable: ``{title: AsyncWikipediaPage}`` dict of outbound links."""
+
+        async def _get() -> dict:
+            if not self._called["links"]:
+                await self._fetch("links")
+            return self._links
+
+        return _get()
+
+    @property
+    def backlinks(self) -> Any:
+        """Awaitable: ``{title: AsyncWikipediaPage}`` dict of pages linking here."""
+
+        async def _get() -> dict:
+            if not self._called["backlinks"]:
+                await self._fetch("backlinks")
+            return self._backlinks
+
+        return _get()
+
+    @property
+    def categories(self) -> Any:
+        """Awaitable: ``{title: AsyncWikipediaPage}`` dict of categories."""
+
+        async def _get() -> dict:
+            if not self._called["categories"]:
+                await self._fetch("categories")
+            return self._categories
+
+        return _get()
+
+    @property
+    def categorymembers(self) -> Any:
+        """Awaitable: ``{title: AsyncWikipediaPage}`` dict of category members."""
+
+        async def _get() -> dict:
+            if not self._called["categorymembers"]:
+                await self._fetch("categorymembers")
+            return self._categorymembers
+
+        return _get()
+
+    @property
+    def text(self) -> Any:
+        """Awaitable: full page text — summary followed by all sections."""
+
+        async def _get() -> str:
+            txt: str = await self.summary
+            if len(txt) > 0:
+                txt += "\n\n"
+            for sec in self.sections:
+                txt += sec.full_text(level=2)
+            return txt.strip()
+
+        return _get()
 
     @property
     def sections(self) -> list[WikipediaPageSection]:

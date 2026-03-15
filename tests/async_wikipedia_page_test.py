@@ -35,6 +35,18 @@ class TestAsyncWikipediaPageInit(unittest.TestCase):
         page = wiki.page("Test")
         self.assertEqual(page.variant, "zh-tw")
 
+    def test_dir_includes_attributes_mapping_keys(self):
+        page = self.wiki.page("Test_1")
+        d = dir(page)
+        for attr in ["pageid", "fullurl", "displaytitle", "canonicalurl", "editurl"]:
+            self.assertIn(attr, d)  # always present: __getattr__ returns non-blocking coroutines
+
+    def test_dir_includes_coroutine_properties(self):
+        page = self.wiki.page("Test_1")
+        d = dir(page)
+        for attr in ["summary", "text", "langlinks", "links", "backlinks", "categories"]:
+            self.assertIn(attr, d)
+
     def test_namespace_default(self):
         page = self.wiki.page("Python")
         self.assertEqual(page.namespace, 0)
@@ -72,6 +84,29 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
         self.wiki = wikipediaapi.AsyncWikipedia(user_agent, "en")
         self.wiki._get = async_wikipedia_api_request(self.wiki)
+
+    async def test_pageid_from_extracts_no_info_call(self):
+        page = self.wiki.page("Test_1")
+        await page.summary  # triggers extracts, which includes pageid
+        self.assertFalse(page._called["info"])
+        pageid = await page.pageid
+        self.assertEqual(pageid, 4)
+        self.assertFalse(page._called["info"])  # pageid was cached; info still not needed
+
+    async def test_pageid_from_langlinks_no_info_call(self):
+        page = self.wiki.page("Test_1")
+        await page.langlinks  # triggers langlinks, which includes pageid
+        self.assertFalse(page._called["info"])
+        pageid = await page.pageid
+        self.assertEqual(pageid, 4)
+        self.assertFalse(page._called["info"])  # pageid was cached; info still not needed
+
+    async def test_title_from_extracts_no_info_call(self):
+        page = self.wiki.page("Test_1")
+        await page.summary  # extracts also populates title and ns
+        self.assertFalse(page._called["info"])
+        self.assertEqual(page.title, "Test 1")
+        self.assertEqual(page.ns, 0)
 
     async def test_summary_fetches_and_returns_str(self):
         page = self.wiki.page("Test_1")

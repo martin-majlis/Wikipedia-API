@@ -24,13 +24,13 @@ Goal of ``Wikipedia-API`` is to provide simple and easy to use API for retrievin
 
 Key differences between the sync and async API:
 
-* Info attributes (``fullurl``, ``displaytitle``, ``pageid``, …) are **awaitables**
-  in the async API.
-* ``title``, ``ns``, ``namespace``, ``language``, ``variant`` are plain ``@property`` values
-  in both APIs (no ``await`` needed).
-* In the async API, data-fetching properties (``summary``, ``text``, ``langlinks``,
-  ``links``, ``backlinks``, ``categories``, ``categorymembers``) are **awaitable
-  properties** (no parentheses): ``await page.summary``, ``await page.text``, etc.
+* All data-fetching attributes (``summary``, ``text``, ``langlinks``, ``links``,
+  ``backlinks``, ``categories``, ``categorymembers``, ``pageid``, ``fullurl``,
+  ``displaytitle``, …) are explicit ``@property`` definitions in both APIs.
+  In the async API every such property returns a coroutine: ``await page.summary``,
+  ``await page.pageid``, etc.
+* ``title``, ``ns``, ``namespace``, ``language``, ``variant`` are plain ``@property``
+  values in both APIs (no ``await`` needed).
 * ``exists()`` is a plain method in the sync API; a **coroutine method** in the async API:
   ``await page.exists()``.
 * ``section_by_title()`` and ``sections_by_title()`` are plain synchronous methods

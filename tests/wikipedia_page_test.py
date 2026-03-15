@@ -10,6 +10,39 @@ class TestWikipediaPage(unittest.TestCase):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
+    def test_dir_includes_attributes_mapping_keys(self):
+        page = self.wiki.page("Test_1")
+        d = dir(page)
+        for attr in ["pageid", "fullurl", "displaytitle", "canonicalurl", "editurl"]:
+            self.assertIn(attr, d)
+
+    def test_dir_includes_data_properties(self):
+        page = self.wiki.page("Test_1")
+        d = dir(page)
+        for attr in ["summary", "text", "langlinks", "links", "backlinks", "categories"]:
+            self.assertIn(attr, d)
+
+    def test_pageid_from_extracts_no_info_call(self):
+        page = self.wiki.page("Test_1")
+        _ = page.summary  # triggers extracts, which includes pageid
+        self.assertFalse(page._called["info"])
+        self.assertEqual(page.pageid, 4)
+        self.assertFalse(page._called["info"])  # pageid was cached; info still not needed
+
+    def test_pageid_from_langlinks_no_info_call(self):
+        page = self.wiki.page("Test_1")
+        _ = page.langlinks  # triggers langlinks, which includes pageid
+        self.assertFalse(page._called["info"])
+        self.assertEqual(page.pageid, 4)
+        self.assertFalse(page._called["info"])  # pageid was cached; info still not needed
+
+    def test_title_from_extracts_no_info_call(self):
+        page = self.wiki.page("Test_1")
+        _ = page.summary  # extracts also populates title and ns
+        self.assertFalse(page._called["info"])
+        self.assertEqual(page.title, "Test 1")
+        self.assertEqual(page.ns, 0)
+
     def test_repr_before_fetching(self):
         page = self.wiki.page("Test_1")
         self.assertEqual(repr(page), "Test_1 (lang: en, variant: None, id: ??, ns: 0)")

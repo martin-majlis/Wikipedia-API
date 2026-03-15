@@ -52,8 +52,9 @@ WikipediaPage
 
 AsyncWikipediaPage
 ------------------
-Mirrors ``WikipediaPage`` with the same attributes and interface.  Data-fetching
-properties are awaitable (no parentheses); ``exists()`` is a coroutine method.
+Mirrors ``WikipediaPage`` with the same attributes and interface.  All
+data-fetching attributes are explicit ``@property`` definitions that
+return coroutines (awaitable with ``await``).
 
 * ``page.title``, ``page.ns``, ``page.namespace``, ``page.language``, ``page.variant`` — plain properties (no await)
 * ``await page.summary`` — awaitable property; introductory text

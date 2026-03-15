@@ -27,11 +27,11 @@ established conventions, or breaking the sync/async symmetry.
 Every public attribute or method on one **must** have the same kind of
 interface on the other:
 
-| If `WikipediaPage` has …     | then `AsyncWikipediaPage` MUST have …                                             |
-| ---------------------------- | --------------------------------------------------------------------------------- |
-| `@property foo`              | awaitable property `await page.foo` (via `COROUTINE_PROPERTIES` or `__getattr__`) |
-| plain method `foo()`         | coroutine method `await page.foo()`                                               |
-| plain `@property` (no fetch) | plain `@property` (no fetch)                                                      |
+| If `WikipediaPage` has …     | then `AsyncWikipediaPage` MUST have …                                            |
+| ---------------------------- | -------------------------------------------------------------------------------- |
+| `@property foo`              | awaitable property `await page.foo` (explicit `@property` returning a coroutine) |
+| plain method `foo()`         | coroutine method `await page.foo()`                                              |
+| plain `@property` (no fetch) | plain `@property` (no fetch)                                                     |
 
 **Never** convert a property to a method (or vice versa) in one class
 without making the matching change in the other. Violations break
@@ -40,10 +40,12 @@ the two clients.
 
 Examples of correct symmetry currently in place:
 
-- `page.summary` — `@property` in sync; `await page.summary`
-  (awaitable property via `COROUTINE_PROPERTIES`) in async.
-- `page.langlinks`, `page.links`, `page.backlinks`,
-  `page.categories`, `page.categorymembers` — same pattern.
+- `page.summary`, `page.text`, `page.langlinks`, `page.links`,
+  `page.backlinks`, `page.categories`, `page.categorymembers` —
+  `@property` in sync; explicit `@property` returning a coroutine in async.
+- `page.pageid`, `page.fullurl`, `page.displaytitle`, and all other
+  info attributes — same pattern: `@property` in sync, awaitable
+  `@property` in async.
 - `page.exists()` — plain method in sync; coroutine method
   `await page.exists()` in async (both use call syntax `()`).
 - `page.sections`, `page.title`, `page.ns`, `page.language`,

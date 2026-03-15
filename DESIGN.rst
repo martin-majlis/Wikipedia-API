@@ -174,20 +174,24 @@ Full Class Diagram
           ┌────────────┴────────────┐  ┌───────────┴──────────────┐
           │     WikipediaPage       │  │   AsyncWikipediaPage      │
           │                         │  │                           │
-          │  __getattr__ (sync)     │  │  __getattr__ (→coroutine) │
           │  _fetch (def)           │  │  _fetch (async def)       │
+          │  _info_attr(name)       │  │  _info_attr(name) (async) │
           │  sections_by_title      │  │  sections (property,      │
           │    (override: auto-     │  │    no auto-fetch)         │
           │    fetches extracts)    │  │  exists() (coroutine)     │
-          │  sections (auto-fetch)  │  │  summary (awaitable prop) │
-          │  exists() (auto-fetch)  │  │  text (awaitable prop)    │
+          │  sections (auto-fetch)  │  │  summary (await. prop)    │
+          │  exists() (auto-fetch)  │  │  text    (await. prop)    │
           │  summary (property)     │  │  langlinks (await. prop)  │
-          │  text    (property)     │  │  links (awaitable prop)   │
+          │  text    (property)     │  │  links     (await. prop)  │
           │  langlinks (property)   │  │  backlinks (await. prop)  │
           │  links     (property)   │  │  categories (await. prop) │
           │  backlinks (property)   │  │  categorymembers          │
           │  categories (property)  │  │    (awaitable prop)       │
-          │  categorymembers (prop) │  │                           │
+          │  categorymembers (prop) │  │  pageid    (await. prop)  │
+          │  pageid   (property)    │  │  fullurl   (await. prop)  │
+          │  fullurl  (property)    │  │  displaytitle (await.)    │
+          │  displaytitle (property)│  │  + 18 more info props     │
+          │  + 18 more info props   │  │                           │
           │                         │  │  _wiki ──────────────────►│
           │                         │  │  AsyncWikipedia instance  │
           │  _wiki ─────────────────┼► │                           │
