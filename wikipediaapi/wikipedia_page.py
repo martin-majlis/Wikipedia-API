@@ -86,18 +86,6 @@ class WikipediaPage(BaseWikipediaPage):
             self._fetch(calls[0])
         return self._attributes.get(name)
 
-    @property
-    def namespace(self) -> int:
-        """
-        Integer namespace number of this page.
-
-        ``0`` for main-namespace articles; see :class:`~wikipediaapi.Namespace`
-        for the full list of namespace values.
-
-        :return: namespace as an integer
-        """
-        return int(self._attributes["ns"])
-
     def exists(self) -> bool:
         """
         Return ``True`` if this page exists on Wikipedia.

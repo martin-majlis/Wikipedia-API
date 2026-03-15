@@ -90,6 +90,18 @@ class AsyncWikipediaPage(BaseWikipediaPage):
         :return: coroutine for all data-fetching attributes; result of
             ``__getattribute__`` for unknown names
         """
+        if name == "text":
+
+            async def _text() -> str:
+                txt: str = await self.summary
+                if len(txt) > 0:
+                    txt += "\n\n"
+                for sec in self.sections:
+                    txt += sec.full_text(level=2)
+                return txt.strip()
+
+            return _text()
+
         if name in self.COROUTINE_PROPERTIES:
             call, cache_attr = self.COROUTINE_PROPERTIES[name]
 
@@ -130,11 +142,11 @@ class AsyncWikipediaPage(BaseWikipediaPage):
     @property
     def sections(self) -> list[WikipediaPageSection]:
         """
-        Top-level sections of this page (populated after ``await page.summary()``).
+        Top-level sections of this page (populated after ``await page.summary``).
 
         Unlike the sync counterpart, this property does **not** trigger a
-        network call.  It returns whatever is cached; call and await
-        :meth:`summary` first to ensure the sections are populated.
+        network call.  It returns whatever is cached; ``await page.summary``
+        first to ensure the sections are populated.
 
         :return: list of top-level :class:`WikipediaPageSection` objects
         """
@@ -182,14 +194,18 @@ class AsyncWikipediaPage(BaseWikipediaPage):
 
     def __repr__(self) -> str:
         """
-        Return a human-readable representation of this async page.
+        Return a compact human-readable representation of this page.
 
-        :return: multi-line string showing title, namespace, language,
-            and variant
+        Shows title, language, variant, namespace, and page ID (if the
+        page has already been fetched; otherwise ``??``).
+
+        :return: string of the form
+            ``"<title> (lang: <lang>, variant: <variant>, id: <id>, ns: <ns>)"
         """
-        return "AsyncWikipediaPage: {}\nNS: {}\nLanguage: {}\nVariant: {}".format(
-            self.title,
-            self.ns,
-            self.language,
-            self.variant,
-        )
+        r = f"{self.title} (lang: {self.language}, variant: {self.variant}, "
+        if any(self._called.values()):
+            r += f"id: {self._attributes.get('pageid')}, "
+        else:
+            r += "id: ??, "
+        r += f"ns: {self.ns})"
+        return r

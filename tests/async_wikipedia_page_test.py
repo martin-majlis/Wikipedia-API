@@ -35,11 +35,21 @@ class TestAsyncWikipediaPageInit(unittest.TestCase):
         page = wiki.page("Test")
         self.assertEqual(page.variant, "zh-tw")
 
-    def test_repr(self):
+    def test_namespace_default(self):
         page = self.wiki.page("Python")
-        r = repr(page)
-        self.assertIn("Python", r)
-        self.assertIn("en", r)
+        self.assertEqual(page.namespace, 0)
+
+    def test_repr_before_fetch(self):
+        page = self.wiki.page("Python")
+        self.assertEqual(repr(page), "Python (lang: en, variant: None, id: ??, ns: 0)")
+
+    def test_repr_after_fetch(self):
+        wiki = wikipediaapi.AsyncWikipedia(user_agent, "en")
+        wiki._get = async_wikipedia_api_request(wiki)
+        page = wiki.page("Test_1")
+        self.assertEqual(repr(page), "Test_1 (lang: en, variant: None, id: ??, ns: 0)")
+        asyncio.run(page.summary)
+        self.assertEqual(repr(page), "Test 1 (lang: en, variant: None, id: 4, ns: 0)")
 
     def test_sections_empty_before_fetch(self):
         page = self.wiki.page("Python")
@@ -68,6 +78,13 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
         summary = await page.summary
         self.assertIsInstance(summary, str)
         self.assertGreater(len(summary), 0)
+        self.assertTrue(page._called["extracts"])
+
+    async def test_text_fetches_and_returns_str(self):
+        page = self.wiki.page("Test_1")
+        text = await page.text
+        self.assertIsInstance(text, str)
+        self.assertGreater(len(text), 0)
         self.assertTrue(page._called["extracts"])
 
     async def test_summary_not_refetched_on_second_call(self):

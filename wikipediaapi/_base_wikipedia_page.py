@@ -22,11 +22,12 @@ class BaseWikipediaPage(ABC):
     * :meth:`__init__` — sets up all cache dictionaries to empty values;
       no network call is made.
     * Named properties that return init-time values without any fetch:
-      :attr:`language`, :attr:`variant`, :attr:`title`, :attr:`ns`.
+      :attr:`language`, :attr:`variant`, :attr:`title`, :attr:`ns`,
+      :attr:`namespace`.
     * :meth:`sections_by_title` — reads from the cached section mapping.
       The synchronous subclass overrides this to trigger a fetch when the
       cache is empty; the asynchronous subclass inherits this version and
-      requires an explicit ``await page.summary()`` before calling it.
+      requires an explicit ``await page.summary`` before calling it.
     * :meth:`section_by_title` — delegates to :meth:`sections_by_title`
       so both subclasses automatically use the correct (overridden or
       inherited) version.
@@ -37,10 +38,10 @@ class BaseWikipediaPage(ABC):
       async returns coroutines.
     * :meth:`_fetch` — ``def`` in sync, ``async def`` in async.
     * ``sections`` — sync auto-fetches via ``_fetch``; async is a plain
-      property populated after ``await summary()``.
+      property populated after ``await page.summary``.
     * ``exists()`` — sync auto-fetches via ``self.pageid``; async is a
       coroutine that lazily fetches ``pageid`` via ``info``.
-    * All data-fetching surface (``summary``, ``langlinks``, …) —
+    * All data-fetching surface (``summary``, ``text``, ``langlinks``, …) —
       ``@property`` in sync, awaitable property via ``__getattr__`` in async.
     """
 
@@ -176,6 +177,16 @@ class BaseWikipediaPage(ABC):
         """
         return int(self._attributes["ns"])
 
+    @property
+    def namespace(self) -> int:
+        """
+        Integer namespace number of this page (alias for :attr:`ns`).
+
+        :return: namespace integer (e.g. ``0`` for main articles,
+            ``14`` for categories)
+        """
+        return int(self._attributes["ns"])
+
     @abstractmethod
     def __getattr__(self, name: str) -> Any:
         """
@@ -203,7 +214,7 @@ class BaseWikipediaPage(ABC):
         * :class:`~wikipediaapi.WikipediaPage` — auto-fetches via
           ``extracts`` on first access.
         * :class:`~wikipediaapi.AsyncWikipediaPage` — returns the
-          cached list; requires ``await page.summary()`` first.
+          cached list; requires ``await page.summary`` first.
 
         :return: list of top-level :class:`WikipediaPageSection` objects
         """
@@ -238,7 +249,7 @@ class BaseWikipediaPage(ABC):
         * **Sync** — the overriding implementation in
           :class:`~wikipediaapi.WikipediaPage` triggers a fetch
           automatically.
-        * **Async** — call ``await page.summary()`` first.
+        * **Async** — call ``await page.summary`` first.
 
         :param title: exact heading text to search for
         :return: list of matching :class:`WikipediaPageSection` objects;

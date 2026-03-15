@@ -98,6 +98,9 @@ async def main():
     # ns — integer namespace number; plain @property (set at init, no await)
     print("NS:", page.ns)
 
+    # namespace — alias for ns; plain @property
+    print("Namespace:", page.namespace)
+
     # language — two-letter language code; plain @property
     print("Language:", page.language)
 
@@ -202,6 +205,10 @@ async def main():
     # It also populates page.sections as a side-effect
     summary = await page.summary
     print("Summary (first 120):", summary[:120])
+
+    # text — full page text: summary followed by all section content
+    text = await page.text
+    print("Full text (first 120):", text[:120])
 
     # sections is a plain @property (populated after await page.summary())
     print("Sections:")

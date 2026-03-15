@@ -180,14 +180,15 @@ Full Class Diagram
           │    (override: auto-     │  │    no auto-fetch)         │
           │    fetches extracts)    │  │  exists() (coroutine)     │
           │  sections (auto-fetch)  │  │  summary (awaitable prop) │
-          │  exists() (auto-fetch)  │  │  langlinks (await. prop)  │
-          │  summary (property)     │  │  links (awaitable prop)   │
-          │  text    (property)     │  │  backlinks (await. prop)  │
-          │  langlinks (property)   │  │  categories (await. prop) │
-          │  links     (property)   │  │  categorymembers          │
-          │  backlinks (property)   │  │    (awaitable prop)       │
-          │  categories (property)  │  │                           │
-          │  categorymembers (prop) │  │  _wiki ──────────────────►│
+          │  exists() (auto-fetch)  │  │  text (awaitable prop)    │
+          │  summary (property)     │  │  langlinks (await. prop)  │
+          │  text    (property)     │  │  links (awaitable prop)   │
+          │  langlinks (property)   │  │  backlinks (await. prop)  │
+          │  links     (property)   │  │  categories (await. prop) │
+          │  backlinks (property)   │  │  categorymembers          │
+          │  categories (property)  │  │    (awaitable prop)       │
+          │  categorymembers (prop) │  │                           │
+          │                         │  │  _wiki ──────────────────►│
           │                         │  │  AsyncWikipedia instance  │
           │  _wiki ─────────────────┼► │                           │
           │  Wikipedia instance     │  └───────────────────────────┘
