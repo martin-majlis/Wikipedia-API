@@ -9,13 +9,13 @@ Key differences from the synchronous API:
       url = await page.fullurl
   - Multi-source attributes (pageid) are also awaitable:
       pid = await page.pageid
-  - Collection methods (langlinks, links, backlinks, categories,
-    categorymembers, summary) are coroutines that must be awaited:
-      links = await page.links()
+  - Data properties (summary, langlinks, links, backlinks, categories,
+    categorymembers) are awaitable properties (no parentheses):
+      links = await page.links
   - title, ns, language, variant are plain @property values (no await needed).
-  - exists() is a coroutine — use: exists = await page.exists()
+  - exists() is a coroutine method — use: exists = await page.exists()
   - section_by_title() is a plain synchronous method.
-  - sections is a plain @property (populated after await page.summary()).
+  - sections is a plain @property (populated after await page.summary).
 """
 
 import asyncio
@@ -198,9 +198,9 @@ async def main():
     # 6. Page text — summary and sections
     # ──────────────────────────────────────────────────────────────────────────
 
-    # summary() is a coroutine that fetches and returns the introductory text
+    # summary is an awaitable property that fetches and returns the introductory text
     # It also populates page.sections as a side-effect
-    summary = await page.summary()
+    summary = await page.summary
     print("Summary (first 120):", summary[:120])
 
     # sections is a plain @property (populated after await page.summary())
@@ -225,30 +225,30 @@ async def main():
     print(f"Sections titled 'History': {len(history_sections)}")
 
     # ──────────────────────────────────────────────────────────────────────────
-    # 7. Related pages — all collection methods are coroutines
+    # 7. Related pages — all collection properties are awaitables
     # ──────────────────────────────────────────────────────────────────────────
 
-    # langlinks() — coroutine returning dict of language code → AsyncWikipediaPage
-    langlinks = await page.langlinks()
+    # langlinks — awaitable property returning dict of language code → AsyncWikipediaPage
+    langlinks = await page.langlinks
     print(f"Language links: {len(langlinks)}")
     for code in sorted(langlinks)[:3]:  # show first 3 for brevity
         lp = langlinks[code]
         print(f"  {code}: {lp.title} — {await lp.fullurl}")
 
-    # links() — coroutine returning dict of title → AsyncWikipediaPage stub
-    links = await page.links()
+    # links — awaitable property returning dict of title → AsyncWikipediaPage stub
+    links = await page.links
     print(f"Links: {len(links)}")
     for title in sorted(links)[:3]:
         print(f"  {title}")
 
-    # backlinks() — coroutine returning dict of title → AsyncWikipediaPage stub
-    backlinks = await page.backlinks()
+    # backlinks — awaitable property returning dict of title → AsyncWikipediaPage stub
+    backlinks = await page.backlinks
     print(f"Backlinks: {len(backlinks)}")
     for title in sorted(backlinks)[:3]:
         print(f"  {title}")
 
-    # categories() — coroutine returning dict of category title → stub page
-    categories = await page.categories()
+    # categories — awaitable property returning dict of category title → stub page
+    categories = await page.categories
     print(f"Categories: {len(categories)}")
     for title in sorted(categories)[:3]:
         print(f"  {title}")
@@ -257,10 +257,10 @@ async def main():
     # 8. Category members
     # ──────────────────────────────────────────────────────────────────────────
 
-    # categorymembers() — coroutine; only meaningful on category pages
+    # categorymembers — awaitable property; only meaningful on category pages
     cat = wiki.page("Category:Physics")
     print(f"Category: {cat.title}  (ns={cat.ns})")
-    await print_categorymembers(await cat.categorymembers(), max_level=1)
+    await print_categorymembers(await cat.categorymembers, max_level=1)
 
     # ──────────────────────────────────────────────────────────────────────────
     # 9. HTML extract format
@@ -269,7 +269,7 @@ async def main():
     # ExtractFormat.HTML returns summary and section text as HTML fragments
     page_ostrava = wiki_html.page("Ostrava")
     print("HTML page exists:", await page_ostrava.exists())
-    summary_ostrava = await page_ostrava.summary()
+    summary_ostrava = await page_ostrava.summary
     print("HTML summary (first 120):", summary_ostrava[:120])
 
     section_ostrava = page_ostrava.section_by_title("Heraldický znak")

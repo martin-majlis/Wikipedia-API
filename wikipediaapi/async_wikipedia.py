@@ -30,7 +30,7 @@ class AsyncWikipedia(AsyncWikipediaResource, AsyncHTTPClient):
                 language='en',
             )
             page = wiki.page('Python_(programming_language)')
-            print(await page.summary())
+            print(await page.summary)
 
         asyncio.run(main())
 

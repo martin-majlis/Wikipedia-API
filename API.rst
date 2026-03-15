@@ -55,14 +55,14 @@ AsyncWikipediaPage
 Same attributes as ``WikipediaPage``.  Data-fetching methods are coroutines
 and must be ``await``-ed.
 
-* ``await page.summary()``
-* ``await page.langlinks()``
-* ``await page.links()``
-* ``await page.backlinks()``
-* ``await page.categories()``
-* ``await page.categorymembers()``
-* ``await page.exists()`` — coroutine; lazily fetches ``pageid`` via ``info`` if not yet cached
-* ``page.sections`` — property; populated after ``await page.summary()``
+* ``await page.summary`` — awaitable property; introductory text
+* ``await page.langlinks`` — awaitable property; ``{lang: AsyncWikipediaPage}`` dict
+* ``await page.links`` — awaitable property; ``{title: AsyncWikipediaPage}`` dict
+* ``await page.backlinks`` — awaitable property; ``{title: AsyncWikipediaPage}`` dict
+* ``await page.categories`` — awaitable property; ``{title: AsyncWikipediaPage}`` dict
+* ``await page.categorymembers`` — awaitable property; ``{title: AsyncWikipediaPage}`` dict
+* ``await page.exists()`` — coroutine method; lazily fetches ``pageid`` via ``info`` if not yet cached
+* ``page.sections`` — property; populated after ``await page.summary``
 * ``page.section_by_title(title)`` — synchronous; returns last matching section or ``None``
 * ``page.sections_by_title(title)`` — synchronous; returns all matching sections (list)
 

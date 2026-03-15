@@ -91,10 +91,11 @@ The subclasses are responsible for the fundamentally different parts:
 * ``_fetch`` — ``def`` in sync, ``async def`` in async.
 * ``sections`` property — sync auto-fetches; async requires an explicit
   ``await page.summary()`` first.
-* ``exists()`` — sync auto-fetches via ``self.pageid``; async reads the
-  cache directly (cannot block inside a sync method).
+* ``exists()`` — sync auto-fetches via ``self.pageid``; async is a
+  coroutine method that lazily fetches ``pageid`` via ``info``.
 * All data-fetching surface (``summary``, ``langlinks``, …) — sync uses
-  ``@property``; async uses ``async def``.
+  ``@property``; async uses awaitable property via ``__getattr__``
+  (``COROUTINE_PROPERTIES`` dispatch).
 * ``WikipediaPage`` also overrides ``sections_by_title`` to trigger an
   automatic ``extracts`` fetch (the base version is read-only from cache).
 
@@ -177,14 +178,14 @@ Full Class Diagram
           │  _fetch (def)           │  │  _fetch (async def)       │
           │  sections_by_title      │  │  sections (property,      │
           │    (override: auto-     │  │    no auto-fetch)         │
-          │    fetches extracts)    │  │  exists() (cache only)    │
-          │  sections (auto-fetch)  │  │  summary() (coroutine)    │
-          │  exists() (auto-fetch)  │  │  langlinks() (coroutine)  │
-          │  summary (property)     │  │  links() (coroutine)      │
-          │  text    (property)     │  │  backlinks() (coroutine)  │
-          │  langlinks (property)   │  │  categories() (coroutine) │
-          │  links     (property)   │  │  categorymembers()        │
-          │  backlinks (property)   │  │    (coroutine)            │
+          │    fetches extracts)    │  │  exists() (coroutine)     │
+          │  sections (auto-fetch)  │  │  summary (awaitable prop) │
+          │  exists() (auto-fetch)  │  │  langlinks (await. prop)  │
+          │  summary (property)     │  │  links (awaitable prop)   │
+          │  text    (property)     │  │  backlinks (await. prop)  │
+          │  langlinks (property)   │  │  categories (await. prop) │
+          │  links     (property)   │  │  categorymembers          │
+          │  backlinks (property)   │  │    (awaitable prop)       │
           │  categories (property)  │  │                           │
           │  categorymembers (prop) │  │  _wiki ──────────────────►│
           │                         │  │  AsyncWikipedia instance  │
@@ -354,7 +355,7 @@ Asynchronous (property access path)
     user code: await page.summary
         │
         ▼
-    AsyncWikipediaPage.summary  (coroutine property, checks cache)
+    AsyncWikipediaPage.__getattr__("summary")  (COROUTINE_PROPERTIES dispatch)
         │
         ▼
     AsyncWikipediaPage._fetch_page()

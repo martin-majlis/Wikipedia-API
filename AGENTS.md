@@ -19,6 +19,36 @@ architecture, class hierarchy, and public API:
 Skipping this step risks duplicating existing logic, violating
 established conventions, or breaking the sync/async symmetry.
 
+## Sync / Async Symmetry
+
+**🚨 CRITICAL: The sync and async APIs MUST stay in perfect symmetry.**
+
+`WikipediaPage` and `AsyncWikipediaPage` are parallel classes.
+Every public attribute or method on one **must** have the same kind of
+interface on the other:
+
+| If `WikipediaPage` has …     | then `AsyncWikipediaPage` MUST have …                                             |
+| ---------------------------- | --------------------------------------------------------------------------------- |
+| `@property foo`              | awaitable property `await page.foo` (via `COROUTINE_PROPERTIES` or `__getattr__`) |
+| plain method `foo()`         | coroutine method `await page.foo()`                                               |
+| plain `@property` (no fetch) | plain `@property` (no fetch)                                                      |
+
+**Never** convert a property to a method (or vice versa) in one class
+without making the matching change in the other. Violations break
+the documented API contract and confuse callers who switch between
+the two clients.
+
+Examples of correct symmetry currently in place:
+
+- `page.summary` — `@property` in sync; `await page.summary`
+  (awaitable property via `COROUTINE_PROPERTIES`) in async.
+- `page.langlinks`, `page.links`, `page.backlinks`,
+  `page.categories`, `page.categorymembers` — same pattern.
+- `page.exists()` — plain method in sync; coroutine method
+  `await page.exists()` in async (both use call syntax `()`).
+- `page.sections`, `page.title`, `page.ns`, `page.language`,
+  `page.variant` — plain `@property` in both (no awaiting needed).
+
 ## Prerequisites
 
 - **Python 3.10+** (supported: 3.10, 3.11, 3.12, 3.13, 3.14)

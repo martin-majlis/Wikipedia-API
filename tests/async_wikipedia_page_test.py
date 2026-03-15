@@ -65,27 +65,27 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
 
     async def test_summary_fetches_and_returns_str(self):
         page = self.wiki.page("Test_1")
-        summary = await page.summary()
+        summary = await page.summary
         self.assertIsInstance(summary, str)
         self.assertGreater(len(summary), 0)
         self.assertTrue(page._called["extracts"])
 
     async def test_summary_not_refetched_on_second_call(self):
         page = self.wiki.page("Test_1")
-        await page.summary()
+        await page.summary
         calls_before = page._called.copy()
-        await page.summary()
+        await page.summary
         self.assertEqual(calls_before, page._called)
 
     async def test_langlinks_returns_dict(self):
         page = self.wiki.page("Test_1")
-        langlinks = await page.langlinks()
+        langlinks = await page.langlinks
         self.assertIsInstance(langlinks, dict)
         self.assertTrue(page._called["langlinks"])
 
     async def test_links_returns_dict_of_async_pages(self):
         page = self.wiki.page("Test_1")
-        links = await page.links()
+        links = await page.links
         self.assertIsInstance(links, dict)
         self.assertEqual(len(links), 3)
         for p in links.values():
@@ -93,19 +93,19 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
 
     async def test_backlinks_returns_dict(self):
         page = self.wiki.page("Test_1")
-        backlinks = await page.backlinks()
+        backlinks = await page.backlinks
         self.assertIsInstance(backlinks, dict)
         self.assertTrue(page._called["backlinks"])
 
     async def test_categories_returns_dict(self):
         page = self.wiki.page("Test_1")
-        categories = await page.categories()
+        categories = await page.categories
         self.assertIsInstance(categories, dict)
         self.assertTrue(page._called["categories"])
 
     async def test_categorymembers_returns_dict(self):
         page = self.wiki.page("Category:C1")
-        members = await page.categorymembers()
+        members = await page.categorymembers
         self.assertIsInstance(members, dict)
         self.assertTrue(page._called["categorymembers"])
 
@@ -125,20 +125,20 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
 
     async def test_section_by_title_found(self):
         page = self.wiki.page("Test_1")
-        await page.summary()
+        await page.summary
         sec = page.section_by_title("Section 1")
         self.assertIsNotNone(sec)
         self.assertEqual(sec.title, "Section 1")
 
     async def test_section_by_title_not_found(self):
         page = self.wiki.page("Test_1")
-        await page.summary()
+        await page.summary
         sec = page.section_by_title("Nonexistent Section")
         self.assertIsNone(sec)
 
     async def test_sections_by_title_found(self):
         page = self.wiki.page("Test_1")
-        await page.summary()
+        await page.summary
         secs = page.sections_by_title("Section 1")
         self.assertIsInstance(secs, list)
         self.assertEqual(len(secs), 1)
@@ -146,14 +146,14 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
 
     async def test_sections_by_title_not_found(self):
         page = self.wiki.page("Test_1")
-        await page.summary()
+        await page.summary
         secs = page.sections_by_title("Nonexistent Section")
         self.assertIsInstance(secs, list)
         self.assertEqual(len(secs), 0)
 
     async def test_sections_populated_after_summary(self):
         page = self.wiki.page("Test_1")
-        await page.summary()
+        await page.summary
         self.assertGreater(len(page.sections), 0)
 
 
@@ -280,15 +280,15 @@ class TestAsyncWikipediaPageAttributesMapping(unittest.IsolatedAsyncioTestCase):
 
     async def test_pageid_after_langlinks(self):
         page = self.wiki.page("Test_1")
-        await page.langlinks()
+        await page.langlinks
         self.assertEqual(await page.pageid, 4)
 
     async def test_ns_after_langlinks(self):
         page = self.wiki.page("Test_1")
-        await page.langlinks()
+        await page.langlinks
         self.assertEqual(page.ns, 0)
 
     async def test_title_after_langlinks(self):
         page = self.wiki.page("Test_1")
-        await page.langlinks()
+        await page.langlinks
         self.assertEqual(page.title, "Test 1")

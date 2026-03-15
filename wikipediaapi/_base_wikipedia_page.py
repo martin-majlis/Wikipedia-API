@@ -41,7 +41,7 @@ class BaseWikipediaPage(ABC):
     * ``exists()`` — sync auto-fetches via ``self.pageid``; async is a
       coroutine that lazily fetches ``pageid`` via ``info``.
     * All data-fetching surface (``summary``, ``langlinks``, …) —
-      ``@property`` in sync, ``async def`` in async.
+      ``@property`` in sync, awaitable property via ``__getattr__`` in async.
     """
 
     ATTRIBUTES_MAPPING: dict[str, list[str]] = {

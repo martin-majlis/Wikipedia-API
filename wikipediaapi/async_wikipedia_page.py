@@ -1,7 +1,6 @@
 from typing import Any
 
 from ._base_wikipedia_page import BaseWikipediaPage
-from .wikipedia_page import PagesDict
 from .wikipedia_page_section import WikipediaPageSection
 
 
@@ -10,11 +9,11 @@ class AsyncWikipediaPage(BaseWikipediaPage):
     Lazy representation of a Wikipedia page for use with
     :class:`~wikipediaapi.AsyncWikipedia`.
 
-    Mirrors :class:`~wikipediaapi.WikipediaPage` but exposes data-fetching
-    as coroutines instead of blocking properties.  A page stub is created
-    by :meth:`~wikipediaapi.AsyncWikipedia.page` with no network call;
-    each coroutine method fetches its data on the first ``await`` and
-    caches the result for subsequent calls.
+    Mirrors :class:`~wikipediaapi.WikipediaPage` but exposes all
+    data-fetching as awaitables instead of blocking properties.  A page
+    stub is created by :meth:`~wikipediaapi.AsyncWikipedia.page` with no
+    network call; each awaitable fetches its data on the first ``await``
+    and caches the result for subsequent accesses.
 
     **Named properties** (always available without a network call):
 
@@ -24,49 +23,83 @@ class AsyncWikipediaPage(BaseWikipediaPage):
         :meth:`~wikipediaapi.AsyncWikipedia.page`
     :attr ns: integer namespace number (``0`` = main article)
 
-    **Dynamically resolved attributes** (populated after the first
-    ``await`` of a data-fetching coroutine; see
-    :attr:`ATTRIBUTES_MAPPING`):
+    **Awaitable data properties** (each triggers a network call on the
+    first ``await`` and caches the result):
 
-    * ``pageid`` — MediaWiki page ID (positive int; ``-1`` = missing)
-    * ``fullurl`` — canonical read URL of the page
-    * ``canonicalurl`` — canonical URL
-    * ``editurl`` — URL for editing the page
-    * ``displaytitle`` — formatted display title
-    * ``talkid`` — ID of the associated talk page
-    * ``lastrevid``, ``length``, ``touched``, ``contentmodel``,
-      ``pagelanguage``, ``pagelanguagehtmlcode``, ``pagelanguagedir``,
-      ``protection``, ``restrictiontypes``, ``watchers``,
-      ``visitingwatchers``, ``notificationtimestamp``, ``readable``,
-      ``preload``, ``varianttitles``
+    * ``await page.summary`` — introductory text
+    * ``await page.langlinks`` — ``{lang: AsyncWikipediaPage}`` dict
+    * ``await page.links`` — ``{title: AsyncWikipediaPage}`` dict
+    * ``await page.backlinks`` — ``{title: AsyncWikipediaPage}`` dict
+    * ``await page.categories`` — ``{title: AsyncWikipediaPage}`` dict
+    * ``await page.categorymembers`` — ``{title: AsyncWikipediaPage}`` dict
+
+    **Awaitable info attributes** (populated via the ``info`` API call;
+    see :attr:`ATTRIBUTES_MAPPING`):
+
+    * ``await page.pageid``, ``await page.fullurl``,
+      ``await page.canonicalurl``, ``await page.editurl``,
+      ``await page.displaytitle``, ``await page.talkid``,
+      ``await page.lastrevid``, ``await page.length``,
+      ``await page.touched``, ``await page.contentmodel``,
+      ``await page.pagelanguage``, ``await page.pagelanguagehtmlcode``,
+      ``await page.pagelanguagedir``, ``await page.protection``,
+      ``await page.restrictiontypes``, ``await page.watchers``,
+      ``await page.visitingwatchers``,
+      ``await page.notificationtimestamp``, ``await page.readable``,
+      ``await page.preload``, ``await page.varianttitles``
     """
+
+    COROUTINE_PROPERTIES: dict[str, tuple[str, str]] = {
+        "summary": ("extracts", "_summary"),
+        "langlinks": ("langlinks", "_langlinks"),
+        "links": ("links", "_links"),
+        "backlinks": ("backlinks", "_backlinks"),
+        "categories": ("categories", "_categories"),
+        "categorymembers": ("categorymembers", "_categorymembers"),
+    }
 
     def __getattr__(self, name: str) -> Any:
         """
-        Resolve an attribute, returning an awaitable for info-only attributes.
+        Resolve an attribute, returning an awaitable.
 
-        Attributes whose sole data source is the ``info`` API call (e.g.
-        ``fullurl``, ``canonicalurl``, ``displaytitle``) return a
-        coroutine that lazily fetches the data on the first ``await`` and
-        caches the result for subsequent calls::
+        Three dispatch paths:
 
-            url = await page.fullurl
-            title = await page.displaytitle
+        1. **Coroutine properties** (``summary``, ``langlinks``, ``links``,
+           ``backlinks``, ``categories``, ``categorymembers``) — return a
+           coroutine that fetches via the corresponding API call on the
+           first ``await`` and caches the result::
 
-        Attributes available from multiple sources (``pageid``) are
-        returned directly from the cache after the relevant coroutine
-        (e.g. :meth:`summary`) has been awaited — they do **not** return
-        a coroutine.
+               text = await page.summary
+               ll   = await page.langlinks
 
-        Attributes not present in :attr:`ATTRIBUTES_MAPPING` follow the
-        normal ``__getattribute__`` path (raising ``AttributeError`` if
-        truly absent).
+        2. **Info-only attributes** (e.g. ``fullurl``, ``displaytitle``) —
+           return a coroutine that lazily fetches via the ``info`` API call::
+
+               url   = await page.fullurl
+               title = await page.displaytitle
+
+        3. **Multi-source attributes** (e.g. ``pageid``) — return a coroutine
+           that fetches via the first listed source in
+           :attr:`ATTRIBUTES_MAPPING` if not yet cached.
+
+        Attributes not in :attr:`COROUTINE_PROPERTIES` or
+        :attr:`ATTRIBUTES_MAPPING` follow the normal ``__getattribute__``
+        path (raising ``AttributeError`` if truly absent).
 
         :param name: attribute name to look up
-        :return: coroutine for info-only attributes; plain cached value
-            (or ``None``) for multi-source attributes; result of
+        :return: coroutine for all data-fetching attributes; result of
             ``__getattribute__`` for unknown names
         """
+        if name in self.COROUTINE_PROPERTIES:
+            call, cache_attr = self.COROUTINE_PROPERTIES[name]
+
+            async def _coroutine_property() -> Any:
+                if not self._called[call]:
+                    await self._fetch(call)
+                return object.__getattribute__(self, cache_attr)
+
+            return _coroutine_property()
+
         if name not in self.ATTRIBUTES_MAPPING:
             return self.__getattribute__(name)
 
@@ -123,118 +156,6 @@ class AsyncWikipediaPage(BaseWikipediaPage):
         await getattr(self.wiki, call)(self)
         self._called[call] = True
         return self
-
-    async def summary(self) -> str:
-        """
-        Return the introductory text of this page.
-
-        Triggers an ``extracts`` API call on the first ``await``;
-        subsequent calls return the cached value.  Returns an empty
-        string for pages that do not exist.
-
-        :return: plain-text or HTML summary string depending on
-            ``wiki.extract_format``
-        :raises WikiHttpTimeoutError: if the request times out
-        :raises WikiConnectionError: if a connection cannot be established
-        :raises WikiRateLimitError: if the API returns HTTP 429
-        :raises WikiHttpError: if the API returns a non-success HTTP status
-        :raises WikiInvalidJsonError: if the response is not valid JSON
-        """
-        if not self._called["extracts"]:
-            await self._fetch("extracts")
-        return self._summary
-
-    async def langlinks(self) -> PagesDict:
-        """
-        Return a map of language codes to corresponding pages in other Wikipedias.
-
-        Keys are two-letter language codes (e.g. ``"de"``, ``"fr"``),
-        values are stub :class:`AsyncWikipediaPage` objects.  Triggers a
-        ``langlinks`` API call on the first ``await``.
-
-        :return: ``{language_code: AsyncWikipediaPage}`` dict
-        :raises WikiHttpTimeoutError: if the request times out
-        :raises WikiConnectionError: if a connection cannot be established
-        :raises WikiRateLimitError: if the API returns HTTP 429
-        :raises WikiHttpError: if the API returns a non-success HTTP status
-        :raises WikiInvalidJsonError: if the response is not valid JSON
-        """
-        if not self._called["langlinks"]:
-            await self._fetch("langlinks")
-        return self._langlinks
-
-    async def links(self) -> PagesDict:
-        """
-        Return a map of page titles to stub pages linked from this page.
-
-        All outbound wiki links are fetched with automatic pagination.
-        Triggers a ``links`` API call on the first ``await``.
-
-        :return: ``{title: AsyncWikipediaPage}`` dict
-        :raises WikiHttpTimeoutError: if the request times out
-        :raises WikiConnectionError: if a connection cannot be established
-        :raises WikiRateLimitError: if the API returns HTTP 429
-        :raises WikiHttpError: if the API returns a non-success HTTP status
-        :raises WikiInvalidJsonError: if the response is not valid JSON
-        """
-        if not self._called["links"]:
-            await self._fetch("links")
-        return self._links
-
-    async def backlinks(self) -> PagesDict:
-        """
-        Return a map of page titles to stub pages that link *to* this page.
-
-        Fetched with automatic pagination.  Triggers a ``backlinks`` API
-        call on the first ``await``.
-
-        :return: ``{title: AsyncWikipediaPage}`` dict
-        :raises WikiHttpTimeoutError: if the request times out
-        :raises WikiConnectionError: if a connection cannot be established
-        :raises WikiRateLimitError: if the API returns HTTP 429
-        :raises WikiHttpError: if the API returns a non-success HTTP status
-        :raises WikiInvalidJsonError: if the response is not valid JSON
-        """
-        if not self._called["backlinks"]:
-            await self._fetch("backlinks")
-        return self._backlinks
-
-    async def categories(self) -> PagesDict:
-        """
-        Return a map of category titles to stub category pages for this page.
-
-        Keys include the ``Category:`` prefix.  Triggers a ``categories``
-        API call on the first ``await``.
-
-        :return: ``{title: AsyncWikipediaPage}`` dict
-        :raises WikiHttpTimeoutError: if the request times out
-        :raises WikiConnectionError: if a connection cannot be established
-        :raises WikiRateLimitError: if the API returns HTTP 429
-        :raises WikiHttpError: if the API returns a non-success HTTP status
-        :raises WikiInvalidJsonError: if the response is not valid JSON
-        """
-        if not self._called["categories"]:
-            await self._fetch("categories")
-        return self._categories
-
-    async def categorymembers(self) -> PagesDict:
-        """
-        Return a map of page titles to stub pages belonging to this category.
-
-        Only meaningful when ``self.ns == Namespace.CATEGORY``.
-        Fetched with automatic pagination.  Triggers a ``categorymembers``
-        API call on the first ``await``.
-
-        :return: ``{title: AsyncWikipediaPage}`` dict
-        :raises WikiHttpTimeoutError: if the request times out
-        :raises WikiConnectionError: if a connection cannot be established
-        :raises WikiRateLimitError: if the API returns HTTP 429
-        :raises WikiHttpError: if the API returns a non-success HTTP status
-        :raises WikiInvalidJsonError: if the response is not valid JSON
-        """
-        if not self._called["categorymembers"]:
-            await self._fetch("categorymembers")
-        return self._categorymembers
 
     async def exists(self) -> bool:
         """

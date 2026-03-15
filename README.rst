@@ -24,18 +24,18 @@ Goal of ``Wikipedia-API`` is to provide simple and easy to use API for retrievin
 
 Key differences between the sync and async API:
 
-* In the async API, data-fetching collection properties (``langlinks``, ``links``,
-  ``backlinks``, ``categories``, ``categorymembers``) and ``summary`` are **coroutines**
-  that must be ``await``-ed.
-* Info attributes (``fullurl``, ``displaytitle``, ``pageid``, …) are also **awaitables**
+* Info attributes (``fullurl``, ``displaytitle``, ``pageid``, …) are **awaitables**
   in the async API.
 * ``title``, ``ns``, ``language``, ``variant`` are plain ``@property`` values in both APIs.
-* ``exists()`` is a plain method in the sync API; a **coroutine** in the async API
-  (``await page.exists()``) — it auto-fetches ``pageid`` lazily.
+* In the async API, data-fetching properties (``summary``, ``langlinks``, ``links``,
+  ``backlinks``, ``categories``, ``categorymembers``) are **awaitable properties**
+  (no parentheses): ``await page.summary``, ``await page.langlinks``, etc.
+* ``exists()`` is a plain method in the sync API; a **coroutine method** in the async API:
+  ``await page.exists()``.
 * ``section_by_title()`` and ``sections_by_title()`` are plain synchronous methods
   in both APIs.
 * In the async API, ``sections`` is a plain ``@property`` populated after
-  ``await page.summary()``.
+  ``await page.summary``.
 
 Importing
 ~~~~~~~~~
@@ -82,7 +82,7 @@ To initialize it, you have to provide:
     async def main():
         wiki_wiki = wikipediaapi.AsyncWikipedia(user_agent='MyProjectName (merlin@example.com)', language='en')
         page_py = wiki_wiki.page('Python_(programming_language)')
-        # Data is fetched lazily — await any attribute or coroutine to trigger it
+        # Data is fetched lazily — await any attribute or property to trigger it
 
     asyncio.run(main())
 
@@ -146,7 +146,7 @@ In the async API, ``summary`` is a coroutine.
         print("Page - Title: %s" % page_py.title)
         # Page - Title: Python (programming language)
 
-        summary = await page_py.summary()
+        summary = await page_py.summary
         print("Page - Summary: %s" % summary[0:60])
         # Page - Summary: Python is a widely used high-level programming language for
 
@@ -231,7 +231,7 @@ The async API does not have a ``text`` property. Compose the full text from
             extract_format=wikipediaapi.ExtractFormat.WIKI
         )
         page = wiki_wiki.page("Test 1")
-        summary = await page.summary()  # also populates page.sections
+        summary = await page.summary  # also populates page.sections
         print(summary)
         for section in page.sections:
             print(section.title)
@@ -263,7 +263,7 @@ To get all top level sections of page, you have to use property ``sections``. It
 
 **Asynchronous**
 
-In the async API, ``sections`` is a plain ``@property`` populated after ``await page.summary()``.
+In the async API, ``sections`` is a plain ``@property`` populated after ``await page.summary``.
 
 .. code-block:: python
 
@@ -273,7 +273,7 @@ In the async API, ``sections`` is a plain ``@property`` populated after ``await 
             print_sections(s.sections, level + 1)
 
     async def main():
-        await page_py.summary()  # populates page_py.sections
+        await page_py.summary  # populates page_py.sections
         print_sections(page_py.sections)
         # *: History - Python was conceived in the late 1980s,
         # *: Features and philosophy - Python is a multi-paradigm programming l
@@ -341,19 +341,19 @@ where key is language code and value is ``WikipediaPage`` (or ``AsyncWikipediaPa
 
 **Asynchronous**
 
-In the async API, ``langlinks`` is a coroutine. Attributes on the returned page stubs
-(e.g. ``fullurl``) are also awaitables.
+In the async API, ``langlinks`` is an awaitable property. Attributes on the returned
+page stubs (e.g. ``fullurl``) are also awaitables.
 
 .. code-block:: python
 
     async def main():
-        langlinks = await page_py.langlinks()
+        langlinks = await page_py.langlinks
         for k in sorted(langlinks.keys()):
             v = langlinks[k]
             print("%s: %s - %s: %s" % (k, v.language, v.title, await v.fullurl))
 
         page_py_cs = langlinks['cs']
-        print("Page - Summary: %s" % (await page_py_cs.summary())[0:60])
+        print("Page - Summary: %s" % (await page_py_cs.summary)[0:60])
         # Page - Summary: Python (anglická výslovnost [ˈpaiθtən]) je vysokoúrovňový sk
 
 How To Get Links To Other Pages
@@ -384,7 +384,7 @@ It's map, where key is page title and value is ``WikipediaPage`` (or ``AsyncWiki
 .. code-block:: python
 
     async def main():
-        links = await page_py.links()
+        links = await page_py.links
         for title in sorted(links.keys()):
             print("%s: %s" % (title, links[title]))
 
@@ -417,7 +417,7 @@ It's map, where key is category title and value is ``WikipediaPage`` (or ``Async
 .. code-block:: python
 
     async def main():
-        categories = await page_py.categories()
+        categories = await page_py.categories
         for title in sorted(categories.keys()):
             print("%s: %s" % (title, categories[title]))
 
@@ -425,7 +425,7 @@ How To Get All Pages From Category
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To get all pages from given category, you should use property ``categorymembers`` (sync) or
-coroutine ``categorymembers()`` (async). It returns all members of given category.
+awaitable property ``categorymembers`` (async). It returns all members of given category.
 You have to implement recursion and deduplication by yourself.
 
 **Synchronous**
@@ -462,13 +462,13 @@ You have to implement recursion and deduplication by yourself.
             print("%s: %s (ns: %d)" % ("*" * (level + 1), c.title, c.ns))
             if c.ns == wikipediaapi.Namespace.CATEGORY and level < max_level:
                 await print_categorymembers(
-                    await c.categorymembers(), level=level + 1, max_level=max_level
+                    await c.categorymembers, level=level + 1, max_level=max_level
                 )
 
     async def main():
         cat = wiki_wiki.page("Category:Physics")
         print("Category members: Category:Physics")
-        await print_categorymembers(await cat.categorymembers())
+        await print_categorymembers(await cat.categorymembers)
 
 Use Extra API Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -548,7 +548,7 @@ sync and async clients.
 
         try:
             page = wiki_wiki.page('Python_(programming_language)')
-            print((await page.summary())[0:60])
+            print((await page.summary)[0:60])
         except wikipediaapi.WikiRateLimitError as e:
             print("Rate limited! Retry after: %s seconds" % e.retry_after)
         except wikipediaapi.WikiHttpError as e:
