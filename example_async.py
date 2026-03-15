@@ -45,7 +45,7 @@ async def print_categorymembers(members, level=0, max_level=1):
         print("{}* {} (ns: {})".format("  " * level, c.title, c.ns))
         # Recurse into sub-categories up to max_level deep
         if c.ns == wikipediaapi.Namespace.CATEGORY and level < max_level:
-            await print_categorymembers(await c.categorymembers(), level + 1, max_level)
+            await print_categorymembers(await c.categorymembers, level + 1, max_level)
 
 
 async def main():
@@ -86,7 +86,7 @@ async def main():
         unquote=True,
     )
     print("Hindi title (decoded):", page_hi.title)
-    print("Hindi summary (first 60):", (await page_hi.summary())[:60])
+    print("Hindi summary (first 60):", (await page_hi.summary)[:60])
 
     # ──────────────────────────────────────────────────────────────────────────
     # 3. Attributes available without any network call (set at construction time)
@@ -294,11 +294,11 @@ async def main():
     # Await the fullurl attribute — triggers the info fetch if not yet done
     print("DE page:", de_page.title, "—", await de_page.fullurl)
 
-    de_langlinks = await de_page.langlinks()
+    de_langlinks = await de_page.langlinks
     en_page = de_langlinks["en"]
     # fullurl is always a coroutine even when pre-set; await to get the string
     print("EN page:", en_page.title, "—", await en_page.fullurl)
-    print("EN summary (first 80):", (await en_page.summary())[:80])
+    print("EN summary (first 80):", (await en_page.summary)[:80])
 
     # ──────────────────────────────────────────────────────────────────────────
     # 11. Language variants (Chinese)
