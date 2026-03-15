@@ -7609,6 +7609,11 @@
 "language": "en",
 "ns": 100
 },
+"Portal:Spaceflight": {
+"title": "Portal:Spaceflight",
+"language": "en",
+"ns": 100
+},
 "Portal:Spaceflight/Did you know": {
 "title": "Portal:Spaceflight/Did you know",
 "language": "en",
@@ -22046,11 +22051,6 @@
 },
 "Wikipedia talk:WikiProject Medicine/Archive 152": {
 "title": "Wikipedia talk:WikiProject Medicine/Archive 152",
-"language": "en",
-"ns": 5
-},
-"Wikipedia talk:WikiProject Portals/Design/Archive 3": {
-"title": "Wikipedia talk:WikiProject Portals/Design/Archive 3",
 "language": "en",
 "ns": 5
 },
