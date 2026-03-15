@@ -101,9 +101,9 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
             stub is created from a lang-link response
         """
         self.wiki = wiki
-        self._summary = ""  # type: str
-        self._section = []  # type: list[WikipediaPageSection]
-        self._section_mapping = {}  # type: dict[str, list[WikipediaPageSection]]
+        self._summary: str = ""
+        self._section: list[WikipediaPageSection] = []
+        self._section_mapping: dict[str, list[WikipediaPageSection]] = {}
         self._langlinks: dict[str, PageT] = {}
         self._links: dict[str, PageT] = {}
         self._backlinks: dict[str, PageT] = {}

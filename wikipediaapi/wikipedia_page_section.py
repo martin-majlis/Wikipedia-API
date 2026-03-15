@@ -42,7 +42,7 @@ class WikipediaPageSection:
         self._title = title
         self._level = level
         self._text = text
-        self._section = []  # type: list['WikipediaPageSection']
+        self._section: list["WikipediaPageSection"] = []
 
     @property
     def title(self) -> str:

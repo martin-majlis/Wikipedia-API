@@ -51,6 +51,23 @@ Examples of correct symmetry currently in place:
 - `page.sections`, `page.title`, `page.ns`, `page.language`,
   `page.variant` — plain `@property` in both (no awaiting needed).
 
+## Typing Standards
+
+**🧠 Prefer explicit type annotations and minimize `Any`.**
+
+When writing or updating Python code in this repository:
+
+- Use inline type annotations directly on variables, attributes, parameters,
+  and return values (e.g. `value: dict[str, int] = {}`), instead of legacy
+  `# type:` comments.
+- Avoid `Any` whenever a more specific type can be expressed.
+- Use `Any` only when it is absolutely necessary (for example, dynamic external
+  payloads or framework boundaries where precise typing is not practical).
+- If `Any` is required, keep its scope as small as possible and prefer typed
+  wrappers/conversions at the boundary.
+- Validate typing-related changes by running `make run-pre-commit` before
+  submitting.
+
 ## Prerequisites
 
 - **Python 3.10+** (supported: 3.10, 3.11, 3.12, 3.13, 3.14)
