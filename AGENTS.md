@@ -2,6 +2,23 @@
 
 Guide for AI agents (and developers) on how to install, build, and test the Wikipedia-API project.
 
+## Before You Start
+
+**📖 CRITICAL: Always read the design and API documentation first**
+
+Before making any changes, read these two documents to understand the
+architecture, class hierarchy, and public API:
+
+- **`DESIGN.rst`** — internal architecture, class hierarchy, request
+  lifecycle, dispatch helpers, and a step-by-step guide for adding new
+  API calls.
+- **`API.rst`** — public API reference: every method, property, and
+  attribute available on `Wikipedia`, `AsyncWikipedia`, `WikipediaPage`,
+  `AsyncWikipediaPage`, `WikipediaPageSection`, and the CLI.
+
+Skipping this step risks duplicating existing logic, violating
+established conventions, or breaking the sync/async symmetry.
+
 ## Prerequisites
 
 - **Python 3.10+** (supported: 3.10, 3.11, 3.12, 3.13, 3.14)
@@ -159,6 +176,46 @@ This runs isort, black, flake8, mypy, pyupgrade, and other checks (trailing whit
 
 - **Type checking:** `make run-type-check` (runs `mypy ./wikipediaapi`)
 - **Linting:** `make run-flake8` (runs `flake8 --max-line-length=100 wikipediaapi tests`)
+
+## After Every Change
+
+**✅ CRITICAL: Keep all documentation, examples, and tests in sync**
+
+After completing any change, go through this checklist before committing:
+
+### 1. Update documentation files
+
+Ensure each of the following files accurately reflects the change:
+
+- **`API.rst`** — add or update entries for any new or modified
+  methods, properties, or attributes.
+- **`DESIGN.rst`** — update the class hierarchy, file layout, diagrams,
+  or step-by-step guide if the architecture changed.
+- **`index.rst`** — update usage examples or feature descriptions if
+  user-facing behaviour changed (note: `README.rst` is identical in
+  content and must be kept in sync with `index.rst`).
+- **`README.rst`** — mirror any changes made to `index.rst`.
+
+### 2. Update example files
+
+- **`example_sync.py`** — add or update usage of any new or changed
+  synchronous API (`Wikipedia`, `WikipediaPage`).
+- **`example_async.py`** — add or update usage of any new or changed
+  asynchronous API (`AsyncWikipedia`, `AsyncWikipediaPage`).
+
+Both files serve as living documentation and must exercise every
+publicly available method and attribute.
+
+### 3. Update tests
+
+- Add or update unit tests in `tests/` for every new or modified code
+  path.
+- For synchronous code: `tests/wikipedia_page_test.py` and related
+  files.
+- For asynchronous code: `tests/async_wikipedia_page_test.py` and
+  related files.
+- Run the full suite and coverage check (see [Test](#test) below)
+  before committing.
 
 ## Pre-release Check
 
