@@ -136,26 +136,45 @@ class WikipediaPage:
         """
         Resolve a lazily-fetched attribute by name.
 
-        If *name* is listed in :attr:`ATTRIBUTES_MAPPING` and is not yet
-        cached in ``_attributes``, each API call listed for that
-        attribute is invoked in order until the attribute is populated.
-        For attributes not in the mapping the normal
-        ``__getattribute__`` path is used (which raises
-        ``AttributeError`` for truly missing attributes).
+        Three distinct cases mirror the async counterpart:
+
+        * **No-fetch attributes** (``language``, ``variant``) — returned
+          directly from the init-time cache; no network call is ever made.
+        * **Info-only attributes** (e.g. ``fullurl``, ``displaytitle``) —
+          the ``info`` API call is issued on the first access and the result
+          is cached for all subsequent reads.
+        * **Multi-source attributes** (e.g. ``pageid``) — fetched via the
+          first listed source in :attr:`ATTRIBUTES_MAPPING` if not already
+          cached.
+
+        For attributes not present in :attr:`ATTRIBUTES_MAPPING` the normal
+        ``__getattribute__`` path is used (raising ``AttributeError`` for
+        truly absent names).
 
         :param name: attribute name to resolve
-        :return: the attribute value after fetching if necessary
+        :return: the attribute value, fetching if necessary
         """
         if name not in self.ATTRIBUTES_MAPPING:
             return self.__getattribute__(name)
 
+        calls = self.ATTRIBUTES_MAPPING[name]
+
+        if not calls:
+            # language, variant — set at init, no fetch needed
+            return self._attributes.get(name)
+
         if name in self._attributes:
             return self._attributes[name]
 
-        for call in self.ATTRIBUTES_MAPPING[name]:
-            if not self._called[call]:
-                self._fetch(call)
-                return self._attributes[name]
+        if calls == ["info"]:
+            if not self._called["info"]:
+                self._fetch("info")
+            return self._attributes.get(name)
+
+        # multi-source attributes: fetch via first listed source if not yet cached
+        if not self._called[calls[0]]:
+            self._fetch(calls[0])
+        return self._attributes.get(name)
 
     @property
     def language(self) -> str:

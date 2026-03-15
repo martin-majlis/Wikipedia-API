@@ -1,3 +1,4 @@
+import asyncio
 import unittest
 
 from tests.mock_data import async_wikipedia_api_request
@@ -56,7 +57,7 @@ class TestAsyncWikipediaPageInit(unittest.TestCase):
             language="en",
             url="https://en.wikipedia.org/wiki/Test",
         )
-        self.assertEqual(page.fullurl, "https://en.wikipedia.org/wiki/Test")
+        self.assertEqual(asyncio.run(page.fullurl), "https://en.wikipedia.org/wiki/Test")
 
 
 class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
@@ -145,3 +146,140 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
         page = self.wiki.page("Test_1")
         await page.summary()
         self.assertGreater(len(page.sections), 0)
+
+
+class TestAsyncWikipediaPageAttributesMapping(unittest.IsolatedAsyncioTestCase):
+    """Verify every key in ATTRIBUTES_MAPPING is accessible on AsyncWikipediaPage."""
+
+    def setUp(self):
+        self.wiki = wikipediaapi.AsyncWikipedia(user_agent, "en")
+        self.wiki._get = async_wikipedia_api_request(self.wiki)
+
+    # ---- Init attributes — no fetch required ----
+
+    def test_language_no_fetch(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.language, "en")
+
+    def test_variant_no_fetch(self):
+        page = self.wiki.page("Test_1")
+        self.assertIsNone(page.variant)
+
+    # ---- pageid — lazy awaitable; ns / title — set at init ----
+
+    async def test_pageid(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.pageid, 4)
+
+    def test_ns(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.ns, 0)
+
+    def test_title(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.title, "Test_1")
+
+    # ---- Attributes populated by info ----
+
+    async def test_contentmodel(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.contentmodel, "wikitext")
+
+    async def test_pagelanguage(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.pagelanguage, "en")
+
+    async def test_pagelanguagehtmlcode(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.pagelanguagehtmlcode, "en")
+
+    async def test_pagelanguagedir(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.pagelanguagedir, "ltr")
+
+    async def test_touched(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.touched, "2023-01-01T00:00:00Z")
+
+    async def test_lastrevid(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.lastrevid, 12345)
+
+    async def test_length(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.length, 6789)
+
+    async def test_protection(self):
+        page = self.wiki.page("Test_1")
+        protection = await page.protection
+        self.assertIsInstance(protection, list)
+        self.assertEqual(len(protection), 1)
+        self.assertEqual(protection[0]["type"], "create")
+
+    async def test_restrictiontypes(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.restrictiontypes, ["create"])
+
+    async def test_watchers(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.watchers, 100)
+
+    async def test_visitingwatchers(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.visitingwatchers, 50)
+
+    async def test_notificationtimestamp(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.notificationtimestamp, "")
+
+    async def test_talkid(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.talkid, 5)
+
+    async def test_fullurl(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.fullurl, "https://en.wikipedia.org/wiki/Test_1")
+
+    async def test_editurl(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(
+            await page.editurl,
+            "https://en.wikipedia.org/w/index.php?title=Test_1&action=edit",
+        )
+
+    async def test_canonicalurl(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.canonicalurl, "https://en.wikipedia.org/wiki/Test_1")
+
+    async def test_readable(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.readable, "")
+
+    async def test_preload(self):
+        page = self.wiki.page("Test_1")
+        self.assertIsNone(await page.preload)
+
+    async def test_displaytitle(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.displaytitle, "Test 1")
+
+    async def test_varianttitles(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(await page.varianttitles, {})
+
+    # ---- pageid / ns / title also populated by langlinks ----
+
+    async def test_pageid_after_langlinks(self):
+        page = self.wiki.page("Test_1")
+        await page.langlinks()
+        self.assertEqual(await page.pageid, 4)
+
+    async def test_ns_after_langlinks(self):
+        page = self.wiki.page("Test_1")
+        await page.langlinks()
+        self.assertEqual(page.ns, 0)
+
+    async def test_title_after_langlinks(self):
+        page = self.wiki.page("Test_1")
+        await page.langlinks()
+        self.assertEqual(page.title, "Test 1")

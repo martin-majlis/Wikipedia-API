@@ -108,27 +108,56 @@ class AsyncWikipediaPage:
 
     def __getattr__(self, name: str) -> Any:
         """
-        Resolve a cached attribute by name without triggering a fetch.
+        Resolve an attribute, returning an awaitable for info-only attributes.
 
-        Unlike :class:`~wikipediaapi.WikipediaPage`, this implementation
-        does **not** issue a network call — async I/O cannot be performed
-        inside ``__getattr__``.  If *name* is in
-        :attr:`ATTRIBUTES_MAPPING` but has not yet been populated (i.e.
-        the corresponding coroutine has not been awaited), ``None`` is
-        returned.  For attributes not in the mapping the normal
-        ``__getattribute__`` path is used.
+        Attributes whose sole data source is the ``info`` API call (e.g.
+        ``fullurl``, ``canonicalurl``, ``displaytitle``) return a
+        coroutine that lazily fetches the data on the first ``await`` and
+        caches the result for subsequent calls::
+
+            url = await page.fullurl
+            title = await page.displaytitle
+
+        Attributes available from multiple sources (``pageid``) are
+        returned directly from the cache after the relevant coroutine
+        (e.g. :meth:`summary`) has been awaited — they do **not** return
+        a coroutine.
+
+        Attributes not present in :attr:`ATTRIBUTES_MAPPING` follow the
+        normal ``__getattribute__`` path (raising ``AttributeError`` if
+        truly absent).
 
         :param name: attribute name to look up
-        :return: the cached attribute value, or ``None`` if not yet
-            fetched, or raises ``AttributeError`` for unknown attributes
+        :return: coroutine for info-only attributes; plain cached value
+            (or ``None``) for multi-source attributes; result of
+            ``__getattribute__`` for unknown names
         """
         if name not in self.ATTRIBUTES_MAPPING:
             return self.__getattribute__(name)
 
-        if name in self._attributes:
-            return self._attributes[name]
+        calls = self.ATTRIBUTES_MAPPING[name]
 
-        return None
+        if not calls:
+            # language, variant — set at init, no fetch needed
+            return self._attributes.get(name)
+
+        if calls == ["info"]:
+            # Return a coroutine so callers can do: value = await page.fullurl
+            async def _info_attr() -> Any:
+                if name not in self._attributes and not self._called["info"]:
+                    await self._fetch("info")
+                return self._attributes.get(name)
+
+            return _info_attr()
+
+        # pageid and other multi-source attributes — return awaitable that
+        # lazily fetches via the first listed source if not yet cached
+        async def _multi_source_attr() -> Any:
+            if name not in self._attributes:
+                await self._fetch(calls[0])
+            return self._attributes.get(name)
+
+        return _multi_source_attr()
 
     @property
     def language(self) -> str:

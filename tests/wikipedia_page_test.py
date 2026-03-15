@@ -117,3 +117,123 @@ class TestWikipediaPage(unittest.TestCase):
         # Also test with a section that definitely doesn't exist
         result2 = page.sections_by_title("Section That Does Not Exist At All")
         self.assertEqual(result2, [])
+
+
+class TestWikipediaPageAttributesMapping(unittest.TestCase):
+    """Verify every key in ATTRIBUTES_MAPPING is accessible on WikipediaPage."""
+
+    def setUp(self):
+        self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
+        self.wiki._get = wikipedia_api_request(self.wiki)
+
+    # ---- Init attributes — no fetch required ----
+
+    def test_language(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.language, "en")
+
+    def test_variant(self):
+        page = self.wiki.page("Test_1")
+        self.assertIsNone(page.variant)
+
+    # ---- pageid — lazy fetch; ns / title — set at init ----
+
+    def test_pageid(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.pageid, 4)
+
+    def test_ns(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.ns, 0)
+
+    def test_title(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.title, "Test_1")
+
+    # ---- Info-only attributes — lazily fetched on first access ----
+
+    def test_contentmodel(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.contentmodel, "wikitext")
+
+    def test_pagelanguage(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.pagelanguage, "en")
+
+    def test_pagelanguagehtmlcode(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.pagelanguagehtmlcode, "en")
+
+    def test_pagelanguagedir(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.pagelanguagedir, "ltr")
+
+    def test_touched(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.touched, "2023-01-01T00:00:00Z")
+
+    def test_lastrevid(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.lastrevid, 12345)
+
+    def test_length(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.length, 6789)
+
+    def test_protection(self):
+        page = self.wiki.page("Test_1")
+        protection = page.protection
+        self.assertIsInstance(protection, list)
+        self.assertEqual(len(protection), 1)
+        self.assertEqual(protection[0]["type"], "create")
+
+    def test_restrictiontypes(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.restrictiontypes, ["create"])
+
+    def test_watchers(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.watchers, 100)
+
+    def test_visitingwatchers(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.visitingwatchers, 50)
+
+    def test_notificationtimestamp(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.notificationtimestamp, "")
+
+    def test_talkid(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.talkid, 5)
+
+    def test_fullurl(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.fullurl, "https://en.wikipedia.org/wiki/Test_1")
+
+    def test_editurl(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(
+            page.editurl,
+            "https://en.wikipedia.org/w/index.php?title=Test_1&action=edit",
+        )
+
+    def test_canonicalurl(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.canonicalurl, "https://en.wikipedia.org/wiki/Test_1")
+
+    def test_readable(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.readable, "")
+
+    def test_preload(self):
+        page = self.wiki.page("Test_1")
+        self.assertIsNone(page.preload)
+
+    def test_displaytitle(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.displaytitle, "Test 1")
+
+    def test_varianttitles(self):
+        page = self.wiki.page("Test_1")
+        self.assertEqual(page.varianttitles, {})
