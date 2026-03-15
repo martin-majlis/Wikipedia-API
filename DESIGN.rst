@@ -87,15 +87,16 @@ the ``language``/``variant``/``title``/``ns`` properties,
 
 The subclasses are responsible for the fundamentally different parts:
 
-* ``__getattr__`` — sync returns values directly; async returns coroutines.
 * ``_fetch`` — ``def`` in sync, ``async def`` in async.
+* ``_info_attr(name)`` — sync helper returns cached info attr (fetching
+  if needed); async version is ``async def``.
 * ``sections`` property — sync auto-fetches; async requires an explicit
-  ``await page.summary()`` first.
+  ``await page.summary`` first.
 * ``exists()`` — sync auto-fetches via ``self.pageid``; async is a
   coroutine method that lazily fetches ``pageid`` via ``info``.
-* All data-fetching surface (``summary``, ``langlinks``, …) — sync uses
-  ``@property``; async uses awaitable property via ``__getattr__``
-  (``COROUTINE_PROPERTIES`` dispatch).
+* All data-fetching surface (``summary``, ``langlinks``, ``pageid``, …)
+  — explicit ``@property`` in both; async properties return coroutines
+  (``await page.summary``, ``await page.pageid``, etc.).
 * ``WikipediaPage`` also overrides ``sections_by_title`` to trigger an
   automatic ``extracts`` fetch (the base version is read-only from cache).
 
@@ -360,10 +361,10 @@ Asynchronous (property access path)
     user code: await page.summary
         │
         ▼
-    AsyncWikipediaPage.__getattr__("summary")  (COROUTINE_PROPERTIES dispatch)
+    AsyncWikipediaPage.summary  (explicit @property, returns coroutine)
         │
         ▼
-    AsyncWikipediaPage._fetch_page()
+    AsyncWikipediaPage._fetch  (async, called inside the coroutine)
         │
         ▼
     AsyncWikipedia.extracts(page)        ◄─ AsyncWikipediaResource
@@ -526,21 +527,26 @@ In ``wikipedia_page.py``::
     @property
     def templates(self) -> PagesDict:
         """Returns templates used on this page."""
-        if self._templates is None:
-            self._wiki.templates(self)
-        return self._templates  # type: ignore[return-value]
+        if not self._called["templates"]:
+            self._fetch("templates")
+        return self._templates
 
 Step 8 — Add a Lazy Coroutine Property to AsyncWikipediaPage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In ``async_wikipedia_page.py``::
+In ``async_wikipedia_page.py``, the ``@property`` returns a coroutine
+created by a nested ``async def``; callers do ``await page.templates``::
 
     @property
-    async def templates(self) -> PagesDict:
-        """Returns templates used on this page."""
-        if self._templates is None:
-            await self._wiki.templates(self)
-        return self._templates  # type: ignore[return-value]
+    def templates(self) -> Any:
+        """Awaitable: returns templates used on this page."""
+
+        async def _get() -> PagesDict:
+            if not self._called["templates"]:
+                await self._fetch("templates")
+            return self._templates
+
+        return _get()
 
 Step 9 — Add Tests
 ~~~~~~~~~~~~~~~~~~~
@@ -640,5 +646,6 @@ preserved when adding new functionality.
 * Properties cache their result in a ``_<name>`` attribute; the first
   access triggers the API call, subsequent accesses return the cached
   value.
-* ``WikipediaPage._fetch_page()`` calls ``self._wiki.info(self)`` and
-  ``self._wiki.extracts(self)`` to initialise standard attributes.
+* ``WikipediaPage._fetch(call)`` calls ``getattr(self.wiki, call)(self)``
+  and marks ``_called[call] = True``; the matching async version
+  ``AsyncWikipediaPage._fetch(call)`` does the same with ``await``.
