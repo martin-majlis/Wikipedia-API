@@ -1,3 +1,4 @@
+from abc import ABC
 from collections import defaultdict
 from collections.abc import Callable
 import re
@@ -30,7 +31,7 @@ RE_SECTION = {
 }
 
 
-class BaseWikipediaResource:
+class BaseWikipediaResource(ABC):
     """
     Mixin providing shared Wikipedia API logic for both sync and async subclasses.
 

@@ -101,22 +101,29 @@ class TestWikipediaPage(unittest.TestCase):
         page = wiki.page("Extra_API_Params")
         self.assertTrue(page.exists())
 
+    def test_section_by_title_found(self):
+        page = self.wiki.page("Test_1")
+        sec = page.section_by_title("Section 1")
+        self.assertIsNotNone(sec)
+        self.assertEqual(sec.title, "Section 1")
+
+    def test_section_by_title_not_found(self):
+        page = self.wiki.page("Test_1")
+        sec = page.section_by_title("Nonexistent Section")
+        self.assertIsNone(sec)
+
+    def test_sections_by_title_found(self):
+        page = self.wiki.page("Test_1")
+        secs = page.sections_by_title("Section 1")
+        self.assertIsInstance(secs, list)
+        self.assertEqual(len(secs), 1)
+        self.assertEqual(secs[0].title, "Section 1")
+
     def test_sections_by_title_not_found(self):
-        """Test sections_by_title method when section doesn't exist."""
-        wiki = wikipediaapi.Wikipedia(user_agent, "en")
-        wiki._get = wikipedia_api_request(wiki)
-        page = wiki.page("Test_1")
-
-        # Access sections to build the mapping
-        _ = page.sections
-
-        # Test with a section that doesn't exist
-        result = page.sections_by_title("Nonexistent Section")
-        self.assertEqual(result, [])
-
-        # Also test with a section that definitely doesn't exist
-        result2 = page.sections_by_title("Section That Does Not Exist At All")
-        self.assertEqual(result2, [])
+        page = self.wiki.page("Test_1")
+        secs = page.sections_by_title("Nonexistent Section")
+        self.assertIsInstance(secs, list)
+        self.assertEqual(len(secs), 0)
 
 
 class TestWikipediaPageAttributesMapping(unittest.TestCase):

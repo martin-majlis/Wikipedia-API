@@ -142,6 +142,21 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
         sec = page.section_by_title("Nonexistent Section")
         self.assertIsNone(sec)
 
+    async def test_sections_by_title_found(self):
+        page = self.wiki.page("Test_1")
+        await page.summary()
+        secs = page.sections_by_title("Section 1")
+        self.assertIsInstance(secs, list)
+        self.assertEqual(len(secs), 1)
+        self.assertEqual(secs[0].title, "Section 1")
+
+    async def test_sections_by_title_not_found(self):
+        page = self.wiki.page("Test_1")
+        await page.summary()
+        secs = page.sections_by_title("Nonexistent Section")
+        self.assertIsInstance(secs, list)
+        self.assertEqual(len(secs), 0)
+
     async def test_sections_populated_after_summary(self):
         page = self.wiki.page("Test_1")
         await page.summary()

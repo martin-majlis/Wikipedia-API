@@ -63,7 +63,8 @@ and must be ``await``-ed.
 * ``await page.categorymembers()``
 * ``page.exists()`` — synchronous; requires ``summary()`` to have been awaited first
 * ``page.sections`` — property; populated after ``await page.summary()``
-* ``page.section_by_title(title)`` — synchronous; populated after ``await page.summary()``
+* ``page.section_by_title(title)`` — synchronous; returns last matching section or ``None``
+* ``page.sections_by_title(title)`` — synchronous; returns all matching sections (list)
 
 WikipediaPageSection
 --------------------

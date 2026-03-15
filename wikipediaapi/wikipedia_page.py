@@ -1,17 +1,12 @@
-from typing import Any, TYPE_CHECKING
+from typing import Any
 
-if TYPE_CHECKING:
-    from .wikipedia import Wikipedia
-
-from .namespace import Namespace
-from .namespace import namespace2int
-from .namespace import WikiNamespace
+from ._base_wikipedia_page import BaseWikipediaPage
 from .wikipedia_page_section import WikipediaPageSection
 
 PagesDict = dict[str, "WikipediaPage"]
 
 
-class WikipediaPage:
+class WikipediaPage(BaseWikipediaPage):
     """
     Lazy representation of a Wikipedia page.
 
@@ -46,91 +41,6 @@ class WikipediaPage:
       ``watchers``, ``visitingwatchers``, ``notificationtimestamp``,
       ``readable``, ``preload``, ``varianttitles``
     """
-
-    ATTRIBUTES_MAPPING = {
-        "language": [],
-        "variant": [],
-        "pageid": ["info", "extracts", "langlinks"],
-        "ns": ["info", "extracts", "langlinks"],
-        "title": ["info", "extracts", "langlinks"],
-        "contentmodel": ["info"],
-        "pagelanguage": ["info"],
-        "pagelanguagehtmlcode": ["info"],
-        "pagelanguagedir": ["info"],
-        "touched": ["info"],
-        "lastrevid": ["info"],
-        "length": ["info"],
-        "protection": ["info"],
-        "restrictiontypes": ["info"],
-        "watchers": ["info"],
-        "visitingwatchers": ["info"],
-        "notificationtimestamp": ["info"],
-        "talkid": ["info"],
-        "fullurl": ["info"],
-        "editurl": ["info"],
-        "canonicalurl": ["info"],
-        "readable": ["info"],
-        "preload": ["info"],
-        "displaytitle": ["info"],
-        "varianttitles": ["info"],
-    }
-
-    def __init__(
-        self,
-        wiki: "Wikipedia",
-        title: str,
-        ns: WikiNamespace = Namespace.MAIN,
-        language: str = "en",
-        variant: str | None = None,
-        url: str | None = None,
-    ) -> None:
-        """
-        Initialise a lazy Wikipedia page stub.
-
-        No network call is made here.  All cache attributes are
-        initialised to empty values; they are populated by the first
-        access to the corresponding property.
-
-        :param wiki: the :class:`~wikipediaapi.Wikipedia` client used to
-            fetch data when properties are accessed
-        :param title: page title exactly as passed by the caller
-        :param ns: namespace; stored as an integer via
-            :func:`~wikipediaapi.namespace2int`
-        :param language: two-letter Wikipedia language code
-        :param variant: language variant for automatic conversion, or
-            ``None`` to disable
-        :param url: pre-set ``fullurl`` attribute; used when the page
-            stub is created from a lang-link response
-        """
-        self.wiki = wiki
-        self._summary = ""  # type: str
-        self._section = []  # type: list[WikipediaPageSection]
-        self._section_mapping = {}  # type: dict[str, list[WikipediaPageSection]]
-        self._langlinks = {}  # type: PagesDict
-        self._links = {}  # type: PagesDict
-        self._backlinks = {}  # type: PagesDict
-        self._categories = {}  # type: PagesDict
-        self._categorymembers = {}  # type: PagesDict
-
-        self._called = {
-            "extracts": False,
-            "info": False,
-            "langlinks": False,
-            "links": False,
-            "backlinks": False,
-            "categories": False,
-            "categorymembers": False,
-        }
-
-        self._attributes: dict[str, Any] = {
-            "title": title,
-            "ns": namespace2int(ns),
-            "language": language,
-            "variant": variant,
-        }
-
-        if url is not None:
-            self._attributes["fullurl"] = url
 
     def __getattr__(self, name: str) -> Any:
         """
@@ -175,39 +85,6 @@ class WikipediaPage:
         if not self._called[calls[0]]:
             self._fetch(calls[0])
         return self._attributes.get(name)
-
-    @property
-    def language(self) -> str:
-        """
-        Two-letter Wikipedia language code for this page.
-
-        Set at construction time and never changed.
-
-        :return: language code string (e.g. ``"en"``, ``"de"``)
-        """
-        return str(self._attributes["language"])
-
-    @property
-    def variant(self) -> str | None:
-        """
-        Language variant used for automatic text conversion, or ``None``.
-
-        When set, the MediaWiki API converts the page content to the
-        specified variant (e.g. ``"zh-tw"`` for Traditional Chinese).
-
-        :return: variant string, or ``None`` if no conversion is applied
-        """
-        v = self._attributes["variant"]
-        return str(v) if v else None
-
-    @property
-    def title(self) -> str:
-        """
-        Title of this page as supplied to :meth:`~wikipediaapi.Wikipedia.page`.
-
-        :return: page title string
-        """
-        return str(self._attributes["title"])
 
     @property
     def namespace(self) -> int:
@@ -265,28 +142,6 @@ class WikipediaPage:
             self._fetch("extracts")
         return self._section
 
-    def section_by_title(
-        self,
-        title: str,
-    ) -> WikipediaPageSection | None:
-        """
-        Return the last section on this page whose heading matches *title*.
-
-        Triggers an ``extracts`` call on first access if needed.
-        When several sections share the same heading (e.g. multiple
-        "January" sections in a year page) the last one is returned.
-
-        :param title: exact heading text to look up
-        :return: the matching :class:`WikipediaPageSection`, or ``None``
-            if no section with that title exists
-        """
-        if not self._called["extracts"]:
-            self._fetch("extracts")
-        sections = self._section_mapping.get(title)
-        if sections:
-            return sections[-1]
-        return None
-
     def sections_by_title(
         self,
         title: str,
@@ -294,9 +149,9 @@ class WikipediaPage:
         """
         Return all sections on this page whose heading matches *title*.
 
-        Useful for year-type pages where multiple sections share the
-        same heading (e.g. ``"January"``).
-        Triggers an ``extracts`` call on first access if needed.
+        Overrides the base implementation to trigger an ``extracts``
+        fetch automatically on first call, so callers need not fetch
+        sections explicitly.
 
         :param title: exact heading text to look up
         :return: list of matching :class:`WikipediaPageSection` objects;

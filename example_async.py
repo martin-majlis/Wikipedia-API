@@ -219,6 +219,11 @@ async def main():
     else:
         print("Section not found.")
 
+    # sections_by_title() — returns ALL sections matching the heading (any depth)
+    # Useful when the same heading appears in multiple sub-sections
+    history_sections = page.sections_by_title("History")
+    print(f"Sections titled 'History': {len(history_sections)}")
+
     # ──────────────────────────────────────────────────────────────────────────
     # 7. Related pages — all collection methods are coroutines
     # ──────────────────────────────────────────────────────────────────────────

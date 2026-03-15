@@ -1,17 +1,11 @@
-from typing import Any, TYPE_CHECKING
+from typing import Any
 
-if TYPE_CHECKING:
-    from .async_wikipedia import AsyncWikipedia
-
-from .namespace import Namespace
-from .namespace import namespace2int
-from .namespace import WikiNamespace
+from ._base_wikipedia_page import BaseWikipediaPage
 from .wikipedia_page import PagesDict
-from .wikipedia_page import WikipediaPage
 from .wikipedia_page_section import WikipediaPageSection
 
 
-class AsyncWikipediaPage:
+class AsyncWikipediaPage(BaseWikipediaPage):
     """
     Lazy representation of a Wikipedia page for use with
     :class:`~wikipediaapi.AsyncWikipedia`.
@@ -46,65 +40,6 @@ class AsyncWikipediaPage:
       ``visitingwatchers``, ``notificationtimestamp``, ``readable``,
       ``preload``, ``varianttitles``
     """
-
-    ATTRIBUTES_MAPPING = WikipediaPage.ATTRIBUTES_MAPPING
-
-    def __init__(
-        self,
-        wiki: "AsyncWikipedia",
-        title: str,
-        ns: WikiNamespace = Namespace.MAIN,
-        language: str = "en",
-        variant: str | None = None,
-        url: str | None = None,
-    ) -> None:
-        """
-        Initialise a lazy async Wikipedia page stub.
-
-        No network call is made here.  All cache attributes are
-        initialised to empty values and are populated on the first
-        ``await`` of the corresponding coroutine.
-
-        :param wiki: the :class:`~wikipediaapi.AsyncWikipedia` client
-            used to fetch data when coroutines are awaited
-        :param title: page title exactly as passed by the caller
-        :param ns: namespace; stored as an integer via
-            :func:`~wikipediaapi.namespace2int`
-        :param language: two-letter Wikipedia language code
-        :param variant: language variant for automatic conversion, or
-            ``None`` to disable
-        :param url: pre-set ``fullurl`` attribute; used when the page
-            stub is created from a lang-link response
-        """
-        self.wiki = wiki
-        self._summary = ""  # type: str
-        self._section = []  # type: list[WikipediaPageSection]
-        self._section_mapping = {}  # type: dict[str, list[WikipediaPageSection]]
-        self._langlinks: PagesDict = {}
-        self._links: PagesDict = {}
-        self._backlinks: PagesDict = {}
-        self._categories: PagesDict = {}
-        self._categorymembers: PagesDict = {}
-
-        self._called = {
-            "extracts": False,
-            "info": False,
-            "langlinks": False,
-            "links": False,
-            "backlinks": False,
-            "categories": False,
-            "categorymembers": False,
-        }
-
-        self._attributes: dict[str, Any] = {
-            "title": title,
-            "ns": namespace2int(ns),
-            "language": language,
-            "variant": variant,
-        }
-
-        if url is not None:
-            self._attributes["fullurl"] = url
 
     def __getattr__(self, name: str) -> Any:
         """
@@ -158,52 +93,6 @@ class AsyncWikipediaPage:
             return self._attributes.get(name)
 
         return _multi_source_attr()
-
-    @property
-    def language(self) -> str:
-        """
-        Two-letter Wikipedia language code for this page.
-
-        Set at construction time and never changed.
-
-        :return: language code string (e.g. ``"en"``, ``"de"``)
-        """
-        return str(self._attributes["language"])
-
-    @property
-    def variant(self) -> str | None:
-        """
-        Language variant used for automatic text conversion, or ``None``.
-
-        When set, the MediaWiki API converts the page content to the
-        specified variant (e.g. ``"zh-tw"`` for Traditional Chinese).
-
-        :return: variant string, or ``None`` if no conversion is applied
-        """
-        v = self._attributes.get("variant")
-        return str(v) if v is not None else None
-
-    @property
-    def title(self) -> str:
-        """
-        Title of this page as supplied to
-        :meth:`~wikipediaapi.AsyncWikipedia.page`.
-
-        :return: page title string
-        """
-        return str(self._attributes["title"])
-
-    @property
-    def ns(self) -> int:
-        """
-        Integer namespace number of this page.
-
-        ``0`` for main-namespace articles; see :class:`~wikipediaapi.Namespace`
-        for the full list of namespace values.
-
-        :return: namespace as an integer
-        """
-        return int(self._attributes["ns"])
 
     @property
     def sections(self) -> list[WikipediaPageSection]:
@@ -363,22 +252,6 @@ class AsyncWikipediaPage:
         if pageid is None:
             return False
         return int(pageid) > 0
-
-    def section_by_title(self, title: str) -> "WikipediaPageSection | None":
-        """
-        Return the last section whose heading matches *title*, or ``None``.
-
-        Reads from the cached section mapping; await :meth:`summary`
-        first to ensure sections are populated.  When multiple sections
-        share the same heading the last one is returned.
-
-        :param title: exact heading text to search for
-        :return: the matching :class:`WikipediaPageSection`, or ``None``
-        """
-        sections = self._section_mapping.get(title, [])
-        if sections:
-            return sections[-1]
-        return None
 
     def __repr__(self) -> str:
         """

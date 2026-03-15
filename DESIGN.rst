@@ -44,6 +44,7 @@ File Layout
     │   └── AsyncWikipediaResource # Async public API methods
     ├── wikipedia.py             # Wikipedia (sync concrete client)
     ├── async_wikipedia.py       # AsyncWikipedia (async concrete client)
+    ├── _base_wikipedia_page.py  # BaseWikipediaPage (shared page state & methods)
     ├── wikipedia_page.py        # WikipediaPage (lazy sync page object)
     ├── async_wikipedia_page.py  # AsyncWikipediaPage (lazy async page object)
     ├── wikipedia_page_section.py  # WikipediaPageSection
@@ -64,6 +65,10 @@ The inheritance chains are::
     ├── WikipediaResource
     └── AsyncWikipediaResource
 
+    BaseWikipediaPage
+    ├── WikipediaPage
+    └── AsyncWikipediaPage
+
 Concrete clients compose one transport and one API mixin::
 
     Wikipedia(WikipediaResource, SyncHTTPClient)
@@ -71,8 +76,27 @@ Concrete clients compose one transport and one API mixin::
 
 Page objects hold a back-reference to the client and call it lazily::
 
-    WikipediaPage  ──back-ref──►  Wikipedia
-    AsyncWikipediaPage  ──────►  AsyncWikipedia
+    WikipediaPage(BaseWikipediaPage)  ──back-ref──►  Wikipedia
+    AsyncWikipediaPage(BaseWikipediaPage)  ────────►  AsyncWikipedia
+
+``BaseWikipediaPage`` holds all state (``_attributes``, ``_called``,
+``_section_mapping``, …) and all code whose behaviour is identical
+regardless of sync vs. async: ``ATTRIBUTES_MAPPING``, ``__init__``,
+the ``language``/``variant``/``title``/``ns`` properties,
+``sections_by_title``, and ``section_by_title``.
+
+The subclasses are responsible for the fundamentally different parts:
+
+* ``__getattr__`` — sync returns values directly; async returns coroutines.
+* ``_fetch`` — ``def`` in sync, ``async def`` in async.
+* ``sections`` property — sync auto-fetches; async requires an explicit
+  ``await page.summary()`` first.
+* ``exists()`` — sync auto-fetches via ``self.pageid``; async reads the
+  cache directly (cannot block inside a sync method).
+* All data-fetching surface (``summary``, ``langlinks``, …) — sync uses
+  ``@property``; async uses ``async def``.
+* ``WikipediaPage`` also overrides ``sections_by_title`` to trigger an
+  automatic ``extracts`` fetch (the base version is read-only from cache).
 
 
 Full Class Diagram
@@ -134,23 +158,39 @@ Full Class Diagram
                                                   │  __init__()        │
                                                   └────────────────────┘
 
-    Page objects (hold back-reference to their wiki instance):
+    Page objects (share a common base; hold back-reference to their wiki instance):
 
-    ┌─────────────────────────┐    ┌──────────────────────────────┐
-    │     WikipediaPage       │    │     AsyncWikipediaPage       │
-    │                         │    │                              │
-    │  title, pageid, ns, ... │    │  title, pageid, ns, ...      │
-    │  summary (property)     │    │  summary (coroutine prop)    │
-    │  text    (property)     │    │  text    (coroutine prop)    │
-    │  sections (property)    │    │  sections (coroutine prop)   │
-    │  links   (property)     │    │  links   (coroutine prop)    │
-    │  backlinks (property)   │    │  backlinks (coroutine prop)  │
-    │  categories (property)  │    │  categories (coroutine prop) │
-    │  langlinks (property)   │    │  langlinks (coroutine prop)  │
-    │  categorymembers (prop) │    │  categorymembers (coroutine) │
-    │                         │    │                              │
-    │  _wiki ─────────────────┼──► │  Wikipedia instance          │
-    └─────────────────────────┘    └──────────────────────────────┘
+    ┌──────────────────────────────────────────────────────────────┐
+    │                    BaseWikipediaPage                         │
+    │                                                              │
+    │  ATTRIBUTES_MAPPING (class var)                              │
+    │  __init__(wiki, title, ns, language, variant, url)           │
+    │  language, variant, title, ns  (properties, no fetch)        │
+    │  sections_by_title(title) → list   (reads cache)             │
+    │  section_by_title(title)  → opt    (delegates to above)      │
+    └──────────────────┬───────────────────────────┬───────────────┘
+                       │                           │
+          ┌────────────┴────────────┐  ┌───────────┴──────────────┐
+          │     WikipediaPage       │  │   AsyncWikipediaPage      │
+          │                         │  │                           │
+          │  __getattr__ (sync)     │  │  __getattr__ (→coroutine) │
+          │  _fetch (def)           │  │  _fetch (async def)       │
+          │  sections_by_title      │  │  sections (property,      │
+          │    (override: auto-     │  │    no auto-fetch)         │
+          │    fetches extracts)    │  │  exists() (cache only)    │
+          │  sections (auto-fetch)  │  │  summary() (coroutine)    │
+          │  exists() (auto-fetch)  │  │  langlinks() (coroutine)  │
+          │  summary (property)     │  │  links() (coroutine)      │
+          │  text    (property)     │  │  backlinks() (coroutine)  │
+          │  langlinks (property)   │  │  categories() (coroutine) │
+          │  links     (property)   │  │  categorymembers()        │
+          │  backlinks (property)   │  │    (coroutine)            │
+          │  categories (property)  │  │                           │
+          │  categorymembers (prop) │  │  _wiki ──────────────────►│
+          │                         │  │  AsyncWikipedia instance  │
+          │  _wiki ─────────────────┼► │                           │
+          │  Wikipedia instance     │  └───────────────────────────┘
+          └─────────────────────────┘
 
 
 Transport Layer
@@ -366,12 +406,13 @@ Inspect the API response structure:
 and stores results under ``raw["query"]["pages"][id]["templates"]``.
 → Use ``_dispatch_prop_paginated``.
 
-Step 2 — Add a Return-Type Attribute to WikipediaPage
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 2 — Add a Return-Type Attribute to BaseWikipediaPage
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In ``wikipedia_page.py``, add a cache slot in ``__init__``::
+In ``_base_wikipedia_page.py``, add a cache slot in
+``BaseWikipediaPage.__init__``::
 
-    self._templates: PagesDict | None = None
+    self._templates: dict[str, Any] = {}
 
 Step 3 — Add the Parameter Builder
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
