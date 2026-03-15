@@ -30,8 +30,10 @@ Key differences between the sync and async API:
 * Info attributes (``fullurl``, ``displaytitle``, ``pageid``, …) are also **awaitables**
   in the async API.
 * ``title``, ``ns``, ``language``, ``variant`` are plain ``@property`` values in both APIs.
-* ``exists()``, ``section_by_title()``, and ``sections_by_title()`` are plain synchronous
-  methods in both APIs.
+* ``exists()`` is a plain method in the sync API; a **coroutine** in the async API
+  (``await page.exists()``) — it auto-fetches ``pageid`` lazily.
+* ``section_by_title()`` and ``sections_by_title()`` are plain synchronous methods
+  in both APIs.
 * In the async API, ``sections`` is a plain ``@property`` populated after
   ``await page.summary()``.
 
@@ -103,20 +105,18 @@ For checking, whether page exists, you can use function ``exists``.
 
 **Asynchronous**
 
-In the async API, ``exists()`` is a plain synchronous method, but the page data must be
-fetched first (e.g. by awaiting ``summary()``).
+In the async API, ``exists()`` is a coroutine — it lazily fetches ``pageid``
+via the ``info`` API call if not yet cached (same approach as ``await page.fullurl``).
 
 .. code-block:: python
 
     async def main():
         page_py = wiki_wiki.page('Python_(programming_language)')
-        await page_py.summary()  # fetch page data first
-        print("Page - Exists: %s" % page_py.exists())
+        print("Page - Exists: %s" % await page_py.exists())
         # Page - Exists: True
 
         page_missing = wiki_wiki.page('NonExistingPageWithStrangeName')
-        await page_missing.summary()
-        print("Page - Exists: %s" % page_missing.exists())
+        print("Page - Exists: %s" % await page_missing.exists())
         # Page - Exists: False
 
 How To Get Page Summary

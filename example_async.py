@@ -13,7 +13,8 @@ Key differences from the synchronous API:
     categorymembers, summary) are coroutines that must be awaited:
       links = await page.links()
   - title, ns, language, variant are plain @property values (no await needed).
-  - exists() and section_by_title() are plain synchronous methods.
+  - exists() is a coroutine — use: exists = await page.exists()
+  - section_by_title() is a plain synchronous method.
   - sections is a plain @property (populated after await page.summary()).
 """
 
@@ -185,13 +186,12 @@ async def main():
     # 5. Existence check
     # ──────────────────────────────────────────────────────────────────────────
 
-    # exists() is a plain synchronous method; pageid must be cached first
-    # (awaiting any attribute or summary() above already cached it)
-    print("Exists:", page.exists())
+    # exists() is a coroutine — it lazily fetches pageid via the info API call
+    # (same approach as await page.fullurl); no prior fetch is needed
+    print("Exists:", await page.exists())
 
     page_missing = wiki.page("Wikipedia-API-FooBar-DoesNotExist")
-    await page_missing.summary()  # triggers a fetch so exists() can be called
-    print("Missing page exists:", page_missing.exists())
+    print("Missing page exists:", await page_missing.exists())
     print("Missing page ID:", await page_missing.pageid)
 
     # ──────────────────────────────────────────────────────────────────────────
@@ -268,7 +268,7 @@ async def main():
 
     # ExtractFormat.HTML returns summary and section text as HTML fragments
     page_ostrava = wiki_html.page("Ostrava")
-    print("HTML page exists:", page_ostrava.exists())
+    print("HTML page exists:", await page_ostrava.exists())
     summary_ostrava = await page_ostrava.summary()
     print("HTML summary (first 120):", summary_ostrava[:120])
 

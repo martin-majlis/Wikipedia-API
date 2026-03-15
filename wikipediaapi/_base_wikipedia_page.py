@@ -38,8 +38,8 @@ class BaseWikipediaPage(ABC):
     * :meth:`_fetch` — ``def`` in sync, ``async def`` in async.
     * ``sections`` — sync auto-fetches via ``_fetch``; async is a plain
       property populated after ``await summary()``.
-    * ``exists()`` — sync auto-fetches via ``self.pageid``; async reads
-      ``_attributes`` directly.
+    * ``exists()`` — sync auto-fetches via ``self.pageid``; async is a
+      coroutine that lazily fetches ``pageid`` via ``info``.
     * All data-fetching surface (``summary``, ``langlinks``, …) —
       ``@property`` in sync, ``async def`` in async.
     """
@@ -209,19 +209,19 @@ class BaseWikipediaPage(ABC):
         """
 
     @abstractmethod
-    def exists(self) -> bool:
+    def exists(self) -> Any:
         """
         Return whether this page exists on Wikipedia.
 
         Must be implemented by each subclass:
 
-        * :class:`~wikipediaapi.WikipediaPage` — auto-fetches via
-          ``self.pageid`` if not yet cached.
-        * :class:`~wikipediaapi.AsyncWikipediaPage` — reads
-          ``_attributes`` directly; requires a prior ``await`` to have
-          populated the cache.
+        * :class:`~wikipediaapi.WikipediaPage` — returns ``bool``
+          directly, auto-fetching ``pageid`` if not yet cached.
+        * :class:`~wikipediaapi.AsyncWikipediaPage` — returns a
+          coroutine (``async def``); awaiting it lazily fetches
+          ``pageid`` via the ``info`` API call if not yet cached.
 
-        :return: ``True`` if the page exists, ``False`` otherwise
+        :return: ``bool`` (sync) or an awaitable ``bool`` (async)
         """
 
     def sections_by_title(

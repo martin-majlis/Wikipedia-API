@@ -236,19 +236,25 @@ class AsyncWikipediaPage(BaseWikipediaPage):
             await self._fetch("categorymembers")
         return self._categorymembers
 
-    def exists(self) -> bool:
+    async def exists(self) -> bool:
         """
         Return ``True`` if this page exists on Wikipedia.
 
-        Reads the cached ``pageid`` attribute; returns ``False`` if it
-        has not yet been populated (i.e. no data-fetching coroutine has
-        been awaited).  Await :meth:`summary` first to guarantee an
-        accurate result.
+        Lazily fetches ``pageid`` via the ``info`` API call on the first
+        ``await`` (identical approach to ``await page.fullurl``).  No
+        prior data-fetching call is required::
 
-        :return: ``True`` if the page has been fetched and has a
-            positive ``pageid``; ``False`` otherwise
+            exists = await page.exists()
+
+        :return: ``True`` if the page has a positive ``pageid``;
+            ``False`` otherwise
+        :raises WikiHttpTimeoutError: if the request times out
+        :raises WikiConnectionError: if a connection cannot be established
+        :raises WikiRateLimitError: if the API returns HTTP 429
+        :raises WikiHttpError: if the API returns a non-success HTTP status
+        :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        pageid = self._attributes.get("pageid")
+        pageid = await self.pageid
         if pageid is None:
             return False
         return int(pageid) > 0

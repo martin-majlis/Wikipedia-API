@@ -41,10 +41,6 @@ class TestAsyncWikipediaPageInit(unittest.TestCase):
         self.assertIn("Python", r)
         self.assertIn("en", r)
 
-    def test_exists_before_fetch_returns_false(self):
-        page = self.wiki.page("Python")
-        self.assertFalse(page.exists())
-
     def test_sections_empty_before_fetch(self):
         page = self.wiki.page("Python")
         self.assertEqual(page.sections, [])
@@ -113,10 +109,9 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
         self.assertIsInstance(members, dict)
         self.assertTrue(page._called["categorymembers"])
 
-    async def test_exists_true_after_fetch(self):
+    async def test_exists_true(self):
         page = self.wiki.page("Test_1")
-        await page.summary()
-        self.assertTrue(page.exists())
+        self.assertTrue(await page.exists())
 
     async def test_exists_false_for_nonexistent(self):
         wiki = wikipediaapi.AsyncWikipedia(user_agent, "en")
@@ -126,8 +121,7 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
 
         wiki._get = mock_get
         page = wiki.page("NonExistent")
-        await page.summary()
-        self.assertFalse(page.exists())
+        self.assertFalse(await page.exists())
 
     async def test_section_by_title_found(self):
         page = self.wiki.page("Test_1")
