@@ -7,7 +7,9 @@ test_patterns = [
 ]
 
 exclude_patterns = [
-
+  'tests/**',
+  'example_sync.py',
+  'example_async.py'
 ]
 
 [[analyzers]]
