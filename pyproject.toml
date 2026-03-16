@@ -47,7 +47,7 @@ dev = [
     "pre-commit==4.5.1",
     "pygments==2.19.2",
     "pyupgrade==3.21.2",
-    "tox==4.49.0",
+    "tox==4.49.1",
     "anyio[trio]==4.9.0",
     "respx==0.22.0",
     "types-setuptools==82.0.0.20260210",
