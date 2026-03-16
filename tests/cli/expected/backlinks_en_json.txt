@@ -7609,11 +7609,6 @@
 "language": "en",
 "ns": 100
 },
-"Portal:Spaceflight": {
-"title": "Portal:Spaceflight",
-"language": "en",
-"ns": 100
-},
 "Portal:Spaceflight/Did you know": {
 "title": "Portal:Spaceflight/Did you know",
 "language": "en",
@@ -12996,6 +12991,11 @@
 },
 "User:Blagden": {
 "title": "User:Blagden",
+"language": "en",
+"ns": 2
+},
+"User:Blubtheclio": {
+"title": "User:Blubtheclio",
 "language": "en",
 "ns": 2
 },
@@ -22504,6 +22504,36 @@
 "language": "en",
 "ns": 4
 },
+"Wikipedia:Did you know archive/2007/July": {
+"title": "Wikipedia:Did you know archive/2007/July",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Did you know archive/2010/October": {
+"title": "Wikipedia:Did you know archive/2010/October",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Did you know archive/2012/April": {
+"title": "Wikipedia:Did you know archive/2012/April",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Did you know archive/2016/May": {
+"title": "Wikipedia:Did you know archive/2016/May",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Did you know archive/2017/March": {
+"title": "Wikipedia:Did you know archive/2017/March",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Did you know archive/2024/April": {
+"title": "Wikipedia:Did you know archive/2024/April",
+"language": "en",
+"ns": 4
+},
 "Wikipedia:Did you know/Statistics/Monthly DYK pageview leaders/2010": {
 "title": "Wikipedia:Did you know/Statistics/Monthly DYK pageview leaders/2010",
 "language": "en",
@@ -23416,36 +23446,6 @@
 },
 "Wikipedia:Recent additions 156": {
 "title": "Wikipedia:Recent additions 156",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:Recent additions/2007/July": {
-"title": "Wikipedia:Recent additions/2007/July",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:Recent additions/2010/October": {
-"title": "Wikipedia:Recent additions/2010/October",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:Recent additions/2012/April": {
-"title": "Wikipedia:Recent additions/2012/April",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:Recent additions/2016/May": {
-"title": "Wikipedia:Recent additions/2016/May",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:Recent additions/2017/March": {
-"title": "Wikipedia:Recent additions/2017/March",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:Recent additions/2024/April": {
-"title": "Wikipedia:Recent additions/2024/April",
 "language": "en",
 "ns": 4
 },
