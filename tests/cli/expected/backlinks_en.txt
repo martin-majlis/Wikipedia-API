@@ -1520,7 +1520,6 @@ Portal:Solar System/Solar System topics/imagebox
 Portal:Somerset/Did you know
 Portal:Somerset/Did you know/2
 Portal:Somerset/Nominate/Did you know
-Portal:Spaceflight
 Portal:Spaceflight/Did you know
 Portal:Spaceflight/Did you know/2008 Fortnight 1
 Portal:Spaceflight/Did you know/2008 Fortnight 2
@@ -2598,6 +2597,7 @@ User:Bka9/Books/watchlis
 User:Bka9/Books/watchlist
 User:BlackPatrol
 User:Blagden
+User:Blubtheclio
 User:BlueSquadronRaven/Userboxes
 User:BlueSquadronRaven/Userboxes/PlanetPluto
 User:Blurredandfaded/Books/COSMIC HALMA FELLOWSHIP
@@ -4499,6 +4499,12 @@ Wikipedia:Database reports/Indefinitely semi-protected articles/3
 Wikipedia:Database reports/Most-watched pages
 Wikipedia:Deceased Wikipedians/2022
 Wikipedia:Department of Fun/Word Association/Dice Association
+Wikipedia:Did you know archive/2007/July
+Wikipedia:Did you know archive/2010/October
+Wikipedia:Did you know archive/2012/April
+Wikipedia:Did you know archive/2016/May
+Wikipedia:Did you know archive/2017/March
+Wikipedia:Did you know archive/2024/April
 Wikipedia:Did you know/Statistics/Monthly DYK pageview leaders/2010
 Wikipedia:Did you know/Statistics/Monthly DYK pageview leaders/2016
 Wikipedia:Did you know/Statistics/Monthly DYK pageview leaders/2016/May
@@ -4682,12 +4688,6 @@ Wikipedia:Picture of the day/October 2023
 Wikipedia:Popular pages
 Wikipedia:Press coverage 2006
 Wikipedia:Recent additions 156
-Wikipedia:Recent additions/2007/July
-Wikipedia:Recent additions/2010/October
-Wikipedia:Recent additions/2012/April
-Wikipedia:Recent additions/2016/May
-Wikipedia:Recent additions/2017/March
-Wikipedia:Recent additions/2024/April
 Wikipedia:Redirects for discussion/Log/2006 August 24
 Wikipedia:Redirects for discussion/Log/2006 August 26
 Wikipedia:Redirects for discussion/Log/2015 July 26
