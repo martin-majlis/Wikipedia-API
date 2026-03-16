@@ -48,7 +48,7 @@ dev = [
     "pygments==2.19.2",
     "pyupgrade==3.21.2",
     "tox==4.49.1",
-    "anyio[trio]==4.9.0",
+    "anyio[trio]==4.12.1",
     "respx==0.22.0",
     "types-setuptools==82.0.0.20260210",
 ]
@@ -62,7 +62,7 @@ build = [
     "wheel==0.46.3",
 ]
 testing = [
-    "anyio[trio]==4.9.0",
+    "anyio[trio]==4.12.1",
     "respx==0.22.0",
 ]
 
