@@ -41,7 +41,7 @@ class TestCLIFactoryFunctions(unittest.TestCase):
         self.assertIsNone(wiki.variant)
         self.assertEqual(wiki.extract_format, wikipediaapi.ExtractFormat.WIKI)
         # User agent is stored in session headers
-        self.assertIn("test-agent", wiki._session.headers["User-Agent"])
+        self.assertIn("test-agent", wiki._client.headers["User-Agent"])
 
     def test_create_wikipedia_instance_html_format(self):
         """Test creating Wikipedia instance with HTML format."""
@@ -59,7 +59,7 @@ class TestCLIFactoryFunctions(unittest.TestCase):
 
         self.assertEqual(wiki.language, "zh")
         self.assertEqual(wiki.variant, "zh-cn")
-        self.assertIn("test-agent", wiki._session.headers["User-Agent"])
+        self.assertIn("test-agent", wiki._client.headers["User-Agent"])
 
     def test_fetch_page_success(self):
         """Test fetching a page successfully."""

@@ -7,58 +7,102 @@ from .extract_format import ExtractFormat
 
 
 class WikipediaPageSection:
-    """WikipediaPageSection represents section in the page."""
+    """
+    Represents a single section (or the root summary) of a Wikipedia page.
+
+    Sections are arranged in a tree: each section may have zero or more
+    child sections accessible via :attr:`sections`.  The root of the tree
+    is the page summary (level 0); its children are top-level headings
+    (level 2 for ``==Heading==`` / ``<h2>``); their children are
+    sub-headings, and so on.
+
+    Instances are created by
+    :meth:`~wikipediaapi._resources.BaseWikipediaResource._build_extracts`
+    and should not normally be constructed directly.
+
+    :attr wiki: the :class:`~wikipediaapi.Wikipedia` instance used to
+        determine the extract format when rendering
+    """
 
     def __init__(self, wiki: "Wikipedia", title: str, level: int = 0, text: str = "") -> None:
-        """Constructs WikipediaPageSection."""
+        """
+        Initialise a page section.
+
+        :param wiki: the Wikipedia client; used only for
+            :attr:`~wikipediaapi.Wikipedia.extract_format` when rendering
+            :meth:`full_text`
+        :param title: heading text of this section (empty string for the
+            root / summary pseudo-section)
+        :param level: heading depth — 0 for the summary, 2 for ``<h2>``
+            / ``==...==``, 3 for ``<h3>`` / ``===...===``, etc.
+        :param text: plain body text of this section (excluding headings
+            and text of sub-sections)
+        """
         self.wiki = wiki
         self._title = title
         self._level = level
         self._text = text
-        self._section = []  # type: list['WikipediaPageSection']
+        self._section: list["WikipediaPageSection"] = []
 
     @property
     def title(self) -> str:
         """
-        Returns title of the current section.
+        Heading text of this section.
 
-        :return: title of the current section
+        For the root / summary pseudo-section this is an empty string.
+
+        :return: section heading as a plain string
         """
         return self._title
 
     @property
     def level(self) -> int:
         """
-        Returns indentation level of the current section.
+        Heading depth of this section.
 
-        :return: indentation level of the current section
+        The summary pseudo-section has level ``0``.  Heading levels follow
+        the HTML convention: ``2`` for the outermost heading
+        (``==...==`` / ``<h2>``), ``3`` for the next level, and so on.
+
+        :return: integer heading level (0 = summary, 2 = top-level, …)
         """
         return self._level
 
     @property
     def text(self) -> str:
         """
-        Returns text of the current section.
+        Body text of this section, excluding heading and sub-sections.
 
-        :return: text of the current section
+        The format (plain wiki markup or HTML) matches the
+        ``extract_format`` of the :class:`~wikipediaapi.Wikipedia`
+        instance that fetched the page.
+
+        :return: section body text as a string
         """
         return self._text
 
     @property
     def sections(self) -> list["WikipediaPageSection"]:
         """
-        Returns subsections of the current section.
+        Direct child sections of this section.
 
-        :return: subsections of the current section
+        Each element is itself a :class:`WikipediaPageSection` that may
+        have further children.  Use recursion to traverse the full tree.
+
+        :return: list of immediate sub-sections (may be empty)
         """
         return self._section
 
     def section_by_title(self, title: str) -> Optional["WikipediaPageSection"]:
         """
-        Returns subsections of the current section with given title.
+        Return the last direct child section whose heading matches *title*.
 
-        :param title: title of the subsection
-        :return: subsection if it exists
+        When multiple sub-sections share the same heading (rare but
+        valid in Wikipedia) the last one is returned.  Returns ``None``
+        if no matching child section exists.
+
+        :param title: exact heading text to search for
+        :return: the matching :class:`WikipediaPageSection`, or ``None``
         """
         sections = [s for s in self._section if s.title == title]
         if sections:
@@ -67,10 +111,25 @@ class WikipediaPageSection:
 
     def full_text(self, level: int = 1) -> str:
         """
-        Returns text of the current section as well as all its subsections.
+        Return the rendered text of this section and all its descendants.
 
-        :param level: indentation level
-        :return: text of the current section as well as all its subsections
+        The heading is prepended in the format appropriate for
+        ``wiki.extract_format``:
+
+        * :attr:`ExtractFormat.WIKI` — heading as ``==Title==`` (number
+          of ``=`` chars = *level*)
+        * :attr:`ExtractFormat.HTML` — heading as ``<h{level}>Title</h{level}>``
+
+        Sub-sections are appended recursively with *level* incremented by
+        one for each nesting depth.
+
+        :param level: heading depth to use for *this* section's heading;
+            child sections use ``level + 1``, etc.  Callers typically
+            pass ``2`` for a top-level section.
+        :return: full rendered string including heading, body, and all
+            descendant sections
+        :raises NotImplementedError: if ``wiki.extract_format`` is not
+            :attr:`ExtractFormat.WIKI` or :attr:`ExtractFormat.HTML`
         """
         res = ""
         if self.wiki.extract_format == ExtractFormat.WIKI:

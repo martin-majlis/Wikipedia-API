@@ -2,6 +2,72 @@
 
 Guide for AI agents (and developers) on how to install, build, and test the Wikipedia-API project.
 
+## Before You Start
+
+**📖 CRITICAL: Always read the design and API documentation first**
+
+Before making any changes, read these two documents to understand the
+architecture, class hierarchy, and public API:
+
+- **`DESIGN.rst`** — internal architecture, class hierarchy, request
+  lifecycle, dispatch helpers, and a step-by-step guide for adding new
+  API calls.
+- **`API.rst`** — public API reference: every method, property, and
+  attribute available on `Wikipedia`, `AsyncWikipedia`, `WikipediaPage`,
+  `AsyncWikipediaPage`, `WikipediaPageSection`, and the CLI.
+
+Skipping this step risks duplicating existing logic, violating
+established conventions, or breaking the sync/async symmetry.
+
+## Sync / Async Symmetry
+
+**🚨 CRITICAL: The sync and async APIs MUST stay in perfect symmetry.**
+
+`WikipediaPage` and `AsyncWikipediaPage` are parallel classes.
+Every public attribute or method on one **must** have the same kind of
+interface on the other:
+
+| If `WikipediaPage` has …     | then `AsyncWikipediaPage` MUST have …                                            |
+| ---------------------------- | -------------------------------------------------------------------------------- |
+| `@property foo`              | awaitable property `await page.foo` (explicit `@property` returning a coroutine) |
+| plain method `foo()`         | coroutine method `await page.foo()`                                              |
+| plain `@property` (no fetch) | plain `@property` (no fetch)                                                     |
+
+**Never** convert a property to a method (or vice versa) in one class
+without making the matching change in the other. Violations break
+the documented API contract and confuse callers who switch between
+the two clients.
+
+Examples of correct symmetry currently in place:
+
+- `page.summary`, `page.text`, `page.langlinks`, `page.links`,
+  `page.backlinks`, `page.categories`, `page.categorymembers` —
+  `@property` in sync; explicit `@property` returning a coroutine in async.
+- `page.pageid`, `page.fullurl`, `page.displaytitle`, and all other
+  info attributes — same pattern: `@property` in sync, awaitable
+  `@property` in async.
+- `page.exists()` — plain method in sync; coroutine method
+  `await page.exists()` in async (both use call syntax `()`).
+- `page.sections`, `page.title`, `page.ns`, `page.language`,
+  `page.variant` — plain `@property` in both (no awaiting needed).
+
+## Typing Standards
+
+**🧠 Prefer explicit type annotations and minimize `Any`.**
+
+When writing or updating Python code in this repository:
+
+- Use inline type annotations directly on variables, attributes, parameters,
+  and return values (e.g. `value: dict[str, int] = {}`), instead of legacy
+  `# type:` comments.
+- Avoid `Any` whenever a more specific type can be expressed.
+- Use `Any` only when it is absolutely necessary (for example, dynamic external
+  payloads or framework boundaries where precise typing is not practical).
+- If `Any` is required, keep its scope as small as possible and prefer typed
+  wrappers/conversions at the boundary.
+- Validate typing-related changes by running `make run-pre-commit` before
+  submitting.
+
 ## Prerequisites
 
 - **Python 3.10+** (supported: 3.10, 3.11, 3.12, 3.13, 3.14)
@@ -159,6 +225,46 @@ This runs isort, black, flake8, mypy, pyupgrade, and other checks (trailing whit
 
 - **Type checking:** `make run-type-check` (runs `mypy ./wikipediaapi`)
 - **Linting:** `make run-flake8` (runs `flake8 --max-line-length=100 wikipediaapi tests`)
+
+## After Every Change
+
+**✅ CRITICAL: Keep all documentation, examples, and tests in sync**
+
+After completing any change, go through this checklist before committing:
+
+### 1. Update documentation files
+
+Ensure each of the following files accurately reflects the change:
+
+- **`API.rst`** — add or update entries for any new or modified
+  methods, properties, or attributes.
+- **`DESIGN.rst`** — update the class hierarchy, file layout, diagrams,
+  or step-by-step guide if the architecture changed.
+- **`index.rst`** — update usage examples or feature descriptions if
+  user-facing behaviour changed (note: `README.rst` is identical in
+  content and must be kept in sync with `index.rst`).
+- **`README.rst`** — mirror any changes made to `index.rst`.
+
+### 2. Update example files
+
+- **`example_sync.py`** — add or update usage of any new or changed
+  synchronous API (`Wikipedia`, `WikipediaPage`).
+- **`example_async.py`** — add or update usage of any new or changed
+  asynchronous API (`AsyncWikipedia`, `AsyncWikipediaPage`).
+
+Both files serve as living documentation and must exercise every
+publicly available method and attribute.
+
+### 3. Update tests
+
+- Add or update unit tests in `tests/` for every new or modified code
+  path.
+- For synchronous code: `tests/wikipedia_page_test.py` and related
+  files.
+- For asynchronous code: `tests/async_wikipedia_page_test.py` and
+  related files.
+- Run the full suite and coverage check (see [Test](#test) below)
+  before committing.
 
 ## Pre-release Check
 

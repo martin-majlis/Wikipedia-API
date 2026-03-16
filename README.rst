@@ -20,7 +20,23 @@ This package requires at least Python 3.9 to install because it's using IntEnum.
 Usage
 -----
 
-Goal of ``Wikipedia-API`` is to provide simple and easy to use API for retrieving informations from Wikipedia. Bellow are examples of common use cases.
+Goal of ``Wikipedia-API`` is to provide simple and easy to use API for retrieving informations from Wikipedia. The library provides both a **synchronous** (``Wikipedia``) and an **asynchronous** (``AsyncWikipedia``) client. Bellow are examples of common use cases.
+
+Key differences between the sync and async API:
+
+* All data-fetching attributes (``summary``, ``text``, ``langlinks``, ``links``,
+  ``backlinks``, ``categories``, ``categorymembers``, ``pageid``, ``fullurl``,
+  ``displaytitle``, …) are explicit ``@property`` definitions in both APIs.
+  In the async API every such property returns a coroutine: ``await page.summary``,
+  ``await page.pageid``, etc.
+* ``title``, ``ns``, ``namespace``, ``language``, ``variant`` are plain ``@property``
+  values in both APIs (no ``await`` needed).
+* ``exists()`` is a plain method in the sync API; a **coroutine method** in the async API:
+  ``await page.exists()``.
+* ``section_by_title()`` and ``sections_by_title()`` are plain synchronous methods
+  in both APIs.
+* In the async API, ``sections`` is a plain ``@property`` populated after
+  ``await page.summary``.
 
 Importing
 ~~~~~~~~~
@@ -29,10 +45,17 @@ Importing
 
     import wikipediaapi
 
+    # Synchronous client
+    wiki = wikipediaapi.Wikipedia(user_agent='MyProjectName (merlin@example.com)', language='en')
+
+    # Asynchronous client
+    wiki = wikipediaapi.AsyncWikipedia(user_agent='MyProjectName (merlin@example.com)', language='en')
+
 How To Get Single Page
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Getting single page is straightforward. You have to initialize ``Wikipedia`` object and ask for page by its name.
+Getting single page is straightforward. You have to initialize ``Wikipedia`` (or ``AsyncWikipedia``)
+object and ask for page by its name.
 To initialize it, you have to provide:
 
 * `user_agent` to identify your project. Please follow the recommended `format`_.
@@ -41,6 +64,8 @@ To initialize it, you have to provide:
 .. _format: https://meta.wikimedia.org/wiki/User-Agent_policy
 .. _supported languages: http://meta.wikimedia.org/wiki/List_of_Wikipedias
 
+**Synchronous**
+
 .. code-block:: python
 
     import wikipediaapi
@@ -48,11 +73,26 @@ To initialize it, you have to provide:
 
     page_py = wiki_wiki.page('Python_(programming_language)')
 
+**Asynchronous**
+
+.. code-block:: python
+
+    import asyncio
+    import wikipediaapi
+
+    async def main():
+        wiki_wiki = wikipediaapi.AsyncWikipedia(user_agent='MyProjectName (merlin@example.com)', language='en')
+        page_py = wiki_wiki.page('Python_(programming_language)')
+        # Data is fetched lazily — await any attribute or property to trigger it
+
+    asyncio.run(main())
 
 How To Check If Wiki Page Exists
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For checking, whether page exists, you can use function ``exists``.
+
+**Synchronous**
 
 .. code-block:: python
 
@@ -61,16 +101,34 @@ For checking, whether page exists, you can use function ``exists``.
     # Page - Exists: True
 
     page_missing = wiki_wiki.page('NonExistingPageWithStrangeName')
-    print("Page - Exists: %s" %     page_missing.exists())
+    print("Page - Exists: %s" % page_missing.exists())
     # Page - Exists: False
+
+**Asynchronous**
+
+In the async API, ``exists()`` is a coroutine — it lazily fetches ``pageid``
+via the ``info`` API call if not yet cached (same approach as ``await page.fullurl``).
+
+.. code-block:: python
+
+    async def main():
+        page_py = wiki_wiki.page('Python_(programming_language)')
+        print("Page - Exists: %s" % await page_py.exists())
+        # Page - Exists: True
+
+        page_missing = wiki_wiki.page('NonExistingPageWithStrangeName')
+        print("Page - Exists: %s" % await page_missing.exists())
+        # Page - Exists: False
 
 How To Get Page Summary
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Class ``WikipediaPage`` has property ``summary``, which returns description of Wiki page.
+In the async API, ``summary`` is a coroutine.
+
+**Synchronous**
 
 .. code-block:: python
-
 
     import wikipediaapi
     wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'en')
@@ -81,11 +139,25 @@ Class ``WikipediaPage`` has property ``summary``, which returns description of W
     print("Page - Summary: %s" % page_py.summary[0:60])
     # Page - Summary: Python is a widely used high-level programming language for
 
+**Asynchronous**
+
+.. code-block:: python
+
+    async def main():
+        print("Page - Title: %s" % page_py.title)
+        # Page - Title: Python (programming language)
+
+        summary = await page_py.summary
+        print("Page - Summary: %s" % summary[0:60])
+        # Page - Summary: Python is a widely used high-level programming language for
 
 How To Get Page URL
 ~~~~~~~~~~~~~~~~~~~
 
 ``WikipediaPage`` has two properties with URL of the page. It is ``fullurl`` and ``canonicalurl``.
+In the async API, these attributes are awaitables.
+
+**Synchronous**
 
 .. code-block:: python
 
@@ -95,11 +167,24 @@ How To Get Page URL
     print(page_py.canonicalurl)
     # https://en.wikipedia.org/wiki/Python_(programming_language)
 
+**Asynchronous**
+
+.. code-block:: python
+
+    async def main():
+        print(await page_py.fullurl)
+        # https://en.wikipedia.org/wiki/Python_(programming_language)
+
+        print(await page_py.canonicalurl)
+        # https://en.wikipedia.org/wiki/Python_(programming_language)
+
 How To Get Full Text
 ~~~~~~~~~~~~~~~~~~~~
 
 To get full text of Wikipedia page you should use property ``text`` which constructs text of the page
 as concatanation of summary and sections with their titles and texts.
+
+**Synchronous**
 
 .. code-block:: python
 
@@ -133,11 +218,33 @@ as concatanation of summary and sections with their titles and texts.
     # <p>Text of section 1.1</p>
     # ...
 
+**Asynchronous**
+
+The async API does not have a ``text`` property. Compose the full text from
+``summary()`` and ``sections`` instead.
+
+.. code-block:: python
+
+    async def main():
+        wiki_wiki = wikipediaapi.AsyncWikipedia(
+            user_agent='MyProjectName (merlin@example.com)',
+            language='en',
+            extract_format=wikipediaapi.ExtractFormat.WIKI
+        )
+        page = wiki_wiki.page("Test 1")
+        summary = await page.summary  # also populates page.sections
+        print(summary)
+        for section in page.sections:
+            print(section.title)
+            print(section.text)
+
 How To Get Page Sections
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 To get all top level sections of page, you have to use property ``sections``. It returns list of
 ``WikipediaPageSection``, so you have to use recursion to get all subsections.
+
+**Synchronous**
 
 .. code-block:: python
 
@@ -155,11 +262,29 @@ To get all top level sections of page, you have to use property ``sections``. It
     # **: Statements and control flow - Python's statements include (among other
     # **: Expressions - Some Python expressions are similar to l
 
+**Asynchronous**
+
+In the async API, ``sections`` is a plain ``@property`` populated after ``await page.summary``.
+
+.. code-block:: python
+
+    def print_sections(sections, level=0):
+        for s in sections:
+            print("%s: %s - %s" % ("*" * (level + 1), s.title, s.text[0:40]))
+            print_sections(s.sections, level + 1)
+
+    async def main():
+        await page_py.summary  # populates page_py.sections
+        print_sections(page_py.sections)
+        # *: History - Python was conceived in the late 1980s,
+        # *: Features and philosophy - Python is a multi-paradigm programming l
+
 How To Get Page Section By Title
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To get last section of page with given title, you have to use function ``section_by_title``.
 It returns the last ``WikipediaPageSection`` with this title.
+``section_by_title`` works the same in both the sync and async API.
 
 .. code-block:: python
 
@@ -173,6 +298,7 @@ How To Get All Page Sections By Title
 
 To get all sections of page with given title, you have to use function ``sections_by_title``.
 It returns the all ``WikipediaPageSection`` with this title.
+``sections_by_title`` works the same in both the sync and async API.
 
 .. code-block:: python
 
@@ -191,7 +317,9 @@ How To Get Page In Other Languages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you want to get other translations of given page, you should use property ``langlinks``. It is map,
-where key is language code and value is ``WikipediaPage``.
+where key is language code and value is ``WikipediaPage`` (or ``AsyncWikipediaPage``).
+
+**Synchronous**
 
 .. code-block:: python
 
@@ -212,11 +340,30 @@ where key is language code and value is ``WikipediaPage``.
     print("Page - Summary: %s" % page_py_cs.summary[0:60])
     # Page - Summary: Python (anglická výslovnost [ˈpaiθtən]) je vysokoúrovňový sk
 
+**Asynchronous**
+
+In the async API, ``langlinks`` is an awaitable property. Attributes on the returned
+page stubs (e.g. ``fullurl``) are also awaitables.
+
+.. code-block:: python
+
+    async def main():
+        langlinks = await page_py.langlinks
+        for k in sorted(langlinks.keys()):
+            v = langlinks[k]
+            print("%s: %s - %s: %s" % (k, v.language, v.title, await v.fullurl))
+
+        page_py_cs = langlinks['cs']
+        print("Page - Summary: %s" % (await page_py_cs.summary)[0:60])
+        # Page - Summary: Python (anglická výslovnost [ˈpaiθtən]) je vysokoúrovňový sk
+
 How To Get Links To Other Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you want to get all links to other wiki pages from given page, you need to use property ``links``.
-It's map, where key is page title and value is ``WikipediaPage``.
+It's map, where key is page title and value is ``WikipediaPage`` (or ``AsyncWikipediaPage``).
+
+**Synchronous**
 
 .. code-block:: python
 
@@ -233,11 +380,22 @@ It's map, where key is page title and value is ``WikipediaPage``.
     # Abaqus: Abaqus (id: ??, ns: 0)
     # ...
 
+**Asynchronous**
+
+.. code-block:: python
+
+    async def main():
+        links = await page_py.links
+        for title in sorted(links.keys()):
+            print("%s: %s" % (title, links[title]))
+
 How To Get Page Categories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you want to get all categories under which page belongs, you should use property ``categories``.
-It's map, where key is category title and value is ``WikipediaPage``.
+It's map, where key is category title and value is ``WikipediaPage`` (or ``AsyncWikipediaPage``).
+
+**Synchronous**
 
 .. code-block:: python
 
@@ -255,11 +413,23 @@ It's map, where key is category title and value is ``WikipediaPage``.
     # Category:Articles containing potentially dated statements from March 2017: ...
     # Category:Articles containing potentially dated statements from September 2017: ...
 
+**Asynchronous**
+
+.. code-block:: python
+
+    async def main():
+        categories = await page_py.categories
+        for title in sorted(categories.keys()):
+            print("%s: %s" % (title, categories[title]))
+
 How To Get All Pages From Category
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To get all pages from given category, you should use property ``categorymembers``. It returns all members of given category.
+To get all pages from given category, you should use property ``categorymembers`` (sync) or
+awaitable property ``categorymembers`` (async). It returns all members of given category.
 You have to implement recursion and deduplication by yourself.
+
+**Synchronous**
 
 .. code-block:: python
 
@@ -284,6 +454,23 @@ You have to implement recursion and deduplication by yourself.
     # ** Category:Viscosity (ns: 14)
     # *** Brookfield Engineering (ns: 0)
 
+**Asynchronous**
+
+.. code-block:: python
+
+    async def print_categorymembers(categorymembers, level=0, max_level=1):
+        for c in categorymembers.values():
+            print("%s: %s (ns: %d)" % ("*" * (level + 1), c.title, c.ns))
+            if c.ns == wikipediaapi.Namespace.CATEGORY and level < max_level:
+                await print_categorymembers(
+                    await c.categorymembers, level=level + 1, max_level=max_level
+                )
+
+    async def main():
+        cat = wiki_wiki.page("Category:Physics")
+        print("Category members: Category:Physics")
+        await print_categorymembers(await cat.categorymembers)
+
 Use Extra API Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -292,24 +479,36 @@ parameters are supported directly as parameters of the functions. If you want to
 you can pass them as additional parameters in the constructor. For the `info API call`_ you can
 specify parameter `converttitles`. If you want to specify it, you can use:
 
-.. code-block:: python
+**Synchronous**
 
-    import sys
+.. code-block:: python
 
     import wikipediaapi
     wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'zh', 'zh-tw', extra_api_params={'converttitles': 1})
     page = wiki_wiki.page("孟卯")
     print(repr(page.varianttitles))
 
+**Asynchronous**
+
+.. code-block:: python
+
+    async def main():
+        wiki_wiki = wikipediaapi.AsyncWikipedia('MyProjectName (merlin@example.com)', 'zh', 'zh-tw', extra_api_params={'converttitles': 1})
+        page = wiki_wiki.page("孟卯")
+        print(repr(await page.varianttitles))
+
 
 .. _sandbox: https://en.wikipedia.org/wiki/Special:ApiSandbox
-.. _info API call: https://zh.wikipedia.org/wiki/Special:API%E6%B2%99%E7%9B%92#action=query&format=json&variant=zh-tw&prop=info&titles=%E5%AD%9F%E5%8D%AF&converttitles=1&formatversion=2&inprop=varianttitles%7Cdisplaytitle
+.. _info API call: https://zh.wikipedia.org/wiki/Special:API%E6%B2%99%E7%9B%B2#action=query&format=json&variant=zh-tw&prop=info&titles=%E5%AD%9F%E5%8D%AF&converttitles=1&formatversion=2&inprop=varianttitles%7Cdisplaytitle
 
 Error Handling
 ~~~~~~~~~~~~~~
 
-All exceptions raised by the library inherit from ``WikipediaException``. No ``requests`` or ``json``
-exceptions are exposed. You can catch specific exceptions or the base ``WikipediaException``.
+All exceptions raised by the library inherit from ``WikipediaException``. You can catch specific
+exceptions or the base ``WikipediaException``. The same exception types are raised by both the
+sync and async clients.
+
+**Synchronous**
 
 .. code-block:: python
 
@@ -326,7 +525,7 @@ exceptions are exposed. You can catch specific exceptions or the base ``Wikipedi
 
 .. code-block:: python
 
-    # Handle rate limiting specifically
+    # Handle specific error types
     try:
         page = wiki_wiki.page('Python_(programming_language)')
         print(page.summary[0:60])
@@ -341,11 +540,33 @@ exceptions are exposed. You can catch specific exceptions or the base ``Wikipedi
     except wikipediaapi.WikiInvalidJsonError:
         print("Received invalid response from Wikipedia")
 
+**Asynchronous**
+
+.. code-block:: python
+
+    async def main():
+        wiki_wiki = wikipediaapi.AsyncWikipedia(user_agent='MyProjectName (merlin@example.com)', language='en')
+
+        try:
+            page = wiki_wiki.page('Python_(programming_language)')
+            print((await page.summary)[0:60])
+        except wikipediaapi.WikiRateLimitError as e:
+            print("Rate limited! Retry after: %s seconds" % e.retry_after)
+        except wikipediaapi.WikiHttpError as e:
+            print("HTTP error %d: %s" % (e.status_code, e))
+        except wikipediaapi.WikiHttpTimeoutError:
+            print("Request timed out")
+        except wikipediaapi.WikiConnectionError:
+            print("Could not connect to Wikipedia")
+        except wikipediaapi.WikiInvalidJsonError:
+            print("Received invalid response from Wikipedia")
+
 Retry Configuration
 ~~~~~~~~~~~~~~~~~~~
 
 By default, transient errors (HTTP 429, 5xx, timeouts, connection errors) are retried up to 3 times
 with exponential backoff. You can configure this behavior in the constructor.
+The same options apply to both ``Wikipedia`` and ``AsyncWikipedia``.
 
 .. code-block:: python
 
@@ -373,6 +594,7 @@ How To See Underlying API Call
 
 If you have problems with retrieving data you can get URL of undrerlying API call.
 This will help you determine if the problem is in the library or somewhere else.
+Logging works the same for both ``Wikipedia`` and ``AsyncWikipedia``.
 
 .. code-block:: python
 
@@ -426,6 +648,7 @@ Other Pages
     API
     CHANGES
     CLI
+    DESIGN
     DEVELOPMENT
     wikipediaapi/api
 

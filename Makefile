@@ -3,7 +3,7 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = python3 -msphinx
+SPHINXBUILD   = uv run python -msphinx
 SPHINXPROJ    = Wikipedia-API
 SOURCEDIR     = .
 BUILDDIR      = _build
@@ -57,8 +57,11 @@ run-coverage:
 	uv run coverage report -m
 	uv run coverage xml
 
-run-example:
-	uv run python ./example.py
+run-example-sync:
+	uv run python ./example_sync.py
+
+run-example-async:
+	uv run python ./example_async.py
 
 requirements-all: process-readme
 	uv sync -v --group dev --group build --group doc
@@ -81,7 +84,7 @@ update-pre-commit:
 		uv run pre-commit autoupdate --repo "$${repo}"; \
 	done;
 
-pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage pypi-html run-tox run-example
+pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage pypi-html run-tox run-example-sync run-example-async
 	echo "Pre-release check was successful"
 
 release: requirements-build process-readme pre-release-check

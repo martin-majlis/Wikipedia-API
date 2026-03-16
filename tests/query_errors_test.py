@@ -1,236 +1,212 @@
 import unittest
-from unittest.mock import MagicMock
-from unittest.mock import patch
+
+import httpx
+import respx
 
 from tests.mock_data import user_agent
 import wikipediaapi
 
+API_URL = "https://en.wikipedia.org/w/api.php"
+
 
 class TestQueryHttpErrors(unittest.TestCase):
-    """Tests for _query HTTP error handling."""
+    """Tests for _get HTTP error handling."""
 
     def setUp(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en", max_retries=0, retry_wait=0.0)
-        self.page = self.wiki.page("Test")
 
-    def _mock_response(self, status_code=200, json_data=None, headers=None):
-        resp = MagicMock()
-        resp.status_code = status_code
-        resp.headers = headers or {}
-        if json_data is not None:
-            resp.json.return_value = json_data
-        else:
-            resp.json.side_effect = ValueError("No JSON")
-        return resp
-
-    @patch("requests.Session.get")
-    def test_http_404_raises_http_error(self, mock_get):
-        mock_get.return_value = self._mock_response(status_code=404)
+    @respx.mock
+    def test_http_404_raises_http_error(self):
+        respx.get(API_URL).mock(return_value=httpx.Response(404))
         with self.assertRaises(wikipediaapi.WikiHttpError) as ctx:
-            self.wiki._query(self.page, {"action": "query"})
+            self.wiki._get("en", {"action": "query"})
         self.assertEqual(ctx.exception.status_code, 404)
         self.assertIsInstance(ctx.exception, wikipediaapi.WikipediaException)
 
-    @patch("requests.Session.get")
-    def test_http_403_raises_http_error(self, mock_get):
-        mock_get.return_value = self._mock_response(status_code=403)
+    @respx.mock
+    def test_http_403_raises_http_error(self):
+        respx.get(API_URL).mock(return_value=httpx.Response(403))
         with self.assertRaises(wikipediaapi.WikiHttpError) as ctx:
-            self.wiki._query(self.page, {"action": "query"})
+            self.wiki._get("en", {"action": "query"})
         self.assertEqual(ctx.exception.status_code, 403)
 
-    @patch("requests.Session.get")
-    def test_http_429_raises_rate_limit_error(self, mock_get):
-        mock_get.return_value = self._mock_response(status_code=429, headers={"Retry-After": "5"})
+    @respx.mock
+    def test_http_429_raises_rate_limit_error(self):
+        respx.get(API_URL).mock(return_value=httpx.Response(429, headers={"Retry-After": "5"}))
         with self.assertRaises(wikipediaapi.WikiRateLimitError) as ctx:
-            self.wiki._query(self.page, {"action": "query"})
+            self.wiki._get("en", {"action": "query"})
         self.assertEqual(ctx.exception.status_code, 429)
         self.assertEqual(ctx.exception.retry_after, 5)
         self.assertIsInstance(ctx.exception, wikipediaapi.WikiHttpError)
 
-    @patch("requests.Session.get")
-    def test_http_429_without_retry_after(self, mock_get):
-        mock_get.return_value = self._mock_response(status_code=429)
+    @respx.mock
+    def test_http_429_without_retry_after(self):
+        respx.get(API_URL).mock(return_value=httpx.Response(429))
         with self.assertRaises(wikipediaapi.WikiRateLimitError) as ctx:
-            self.wiki._query(self.page, {"action": "query"})
+            self.wiki._get("en", {"action": "query"})
         self.assertIsNone(ctx.exception.retry_after)
 
-    @patch("requests.Session.get")
-    def test_http_500_raises_http_error(self, mock_get):
-        mock_get.return_value = self._mock_response(status_code=500)
+    @respx.mock
+    def test_http_500_raises_http_error(self):
+        respx.get(API_URL).mock(return_value=httpx.Response(500))
         with self.assertRaises(wikipediaapi.WikiHttpError) as ctx:
-            self.wiki._query(self.page, {"action": "query"})
+            self.wiki._get("en", {"action": "query"})
         self.assertEqual(ctx.exception.status_code, 500)
 
-    @patch("requests.Session.get")
-    def test_http_503_raises_http_error(self, mock_get):
-        mock_get.return_value = self._mock_response(status_code=503)
+    @respx.mock
+    def test_http_503_raises_http_error(self):
+        respx.get(API_URL).mock(return_value=httpx.Response(503))
         with self.assertRaises(wikipediaapi.WikiHttpError) as ctx:
-            self.wiki._query(self.page, {"action": "query"})
+            self.wiki._get("en", {"action": "query"})
         self.assertEqual(ctx.exception.status_code, 503)
 
-    @patch("requests.Session.get")
-    def test_invalid_json_raises_invalid_json_error(self, mock_get):
-        mock_get.return_value = self._mock_response(status_code=200)
+    @respx.mock
+    def test_invalid_json_raises_invalid_json_error(self):
+        respx.get(API_URL).mock(return_value=httpx.Response(200, content=b"not json"))
         with self.assertRaises(wikipediaapi.WikiInvalidJsonError):
-            self.wiki._query(self.page, {"action": "query"})
+            self.wiki._get("en", {"action": "query"})
 
-    @patch("requests.Session.get")
-    def test_timeout_raises_http_timeout_error(self, mock_get):
-        import requests
-
-        mock_get.side_effect = requests.exceptions.Timeout()
+    @respx.mock
+    def test_timeout_raises_http_timeout_error(self):
+        respx.get(API_URL).mock(side_effect=httpx.TimeoutException("timeout"))
         with self.assertRaises(wikipediaapi.WikiHttpTimeoutError):
-            self.wiki._query(self.page, {"action": "query"})
+            self.wiki._get("en", {"action": "query"})
 
-    @patch("requests.Session.get")
-    def test_connection_error_raises_connection_error(self, mock_get):
-        import requests
-
-        mock_get.side_effect = requests.exceptions.ConnectionError()
+    @respx.mock
+    def test_connection_error_raises_connection_error(self):
+        respx.get(API_URL).mock(side_effect=httpx.ConnectError("conn error"))
         with self.assertRaises(wikipediaapi.WikiConnectionError):
-            self.wiki._query(self.page, {"action": "query"})
+            self.wiki._get("en", {"action": "query"})
 
-    @patch("requests.Session.get")
-    def test_request_exception_raises_connection_error(self, mock_get):
-        import requests
-
-        mock_get.side_effect = requests.exceptions.RequestException()
+    @respx.mock
+    def test_request_exception_raises_connection_error(self):
+        respx.get(API_URL).mock(side_effect=httpx.RequestError("request error"))
         with self.assertRaises(wikipediaapi.WikiConnectionError):
-            self.wiki._query(self.page, {"action": "query"})
+            self.wiki._get("en", {"action": "query"})
 
-    @patch("requests.Session.get")
-    def test_http_200_valid_json_returns_data(self, mock_get):
+    @respx.mock
+    def test_http_200_valid_json_returns_data(self):
         expected = {"query": {"pages": {}}}
-        mock_get.return_value = self._mock_response(status_code=200, json_data=expected)
-        result = self.wiki._query(self.page, {"action": "query"})
+        respx.get(API_URL).mock(return_value=httpx.Response(200, json=expected))
+        result = self.wiki._get("en", {"action": "query"})
         self.assertEqual(result, expected)
 
 
 class TestQueryRetryLogic(unittest.TestCase):
-    """Tests for _query retry behavior."""
+    """Tests for _get retry behavior."""
 
     def setUp(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en", max_retries=2, retry_wait=0.0)
-        self.page = self.wiki.page("Test")
 
-    def _mock_response(self, status_code=200, json_data=None, headers=None):
-        resp = MagicMock()
-        resp.status_code = status_code
-        resp.headers = headers or {}
-        if json_data is not None:
-            resp.json.return_value = json_data
-        else:
-            resp.json.side_effect = ValueError("No JSON")
-        return resp
-
-    @patch("requests.Session.get")
-    def test_retry_on_429_then_success(self, mock_get):
+    @respx.mock
+    def test_retry_on_429_then_success(self):
         success_data = {"query": {"pages": {}}}
-        mock_get.side_effect = [
-            self._mock_response(status_code=429),
-            self._mock_response(status_code=200, json_data=success_data),
-        ]
-        result = self.wiki._query(self.page, {"action": "query"})
+        responses = iter([httpx.Response(429), httpx.Response(200, json=success_data)])
+        route = respx.get(API_URL).mock(side_effect=lambda req: next(responses))
+        result = self.wiki._get("en", {"action": "query"})
         self.assertEqual(result, success_data)
-        self.assertEqual(mock_get.call_count, 2)
+        self.assertEqual(route.call_count, 2)
 
-    @patch("requests.Session.get")
-    def test_retry_on_500_then_success(self, mock_get):
+    @respx.mock
+    def test_retry_on_500_then_success(self):
         success_data = {"query": {"pages": {}}}
-        mock_get.side_effect = [
-            self._mock_response(status_code=500),
-            self._mock_response(status_code=200, json_data=success_data),
-        ]
-        result = self.wiki._query(self.page, {"action": "query"})
+        responses = iter([httpx.Response(500), httpx.Response(200, json=success_data)])
+        route = respx.get(API_URL).mock(side_effect=lambda req: next(responses))
+        result = self.wiki._get("en", {"action": "query"})
         self.assertEqual(result, success_data)
-        self.assertEqual(mock_get.call_count, 2)
+        self.assertEqual(route.call_count, 2)
 
-    @patch("requests.Session.get")
-    def test_retry_on_timeout_then_success(self, mock_get):
-        import requests
-
+    @respx.mock
+    def test_retry_on_timeout_then_success(self):
         success_data = {"query": {"pages": {}}}
-        mock_get.side_effect = [
-            requests.exceptions.Timeout(),
-            self._mock_response(status_code=200, json_data=success_data),
-        ]
-        result = self.wiki._query(self.page, {"action": "query"})
+        call_num = [0]
+
+        def side_effect(req):
+            call_num[0] += 1
+            if call_num[0] == 1:
+                raise httpx.TimeoutException("timeout")
+            return httpx.Response(200, json=success_data)
+
+        route = respx.get(API_URL).mock(side_effect=side_effect)
+        result = self.wiki._get("en", {"action": "query"})
         self.assertEqual(result, success_data)
-        self.assertEqual(mock_get.call_count, 2)
+        self.assertEqual(route.call_count, 2)
 
-    @patch("requests.Session.get")
-    def test_retry_on_connection_error_then_success(self, mock_get):
-        import requests
-
+    @respx.mock
+    def test_retry_on_connection_error_then_success(self):
         success_data = {"query": {"pages": {}}}
-        mock_get.side_effect = [
-            requests.exceptions.ConnectionError(),
-            self._mock_response(status_code=200, json_data=success_data),
-        ]
-        result = self.wiki._query(self.page, {"action": "query"})
-        self.assertEqual(result, success_data)
-        self.assertEqual(mock_get.call_count, 2)
+        call_num = [0]
 
-    @patch("requests.Session.get")
-    def test_max_retries_exhausted_raises(self, mock_get):
-        mock_get.return_value = self._mock_response(status_code=429)
+        def side_effect(req):
+            call_num[0] += 1
+            if call_num[0] == 1:
+                raise httpx.ConnectError("conn error")
+            return httpx.Response(200, json=success_data)
+
+        route = respx.get(API_URL).mock(side_effect=side_effect)
+        result = self.wiki._get("en", {"action": "query"})
+        self.assertEqual(result, success_data)
+        self.assertEqual(route.call_count, 2)
+
+    @respx.mock
+    def test_max_retries_exhausted_raises(self):
+        route = respx.get(API_URL).mock(return_value=httpx.Response(429))
         with self.assertRaises(wikipediaapi.WikiRateLimitError):
-            self.wiki._query(self.page, {"action": "query"})
+            self.wiki._get("en", {"action": "query"})
         # 1 initial + 2 retries = 3 attempts
-        self.assertEqual(mock_get.call_count, 3)
+        self.assertEqual(route.call_count, 3)
 
-    @patch("requests.Session.get")
-    def test_max_retries_exhausted_on_500(self, mock_get):
-        mock_get.return_value = self._mock_response(status_code=500)
+    @respx.mock
+    def test_max_retries_exhausted_on_500(self):
+        route = respx.get(API_URL).mock(return_value=httpx.Response(500))
         with self.assertRaises(wikipediaapi.WikiHttpError) as ctx:
-            self.wiki._query(self.page, {"action": "query"})
+            self.wiki._get("en", {"action": "query"})
         self.assertEqual(ctx.exception.status_code, 500)
-        self.assertEqual(mock_get.call_count, 3)
+        self.assertEqual(route.call_count, 3)
 
-    @patch("requests.Session.get")
-    def test_max_retries_exhausted_on_timeout(self, mock_get):
-        import requests
-
-        mock_get.side_effect = requests.exceptions.Timeout()
+    @respx.mock
+    def test_max_retries_exhausted_on_timeout(self):
+        route = respx.get(API_URL).mock(side_effect=httpx.TimeoutException("timeout"))
         with self.assertRaises(wikipediaapi.WikiHttpTimeoutError):
-            self.wiki._query(self.page, {"action": "query"})
-        self.assertEqual(mock_get.call_count, 3)
+            self.wiki._get("en", {"action": "query"})
+        self.assertEqual(route.call_count, 3)
 
-    @patch("requests.Session.get")
-    def test_no_retry_on_4xx(self, mock_get):
+    @respx.mock
+    def test_no_retry_on_4xx(self):
         """Non-retryable 4xx errors should raise immediately without retries."""
-        mock_get.return_value = self._mock_response(status_code=404)
+        route = respx.get(API_URL).mock(return_value=httpx.Response(404))
         with self.assertRaises(wikipediaapi.WikiHttpError):
-            self.wiki._query(self.page, {"action": "query"})
-        self.assertEqual(mock_get.call_count, 1)
+            self.wiki._get("en", {"action": "query"})
+        self.assertEqual(route.call_count, 1)
 
-    @patch("requests.Session.get")
-    def test_retry_429_with_retry_after_header(self, mock_get):
+    @respx.mock
+    def test_retry_429_with_retry_after_header(self):
         success_data = {"query": {"pages": {}}}
-        mock_get.side_effect = [
-            self._mock_response(status_code=429, headers={"Retry-After": "1"}),
-            self._mock_response(status_code=200, json_data=success_data),
-        ]
-        result = self.wiki._query(self.page, {"action": "query"})
+        responses = iter(
+            [
+                httpx.Response(429, headers={"Retry-After": "0"}),
+                httpx.Response(200, json=success_data),
+            ]
+        )
+        respx.get(API_URL).mock(side_effect=lambda req: next(responses))
+        result = self.wiki._get("en", {"action": "query"})
         self.assertEqual(result, success_data)
 
-    @patch("requests.Session.get")
-    def test_no_retry_on_invalid_json(self, mock_get):
+    @respx.mock
+    def test_no_retry_on_invalid_json(self):
         """Invalid JSON on 200 should raise immediately, no retry."""
-        mock_get.return_value = self._mock_response(status_code=200)
+        route = respx.get(API_URL).mock(return_value=httpx.Response(200, content=b"not json"))
         with self.assertRaises(wikipediaapi.WikiInvalidJsonError):
-            self.wiki._query(self.page, {"action": "query"})
-        self.assertEqual(mock_get.call_count, 1)
+            self.wiki._get("en", {"action": "query"})
+        self.assertEqual(route.call_count, 1)
 
-    @patch("requests.Session.get")
-    def test_no_retry_on_request_exception(self, mock_get):
-        """Generic RequestException (not Timeout/ConnectionError) should not retry."""
-        import requests
-
-        mock_get.side_effect = requests.exceptions.RequestException()
+    @respx.mock
+    def test_no_retry_on_request_exception(self):
+        """Generic RequestError (not Timeout/ConnectError) should not retry."""
+        route = respx.get(API_URL).mock(side_effect=httpx.RequestError("request error"))
         with self.assertRaises(wikipediaapi.WikiConnectionError):
-            self.wiki._query(self.page, {"action": "query"})
-        self.assertEqual(mock_get.call_count, 1)
+            self.wiki._get("en", {"action": "query"})
+        self.assertEqual(route.call_count, 1)
 
     def test_max_retries_zero_disables_retry(self):
         wiki = wikipediaapi.Wikipedia(user_agent, "en", max_retries=0, retry_wait=0.0)
@@ -273,14 +249,12 @@ class TestExceptionHierarchy(unittest.TestCase):
         e = wikipediaapi.WikiConnectionError("http://example.com")
         self.assertIn("http://example.com", str(e))
 
-    def test_exceptions_do_not_expose_requests(self):
-        """Ensure our exceptions don't inherit from requests exceptions."""
-        import requests
-
+    def test_exceptions_do_not_expose_httpx(self):
+        """Ensure our exceptions don't inherit from httpx exceptions."""
         self.assertFalse(
             issubclass(
                 wikipediaapi.WikipediaException,
-                requests.exceptions.RequestException,
+                httpx.HTTPStatusError,
             )
         )
 

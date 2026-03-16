@@ -22,7 +22,8 @@ prune *.egg-info
 exclude Makefile
 exclude tox.ini
 exclude uv.lock
-exclude example.py
+exclude example_sync.py
+exclude example_async.py
 exclude conf.py
 exclude context7.json
 exclude index.rst
