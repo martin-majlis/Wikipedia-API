@@ -219,6 +219,35 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
         :return: ``bool`` (sync) or an awaitable ``bool`` (async)
         """
 
+    def __getattr__(self, name: str) -> Any:
+        """
+        Return a value stored in the API response cache.
+
+        Called only when normal attribute lookup fails (i.e. the name is not
+        a regular instance attribute or class-level descriptor).  Reads from
+        ``_attributes``, which is populated by API calls such as ``info`` and
+        ``extracts``.  This lets callers access documented attributes like
+        ``pageid`` and ``fullurl`` as well as any additional fields the
+        MediaWiki API may return that are not explicitly listed in
+        :attr:`ATTRIBUTES_MAPPING`.
+
+        Raises :exc:`AttributeError` when the name is not present in the
+        cache, preserving the standard Python contract.
+
+        :param name: attribute name to look up
+        :return: the cached value
+        :raises AttributeError: if *name* is not in the API response cache
+        """
+        if name.startswith("_"):
+            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        try:
+            attrs = object.__getattribute__(self, "_attributes")
+        except AttributeError:
+            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        if name in attrs:
+            return attrs[name]
+        raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+
     def sections_by_title(
         self,
         title: str,

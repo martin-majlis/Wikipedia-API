@@ -255,6 +255,35 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
         """
         return self._section
 
+    def __getattr__(self, name: str) -> Any:
+        """
+        Return an awaitable that resolves an API response field.
+
+        Overrides :meth:`BaseWikipediaPage.__getattr__` to preserve the
+        async contract of this class: the returned value is a coroutine
+        produced by :meth:`_info_attr`, so callers use it the same way as
+        any explicit info property::
+
+            value = await page.some_undocumented_field
+
+        This makes undocumented fields returned by the MediaWiki API (i.e.
+        keys not listed in :attr:`ATTRIBUTES_MAPPING` and without an
+        explicit ``@property``) transparently accessible.
+
+        :param name: attribute name to look up
+        :return: coroutine that resolves to the cached value (or ``None``
+            if the field was not returned by the API)
+        :raises AttributeError: for private names (starting with ``_``)
+            or when the page object is not yet fully initialised
+        """
+        if name.startswith("_"):
+            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        try:
+            object.__getattribute__(self, "_attributes")
+        except AttributeError:
+            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        return self._info_attr(name)
+
     async def _fetch(self, call: str) -> "AsyncWikipediaPage":
         """
         Await a named API method on ``self.wiki`` and mark it as called.

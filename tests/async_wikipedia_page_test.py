@@ -161,6 +161,21 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
         self.assertIsInstance(members, dict)
         self.assertTrue(page._called["categorymembers"])
 
+    async def test_undocumented_api_field(self):
+        page = self.wiki.page("Test_1")
+        self.assertFalse(page._called["info"])
+        value = await page.api_new_experimental_field
+        self.assertEqual(value, "test_value")
+        self.assertTrue(page._called["info"])
+
+    async def test_undocumented_api_field_cached_after_first_access(self):
+        page = self.wiki.page("Test_1")
+        await page.api_new_experimental_field
+        self.assertTrue(page._called["info"])
+        calls_before = page._called.copy()
+        await page.api_new_experimental_field
+        self.assertEqual(calls_before, page._called)
+
     async def test_exists_true(self):
         page = self.wiki.page("Test_1")
         self.assertTrue(await page.exists())

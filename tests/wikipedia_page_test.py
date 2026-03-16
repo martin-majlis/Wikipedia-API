@@ -75,6 +75,20 @@ class TestWikipediaPage(unittest.TestCase):
         with self.assertRaises(AttributeError):
             page.unknown_property
 
+    def test_undocumented_api_field(self):
+        page = self.wiki.page("Test_1")
+        self.assertFalse(page._called["info"])
+        self.assertEqual(page.api_new_experimental_field, "test_value")
+        self.assertTrue(page._called["info"])
+
+    def test_undocumented_api_field_cached_after_first_access(self):
+        page = self.wiki.page("Test_1")
+        _ = page.api_new_experimental_field
+        self.assertTrue(page._called["info"])
+        calls_before = page._called.copy()
+        _ = page.api_new_experimental_field
+        self.assertEqual(calls_before, page._called)
+
     def test_nonexisting(self):
         page = self.wiki.page("NonExisting")
         self.assertFalse(page.exists())

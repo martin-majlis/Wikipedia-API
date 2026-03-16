@@ -227,6 +227,7 @@ _MOCK_DATA = {
                     "preload": None,
                     "displaytitle": "Test 1",
                     "varianttitles": {},
+                    "api_new_experimental_field": "test_value",
                 }
             },
         },

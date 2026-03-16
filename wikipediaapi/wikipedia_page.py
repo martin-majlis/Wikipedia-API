@@ -340,6 +340,39 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
             self._fetch("categorymembers")
         return self._categorymembers
 
+    def __getattr__(self, name: str) -> Any:
+        """
+        Return a cached API attribute, triggering an ``info`` fetch if needed.
+
+        Overrides :meth:`BaseWikipediaPage.__getattr__` to add lazy fetching:
+        if *name* is not yet in ``_attributes`` and the ``info`` call has not
+        been made, it is dispatched automatically before re-checking the
+        cache.  This means undocumented fields returned by the MediaWiki API
+        (i.e. keys not listed in :attr:`ATTRIBUTES_MAPPING`) are accessible
+        transparently without any extra call from the caller.
+
+        :param name: attribute name to look up
+        :return: the cached value
+        :raises AttributeError: if *name* is absent even after fetching info
+        """
+        if name.startswith("_"):
+            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        try:
+            attrs = object.__getattribute__(self, "_attributes")
+        except AttributeError:
+            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        if name in attrs:
+            return attrs[name]
+        try:
+            called = object.__getattribute__(self, "_called")
+        except AttributeError:
+            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        if not called.get("info", False):
+            object.__getattribute__(self, "_fetch")("info")
+            if name in attrs:
+                return attrs[name]
+        raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+
     def _fetch(self, call: str) -> "WikipediaPage":
         """
         Invoke a named API method on ``self.wiki`` and mark it as called.
