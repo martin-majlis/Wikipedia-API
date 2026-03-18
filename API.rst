@@ -59,13 +59,13 @@ return coroutines (awaitable with ``await``).
 * ``page.title``, ``page.ns``, ``page.namespace``, ``page.language``, ``page.variant`` — plain properties (no await)
 * ``await page.summary`` — awaitable property; introductory text
 * ``await page.text`` — awaitable property; full page text (summary + all sections)
+* ``await page.sections`` — awaitable property; top-level sections (list of ``WikipediaPageSection``)
 * ``await page.langlinks`` — awaitable property; ``{lang: AsyncWikipediaPage}`` dict
 * ``await page.links`` — awaitable property; ``{title: AsyncWikipediaPage}`` dict
 * ``await page.backlinks`` — awaitable property; ``{title: AsyncWikipediaPage}`` dict
 * ``await page.categories`` — awaitable property; ``{title: AsyncWikipediaPage}`` dict
 * ``await page.categorymembers`` — awaitable property; ``{title: AsyncWikipediaPage}`` dict
 * ``await page.exists()`` — coroutine method; lazily fetches ``pageid`` via ``info`` if not yet cached
-* ``page.sections`` — plain property; populated after ``await page.summary``
 * ``page.section_by_title(title)`` — synchronous; returns last matching section or ``None``
 * ``page.sections_by_title(title)`` — synchronous; returns all matching sections (list)
 

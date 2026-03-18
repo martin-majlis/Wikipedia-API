@@ -1,0 +1,48 @@
+name: Validate Attributes Mapping
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+    # Run daily at 06:00 UTC
+    - cron: "0 6 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-attributes:
+    name: Validate Attributes
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      small_mismatches: ${{ steps.check_results.outputs.small_mismatches }}
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: "3.11"
+      - name: Set up uv
+        uses: astral-sh/setup-uv@e06108dd0aef18192324c70427afc47652e63a82 # v7.5.0
+        with:
+          version: "latest"
+          enable-cache: true
+      - name: Install dependencies
+        run: |
+          make requirements
+
+      - name: Validate Attributes Mapping
+        run: |
+          uv run python validate_attributes_mapping.py

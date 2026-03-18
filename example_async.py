@@ -9,13 +9,13 @@ Key differences from the synchronous API:
       url = await page.fullurl
   - Multi-source attributes (pageid) are also awaitable:
       pid = await page.pageid
-  - Data properties (summary, langlinks, links, backlinks, categories,
+  - Data properties (summary, sections, text, langlinks, links, backlinks, categories,
     categorymembers) are awaitable properties (no parentheses):
       links = await page.links
+      sections = await page.sections
   - title, ns, language, variant are plain @property values (no await needed).
   - exists() is a coroutine method — use: exists = await page.exists()
-  - section_by_title() is a plain synchronous method.
-  - sections is a plain @property (populated after await page.summary).
+  - section_by_title() and sections_by_title() are plain synchronous methods.
 """
 
 import asyncio
@@ -202,7 +202,6 @@ async def main():
     # ──────────────────────────────────────────────────────────────────────────
 
     # summary is an awaitable property that fetches and returns the introductory text
-    # It also populates page.sections as a side-effect
     summary = await page.summary
     print("Summary (first 120):", summary[:120])
 
@@ -210,9 +209,10 @@ async def main():
     text = await page.text
     print("Full text (first 120):", text[:120])
 
-    # sections is a plain @property (populated after await page.summary())
+    # sections is now an awaitable property that auto-fetches via extracts
+    sections = await page.sections
     print("Sections:")
-    print_sections(page.sections)
+    print_sections(sections)
 
     # section_by_title() — plain sync method, returns last matching section or None
     section = page.section_by_title("Features and philosophy")

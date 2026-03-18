@@ -29,6 +29,7 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
     first ``await`` and caches the result):
 
     * ``await page.summary`` — introductory text
+    * ``await page.sections`` — top-level sections
     * ``await page.langlinks`` — ``{lang: AsyncWikipediaPage}`` dict
     * ``await page.links`` — ``{title: AsyncWikipediaPage}`` dict
     * ``await page.backlinks`` — ``{title: AsyncWikipediaPage}`` dict
@@ -236,24 +237,22 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
             txt: str = await self.summary
             if len(txt) > 0:
                 txt += "\n\n"
-            for sec in self.sections:
+            for sec in await self.sections:
                 txt += sec.full_text(level=2)
             return txt.strip()
 
         return _get()
 
     @property
-    def sections(self) -> list[WikipediaPageSection]:
-        """
-        Top-level sections of this page (populated after ``await page.summary``).
+    def sections(self) -> Any:
+        """Awaitable: top-level sections of this page."""
 
-        Unlike the sync counterpart, this property does **not** trigger a
-        network call.  It returns whatever is cached; ``await page.summary``
-        first to ensure the sections are populated.
+        async def _get() -> list[WikipediaPageSection]:
+            if not self._called["extracts"]:
+                await self._fetch("extracts")
+            return self._section
 
-        :return: list of top-level :class:`WikipediaPageSection` objects
-        """
-        return self._section
+        return _get()
 
     def __getattr__(self, name: str) -> Any:
         """
