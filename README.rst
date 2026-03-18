@@ -24,19 +24,17 @@ Goal of ``Wikipedia-API`` is to provide simple and easy to use API for retrievin
 
 Key differences between the sync and async API:
 
-* All data-fetching attributes (``summary``, ``text``, ``langlinks``, ``links``,
+* All data-fetching attributes (``summary``, ``text``, ``sections``, ``langlinks``, ``links``,
   ``backlinks``, ``categories``, ``categorymembers``, ``pageid``, ``fullurl``,
   ``displaytitle``, …) are explicit ``@property`` definitions in both APIs.
   In the async API every such property returns a coroutine: ``await page.summary``,
-  ``await page.pageid``, etc.
+  ``await page.sections``, ``await page.pageid``, etc.
 * ``title``, ``ns``, ``namespace``, ``language``, ``variant`` are plain ``@property``
   values in both APIs (no ``await`` needed).
 * ``exists()`` is a plain method in the sync API; a **coroutine method** in the async API:
   ``await page.exists()``.
 * ``section_by_title()`` and ``sections_by_title()`` are plain synchronous methods
   in both APIs.
-* In the async API, ``sections`` is a plain ``@property`` populated after
-  ``await page.summary``.
 
 Importing
 ~~~~~~~~~
@@ -220,9 +218,6 @@ as concatanation of summary and sections with their titles and texts.
 
 **Asynchronous**
 
-The async API does not have a ``text`` property. Compose the full text from
-``summary()`` and ``sections`` instead.
-
 .. code-block:: python
 
     async def main():
@@ -232,11 +227,14 @@ The async API does not have a ``text`` property. Compose the full text from
             extract_format=wikipediaapi.ExtractFormat.WIKI
         )
         page = wiki_wiki.page("Test 1")
-        summary = await page.summary  # also populates page.sections
-        print(summary)
-        for section in page.sections:
-            print(section.title)
-            print(section.text)
+        text = await page.text
+        print(text)
+        # Summary
+        # Section 1
+        # Text of section 1
+        # Section 1.1
+        # Text of section 1.1
+        # ...
 
 How To Get Page Sections
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -264,8 +262,6 @@ To get all top level sections of page, you have to use property ``sections``. It
 
 **Asynchronous**
 
-In the async API, ``sections`` is a plain ``@property`` populated after ``await page.summary``.
-
 .. code-block:: python
 
     def print_sections(sections, level=0):
@@ -274,10 +270,11 @@ In the async API, ``sections`` is a plain ``@property`` populated after ``await 
             print_sections(s.sections, level + 1)
 
     async def main():
-        await page_py.summary  # populates page_py.sections
-        print_sections(page_py.sections)
+        sections = await page_py.sections
+        print_sections(sections)
         # *: History - Python was conceived in the late 1980s,
         # *: Features and philosophy - Python is a multi-paradigm programming l
+        # *: Syntax and semantics - Python is meant to be an easily readable
 
 How To Get Page Section By Title
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

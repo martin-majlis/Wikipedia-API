@@ -65,7 +65,11 @@ class TestAsyncWikipediaPageInit(unittest.TestCase):
 
     def test_sections_empty_before_fetch(self):
         page = self.wiki.page("Python")
-        self.assertEqual(page.sections, [])
+        sections = page.sections
+        # sections should be a coroutine (awaitable) now
+        import asyncio
+
+        self.assertTrue(asyncio.iscoroutine(sections))
 
     def test_url_stored_in_attributes(self):
         page = AsyncWikipediaPage(
@@ -205,7 +209,7 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
 
     async def test_sections_by_title_found(self):
         page = self.wiki.page("Test_1")
-        await page.summary
+        await page.sections
         secs = page.sections_by_title("Section 1")
         self.assertIsInstance(secs, list)
         self.assertEqual(len(secs), 1)
@@ -213,7 +217,7 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
 
     async def test_sections_by_title_not_found(self):
         page = self.wiki.page("Test_1")
-        await page.summary
+        await page.sections
         secs = page.sections_by_title("Nonexistent Section")
         self.assertIsInstance(secs, list)
         self.assertEqual(len(secs), 0)
@@ -221,7 +225,8 @@ class TestAsyncWikipediaPageFetch(unittest.IsolatedAsyncioTestCase):
     async def test_sections_populated_after_summary(self):
         page = self.wiki.page("Test_1")
         await page.summary
-        self.assertGreater(len(page.sections), 0)
+        sections = await page.sections
+        self.assertGreater(len(sections), 0)
 
 
 class TestAsyncWikipediaPageAttributesMapping(unittest.IsolatedAsyncioTestCase):

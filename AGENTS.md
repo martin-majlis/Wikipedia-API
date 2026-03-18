@@ -68,6 +68,106 @@ When writing or updating Python code in this repository:
 - Validate typing-related changes by running `make run-pre-commit` before
   submitting.
 
+## Docstring Standards
+
+**📝 Write descriptive docstrings with consistent structure.**
+
+All functions, methods, classes, and modules must have descriptive docstrings that follow this structure:
+
+### Required Docstring Format
+
+```python
+def example_function(param1: str, param2: int) -> bool:
+    """One-line summary of the function's purpose.
+
+    Detailed description of the function's behavior, including important
+    implementation details, usage patterns, or context.
+
+    Args:
+        param1: Description of the first parameter, including expected format
+            and constraints.
+        param2: Description of the second parameter, including valid ranges
+            or special values.
+
+    Returns:
+        Description of the return value, including its type and meaning.
+        Include possible return values and their significance.
+
+    Raises:
+        ExceptionType: Description of when this exception is raised,
+            including the conditions that trigger it.
+        AnotherException: Description of when this exception occurs.
+
+    Invariants:
+        - Any conditions that remain true before and after execution
+        - State guarantees that the function maintains
+        - Thread safety considerations if applicable
+    """
+```
+
+### Docstring Requirements
+
+1. **One-line summary**: Must be a complete sentence ending with a period
+   that concisely describes what the function does.
+
+2. **Detailed description**: Expand on the summary with implementation details,
+   usage examples, or important context.
+
+3. **Parameters section (`Args`)**: Document all parameters with:
+   - Parameter name (matching the function signature)
+   - Description including expected format, constraints, and valid values
+   - Use proper indentation and formatting
+
+4. **Return values section (`Returns`)**: Document the return value with:
+   - Type information (if not obvious from type hints)
+   - Meaning and significance of different return values
+   - Special cases or conditions
+
+5. **Exceptions section (`Raises`)**: Document all exceptions that can be raised:
+   - Exception type name
+   - Conditions that trigger the exception
+   - Any recovery strategies or expected handling
+
+6. **Invariants section (`Invariants`)**: Document any guarantees:
+   - Pre/post-conditions that remain true
+   - State guarantees and thread safety
+   - Side effects and their implications
+
+### Special Cases
+
+- **Properties**: Use the same format but replace `Args` with appropriate sections
+- **Methods**: Include `self` parameter documentation if relevant
+- **Classes**: Include overall purpose, usage examples, and important attributes
+- **Modules**: Describe the module's purpose and main exports
+
+### Examples
+
+```python
+def page_exists(self) -> bool:
+    """Check if the Wikipedia page exists on the server.
+
+    Performs a lightweight check to determine if the page exists without
+    fetching the full page content. This is useful for validation before
+    attempting expensive operations.
+
+    Returns:
+        True if the page exists and is accessible, False if the page
+        does not exist or cannot be accessed.
+
+    Raises:
+        requests.exceptions.ConnectionError: If the network connection fails.
+        requests.exceptions.Timeout: If the request times out.
+
+    Invariants:
+        - Does not modify the page's internal state
+        - Safe to call multiple times without side effects
+        - Thread-safe for concurrent access
+    """
+```
+
+All docstrings must be checked during code review and should pass the
+pre-commit hooks without warnings.
+
 ## Prerequisites
 
 - **Python 3.10+** (supported: 3.10, 3.11, 3.12, 3.13, 3.14)
@@ -183,12 +283,13 @@ Before submitting any changes, ensure that:
 2. **All hooks must pass**: No failures allowed
 3. **Fix any issues**: Address linting, formatting, type checking, and other violations
 4. **Re-run until clean**: Continue fixing and re-running until all checks pass
+5. **Check project configuration**: Verify line length limits and linter settings in `pyproject.toml` match project requirements
 
 The pre-commit hooks include:
 
 - **isort**: Import sorting
-- **black**: Code formatting
-- **flake8**: Linting (max line length: 100)
+- **black**: Code formatting (max 100 characters per line)
+- **flake8**: Linting (max 100 characters per line)
 - **mypy**: Type checking
 - **pyupgrade**: Python syntax upgrades
 - **trailing whitespace**: Whitespace cleanup
@@ -202,6 +303,12 @@ Common issues to fix:
 - Fix undefined variables (F821)
 - Avoid lambda assignments (E731)
 - Fix redefinition errors (F811)
+
+**Project Configuration**: Check `pyproject.toml` for:
+
+- `tool.black.line-length = 100` (should match flake8 max)
+- `tool.flake8.max-line-length = 100` (should match black limit)
+- Linter configurations in `[tool.*]` sections
 
 ### Run Tests Across Python Versions (tox)
 
@@ -263,6 +370,14 @@ publicly available method and attribute.
   files.
 - For asynchronous code: `tests/async_wikipedia_page_test.py` and
   related files.
+- **Keep `tests/test_sync_async_symmetry.py` up to date**: When adding new
+  properties or methods to either `WikipediaPage` or `AsyncWikipediaPage`,
+  update the `TestSyncAsyncPropertySymmetry` class to include the new
+  attributes in the appropriate property lists (`construction_props`,
+  `awaitable_props`, `collection_props`, etc.). The test automatically
+  discovers all public attributes using `dir()` and will alert you to
+  any missing properties that need to be added to the test lists. This ensures sync/async
+  symmetry is maintained for all API features.
 - Run the full suite and coverage check (see [Test](#test) below)
   before committing.
 
@@ -273,6 +388,36 @@ Run the full validation suite (pre-commit, type check, flake8, coverage, pypi-ht
 ```bash
 make pre-release-check
 ```
+
+## Script Execution and Debugging
+
+**📝 CRITICAL: Always store script output to log files for analysis**
+
+When running scripts, especially for debugging or validation purposes:
+
+1. **Always use `uv run`**: Use `uv run python script.py` instead of `.venv/bin/python script.py`
+2. **Always redirect output to a timestamped log file**: Use `2>&1 | tee script_$(date +%Y%m%d_%H%M%S).log` to capture both stdout and stderr
+3. **Read and analyze the log file**: Use `read_file` tool to examine the complete output instead of multiple command executions
+4. **Avoid repeated command executions**: Don't use multiple `grep`, `head`, `tail` commands on the same script run - read the log once and analyze it
+5. **Include timestamps for debugging**: Add timestamps to script output when investigating timing issues
+6. **Use structured logging**: Format output in a consistent way for easy parsing
+
+Example:
+
+```bash
+# Good practice - single execution, complete capture with timestamp
+uv run python script.py 2>&1 | tee script_$(date +%Y%m%d_%H%M%S).log
+
+# Then analyze the complete output
+# (use read_file tool to examine the timestamped log file)
+
+# Bad practice - multiple executions
+.venv/bin/python script.py | grep "error"
+.venv/bin/python script.py | tail -10
+.venv/bin/python script.py | head -20
+```
+
+This approach ensures consistent analysis and avoids wasting time with repeated command executions.
 
 ## Project Structure
 

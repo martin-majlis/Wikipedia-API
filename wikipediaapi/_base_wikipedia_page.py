@@ -37,8 +37,7 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
     Subclass responsibilities:
 
     * :meth:`_fetch` — ``def`` in sync, ``async def`` in async.
-    * ``sections`` — sync auto-fetches via ``_fetch``; async is a plain
-      property populated after ``await page.summary``.
+    * ``sections`` — both sync and async auto-fetch via ``extracts`` on first access.
     * ``exists()`` — sync auto-fetches via ``self.pageid``; async is a
       coroutine that lazily fetches ``pageid`` via ``info``.
     * All data-fetching surface (``summary``, ``text``, ``langlinks``, …) —
@@ -48,9 +47,10 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
     ATTRIBUTES_MAPPING: dict[str, list[str]] = {
         "language": [],
         "variant": [],
+        "ns": [],
+        "namespace": [],
+        "title": [],
         "pageid": ["info", "extracts", "langlinks"],
-        "ns": ["info", "extracts", "langlinks"],
-        "title": ["info", "extracts", "langlinks"],
         "contentmodel": ["info"],
         "pagelanguage": ["info"],
         "pagelanguagehtmlcode": ["info"],
@@ -71,6 +71,9 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
         "preload": ["info"],
         "displaytitle": ["info"],
         "varianttitles": ["info"],
+        "summary": ["extracts"],
+        "text": ["extracts"],
+        "sections": ["extracts"],
     }
 
     def __init__(
@@ -197,8 +200,8 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
 
         * :class:`~wikipediaapi.WikipediaPage` — auto-fetches via
           ``extracts`` on first access.
-        * :class:`~wikipediaapi.AsyncWikipediaPage` — returns the
-          cached list; requires ``await page.summary`` first.
+        * :class:`~wikipediaapi.AsyncWikipediaPage` — awaitable that
+          auto-fetches via ``extracts`` on first access.
 
         :return: list of top-level :class:`WikipediaPageSection` objects
         """
@@ -262,7 +265,7 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
         * **Sync** — the overriding implementation in
           :class:`~wikipediaapi.WikipediaPage` triggers a fetch
           automatically.
-        * **Async** — call ``await page.summary`` first.
+        * **Async** — call ``await page.sections`` first.
 
         :param title: exact heading text to search for
         :return: list of matching :class:`WikipediaPageSection` objects;
