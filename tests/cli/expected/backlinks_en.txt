@@ -4409,6 +4409,7 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
+Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1
@@ -4499,6 +4500,7 @@ Wikipedia:Database reports/Indefinitely semi-protected articles/3
 Wikipedia:Database reports/Most-watched pages
 Wikipedia:Deceased Wikipedians/2022
 Wikipedia:Department of Fun/Word Association/Dice Association
+Wikipedia:Did you know archive 156
 Wikipedia:Did you know archive/2007/July
 Wikipedia:Did you know archive/2010/October
 Wikipedia:Did you know archive/2012/April
@@ -4687,7 +4689,6 @@ Wikipedia:Picture of the day/June 2007
 Wikipedia:Picture of the day/October 2023
 Wikipedia:Popular pages
 Wikipedia:Press coverage 2006
-Wikipedia:Recent additions 156
 Wikipedia:Redirects for discussion/Log/2006 August 24
 Wikipedia:Redirects for discussion/Log/2006 August 26
 Wikipedia:Redirects for discussion/Log/2015 July 26

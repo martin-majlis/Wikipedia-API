@@ -22054,6 +22054,11 @@
 "language": "en",
 "ns": 5
 },
+"Wikipedia talk:WikiProject Portals/Design/Archive 3": {
+"title": "Wikipedia talk:WikiProject Portals/Design/Archive 3",
+"language": "en",
+"ns": 5
+},
 "Wikipedia talk:WikiProject Solar System/Archive 1": {
 "title": "Wikipedia talk:WikiProject Solar System/Archive 1",
 "language": "en",
@@ -22501,6 +22506,11 @@
 },
 "Wikipedia:Department of Fun/Word Association/Dice Association": {
 "title": "Wikipedia:Department of Fun/Word Association/Dice Association",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Did you know archive 156": {
+"title": "Wikipedia:Did you know archive 156",
 "language": "en",
 "ns": 4
 },
@@ -23441,11 +23451,6 @@
 },
 "Wikipedia:Press coverage 2006": {
 "title": "Wikipedia:Press coverage 2006",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:Recent additions 156": {
-"title": "Wikipedia:Recent additions 156",
 "language": "en",
 "ns": 4
 },
