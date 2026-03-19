@@ -1,3 +1,7 @@
 [flake8]
 max-line-length = 100
-extend-ignore = E203, W503
+extend-ignore = E203, W503, D102, D403, D402, B024, B010, E501, D205, D412
+per-file-ignores =
+    tests/*:D102,D100,D101,D107,D104,C413,C417,B007,ASYNC124
+    wikipediaapi/cli.py:D102,D100,D101,D107,D104,D209,D400
+    validate_attributes_mapping.py:B010,E501,D205,D412

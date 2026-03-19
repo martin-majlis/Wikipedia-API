@@ -57,6 +57,9 @@ run-coverage:
 	uv run coverage report -m
 	uv run coverage xml
 
+run-validate-attributes-mappping:
+	uv run python ./validate_attributes_mapping.py
+
 run-example-sync:
 	uv run python ./example_sync.py
 
@@ -84,7 +87,7 @@ update-pre-commit:
 		uv run pre-commit autoupdate --repo "$${repo}"; \
 	done;
 
-pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage pypi-html run-tox run-example-sync run-example-async
+pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage run-tox run-example-sync run-example-async run-validate-attributes-mappping
 	echo "Pre-release check was successful"
 
 release: requirements-build process-readme pre-release-check

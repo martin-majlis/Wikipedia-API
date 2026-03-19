@@ -172,6 +172,12 @@ print("Full text (first 120):", page.text[:120])
 
 
 def print_sections(sections, level=0):
+    """Print section hierarchy with indentation.
+
+    Args:
+        sections: List of WikipediaPageSection objects
+        level: Current indentation level
+    """
     for sec in sections:
         indent = "  " * level
         # title — section heading text
@@ -242,6 +248,13 @@ print(f"Category: {cat.title}  (ns={cat.ns})")
 
 
 def print_categorymembers(members, level=0, max_level=1):
+    """Print category members with recursive sub-category exploration.
+
+    Args:
+        members: Dictionary of category members
+        level: Current indentation level
+        max_level: Maximum recursion depth for sub-categories
+    """
     for c in members.values():
         print("{}* {} (ns: {})".format("  " * level, c.title, c.ns))
         # Recurse into sub-categories up to max_level deep

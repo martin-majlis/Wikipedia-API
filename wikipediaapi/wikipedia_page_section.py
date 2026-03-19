@@ -1,3 +1,10 @@
+"""Wikipedia page section representation.
+
+This module defines the WikipediaPageSection class which represents individual
+sections of a Wikipedia page. Sections are organized in a tree structure
+with the page summary as the root and headings as child sections.
+"""
+
 from typing import Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -147,7 +154,13 @@ class WikipediaPageSection:
             res += sec.full_text(level + 1)
         return res
 
-    def __repr__(self):
+    def __repr__(self) -> str:
+        """Return a string representation of the section.
+
+        Returns:
+            A formatted string showing the section title, level, text length,
+            and number of subsections.
+        """
         return "Section: {} ({}):\n{}\nSubsections ({}):\n{}".format(
             self._title,
             self._level,

@@ -1,3 +1,11 @@
+"""Asynchronous Wikipedia API client.
+
+This module defines the AsyncWikipedia class which provides an asynchronous
+interface for accessing Wikipedia content. It combines async resource management
+with async HTTP client functionality to enable high-performance Wikipedia API
+interactions.
+"""
+
 from ._http_client import AsyncHTTPClient
 from ._resources import AsyncWikipediaResource
 

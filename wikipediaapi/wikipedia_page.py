@@ -1,3 +1,10 @@
+"""Synchronous Wikipedia page representation.
+
+This module defines the WikipediaPage class which represents a single
+Wikipedia page in a synchronous context. It provides methods and properties
+for accessing page content, metadata, and related information.
+"""
+
 from typing import Any
 
 from ._base_wikipedia_page import BaseWikipediaPage
@@ -147,7 +154,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
 
     @property
     def displaytitle(self) -> Any:
-        """Formatted display title (may differ from :attr:`title` in casing)."""
+        """Return the formatted display title (may differ from :attr:`title` in casing)."""
         return self._info_attr("displaytitle")
 
     @property

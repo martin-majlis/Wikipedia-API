@@ -180,20 +180,21 @@ class BaseHTTPClient(ABC):
     @abstractmethod
     def _get(self, language: str, params: dict[str, Any]) -> Any:
         """
-        Issue a GET request to the MediaWiki API and return the parsed
-        JSON response.
+        Issue a GET request to the MediaWiki API and return parsed JSON response.
 
-        Implemented as a blocking ``def`` returning ``dict[str, Any]``
-        by :class:`SyncHTTPClient`, and as an ``async def`` coroutine
-        (returning ``dict[str, Any]`` when awaited) by
-        :class:`AsyncHTTPClient`.  The return type is ``Any`` here to
-        accommodate both.
+        Implemented as a blocking def returning dict[str, Any]
 
-        :param language: two-letter Wikipedia language code; used to
-            build the endpoint URL
-        :param params: fully-merged query-string parameters
-        :return: parsed JSON response dict (sync) or an awaitable
-            thereof (async)
+                Implemented as a blocking ``def`` returning ``dict[str, Any]``
+                by :class:`SyncHTTPClient`, and as an ``async def`` coroutine
+                (returning ``dict[str, Any]`` when awaited) by
+                :class:`AsyncHTTPClient`.  The return type is ``Any`` here to
+                accommodate both.
+
+                :param language: two-letter Wikipedia language code; used to
+                    build the endpoint URL
+                :param params: fully-merged query-string parameters
+                :return: parsed JSON response dict (sync) or an awaitable
+                    thereof (async)
         """
 
     @staticmethod

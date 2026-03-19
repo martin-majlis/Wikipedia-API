@@ -1,4 +1,4 @@
-"""Command line interface for Wikipedia-API."""
+r"""Command line interface for Wikipedia-API.r"""
 
 import json
 import sys
@@ -12,7 +12,7 @@ import wikipediaapi
 def create_wikipedia_instance(
     user_agent: str, language: str, variant: str | None, extract_format: str
 ) -> wikipediaapi.Wikipedia:
-    """Create a Wikipedia instance from common CLI options."""
+    r"""Create a Wikipedia instance from common CLI options.r"""
     fmt = wikipediaapi.ExtractFormat.WIKI
     if extract_format == "html":
         fmt = wikipediaapi.ExtractFormat.HTML
@@ -26,24 +26,24 @@ def create_wikipedia_instance(
 
 
 def _make_wiki(user_agent, language, variant, extract_format):
-    """Legacy wrapper for backward compatibility."""
+    r"""Legacy wrapper for backward compatibility.r"""
     return create_wikipedia_instance(user_agent, language, variant, extract_format)
 
 
 def fetch_page(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int
 ) -> wikipediaapi.WikipediaPage:
-    """Get a WikipediaPage from the given Wikipedia instance."""
+    r"""Get a WikipediaPage from the given Wikipedia instance.r"""
     return wiki.page(title, ns=namespace)
 
 
 def _get_page(wiki, title, namespace):
-    """Legacy wrapper for backward compatibility."""
+    r"""Legacy wrapper for backward compatibility.r"""
     return fetch_page(wiki, title, namespace)
 
 
 def format_page_dict(pages: dict[str, wikipediaapi.WikipediaPage], output_format: str) -> str:
-    """Format a PagesDict in the requested format as a string."""
+    r"""Format a PagesDict in the requested format as a string.r"""
     if output_format == "json":
         result = {}
         for title, page in sorted(pages.items()):
@@ -60,25 +60,25 @@ def format_page_dict(pages: dict[str, wikipediaapi.WikipediaPage], output_format
 
 
 def _print_page_dict(pages, output_format):
-    """Print a PagesDict in the requested format."""
+    r"""Print a PagesDict in the requested format.r"""
     formatted_output = format_page_dict(pages, output_format)
     click.echo(formatted_output)
 
 
 class PageNotFoundError(Exception):
-    """Raised when a Wikipedia page does not exist."""
+    r"""Raised when a Wikipedia page does not exist.r"""
 
     pass
 
 
 class SectionNotFoundError(Exception):
-    """Raised when a Wikipedia section does not exist."""
+    r"""Raised when a Wikipedia section does not exist.r"""
 
     pass
 
 
 def get_page_summary(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> str:
-    """Get the summary of a Wikipedia page.
+    r"""Get the summary of a Wikipedia page.
 
     Args:
         wiki: Wikipedia instance
@@ -90,7 +90,7 @@ def get_page_summary(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 
 
     Raises:
         PageNotFoundError: If the page does not exist
-    """
+    r"""
     page = fetch_page(wiki, title, namespace)
     if not page.exists():
         raise PageNotFoundError(f"Page '{title}' does not exist.")
@@ -98,7 +98,7 @@ def get_page_summary(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 
 
 
 def get_page_text(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> str:
-    """Get the full text of a Wikipedia page.
+    r"""Get the full text of a Wikipedia page.
 
     Args:
         wiki: Wikipedia instance
@@ -110,7 +110,7 @@ def get_page_text(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) 
 
     Raises:
         PageNotFoundError: If the page does not exist
-    """
+    r"""
     page = fetch_page(wiki, title, namespace)
     if not page.exists():
         raise PageNotFoundError(f"Page '{title}' does not exist.")
@@ -120,7 +120,7 @@ def get_page_text(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) 
 def get_page_sections(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
 ) -> list[dict[str, Any]]:
-    """Get sections of a Wikipedia page.
+    r"""Get sections of a Wikipedia page.
 
     Args:
         wiki: Wikipedia instance
@@ -132,7 +132,7 @@ def get_page_sections(
 
     Raises:
         PageNotFoundError: If the page does not exist
-    """
+    r"""
     page = fetch_page(wiki, title, namespace)
     if not page.exists():
         raise PageNotFoundError(f"Page '{title}' does not exist.")
@@ -149,7 +149,7 @@ def get_page_sections(
 
 
 def format_sections(sections: list[dict[str, Any]], output_format: str) -> str:
-    """Format sections list in the requested format."""
+    r"""Format sections list in the requested format.r"""
     if output_format == "json":
         return json.dumps(sections, ensure_ascii=False, indent=2)
     else:
@@ -163,7 +163,7 @@ def format_sections(sections: list[dict[str, Any]], output_format: str) -> str:
 def get_section_text(
     wiki: wikipediaapi.Wikipedia, title: str, section_title: str, namespace: int = 0
 ) -> str:
-    """Get the text of a specific section.
+    r"""Get the text of a specific section.
 
     Args:
         wiki: Wikipedia instance
@@ -177,7 +177,7 @@ def get_section_text(
     Raises:
         PageNotFoundError: If the page does not exist
         SectionNotFoundError: If the section does not exist
-    """
+    r"""
     page = fetch_page(wiki, title, namespace)
     if not page.exists():
         raise PageNotFoundError(f"Page '{title}' does not exist.")
@@ -192,7 +192,7 @@ def get_section_text(
 def get_page_links(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
 ) -> dict[str, wikipediaapi.WikipediaPage]:
-    """Get pages linked from a Wikipedia page.
+    r"""Get pages linked from a Wikipedia page.
 
     Args:
         wiki: Wikipedia instance
@@ -204,7 +204,7 @@ def get_page_links(
 
     Raises:
         PageNotFoundError: If the page does not exist
-    """
+    r"""
     page = fetch_page(wiki, title, namespace)
     if not page.exists():
         raise PageNotFoundError(f"Page '{title}' does not exist.")
@@ -214,7 +214,7 @@ def get_page_links(
 def get_page_backlinks(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
 ) -> dict[str, wikipediaapi.WikipediaPage]:
-    """Get pages that link to a Wikipedia page.
+    r"""Get pages that link to a Wikipedia page.
 
     Args:
         wiki: Wikipedia instance
@@ -226,7 +226,7 @@ def get_page_backlinks(
 
     Raises:
         PageNotFoundError: If the page does not exist
-    """
+    r"""
     page = fetch_page(wiki, title, namespace)
     if not page.exists():
         raise PageNotFoundError(f"Page '{title}' does not exist.")
@@ -236,7 +236,7 @@ def get_page_backlinks(
 def get_langlinks(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
 ) -> dict[str, wikipediaapi.WikipediaPage]:
-    """Get language links for a Wikipedia page.
+    r"""Get language links for a Wikipedia page.
 
     Args:
         wiki: Wikipedia instance
@@ -248,7 +248,7 @@ def get_langlinks(
 
     Raises:
         PageNotFoundError: If the page does not exist
-    """
+    r"""
     page = fetch_page(wiki, title, namespace)
     if not page.exists():
         raise PageNotFoundError(f"Page '{title}' does not exist.")
@@ -256,7 +256,7 @@ def get_langlinks(
 
 
 def format_langlinks(langlinks: dict[str, wikipediaapi.WikipediaPage], output_format: str) -> str:
-    """Format language links in the requested format."""
+    r"""Format language links in the requested format.r"""
     if output_format == "json":
         result = {}
         for lang in sorted(langlinks.keys()):
@@ -279,7 +279,7 @@ def format_langlinks(langlinks: dict[str, wikipediaapi.WikipediaPage], output_fo
 def get_page_categories(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
 ) -> dict[str, wikipediaapi.WikipediaPage]:
-    """Get categories for a Wikipedia page.
+    r"""Get categories for a Wikipedia page.
 
     Args:
         wiki: Wikipedia instance
@@ -291,7 +291,7 @@ def get_page_categories(
 
     Raises:
         PageNotFoundError: If the page does not exist
-    """
+    r"""
     page = fetch_page(wiki, title, namespace)
     if not page.exists():
         raise PageNotFoundError(f"Page '{title}' does not exist.")
@@ -301,7 +301,7 @@ def get_page_categories(
 def get_category_members(
     wiki: wikipediaapi.Wikipedia, title: str, max_level: int = 0, namespace: int = 0
 ) -> list[dict[str, Any]]:
-    """Get pages in a Wikipedia category.
+    r"""Get pages in a Wikipedia category.
 
     Args:
         wiki: Wikipedia instance
@@ -314,7 +314,7 @@ def get_category_members(
 
     Raises:
         PageNotFoundError: If the page does not exist
-    """
+    r"""
     page = fetch_page(wiki, title, namespace)
     if not page.exists():
         raise PageNotFoundError(f"Page '{title}' does not exist.")
@@ -333,7 +333,7 @@ def get_category_members(
 
 
 def format_category_members(members: list[dict[str, Any]], output_format: str) -> str:
-    """Format category members in the requested format."""
+    r"""Format category members in the requested format.r"""
     if output_format == "json":
         return json.dumps(members, ensure_ascii=False, indent=2)
     else:
@@ -345,7 +345,7 @@ def format_category_members(members: list[dict[str, Any]], output_format: str) -
 
 
 def get_page_info(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> dict[str, Any]:
-    """Get metadata and existence info for a Wikipedia page.
+    r"""Get metadata and existence info for a Wikipedia page.
 
     Args:
         wiki: Wikipedia instance
@@ -354,7 +354,7 @@ def get_page_info(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) 
 
     Returns:
         Dictionary with page information
-    """
+    r"""
     p = fetch_page(wiki, title, namespace)
 
     info = {
@@ -373,7 +373,7 @@ def get_page_info(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) 
 
 
 def format_page_info(info: dict[str, Any], output_format: str) -> str:
-    """Format page info in the requested format."""
+    r"""Format page info in the requested format.r"""
     if output_format == "json":
         return json.dumps(info, ensure_ascii=False, indent=2)
     else:
@@ -385,7 +385,7 @@ def format_page_info(info: dict[str, Any], output_format: str) -> str:
 
 # Legacy function for backward compatibility - keep the original version
 def _print_page_dict_legacy(pages, output_format):
-    """Print a PagesDict in the requested format (legacy version)."""
+    r"""Print a PagesDict in the requested format (legacy version).r"""
     formatted_output = format_page_dict(pages, output_format)
     click.echo(formatted_output)
 
@@ -396,7 +396,7 @@ def _print_page_dict_legacy(pages, output_format):
     prog_name="wikipedia-api",
 )
 def cli():
-    """Command line tool for querying Wikipedia using Wikipedia-API.
+    r"""Command line tool for querying Wikipedia using Wikipedia-API.
 
     Supports fetching page summaries, full text, sections, links,
     backlinks, language links, categories, and category members.
@@ -404,12 +404,11 @@ def cli():
     Every command requires a TITLE argument — the Wikipedia page title.
 
     Examples:
-
     \b
         wikipedia-api summary "Python (programming language)"
         wikipedia-api links "Python (programming language)" --language cs
         wikipedia-api categories "Python (programming language)" --json
-    """
+    r"""
 
 
 # ── Common options ──────────────────────────────────────────────────────────
@@ -463,7 +462,7 @@ _json_option = click.option(
 
 
 def add_options(options):
-    """Decorator that adds a list of click options to a command."""
+    r"""Add a list of a list of click options to a command.r"""
 
     def wrapper(func):
         for option in reversed(options):
@@ -480,7 +479,7 @@ def add_options(options):
 @click.argument("title")
 @add_options(_common_options)
 def summary(title, language, user_agent, variant, extract_format, namespace):
-    """Print the summary of a Wikipedia page.
+    r"""Print the summary of a Wikipedia page.
 
     TITLE is the Wikipedia page title (e.g. "Python_(programming_language)").
 
@@ -489,7 +488,7 @@ def summary(title, language, user_agent, variant, extract_format, namespace):
         wikipedia-api summary "Python (programming language)"
         wikipedia-api summary "Ostrava" -l cs
         wikipedia-api summary "Python" -l zh -v zh-cn
-    """
+    r"""
     try:
         wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
         result = get_page_summary(wiki, title, namespace)
@@ -503,7 +502,7 @@ def summary(title, language, user_agent, variant, extract_format, namespace):
 @click.argument("title")
 @add_options(_common_options)
 def text(title, language, user_agent, variant, extract_format, namespace):
-    """Print the full text of a Wikipedia page.
+    r"""Print the full text of a Wikipedia page.
 
     TITLE is the Wikipedia page title.
 
@@ -511,7 +510,7 @@ def text(title, language, user_agent, variant, extract_format, namespace):
     Examples:
         wikipedia-api text "Python (programming language)"
         wikipedia-api text "Ostrava" -l cs -f html
-    """
+    r"""
     try:
         wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
         result = get_page_text(wiki, title, namespace)
@@ -526,7 +525,7 @@ def text(title, language, user_agent, variant, extract_format, namespace):
 @add_options(_common_options)
 @_json_option
 def sections(title, language, user_agent, variant, extract_format, namespace, output_format):
-    """List sections of a Wikipedia page.
+    r"""List sections of a Wikipedia page.
 
     TITLE is the Wikipedia page title.
 
@@ -534,7 +533,7 @@ def sections(title, language, user_agent, variant, extract_format, namespace, ou
     Examples:
         wikipedia-api sections "Python (programming language)"
         wikipedia-api sections "Python (programming language)" --json
-    """
+    r"""
     try:
         wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
         sections_data = get_page_sections(wiki, title, namespace)
@@ -550,7 +549,7 @@ def sections(title, language, user_agent, variant, extract_format, namespace, ou
 @click.argument("section_title")
 @add_options(_common_options)
 def section(title, section_title, language, user_agent, variant, extract_format, namespace):
-    """Print the text of a specific section.
+    r"""Print the text of a specific section.
 
     TITLE is the Wikipedia page title.
     SECTION_TITLE is the name of the section to retrieve.
@@ -558,7 +557,7 @@ def section(title, section_title, language, user_agent, variant, extract_format,
     \b
     Examples:
         wikipedia-api section "Python (programming language)" "Features and philosophy"
-    """
+    r"""
     try:
         wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
         result = get_section_text(wiki, title, section_title, namespace)
@@ -576,7 +575,7 @@ def section(title, section_title, language, user_agent, variant, extract_format,
 @add_options(_common_options)
 @_json_option
 def links(title, language, user_agent, variant, extract_format, namespace, output_format):
-    """List pages linked from a Wikipedia page.
+    r"""List pages linked from a Wikipedia page.
 
     TITLE is the Wikipedia page title.
 
@@ -584,7 +583,7 @@ def links(title, language, user_agent, variant, extract_format, namespace, outpu
     Examples:
         wikipedia-api links "Python (programming language)"
         wikipedia-api links "Python (programming language)" --json
-    """
+    r"""
     try:
         wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
         links_data = get_page_links(wiki, title, namespace)
@@ -600,7 +599,7 @@ def links(title, language, user_agent, variant, extract_format, namespace, outpu
 @add_options(_common_options)
 @_json_option
 def backlinks(title, language, user_agent, variant, extract_format, namespace, output_format):
-    """List pages that link to a Wikipedia page.
+    r"""List pages that link to a Wikipedia page.
 
     TITLE is the Wikipedia page title.
 
@@ -608,7 +607,7 @@ def backlinks(title, language, user_agent, variant, extract_format, namespace, o
     Examples:
         wikipedia-api backlinks "Python (programming language)"
         wikipedia-api backlinks "Python (programming language)" --json
-    """
+    r"""
     try:
         wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
         backlinks_data = get_page_backlinks(wiki, title, namespace)
@@ -624,7 +623,7 @@ def backlinks(title, language, user_agent, variant, extract_format, namespace, o
 @add_options(_common_options)
 @_json_option
 def langlinks(title, language, user_agent, variant, extract_format, namespace, output_format):
-    """List language links for a Wikipedia page.
+    r"""List language links for a Wikipedia page.
 
     Shows the page title in other language editions of Wikipedia.
 
@@ -634,7 +633,7 @@ def langlinks(title, language, user_agent, variant, extract_format, namespace, o
     Examples:
         wikipedia-api langlinks "Python (programming language)"
         wikipedia-api langlinks "Python (programming language)" --json
-    """
+    r"""
     try:
         wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
         langlinks_data = get_langlinks(wiki, title, namespace)
@@ -650,7 +649,7 @@ def langlinks(title, language, user_agent, variant, extract_format, namespace, o
 @add_options(_common_options)
 @_json_option
 def categories(title, language, user_agent, variant, extract_format, namespace, output_format):
-    """List categories for a Wikipedia page.
+    r"""List categories for a Wikipedia page.
 
     TITLE is the Wikipedia page title.
 
@@ -658,7 +657,7 @@ def categories(title, language, user_agent, variant, extract_format, namespace, 
     Examples:
         wikipedia-api categories "Python (programming language)"
         wikipedia-api categories "Python (programming language)" --json
-    """
+    r"""
     try:
         wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
         categories_data = get_page_categories(wiki, title, namespace)
@@ -690,7 +689,7 @@ def categorymembers(
     namespace,
     output_format,
 ):
-    """List pages in a Wikipedia category.
+    r"""List pages in a Wikipedia category.
 
     TITLE is the category page title (e.g. "Category:Physics").
 
@@ -701,7 +700,7 @@ def categorymembers(
         wikipedia-api categorymembers "Category:Physics"
         wikipedia-api categorymembers "Category:Physics" --max-level 1
         wikipedia-api categorymembers "Category:Physics" --json
-    """
+    r"""
     try:
         wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
         members_data = get_category_members(wiki, title, max_level, namespace)
@@ -717,7 +716,7 @@ def categorymembers(
 @add_options(_common_options)
 @_json_option
 def page(title, language, user_agent, variant, extract_format, namespace, output_format):
-    """Show metadata and existence info for a Wikipedia page.
+    r"""Show metadata and existence info for a Wikipedia page.
 
     TITLE is the Wikipedia page title.
 
@@ -725,7 +724,7 @@ def page(title, language, user_agent, variant, extract_format, namespace, output
     Examples:
         wikipedia-api page "Python (programming language)"
         wikipedia-api page "Python (programming language)" --json
-    """
+    r"""
     wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
     info = get_page_info(wiki, title, namespace)
     result = format_page_info(info, output_format)
@@ -733,7 +732,7 @@ def page(title, language, user_agent, variant, extract_format, namespace, output
 
 
 def main():
-    """Entry point for the CLI."""
+    r"""Entry point for the CLI.r"""
     cli()
 
 
