@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.11.0
+------
+
+* Introduce async support - `AsyncWikipedia` - `PR 479`_
+
+.. _PR 502: https://github.com/martin-majlis/Wikipedia-API/pull/479
+
 0.10.2
 ------
 
