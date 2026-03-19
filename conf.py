@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+"""Sphinx documentation configuration for Wikipedia-API.
+
+This file contains the configuration for building the Wikipedia-API
+documentation using Sphinx. It defines extensions, templates, and
+output formats for generating the project documentation.
+"""
+
 #
 # Wikipedia-API documentation build configuration file, created by
 # sphinx-quickstart on Mon Jul  3 09:08:55 2017.

@@ -83,7 +83,7 @@ class BaseWikipediaResource(ABC):
         language: str,
         variant: str | None = None,
         url: str | None = None,
-    ) -> WikipediaPage:
+    ) -> "BaseWikipediaPage[Any]":
         """
         Create a stub :class:`WikipediaPage` bound to this resource instance.
 
@@ -1101,18 +1101,19 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         url: str | None = None,
     ) -> "AsyncWikipediaPage":
         """
-        Override of :meth:`BaseWikipediaResource._make_page` that returns
-        an :class:`AsyncWikipediaPage` instead of a :class:`WikipediaPage`.
+        Override of BaseWikipediaResource._make_page that returns AsyncWikipediaPage.
 
-        All ``_build_*`` methods call :meth:`_make_page` to create stub pages,
-        so stub pages produced in an async context are automatically async.
+        All _build_* methods call _make_page to create stub pages,
 
-        :param title: page title exactly as it appears in Wikipedia URLs
-        :param ns: namespace constant
-        :param language: two-letter language code
-        :param variant: optional language variant; ``None`` for none
-        :param url: optional canonical URL (used for lang-link stubs)
-        :return: uninitialised :class:`AsyncWikipediaPage` instance
+                All ``_build_*`` methods call :meth:`_make_page` to create stub pages,
+                so stub pages produced in an async context are automatically async.
+
+                :param title: page title exactly as it appears in Wikipedia URLs
+                :param ns: namespace constant
+                :param language: two-letter language code
+                :param variant: optional language variant; ``None`` for none
+                :param url: optional canonical URL (used for lang-link stubs)
+                :return: uninitialised :class:`AsyncWikipediaPage` instance
         """
         from .async_wikipedia_page import AsyncWikipediaPage
 

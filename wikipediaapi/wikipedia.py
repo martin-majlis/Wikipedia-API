@@ -1,3 +1,11 @@
+"""Synchronous Wikipedia API client.
+
+This module defines the Wikipedia class which provides a synchronous
+interface for accessing Wikipedia content. It combines resource management
+with HTTP client functionality to enable straightforward Wikipedia API
+interactions.
+"""
+
 from ._http_client import SyncHTTPClient
 from ._http_client import USER_AGENT  # noqa: F401
 from ._resources import WikipediaResource

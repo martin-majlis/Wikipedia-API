@@ -1,3 +1,12 @@
+"""Exception classes for Wikipedia-API errors.
+
+This module defines the exception hierarchy used throughout the Wikipedia-API
+library. All library-specific exceptions inherit from WikipediaException,
+making it easy to catch all Wikipedia-related errors with a single except
+clause while still allowing for more specific error handling when needed.
+"""
+
+
 class WikipediaException(Exception):
     """
     Base exception for all Wikipedia-API errors.

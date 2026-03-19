@@ -1,3 +1,11 @@
+"""MediaWiki namespace enumeration and utilities.
+
+This module defines the Namespace enum which represents the different
+namespaces used by MediaWiki wikis. Each namespace has a specific integer
+value and purpose, from main articles (0) to special pages like user pages,
+categories, and templates.
+"""
+
 from enum import IntEnum
 from typing import Union
 

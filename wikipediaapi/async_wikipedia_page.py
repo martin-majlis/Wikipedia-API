@@ -1,3 +1,10 @@
+"""Asynchronous Wikipedia page representation.
+
+This module defines the AsyncWikipediaPage class which represents a single
+Wikipedia page in an asynchronous context. It provides async methods and
+awaitable properties for accessing page content, metadata, and related information.
+"""
+
 from typing import Any
 
 from ._base_wikipedia_page import BaseWikipediaPage
@@ -8,48 +15,49 @@ AsyncPagesDict = dict[str, "AsyncWikipediaPage"]
 
 class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
     """
-    Lazy representation of a Wikipedia page for use with
-    :class:`~wikipediaapi.AsyncWikipedia`.
+    Lazy representation of a Wikipedia page for use with AsyncWikipedia.
 
-    Mirrors :class:`~wikipediaapi.WikipediaPage` but exposes all
-    data-fetching as awaitables instead of blocking properties.  A page
-    stub is created by :meth:`~wikipediaapi.AsyncWikipedia.page` with no
-    network call; each awaitable fetches its data on the first ``await``
-    and caches the result for subsequent accesses.
+    Mirrors WikipediaPage but exposes all
 
-    **Named properties** (always available without a network call):
+        Mirrors :class:`~wikipediaapi.WikipediaPage` but exposes all
+        data-fetching as awaitables instead of blocking properties.  A page
+        stub is created by :meth:`~wikipediaapi.AsyncWikipedia.page` with no
+        network call; each awaitable fetches its data on the first ``await``.
+        and caches the result for subsequent accesses.
 
-    :attr language: two-letter language code this page belongs to
-    :attr variant: language variant used for auto-conversion, or ``None``
-    :attr title: page title as passed to
-        :meth:`~wikipediaapi.AsyncWikipedia.page`
-    :attr ns: integer namespace number (``0`` = main article)
+        **Named properties** (always available without a network call):
 
-    **Awaitable data properties** (each triggers a network call on the
-    first ``await`` and caches the result):
+        :attr language: two-letter language code this page belongs to
+        :attr variant: language variant used for auto-conversion, or ``None``
+        :attr title: page title as passed to
+            :meth:`~wikipediaapi.AsyncWikipedia.page`
+        :attr ns: integer namespace number (``0`` = main article)
 
-    * ``await page.summary`` — introductory text
-    * ``await page.sections`` — top-level sections
-    * ``await page.langlinks`` — ``{lang: AsyncWikipediaPage}`` dict
-    * ``await page.links`` — ``{title: AsyncWikipediaPage}`` dict
-    * ``await page.backlinks`` — ``{title: AsyncWikipediaPage}`` dict
-    * ``await page.categories`` — ``{title: AsyncWikipediaPage}`` dict
-    * ``await page.categorymembers`` — ``{title: AsyncWikipediaPage}`` dict
+        **Awaitable data properties** (each triggers a network call on the
+        first ``await`` and caches the result):
 
-    **Awaitable info attributes** (populated via the ``info`` API call;
-    see :attr:`ATTRIBUTES_MAPPING`):
+        * ``await page.summary`` — introductory text
+        * ``await page.sections`` — top-level sections
+        * ``await page.langlinks`` — ``{lang: AsyncWikipediaPage}`` dict
+        * ``await page.links`` — ``{title: AsyncWikipediaPage}`` dict
+        * ``await page.backlinks`` — ``{title: AsyncWikipediaPage}`` dict
+        * ``await page.categories`` — ``{title: AsyncWikipediaPage}`` dict
+        * ``await page.categorymembers`` — ``{title: AsyncWikipediaPage}`` dict
 
-    * ``await page.pageid``, ``await page.fullurl``,
-      ``await page.canonicalurl``, ``await page.editurl``,
-      ``await page.displaytitle``, ``await page.talkid``,
-      ``await page.lastrevid``, ``await page.length``,
-      ``await page.touched``, ``await page.contentmodel``,
-      ``await page.pagelanguage``, ``await page.pagelanguagehtmlcode``,
-      ``await page.pagelanguagedir``, ``await page.protection``,
-      ``await page.restrictiontypes``, ``await page.watchers``,
-      ``await page.visitingwatchers``,
-      ``await page.notificationtimestamp``, ``await page.readable``,
-      ``await page.preload``, ``await page.varianttitles``
+        **Awaitable info attributes** (populated via the ``info`` API call;
+        see :attr:`ATTRIBUTES_MAPPING`):
+
+        * ``await page.pageid``, ``await page.fullurl``,
+          ``await page.canonicalurl``, ``await page.editurl``,
+          ``await page.displaytitle``, ``await page.talkid``,
+          ``await page.lastrevid``, ``await page.length``,
+          ``await page.touched``, ``await page.contentmodel``,
+          ``await page.pagelanguage``, ``await page.pagelanguagehtmlcode``,
+          ``await page.pagelanguagedir``, ``await page.protection``,
+          ``await page.restrictiontypes``, ``await page.watchers``,
+          ``await page.visitingwatchers``,
+          ``await page.notificationtimestamp``, ``await page.readable``,
+          ``await page.preload``, ``await page.varianttitles``
     """
 
     async def _info_attr(self, name: str) -> Any:

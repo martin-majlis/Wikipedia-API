@@ -1,3 +1,11 @@
+"""Enumeration for Wikipedia extract format options.
+
+This module defines the ExtractFormat enum which controls how page content
+is extracted from the Wikipedia API. Different formats affect how section
+headers are recognized, text structure, and markup characters in the
+returned strings.
+"""
+
 from enum import IntEnum
 
 

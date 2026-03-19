@@ -12,36 +12,37 @@ PageT = TypeVar("PageT", bound="BaseWikipediaPage[Any]")
 
 class BaseWikipediaPage(ABC, Generic[PageT]):
     """
-    Common base for :class:`~wikipediaapi.WikipediaPage` and
-    :class:`~wikipediaapi.AsyncWikipediaPage`.
+    Common base for WikipediaPage and AsyncWikipediaPage.
 
     Contains all state initialisation and every method or property whose
-    behaviour is identical in both the synchronous and asynchronous
-    subclasses:
 
-    * :attr:`ATTRIBUTES_MAPPING` — declarative mapping of attribute names
-      to the API calls that populate them.
-    * :meth:`__init__` — sets up all cache dictionaries to empty values;
-      no network call is made.
-    * Named properties that return init-time values without any fetch:
-      :attr:`language`, :attr:`variant`, :attr:`title`, :attr:`ns`,
-      :attr:`namespace`.
-    * :meth:`sections_by_title` — reads from the cached section mapping.
-      The synchronous subclass overrides this to trigger a fetch when the
-      cache is empty; the asynchronous subclass inherits this version and
-      requires an explicit ``await page.summary`` before calling it.
-    * :meth:`section_by_title` — delegates to :meth:`sections_by_title`
-      so both subclasses automatically use the correct (overridden or
-      inherited) version.
+        Contains all state initialisation and every method or property whose
+        behaviour is identical in both the synchronous and asynchronous
+        subclasses.
 
-    Subclass responsibilities:
+        * :attr:`ATTRIBUTES_MAPPING` — declarative mapping of attribute names
+          to the API calls that populate them.
+        * :meth:`__init__` — sets up all cache dictionaries to empty values;
+          no network call is made.
+        * Named properties that return init-time values without any fetch:
+          :attr:`language`, :attr:`variant`, :attr:`title`, :attr:`ns`,
+          :attr:`namespace`.
+        * :meth:`sections_by_title` — reads from the cached section mapping.
+          The synchronous subclass overrides this to trigger a fetch when the
+          cache is empty; the asynchronous subclass inherits this version and
+          requires an explicit ``await page.summary`` before calling it.
+        * :meth:`section_by_title` — delegates to :meth:`sections_by_title`
+          so both subclasses automatically use the correct (overridden or
+          inherited) version.
 
-    * :meth:`_fetch` — ``def`` in sync, ``async def`` in async.
-    * ``sections`` — both sync and async auto-fetch via ``extracts`` on first access.
-    * ``exists()`` — sync auto-fetches via ``self.pageid``; async is a
-      coroutine that lazily fetches ``pageid`` via ``info``.
-    * All data-fetching surface (``summary``, ``text``, ``langlinks``, …) —
-      explicit ``@property`` in both; async properties return coroutines.
+        Subclass responsibilities:
+
+        * :meth:`_fetch` — ``def`` in sync, ``async def`` in async.
+        * ``sections`` — both sync and async auto-fetch via ``extracts`` on first access.
+        * ``exists()`` — sync auto-fetches via ``self.pageid``; async is a
+          coroutine that lazily fetches ``pageid`` via ``info``.
+        * All data-fetching surface (``summary``, ``text``, ``langlinks``, …) —
+          explicit ``@property`` in both; async properties return coroutines.
     """
 
     ATTRIBUTES_MAPPING: dict[str, list[str]] = {

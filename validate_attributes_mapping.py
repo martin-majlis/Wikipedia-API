@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """
-Validate that all properties in WikipediaPage and AsyncWikipediaPage are properly defined
-and tracked according to ATTRIBUTES_MAPPING structure.
+Validate that all properties in WikipediaPage and AsyncWikipediaPage are properly defined and tracked.
+
+This script systematically tests property access patterns to ensure internal tracking
+
+This script systematically tests property access patterns to ensure internal tracking
+(_called flags and _attributes population) matches documented ATTRIBUTES_MAPPING.
 
 This script systematically tests property access patterns to ensure internal tracking
 (_called flags and _attributes population) matches documented ATTRIBUTES_MAPPING.
@@ -86,6 +90,8 @@ IGNORED_ATTRIBUTES = {
 def create_cache_key(url: str, params: dict[str, Any]) -> str:
     """Create a consistent cache key from URL and parameters.
 
+
+
     Generates a SHA256 hash based on the URL and sorted parameters to ensure
     consistent cache key generation regardless of parameter order.
 
@@ -94,7 +100,9 @@ def create_cache_key(url: str, params: dict[str, Any]) -> str:
         params: Dictionary of query parameters to include in the cache key.
 
     Returns:
-        A SHA256 hash string that uniquely represents the URL and parameters.
+
+        A SHA256 hash string that uniquely represents the URL and
+        parameters.
 
     Invariants:
         - Same URL and parameters will always generate the same cache key
@@ -670,14 +678,14 @@ async def main() -> int:
 
         # Use first successful sync result for comparison
         sync_comparison = None
-        for page_key, results in all_sync_results.items():
+        for _page_key, results in all_sync_results.items():
             if "error" not in results:
                 sync_comparison = compare_with_reference(results, reference_mapping)
                 break
 
         # Use first successful async result for comparison
         async_comparison = None
-        for page_key, results in all_async_results.items():
+        for _page_key, results in all_async_results.items():
             if "error" not in results:
                 async_comparison = compare_with_reference(results, reference_mapping)
                 break
