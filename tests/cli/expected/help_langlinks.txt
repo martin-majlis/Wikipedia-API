@@ -6,9 +6,8 @@ Shows the page title in other language editions of Wikipedia.
 
 TITLE is the Wikipedia page title.
 
-Examples:
-wikipedia-api langlinks "Python (programming language)"
-wikipedia-api langlinks "Python (programming language)" --json
+\b Examples:     wikipedia-api langlinks "Python (programming language)"
+wikipedia-api langlinks "Python (programming language)" --json r
 
 Options:
 -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,

@@ -4,9 +4,8 @@ List pages linked from a Wikipedia page.
 
 TITLE is the Wikipedia page title.
 
-Examples:
-wikipedia-api links "Python (programming language)"
-wikipedia-api links "Python (programming language)" --json
+\b Examples:     wikipedia-api links "Python (programming language)"
+wikipedia-api links "Python (programming language)" --json r
 
 Options:
 -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,

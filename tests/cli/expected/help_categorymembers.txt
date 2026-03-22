@@ -6,10 +6,9 @@ TITLE is the category page title (e.g. "Category:Physics").
 
 Use --max-level to recursively list subcategory members.
 
-Examples:
-wikipedia-api categorymembers "Category:Physics"
+\b Examples:     wikipedia-api categorymembers "Category:Physics"
 wikipedia-api categorymembers "Category:Physics" --max-level 1
-wikipedia-api categorymembers "Category:Physics" --json
+wikipedia-api categorymembers "Category:Physics" --json r
 
 Options:
 --max-level INTEGER             Maximum depth for recursive category member
