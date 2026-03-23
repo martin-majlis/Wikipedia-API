@@ -1,0 +1,31 @@
+Usage: wikipedia-api coordinates [OPTIONS] TITLE
+
+Show geographic coordinates for a Wikipedia page.
+
+TITLE is the Wikipedia page title.
+
+\b Examples:     wikipedia-api coordinates "Mount Everest"     wikipedia-api
+coordinates "Mount Everest" --primary all     wikipedia-api coordinates
+"Mount Everest" --json r
+
+Options:
+--limit INTEGER                 Maximum number of coordinates to return.
+[default: 10]
+--primary [primary|secondary|all]
+Which coordinates to return.  [default:
+primary]
+-l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
+de, zh).  [default: en]
+-u, --user-agent TEXT           HTTP User-Agent string sent with requests.
+[default: wikipedia-api-cli
+(https://github.com/martin-majlis/Wikipedia-
+API)]
+-v, --variant TEXT              Language variant (e.g. zh-cn, zh-tw). Only
+for languages that support variants.
+-f, --extract-format [wiki|html]
+Extraction format for page text.  [default:
+wiki]
+-n, --namespace INTEGER         Wikipedia namespace (0=Main, 14=Category,
+etc.).  [default: 0]
+--json                          Output results as JSON.
+-h, --help                      Show this message and exit.
