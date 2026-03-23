@@ -38,7 +38,7 @@ MediaWiki `action=query` has two families of submodules:
 | Type        | API shape                                             | Example                         | Dispatch helper                                   |
 | ----------- | ----------------------------------------------------- | ------------------------------- | ------------------------------------------------- |
 | **`prop=`** | Requires `titles=`, result in `raw["query"]["pages"]` | `coordinates`, `images`         | `_dispatch_prop` or manual `_get` + iterate pages |
-| **`list=`** | No `titles=`, result in `raw["query"][list_key]`      | `geosearch`, `random`, `search` | `_dispatch_standalone_list`                       |
+| **`list=`** | No `titles=`, result in `raw["query"][list_key]`      | `geosearch`, `random`, `search` | single `_get` call (see warning below)            |
 
 Choose the right type first — it determines which dispatch helper to use and
 whether your public method takes a `page` parameter.
@@ -341,7 +341,7 @@ def coordinates(
 
 ### Example B: `list=` method (search)
 
-`list=` methods don't take a page — they use `_dispatch_standalone_list`:
+`list=` methods don't take a page — they make a **single `_get` call**:
 
 ```python
 def search(
@@ -359,27 +359,37 @@ def search(
     # 2. Build API params
     api_params = self._search_api_params(params)
 
-    # 3. Use standalone list dispatch (handles pagination)
-    raw = self._dispatch_standalone_list(
-        self.language,      # ← language string, not a page
-        api_params,
-        "sroffset",         # ← continuation key from the API
-        "search",           # ← key under raw["query"] holding results
+    # 3. Single request — the caller's limit controls how many results
+    raw = self._get(
+        self.language,
+        self._construct_params_standalone(api_params),
     )
 
-    # 4. Parse the full response
+    # 4. Parse the response
     return self._build_search_results(raw)
 ```
 
-**Continuation keys by submodule:**
-
-| Submodule   | Continue key | List key    |
-| ----------- | ------------ | ----------- |
-| `geosearch` | `gsoffset`   | `geosearch` |
-| `random`    | `rncontinue` | `random`    |
-| `search`    | `sroffset`   | `search`    |
-
-Find the continuation key in the MediaWiki API help docs for your module.
+> **⚠️ WARNING — Do NOT use `_dispatch_standalone_list` for standalone list
+> queries.**
+>
+> `_dispatch_standalone_list` paginates by looping while the API returns a
+> `continue` token. This causes **infinite loops** or near-infinite loops
+> for standalone list queries:
+>
+> - **`random`** — the API _always_ returns a `continue` token (there are
+>   always more random pages), so the loop never terminates.
+> - **`search`** — broad queries match thousands of pages; the loop would
+>   make thousands of API calls before exhausting all results.
+> - **`geosearch`** — densely populated areas can produce very long
+>   continuation chains.
+>
+> The caller's `limit` parameter already tells the MediaWiki API how many
+> results to return in a single response. **Always use a single `_get` /
+> `await self._get` call** for these methods.
+>
+> `_dispatch_standalone_list` exists in the codebase but is currently
+> unused. It should only be used if you genuinely need to exhaust _all_
+> results from a list query (and even then, add a safeguard).
 
 ---
 
@@ -418,16 +428,17 @@ async def search(self, query: str, *, ...) -> SearchResults:
     """Async: Search Wikipedia."""
     params = SearchParams(...)
     api_params = self._search_api_params(params)
-    raw = await self._async_dispatch_standalone_list(  # ← async helper
-        self.language, api_params, "sroffset", "search",
+    # Single request — same as sync, just with await
+    raw = await self._get(
+        self.language,
+        self._construct_params_standalone(api_params),
     )
     return self._build_search_results(raw)
 ```
 
 **🚨 CRITICAL:** The sync and async methods MUST have identical signatures
 (same parameter names, types, defaults, return type). Only the dispatch calls
-differ (`self._get` vs `await self._get`, `_dispatch_standalone_list` vs
-`await _async_dispatch_standalone_list`).
+differ (`self._get(...)` vs `await self._get(...)` ).
 
 ---
 

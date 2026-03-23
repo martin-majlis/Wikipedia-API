@@ -345,12 +345,21 @@ Current mapping:
   (cursor: ``cocontinue``, uses ``_dispatch_prop_paginated`` internally)
 * ``images`` → custom per-page dispatch with per-parameter caching
   (cursor: ``imcontinue``)
-* ``geosearch`` → ``_dispatch_standalone_list`` (cursor: ``gsoffset``,
-  list key: ``geosearch``)
-* ``random`` → ``_dispatch_standalone_list`` (cursor: ``rncontinue``,
-  list key: ``random``)
-* ``search`` → ``_dispatch_standalone_list`` (cursor: ``sroffset``,
-  list key: ``search``)
+* ``geosearch`` → single ``_get`` call (no pagination)
+* ``random`` → single ``_get`` call (no pagination)
+* ``search`` → single ``_get`` call (no pagination)
+
+.. warning::
+
+   ``geosearch``, ``random``, and ``search`` deliberately bypass
+   ``_dispatch_standalone_list`` and make a **single API request**.
+   The caller's ``limit`` parameter already tells the MediaWiki API
+   how many results to return.  Using the paginating dispatcher would
+   cause an infinite loop for ``random`` (the API always offers more
+   random pages) and near-infinite loops for ``search`` and
+   ``geosearch`` (broad queries can match thousands of pages).
+   Only use ``_dispatch_standalone_list`` for list queries where
+   exhaustive fetching is the desired behaviour.
 
 
 Request Lifecycle

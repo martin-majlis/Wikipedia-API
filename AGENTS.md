@@ -362,7 +362,22 @@ Ensure each of the following files accurately reflects the change:
 Both files serve as living documentation and must exercise every
 publicly available method and attribute.
 
-### 3. Update tests
+### 3. Update the CLI tool
+
+Whenever the public API of `Wikipedia` or `AsyncWikipedia` changes
+(new methods, renamed parameters, changed return types), the
+command-line interface and its tests **must** be updated in lockstep:
+
+- **`wikipediaapi/cli.py`** — add or update CLI commands and their
+  helper functions to expose the new or changed API functionality.
+- **`tests/cli/test_cli.sh`** — add new test entries to the `TESTS`
+  array for every new command, then run `make run-test-cli-record` to
+  generate the expected output fixtures.
+- **`tests/cli_test.py`** — add or update unit tests for the CLI
+  helper functions (e.g. `get_*`, `format_*`).
+- **`CLI.rst`** — document new commands, options, and examples.
+
+### 4. Update tests
 
 - Add or update unit tests in `tests/` for every new or modified code
   path.

@@ -1766,11 +1766,12 @@ class WikipediaResource(BaseWikipediaResource):
             primary=primary,
         )
         api_params = self._geosearch_api_params(params)
-        raw = self._dispatch_standalone_list(
+        # Single request: the caller's limit already controls how many
+        # results to return.  Paginating would keep fetching until every
+        # nearby page is exhausted.
+        raw = self._get(  # type: ignore[attr-defined]
             self.language,  # type: ignore[attr-defined]
-            api_params,
-            "gscontinue",
-            "geosearch",
+            self._construct_params_standalone(api_params),
         )
         return self._build_geosearch_results(raw.get("query", {}))
 
@@ -1872,11 +1873,12 @@ class WikipediaResource(BaseWikipediaResource):
             qi_profile=qi_profile,
         )
         api_params = self._search_api_params(params)
-        raw = self._dispatch_standalone_list(
+        # Single request: the caller's limit already controls how many
+        # results to return.  Paginating would keep fetching until every
+        # matching page is exhausted (thousands of API calls).
+        raw = self._get(  # type: ignore[attr-defined]
             self.language,  # type: ignore[attr-defined]
-            api_params,
-            "sroffset",
-            "search",
+            self._construct_params_standalone(api_params),
         )
         return self._build_search_results(raw)
 
@@ -2407,11 +2409,12 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             primary=primary,
         )
         api_params = self._geosearch_api_params(params)
-        raw = await self._async_dispatch_standalone_list(
+        # Single request: the caller's limit already controls how many
+        # results to return.  Paginating would keep fetching until every
+        # nearby page is exhausted.
+        raw = await self._get(  # type: ignore[attr-defined]
             self.language,  # type: ignore[attr-defined]
-            api_params,
-            "gscontinue",
-            "geosearch",
+            self._construct_params_standalone(api_params),
         )
         return self._build_geosearch_results(raw.get("query", {}))
 
@@ -2501,11 +2504,12 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             qi_profile=qi_profile,
         )
         api_params = self._search_api_params(params)
-        raw = await self._async_dispatch_standalone_list(
+        # Single request: the caller's limit already controls how many
+        # results to return.  Paginating would keep fetching until every
+        # matching page is exhausted (thousands of API calls).
+        raw = await self._get(  # type: ignore[attr-defined]
             self.language,  # type: ignore[attr-defined]
-            api_params,
-            "sroffset",
-            "search",
+            self._construct_params_standalone(api_params),
         )
         return self._build_search_results(raw)
 
