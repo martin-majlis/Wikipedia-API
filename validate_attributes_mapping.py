@@ -520,9 +520,9 @@ def compare_with_reference(
     # Compare attribute mappings for common properties
     common_properties = test_properties & reference_properties
 
+    mismatches: dict[str, Any] = comparison["attribute_mismatches"]
     for prop in common_properties:
         if "error" in test_results[prop]:
-            mismatches: dict[str, Any] = comparison["attribute_mismatches"]
             mismatches[prop] = {
                 "status": "error",
                 "error": test_results[prop]["error"],

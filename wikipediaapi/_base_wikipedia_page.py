@@ -98,6 +98,10 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
         "summary": ["extracts"],
         "text": ["extracts"],
         "sections": ["extracts"],
+        "coordinates": [],
+        "images": [],
+        "geosearch_meta": [],
+        "search_meta": [],
     }
 
     def __init__(

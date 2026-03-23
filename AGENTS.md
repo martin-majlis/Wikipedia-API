@@ -395,6 +395,13 @@ command-line interface and its tests **must** be updated in lockstep:
   symmetry is maintained for all API features.
 - Run the full suite and coverage check (see [Test](#test) below)
   before committing.
+- **Run `make run-validate-attributes-mappping`** whenever you add or
+  modify a property, method, or attribute on `WikipediaPage`,
+  `AsyncWikipediaPage`, `Wikipedia`, or `AsyncWikipedia`. This
+  validates that `ATTRIBUTES_MAPPING` in `_base_wikipedia_page.py` is
+  in sync with the actual page properties. If the script fails, add
+  the missing entries to `ATTRIBUTES_MAPPING` (use an empty list `[]`
+  for properties that use `_param_cache` instead of `_called`).
 
 ## Pre-release Check
 
