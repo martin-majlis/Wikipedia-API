@@ -1,0 +1,297 @@
+{
+"File:AYool topography 15min.png": {
+"title": "File:AYool topography 15min.png",
+"language": "en",
+"ns": 6
+},
+"File:Antarctic aurora ESA313457.jpg": {
+"title": "File:Antarctic aurora ESA313457.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Archean.png": {
+"title": "File:Archean.png",
+"language": "en",
+"ns": 6
+},
+"File:Axial tilt vs tropical and polar circles.svg": {
+"title": "File:Axial tilt vs tropical and polar circles.svg",
+"language": "en",
+"ns": 6
+},
+"File:BlackMarble20161km.jpg": {
+"title": "File:BlackMarble20161km.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Commons-logo.svg": {
+"title": "File:Commons-logo.svg",
+"language": "en",
+"ns": 6
+},
+"File:Crab Nebula.jpg": {
+"title": "File:Crab Nebula.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Cscr-featured.svg": {
+"title": "File:Cscr-featured.svg",
+"language": "en",
+"ns": 6
+},
+"File:Cumulus clouds in fair weather.jpeg": {
+"title": "File:Cumulus clouds in fair weather.jpeg",
+"language": "en",
+"ns": 6
+},
+"File:Debris-GEO1280.jpg": {
+"title": "File:Debris-GEO1280.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Earth Day Flag.png": {
+"title": "File:Earth Day Flag.png",
+"language": "en",
+"ns": 6
+},
+"File:Earth cutaway schematic-en.svg": {
+"title": "File:Earth cutaway schematic-en.svg",
+"language": "en",
+"ns": 6
+},
+"File:Earth heat flow.jpg": {
+"title": "File:Earth heat flow.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Earth symbol (bold).svg": {
+"title": "File:Earth symbol (bold).svg",
+"language": "en",
+"ns": 6
+},
+"File:Earth symbol (fixed width).svg": {
+"title": "File:Earth symbol (fixed width).svg",
+"language": "en",
+"ns": 6
+},
+"File:Earth-cutaway-schematic-english.svg": {
+"title": "File:Earth-cutaway-schematic-english.svg",
+"language": "en",
+"ns": 6
+},
+"File:Earth-moon.jpg": {
+"title": "File:Earth-moon.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Earth2014shape SouthAmerica small.jpg": {
+"title": "File:Earth2014shape SouthAmerica small.jpg",
+"language": "en",
+"ns": 6
+},
+"File:En-Earth-article.ogg": {
+"title": "File:En-Earth-article.ogg",
+"language": "en",
+"ns": 6
+},
+"File:EpicEarth-Globespin-tilt-23.4.gif": {
+"title": "File:EpicEarth-Globespin-tilt-23.4.gif",
+"language": "en",
+"ns": 6
+},
+"File:Flag of the United Nations.svg": {
+"title": "File:Flag of the United Nations.svg",
+"language": "en",
+"ns": 6
+},
+"File:Global Temperature And Forces With Fahrenheit.svg": {
+"title": "File:Global Temperature And Forces With Fahrenheit.svg",
+"language": "en",
+"ns": 6
+},
+"File:Global View of the Arctic and Antarctic.jpg": {
+"title": "File:Global View of the Arctic and Antarctic.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Global land use for food production, OWID statistic.png": {
+"title": "File:Global land use for food production, OWID statistic.png",
+"language": "en",
+"ns": 6
+},
+"File:Globus cruciger (bold).svg": {
+"title": "File:Globus cruciger (bold).svg",
+"language": "en",
+"ns": 6
+},
+"File:Globus cruciger (fixed width).svg": {
+"title": "File:Globus cruciger (fixed width).svg",
+"language": "en",
+"ns": 6
+},
+"File:Gnome-mime-sound-openclipart.svg": {
+"title": "File:Gnome-mime-sound-openclipart.svg",
+"language": "en",
+"ns": 6
+},
+"File:ISS-42 Waning sun.jpg": {
+"title": "File:ISS-42 Waning sun.jpg",
+"language": "en",
+"ns": 6
+},
+"File:IntertropicalConvergenceZone-EO.jpg": {
+"title": "File:IntertropicalConvergenceZone-EO.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Issoria lathonia.jpg": {
+"title": "File:Issoria lathonia.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Köppen-Geiger Climate Classification Map (1980–2016) no borders.png": {
+"title": "File:Köppen-Geiger Climate Classification Map (1980–2016) no borders.png",
+"language": "en",
+"ns": 6
+},
+"File:Magnetosphere Levels-en.svg": {
+"title": "File:Magnetosphere Levels-en.svg",
+"language": "en",
+"ns": 6
+},
+"File:MarsReconnaissanceOrbiter-Views-EarthMoon-20220422.jpg": {
+"title": "File:MarsReconnaissanceOrbiter-Views-EarthMoon-20220422.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Meteosat-12-fci-march-equinox-2025-noon.jpg": {
+"title": "File:Meteosat-12-fci-march-equinox-2025-noon.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Mollweide Cycle.gif": {
+"title": "File:Mollweide Cycle.gif",
+"language": "en",
+"ns": 6
+},
+"File:NASA-EarlyEarth-PaleOrangeDot-20190802.jpg": {
+"title": "File:NASA-EarlyEarth-PaleOrangeDot-20190802.jpg",
+"language": "en",
+"ns": 6
+},
+"File:OOjs UI icon edit-ltr-progressive.svg": {
+"title": "File:OOjs UI icon edit-ltr-progressive.svg",
+"language": "en",
+"ns": 6
+},
+"File:Ocean world Earth.jpg": {
+"title": "File:Ocean world Earth.jpg",
+"language": "en",
+"ns": 6
+},
+"File:People icon.svg": {
+"title": "File:People icon.svg",
+"language": "en",
+"ns": 6
+},
+"File:Red Giant Earth warm.jpg": {
+"title": "File:Red Giant Earth warm.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Seasons1.svg": {
+"title": "File:Seasons1.svg",
+"language": "en",
+"ns": 6
+},
+"File:Semi-protection-shackle.svg": {
+"title": "File:Semi-protection-shackle.svg",
+"language": "en",
+"ns": 6
+},
+"File:Solar System Template 2.png": {
+"title": "File:Solar System Template 2.png",
+"language": "en",
+"ns": 6
+},
+"File:Solar system.jpg": {
+"title": "File:Solar system.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Spaccato vulcano.svg": {
+"title": "File:Spaccato vulcano.svg",
+"language": "en",
+"ns": 6
+},
+"File:Symbol category class.svg": {
+"title": "File:Symbol category class.svg",
+"language": "en",
+"ns": 6
+},
+"File:Symbol portal class.svg": {
+"title": "File:Symbol portal class.svg",
+"language": "en",
+"ns": 6
+},
+"File:Tectonic plates (empty).svg": {
+"title": "File:Tectonic plates (empty).svg",
+"language": "en",
+"ns": 6
+},
+"File:Terra.png": {
+"title": "File:Terra.png",
+"language": "en",
+"ns": 6
+},
+"File:The Blue Marble, AS17-148-22727.jpg": {
+"title": "File:The Blue Marble, AS17-148-22727.jpg",
+"language": "en",
+"ns": 6
+},
+"File:The Earth seen from Apollo 17 with transparent background.png": {
+"title": "File:The Earth seen from Apollo 17 with transparent background.png",
+"language": "en",
+"ns": 6
+},
+"File:The Mysterious Case of the Disappearing Dust.jpg": {
+"title": "File:The Mysterious Case of the Disappearing Dust.jpg",
+"language": "en",
+"ns": 6
+},
+"File:WikiProject Geology.svg": {
+"title": "File:WikiProject Geology.svg",
+"language": "en",
+"ns": 6
+},
+"File:Wikibooks-logo.svg": {
+"title": "File:Wikibooks-logo.svg",
+"language": "en",
+"ns": 6
+},
+"File:Wikinews-logo.svg": {
+"title": "File:Wikinews-logo.svg",
+"language": "en",
+"ns": 6
+},
+"File:Wikiquote-logo.svg": {
+"title": "File:Wikiquote-logo.svg",
+"language": "en",
+"ns": 6
+},
+"File:Wikisource-logo.svg": {
+"title": "File:Wikisource-logo.svg",
+"language": "en",
+"ns": 6
+},
+"File:Wikiversity logo 2017.svg": {
+"title": "File:Wikiversity logo 2017.svg",
+"language": "en",
+"ns": 6
+},
+"File:Wiktionary-logo-v2.svg": {
+"title": "File:Wiktionary-logo-v2.svg",
+"language": "en",
+"ns": 6
+}
+}

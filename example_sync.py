@@ -319,3 +319,87 @@ print("ZH-TW:", zh_page_tw.title, "— variant:", zh_page_tw.variant)
 wiki_zh_sg = wikipediaapi.Wikipedia(user_agent=user_agent, language="zh", variant="zh-sg")
 zh_page_sg = wiki_zh_sg.page("Python")
 print("ZH-SG:", zh_page_sg.title, "— variant:", zh_page_sg.variant)
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 12. Coordinates (prop=coordinates)
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Fetch geographic coordinates for a page (default: primary only)
+london = wiki.page("London")
+coords = wiki.coordinates(london)
+print(f"London coordinates ({len(coords)}):")
+for c in coords:
+    print(f"  lat={c.lat}, lon={c.lon}, primary={c.primary}, globe={c.globe}")
+
+# Fetch all coordinates (primary + secondary) with custom params
+coords_all = wiki.coordinates(london, primary="all")
+print(f"London all coordinates: {len(coords_all)}")
+
+# Page-level property (uses default params, triggers fetch on first access)
+coords_prop = london.coordinates
+print(f"London coords via property: {len(coords_prop)}")
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 13. Images (prop=images)
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Fetch images/files used on a page
+imgs = wiki.images(london)
+print(f"London images ({len(imgs)}):")
+for title in sorted(imgs)[:5]:
+    print(f"  {title}")
+
+# Page-level property
+imgs_prop = london.images
+print(f"London images via property: {len(imgs_prop)}")
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 14. Geosearch (list=geosearch)
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Find pages near a geographic point
+results = wiki.geosearch(coord="51.5074|-0.1278", radius=1000, limit=5)
+print(f"Geosearch results ({len(results)}):")
+for title, p in results.items():
+    meta = p.geosearch_meta
+    if meta:
+        print(f"  {title}: dist={meta.dist:.1f}m, lat={meta.lat}, lon={meta.lon}")
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 15. Random pages (list=random)
+# ──────────────────────────────────────────────────────────────────────────────
+
+random_pages = wiki.random(limit=3)
+print(f"Random pages ({len(random_pages)}):")
+for title in random_pages:
+    print(f"  {title}")
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 16. Search (list=search)
+# ──────────────────────────────────────────────────────────────────────────────
+
+search_results = wiki.search("Python programming", limit=5)
+print(f"Search: {search_results.totalhits} total hits, suggestion={search_results.suggestion}")
+print(f"Search results ({len(search_results.pages)}):")
+for title, p in search_results.pages.items():
+    meta = p.search_meta
+    if meta:
+        print(f"  {title}: size={meta.size}, wordcount={meta.wordcount}")
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 17. Batch methods and PagesDict
+# ──────────────────────────────────────────────────────────────────────────────
+
+# pages() creates a PagesDict of lazy page stubs
+pd = wiki.pages(["London", "Paris", "Berlin"])
+print(f"PagesDict: {len(pd)} pages")
+
+# Batch-fetch coordinates for all pages at once (efficient multi-title request)
+batch_coords = pd.coordinates()
+for title, coord_list in batch_coords.items():
+    print(f"  {title}: {len(coord_list)} coordinate(s)")
+
+# Batch-fetch images for all pages at once
+batch_imgs = pd.images()
+for title, img_dict in batch_imgs.items():
+    print(f"  {title}: {len(img_dict)} image(s)")

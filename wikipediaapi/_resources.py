@@ -6,10 +6,21 @@ from typing import Any, TYPE_CHECKING, TypeVar
 from urllib import parse
 
 from ._base_wikipedia_page import BaseWikipediaPage
+from ._base_wikipedia_page import NOT_CACHED
+from ._pages_dict import AsyncPagesDict
+from ._pages_dict import PagesDict
+from ._params import CoordinatesParams
+from ._params import GeoSearchParams
+from ._params import ImagesParams
+from ._params import RandomParams
+from ._params import SearchParams
+from ._types import Coordinate
+from ._types import GeoSearchMeta
+from ._types import SearchMeta
+from ._types import SearchResults
 from .extract_format import ExtractFormat
 from .namespace import Namespace
 from .namespace import WikiNamespace
-from .wikipedia_page import PagesDict
 from .wikipedia_page import WikipediaPage
 from .wikipedia_page_section import WikipediaPageSection
 
@@ -18,7 +29,6 @@ _PageP = TypeVar("_PageP", bound=BaseWikipediaPage)
 
 
 if TYPE_CHECKING:
-    from .async_wikipedia_page import AsyncPagesDict
     from .async_wikipedia_page import AsyncWikipediaPage
 
 RE_SECTION = {
@@ -107,6 +117,25 @@ class BaseWikipediaResource(ABC):
             variant=variant,
             url=url,
         )
+
+    @staticmethod
+    def _build_normalization_map(raw: dict[str, Any]) -> dict[str, str]:
+        """Build a mapping from normalized titles back to original titles.
+
+        MediaWiki normalizes titles (e.g. ``Test_1`` → ``Test 1``).
+        This method reads the ``normalized`` block from a raw API response
+        and returns ``{normalized_title: original_title}``.
+
+        Args:
+            raw: Full raw API response dict.
+
+        Returns:
+            Mapping from normalized title to original title.
+        """
+        norm_map: dict[str, str] = {}
+        for entry in raw.get("query", {}).get("normalized", []):
+            norm_map[entry["to"]] = entry["from"]
+        return norm_map
 
     @staticmethod
     def _common_attributes(extract: Any, page: "BaseWikipediaPage[Any]") -> None:
@@ -812,6 +841,371 @@ class BaseWikipediaResource(ABC):
             "cmlimit": 500,
         }
 
+    def _construct_params_standalone(self, params: dict[str, Any]) -> dict[str, Any]:
+        """Merge caller-supplied params with mandatory API defaults (no page needed).
+
+        Used for list queries (geosearch, random, search) that are not tied
+        to a specific page.  Reads ``variant`` from the wiki client directly.
+
+        Args:
+            params: API-specific parameters produced by a ``_*_params`` method.
+
+        Returns:
+            Fully merged parameter dict ready to pass to ``_get``.
+        """
+        used_params: dict[str, Any] = {}
+        if self.variant:  # type: ignore[attr-defined]
+            used_params["variant"] = self.variant  # type: ignore[attr-defined]
+        used_params["format"] = "json"
+        used_params["redirects"] = 1
+        used_params.update(params)
+        if self._extra_api_params:  # type: ignore[attr-defined]
+            used_params.update(self._extra_api_params)  # type: ignore[attr-defined]
+        return used_params
+
+    def _coordinates_api_params(
+        self,
+        page: "BaseWikipediaPage[Any]",
+        params: CoordinatesParams,
+    ) -> dict[str, Any]:
+        """Build API params for ``prop=coordinates``.
+
+        Args:
+            page: Source page (provides ``title``).
+            params: Clean-named coordinate parameters.
+
+        Returns:
+            Params dict ready for dispatch.
+        """
+        api_params: dict[str, Any] = {
+            "action": "query",
+            "prop": "coordinates",
+            "titles": page.title,
+        }
+        api_params.update(params.to_api())
+        return api_params
+
+    def _images_api_params(
+        self,
+        page: "BaseWikipediaPage[Any]",
+        params: ImagesParams,
+    ) -> dict[str, Any]:
+        """Build API params for ``prop=images``.
+
+        Args:
+            page: Source page (provides ``title``).
+            params: Clean-named image parameters.
+
+        Returns:
+            Params dict ready for dispatch.
+        """
+        api_params: dict[str, Any] = {
+            "action": "query",
+            "prop": "images",
+            "titles": page.title,
+        }
+        api_params.update(params.to_api())
+        return api_params
+
+    def _geosearch_api_params(self, params: GeoSearchParams) -> dict[str, Any]:
+        """Build API params for ``list=geosearch``.
+
+        Args:
+            params: Clean-named geosearch parameters.
+
+        Returns:
+            Params dict ready for standalone dispatch.
+        """
+        api_params: dict[str, Any] = {
+            "action": "query",
+            "list": "geosearch",
+        }
+        api_params.update(params.to_api())
+        return api_params
+
+    def _random_api_params(self, params: RandomParams) -> dict[str, Any]:
+        """Build API params for ``list=random``.
+
+        Args:
+            params: Clean-named random parameters.
+
+        Returns:
+            Params dict ready for standalone dispatch.
+        """
+        api_params: dict[str, Any] = {
+            "action": "query",
+            "list": "random",
+        }
+        api_params.update(params.to_api())
+        return api_params
+
+    def _search_api_params(self, params: SearchParams) -> dict[str, Any]:
+        """Build API params for ``list=search``.
+
+        Args:
+            params: Clean-named search parameters.
+
+        Returns:
+            Params dict ready for standalone dispatch.
+        """
+        api_params: dict[str, Any] = {
+            "action": "query",
+            "list": "search",
+        }
+        api_params.update(params.to_api())
+        return api_params
+
+    def _build_coordinates_for_page(
+        self,
+        extract: dict[str, Any],
+        page: "BaseWikipediaPage[Any]",
+        params: CoordinatesParams,
+    ) -> list[Coordinate]:
+        """Parse coordinates from a single page API response entry.
+
+        Builds :class:`Coordinate` objects from ``extract["coordinates"]``
+        and stores them in the page's per-param cache.
+
+        Args:
+            extract: Single page entry from ``raw["query"]["pages"]``.
+            page: Page object to populate in-place.
+            params: The parameters used for this fetch (for cache key).
+
+        Returns:
+            List of :class:`Coordinate` objects.
+        """
+        self._common_attributes(extract, page)
+        coords: list[Coordinate] = []
+        for raw_coord in extract.get("coordinates", []):
+            coords.append(
+                Coordinate(
+                    lat=float(raw_coord["lat"]),
+                    lon=float(raw_coord["lon"]),
+                    primary=raw_coord.get("primary", "") == "",
+                    globe=raw_coord.get("globe", "earth"),
+                    type=raw_coord.get("type"),
+                    name=raw_coord.get("name"),
+                    dim=raw_coord.get("dim"),
+                    country=raw_coord.get("country"),
+                    region=raw_coord.get("region"),
+                    dist=raw_coord.get("dist"),
+                )
+            )
+        page._set_cached("coordinates", params.cache_key(), coords)
+        return coords
+
+    def _build_images_for_page(
+        self,
+        extract: dict[str, Any],
+        page: "BaseWikipediaPage[Any]",
+        params: ImagesParams,
+    ) -> PagesDict:
+        """Parse images from a single page API response entry.
+
+        Builds a :class:`PagesDict` of stub pages from ``extract["images"]``
+        and stores it in the page's per-param cache.
+
+        Args:
+            extract: Single page entry from ``raw["query"]["pages"]``.
+            page: Page object to populate in-place.
+            params: The parameters used for this fetch (for cache key).
+
+        Returns:
+            :class:`PagesDict` keyed by image title.
+        """
+        self._common_attributes(extract, page)
+        result = PagesDict(wiki=self)
+        for img in extract.get("images", []):
+            result[img["title"]] = self._make_page(
+                title=img["title"],
+                ns=int(img.get("ns", 6)),
+                language=page.language,
+                variant=page.variant,
+            )
+        page._set_cached("images", params.cache_key(), result)
+        return result
+
+    def _build_geosearch_results(self, raw_query: dict[str, Any]) -> PagesDict:
+        """Parse geosearch list results into a PagesDict.
+
+        Creates :class:`WikipediaPage` stubs with pre-cached coordinates
+        and :class:`GeoSearchMeta` sub-objects.
+
+        Args:
+            raw_query: The ``raw["query"]`` dict containing ``"geosearch"`` list.
+
+        Returns:
+            :class:`PagesDict` keyed by page title.
+        """
+        result = PagesDict(wiki=self)
+        default_coords_key = CoordinatesParams().cache_key()
+        for entry in raw_query.get("geosearch", []):
+            p = self._make_page(
+                title=entry["title"],
+                ns=int(entry.get("ns", 0)),
+                language=self.language,  # type: ignore[attr-defined]
+                variant=self.variant,  # type: ignore[attr-defined]
+            )
+            p._attributes["pageid"] = entry.get("pageid", -1)
+            is_primary = entry.get("primary", "") == ""
+            lat = float(entry.get("lat", 0))
+            lon = float(entry.get("lon", 0))
+            dist = float(entry.get("dist", 0))
+            p._geosearch_meta = GeoSearchMeta(dist=dist, lat=lat, lon=lon, primary=is_primary)
+            coord = Coordinate(lat=lat, lon=lon, primary=is_primary, globe="earth")
+            p._set_cached("coordinates", default_coords_key, [coord])
+            result[entry["title"]] = p
+        return result
+
+    def _build_random_results(self, raw_query: dict[str, Any]) -> PagesDict:
+        """Parse random list results into a PagesDict.
+
+        Creates :class:`WikipediaPage` stubs with ``pageid`` pre-set.
+
+        Args:
+            raw_query: The ``raw["query"]`` dict containing ``"random"`` list.
+
+        Returns:
+            :class:`PagesDict` keyed by page title.
+        """
+        result = PagesDict(wiki=self)
+        for entry in raw_query.get("random", []):
+            p = self._make_page(
+                title=entry["title"],
+                ns=int(entry.get("ns", 0)),
+                language=self.language,  # type: ignore[attr-defined]
+                variant=self.variant,  # type: ignore[attr-defined]
+            )
+            p._attributes["pageid"] = entry.get("id", -1)
+            result[entry["title"]] = p
+        return result
+
+    def _build_search_results(
+        self,
+        raw: dict[str, Any],
+    ) -> SearchResults:
+        """Parse search list results into a SearchResults wrapper.
+
+        Creates :class:`WikipediaPage` stubs with :class:`SearchMeta`
+        sub-objects and extracts aggregate metadata (totalhits, suggestion).
+
+        Args:
+            raw: The full API response dict.
+
+        Returns:
+            :class:`SearchResults` with pages, totalhits, and suggestion.
+        """
+        pages = PagesDict(wiki=self)
+        raw_query = raw.get("query", {})
+        for entry in raw_query.get("search", []):
+            p = self._make_page(
+                title=entry["title"],
+                ns=int(entry.get("ns", 0)),
+                language=self.language,  # type: ignore[attr-defined]
+                variant=self.variant,  # type: ignore[attr-defined]
+            )
+            p._attributes["pageid"] = entry.get("pageid", -1)
+            p._search_meta = SearchMeta(
+                snippet=entry.get("snippet", ""),
+                size=int(entry.get("size", 0)),
+                wordcount=int(entry.get("wordcount", 0)),
+                timestamp=entry.get("timestamp", ""),
+            )
+            pages[entry["title"]] = p
+
+        searchinfo = raw_query.get("searchinfo", {})
+        totalhits = int(searchinfo.get("totalhits", 0))
+        suggestion = searchinfo.get("suggestion")
+
+        return SearchResults(
+            pages=pages,
+            totalhits=totalhits,
+            suggestion=suggestion,
+        )
+
+    def _dispatch_standalone_list(
+        self,
+        language: str,
+        params: dict[str, Any],
+        continue_key: str,
+        list_key: str,
+    ) -> dict[str, Any]:
+        """Execute a standalone list-query with pagination (synchronous).
+
+        Unlike :meth:`_dispatch_list`, this does not require a page parameter.
+        Used for ``geosearch``, ``random``, and ``search``.
+
+        Args:
+            language: Language code for the API endpoint URL.
+            params: Initial API params (mutated for continuation).
+            continue_key: API continuation parameter name.
+            list_key: Key under ``raw["query"]`` holding the list.
+
+        Returns:
+            The full ``raw["query"]`` dict with all pages merged.
+
+        Raises:
+            WikiHttpTimeoutError: If the request times out.
+            WikiConnectionError: If a connection cannot be established.
+            WikiRateLimitError: If the API returns HTTP 429.
+            WikiHttpError: If the API returns a non-success HTTP status.
+            WikiInvalidJsonError: If the response is not valid JSON.
+
+        Invariants:
+            Must only be called on a :class:`WikipediaResource` instance.
+        """
+        raw = self._get(  # type: ignore[attr-defined]
+            language, self._construct_params_standalone(params)
+        )
+        v = raw.get("query", {})
+        while "continue" in raw:
+            params[continue_key] = raw["continue"][continue_key]
+            raw = self._get(  # type: ignore[attr-defined]
+                language, self._construct_params_standalone(params)
+            )
+            v[list_key] = v.get(list_key, []) + raw.get("query", {}).get(list_key, [])
+        return raw  # type: ignore[no-any-return]
+
+    async def _async_dispatch_standalone_list(
+        self,
+        language: str,
+        params: dict[str, Any],
+        continue_key: str,
+        list_key: str,
+    ) -> dict[str, Any]:
+        """Async version of :meth:`_dispatch_standalone_list`.
+
+        Args:
+            language: Language code for the API endpoint URL.
+            params: Initial API params (mutated for continuation).
+            continue_key: API continuation parameter name.
+            list_key: Key under ``raw["query"]`` holding the list.
+
+        Returns:
+            The full raw API response with all pages merged.
+
+        Raises:
+            WikiHttpTimeoutError: If the request times out.
+            WikiConnectionError: If a connection cannot be established.
+            WikiRateLimitError: If the API returns HTTP 429.
+            WikiHttpError: If the API returns a non-success HTTP status.
+            WikiInvalidJsonError: If the response is not valid JSON.
+
+        Invariants:
+            Must only be called on an :class:`AsyncWikipediaResource` instance.
+        """
+        raw = await self._get(  # type: ignore[attr-defined]
+            language, self._construct_params_standalone(params)
+        )
+        v = raw.get("query", {})
+        while "continue" in raw:
+            params[continue_key] = raw["continue"][continue_key]
+            raw = await self._get(  # type: ignore[attr-defined]
+                language, self._construct_params_standalone(params)
+            )
+            v[list_key] = v.get(list_key, []) + raw.get("query", {}).get(list_key, [])
+        return raw  # type: ignore[no-any-return]
+
 
 class WikipediaResource(BaseWikipediaResource):
     """
@@ -956,8 +1350,11 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return self._dispatch_prop(
-            page, self._langlinks_params(page, **kwargs), {}, self._build_langlinks
+        return self._dispatch_prop(  # type: ignore[return-value]
+            page,
+            self._langlinks_params(page, **kwargs),
+            {},
+            self._build_langlinks,  # type: ignore[arg-type]
         )
 
     def links(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
@@ -983,7 +1380,7 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return self._dispatch_prop_paginated(
+        return self._dispatch_prop_paginated(  # type: ignore[return-value]
             page, {**self._links_params(page), **kwargs}, "plcontinue", "links", self._build_links
         )
 
@@ -1010,7 +1407,7 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return self._dispatch_list(
+        return self._dispatch_list(  # type: ignore[return-value]
             page,
             {**self._backlinks_params(page), **kwargs},
             "blcontinue",
@@ -1040,8 +1437,11 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return self._dispatch_prop(
-            page, self._categories_params(page, **kwargs), {}, self._build_categories
+        return self._dispatch_prop(  # type: ignore[return-value]
+            page,
+            self._categories_params(page, **kwargs),
+            {},
+            self._build_categories,  # type: ignore[arg-type]
         )
 
     def categorymembers(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
@@ -1067,13 +1467,437 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return self._dispatch_list(
+        return self._dispatch_list(  # type: ignore[return-value]
             page,
             {**self._categorymembers_params(page), **kwargs},
             "cmcontinue",
             "categorymembers",
             self._build_categorymembers,
         )
+
+    def coordinates(
+        self,
+        page: WikipediaPage,
+        *,
+        limit: int = 10,
+        primary: str = "primary",
+        prop: str = "globe",
+        distance_from_point: str | None = None,
+        distance_from_page: str | None = None,
+    ) -> list[Coordinate]:
+        """Fetch geographic coordinates for a page.
+
+        Calls ``prop=coordinates`` with the given parameters and caches
+        the result per parameter set.  ``page.coordinates`` (the property)
+        calls this with defaults.
+
+        API reference:
+
+        - https://www.mediawiki.org/wiki/Extension:GeoData#prop.3Dcoordinates
+
+        Args:
+            page: Page to fetch coordinates for.
+            limit: Maximum coordinates to return (1–500).
+            primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
+            prop: Additional properties, pipe-separated.
+            distance_from_point: Reference point as ``"lat|lon"``.
+            distance_from_page: Reference page title.
+
+        Returns:
+            List of :class:`Coordinate` objects; empty list if page missing.
+
+        Raises:
+            WikiHttpTimeoutError: If the request times out.
+            WikiConnectionError: If a connection cannot be established.
+            WikiRateLimitError: If the API returns HTTP 429.
+            WikiHttpError: If the API returns a non-success HTTP status.
+            WikiInvalidJsonError: If the response is not valid JSON.
+        """
+        params = CoordinatesParams(
+            limit=limit,
+            primary=primary,
+            prop=prop,
+            distance_from_point=distance_from_point,
+            distance_from_page=distance_from_page,
+        )
+        cached = page._get_cached("coordinates", params.cache_key())
+        if not isinstance(cached, type(NOT_CACHED)):
+            return cached  # type: ignore[no-any-return]
+        api_params = self._coordinates_api_params(page, params)
+        raw = self._get(  # type: ignore[attr-defined]
+            page.language, self._construct_params(page, api_params)
+        )
+        self._common_attributes(raw.get("query", {}), page)
+        for k, v in raw.get("query", {}).get("pages", {}).items():
+            if k == "-1":
+                page._attributes["pageid"] = -1
+                page._set_cached("coordinates", params.cache_key(), [])
+                return []
+            return self._build_coordinates_for_page(v, page, params)
+        page._set_cached("coordinates", params.cache_key(), [])
+        return []
+
+    def batch_coordinates(
+        self,
+        pages: list[WikipediaPage],
+        *,
+        limit: int = 10,
+        primary: str = "primary",
+        prop: str = "globe",
+        distance_from_point: str | None = None,
+        distance_from_page: str | None = None,
+    ) -> dict[str, list[Coordinate]]:
+        """Batch-fetch coordinates for multiple pages.
+
+        Sends multi-title API requests (up to 50 titles per request)
+        and distributes results to each page's cache.
+
+        Args:
+            pages: List of pages to fetch coordinates for.
+            limit: Maximum coordinates per page (1–500).
+            primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
+            prop: Additional properties, pipe-separated.
+            distance_from_point: Reference point as ``"lat|lon"``.
+            distance_from_page: Reference page title.
+
+        Returns:
+            ``{title: [Coordinate, ...]}`` for every page.
+        """
+        params = CoordinatesParams(
+            limit=limit,
+            primary=primary,
+            prop=prop,
+            distance_from_point=distance_from_point,
+            distance_from_page=distance_from_page,
+        )
+        result: dict[str, list[Coordinate]] = {}
+        page_map = {p.title: p for p in pages}
+        for i in range(0, len(pages), 50):
+            chunk = pages[i : i + 50]
+            titles = "|".join(p.title for p in chunk)
+            api_params: dict[str, Any] = {
+                "action": "query",
+                "prop": "coordinates",
+                "titles": titles,
+            }
+            api_params.update(params.to_api())
+            dummy_page = chunk[0]
+            raw = self._get(  # type: ignore[attr-defined]
+                dummy_page.language, self._construct_params(dummy_page, api_params)
+            )
+            norm_map = self._build_normalization_map(raw)
+            for _k, v in raw.get("query", {}).get("pages", {}).items():
+                title = v.get("title", "")
+                orig = norm_map.get(title, title)
+                p = page_map.get(orig) or page_map.get(title)
+                if p is not None:
+                    coords = self._build_coordinates_for_page(v, p, params)
+                    result[title] = coords
+        for p in pages:
+            if p.title not in result:
+                result[p.title] = []
+        return result
+
+    def images(
+        self,
+        page: WikipediaPage,
+        *,
+        limit: int = 10,
+        images: str | None = None,
+        direction: str = "ascending",
+    ) -> PagesDict:
+        """Fetch images (files) used on a page.
+
+        Calls ``prop=images`` with automatic pagination and caches
+        the result per parameter set.
+
+        API reference:
+
+        - https://www.mediawiki.org/wiki/API:Images
+
+        Args:
+            page: Page to fetch images for.
+            limit: Maximum images to return (1–500).
+            images: Only list these specific images (pipe-separated).
+            direction: Sort direction: ``"ascending"`` or ``"descending"``.
+
+        Returns:
+            :class:`PagesDict` keyed by image title; empty if page missing.
+
+        Raises:
+            WikiHttpTimeoutError: If the request times out.
+            WikiConnectionError: If a connection cannot be established.
+            WikiRateLimitError: If the API returns HTTP 429.
+            WikiHttpError: If the API returns a non-success HTTP status.
+            WikiInvalidJsonError: If the response is not valid JSON.
+        """
+        params = ImagesParams(limit=limit, images=images, direction=direction)
+        cached = page._get_cached("images", params.cache_key())
+        if not isinstance(cached, type(NOT_CACHED)):
+            return cached  # type: ignore[no-any-return]
+        api_params = self._images_api_params(page, params)
+        raw = self._get(  # type: ignore[attr-defined]
+            page.language, self._construct_params(page, api_params)
+        )
+        self._common_attributes(raw.get("query", {}), page)
+        for k, v in raw.get("query", {}).get("pages", {}).items():
+            if k == "-1":
+                page._attributes["pageid"] = -1
+                empty = PagesDict(wiki=self)
+                page._set_cached("images", params.cache_key(), empty)
+                return empty
+            while "continue" in raw:
+                api_params["imcontinue"] = raw["continue"]["imcontinue"]
+                raw = self._get(  # type: ignore[attr-defined]
+                    page.language, self._construct_params(page, api_params)
+                )
+                v["images"] = v.get("images", []) + (
+                    raw.get("query", {}).get("pages", {}).get(k, {}).get("images", [])
+                )
+            return self._build_images_for_page(v, page, params)
+        empty = PagesDict(wiki=self)
+        page._set_cached("images", params.cache_key(), empty)
+        return empty
+
+    def batch_images(
+        self,
+        pages: list[WikipediaPage],
+        *,
+        limit: int = 10,
+        images: str | None = None,
+        direction: str = "ascending",
+    ) -> dict[str, PagesDict]:
+        """Batch-fetch images for multiple pages.
+
+        Sends multi-title API requests (up to 50 titles per request)
+        and distributes results to each page's cache.
+
+        Args:
+            pages: List of pages to fetch images for.
+            limit: Maximum images per page (1–500).
+            images: Only list these specific images (pipe-separated).
+            direction: Sort direction: ``"ascending"`` or ``"descending"``.
+
+        Returns:
+            ``{title: PagesDict}`` for every page.
+        """
+        params = ImagesParams(limit=limit, images=images, direction=direction)
+        result: dict[str, PagesDict] = {}
+        page_map = {p.title: p for p in pages}
+        for i in range(0, len(pages), 50):
+            chunk = pages[i : i + 50]
+            titles = "|".join(p.title for p in chunk)
+            api_params: dict[str, Any] = {
+                "action": "query",
+                "prop": "images",
+                "titles": titles,
+            }
+            api_params.update(params.to_api())
+            dummy_page = chunk[0]
+            raw = self._get(  # type: ignore[attr-defined]
+                dummy_page.language, self._construct_params(dummy_page, api_params)
+            )
+            norm_map = self._build_normalization_map(raw)
+            for _k, v in raw.get("query", {}).get("pages", {}).items():
+                title = v.get("title", "")
+                orig = norm_map.get(title, title)
+                p = page_map.get(orig) or page_map.get(title)
+                if p is not None:
+                    imgs = self._build_images_for_page(v, p, params)
+                    result[title] = imgs
+        for p in pages:
+            if p.title not in result:
+                result[p.title] = PagesDict(wiki=self)
+        return result
+
+    def geosearch(
+        self,
+        *,
+        coord: str | None = None,
+        page: str | None = None,
+        bbox: str | None = None,
+        radius: int = 500,
+        max_dim: int | None = None,
+        sort: str = "distance",
+        limit: int = 10,
+        globe: str = "earth",
+        namespace: int | None = None,
+        prop: str | None = None,
+        primary: str | None = None,
+    ) -> PagesDict:
+        """Search for pages with coordinates near a location.
+
+        Calls ``list=geosearch`` and returns :class:`WikipediaPage` stubs
+        with pre-cached coordinates and :class:`GeoSearchMeta` sub-objects.
+
+        At least one of ``coord``, ``page``, or ``bbox`` must be provided.
+
+        API reference:
+
+        - https://www.mediawiki.org/wiki/Extension:GeoData#list.3Dgeosearch
+
+        Args:
+            coord: Centre point as ``"lat|lon"``.
+            page: Title of page whose coordinates to use as centre.
+            bbox: Bounding box as ``"top_lat|left_lon|bottom_lat|right_lon"``.
+            radius: Search radius in meters (10–10000).
+            max_dim: Exclude objects larger than this many meters.
+            sort: Sort order: ``"distance"`` or ``"relevance"``.
+            limit: Maximum pages to return (1–500).
+            globe: Celestial body.
+            namespace: Restrict to this namespace number.
+            prop: Additional properties, pipe-separated.
+            primary: Which coordinates to consider.
+
+        Returns:
+            :class:`PagesDict` keyed by page title.
+        """
+        params = GeoSearchParams(
+            coord=coord,
+            page=page,
+            bbox=bbox,
+            radius=radius,
+            max_dim=max_dim,
+            sort=sort,
+            limit=limit,
+            globe=globe,
+            namespace=namespace,
+            prop=prop,
+            primary=primary,
+        )
+        api_params = self._geosearch_api_params(params)
+        raw = self._dispatch_standalone_list(
+            self.language,  # type: ignore[attr-defined]
+            api_params,
+            "gscontinue",
+            "geosearch",
+        )
+        return self._build_geosearch_results(raw.get("query", {}))
+
+    def random(
+        self,
+        *,
+        namespace: int | None = None,
+        filter_redirect: str = "nonredirects",
+        min_size: int | None = None,
+        max_size: int | None = None,
+        limit: int = 1,
+    ) -> PagesDict:
+        """Fetch a set of random pages.
+
+        Calls ``list=random`` and returns :class:`WikipediaPage` stubs
+        with ``pageid`` pre-set.
+
+        API reference:
+
+        - https://www.mediawiki.org/wiki/API:Random
+
+        Args:
+            namespace: Restrict to this namespace number.
+            filter_redirect: Redirect filter: ``"all"``, ``"nonredirects"``,
+                or ``"redirects"``.
+            min_size: Minimum page size in bytes.
+            max_size: Maximum page size in bytes.
+            limit: Number of random pages to return (1–500).
+
+        Returns:
+            :class:`PagesDict` keyed by page title.
+        """
+        params = RandomParams(
+            namespace=namespace,
+            filter_redirect=filter_redirect,
+            min_size=min_size,
+            max_size=max_size,
+            limit=limit,
+        )
+        api_params = self._random_api_params(params)
+        # Random never paginates: the API always returns a continue
+        # token (there are always more random pages), so using
+        # _dispatch_standalone_list would loop forever.
+        raw = self._get(  # type: ignore[attr-defined]
+            self.language,  # type: ignore[attr-defined]
+            self._construct_params_standalone(api_params),
+        )
+        return self._build_random_results(raw.get("query", {}))
+
+    def search(
+        self,
+        query: str,
+        *,
+        namespace: int = 0,
+        limit: int = 10,
+        prop: str | None = None,
+        info: str | None = None,
+        sort: str = "relevance",
+        what: str | None = None,
+        interwiki: bool = False,
+        enable_rewrites: bool = False,
+        qi_profile: str | None = None,
+    ) -> SearchResults:
+        """Perform a full-text search.
+
+        Calls ``list=search`` and returns a :class:`SearchResults` wrapper
+        containing :class:`WikipediaPage` stubs with :class:`SearchMeta`
+        sub-objects, plus aggregate metadata.
+
+        API reference:
+
+        - https://www.mediawiki.org/wiki/API:Search
+
+        Args:
+            query: Search string (required).
+            namespace: Namespace to search in.
+            limit: Maximum results to return (1–500).
+            prop: Properties to include, pipe-separated (deprecated upstream).
+            info: Metadata to return, pipe-separated.
+            sort: Sort order.
+            what: Search type: ``"title"``, ``"text"``, or ``"nearmatch"``.
+            interwiki: Include interwiki results.
+            enable_rewrites: Allow the backend to rewrite the query.
+            qi_profile: Query-independent ranking profile.
+
+        Returns:
+            :class:`SearchResults` with pages, totalhits, and suggestion.
+        """
+        params = SearchParams(
+            query=query,
+            namespace=namespace,
+            limit=limit,
+            prop=prop,
+            info=info,
+            sort=sort,
+            what=what,
+            interwiki=interwiki,
+            enable_rewrites=enable_rewrites,
+            qi_profile=qi_profile,
+        )
+        api_params = self._search_api_params(params)
+        raw = self._dispatch_standalone_list(
+            self.language,  # type: ignore[attr-defined]
+            api_params,
+            "sroffset",
+            "search",
+        )
+        return self._build_search_results(raw)
+
+    def pages(
+        self,
+        titles: list[str],
+        ns: WikiNamespace = Namespace.MAIN,
+    ) -> PagesDict:
+        """Create a :class:`PagesDict` of lazy page stubs.
+
+        No network call is made; each page fetches data on demand.
+
+        Args:
+            titles: List of page titles.
+            ns: Namespace for all pages; defaults to :attr:`Namespace.MAIN`.
+
+        Returns:
+            :class:`PagesDict` keyed by title.
+        """
+        data = {t: self.page(t, ns=ns) for t in titles}
+        return PagesDict(wiki=self, data=data)
 
 
 class AsyncWikipediaResource(BaseWikipediaResource):
@@ -1228,8 +2052,11 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return await self._async_dispatch_prop(
-            page, self._langlinks_params(page, **kwargs), {}, self._build_langlinks
+        return await self._async_dispatch_prop(  # type: ignore[return-value]
+            page,
+            self._langlinks_params(page, **kwargs),
+            {},  # type: ignore[arg-type]
+            self._build_langlinks,  # type: ignore[arg-type]
         )
 
     async def links(self, page: "AsyncWikipediaPage", **kwargs: Any) -> "AsyncPagesDict":
@@ -1248,7 +2075,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return await self._async_dispatch_prop_paginated(
+        return await self._async_dispatch_prop_paginated(  # type: ignore[return-value]
             page, {**self._links_params(page), **kwargs}, "plcontinue", "links", self._build_links
         )
 
@@ -1268,7 +2095,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return await self._async_dispatch_list(
+        return await self._async_dispatch_list(  # type: ignore[return-value]
             page,
             {**self._backlinks_params(page), **kwargs},
             "blcontinue",
@@ -1292,8 +2119,11 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return await self._async_dispatch_prop(
-            page, self._categories_params(page, **kwargs), {}, self._build_categories
+        return await self._async_dispatch_prop(  # type: ignore[return-value]
+            page,
+            self._categories_params(page, **kwargs),
+            {},  # type: ignore[arg-type]
+            self._build_categories,  # type: ignore[arg-type]
         )
 
     async def categorymembers(self, page: "AsyncWikipediaPage", **kwargs: Any) -> "AsyncPagesDict":
@@ -1312,10 +2142,388 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return await self._async_dispatch_list(
+        return await self._async_dispatch_list(  # type: ignore[return-value]
             page,
             {**self._categorymembers_params(page), **kwargs},
             "cmcontinue",
             "categorymembers",
             self._build_categorymembers,
         )
+
+    async def coordinates(
+        self,
+        page: "AsyncWikipediaPage",
+        *,
+        limit: int = 10,
+        primary: str = "primary",
+        prop: str = "globe",
+        distance_from_point: str | None = None,
+        distance_from_page: str | None = None,
+    ) -> list[Coordinate]:
+        """Async version of :meth:`WikipediaResource.coordinates`.
+
+        See :meth:`WikipediaResource.coordinates` for full documentation.
+
+        Args:
+            page: Page to fetch coordinates for.
+            limit: Maximum coordinates to return (1–500).
+            primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
+            prop: Additional properties, pipe-separated.
+            distance_from_point: Reference point as ``"lat|lon"``.
+            distance_from_page: Reference page title.
+
+        Returns:
+            List of :class:`Coordinate` objects; empty list if page missing.
+        """
+        params = CoordinatesParams(
+            limit=limit,
+            primary=primary,
+            prop=prop,
+            distance_from_point=distance_from_point,
+            distance_from_page=distance_from_page,
+        )
+        cached = page._get_cached("coordinates", params.cache_key())
+        if not isinstance(cached, type(NOT_CACHED)):
+            return cached  # type: ignore[no-any-return]
+        api_params = self._coordinates_api_params(page, params)
+        raw = await self._get(  # type: ignore[attr-defined]
+            page.language, self._construct_params(page, api_params)
+        )
+        self._common_attributes(raw.get("query", {}), page)
+        for k, v in raw.get("query", {}).get("pages", {}).items():
+            if k == "-1":
+                page._attributes["pageid"] = -1
+                page._set_cached("coordinates", params.cache_key(), [])
+                return []
+            return self._build_coordinates_for_page(v, page, params)
+        page._set_cached("coordinates", params.cache_key(), [])
+        return []
+
+    async def batch_coordinates(
+        self,
+        pages: list["AsyncWikipediaPage"],
+        *,
+        limit: int = 10,
+        primary: str = "primary",
+        prop: str = "globe",
+        distance_from_point: str | None = None,
+        distance_from_page: str | None = None,
+    ) -> dict[str, list[Coordinate]]:
+        """Async version of :meth:`WikipediaResource.batch_coordinates`.
+
+        See :meth:`WikipediaResource.batch_coordinates` for full documentation.
+
+        Args:
+            pages: List of pages to fetch coordinates for.
+            limit: Maximum coordinates per page (1–500).
+            primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
+            prop: Additional properties, pipe-separated.
+            distance_from_point: Reference point as ``"lat|lon"``.
+            distance_from_page: Reference page title.
+
+        Returns:
+            ``{title: [Coordinate, ...]}`` for every page.
+        """
+        params = CoordinatesParams(
+            limit=limit,
+            primary=primary,
+            prop=prop,
+            distance_from_point=distance_from_point,
+            distance_from_page=distance_from_page,
+        )
+        result: dict[str, list[Coordinate]] = {}
+        page_map = {p.title: p for p in pages}
+        for i in range(0, len(pages), 50):
+            chunk = pages[i : i + 50]
+            titles = "|".join(p.title for p in chunk)
+            api_params: dict[str, Any] = {
+                "action": "query",
+                "prop": "coordinates",
+                "titles": titles,
+            }
+            api_params.update(params.to_api())
+            dummy_page = chunk[0]
+            raw = await self._get(  # type: ignore[attr-defined]
+                dummy_page.language, self._construct_params(dummy_page, api_params)
+            )
+            norm_map = self._build_normalization_map(raw)
+            for _k, v in raw.get("query", {}).get("pages", {}).items():
+                title = v.get("title", "")
+                orig = norm_map.get(title, title)
+                p = page_map.get(orig) or page_map.get(title)
+                if p is not None:
+                    coords = self._build_coordinates_for_page(v, p, params)
+                    result[title] = coords
+        for p in pages:
+            if p.title not in result:
+                result[p.title] = []
+        return result
+
+    async def images(
+        self,
+        page: "AsyncWikipediaPage",
+        *,
+        limit: int = 10,
+        images: str | None = None,
+        direction: str = "ascending",
+    ) -> PagesDict:
+        """Async version of :meth:`WikipediaResource.images`.
+
+        See :meth:`WikipediaResource.images` for full documentation.
+
+        Args:
+            page: Page to fetch images for.
+            limit: Maximum images to return (1–500).
+            images: Only list these specific images (pipe-separated).
+            direction: Sort direction: ``"ascending"`` or ``"descending"``.
+
+        Returns:
+            :class:`PagesDict` keyed by image title; empty if page missing.
+        """
+        params = ImagesParams(limit=limit, images=images, direction=direction)
+        cached = page._get_cached("images", params.cache_key())
+        if not isinstance(cached, type(NOT_CACHED)):
+            return cached  # type: ignore[no-any-return]
+        api_params = self._images_api_params(page, params)
+        raw = await self._get(  # type: ignore[attr-defined]
+            page.language, self._construct_params(page, api_params)
+        )
+        self._common_attributes(raw.get("query", {}), page)
+        for k, v in raw.get("query", {}).get("pages", {}).items():
+            if k == "-1":
+                page._attributes["pageid"] = -1
+                empty_pd: PagesDict = PagesDict(wiki=self)
+                page._set_cached("images", params.cache_key(), empty_pd)
+                return empty_pd
+            while "continue" in raw:
+                api_params["imcontinue"] = raw["continue"]["imcontinue"]
+                raw = await self._get(  # type: ignore[attr-defined]
+                    page.language, self._construct_params(page, api_params)
+                )
+                v["images"] = v.get("images", []) + (
+                    raw.get("query", {}).get("pages", {}).get(k, {}).get("images", [])
+                )
+            return self._build_images_for_page(v, page, params)
+        empty_pd = PagesDict(wiki=self)
+        page._set_cached("images", params.cache_key(), empty_pd)
+        return empty_pd
+
+    async def batch_images(
+        self,
+        pages: list["AsyncWikipediaPage"],
+        *,
+        limit: int = 10,
+        images: str | None = None,
+        direction: str = "ascending",
+    ) -> dict[str, PagesDict]:
+        """Async version of :meth:`WikipediaResource.batch_images`.
+
+        See :meth:`WikipediaResource.batch_images` for full documentation.
+
+        Args:
+            pages: List of pages to fetch images for.
+            limit: Maximum images per page (1–500).
+            images: Only list these specific images (pipe-separated).
+            direction: Sort direction: ``"ascending"`` or ``"descending"``.
+
+        Returns:
+            ``{title: PagesDict}`` for every page.
+        """
+        params = ImagesParams(limit=limit, images=images, direction=direction)
+        result: dict[str, PagesDict] = {}
+        page_map = {p.title: p for p in pages}
+        for i in range(0, len(pages), 50):
+            chunk = pages[i : i + 50]
+            titles = "|".join(p.title for p in chunk)
+            api_params: dict[str, Any] = {
+                "action": "query",
+                "prop": "images",
+                "titles": titles,
+            }
+            api_params.update(params.to_api())
+            dummy_page = chunk[0]
+            raw = await self._get(  # type: ignore[attr-defined]
+                dummy_page.language, self._construct_params(dummy_page, api_params)
+            )
+            norm_map = self._build_normalization_map(raw)
+            for _k, v in raw.get("query", {}).get("pages", {}).items():
+                title = v.get("title", "")
+                orig = norm_map.get(title, title)
+                p = page_map.get(orig) or page_map.get(title)
+                if p is not None:
+                    imgs = self._build_images_for_page(v, p, params)
+                    result[title] = imgs
+        for p in pages:
+            if p.title not in result:
+                result[p.title] = PagesDict(wiki=self)
+        return result
+
+    async def geosearch(
+        self,
+        *,
+        coord: str | None = None,
+        page: str | None = None,
+        bbox: str | None = None,
+        radius: int = 500,
+        max_dim: int | None = None,
+        sort: str = "distance",
+        limit: int = 10,
+        globe: str = "earth",
+        namespace: int | None = None,
+        prop: str | None = None,
+        primary: str | None = None,
+    ) -> PagesDict:
+        """Async version of :meth:`WikipediaResource.geosearch`.
+
+        See :meth:`WikipediaResource.geosearch` for full documentation.
+
+        Args:
+            coord: Centre point as ``"lat|lon"``.
+            page: Title of page whose coordinates to use as centre.
+            bbox: Bounding box as ``"top_lat|left_lon|bottom_lat|right_lon"``.
+            radius: Search radius in meters (10–10000).
+            max_dim: Exclude objects larger than this many meters.
+            sort: Sort order: ``"distance"`` or ``"relevance"``.
+            limit: Maximum pages to return (1–500).
+            globe: Celestial body.
+            namespace: Restrict to this namespace number.
+            prop: Additional properties, pipe-separated.
+            primary: Which coordinates to consider.
+
+        Returns:
+            :class:`PagesDict` keyed by page title.
+        """
+        params = GeoSearchParams(
+            coord=coord,
+            page=page,
+            bbox=bbox,
+            radius=radius,
+            max_dim=max_dim,
+            sort=sort,
+            limit=limit,
+            globe=globe,
+            namespace=namespace,
+            prop=prop,
+            primary=primary,
+        )
+        api_params = self._geosearch_api_params(params)
+        raw = await self._async_dispatch_standalone_list(
+            self.language,  # type: ignore[attr-defined]
+            api_params,
+            "gscontinue",
+            "geosearch",
+        )
+        return self._build_geosearch_results(raw.get("query", {}))
+
+    async def random(
+        self,
+        *,
+        namespace: int | None = None,
+        filter_redirect: str = "nonredirects",
+        min_size: int | None = None,
+        max_size: int | None = None,
+        limit: int = 1,
+    ) -> PagesDict:
+        """Async version of :meth:`WikipediaResource.random`.
+
+        See :meth:`WikipediaResource.random` for full documentation.
+
+        Args:
+            namespace: Restrict to this namespace number.
+            filter_redirect: Redirect filter.
+            min_size: Minimum page size in bytes.
+            max_size: Maximum page size in bytes.
+            limit: Number of random pages to return (1–500).
+
+        Returns:
+            :class:`PagesDict` keyed by page title.
+        """
+        params = RandomParams(
+            namespace=namespace,
+            filter_redirect=filter_redirect,
+            min_size=min_size,
+            max_size=max_size,
+            limit=limit,
+        )
+        api_params = self._random_api_params(params)
+        # Random never paginates: the API always returns a continue
+        # token (there are always more random pages), so using
+        # _async_dispatch_standalone_list would loop forever.
+        raw = await self._get(  # type: ignore[attr-defined]
+            self.language,  # type: ignore[attr-defined]
+            self._construct_params_standalone(api_params),
+        )
+        return self._build_random_results(raw.get("query", {}))
+
+    async def search(
+        self,
+        query: str,
+        *,
+        namespace: int = 0,
+        limit: int = 10,
+        prop: str | None = None,
+        info: str | None = None,
+        sort: str = "relevance",
+        what: str | None = None,
+        interwiki: bool = False,
+        enable_rewrites: bool = False,
+        qi_profile: str | None = None,
+    ) -> SearchResults:
+        """Async version of :meth:`WikipediaResource.search`.
+
+        See :meth:`WikipediaResource.search` for full documentation.
+
+        Args:
+            query: Search string (required).
+            namespace: Namespace to search in.
+            limit: Maximum results to return (1–500).
+            prop: Properties to include, pipe-separated.
+            info: Metadata to return, pipe-separated.
+            sort: Sort order.
+            what: Search type.
+            interwiki: Include interwiki results.
+            enable_rewrites: Allow the backend to rewrite the query.
+            qi_profile: Query-independent ranking profile.
+
+        Returns:
+            :class:`SearchResults` with pages, totalhits, and suggestion.
+        """
+        params = SearchParams(
+            query=query,
+            namespace=namespace,
+            limit=limit,
+            prop=prop,
+            info=info,
+            sort=sort,
+            what=what,
+            interwiki=interwiki,
+            enable_rewrites=enable_rewrites,
+            qi_profile=qi_profile,
+        )
+        api_params = self._search_api_params(params)
+        raw = await self._async_dispatch_standalone_list(
+            self.language,  # type: ignore[attr-defined]
+            api_params,
+            "sroffset",
+            "search",
+        )
+        return self._build_search_results(raw)
+
+    def pages(
+        self,
+        titles: list[str],
+        ns: WikiNamespace = Namespace.MAIN,
+    ) -> AsyncPagesDict:
+        """Create an :class:`AsyncPagesDict` of lazy page stubs.
+
+        No network call is made; each page fetches data on demand.
+
+        Args:
+            titles: List of page titles.
+            ns: Namespace for all pages; defaults to :attr:`Namespace.MAIN`.
+
+        Returns:
+            :class:`AsyncPagesDict` keyed by title.
+        """
+        data = {t: self.page(t, ns=ns) for t in titles}
+        return AsyncPagesDict(wiki=self, data=data)

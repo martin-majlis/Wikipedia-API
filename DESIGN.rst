@@ -42,6 +42,9 @@ File Layout
     │   ├── BaseWikipediaResource  # Param builders, parsers, dispatchers
     │   ├── WikipediaResource      # Sync public API methods
     │   └── AsyncWikipediaResource # Async public API methods
+    ├── _types.py                # Typed dataclasses (Coordinate, GeoSearchMeta, SearchMeta, SearchResults)
+    ├── _params.py               # Query parameter dataclasses (CoordinatesParams, ImagesParams, …)
+    ├── _pages_dict.py           # PagesDict / AsyncPagesDict (dict subclasses with batch methods)
     ├── wikipedia.py             # Wikipedia (sync concrete client)
     ├── async_wikipedia.py       # AsyncWikipedia (async concrete client)
     ├── _base_wikipedia_page.py  # BaseWikipediaPage (shared page state & methods)
@@ -126,6 +129,10 @@ Full Class Diagram
     └────┬──────┘  └───────┬──────┘  │  _async_dispatch_prop_pag..()│
          │                 │         │  _dispatch_list()            │
          │                 │         │  _async_dispatch_list()      │
+         │                 │         │  _dispatch_standalone_list() │
+         │                 │         │  _async_dispatch_standalone_ │
+         │                 │         │    list()                    │
+         │                 │         │  _build_normalization_map()  │
          │                 │         │  _extracts_params()          │
          │                 │         │  _info_params()              │
          │                 │         │  _langlinks_params()         │
@@ -133,6 +140,11 @@ Full Class Diagram
          │                 │         │  _backlinks_params()         │
          │                 │         │  _categories_params()        │
          │                 │         │  _categorymembers_params()   │
+         │                 │         │  _coordinates_params()       │
+         │                 │         │  _images_params()            │
+         │                 │         │  _geosearch_params()         │
+         │                 │         │  _random_params()            │
+         │                 │         │  _search_params()            │
          │                 │         └──────────────┬───────────────┘
          │                 │                        │
          │                 │               ┌────────┴──────────┐
@@ -151,7 +163,16 @@ Full Class Diagram
          │           │  categories()       │          │  backlinks()   │
          │           │  category   │       │          │  categories()  │
          │           │    members()│       │          │  category      │
-         │           └─────┬───────┘       │          │    members()   │
+         │           │  coordinates()      │          │    members()   │
+         │           │  images()   │       │          │  coordinates() │
+         │           │  geosearch()│       │          │  images()      │
+         │           │  random()   │       │          │  geosearch()   │
+         │           │  search()   │       │          │  random()      │
+         │           │  batch_     │       │          │  search()      │
+         │           │   coordinates()     │          │  batch_        │
+         │           │  batch_     │       │          │   coordinates()│
+         │           │   images()  │       │          │  batch_images()│
+         │           └─────┬───────┘       │          │                │
          │                 │               │          └────────┬───────┘
          └─────────────────┘               │                   │
                            └───────────────┘     ┌─────────────┴──────┐
@@ -188,7 +209,11 @@ Full Class Diagram
           │  links     (property)   │  │  categories (await. prop) │
           │  backlinks (property)   │  │  categorymembers          │
           │  categories (property)  │  │    (awaitable prop)       │
-          │  categorymembers (prop) │  │  pageid    (await. prop)  │
+          │  categorymembers (prop) │  │  coordinates (await. prop)│
+          │  coordinates (property) │  │  images     (await. prop) │
+          │  images    (property)   │  │  geosearch_meta (property)│
+          │  geosearch_meta (prop)  │  │  search_meta (property)   │
+          │  search_meta (property) │  │  pageid    (await. prop)  │
           │  pageid   (property)    │  │  fullurl   (await. prop)  │
           │  fullurl  (property)    │  │  displaytitle (await.)    │
           │  displaytitle (property)│  │  + 18 more info props     │
@@ -284,7 +309,7 @@ are automatically async-capable.
 Dispatch Helpers
 ----------------
 
-Three dispatch patterns cover all current MediaWiki API query shapes.
+Four dispatch patterns cover all current MediaWiki API query shapes.
 Each has a sync and an async variant.
 
 +------------------------------+-------------------------------------------+------------------+
@@ -299,7 +324,11 @@ Each has a sync and an async variant.
 +------------------------------+-------------------------------------------+------------------+
 | ``_dispatch_list``           | List query, result may span pages.        | ``raw["continue"]|
 |                              | Accumulates ``raw["query"][list_key]``    | [continue_key]`` |
-|                              | across pages.                             |                  |
+|                              | across pages.  Requires a page object.    |                  |
++------------------------------+-------------------------------------------+------------------+
+| ``_dispatch_standalone_list``| List query that does *not* require a page | ``raw["continue"]|
+|                              | object.  Accumulates ``raw["query"]       | [continue_key]`` |
+|                              | [list_key]`` and returns the raw response.|                  |
 +------------------------------+-------------------------------------------+------------------+
 
 Current mapping:
@@ -312,6 +341,16 @@ Current mapping:
   list key: ``backlinks``)
 * ``categorymembers`` → ``_dispatch_list`` (cursor: ``cmcontinue``,
   list key: ``categorymembers``)
+* ``coordinates`` → custom per-page dispatch with per-parameter caching
+  (cursor: ``cocontinue``, uses ``_dispatch_prop_paginated`` internally)
+* ``images`` → custom per-page dispatch with per-parameter caching
+  (cursor: ``imcontinue``)
+* ``geosearch`` → ``_dispatch_standalone_list`` (cursor: ``gsoffset``,
+  list key: ``geosearch``)
+* ``random`` → ``_dispatch_standalone_list`` (cursor: ``rncontinue``,
+  list key: ``random``)
+* ``search`` → ``_dispatch_standalone_list`` (cursor: ``sroffset``,
+  list key: ``search``)
 
 
 Request Lifecycle
@@ -628,7 +667,11 @@ preserved when adding new functionality.
   for props that may paginate.  The *params* dict is mutated in-place
   to add the continuation key on each subsequent request.
 * ``_dispatch_list`` / ``_async_dispatch_list`` — for ``list=``
-  queries that may paginate.
+  queries that may paginate.  Requires a page object for language context.
+* ``_dispatch_standalone_list`` / ``_async_dispatch_standalone_list`` —
+  for ``list=`` queries that are **not** tied to a specific page (e.g.
+  ``geosearch``, ``random``, ``search``).  These accept a ``language``
+  string instead of a page object and return the raw merged response.
 
 **Public API methods**
 
@@ -638,6 +681,45 @@ preserved when adding new functionality.
 * Both sync and async methods must share the same ``_*_params`` and
   ``_build_*`` implementations without duplication.
 * All raises must be documented in the docstring.
+
+**Typed data (``_types.py``)**
+
+* ``Coordinate``, ``GeoSearchMeta``, ``SearchMeta`` — frozen
+  ``@dataclass`` value objects returned by the new query submodule
+  methods.
+* ``SearchResults`` — a wrapper around a ``PagesDict`` that adds
+  ``totalhits`` and ``suggestion`` from the ``searchinfo`` block.
+
+**Parameter dataclasses (``_params.py``)**
+
+* Each query submodule has a frozen ``@dataclass`` (e.g.
+  ``CoordinatesParams``, ``ImagesParams``) that maps clean Python
+  names to MediaWiki API parameter names with a configurable prefix.
+* The ``to_api()`` method returns the ``dict[str, str]`` ready for the
+  API call; ``cache_key()`` returns a hashable tuple for per-parameter
+  caching.
+
+**Per-parameter caching**
+
+* ``coordinates`` and ``images`` support different parameter sets per
+  page.  Results are cached in ``page._param_cache[name][cache_key]``
+  via ``_get_cached`` / ``_set_cached`` on ``BaseWikipediaPage``.
+* The ``NOT_CACHED`` sentinel (a singleton ``_Sentinel`` instance)
+  distinguishes "never fetched" from "fetched, result is ``None``".
+* Page-level properties (``page.coordinates``, ``page.images``) use
+  default parameters; calling ``wiki.coordinates(page, primary="all")``
+  caches under a separate key.
+
+**Batch methods**
+
+* ``batch_coordinates(pages)`` and ``batch_images(pages)`` send
+  multi-title API requests (up to 50 titles per request) and
+  distribute results to each page's per-parameter cache.
+* ``PagesDict.coordinates()`` and ``PagesDict.images()`` are
+  convenience methods that delegate to the batch methods on the wiki
+  client.
+* Batch methods use ``_build_normalization_map(raw)`` to handle
+  MediaWiki title normalization (e.g. ``Test_1`` → ``Test 1``).
 
 **Page objects**
 
@@ -649,3 +731,6 @@ preserved when adding new functionality.
 * ``WikipediaPage._fetch(call)`` calls ``getattr(self.wiki, call)(self)``
   and marks ``_called[call] = True``; the matching async version
   ``AsyncWikipediaPage._fetch(call)`` does the same with ``await``.
+* ``geosearch_meta`` and ``search_meta`` are plain ``@property`` in both
+  sync and async — they are set by ``geosearch()`` / ``search()`` on
+  the wiki client and require no network call on the page itself.

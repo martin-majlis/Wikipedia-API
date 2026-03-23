@@ -588,6 +588,262 @@ _MOCK_DATA = {
             },
         },
     },
+    # ── coordinates (prop=coordinates) ──────────────────────────────────────────
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe&format=json&prop=coordinates&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&colimit=10&coprimary=all&coprop=globe&format=json&prop=coordinates&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                        },
+                        {
+                            "lat": 48.8566,
+                            "lon": 2.3522,
+                            "globe": "earth",
+                        },
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe&format=json&prop=coordinates&redirects=1&titles=NonExistent&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "ns": 0,
+                    "title": "NonExistent",
+                    "missing": "",
+                }
+            }
+        },
+    },
+    # ── images (prop=images) ────────────────────────────────────────────────────
+    "en:action=query&format=json&imdir=ascending&imlimit=10&prop=images&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "images": [
+                        {"ns": 6, "title": "File:Example.png"},
+                        {"ns": 6, "title": "File:Logo.svg"},
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&format=json&imdir=ascending&imlimit=10&prop=images&redirects=1&titles=NonExistent&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "ns": 0,
+                    "title": "NonExistent",
+                    "missing": "",
+                }
+            }
+        },
+    },
+    # ── coordinates with normalized title (for CLI tests) ──────────────────────
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe&format=json&prop=coordinates&redirects=1&titles=Test 1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    # ── images with normalized title (for CLI tests) ─────────────────────────
+    "en:action=query&format=json&imdir=ascending&imlimit=10&prop=images&redirects=1&titles=Test 1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "images": [
+                        {"ns": 6, "title": "File:Example.png"},
+                        {"ns": 6, "title": "File:Logo.svg"},
+                    ],
+                }
+            }
+        },
+    },
+    # ── geosearch (list=geosearch) ──────────────────────────────────────────────
+    "en:action=query&format=json&gscoord=51.5074|-0.1278&gsglobe=earth&gslimit=10&gsradius=500&gssort=distance&list=geosearch&redirects=1&": {
+        "batchcomplete": "",
+        "query": {
+            "geosearch": [
+                {
+                    "pageid": 100,
+                    "ns": 0,
+                    "title": "Nearby Page 1",
+                    "lat": 51.508,
+                    "lon": -0.128,
+                    "dist": 50.3,
+                    "primary": "",
+                },
+                {
+                    "pageid": 101,
+                    "ns": 0,
+                    "title": "Nearby Page 2",
+                    "lat": 51.510,
+                    "lon": -0.130,
+                    "dist": 200.7,
+                    "primary": "",
+                },
+            ]
+        },
+    },
+    # ── random (list=random) ────────────────────────────────────────────────────
+    "en:action=query&format=json&list=random&redirects=1&rnfilterredir=nonredirects&rnlimit=2&": {
+        "batchcomplete": "",
+        "query": {
+            "random": [
+                {"id": 200, "ns": 0, "title": "Random Page A"},
+                {"id": 201, "ns": 0, "title": "Random Page B"},
+            ]
+        },
+    },
+    # ── random with namespace (for CLI tests) ──────────────────────────────────
+    "en:action=query&format=json&list=random&redirects=1&rnfilterredir=nonredirects&rnlimit=2&rnnamespace=0&": {
+        "batchcomplete": "",
+        "query": {
+            "random": [
+                {"id": 200, "ns": 0, "title": "Random Page A"},
+                {"id": 201, "ns": 0, "title": "Random Page B"},
+            ]
+        },
+    },
+    "en:action=query&format=json&list=random&redirects=1&rnfilterredir=nonredirects&rnlimit=1&rnnamespace=0&": {
+        "batchcomplete": "",
+        "query": {
+            "random": [
+                {"id": 200, "ns": 0, "title": "Random Page A"},
+            ]
+        },
+    },
+    # ── batch coordinates (multi-title) ──────────────────────────────────────────
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe&format=json&prop=coordinates&redirects=1&titles=Test_1|NonExistent&": {
+        "batchcomplete": "",
+        "query": {
+            "normalized": [{"from": "Test_1", "to": "Test 1"}],
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                        }
+                    ],
+                },
+                "-1": {
+                    "ns": 0,
+                    "title": "NonExistent",
+                    "missing": "",
+                },
+            },
+        },
+    },
+    # ── batch images (multi-title) ─────────────────────────────────────────────
+    "en:action=query&format=json&imdir=ascending&imlimit=10&prop=images&redirects=1&titles=Test_1|NonExistent&": {
+        "batchcomplete": "",
+        "query": {
+            "normalized": [{"from": "Test_1", "to": "Test 1"}],
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "images": [
+                        {"ns": 6, "title": "File:Example.png"},
+                        {"ns": 6, "title": "File:Logo.svg"},
+                    ],
+                },
+                "-1": {
+                    "ns": 0,
+                    "title": "NonExistent",
+                    "missing": "",
+                },
+            },
+        },
+    },
+    # ── search (list=search) ────────────────────────────────────────────────────
+    "en:action=query&format=json&list=search&redirects=1&srlimit=10&srnamespace=0&srsearch=Python&srsort=relevance&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 5432, "suggestion": "python programming"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Python (programming language)",
+                    "pageid": 300,
+                    "size": 123456,
+                    "wordcount": 15000,
+                    "snippet": '<span class="searchmatch">Python</span> is a programming language',
+                    "timestamp": "2024-01-01T00:00:00Z",
+                },
+                {
+                    "ns": 0,
+                    "title": "Python (mythology)",
+                    "pageid": 301,
+                    "size": 5678,
+                    "wordcount": 800,
+                    "snippet": '<span class="searchmatch">Python</span> is a creature',
+                    "timestamp": "2024-02-01T00:00:00Z",
+                },
+            ],
+        },
+    },
 }
 
 

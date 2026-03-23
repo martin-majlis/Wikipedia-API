@@ -7,11 +7,9 @@ language links, categories, and category members.
 
 Every command requires a TITLE argument — the Wikipedia page title.
 
-Examples:
-
-wikipedia-api summary "Python (programming language)"
+Examples: \b     wikipedia-api summary "Python (programming language)"
 wikipedia-api links "Python (programming language)" --language cs
-wikipedia-api categories "Python (programming language)" --json
+wikipedia-api categories "Python (programming language)" --json r
 
 Options:
 --version   Show the version and exit.

@@ -213,7 +213,6 @@
 2010 BK118
 2010 EU65
 2010 GB174
-2010 KZ39
 2010 in science
 2010s in science and technology
 2011 HM102
@@ -808,6 +807,7 @@ Isolated brain
 Italian names in the Solar System
 Işıl Eğrikavuk
 Jack Wisdom
+Jake Heggie
 James Ferguson (American astronomer)
 James L. Elliot
 James T. Kirk
@@ -1174,7 +1174,6 @@ Minimum orbit intersection distance
 Minor Planet 134340 Pluto
 Minor Planet Pluto
 Minor planet
-Minor-planet designation
 Minor-planet moon
 Minute and second of arc
 Miracle's Are Real
@@ -2293,6 +2292,7 @@ User talk:Rowan iF
 User talk:Ryulong/Archive 3
 User talk:Ryulong/Archive 4
 User talk:ST47/Archive1
+User talk:Sapphaline
 User talk:Sds6065
 User talk:Serendipodous/Solar System
 User talk:Serendipodous/User talk:Serendipodous archive 10
@@ -3830,6 +3830,8 @@ User:Sandmouse/userboxes
 User:Sanja Simat
 User:Santhosh06udaya/Books/Universe
 User:Sapienyia
+User:Sapphaline/sandbox
+User:Sapphaline/ub
 User:Sarah chocoholic93/Userboxen
 User:Saraid
 User:Sarathvk
@@ -4384,7 +4386,7 @@ Wikipedia talk:Verifiability/RfC
 Wikipedia talk:Vital articles/Archive 1
 Wikipedia talk:Vital articles/Archive 14
 Wikipedia talk:Vital articles/Archive 2
-Wikipedia talk:Vital articles/Level/4/Archive 51
+Wikipedia talk:Vital articles/Level 4/Archive 51
 Wikipedia talk:WikiProject Astronomical objects/Archive 10
 Wikipedia talk:WikiProject Astronomical objects/Archive 20
 Wikipedia talk:WikiProject Astronomical objects/Archive 25
@@ -4895,8 +4897,8 @@ Wikipedia:Village pump (policy)/Archive 203
 Wikipedia:Village pump (policy)/Archive 208
 Wikipedia:Village pump (technical)/Archive 139
 Wikipedia:Village pump (technical)/Archive 162
-Wikipedia:Vital articles/Level/4/Physical sciences
-Wikipedia:Vital articles/Level/5/Physical sciences/Astronomy
+Wikipedia:Vital articles/Level 4/Physical sciences
+Wikipedia:Vital articles/Level 5/Physical sciences/Astronomy
 Wikipedia:Vital articles/List of all articles
 Wikipedia:Vital articles/List of all level 1–4 vital articles
 Wikipedia:Vital articles/Popular pages

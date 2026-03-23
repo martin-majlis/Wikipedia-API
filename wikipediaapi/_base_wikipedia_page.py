@@ -10,6 +10,29 @@ from .wikipedia_page_section import WikipediaPageSection
 PageT = TypeVar("PageT", bound="BaseWikipediaPage[Any]")
 
 
+class _Sentinel:
+    """Singleton sentinel indicating a cache miss (distinct from None)."""
+
+    _instance: "_Sentinel | None" = None
+
+    def __new__(cls) -> "_Sentinel":
+        """Return the singleton instance."""
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def __repr__(self) -> str:
+        """Return a readable representation."""
+        return "<NOT_CACHED>"
+
+    def __bool__(self) -> bool:
+        """Return False so ``if cached:`` skips sentinels."""
+        return False
+
+
+NOT_CACHED = _Sentinel()
+
+
 class BaseWikipediaPage(ABC, Generic[PageT]):
     """
     Common base for WikipediaPage and AsyncWikipediaPage.
@@ -123,6 +146,11 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
             "categories": False,
             "categorymembers": False,
         }
+
+        self._param_cache: dict[str, dict[tuple[tuple[str, Any], ...], Any]] = {}
+
+        self._geosearch_meta: Any = None
+        self._search_meta: Any = None
 
         self._attributes: dict[str, Any] = {
             "title": title,
@@ -298,3 +326,30 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
         if sections:
             return sections[-1]
         return None
+
+    def _get_cached(self, key: str, cache_key: tuple[tuple[str, Any], ...]) -> Any:
+        """Return a cached value for *key* and *cache_key*, or :data:`NOT_CACHED`.
+
+        Args:
+            key: Top-level cache namespace (e.g. ``"coordinates"``).
+            cache_key: Hashable tuple produced by ``params.cache_key()``.
+
+        Returns:
+            The cached value, or :data:`NOT_CACHED` if no entry exists.
+        """
+        bucket = self._param_cache.get(key)
+        if bucket is None:
+            return NOT_CACHED
+        return bucket.get(cache_key, NOT_CACHED)
+
+    def _set_cached(self, key: str, cache_key: tuple[tuple[str, Any], ...], value: Any) -> None:
+        """Store *value* in the per-param cache under *key* / *cache_key*.
+
+        Args:
+            key: Top-level cache namespace (e.g. ``"coordinates"``).
+            cache_key: Hashable tuple produced by ``params.cache_key()``.
+            value: The value to cache (may be ``None``).
+        """
+        if key not in self._param_cache:
+            self._param_cache[key] = {}
+        self._param_cache[key][cache_key] = value

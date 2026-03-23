@@ -1,0 +1,182 @@
+"""Batch-capable page dictionaries for sync and async contexts.
+
+Replaces the former ``PagesDict = dict[str, WikipediaPage]`` type alias
+with a proper ``dict`` subclass that carries a back-reference to the wiki
+client and exposes batch-fetching methods for the new query submodules.
+
+Backward compatible: ``PagesDict`` subclasses ``dict``, so all existing
+code that treats it as a plain dict continues to work.
+"""
+
+from __future__ import annotations
+
+from typing import Any, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from ._types import Coordinate
+
+
+class PagesDict(dict[str, Any]):
+    """Dictionary of :class:`WikipediaPage` objects with batch methods.
+
+    Inherits from ``dict[str, WikipediaPage]`` and adds a reference to
+    the wiki client so that batch operations can be dispatched in a
+    single API call per chunk of 50 pages.
+
+    Args:
+        wiki: The :class:`~wikipediaapi.Wikipedia` client instance.
+        data: Optional initial mapping of ``{title: WikipediaPage}``.
+    """
+
+    def __init__(self, wiki: Any = None, data: dict[str, Any] | None = None) -> None:
+        """Initialise the PagesDict with an optional wiki client and data.
+
+        Args:
+            wiki: The Wikipedia client instance used for batch API calls.
+                May be ``None`` for backward-compatible construction.
+            data: Initial ``{title: page}`` mapping.
+        """
+        super().__init__(data or {})
+        self._wiki = wiki
+
+    def coordinates(
+        self,
+        *,
+        limit: int = 10,
+        primary: str = "primary",
+        prop: str = "globe",
+        distance_from_point: str | None = None,
+        distance_from_page: str | None = None,
+    ) -> dict[str, list[Coordinate]]:
+        """Batch-fetch coordinates for all pages in this dict.
+
+        Delegates to ``wiki.batch_coordinates()`` which sends multi-title
+        API requests (up to 50 titles per request).
+
+        Args:
+            limit: Maximum coordinates per page (1–500).
+            primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
+            prop: Additional properties, pipe-separated.
+            distance_from_point: Reference point as ``"lat|lon"``.
+            distance_from_page: Reference page title.
+
+        Returns:
+            ``{title: [Coordinate, ...]}`` for every page in this dict.
+        """
+        return self._wiki.batch_coordinates(  # type: ignore[no-any-return]
+            list(self.values()),
+            limit=limit,
+            primary=primary,
+            prop=prop,
+            distance_from_point=distance_from_point,
+            distance_from_page=distance_from_page,
+        )
+
+    def images(
+        self,
+        *,
+        limit: int = 10,
+        images: str | None = None,
+        direction: str = "ascending",
+    ) -> dict[str, PagesDict]:
+        """Batch-fetch images for all pages in this dict.
+
+        Delegates to ``wiki.batch_images()`` which sends multi-title
+        API requests (up to 50 titles per request).
+
+        Args:
+            limit: Maximum images per page (1–500).
+            images: Only list these specific images (pipe-separated).
+            direction: Sort direction: ``"ascending"`` or ``"descending"``.
+
+        Returns:
+            ``{title: PagesDict}`` for every page in this dict.
+        """
+        return self._wiki.batch_images(  # type: ignore[no-any-return]
+            list(self.values()),
+            limit=limit,
+            images=images,
+            direction=direction,
+        )
+
+
+class AsyncPagesDict(dict[str, Any]):
+    """Async dictionary of :class:`AsyncWikipediaPage` objects with batch methods.
+
+    Async mirror of :class:`PagesDict`.  Batch methods are coroutines.
+
+    Args:
+        wiki: The :class:`~wikipediaapi.AsyncWikipedia` client instance.
+        data: Optional initial mapping of ``{title: AsyncWikipediaPage}``.
+    """
+
+    def __init__(self, wiki: Any = None, data: dict[str, Any] | None = None) -> None:
+        """Initialise the AsyncPagesDict with an optional wiki client and data.
+
+        Args:
+            wiki: The AsyncWikipedia client instance used for batch API calls.
+                May be ``None`` for backward-compatible construction.
+            data: Initial ``{title: page}`` mapping.
+        """
+        super().__init__(data or {})
+        self._wiki = wiki
+
+    async def coordinates(
+        self,
+        *,
+        limit: int = 10,
+        primary: str = "primary",
+        prop: str = "globe",
+        distance_from_point: str | None = None,
+        distance_from_page: str | None = None,
+    ) -> dict[str, list[Coordinate]]:
+        """Async batch-fetch coordinates for all pages in this dict.
+
+        Delegates to ``wiki.batch_coordinates()`` which sends multi-title
+        API requests (up to 50 titles per request).
+
+        Args:
+            limit: Maximum coordinates per page (1–500).
+            primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
+            prop: Additional properties, pipe-separated.
+            distance_from_point: Reference point as ``"lat|lon"``.
+            distance_from_page: Reference page title.
+
+        Returns:
+            ``{title: [Coordinate, ...]}`` for every page in this dict.
+        """
+        return await self._wiki.batch_coordinates(  # type: ignore[no-any-return]
+            list(self.values()),
+            limit=limit,
+            primary=primary,
+            prop=prop,
+            distance_from_point=distance_from_point,
+            distance_from_page=distance_from_page,
+        )
+
+    async def images(
+        self,
+        *,
+        limit: int = 10,
+        images: str | None = None,
+        direction: str = "ascending",
+    ) -> dict[str, AsyncPagesDict]:
+        """Async batch-fetch images for all pages in this dict.
+
+        Delegates to ``wiki.batch_images()`` which sends multi-title
+        API requests (up to 50 titles per request).
+
+        Args:
+            limit: Maximum images per page (1–500).
+            images: Only list these specific images (pipe-separated).
+            direction: Sort direction: ``"ascending"`` or ``"descending"``.
+
+        Returns:
+            ``{title: AsyncPagesDict}`` for every page in this dict.
+        """
+        return await self._wiki.batch_images(  # type: ignore[no-any-return]
+            list(self.values()),
+            limit=limit,
+            images=images,
+            direction=direction,
+        )

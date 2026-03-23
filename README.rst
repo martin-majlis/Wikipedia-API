@@ -25,10 +25,10 @@ Goal of ``Wikipedia-API`` is to provide simple and easy to use API for retrievin
 Key differences between the sync and async API:
 
 * All data-fetching attributes (``summary``, ``text``, ``sections``, ``langlinks``, ``links``,
-  ``backlinks``, ``categories``, ``categorymembers``, ``pageid``, ``fullurl``,
-  ``displaytitle``, …) are explicit ``@property`` definitions in both APIs.
-  In the async API every such property returns a coroutine: ``await page.summary``,
-  ``await page.sections``, ``await page.pageid``, etc.
+  ``backlinks``, ``categories``, ``categorymembers``, ``coordinates``, ``images``,
+  ``pageid``, ``fullurl``, ``displaytitle``, …) are explicit ``@property`` definitions
+  in both APIs.  In the async API every such property returns a coroutine:
+  ``await page.summary``, ``await page.sections``, ``await page.pageid``, etc.
 * ``title``, ``ns``, ``namespace``, ``language``, ``variant`` are plain ``@property``
   values in both APIs (no ``await`` needed).
 * ``exists()`` is a plain method in the sync API; a **coroutine method** in the async API:
@@ -467,6 +467,171 @@ You have to implement recursion and deduplication by yourself.
         cat = wiki_wiki.page("Category:Physics")
         print("Category members: Category:Physics")
         await print_categorymembers(await cat.categorymembers)
+
+How To Get Page Coordinates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To get geographic coordinates of a page, use ``coordinates()`` on the wiki client or the
+``coordinates`` property on the page.  Results are ``Coordinate`` dataclasses with ``lat``,
+``lon``, ``primary``, and ``globe`` fields.
+
+**Synchronous**
+
+.. code-block:: python
+
+    page = wiki_wiki.page('London')
+    coords = wiki_wiki.coordinates(page)
+    for c in coords:
+        print(f"lat={c.lat}, lon={c.lon}, primary={c.primary}")
+
+    # Or via the page property (uses default params):
+    coords = page.coordinates
+    print(f"Coordinates: {len(coords)}")
+
+**Asynchronous**
+
+.. code-block:: python
+
+    async def main():
+        page = wiki_wiki.page('London')
+        coords = await wiki_wiki.coordinates(page)
+        for c in coords:
+            print(f"lat={c.lat}, lon={c.lon}, primary={c.primary}")
+
+        # Or via the page property:
+        coords = await page.coordinates
+
+How To Get Page Images
+~~~~~~~~~~~~~~~~~~~~~~
+
+To get images (files) used on a page, use ``images()`` on the wiki client or the
+``images`` property on the page.
+
+**Synchronous**
+
+.. code-block:: python
+
+    page = wiki_wiki.page('London')
+    imgs = wiki_wiki.images(page)
+    for title in imgs:
+        print(title)
+
+    # Or via the page property:
+    imgs = page.images
+
+**Asynchronous**
+
+.. code-block:: python
+
+    async def main():
+        page = wiki_wiki.page('London')
+        imgs = await wiki_wiki.images(page)
+        for title in imgs:
+            print(title)
+
+How To Search Nearby Pages (Geosearch)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To find pages near a geographic point, use ``geosearch()``.  Each returned page has a
+``geosearch_meta`` property with distance, lat, lon, and primary fields.
+
+**Synchronous**
+
+.. code-block:: python
+
+    results = wiki_wiki.geosearch(coord="51.5074|-0.1278", radius=1000, limit=5)
+    for title, page in results.items():
+        meta = page.geosearch_meta
+        print(f"{title}: {meta.dist:.0f}m away")
+
+**Asynchronous**
+
+.. code-block:: python
+
+    async def main():
+        results = await wiki_wiki.geosearch(coord="51.5074|-0.1278", radius=1000, limit=5)
+        for title, page in results.items():
+            meta = page.geosearch_meta
+            print(f"{title}: {meta.dist:.0f}m away")
+
+How To Get Random Pages
+~~~~~~~~~~~~~~~~~~~~~~~
+
+To get random Wikipedia pages, use ``random()``.
+
+**Synchronous**
+
+.. code-block:: python
+
+    pages = wiki_wiki.random(limit=3)
+    for title in pages:
+        print(title)
+
+**Asynchronous**
+
+.. code-block:: python
+
+    async def main():
+        pages = await wiki_wiki.random(limit=3)
+        for title in pages:
+            print(title)
+
+How To Search Wikipedia
+~~~~~~~~~~~~~~~~~~~~~~~
+
+To search for pages by keyword, use ``search()``.  Returns a ``SearchResults`` object
+with ``pages``, ``totalhits``, and ``suggestion``.  Each page has a ``search_meta``
+property with snippet, size, wordcount, and timestamp fields.
+
+**Synchronous**
+
+.. code-block:: python
+
+    results = wiki_wiki.search("Python programming", limit=5)
+    print(f"Total hits: {results.totalhits}")
+    print(f"Suggestion: {results.suggestion}")
+    for title, page in results.pages.items():
+        print(f"{title}: {page.search_meta.wordcount} words")
+
+**Asynchronous**
+
+.. code-block:: python
+
+    async def main():
+        results = await wiki_wiki.search("Python programming", limit=5)
+        print(f"Total hits: {results.totalhits}")
+        for title, page in results.pages.items():
+            print(f"{title}: {page.search_meta.wordcount} words")
+
+How To Batch-Fetch Data for Multiple Pages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To efficiently fetch coordinates or images for multiple pages at once, use
+``pages()`` to create a ``PagesDict`` (or ``AsyncPagesDict``), then call
+the batch methods.
+
+**Synchronous**
+
+.. code-block:: python
+
+    pd = wiki_wiki.pages(["London", "Paris", "Berlin"])
+    batch_coords = pd.coordinates()
+    for title, coords in batch_coords.items():
+        print(f"{title}: {len(coords)} coordinate(s)")
+
+    batch_imgs = pd.images()
+    for title, imgs in batch_imgs.items():
+        print(f"{title}: {len(imgs)} image(s)")
+
+**Asynchronous**
+
+.. code-block:: python
+
+    async def main():
+        pd = wiki_wiki.pages(["London", "Paris", "Berlin"])
+        batch_coords = await pd.coordinates()
+        for title, coords in batch_coords.items():
+            print(f"{title}: {len(coords)} coordinate(s)")
 
 Use Extra API Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~

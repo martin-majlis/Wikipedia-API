@@ -344,6 +344,241 @@ def format_category_members(members: list[dict[str, Any]], output_format: str) -
         return "\n".join(lines)
 
 
+def get_page_coordinates(
+    wiki: wikipediaapi.Wikipedia,
+    title: str,
+    namespace: int = 0,
+    limit: int = 10,
+    primary: str = "primary",
+) -> list[dict[str, Any]]:
+    r"""Get geographic coordinates for a Wikipedia page.
+
+    Args:
+        wiki: Wikipedia instance
+        title: Page title
+        namespace: Wikipedia namespace
+        limit: Maximum number of coordinates to return
+        primary: Which coordinates: primary, secondary, or all
+
+    Returns:
+        List of coordinate dictionaries
+
+    Raises:
+        PageNotFoundError: If the page does not exist
+    r"""
+    page = fetch_page(wiki, title, namespace)
+    if not page.exists():
+        raise PageNotFoundError(f"Page '{title}' does not exist.")
+    coords = wiki.coordinates(page, limit=limit, primary=primary)
+    result: list[dict[str, Any]] = []
+    for c in coords:
+        entry: dict[str, Any] = {
+            "lat": c.lat,
+            "lon": c.lon,
+            "primary": c.primary,
+            "globe": c.globe,
+        }
+        if c.type is not None:
+            entry["type"] = c.type
+        if c.name is not None:
+            entry["name"] = c.name
+        if c.dim is not None:
+            entry["dim"] = c.dim
+        if c.country is not None:
+            entry["country"] = c.country
+        if c.region is not None:
+            entry["region"] = c.region
+        if c.dist is not None:
+            entry["dist"] = c.dist
+        result.append(entry)
+    return result
+
+
+def format_coordinates(coords: list[dict[str, Any]], output_format: str) -> str:
+    r"""Format coordinates in the requested format.r"""
+    if output_format == "json":
+        return json.dumps(coords, ensure_ascii=False, indent=2)
+    else:
+        lines = []
+        for c in coords:
+            parts = [f"{c['lat']}, {c['lon']}"]
+            if c.get("primary"):
+                parts.append("(primary)")
+            if c.get("globe") and c["globe"] != "earth":
+                parts.append(f"globe={c['globe']}")
+            if c.get("dist") is not None:
+                parts.append(f"dist={c['dist']}m")
+            lines.append(" ".join(parts))
+        return "\n".join(lines)
+
+
+def get_page_images(
+    wiki: wikipediaapi.Wikipedia,
+    title: str,
+    namespace: int = 0,
+    limit: int = 10,
+) -> dict[str, wikipediaapi.WikipediaPage]:
+    r"""Get images (files) used on a Wikipedia page.
+
+    Args:
+        wiki: Wikipedia instance
+        title: Page title
+        namespace: Wikipedia namespace
+        limit: Maximum number of images to return
+
+    Returns:
+        Dictionary of image pages keyed by title
+
+    Raises:
+        PageNotFoundError: If the page does not exist
+    r"""
+    page = fetch_page(wiki, title, namespace)
+    if not page.exists():
+        raise PageNotFoundError(f"Page '{title}' does not exist.")
+    return wiki.images(page, limit=limit)
+
+
+def get_geosearch_results(
+    wiki: wikipediaapi.Wikipedia,
+    coord: str | None = None,
+    page_title: str | None = None,
+    radius: int = 500,
+    limit: int = 10,
+) -> list[dict[str, Any]]:
+    r"""Search for Wikipedia pages near a geographic location.
+
+    Args:
+        wiki: Wikipedia instance
+        coord: Coordinates as "lat|lon"
+        page_title: Page title to use as centre
+        radius: Search radius in meters
+        limit: Maximum results
+
+    Returns:
+        List of result dictionaries with title, dist, lat, lon
+    r"""
+    kwargs: dict[str, Any] = {"radius": radius, "limit": limit}
+    if coord:
+        kwargs["coord"] = coord
+    elif page_title:
+        kwargs["page"] = page_title
+    else:
+        raise click.UsageError("Either --coord or --page must be provided.")
+    results = wiki.geosearch(**kwargs)
+    output: list[dict[str, Any]] = []
+    for title, p in results.items():
+        entry: dict[str, Any] = {"title": title}
+        if p.geosearch_meta is not None:
+            entry["dist"] = p.geosearch_meta.dist
+            entry["lat"] = p.geosearch_meta.lat
+            entry["lon"] = p.geosearch_meta.lon
+            entry["primary"] = p.geosearch_meta.primary
+        output.append(entry)
+    return output
+
+
+def format_geosearch(results: list[dict[str, Any]], output_format: str) -> str:
+    r"""Format geosearch results in the requested format.r"""
+    if output_format == "json":
+        return json.dumps(results, ensure_ascii=False, indent=2)
+    else:
+        lines = []
+        for r in results:
+            parts = [r["title"]]
+            if "dist" in r:
+                parts.append(f"({r['dist']}m)")
+            if "lat" in r and "lon" in r:
+                parts.append(f"[{r['lat']}, {r['lon']}]")
+            lines.append(" ".join(parts))
+        return "\n".join(lines)
+
+
+def get_random_pages(
+    wiki: wikipediaapi.Wikipedia,
+    limit: int = 1,
+    ns: int = 0,
+) -> list[dict[str, Any]]:
+    r"""Get random Wikipedia pages.
+
+    Args:
+        wiki: Wikipedia instance
+        limit: Number of random pages
+        ns: Namespace to restrict to
+
+    Returns:
+        List of page dictionaries with title and pageid
+    r"""
+    results = wiki.random(limit=limit, namespace=ns)
+    output: list[dict[str, Any]] = []
+    for title, p in results.items():
+        entry: dict[str, Any] = {"title": title}
+        if "pageid" in p._attributes:
+            entry["pageid"] = p._attributes["pageid"]
+        output.append(entry)
+    return output
+
+
+def format_random(results: list[dict[str, Any]], output_format: str) -> str:
+    r"""Format random page results in the requested format.r"""
+    if output_format == "json":
+        return json.dumps(results, ensure_ascii=False, indent=2)
+    else:
+        return "\n".join(r["title"] for r in results)
+
+
+def get_search_results(
+    wiki: wikipediaapi.Wikipedia,
+    query: str,
+    limit: int = 10,
+    ns: int = 0,
+) -> dict[str, Any]:
+    r"""Search Wikipedia for pages matching a query.
+
+    Args:
+        wiki: Wikipedia instance
+        query: Search query string
+        limit: Maximum results
+        ns: Namespace to search
+
+    Returns:
+        Dictionary with pages list, totalhits, and suggestion
+    r"""
+    sr = wiki.search(query, limit=limit, namespace=ns)
+    pages_list: list[dict[str, Any]] = []
+    for title, p in sr.pages.items():
+        entry: dict[str, Any] = {"title": title}
+        if "pageid" in p._attributes:
+            entry["pageid"] = p._attributes["pageid"]
+        if p.search_meta is not None:
+            entry["snippet"] = p.search_meta.snippet
+            entry["size"] = p.search_meta.size
+            entry["wordcount"] = p.search_meta.wordcount
+            entry["timestamp"] = p.search_meta.timestamp
+        pages_list.append(entry)
+    result: dict[str, Any] = {
+        "totalhits": sr.totalhits,
+        "pages": pages_list,
+    }
+    if sr.suggestion is not None:
+        result["suggestion"] = sr.suggestion
+    return result
+
+
+def format_search(results: dict[str, Any], output_format: str) -> str:
+    r"""Format search results in the requested format.r"""
+    if output_format == "json":
+        return json.dumps(results, ensure_ascii=False, indent=2)
+    else:
+        lines = []
+        lines.append(f"Total hits: {results['totalhits']}")
+        if "suggestion" in results:
+            lines.append(f"Suggestion: {results['suggestion']}")
+        lines.append("")
+        for p in results["pages"]:
+            lines.append(p["title"])
+        return "\n".join(lines)
+
+
 def get_page_info(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> dict[str, Any]:
     r"""Get metadata and existence info for a Wikipedia page.
 
@@ -399,7 +634,8 @@ def cli():
     r"""Command line tool for querying Wikipedia using Wikipedia-API.
 
     Supports fetching page summaries, full text, sections, links,
-    backlinks, language links, categories, and category members.
+    backlinks, language links, categories, category members,
+    coordinates, images, geosearch, random pages, and search.
 
     Every command requires a TITLE argument — the Wikipedia page title.
 
@@ -408,6 +644,9 @@ def cli():
         wikipedia-api summary "Python (programming language)"
         wikipedia-api links "Python (programming language)" --language cs
         wikipedia-api categories "Python (programming language)" --json
+        wikipedia-api coordinates "Mount Everest"
+        wikipedia-api geosearch --coord "51.5074|-0.1278"
+        wikipedia-api search "Python programming"
     r"""
 
 
@@ -709,6 +948,227 @@ def categorymembers(
     except PageNotFoundError as e:
         click.echo(str(e), err=True)
         sys.exit(1)
+
+
+@cli.command()
+@click.argument("title")
+@click.option(
+    "--limit",
+    type=int,
+    default=10,
+    show_default=True,
+    help="Maximum number of coordinates to return.",
+)
+@click.option(
+    "--primary",
+    type=click.Choice(["primary", "secondary", "all"], case_sensitive=False),
+    default="primary",
+    show_default=True,
+    help="Which coordinates to return.",
+)
+@add_options(_common_options)
+@_json_option
+def coordinates(
+    title,
+    limit,
+    primary,
+    language,
+    user_agent,
+    variant,
+    extract_format,
+    namespace,
+    output_format,
+):
+    r"""Show geographic coordinates for a Wikipedia page.
+
+    TITLE is the Wikipedia page title.
+
+    \b
+    Examples:
+        wikipedia-api coordinates "Mount Everest"
+        wikipedia-api coordinates "Mount Everest" --primary all
+        wikipedia-api coordinates "Mount Everest" --json
+    r"""
+    try:
+        wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+        coords_data = get_page_coordinates(wiki, title, namespace, limit, primary)
+        result = format_coordinates(coords_data, output_format)
+        click.echo(result)
+    except PageNotFoundError as e:
+        click.echo(str(e), err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument("title")
+@click.option(
+    "--limit",
+    type=int,
+    default=10,
+    show_default=True,
+    help="Maximum number of images to return.",
+)
+@add_options(_common_options)
+@_json_option
+def images(
+    title,
+    limit,
+    language,
+    user_agent,
+    variant,
+    extract_format,
+    namespace,
+    output_format,
+):
+    r"""List images (files) used on a Wikipedia page.
+
+    TITLE is the Wikipedia page title.
+
+    \b
+    Examples:
+        wikipedia-api images "Python (programming language)"
+        wikipedia-api images "Python (programming language)" --json
+        wikipedia-api images "Earth" --limit 50
+    r"""
+    try:
+        wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+        images_data = get_page_images(wiki, title, namespace, limit)
+        result = format_page_dict(images_data, output_format)
+        click.echo(result)
+    except PageNotFoundError as e:
+        click.echo(str(e), err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.option(
+    "--coord",
+    default=None,
+    help='Coordinates as "lat|lon" (e.g. "51.5074|-0.1278").',
+)
+@click.option(
+    "--page",
+    "page_title",
+    default=None,
+    help="Page title to use as centre point.",
+)
+@click.option(
+    "--radius",
+    type=int,
+    default=500,
+    show_default=True,
+    help="Search radius in meters (max 10000).",
+)
+@click.option(
+    "--limit",
+    type=int,
+    default=10,
+    show_default=True,
+    help="Maximum number of results.",
+)
+@add_options(_common_options)
+@_json_option
+def geosearch(
+    coord,
+    page_title,
+    radius,
+    limit,
+    language,
+    user_agent,
+    variant,
+    extract_format,
+    namespace,
+    output_format,
+):
+    r"""Search for Wikipedia pages near a geographic location.
+
+    Requires either --coord or --page to specify the centre point.
+
+    \b
+    Examples:
+        wikipedia-api geosearch --coord "51.5074|-0.1278"
+        wikipedia-api geosearch --page "Big Ben" --radius 1000
+        wikipedia-api geosearch --coord "48.8566|2.3522" --json
+    r"""
+    try:
+        wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+        results_data = get_geosearch_results(wiki, coord, page_title, radius, limit)
+        result = format_geosearch(results_data, output_format)
+        click.echo(result)
+    except click.UsageError:
+        click.echo("Either --coord or --page must be provided.", err=True)
+        sys.exit(1)
+
+
+@cli.command(name="random")
+@click.option(
+    "--limit",
+    type=int,
+    default=1,
+    show_default=True,
+    help="Number of random pages to return.",
+)
+@add_options(_common_options)
+@_json_option
+def random_cmd(
+    limit,
+    language,
+    user_agent,
+    variant,
+    extract_format,
+    namespace,
+    output_format,
+):
+    r"""Get random Wikipedia pages.
+
+    \b
+    Examples:
+        wikipedia-api random
+        wikipedia-api random --limit 5
+        wikipedia-api random --limit 3 --json
+        wikipedia-api random --language de
+    r"""
+    wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+    results_data = get_random_pages(wiki, limit, namespace)
+    result = format_random(results_data, output_format)
+    click.echo(result)
+
+
+@cli.command()
+@click.argument("query")
+@click.option(
+    "--limit",
+    type=int,
+    default=10,
+    show_default=True,
+    help="Maximum number of search results.",
+)
+@add_options(_common_options)
+@_json_option
+def search(
+    query,
+    limit,
+    language,
+    user_agent,
+    variant,
+    extract_format,
+    namespace,
+    output_format,
+):
+    r"""Search Wikipedia for pages matching a query.
+
+    QUERY is the search string.
+
+    \b
+    Examples:
+        wikipedia-api search "Python programming"
+        wikipedia-api search "Python programming" --json
+        wikipedia-api search "машинное обучение" --language ru
+    r"""
+    wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+    results_data = get_search_results(wiki, query, limit, namespace)
+    result = format_search(results_data, output_format)
+    click.echo(result)
 
 
 @cli.command()

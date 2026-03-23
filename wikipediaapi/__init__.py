@@ -6,6 +6,12 @@ from Wikipedia. Documentation provides code snippets for the most common use
 cases.
 """
 
+from ._pages_dict import AsyncPagesDict
+from ._pages_dict import PagesDict
+from ._types import Coordinate
+from ._types import GeoSearchMeta
+from ._types import SearchMeta
+from ._types import SearchResults
 from ._version import __version__ as __version
 from .async_wikipedia import AsyncWikipedia
 from .async_wikipedia_page import AsyncWikipediaPage
@@ -32,6 +38,12 @@ __all__ = [
     "WikipediaPage",
     "AsyncWikipediaPage",
     "WikipediaPageSection",
+    "Coordinate",
+    "GeoSearchMeta",
+    "SearchMeta",
+    "SearchResults",
+    "PagesDict",
+    "AsyncPagesDict",
     "WikipediaException",
     "WikiHttpTimeoutError",
     "WikiHttpError",

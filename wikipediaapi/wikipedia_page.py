@@ -8,9 +8,14 @@ for accessing page content, metadata, and related information.
 from typing import Any
 
 from ._base_wikipedia_page import BaseWikipediaPage
+from ._base_wikipedia_page import NOT_CACHED
+from ._pages_dict import PagesDict
+from ._params import CoordinatesParams
+from ._params import ImagesParams
+from ._types import Coordinate
+from ._types import GeoSearchMeta
+from ._types import SearchMeta
 from .wikipedia_page_section import WikipediaPageSection
-
-PagesDict = dict[str, "WikipediaPage"]
 
 
 class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
@@ -267,7 +272,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         """
         if not self._called["langlinks"]:
             self._fetch("langlinks")
-        return self._langlinks
+        return self._langlinks  # type: ignore[return-value]
 
     @property
     def links(self) -> PagesDict:
@@ -287,7 +292,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         """
         if not self._called["links"]:
             self._fetch("links")
-        return self._links
+        return self._links  # type: ignore[return-value]
 
     @property
     def backlinks(self) -> PagesDict:
@@ -306,7 +311,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         """
         if not self._called["backlinks"]:
             self._fetch("backlinks")
-        return self._backlinks
+        return self._backlinks  # type: ignore[return-value]
 
     @property
     def categories(self) -> PagesDict:
@@ -325,7 +330,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         """
         if not self._called["categories"]:
             self._fetch("categories")
-        return self._categories
+        return self._categories  # type: ignore[return-value]
 
     @property
     def categorymembers(self) -> PagesDict:
@@ -345,7 +350,77 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         """
         if not self._called["categorymembers"]:
             self._fetch("categorymembers")
-        return self._categorymembers
+        return self._categorymembers  # type: ignore[return-value]
+
+    @property
+    def coordinates(self) -> list[Coordinate]:
+        """Geographic coordinates associated with this page.
+
+        Triggers a ``coordinates`` API call on first access using default
+        parameters.  Subsequent accesses return the cached value.
+        Use ``wiki.coordinates(page, primary="all")`` for non-default params.
+
+        Returns:
+            List of :class:`Coordinate` objects; empty list if the page
+            has no coordinates or does not exist.
+        """
+        default_params = CoordinatesParams()
+        cached = self._get_cached("coordinates", default_params.cache_key())
+        if isinstance(cached, type(NOT_CACHED)):
+            self.wiki.coordinates(self)
+            cached = self._get_cached("coordinates", default_params.cache_key())
+            if isinstance(cached, type(NOT_CACHED)):
+                return []
+        return cached  # type: ignore[no-any-return]
+
+    @property
+    def images(self) -> PagesDict:
+        """Images (files) used on this page.
+
+        Triggers an ``images`` API call on first access using default
+        parameters.  Subsequent accesses return the cached value.
+        Use ``wiki.images(page, limit=50)`` for non-default params.
+
+        Returns:
+            :class:`PagesDict` keyed by image title; empty if the page
+            has no images or does not exist.
+        """
+        default_params = ImagesParams()
+        cached = self._get_cached("images", default_params.cache_key())
+        if isinstance(cached, type(NOT_CACHED)):
+            self.wiki.images(self)
+            cached = self._get_cached("images", default_params.cache_key())
+            if isinstance(cached, type(NOT_CACHED)):
+                return PagesDict()
+        return cached  # type: ignore[no-any-return]
+
+    @property
+    def geosearch_meta(self) -> GeoSearchMeta | None:
+        """Contextual metadata from a geosearch query, or None.
+
+        Set automatically when this page was returned by
+        ``wiki.geosearch()``.  Contains distance, latitude, longitude,
+        and primary flag from the search result.
+
+        Returns:
+            :class:`GeoSearchMeta` if the page came from a geosearch query,
+            ``None`` otherwise.
+        """
+        return self._geosearch_meta  # type: ignore[no-any-return]
+
+    @property
+    def search_meta(self) -> SearchMeta | None:
+        """Contextual metadata from a search query, or None.
+
+        Set automatically when this page was returned by
+        ``wiki.search()``.  Contains snippet, size, wordcount, and
+        timestamp from the search result.
+
+        Returns:
+            :class:`SearchMeta` if the page came from a search query,
+            ``None`` otherwise.
+        """
+        return self._search_meta  # type: ignore[no-any-return]
 
     def __getattr__(self, name: str) -> Any:
         """

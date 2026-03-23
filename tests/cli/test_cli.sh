@@ -118,6 +118,29 @@ TESTS=(
     "categorymembers_en_json|wikipedia-api categorymembers Category:Planets --json"
     "categorymembers_depth|wikipedia-api categorymembers Category:Planets --max-level 1"
 
+    # ── coordinates command ─────────────────────────────────────────────────
+    "coordinates_en|wikipedia-api coordinates Earth"
+    "coordinates_en_json|wikipedia-api coordinates Earth --json"
+
+    # ── images command ───────────────────────────────────────────────────────
+    "images_en|wikipedia-api images Earth"
+    "images_en_json|wikipedia-api images Earth --json"
+
+    # ── geosearch command ────────────────────────────────────────────────────
+    "geosearch_coord|wikipedia-api geosearch --coord '51.5074|-0.1278'"
+    "geosearch_coord_json|wikipedia-api geosearch --coord '51.5074|-0.1278' --json"
+    "geosearch_page|wikipedia-api geosearch --page 'Big Ben' --radius 1000"
+
+    # ── random command ───────────────────────────────────────────────────────
+    "random_default|wikipedia-api random"
+    "random_limit|wikipedia-api random --limit 5"
+    "random_json|wikipedia-api random --limit 3 --json"
+
+    # ── search command ───────────────────────────────────────────────────────
+    "search_en|wikipedia-api search 'Python programming'"
+    "search_en_json|wikipedia-api search 'Python programming' --json"
+    "search_de|wikipedia-api search 'Berlin' --language de"
+
     # ── help & version ──────────────────────────────────────────────────────
     "help_main|wikipedia-api --help"
     "help_summary|wikipedia-api summary --help"
@@ -129,6 +152,11 @@ TESTS=(
     "help_langlinks|wikipedia-api langlinks --help"
     "help_categories|wikipedia-api categories --help"
     "help_categorymembers|wikipedia-api categorymembers --help"
+    "help_coordinates|wikipedia-api coordinates --help"
+    "help_images|wikipedia-api images --help"
+    "help_geosearch|wikipedia-api geosearch --help"
+    "help_random|wikipedia-api random --help"
+    "help_search|wikipedia-api search --help"
     "help_page|wikipedia-api page --help"
     "version|wikipedia-api --version"
 )
