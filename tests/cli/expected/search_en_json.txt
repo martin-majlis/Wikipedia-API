@@ -1,13 +1,13 @@
 {
-"totalhits": 6041,
+"totalhits": 6040,
 "pages": [
 {
 "title": "Python (programming language)",
 "pageid": 23862,
 "snippet": "<span class=\"searchmatch\">Python</span> is a high-level, general-purpose <span class=\"searchmatch\">programming</span> language. Its design philosophy emphasizes code readability with the use of significant indentation",
-"size": 140412,
+"size": 140411,
 "wordcount": 11448,
-"timestamp": "2026-03-23T16:47:33Z"
+"timestamp": "2026-03-24T06:29:28Z"
 },
 {
 "title": "History of Python",
@@ -42,12 +42,12 @@
 "timestamp": "2026-01-31T19:07:48Z"
 },
 {
-"title": "Zen of Python",
-"pageid": 46448252,
-"snippet": "<span class=\"searchmatch\">Python</span> is a collection of 19 &quot;guiding principles&quot; for writing computer <span class=\"searchmatch\">programs</span> that influence the design of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. <span class=\"searchmatch\">Python</span> code",
-"size": 11211,
-"wordcount": 1130,
-"timestamp": "2026-03-11T00:04:23Z"
+"title": "Flask (web framework)",
+"pageid": 29040606,
+"snippet": "framework and supports <span class=\"searchmatch\">Python</span> 2.7 and 3.5 and later. Jinja, also by Ronacher, is a template engine for the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. Similar to the",
+"size": 10240,
+"wordcount": 831,
+"timestamp": "2026-01-05T17:44:23Z"
 },
 {
 "title": "Mojo (programming language)",
@@ -58,12 +58,12 @@
 "timestamp": "2026-03-15T08:21:22Z"
 },
 {
-"title": "Flask (web framework)",
-"pageid": 29040606,
-"snippet": "framework and supports <span class=\"searchmatch\">Python</span> 2.7 and 3.5 and later. Jinja, also by Ronacher, is a template engine for the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. Similar to the",
-"size": 10240,
-"wordcount": 831,
-"timestamp": "2026-01-05T17:44:23Z"
+"title": "Zen of Python",
+"pageid": 46448252,
+"snippet": "<span class=\"searchmatch\">Python</span> is a collection of 19 &quot;guiding principles&quot; for writing computer <span class=\"searchmatch\">programs</span> that influence the design of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. <span class=\"searchmatch\">Python</span> code",
+"size": 11211,
+"wordcount": 1130,
+"timestamp": "2026-03-11T00:04:23Z"
 },
 {
 "title": "Python",
@@ -74,12 +74,12 @@
 "timestamp": "2026-03-10T10:36:25Z"
 },
 {
-"title": "Glob (programming)",
-"pageid": 484117,
-"snippet": "on these same wildcard patterns. Guido van Rossum, author of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, wrote and contributed a glob routine to BSD Unix in 1986",
-"size": 27549,
-"wordcount": 2505,
-"timestamp": "2026-03-01T01:55:39Z"
+"title": "List of Python software",
+"pageid": 3673376,
+"snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform",
+"size": 35173,
+"wordcount": 3669,
+"timestamp": "2026-03-04T03:44:07Z"
 }
 ]
 }

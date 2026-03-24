@@ -161,6 +161,32 @@ TESTS=(
     "version|wikipedia-api --version"
 )
 
+# ── Non-deterministic tests ────────────────────────────────────────────────
+# These tests produce different output on every run (random pages, volatile
+# search results).  In verify mode we only check that:
+#   - the command exits successfully
+#   - the output is non-empty
+#   - for JSON tests: the output is valid JSON
+#   - for text tests: the line count is within ±50 % of the recorded fixture
+
+NONDETERMINISTIC_TESTS=(
+    "random_default"
+    "random_limit"
+    "random_json"
+    "search_de"
+    "search_en"
+)
+
+is_nondeterministic() {
+    local name="$1"
+    for nd in "${NONDETERMINISTIC_TESTS[@]}"; do
+        if [ "$nd" = "$name" ]; then
+            return 0
+        fi
+    done
+    return 1
+}
+
 # ── Functions ───────────────────────────────────────────────────────────────
 
 usage() {
@@ -269,7 +295,45 @@ verify_mode() {
         local expected
         expected=$(cat "$expected_file" | strip_whitespace)
 
-        if [ "$actual" = "$expected" ]; then
+        if is_nondeterministic "$name"; then
+            # Weak check: non-empty output + format validation
+            if [ -z "$actual" ]; then
+                echo -e "${RED}FAIL${NC} (empty output)"
+                failed=$((failed + 1))
+                failed_names+=("$name")
+            elif [[ "$name" == *_json ]]; then
+                # Validate JSON structure
+                if echo "$actual" | python3 -m json.tool > /dev/null 2>&1; then
+                    echo -e "${GREEN}PASS${NC} (non-deterministic, valid JSON)"
+                    passed=$((passed + 1))
+                else
+                    echo -e "${RED}FAIL${NC} (invalid JSON)"
+                    failed=$((failed + 1))
+                    failed_names+=("$name")
+                fi
+            else
+                # Check line count is within ±50% of fixture
+                local lines_actual
+                lines_actual=$(echo "$actual" | wc -l | tr -d ' ')
+                local lines_expected
+                lines_expected=$(echo "$expected" | wc -l | tr -d ' ')
+                if [ "$lines_expected" -eq 0 ]; then
+                    echo -e "${GREEN}PASS${NC} (non-deterministic, non-empty)"
+                    passed=$((passed + 1))
+                else
+                    local lo=$(( lines_expected / 2 ))
+                    local hi=$(( lines_expected * 3 / 2 ))
+                    if [ "$lines_actual" -ge "$lo" ] && [ "$lines_actual" -le "$hi" ]; then
+                        echo -e "${GREEN}PASS${NC} (non-deterministic, ${lines_actual} lines)"
+                        passed=$((passed + 1))
+                    else
+                        echo -e "${RED}FAIL${NC} (expected ~${lines_expected} lines, got ${lines_actual})"
+                        failed=$((failed + 1))
+                        failed_names+=("$name")
+                    fi
+                fi
+            fi
+        elif [ "$actual" = "$expected" ]; then
             echo -e "${GREEN}PASS${NC}"
             passed=$((passed + 1))
         else
