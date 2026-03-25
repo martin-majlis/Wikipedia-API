@@ -7,6 +7,7 @@ from tests.mock_data import wikipedia_api_request
 import wikipediaapi
 from wikipediaapi._base_wikipedia_page import _Sentinel
 from wikipediaapi._base_wikipedia_page import NOT_CACHED
+from wikipediaapi._enums import Direction
 from wikipediaapi._params import CoordinatesParams
 from wikipediaapi._params import GeoSearchParams
 from wikipediaapi._params import ImagesParams
@@ -504,9 +505,14 @@ class TestParamsToApiExtended(unittest.TestCase):
         self.assertEqual(api["srinfo"], "totalhits|suggestion")
 
     def test_images_params_with_images(self):
-        p = ImagesParams(images=["File:Test.png"])
+        p = ImagesParams(images=["File:Test.png"], direction=Direction.DESCENDING)
         api = p.to_api()
         self.assertEqual(api["imimages"], "File:Test.png")
+        self.assertEqual(api["imdir"], "descending")
+
+    def test_images_params_rejects_string_direction(self):
+        with self.assertRaises(TypeError):
+            ImagesParams(direction="ascending")
 
 
 class TestAsyncPagesDictBatchMethods(unittest.IsolatedAsyncioTestCase):

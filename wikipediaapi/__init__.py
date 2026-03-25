@@ -6,6 +6,7 @@ from Wikipedia. Documentation provides code snippets for the most common use
 cases.
 """
 
+from ._enums import Direction
 from ._pages_dict import AsyncPagesDict
 from ._pages_dict import PagesDict
 from ._types import Coordinate
@@ -55,6 +56,7 @@ __all__ = [
     "WikiInvalidJsonError",
     "WikiConnectionError",
     "ExtractFormat",
+    "Direction",
     "Namespace",
     "WikiNamespace",
     "namespace2int",

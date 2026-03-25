@@ -13,6 +13,8 @@ from __future__ import annotations
 from collections.abc import Iterable
 from typing import Any, TYPE_CHECKING
 
+from ._enums import Direction
+
 if TYPE_CHECKING:
     from ._types import Coordinate
     from ._types import GeoPoint
@@ -79,7 +81,7 @@ class PagesDict(dict[str, Any]):
         *,
         limit: int = 10,
         images: Iterable[str] | None = None,
-        direction: str = "ascending",
+        direction: Direction = Direction.ASCENDING,
     ) -> dict[str, PagesDict]:
         """Batch-fetch images for all pages in this dict.
 
@@ -89,7 +91,7 @@ class PagesDict(dict[str, Any]):
         Args:
             limit: Maximum images per page (1–500).
             images: Specific images as an iterable.
-            direction: Sort direction: ``"ascending"`` or ``"descending"``.
+            direction: Sort direction as :class:`Direction`.
 
         Returns:
             ``{title: PagesDict}`` for every page in this dict.
@@ -161,7 +163,7 @@ class AsyncPagesDict(dict[str, Any]):
         *,
         limit: int = 10,
         images: Iterable[str] | None = None,
-        direction: str = "ascending",
+        direction: Direction = Direction.ASCENDING,
     ) -> dict[str, AsyncPagesDict]:
         """Async batch-fetch images for all pages in this dict.
 
@@ -171,7 +173,7 @@ class AsyncPagesDict(dict[str, Any]):
         Args:
             limit: Maximum images per page (1–500).
             images: Specific images as an iterable.
-            direction: Sort direction: ``"ascending"`` or ``"descending"``.
+            direction: Sort direction as :class:`Direction`.
 
         Returns:
             ``{title: AsyncPagesDict}`` for every page in this dict.
