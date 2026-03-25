@@ -541,15 +541,15 @@ wheels = [
 
 [[package]]
 name = "flake8-bugbear"
-version = "24.8.19"
+version = "25.11.29"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "attrs" },
     { name = "flake8" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/00/b3/80043856ed90ceef0e95c01ed12d6bb7d4d76356e526450f0a9aeeb0a7b7/flake8_bugbear-24.8.19.tar.gz", hash = "sha256:9b77627eceda28c51c27af94560a72b5b2c97c016651bdce45d8f56c180d2d32", size = 78771, upload-time = "2024-08-20T02:16:03.749Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ec/20/2a996e2fca7810bd1b031901d65fc4292630895afcb946ebd00568bdc669/flake8_bugbear-25.11.29.tar.gz", hash = "sha256:b5d06710f3d26e595541ad303ad4d5cb52578bd4bccbb2c2c0b2c72e243dafc8", size = 84896, upload-time = "2025-11-29T20:51:57.75Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2b/3c/8885a79ae7bebfab19716969de9810722ff45354e4ccc974a090bc478eaa/flake8_bugbear-24.8.19-py3-none-any.whl", hash = "sha256:25bc3867f7338ee3b3e0916bf8b8a0b743f53a9a5175782ddc4325ed4f386b89", size = 35357, upload-time = "2024-08-20T02:16:01.516Z" },
+    { url = "https://files.pythonhosted.org/packages/0d/42/c18f199780d99a6f6a64c4a36f4ad28a445d9e11968a6025b21d0c8b6802/flake8_bugbear-25.11.29-py3-none-any.whl", hash = "sha256:9bf15e2970e736d2340da4c0a70493db964061c9c38f708cfe1f7b2d87392298", size = 37861, upload-time = "2025-11-29T20:51:56.439Z" },
 ]
 
 [[package]]
@@ -1893,7 +1893,7 @@ dev = [
     { name = "coverage", specifier = "==7.13.5" },
     { name = "flake8", specifier = "==7.3.0" },
     { name = "flake8-async", specifier = ">=25.7.1" },
-    { name = "flake8-bugbear", specifier = "==24.8.19" },
+    { name = "flake8-bugbear", specifier = "==25.11.29" },
     { name = "flake8-comprehensions", specifier = "==3.15.0" },
     { name = "flake8-docstrings", specifier = "==1.7.0" },
     { name = "isort", specifier = "==8.0.1" },
