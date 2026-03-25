@@ -43,7 +43,7 @@ dev = [
     "coverage==7.13.5",
     "flake8==7.3.0",
     "flake8-bugbear==25.11.29",
-    "flake8-comprehensions==3.15.0",
+    "flake8-comprehensions==3.17.0",
     "flake8-docstrings==1.7.0",
     "isort==8.0.1",
     "mypy==1.19.1",

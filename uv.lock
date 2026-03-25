@@ -554,14 +554,14 @@ wheels = [
 
 [[package]]
 name = "flake8-comprehensions"
-version = "3.15.0"
+version = "3.17.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "flake8" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/60/fa/68481f25fc8ecdbe8a763062ba4f5b17fa4ef7fc0646c081267cef4f67e5/flake8_comprehensions-3.15.0.tar.gz", hash = "sha256:923c22603e0310376a6b55b03efebdc09753c69f2d977755cba8bb73458a5d4d", size = 13079, upload-time = "2024-06-29T22:29:49.972Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/91/93/da2d30987ce4c06404326e7c8e6636cae18c2b2f2d5542891a8ad64a34f4/flake8_comprehensions-3.17.0.tar.gz", hash = "sha256:bf4fa102b2bf4d6c9e999e29e4b2724cbadffb70b937600fc782161be4dc0f4a", size = 13269, upload-time = "2025-09-09T22:37:18.335Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3a/aa/93667d6f398749d1a9dd37d646e092f9f1baade7cbac948331b50a1d513c/flake8_comprehensions-3.15.0-py3-none-any.whl", hash = "sha256:b7e027bbb52be2ceb779ee12484cdeef52b0ad3c1fcb8846292bdb86d3034681", size = 8162, upload-time = "2024-06-29T22:29:48.193Z" },
+    { url = "https://files.pythonhosted.org/packages/39/bd/d6739d685fdd79349aa51c37bdedc0d8eab6ae9c6e6ed2ca935b3f88210d/flake8_comprehensions-3.17.0-py3-none-any.whl", hash = "sha256:3943a9c6f2593c3bc5cc64106c2f89d63c6ecd49c8343597f8257b8fcfc8b0a2", size = 8185, upload-time = "2025-09-09T22:37:17.149Z" },
 ]
 
 [[package]]
@@ -1894,7 +1894,7 @@ dev = [
     { name = "flake8", specifier = "==7.3.0" },
     { name = "flake8-async", specifier = ">=25.7.1" },
     { name = "flake8-bugbear", specifier = "==25.11.29" },
-    { name = "flake8-comprehensions", specifier = "==3.15.0" },
+    { name = "flake8-comprehensions", specifier = "==3.17.0" },
     { name = "flake8-docstrings", specifier = "==1.7.0" },
     { name = "isort", specifier = "==8.0.1" },
     { name = "mypy", specifier = "==1.19.1" },
