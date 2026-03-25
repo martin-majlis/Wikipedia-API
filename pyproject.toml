@@ -42,7 +42,7 @@ dev = [
     "black==26.3.1",
     "coverage==7.13.5",
     "flake8==7.3.0",
-    "flake8-bugbear==24.8.19",
+    "flake8-bugbear==25.11.29",
     "flake8-comprehensions==3.15.0",
     "flake8-docstrings==1.7.0",
     "isort==8.0.1",
