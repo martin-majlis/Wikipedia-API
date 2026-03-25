@@ -1855,6 +1855,7 @@ Talk:New Horizons/Archive 2
 Talk:New York City/Archive 16
 Talk:Ninth planet (disambiguation)
 Talk:Orbit/Archive 1
+Talk:Orcus (dwarf planet)
 Talk:Orders of magnitude (pressure)
 Talk:PLUTO
 Talk:Pamela Geller/Archive 7
@@ -1877,7 +1878,7 @@ Talk:Planets in astrology
 Talk:Pluto
 Talk:Pluto (Disney)/Archive 1
 Talk:Pluto (disambiguation)
-Talk:Pluto (mythology)
+Talk:Pluto (mythology)/Archive 1
 Talk:Pluto in fiction
 Talk:Pluto/Archive 1
 Talk:Pluto/Archive 2
@@ -4411,7 +4412,6 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
-Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1

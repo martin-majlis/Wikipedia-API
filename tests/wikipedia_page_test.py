@@ -97,6 +97,17 @@ class TestWikipediaPage(unittest.TestCase):
         page = self.wiki.page("Test_1")
         self.assertTrue(page.exists())
 
+    def test_page_identity_equality(self):
+        p1 = self.wiki.page("Test_1")
+        p2 = self.wiki.page("Test_1")
+        self.assertEqual(p1, p2)
+        self.assertEqual(hash(p1), hash(p2))
+
+    def test_page_identity_inequality(self):
+        p1 = self.wiki.page("Test_1")
+        p2 = self.wiki.page("Test_1", ns=wikipediaapi.Namespace.CATEGORY)
+        self.assertNotEqual(p1, p2)
+
     def test_article_method(self):
         p = self.wiki.page("Test_1")
         a = self.wiki.article("Test_1")

@@ -1,26 +1,36 @@
 {
-"File:AYool topography 15min.png": {
-"title": "File:AYool topography 15min.png",
+"File:2022-10-15 Václavské náměstí 1.jpg": {
+"title": "File:2022-10-15 Václavské náměstí 1.jpg",
 "language": "en",
 "ns": 6
 },
-"File:Antarctic aurora ESA313457.jpg": {
-"title": "File:Antarctic aurora ESA313457.jpg",
+"File:Archikatedra Świętych Wita, Wacława i Wojciecha w Pradze 20190816 1333 5260.jpg": {
+"title": "File:Archikatedra Świętych Wita, Wacława i Wojciecha w Pradze 20190816 1333 5260.jpg",
 "language": "en",
 "ns": 6
 },
-"File:Archean.png": {
-"title": "File:Archean.png",
+"File:Astronomical Clock (8341899828).jpg": {
+"title": "File:Astronomical Clock (8341899828).jpg",
 "language": "en",
 "ns": 6
 },
-"File:Axial tilt vs tropical and polar circles.svg": {
-"title": "File:Axial tilt vs tropical and polar circles.svg",
+"File:Barrande bridge.JPG": {
+"title": "File:Barrande bridge.JPG",
 "language": "en",
 "ns": 6
 },
-"File:BlackMarble20161km.jpg": {
-"title": "File:BlackMarble20161km.jpg",
+"File:Bohuslav Svoboda (2022).jpg": {
+"title": "File:Bohuslav Svoboda (2022).jpg",
+"language": "en",
+"ns": 6
+},
+"File:Charles Bridge (Karlův most), Vltava River, Prague, 2015.jpg": {
+"title": "File:Charles Bridge (Karlův most), Vltava River, Prague, 2015.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Coat of arms of Prague.svg": {
+"title": "File:Coat of arms of Prague.svg",
 "language": "en",
 "ns": 6
 },
@@ -29,153 +39,298 @@
 "language": "en",
 "ns": 6
 },
-"File:Crab Nebula.jpg": {
-"title": "File:Crab Nebula.jpg",
+"File:Cs-Praha.ogg": {
+"title": "File:Cs-Praha.ogg",
 "language": "en",
 "ns": 6
 },
-"File:Cscr-featured.svg": {
-"title": "File:Cscr-featured.svg",
+"File:Europe relief laea location map.jpg": {
+"title": "File:Europe relief laea location map.jpg",
 "language": "en",
 "ns": 6
 },
-"File:Cumulus clouds in fair weather.jpeg": {
-"title": "File:Cumulus clouds in fair weather.jpeg",
+"File:FFUK Praha.JPG": {
+"title": "File:FFUK Praha.JPG",
 "language": "en",
 "ns": 6
 },
-"File:Debris-GEO1280.jpg": {
-"title": "File:Debris-GEO1280.jpg",
+"File:Flag of Armenia.svg": {
+"title": "File:Flag of Armenia.svg",
 "language": "en",
 "ns": 6
 },
-"File:Earth Day Flag.png": {
-"title": "File:Earth Day Flag.png",
+"File:Flag of Austria.svg": {
+"title": "File:Flag of Austria.svg",
 "language": "en",
 "ns": 6
 },
-"File:Earth cutaway schematic-en.svg": {
-"title": "File:Earth cutaway schematic-en.svg",
+"File:Flag of Azerbaijan.svg": {
+"title": "File:Flag of Azerbaijan.svg",
 "language": "en",
 "ns": 6
 },
-"File:Earth heat flow.jpg": {
-"title": "File:Earth heat flow.jpg",
+"File:Flag of Belarus.svg": {
+"title": "File:Flag of Belarus.svg",
 "language": "en",
 "ns": 6
 },
-"File:Earth symbol (bold).svg": {
-"title": "File:Earth symbol (bold).svg",
+"File:Flag of Belgium (civil).svg": {
+"title": "File:Flag of Belgium (civil).svg",
 "language": "en",
 "ns": 6
 },
-"File:Earth symbol (fixed width).svg": {
-"title": "File:Earth symbol (fixed width).svg",
+"File:Flag of Bosnia and Herzegovina.svg": {
+"title": "File:Flag of Bosnia and Herzegovina.svg",
 "language": "en",
 "ns": 6
 },
-"File:Earth-cutaway-schematic-english.svg": {
-"title": "File:Earth-cutaway-schematic-english.svg",
+"File:Flag of Bulgaria.svg": {
+"title": "File:Flag of Bulgaria.svg",
 "language": "en",
 "ns": 6
 },
-"File:Earth-moon.jpg": {
-"title": "File:Earth-moon.jpg",
+"File:Flag of Croatia.svg": {
+"title": "File:Flag of Croatia.svg",
 "language": "en",
 "ns": 6
 },
-"File:Earth2014shape SouthAmerica small.jpg": {
-"title": "File:Earth2014shape SouthAmerica small.jpg",
+"File:Flag of Europe.svg": {
+"title": "File:Flag of Europe.svg",
 "language": "en",
 "ns": 6
 },
-"File:En-Earth-article.ogg": {
-"title": "File:En-Earth-article.ogg",
+"File:Flag of France.svg": {
+"title": "File:Flag of France.svg",
 "language": "en",
 "ns": 6
 },
-"File:EpicEarth-Globespin-tilt-23.4.gif": {
-"title": "File:EpicEarth-Globespin-tilt-23.4.gif",
+"File:Flag of Georgia.svg": {
+"title": "File:Flag of Georgia.svg",
 "language": "en",
 "ns": 6
 },
-"File:Flag of the United Nations.svg": {
-"title": "File:Flag of the United Nations.svg",
+"File:Flag of Germany.svg": {
+"title": "File:Flag of Germany.svg",
 "language": "en",
 "ns": 6
 },
-"File:Global Temperature And Forces With Fahrenheit.svg": {
-"title": "File:Global Temperature And Forces With Fahrenheit.svg",
+"File:Flag of Hungary.svg": {
+"title": "File:Flag of Hungary.svg",
 "language": "en",
 "ns": 6
 },
-"File:Global View of the Arctic and Antarctic.jpg": {
-"title": "File:Global View of the Arctic and Antarctic.jpg",
+"File:Flag of India.svg": {
+"title": "File:Flag of India.svg",
 "language": "en",
 "ns": 6
 },
-"File:Global land use for food production, OWID statistic.png": {
-"title": "File:Global land use for food production, OWID statistic.png",
+"File:Flag of Israel.svg": {
+"title": "File:Flag of Israel.svg",
 "language": "en",
 "ns": 6
 },
-"File:Globus cruciger (bold).svg": {
-"title": "File:Globus cruciger (bold).svg",
+"File:Flag of Italy.svg": {
+"title": "File:Flag of Italy.svg",
 "language": "en",
 "ns": 6
 },
-"File:Globus cruciger (fixed width).svg": {
-"title": "File:Globus cruciger (fixed width).svg",
+"File:Flag of Japan.svg": {
+"title": "File:Flag of Japan.svg",
 "language": "en",
 "ns": 6
 },
-"File:Gnome-mime-sound-openclipart.svg": {
-"title": "File:Gnome-mime-sound-openclipart.svg",
+"File:Flag of Kazakhstan.svg": {
+"title": "File:Flag of Kazakhstan.svg",
 "language": "en",
 "ns": 6
 },
-"File:ISS-42 Waning sun.jpg": {
-"title": "File:ISS-42 Waning sun.jpg",
+"File:Flag of Kyrgyzstan.svg": {
+"title": "File:Flag of Kyrgyzstan.svg",
 "language": "en",
 "ns": 6
 },
-"File:IntertropicalConvergenceZone-EO.jpg": {
-"title": "File:IntertropicalConvergenceZone-EO.jpg",
+"File:Flag of Moldova.svg": {
+"title": "File:Flag of Moldova.svg",
 "language": "en",
 "ns": 6
 },
-"File:Issoria lathonia.jpg": {
-"title": "File:Issoria lathonia.jpg",
+"File:Flag of Mongolia.svg": {
+"title": "File:Flag of Mongolia.svg",
 "language": "en",
 "ns": 6
 },
-"File:Köppen-Geiger Climate Classification Map (1980–2016) no borders.png": {
-"title": "File:Köppen-Geiger Climate Classification Map (1980–2016) no borders.png",
+"File:Flag of North Macedonia.svg": {
+"title": "File:Flag of North Macedonia.svg",
 "language": "en",
 "ns": 6
 },
-"File:Magnetosphere Levels-en.svg": {
-"title": "File:Magnetosphere Levels-en.svg",
+"File:Flag of Poland.svg": {
+"title": "File:Flag of Poland.svg",
 "language": "en",
 "ns": 6
 },
-"File:MarsReconnaissanceOrbiter-Views-EarthMoon-20220422.jpg": {
-"title": "File:MarsReconnaissanceOrbiter-Views-EarthMoon-20220422.jpg",
+"File:Flag of Prague.svg": {
+"title": "File:Flag of Prague.svg",
 "language": "en",
 "ns": 6
 },
-"File:Meteosat-12-fci-march-equinox-2025-noon.jpg": {
-"title": "File:Meteosat-12-fci-march-equinox-2025-noon.jpg",
+"File:Flag of Romania.svg": {
+"title": "File:Flag of Romania.svg",
 "language": "en",
 "ns": 6
 },
-"File:Mollweide Cycle.gif": {
-"title": "File:Mollweide Cycle.gif",
+"File:Flag of Russia.svg": {
+"title": "File:Flag of Russia.svg",
 "language": "en",
 "ns": 6
 },
-"File:NASA-EarlyEarth-PaleOrangeDot-20190802.jpg": {
-"title": "File:NASA-EarlyEarth-PaleOrangeDot-20190802.jpg",
+"File:Flag of Serbia.svg": {
+"title": "File:Flag of Serbia.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of Slovakia.svg": {
+"title": "File:Flag of Slovakia.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of South Korea.svg": {
+"title": "File:Flag of South Korea.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of Spain.svg": {
+"title": "File:Flag of Spain.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of Turkey.svg": {
+"title": "File:Flag of Turkey.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of Ukraine.svg": {
+"title": "File:Flag of Ukraine.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of Uzbekistan.svg": {
+"title": "File:Flag of Uzbekistan.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of Vietnam.svg": {
+"title": "File:Flag of Vietnam.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of the Czech Republic.svg": {
+"title": "File:Flag of the Czech Republic.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of the Netherlands.svg": {
+"title": "File:Flag of the Netherlands.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of the People's Republic of China.svg": {
+"title": "File:Flag of the People's Republic of China.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of the Philippines.svg": {
+"title": "File:Flag of the Philippines.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of the Republic of China.svg": {
+"title": "File:Flag of the Republic of China.svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of the United Kingdom (1-2).svg": {
+"title": "File:Flag of the United Kingdom (1-2).svg",
+"language": "en",
+"ns": 6
+},
+"File:Flag of the United States (23px).png": {
+"title": "File:Flag of the United States (23px).png",
+"language": "en",
+"ns": 6
+},
+"File:Flag of the United States.svg": {
+"title": "File:Flag of the United States.svg",
+"language": "en",
+"ns": 6
+},
+"File:Frantisek Palacky monument.jpg": {
+"title": "File:Frantisek Palacky monument.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Havla 1989.jpg": {
+"title": "File:Havla 1989.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Josef Mathauser - Kněžna Libuše věští slávu Prahy.jpg": {
+"title": "File:Josef Mathauser - Kněžna Libuše věští slávu Prahy.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Kafka statue Prague.jpg": {
+"title": "File:Kafka statue Prague.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Logo Praha.svg": {
+"title": "File:Logo Praha.svg",
+"language": "en",
+"ns": 6
+},
+"File:Maqueta del castell de praga.JPG": {
+"title": "File:Maqueta del castell de praga.JPG",
+"language": "en",
+"ns": 6
+},
+"File:Mariánské náměstí 2-2 Praha, Staré Město 20170906 001.jpg": {
+"title": "File:Mariánské náměstí 2-2 Praha, Staré Město 20170906 001.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Mrakodrapy v Praze 2018.jpg": {
+"title": "File:Mrakodrapy v Praze 2018.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Na Perštýně 5, U Medvídků.jpg": {
+"title": "File:Na Perštýně 5, U Medvídků.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Night view of the Castle and Charles Bridge, Prague - 8034.jpg": {
+"title": "File:Night view of the Castle and Charles Bridge, Prague - 8034.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Náměstí Míru sv. Ludmila.jpg": {
+"title": "File:Náměstí Míru sv. Ludmila.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Národní divadlo z ostrova 1.jpg": {
+"title": "File:Národní divadlo z ostrova 1.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Národní divadlo ze Střeleckého ostrova.jpg": {
+"title": "File:Národní divadlo ze Střeleckého ostrova.jpg",
+"language": "en",
+"ns": 6
+},
+"File:O2 Arena, od Českomoravské.jpg": {
+"title": "File:O2 Arena, od Českomoravské.jpg",
 "language": "en",
 "ns": 6
 },
@@ -184,98 +339,188 @@
 "language": "en",
 "ns": 6
 },
-"File:Ocean world Earth.jpg": {
-"title": "File:Ocean world Earth.jpg",
+"File:Panorama von Prag – Vincenc Morstadt – 1835.jpg": {
+"title": "File:Panorama von Prag – Vincenc Morstadt – 1835.jpg",
 "language": "en",
 "ns": 6
 },
-"File:People icon.svg": {
-"title": "File:People icon.svg",
+"File:PetrinObservationTower.jpg": {
+"title": "File:PetrinObservationTower.jpg",
 "language": "en",
 "ns": 6
 },
-"File:Red Giant Earth warm.jpg": {
-"title": "File:Red Giant Earth warm.jpg",
+"File:Prag Pulverturm.jpg": {
+"title": "File:Prag Pulverturm.jpg",
 "language": "en",
 "ns": 6
 },
-"File:Seasons1.svg": {
-"title": "File:Seasons1.svg",
+"File:Prag ginger u fred gehry.jpg": {
+"title": "File:Prag ginger u fred gehry.jpg",
 "language": "en",
 "ns": 6
 },
-"File:Semi-protection-shackle.svg": {
-"title": "File:Semi-protection-shackle.svg",
+"File:Prago-Ruzyně, flughaveno, el-aera vido, 7.jpeg": {
+"title": "File:Prago-Ruzyně, flughaveno, el-aera vido, 7.jpeg",
 "language": "en",
 "ns": 6
 },
-"File:Solar System Template 2.png": {
-"title": "File:Solar System Template 2.png",
+"File:Prague (6365119737).jpg": {
+"title": "File:Prague (6365119737).jpg",
 "language": "en",
 "ns": 6
 },
-"File:Solar system.jpg": {
-"title": "File:Solar system.jpg",
+"File:Prague 07-2016 View from Old Town Hall Tower img3.jpg": {
+"title": "File:Prague 07-2016 View from Old Town Hall Tower img3.jpg",
 "language": "en",
 "ns": 6
 },
-"File:Spaccato vulcano.svg": {
-"title": "File:Spaccato vulcano.svg",
+"File:Prague 07-2016 View from Powder Tower img4.jpg": {
+"title": "File:Prague 07-2016 View from Powder Tower img4.jpg",
 "language": "en",
 "ns": 6
 },
-"File:Symbol category class.svg": {
-"title": "File:Symbol category class.svg",
+"File:Prague 07-2016 tram at Florenc.jpg": {
+"title": "File:Prague 07-2016 tram at Florenc.jpg",
 "language": "en",
 "ns": 6
 },
-"File:Symbol portal class.svg": {
-"title": "File:Symbol portal class.svg",
+"File:Prague 07-2016 view from Lesser Town Tower of Charles Bridge img3.jpg": {
+"title": "File:Prague 07-2016 view from Lesser Town Tower of Charles Bridge img3.jpg",
 "language": "en",
 "ns": 6
 },
-"File:Tectonic plates (empty).svg": {
-"title": "File:Tectonic plates (empty).svg",
+"File:Prague Congress Centre (1).JPG": {
+"title": "File:Prague Congress Centre (1).JPG",
 "language": "en",
 "ns": 6
 },
-"File:Terra.png": {
-"title": "File:Terra.png",
+"File:Prague Mala Strana St. Nicholas-02.jpg": {
+"title": "File:Prague Mala Strana St. Nicholas-02.jpg",
 "language": "en",
 "ns": 6
 },
-"File:The Blue Marble, AS17-148-22727.jpg": {
-"title": "File:The Blue Marble, AS17-148-22727.jpg",
+"File:Prague Praha 2014 Holmstad flott gammelnye synagoge old-new synagogue Josefov.jpg": {
+"title": "File:Prague Praha 2014 Holmstad flott gammelnye synagoge old-new synagogue Josefov.jpg",
 "language": "en",
 "ns": 6
 },
-"File:The Earth seen from Apollo 17 with transparent background.png": {
-"title": "File:The Earth seen from Apollo 17 with transparent background.png",
+"File:Prague Zoo main entrance.JPG": {
+"title": "File:Prague Zoo main entrance.JPG",
 "language": "en",
 "ns": 6
 },
-"File:The Mysterious Case of the Disappearing Dust.jpg": {
-"title": "File:The Mysterious Case of the Disappearing Dust.jpg",
+"File:Prague banner c1477.png": {
+"title": "File:Prague banner c1477.png",
 "language": "en",
 "ns": 6
 },
-"File:WikiProject Geology.svg": {
-"title": "File:WikiProject Geology.svg",
+"File:Prague by Sentinel-2, 2020-05-18.jpg": {
+"title": "File:Prague by Sentinel-2, 2020-05-18.jpg",
 "language": "en",
 "ns": 6
 },
-"File:Wikibooks-logo.svg": {
-"title": "File:Wikibooks-logo.svg",
+"File:Prague districts en.svg": {
+"title": "File:Prague districts en.svg",
 "language": "en",
 "ns": 6
 },
-"File:Wikinews-logo.svg": {
-"title": "File:Wikinews-logo.svg",
+"File:Prague from Powder Tower 01.jpg": {
+"title": "File:Prague from Powder Tower 01.jpg",
 "language": "en",
 "ns": 6
 },
-"File:Wikiquote-logo.svg": {
-"title": "File:Wikiquote-logo.svg",
+"File:Prague liberation 1945 konev.jpg": {
+"title": "File:Prague liberation 1945 konev.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Prague old town square panorama.jpg": {
+"title": "File:Prague old town square panorama.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Prague population pyramid in 2021.svg": {
+"title": "File:Prague population pyramid in 2021.svg",
+"language": "en",
+"ns": 6
+},
+"File:PragueCzechRepublicMalaStranaMostecka.jpg": {
+"title": "File:PragueCzechRepublicMalaStranaMostecka.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Praha 2009-12-26-27.jpg": {
+"title": "File:Praha 2009-12-26-27.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Praha CoA CZ small.svg": {
+"title": "File:Praha CoA CZ small.svg",
+"language": "en",
+"ns": 6
+},
+"File:Praha Holešovice EUSPA 1.jpg": {
+"title": "File:Praha Holešovice EUSPA 1.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Praha Národní muzeum 2.jpg": {
+"title": "File:Praha Národní muzeum 2.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Praha Rudolfinum isometric.jpg": {
+"title": "File:Praha Rudolfinum isometric.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Praha Veletržní palác jih.jpg": {
+"title": "File:Praha Veletržní palác jih.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Praha, Letná, pohled na Pařížskou ulici.JPG": {
+"title": "File:Praha, Letná, pohled na Pařížskou ulici.JPG",
+"language": "en",
+"ns": 6
+},
+"File:Praha, Vítkov, památník II.JPG": {
+"title": "File:Praha, Vítkov, památník II.JPG",
+"language": "en",
+"ns": 6
+},
+"File:Prazske-vystaviste-holesovice.jpg": {
+"title": "File:Prazske-vystaviste-holesovice.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Red pog.svg": {
+"title": "File:Red pog.svg",
+"language": "en",
+"ns": 6
+},
+"File:Relief Map of Czech Republic.png": {
+"title": "File:Relief Map of Czech Republic.png",
+"language": "en",
+"ns": 6
+},
+"File:Strahov knihovna Teolog 2.jpg": {
+"title": "File:Strahov knihovna Teolog 2.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Vencovskeho aula.JPG": {
+"title": "File:Vencovskeho aula.JPG",
+"language": "en",
+"ns": 6
+},
+"File:Vyšehrad, z Císařské louky.jpg": {
+"title": "File:Vyšehrad, z Císařské louky.jpg",
+"language": "en",
+"ns": 6
+},
+"File:Wikidata-logo.svg": {
+"title": "File:Wikidata-logo.svg",
 "language": "en",
 "ns": 6
 },
@@ -284,13 +529,18 @@
 "language": "en",
 "ns": 6
 },
-"File:Wikiversity logo 2017.svg": {
-"title": "File:Wikiversity logo 2017.svg",
+"File:Wikivoyage-Logo-v3-icon.svg": {
+"title": "File:Wikivoyage-Logo-v3-icon.svg",
 "language": "en",
 "ns": 6
 },
 "File:Wiktionary-logo-v2.svg": {
 "title": "File:Wiktionary-logo-v2.svg",
+"language": "en",
+"ns": 6
+},
+"File:Zizkov tv tower.jpg": {
+"title": "File:Zizkov tv tower.jpg",
 "language": "en",
 "ns": 6
 }

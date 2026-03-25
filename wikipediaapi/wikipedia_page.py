@@ -39,7 +39,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
     :attr:`ATTRIBUTES_MAPPING`; trigger an ``info`` or ``extracts`` call
     on first access):
 
-    * ``pageid`` — MediaWiki page ID (``-1`` for missing pages)
+    * ``pageid`` — MediaWiki page ID (negative for missing pages)
     * ``fullurl`` — canonical read URL of the page
     * ``canonicalurl`` — canonical URL
     * ``editurl`` — URL for editing the page
@@ -64,7 +64,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
 
     @property
     def pageid(self) -> Any:
-        """MediaWiki numeric page ID (``-1`` for missing pages)."""
+        """MediaWiki numeric page ID (negative for missing pages)."""
         return self._info_attr("pageid")
 
     @property
@@ -173,11 +173,14 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
 
         Triggers an ``info`` API call on first invocation (via
         ``pageid`` attribute resolution) and caches the result.
-        A ``pageid`` of ``-1`` indicates a missing page.
+        A negative ``pageid`` indicates a missing page.
 
         :return: ``True`` if the page exists, ``False`` otherwise
         """
-        return bool(self.pageid != -1)
+        pageid = self.pageid
+        if pageid is None:
+            return False
+        return int(pageid) > 0
 
     @property
     def summary(self) -> str:

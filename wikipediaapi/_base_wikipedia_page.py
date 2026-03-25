@@ -223,6 +223,39 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
         """
         return int(self._attributes["ns"])
 
+    def __eq__(self, other: object) -> bool:
+        """Compare pages by logical identity tuple.
+
+        Two page objects are considered equal when they refer to the same
+        language, title, and namespace.
+
+        Args:
+            other: Object to compare against.
+
+        Returns:
+            ``True`` when ``other`` is a ``BaseWikipediaPage`` with the same
+            language, title, and namespace; otherwise ``False``.
+        """
+        if not isinstance(other, BaseWikipediaPage):
+            return False
+        return (
+            self.language,
+            self.title,
+            self.ns,
+        ) == (
+            other.language,
+            other.title,
+            other.ns,
+        )
+
+    def __hash__(self) -> int:
+        """Return the hash of the page identity tuple.
+
+        Returns:
+            Hash computed from ``(language, title, namespace)``.
+        """
+        return hash((self.language, self.title, self.ns))
+
     @property
     @abstractmethod
     def sections(self) -> list[WikipediaPageSection]:

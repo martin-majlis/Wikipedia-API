@@ -141,6 +141,24 @@ class BaseWikipediaResource(ABC):
         return norm_map
 
     @staticmethod
+    def _missing_pageid(page: "BaseWikipediaPage[Any]") -> int:
+        """Build a deterministic negative page ID for a missing page.
+
+        Args:
+            page: Page object representing a missing page.
+
+        Returns:
+            A negative integer derived from page identity and stable within
+            the current Python process.
+        """
+        pageid = hash((page.language, page.title, page.ns))
+        if pageid >= 0:
+            pageid = -(pageid + 1)
+        if pageid == -1:
+            return -2
+        return pageid
+
+    @staticmethod
     def _common_attributes(extract: Any, page: "BaseWikipediaPage[Any]") -> None:
         """
         Copy standard API response fields into ``page._attributes``.
@@ -409,8 +427,9 @@ class BaseWikipediaResource(ABC):
 
         Updates common page attributes from the ``query`` block, then iterates
         over ``raw["query"]["pages"]``.  If the only page key is ``"-1"`` the
-        page does not exist; ``pageid`` is set to ``-1`` and *empty* is
-        returned.  Otherwise the first real page entry is passed to *builder*.
+        page does not exist; ``pageid`` is set to a deterministic negative
+        value and *empty* is returned.  Otherwise the first real page entry
+        is passed to *builder*.
 
         Called by :meth:`_dispatch_prop` and :meth:`_async_dispatch_prop`.
 
@@ -424,7 +443,7 @@ class BaseWikipediaResource(ABC):
         self._common_attributes(raw["query"], page)
         for k, v in raw["query"]["pages"].items():
             if k == "-1":
-                page._attributes["pageid"] = -1
+                page._attributes["pageid"] = self._missing_pageid(page)
                 return empty
             return builder(v, page)
         return empty
@@ -538,7 +557,7 @@ class BaseWikipediaResource(ABC):
         self._common_attributes(raw["query"], page)
         for k, v in raw["query"]["pages"].items():
             if k == "-1":
-                page._attributes["pageid"] = -1
+                page._attributes["pageid"] = self._missing_pageid(page)
                 return {}
             while "continue" in raw:
                 params[continue_key] = raw["continue"][continue_key]
@@ -585,7 +604,7 @@ class BaseWikipediaResource(ABC):
         self._common_attributes(raw["query"], page)
         for k, v in raw["query"]["pages"].items():
             if k == "-1":
-                page._attributes["pageid"] = -1
+                page._attributes["pageid"] = self._missing_pageid(page)
                 return {}
             while "continue" in raw:
                 params[continue_key] = raw["continue"][continue_key]
@@ -1321,7 +1340,7 @@ class WikipediaResource(BaseWikipediaResource):
 
         :param page: page to fetch metadata for
         :return: *page* populated with info fields; *page* unchanged if
-            the page does not exist (``pageid`` is set to ``-1``)
+            the page does not exist (``pageid`` is set to a negative value)
         :raises WikiHttpTimeoutError: if the request times out
         :raises WikiConnectionError: if a connection cannot be established
         :raises WikiRateLimitError: if the API returns HTTP 429
@@ -1533,7 +1552,7 @@ class WikipediaResource(BaseWikipediaResource):
         self._common_attributes(raw.get("query", {}), page)
         for k, v in raw.get("query", {}).get("pages", {}).items():
             if k == "-1":
-                page._attributes["pageid"] = -1
+                page._attributes["pageid"] = self._missing_pageid(page)
                 page._set_cached("coordinates", params.cache_key(), [])
                 return []
             return self._build_coordinates_for_page(v, page, params)
@@ -1549,7 +1568,7 @@ class WikipediaResource(BaseWikipediaResource):
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: WikipediaPage | None = None,
-    ) -> dict[str, list[Coordinate]]:
+    ) -> dict[WikipediaPage, list[Coordinate]]:
         """Batch-fetch coordinates for multiple pages.
 
         Sends multi-title API requests (up to 50 titles per request)
@@ -1564,7 +1583,7 @@ class WikipediaResource(BaseWikipediaResource):
             distance_from_page: Reference page.
 
         Returns:
-            ``{title: [Coordinate, ...]}`` for every page.
+            ``{page: [Coordinate, ...]}`` for every page.
         """
         params = CoordinatesParams(
             limit=limit,
@@ -1573,7 +1592,7 @@ class WikipediaResource(BaseWikipediaResource):
             distance_from_point=distance_from_point,
             distance_from_page=distance_from_page,
         )
-        result: dict[str, list[Coordinate]] = {}
+        result: dict[WikipediaPage, list[Coordinate]] = {}
         page_map = {p.title: p for p in pages}
         for i in range(0, len(pages), 50):
             chunk = pages[i : i + 50]
@@ -1594,11 +1613,13 @@ class WikipediaResource(BaseWikipediaResource):
                 orig = norm_map.get(title, title)
                 p = page_map.get(orig) or page_map.get(title)
                 if p is not None:
+                    if p.title != title:
+                        p._attributes["title"] = title
                     coords = self._build_coordinates_for_page(v, p, params)
-                    result[title] = coords
+                    result[p] = coords
         for p in pages:
-            if p.title not in result:
-                result[p.title] = []
+            if p not in result:
+                result[p] = []
         return result
 
     def images(
@@ -1645,7 +1666,7 @@ class WikipediaResource(BaseWikipediaResource):
         self._common_attributes(raw.get("query", {}), page)
         for k, v in raw.get("query", {}).get("pages", {}).items():
             if k == "-1":
-                page._attributes["pageid"] = -1
+                page._attributes["pageid"] = self._missing_pageid(page)
                 empty = PagesDict(wiki=self)
                 page._set_cached("images", params.cache_key(), empty)
                 return empty
@@ -2197,7 +2218,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         self._common_attributes(raw.get("query", {}), page)
         for k, v in raw.get("query", {}).get("pages", {}).items():
             if k == "-1":
-                page._attributes["pageid"] = -1
+                page._attributes["pageid"] = self._missing_pageid(page)
                 page._set_cached("coordinates", params.cache_key(), [])
                 return []
             return self._build_coordinates_for_page(v, page, params)
@@ -2213,7 +2234,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: "AsyncWikipediaPage | None" = None,
-    ) -> dict[str, list[Coordinate]]:
+    ) -> dict["AsyncWikipediaPage", list[Coordinate]]:
         """Async version of :meth:`WikipediaResource.batch_coordinates`.
 
         See :meth:`WikipediaResource.batch_coordinates` for full documentation.
@@ -2227,7 +2248,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             distance_from_page: Reference page.
 
         Returns:
-            ``{title: [Coordinate, ...]}`` for every page.
+            ``{page: [Coordinate, ...]}`` for every page.
         """
         params = CoordinatesParams(
             limit=limit,
@@ -2236,7 +2257,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             distance_from_point=distance_from_point,
             distance_from_page=distance_from_page,
         )
-        result: dict[str, list[Coordinate]] = {}
+        result: "dict[AsyncWikipediaPage, list[Coordinate]]" = {}
         page_map = {p.title: p for p in pages}
         for i in range(0, len(pages), 50):
             chunk = pages[i : i + 50]
@@ -2257,11 +2278,13 @@ class AsyncWikipediaResource(BaseWikipediaResource):
                 orig = norm_map.get(title, title)
                 p = page_map.get(orig) or page_map.get(title)
                 if p is not None:
+                    if p.title != title:
+                        p._attributes["title"] = title
                     coords = self._build_coordinates_for_page(v, p, params)
-                    result[title] = coords
+                    result[p] = coords
         for p in pages:
-            if p.title not in result:
-                result[p.title] = []
+            if p not in result:
+                result[p] = []
         return result
 
     async def images(
@@ -2296,7 +2319,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         self._common_attributes(raw.get("query", {}), page)
         for k, v in raw.get("query", {}).get("pages", {}).items():
             if k == "-1":
-                page._attributes["pageid"] = -1
+                page._attributes["pageid"] = self._missing_pageid(page)
                 empty_pd: PagesDict = PagesDict(wiki=self)
                 page._set_cached("images", params.cache_key(), empty_pd)
                 return empty_pd

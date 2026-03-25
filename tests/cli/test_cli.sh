@@ -119,12 +119,12 @@ TESTS=(
     "categorymembers_depth|wikipedia-api categorymembers Category:Planets --max-level 1"
 
     # ── coordinates command ─────────────────────────────────────────────────
-    "coordinates_en|wikipedia-api coordinates Earth"
-    "coordinates_en_json|wikipedia-api coordinates Earth --json"
+    "coordinates_en|wikipedia-api coordinates Prague"
+    "coordinates_en_json|wikipedia-api coordinates Prague --json"
 
     # ── images command ───────────────────────────────────────────────────────
-    "images_en|wikipedia-api images Earth"
-    "images_en_json|wikipedia-api images Earth --json"
+    "images_en|wikipedia-api images Prague"
+    "images_en_json|wikipedia-api images Prague --json"
 
     # ── geosearch command ────────────────────────────────────────────────────
     "geosearch_coord|wikipedia-api geosearch --coord '51.5074|-0.1278'"

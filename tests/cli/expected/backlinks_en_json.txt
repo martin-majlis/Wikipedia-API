@@ -9284,6 +9284,11 @@
 "language": "en",
 "ns": 1
 },
+"Talk:Orcus (dwarf planet)": {
+"title": "Talk:Orcus (dwarf planet)",
+"language": "en",
+"ns": 1
+},
 "Talk:Orders of magnitude (pressure)": {
 "title": "Talk:Orders of magnitude (pressure)",
 "language": "en",
@@ -9394,8 +9399,8 @@
 "language": "en",
 "ns": 1
 },
-"Talk:Pluto (mythology)": {
-"title": "Talk:Pluto (mythology)",
+"Talk:Pluto (mythology)/Archive 1": {
+"title": "Talk:Pluto (mythology)/Archive 1",
 "language": "en",
 "ns": 1
 },
@@ -22061,11 +22066,6 @@
 },
 "Wikipedia talk:WikiProject Medicine/Archive 152": {
 "title": "Wikipedia talk:WikiProject Medicine/Archive 152",
-"language": "en",
-"ns": 5
-},
-"Wikipedia talk:WikiProject Portals/Design/Archive 3": {
-"title": "Wikipedia talk:WikiProject Portals/Design/Archive 3",
 "language": "en",
 "ns": 5
 },

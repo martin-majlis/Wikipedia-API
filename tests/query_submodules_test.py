@@ -417,12 +417,12 @@ class TestBatchCoordinates(unittest.TestCase):
         p1 = self.wiki.page("Test_1")
         p2 = self.wiki.page("NonExistent")
         result = self.wiki.batch_coordinates([p1, p2])
-        self.assertIn("Test 1", result)
-        self.assertEqual(len(result["Test 1"]), 1)
-        self.assertAlmostEqual(result["Test 1"][0].lat, 51.5074)
+        self.assertIn(p1, result)
+        self.assertEqual(len(result[p1]), 1)
+        self.assertAlmostEqual(result[p1][0].lat, 51.5074)
         # NonExistent should have empty list
-        self.assertIn("NonExistent", result)
-        self.assertEqual(result["NonExistent"], [])
+        self.assertIn(p2, result)
+        self.assertEqual(result[p2], [])
 
 
 class TestBatchImages(unittest.TestCase):
@@ -452,8 +452,8 @@ class TestPagesDictBatchMethods(unittest.TestCase):
         p2 = self.wiki.page("NonExistent")
         pd = wikipediaapi.PagesDict(wiki=self.wiki, data={"Test_1": p1, "NonExistent": p2})
         result = pd.coordinates()
-        self.assertIn("Test 1", result)
-        self.assertEqual(len(result["Test 1"]), 1)
+        self.assertIn(p1, result)
+        self.assertEqual(len(result[p1]), 1)
 
     def test_pages_dict_images(self):
         p1 = self.wiki.page("Test_1")
@@ -535,8 +535,8 @@ class TestAsyncPagesDictBatchMethods(unittest.IsolatedAsyncioTestCase):
         p2 = self.wiki.page("NonExistent")
         apd = AsyncPagesDict(wiki=self.wiki, data={"Test_1": p1, "NonExistent": p2})
         result = await apd.coordinates()
-        self.assertIn("Test 1", result)
-        self.assertEqual(len(result["Test 1"]), 1)
+        self.assertIn(p1, result)
+        self.assertEqual(len(result[p1]), 1)
 
     async def test_async_pages_dict_images(self):
         from wikipediaapi._pages_dict import AsyncPagesDict
@@ -622,8 +622,8 @@ class TestAsyncQuerySubmodules(unittest.IsolatedAsyncioTestCase):
         p1 = self.wiki.page("Test_1")
         p2 = self.wiki.page("NonExistent")
         result = await self.wiki.batch_coordinates([p1, p2])
-        self.assertIn("Test 1", result)
-        self.assertEqual(len(result["Test 1"]), 1)
+        self.assertIn(p1, result)
+        self.assertEqual(len(result[p1]), 1)
 
     async def test_async_batch_images(self):
         p1 = self.wiki.page("Test_1")

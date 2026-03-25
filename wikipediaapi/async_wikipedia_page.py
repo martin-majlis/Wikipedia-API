@@ -74,7 +74,7 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
 
     @property
     def pageid(self) -> Any:
-        """Awaitable: MediaWiki numeric page ID (``-1`` for missing pages)."""
+        """Awaitable: MediaWiki numeric page ID (negative for missing pages)."""
         return self._info_attr("pageid")
 
     @property

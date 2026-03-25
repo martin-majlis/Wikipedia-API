@@ -34,7 +34,7 @@ class _SyncBatchWiki(Protocol):
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: WikipediaPage | None = None,
-    ) -> dict[str, list[Coordinate]]: ...
+    ) -> dict[WikipediaPage, list[Coordinate]]: ...
 
     def batch_images(
         self,
@@ -56,7 +56,7 @@ class _AsyncBatchWiki(Protocol):
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: AsyncWikipediaPage | None = None,
-    ) -> dict[str, list[Coordinate]]: ...
+    ) -> dict[AsyncWikipediaPage, list[Coordinate]]: ...
 
     async def batch_images(
         self,
@@ -103,7 +103,7 @@ class PagesDict(dict[str, BaseWikipediaPage[Any]]):
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: WikipediaPage | None = None,
-    ) -> dict[str, list[Coordinate]]:
+    ) -> dict[WikipediaPage, list[Coordinate]]:
         """Batch-fetch coordinates for all pages in this dict.
 
         Delegates to ``wiki.batch_coordinates()`` which sends multi-title
@@ -117,7 +117,7 @@ class PagesDict(dict[str, BaseWikipediaPage[Any]]):
             distance_from_page: Reference page.
 
         Returns:
-            ``{title: [Coordinate, ...]}`` for every page in this dict.
+            ``{page: [Coordinate, ...]}`` for every page in this dict.
         """
         wiki = cast(_SyncBatchWiki, self._wiki)
         pages = cast("list[WikipediaPage]", list(self.values()))
@@ -193,7 +193,7 @@ class AsyncPagesDict(dict[str, BaseWikipediaPage[Any]]):
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: AsyncWikipediaPage | None = None,
-    ) -> dict[str, list[Coordinate]]:
+    ) -> dict[AsyncWikipediaPage, list[Coordinate]]:
         """Async batch-fetch coordinates for all pages in this dict.
 
         Delegates to ``wiki.batch_coordinates()`` which sends multi-title
@@ -207,7 +207,7 @@ class AsyncPagesDict(dict[str, BaseWikipediaPage[Any]]):
             distance_from_page: Reference page.
 
         Returns:
-            ``{title: [Coordinate, ...]}`` for every page in this dict.
+            ``{page: [Coordinate, ...]}`` for every page in this dict.
         """
         wiki = cast(_AsyncBatchWiki, self._wiki)
         pages = cast("list[AsyncWikipediaPage]", list(self.values()))

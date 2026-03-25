@@ -11,7 +11,7 @@ Wikipedia
 * ``geosearch(*, coord=None (GeoPoint), page=None, bbox=None (GeoBox), radius=500, max_dim=None, sort='distance', limit=10, ns=Namespace.MAIN, prop=None)`` → ``PagesDict``
 * ``random(*, limit=1, ns=Namespace.MAIN, filter_redir='nonredirects')`` → ``PagesDict``
 * ``search(query, *, ns=Namespace.MAIN, limit=10, prop=None, info=None, sort='relevance')`` → ``SearchResults``
-* ``batch_coordinates(pages, *, limit=10, primary='primary', prop=('globe',), distance_from_point=None (GeoPoint), distance_from_page=None)`` → ``dict[str, list[Coordinate]]``
+* ``batch_coordinates(pages, *, limit=10, primary='primary', prop=('globe',), distance_from_point=None (GeoPoint), distance_from_page=None)`` → ``dict[WikipediaPage, list[Coordinate]]``
 * ``batch_images(pages, *, limit=10, images=None, direction=Direction.ASCENDING)`` → ``dict[str, PagesDict]``
 
 AsyncWikipedia
@@ -26,7 +26,7 @@ Same constructor parameters as ``Wikipedia``.  All methods are coroutines
 * ``await geosearch(...)`` → ``PagesDict``
 * ``await random(...)`` → ``PagesDict``
 * ``await search(query, ...)`` → ``SearchResults``
-* ``await batch_coordinates(pages, ...)`` → ``dict[str, list[Coordinate]]``
+* ``await batch_coordinates(pages, ...)`` → ``dict[AsyncWikipediaPage, list[Coordinate]]``
 * ``await batch_images(pages, ...)`` → ``dict[str, PagesDict]``
 
 WikipediaPage
@@ -206,14 +206,14 @@ Wrapper returned by ``search()``.
 ~~~~~~~~~~~~~
 A ``dict[str, WikipediaPage]`` subclass with batch convenience methods.
 
-* ``coordinates(*, ...)`` → ``dict[str, list[Coordinate]]``
+* ``coordinates(*, ...)`` → ``dict[WikipediaPage, list[Coordinate]]``
 * ``images(*, ...)`` → ``dict[str, PagesDict]``
 
 ``AsyncPagesDict``
 ~~~~~~~~~~~~~~~~~~
 Async mirror of ``PagesDict``.
 
-* ``await coordinates(*, ...)`` → ``dict[str, list[Coordinate]]``
+* ``await coordinates(*, ...)`` → ``dict[AsyncWikipediaPage, list[Coordinate]]``
 * ``await images(*, ...)`` → ``dict[str, AsyncPagesDict]``
 
 Retry Behavior

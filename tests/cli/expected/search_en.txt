@@ -1,12 +1,12 @@
-Total hits: 6040
+Total hits: 6041
 
 Python (programming language)
 History of Python
 Outline of the Python programming language
 Python syntax and semantics
-Core Python Programming
-Flask (web framework)
-Mojo (programming language)
 Zen of Python
-Glob (programming)
+Core Python Programming
+Mojo (programming language)
+Flask (web framework)
 Python
+Glob (programming)

@@ -396,8 +396,8 @@ print(f"PagesDict: {len(pd)} pages")
 
 # Batch-fetch coordinates for all pages at once (efficient multi-title request)
 batch_coords = pd.coordinates()
-for title, coord_list in batch_coords.items():
-    print(f"  {title}: {len(coord_list)} coordinate(s)")
+for page, coord_list in batch_coords.items():
+    print(f"  {page.title}: {len(coord_list)} coordinate(s)")
 
 # Batch-fetch images for all pages at once
 batch_imgs = pd.images()
