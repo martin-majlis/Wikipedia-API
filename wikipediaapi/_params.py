@@ -15,7 +15,7 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 from dataclasses import fields
 from enum import Enum
-from typing import Any, ClassVar
+from typing import Any, ClassVar, Protocol
 
 from ._enums import Direction
 from ._types import GeoBox
@@ -78,6 +78,11 @@ class _BaseParams:
         )
 
 
+class _HasTitle(Protocol):
+    @property
+    def title(self) -> str: ...
+
+
 @dataclass(frozen=True)
 class CoordinatesParams(_BaseParams):
     """Parameters for ``prop=coordinates`` (prefix ``co``).
@@ -97,7 +102,7 @@ class CoordinatesParams(_BaseParams):
     primary: str = "primary"
     prop: Iterable[str] = ("globe",)
     distance_from_point: GeoPoint | None = None
-    distance_from_page: str | None = None
+    distance_from_page: _HasTitle | None = None
 
     def __post_init__(self) -> None:
         """Normalize iterable props and reject string input.
@@ -119,6 +124,8 @@ class CoordinatesParams(_BaseParams):
                 "distance_from_point",
                 self.distance_from_point.to_mediawiki(),
             )
+        if self.distance_from_page is not None:
+            object.__setattr__(self, "distance_from_page", self.distance_from_page.title)
 
     PREFIX: ClassVar[str] = "co"
     FIELD_MAP: ClassVar[dict[str, str]] = {

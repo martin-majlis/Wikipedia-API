@@ -10,17 +10,65 @@ code that treats it as a plain dict continues to work.
 
 from __future__ import annotations
 
-from collections.abc import Iterable
-from typing import Any, TYPE_CHECKING
+from collections.abc import Iterable, Mapping
+from typing import Any, cast, Protocol, TYPE_CHECKING
 
+from ._base_wikipedia_page import BaseWikipediaPage
 from ._enums import Direction
 
 if TYPE_CHECKING:
+    from ._resources import BaseWikipediaResource
     from ._types import Coordinate
     from ._types import GeoPoint
+    from .async_wikipedia_page import AsyncWikipediaPage
+    from .wikipedia_page import WikipediaPage
 
 
-class PagesDict(dict[str, Any]):
+class _SyncBatchWiki(Protocol):
+    def batch_coordinates(
+        self,
+        pages: list[WikipediaPage],
+        *,
+        limit: int = 10,
+        primary: str = "primary",
+        prop: Iterable[str] = ("globe",),
+        distance_from_point: GeoPoint | None = None,
+        distance_from_page: WikipediaPage | None = None,
+    ) -> dict[str, list[Coordinate]]: ...
+
+    def batch_images(
+        self,
+        pages: list[WikipediaPage],
+        *,
+        limit: int = 10,
+        images: Iterable[str] | None = None,
+        direction: Direction = Direction.ASCENDING,
+    ) -> dict[str, PagesDict]: ...
+
+
+class _AsyncBatchWiki(Protocol):
+    async def batch_coordinates(
+        self,
+        pages: list[AsyncWikipediaPage],
+        *,
+        limit: int = 10,
+        primary: str = "primary",
+        prop: Iterable[str] = ("globe",),
+        distance_from_point: GeoPoint | None = None,
+        distance_from_page: AsyncWikipediaPage | None = None,
+    ) -> dict[str, list[Coordinate]]: ...
+
+    async def batch_images(
+        self,
+        pages: list[AsyncWikipediaPage],
+        *,
+        limit: int = 10,
+        images: Iterable[str] | None = None,
+        direction: Direction = Direction.ASCENDING,
+    ) -> dict[str, PagesDict]: ...
+
+
+class PagesDict(dict[str, BaseWikipediaPage[Any]]):
     """Dictionary of :class:`WikipediaPage` objects with batch methods.
 
     Inherits from ``dict[str, WikipediaPage]`` and adds a reference to
@@ -32,7 +80,11 @@ class PagesDict(dict[str, Any]):
         data: Optional initial mapping of ``{title: WikipediaPage}``.
     """
 
-    def __init__(self, wiki: Any = None, data: dict[str, Any] | None = None) -> None:
+    def __init__(
+        self,
+        wiki: BaseWikipediaResource | None = None,
+        data: Mapping[str, BaseWikipediaPage[Any]] | None = None,
+    ) -> None:
         """Initialise the PagesDict with an optional wiki client and data.
 
         Args:
@@ -50,7 +102,7 @@ class PagesDict(dict[str, Any]):
         primary: str = "primary",
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
-        distance_from_page: str | None = None,
+        distance_from_page: WikipediaPage | None = None,
     ) -> dict[str, list[Coordinate]]:
         """Batch-fetch coordinates for all pages in this dict.
 
@@ -62,13 +114,15 @@ class PagesDict(dict[str, Any]):
             primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
             prop: Additional properties as an iterable.
             distance_from_point: Reference point as :class:`GeoPoint`.
-            distance_from_page: Reference page title.
+            distance_from_page: Reference page.
 
         Returns:
             ``{title: [Coordinate, ...]}`` for every page in this dict.
         """
-        return self._wiki.batch_coordinates(  # type: ignore[no-any-return]
-            list(self.values()),
+        wiki = cast(_SyncBatchWiki, self._wiki)
+        pages = cast("list[WikipediaPage]", list(self.values()))
+        return wiki.batch_coordinates(
+            pages,
             limit=limit,
             primary=primary,
             prop=prop,
@@ -96,15 +150,17 @@ class PagesDict(dict[str, Any]):
         Returns:
             ``{title: PagesDict}`` for every page in this dict.
         """
-        return self._wiki.batch_images(  # type: ignore[no-any-return]
-            list(self.values()),
+        wiki = cast(_SyncBatchWiki, self._wiki)
+        pages = cast("list[WikipediaPage]", list(self.values()))
+        return wiki.batch_images(
+            pages,
             limit=limit,
             images=images,
             direction=direction,
         )
 
 
-class AsyncPagesDict(dict[str, Any]):
+class AsyncPagesDict(dict[str, BaseWikipediaPage[Any]]):
     """Async dictionary of :class:`AsyncWikipediaPage` objects with batch methods.
 
     Async mirror of :class:`PagesDict`.  Batch methods are coroutines.
@@ -114,7 +170,11 @@ class AsyncPagesDict(dict[str, Any]):
         data: Optional initial mapping of ``{title: AsyncWikipediaPage}``.
     """
 
-    def __init__(self, wiki: Any = None, data: dict[str, Any] | None = None) -> None:
+    def __init__(
+        self,
+        wiki: BaseWikipediaResource | None = None,
+        data: Mapping[str, Any] | None = None,
+    ) -> None:
         """Initialise the AsyncPagesDict with an optional wiki client and data.
 
         Args:
@@ -132,7 +192,7 @@ class AsyncPagesDict(dict[str, Any]):
         primary: str = "primary",
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
-        distance_from_page: str | None = None,
+        distance_from_page: AsyncWikipediaPage | None = None,
     ) -> dict[str, list[Coordinate]]:
         """Async batch-fetch coordinates for all pages in this dict.
 
@@ -144,13 +204,15 @@ class AsyncPagesDict(dict[str, Any]):
             primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
             prop: Additional properties as an iterable.
             distance_from_point: Reference point as :class:`GeoPoint`.
-            distance_from_page: Reference page title.
+            distance_from_page: Reference page.
 
         Returns:
             ``{title: [Coordinate, ...]}`` for every page in this dict.
         """
-        return await self._wiki.batch_coordinates(  # type: ignore[no-any-return]
-            list(self.values()),
+        wiki = cast(_AsyncBatchWiki, self._wiki)
+        pages = cast("list[AsyncWikipediaPage]", list(self.values()))
+        return await wiki.batch_coordinates(
+            pages,
             limit=limit,
             primary=primary,
             prop=prop,
@@ -164,7 +226,7 @@ class AsyncPagesDict(dict[str, Any]):
         limit: int = 10,
         images: Iterable[str] | None = None,
         direction: Direction = Direction.ASCENDING,
-    ) -> dict[str, AsyncPagesDict]:
+    ) -> dict[str, PagesDict]:
         """Async batch-fetch images for all pages in this dict.
 
         Delegates to ``wiki.batch_images()`` which sends multi-title
@@ -176,10 +238,12 @@ class AsyncPagesDict(dict[str, Any]):
             direction: Sort direction as :class:`Direction`.
 
         Returns:
-            ``{title: AsyncPagesDict}`` for every page in this dict.
+            ``{title: PagesDict}`` for every page in this dict.
         """
-        return await self._wiki.batch_images(  # type: ignore[no-any-return]
-            list(self.values()),
+        wiki = cast(_AsyncBatchWiki, self._wiki)
+        pages = cast("list[AsyncWikipediaPage]", list(self.values()))
+        return await wiki.batch_images(
+            pages,
             limit=limit,
             images=images,
             direction=direction,

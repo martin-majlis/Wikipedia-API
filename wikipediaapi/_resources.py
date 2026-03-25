@@ -1486,7 +1486,7 @@ class WikipediaResource(BaseWikipediaResource):
         primary: str = "primary",
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
-        distance_from_page: str | None = None,
+        distance_from_page: WikipediaPage | None = None,
     ) -> list[Coordinate]:
         """Fetch geographic coordinates for a page.
 
@@ -1504,7 +1504,7 @@ class WikipediaResource(BaseWikipediaResource):
             primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
             prop: Additional properties as an iterable.
             distance_from_point: Reference point as :class:`GeoPoint`.
-            distance_from_page: Reference page title.
+            distance_from_page: Reference page.
 
         Returns:
             List of :class:`Coordinate` objects; empty list if page missing.
@@ -1548,7 +1548,7 @@ class WikipediaResource(BaseWikipediaResource):
         primary: str = "primary",
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
-        distance_from_page: str | None = None,
+        distance_from_page: WikipediaPage | None = None,
     ) -> dict[str, list[Coordinate]]:
         """Batch-fetch coordinates for multiple pages.
 
@@ -1561,7 +1561,7 @@ class WikipediaResource(BaseWikipediaResource):
             primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
             prop: Additional properties as an iterable.
             distance_from_point: Reference point as :class:`GeoPoint`.
-            distance_from_page: Reference page title.
+            distance_from_page: Reference page.
 
         Returns:
             ``{title: [Coordinate, ...]}`` for every page.
@@ -2163,7 +2163,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         primary: str = "primary",
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
-        distance_from_page: str | None = None,
+        distance_from_page: "AsyncWikipediaPage | None" = None,
     ) -> list[Coordinate]:
         """Async version of :meth:`WikipediaResource.coordinates`.
 
@@ -2175,7 +2175,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
             prop: Additional properties as an iterable.
             distance_from_point: Reference point as :class:`GeoPoint`.
-            distance_from_page: Reference page title.
+            distance_from_page: Reference page.
 
         Returns:
             List of :class:`Coordinate` objects; empty list if page missing.
@@ -2212,7 +2212,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         primary: str = "primary",
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
-        distance_from_page: str | None = None,
+        distance_from_page: "AsyncWikipediaPage | None" = None,
     ) -> dict[str, list[Coordinate]]:
         """Async version of :meth:`WikipediaResource.batch_coordinates`.
 
@@ -2224,7 +2224,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
             prop: Additional properties as an iterable.
             distance_from_point: Reference point as ``"lat|lon"``.
-            distance_from_page: Reference page title.
+            distance_from_page: Reference page.
 
         Returns:
             ``{title: [Coordinate, ...]}`` for every page.

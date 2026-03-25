@@ -42,7 +42,7 @@ def _get_page(wiki, title, namespace):
     return fetch_page(wiki, title, namespace)
 
 
-def format_page_dict(pages: dict[str, wikipediaapi.WikipediaPage], output_format: str) -> str:
+def format_page_dict(pages: wikipediaapi.PagesDict, output_format: str) -> str:
     r"""Format a PagesDict in the requested format as a string.r"""
     if output_format == "json":
         result = {}
@@ -191,7 +191,7 @@ def get_section_text(
 
 def get_page_links(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
-) -> dict[str, wikipediaapi.WikipediaPage]:
+) -> wikipediaapi.PagesDict:
     r"""Get pages linked from a Wikipedia page.
 
     Args:
@@ -213,7 +213,7 @@ def get_page_links(
 
 def get_page_backlinks(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
-) -> dict[str, wikipediaapi.WikipediaPage]:
+) -> wikipediaapi.PagesDict:
     r"""Get pages that link to a Wikipedia page.
 
     Args:
@@ -235,7 +235,7 @@ def get_page_backlinks(
 
 def get_langlinks(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
-) -> dict[str, wikipediaapi.WikipediaPage]:
+) -> wikipediaapi.PagesDict:
     r"""Get language links for a Wikipedia page.
 
     Args:
@@ -255,7 +255,7 @@ def get_langlinks(
     return page.langlinks
 
 
-def format_langlinks(langlinks: dict[str, wikipediaapi.WikipediaPage], output_format: str) -> str:
+def format_langlinks(langlinks: wikipediaapi.PagesDict, output_format: str) -> str:
     r"""Format language links in the requested format.r"""
     if output_format == "json":
         result = {}
@@ -278,7 +278,7 @@ def format_langlinks(langlinks: dict[str, wikipediaapi.WikipediaPage], output_fo
 
 def get_page_categories(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
-) -> dict[str, wikipediaapi.WikipediaPage]:
+) -> wikipediaapi.PagesDict:
     r"""Get categories for a Wikipedia page.
 
     Args:
@@ -417,7 +417,7 @@ def get_page_images(
     title: str,
     namespace: int = 0,
     limit: int = 10,
-) -> dict[str, wikipediaapi.WikipediaPage]:
+) -> wikipediaapi.PagesDict:
     r"""Get images (files) used on a Wikipedia page.
 
     Args:
