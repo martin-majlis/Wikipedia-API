@@ -8,9 +8,9 @@ Wikipedia
 * ``pages(titles)`` — create a ``PagesDict`` of lazy pages (no network call)
 * ``coordinates(page, *, limit=10, primary='primary', prop=('globe',), distance_from_point=None (GeoPoint), distance_from_page=None)`` → ``list[Coordinate]``
 * ``images(page, *, limit=10, images=None, direction='ascending')`` → ``PagesDict``
-* ``geosearch(*, coord=None (GeoPoint), page=None, bbox=None (GeoBox), radius=500, max_dim=None, sort='distance', limit=10, namespace=0, prop=None)`` → ``PagesDict``
-* ``random(*, limit=1, namespace=0, filter_redir='nonredirects')`` → ``PagesDict``
-* ``search(query, *, namespace=0, limit=10, prop=None, info=None, sort='relevance')`` → ``SearchResults``
+* ``geosearch(*, coord=None (GeoPoint), page=None, bbox=None (GeoBox), radius=500, max_dim=None, sort='distance', limit=10, ns=Namespace.MAIN, prop=None)`` → ``PagesDict``
+* ``random(*, limit=1, ns=Namespace.MAIN, filter_redir='nonredirects')`` → ``PagesDict``
+* ``search(query, *, ns=Namespace.MAIN, limit=10, prop=None, info=None, sort='relevance')`` → ``SearchResults``
 * ``batch_coordinates(pages, *, limit=10, primary='primary', prop=('globe',), distance_from_point=None (GeoPoint), distance_from_page=None)`` → ``dict[str, list[Coordinate]]``
 * ``batch_images(pages, *, limit=10, images=None, direction='ascending')`` → ``dict[str, PagesDict]``
 

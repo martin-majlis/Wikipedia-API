@@ -476,7 +476,7 @@ class TestParamsToApiExtended(unittest.TestCase):
         self.assertEqual(api["rnlimit"], "5")
 
     def test_search_params(self):
-        p = SearchParams(query="test", namespace=0)
+        p = SearchParams(query="test", namespace=wikipediaapi.Namespace.MAIN)
         api = p.to_api()
         self.assertEqual(api["srsearch"], "test")
         self.assertEqual(api["srnamespace"], "0")

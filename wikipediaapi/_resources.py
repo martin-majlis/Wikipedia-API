@@ -1723,7 +1723,7 @@ class WikipediaResource(BaseWikipediaResource):
         sort: str = "distance",
         limit: int = 10,
         globe: str = "earth",
-        namespace: int | None = None,
+        ns: WikiNamespace = Namespace.MAIN,
         prop: Iterable[str] | None = None,
         primary: str | None = None,
     ) -> PagesDict:
@@ -1747,7 +1747,7 @@ class WikipediaResource(BaseWikipediaResource):
             sort: Sort order: ``"distance"`` or ``"relevance"``.
             limit: Maximum pages to return (1–500).
             globe: Celestial body.
-            namespace: Restrict to this namespace number.
+            ns: Restrict to this namespace number.
             prop: Additional properties as an iterable.
             primary: Which coordinates to consider.
 
@@ -1763,7 +1763,7 @@ class WikipediaResource(BaseWikipediaResource):
             sort=sort,
             limit=limit,
             globe=globe,
-            namespace=namespace,
+            namespace=ns,
             prop=prop,
             primary=primary,
         )
@@ -1780,7 +1780,7 @@ class WikipediaResource(BaseWikipediaResource):
     def random(
         self,
         *,
-        namespace: int | None = None,
+        ns: WikiNamespace = Namespace.MAIN,
         filter_redirect: str = "nonredirects",
         min_size: int | None = None,
         max_size: int | None = None,
@@ -1796,7 +1796,7 @@ class WikipediaResource(BaseWikipediaResource):
         - https://www.mediawiki.org/wiki/API:Random
 
         Args:
-            namespace: Restrict to this namespace number.
+            ns: Restrict to this namespace number.
             filter_redirect: Redirect filter: ``"all"``, ``"nonredirects"``,
                 or ``"redirects"``.
             min_size: Minimum page size in bytes.
@@ -1807,7 +1807,7 @@ class WikipediaResource(BaseWikipediaResource):
             :class:`PagesDict` keyed by page title.
         """
         params = RandomParams(
-            namespace=namespace,
+            namespace=ns,
             filter_redirect=filter_redirect,
             min_size=min_size,
             max_size=max_size,
@@ -1827,7 +1827,7 @@ class WikipediaResource(BaseWikipediaResource):
         self,
         query: str,
         *,
-        namespace: int = 0,
+        ns: WikiNamespace = Namespace.MAIN,
         limit: int = 10,
         prop: Iterable[str] | None = None,
         info: Iterable[str] | None = None,
@@ -1849,7 +1849,7 @@ class WikipediaResource(BaseWikipediaResource):
 
         Args:
             query: Search string (required).
-            namespace: Namespace to search in.
+            ns: Namespace to search in.
             limit: Maximum results to return (1–500).
             prop: Properties as an iterable (deprecated upstream).
             info: Metadata as an iterable.
@@ -1864,7 +1864,7 @@ class WikipediaResource(BaseWikipediaResource):
         """
         params = SearchParams(
             query=query,
-            namespace=namespace,
+            namespace=ns,
             limit=limit,
             prop=prop,
             info=info,
@@ -2373,7 +2373,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         sort: str = "distance",
         limit: int = 10,
         globe: str = "earth",
-        namespace: int | None = None,
+        ns: WikiNamespace = Namespace.MAIN,
         prop: Iterable[str] | None = None,
         primary: str | None = None,
     ) -> PagesDict:
@@ -2390,7 +2390,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             sort: Sort order: ``"distance"`` or ``"relevance"``.
             limit: Maximum pages to return (1–500).
             globe: Celestial body.
-            namespace: Restrict to this namespace number.
+            ns: Restrict to this namespace number.
             prop: Additional properties as an iterable.
             primary: Which coordinates to consider.
 
@@ -2406,7 +2406,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             sort=sort,
             limit=limit,
             globe=globe,
-            namespace=namespace,
+            namespace=ns,
             prop=prop,
             primary=primary,
         )
@@ -2423,7 +2423,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
     async def random(
         self,
         *,
-        namespace: int | None = None,
+        ns: WikiNamespace = Namespace.MAIN,
         filter_redirect: str = "nonredirects",
         min_size: int | None = None,
         max_size: int | None = None,
@@ -2434,7 +2434,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         See :meth:`WikipediaResource.random` for full documentation.
 
         Args:
-            namespace: Restrict to this namespace number.
+            ns: Restrict to this namespace number.
             filter_redirect: Redirect filter.
             min_size: Minimum page size in bytes.
             max_size: Maximum page size in bytes.
@@ -2444,7 +2444,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             :class:`PagesDict` keyed by page title.
         """
         params = RandomParams(
-            namespace=namespace,
+            namespace=ns,
             filter_redirect=filter_redirect,
             min_size=min_size,
             max_size=max_size,
@@ -2464,7 +2464,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         self,
         query: str,
         *,
-        namespace: int = 0,
+        ns: WikiNamespace = Namespace.MAIN,
         limit: int = 10,
         prop: Iterable[str] | None = None,
         info: Iterable[str] | None = None,
@@ -2480,7 +2480,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
 
         Args:
             query: Search string (required).
-            namespace: Namespace to search in.
+            ns: Namespace to search in.
             limit: Maximum results to return (1–500).
             prop: Properties as an iterable.
             info: Metadata as an iterable.
@@ -2495,7 +2495,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         """
         params = SearchParams(
             query=query,
-            namespace=namespace,
+            namespace=ns,
             limit=limit,
             prop=prop,
             info=info,

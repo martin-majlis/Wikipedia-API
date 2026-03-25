@@ -531,7 +531,7 @@ def get_random_pages(
     Returns:
         List of page dictionaries with title and pageid
     r"""
-    results = wiki.random(limit=limit, namespace=ns)
+    results = wiki.random(limit=limit, ns=ns)
     output: list[dict[str, Any]] = []
     for title, p in results.items():
         entry: dict[str, Any] = {"title": title}
@@ -566,7 +566,7 @@ def get_search_results(
     Returns:
         Dictionary with pages list, totalhits, and suggestion
     r"""
-    sr = wiki.search(query, limit=limit, namespace=ns)
+    sr = wiki.search(query, limit=limit, ns=ns)
     pages_list: list[dict[str, Any]] = []
     for title, p in sr.pages.items():
         entry: dict[str, Any] = {"title": title}

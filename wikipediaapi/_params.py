@@ -18,6 +18,8 @@ from typing import Any, ClassVar
 
 from ._types import GeoBox
 from ._types import GeoPoint
+from .namespace import Namespace
+from .namespace import WikiNamespace
 
 
 class _BaseParams:
@@ -189,7 +191,7 @@ class GeoSearchParams(_BaseParams):
     sort: str = "distance"
     limit: int = 10
     globe: str = "earth"
-    namespace: int | None = None
+    namespace: WikiNamespace = Namespace.MAIN
     prop: Iterable[str] | None = None
     primary: str | None = None
 
@@ -244,7 +246,7 @@ class RandomParams(_BaseParams):
         limit: Number of random pages to return (1–500).
     """
 
-    namespace: int | None = None
+    namespace: WikiNamespace = Namespace.MAIN
     filter_redirect: str = "nonredirects"
     min_size: int | None = None
     max_size: int | None = None
@@ -279,7 +281,7 @@ class SearchParams(_BaseParams):
     """
 
     query: str = ""
-    namespace: int = 0
+    namespace: WikiNamespace = Namespace.MAIN
     limit: int = 10
     prop: Iterable[str] | None = None
     info: Iterable[str] | None = None

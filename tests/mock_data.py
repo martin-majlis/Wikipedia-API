@@ -714,7 +714,7 @@ _MOCK_DATA = {
         },
     },
     # ── geosearch (list=geosearch) ──────────────────────────────────────────────
-    "en:action=query&format=json&gscoord=51.5074|-0.1278&gsglobe=earth&gslimit=10&gsradius=500&gssort=distance&list=geosearch&redirects=1&": {
+    "en:action=query&format=json&gscoord=51.5074|-0.1278&gsglobe=earth&gslimit=10&gsnamespace=0&gsradius=500&gssort=distance&list=geosearch&redirects=1&": {
         "batchcomplete": "",
         "query": {
             "geosearch": [
