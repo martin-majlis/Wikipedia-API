@@ -457,9 +457,32 @@ def get_geosearch_results(
     Returns:
         List of result dictionaries with title, dist, lat, lon
     r"""
+
+    def _parse_coord(value: str) -> wikipediaapi.GeoPoint:
+        """Parse ``lat|lon`` into a validated :class:`wikipediaapi.GeoPoint`.
+
+        Args:
+            value: Coordinate string in ``lat|lon`` format.
+
+        Returns:
+            Parsed and validated geographic point.
+
+        Raises:
+            click.UsageError: If the value format is invalid.
+        """
+        parts = value.split("|", 1)
+        if len(parts) != 2:
+            raise click.UsageError("Invalid --coord format, expected 'lat|lon'.")
+        try:
+            lat = float(parts[0])
+            lon = float(parts[1])
+            return wikipediaapi.GeoPoint(lat=lat, lon=lon)
+        except ValueError as exc:
+            raise click.UsageError("Invalid --coord format, expected numeric 'lat|lon'.") from exc
+
     kwargs: dict[str, Any] = {"radius": radius, "limit": limit}
     if coord:
-        kwargs["coord"] = coord
+        kwargs["coord"] = _parse_coord(coord)
     elif page_title:
         kwargs["page"] = page_title
     else:

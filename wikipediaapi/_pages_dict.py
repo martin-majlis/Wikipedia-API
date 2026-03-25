@@ -10,10 +10,12 @@ code that treats it as a plain dict continues to work.
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from typing import Any, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from ._types import Coordinate
+    from ._types import GeoPoint
 
 
 class PagesDict(dict[str, Any]):
@@ -44,8 +46,8 @@ class PagesDict(dict[str, Any]):
         *,
         limit: int = 10,
         primary: str = "primary",
-        prop: str = "globe",
-        distance_from_point: str | None = None,
+        prop: Iterable[str] = ("globe",),
+        distance_from_point: GeoPoint | None = None,
         distance_from_page: str | None = None,
     ) -> dict[str, list[Coordinate]]:
         """Batch-fetch coordinates for all pages in this dict.
@@ -56,8 +58,8 @@ class PagesDict(dict[str, Any]):
         Args:
             limit: Maximum coordinates per page (1–500).
             primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
-            prop: Additional properties, pipe-separated.
-            distance_from_point: Reference point as ``"lat|lon"``.
+            prop: Additional properties as an iterable.
+            distance_from_point: Reference point as :class:`GeoPoint`.
             distance_from_page: Reference page title.
 
         Returns:
@@ -76,7 +78,7 @@ class PagesDict(dict[str, Any]):
         self,
         *,
         limit: int = 10,
-        images: str | None = None,
+        images: Iterable[str] | None = None,
         direction: str = "ascending",
     ) -> dict[str, PagesDict]:
         """Batch-fetch images for all pages in this dict.
@@ -86,7 +88,7 @@ class PagesDict(dict[str, Any]):
 
         Args:
             limit: Maximum images per page (1–500).
-            images: Only list these specific images (pipe-separated).
+            images: Specific images as an iterable.
             direction: Sort direction: ``"ascending"`` or ``"descending"``.
 
         Returns:
@@ -126,8 +128,8 @@ class AsyncPagesDict(dict[str, Any]):
         *,
         limit: int = 10,
         primary: str = "primary",
-        prop: str = "globe",
-        distance_from_point: str | None = None,
+        prop: Iterable[str] = ("globe",),
+        distance_from_point: GeoPoint | None = None,
         distance_from_page: str | None = None,
     ) -> dict[str, list[Coordinate]]:
         """Async batch-fetch coordinates for all pages in this dict.
@@ -138,8 +140,8 @@ class AsyncPagesDict(dict[str, Any]):
         Args:
             limit: Maximum coordinates per page (1–500).
             primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
-            prop: Additional properties, pipe-separated.
-            distance_from_point: Reference point as ``"lat|lon"``.
+            prop: Additional properties as an iterable.
+            distance_from_point: Reference point as :class:`GeoPoint`.
             distance_from_page: Reference page title.
 
         Returns:
@@ -158,7 +160,7 @@ class AsyncPagesDict(dict[str, Any]):
         self,
         *,
         limit: int = 10,
-        images: str | None = None,
+        images: Iterable[str] | None = None,
         direction: str = "ascending",
     ) -> dict[str, AsyncPagesDict]:
         """Async batch-fetch images for all pages in this dict.
@@ -168,7 +170,7 @@ class AsyncPagesDict(dict[str, Any]):
 
         Args:
             limit: Maximum images per page (1–500).
-            images: Only list these specific images (pipe-separated).
+            images: Specific images as an iterable.
             direction: Sort direction: ``"ascending"`` or ``"descending"``.
 
         Returns:

@@ -384,7 +384,9 @@ async def main():
     # ──────────────────────────────────────────────────────────────────────────
 
     # Find pages near a geographic point
-    results = await wiki.geosearch(coord="51.5074|-0.1278", radius=1000, limit=5)
+    results = await wiki.geosearch(
+        coord=wikipediaapi.GeoPoint(51.5074, -0.1278), radius=1000, limit=5
+    )
     print(f"Geosearch results ({len(results)}):")
     for title, p in results.items():
         meta = p.geosearch_meta

@@ -1,6 +1,6 @@
 from abc import ABC
 from collections import defaultdict
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 import re
 from typing import Any, TYPE_CHECKING, TypeVar
 from urllib import parse
@@ -15,6 +15,8 @@ from ._params import ImagesParams
 from ._params import RandomParams
 from ._params import SearchParams
 from ._types import Coordinate
+from ._types import GeoBox
+from ._types import GeoPoint
 from ._types import GeoSearchMeta
 from ._types import SearchMeta
 from ._types import SearchResults
@@ -1481,8 +1483,8 @@ class WikipediaResource(BaseWikipediaResource):
         *,
         limit: int = 10,
         primary: str = "primary",
-        prop: str = "globe",
-        distance_from_point: str | None = None,
+        prop: Iterable[str] = ("globe",),
+        distance_from_point: GeoPoint | None = None,
         distance_from_page: str | None = None,
     ) -> list[Coordinate]:
         """Fetch geographic coordinates for a page.
@@ -1499,8 +1501,8 @@ class WikipediaResource(BaseWikipediaResource):
             page: Page to fetch coordinates for.
             limit: Maximum coordinates to return (1–500).
             primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
-            prop: Additional properties, pipe-separated.
-            distance_from_point: Reference point as ``"lat|lon"``.
+            prop: Additional properties as an iterable.
+            distance_from_point: Reference point as :class:`GeoPoint`.
             distance_from_page: Reference page title.
 
         Returns:
@@ -1543,8 +1545,8 @@ class WikipediaResource(BaseWikipediaResource):
         *,
         limit: int = 10,
         primary: str = "primary",
-        prop: str = "globe",
-        distance_from_point: str | None = None,
+        prop: Iterable[str] = ("globe",),
+        distance_from_point: GeoPoint | None = None,
         distance_from_page: str | None = None,
     ) -> dict[str, list[Coordinate]]:
         """Batch-fetch coordinates for multiple pages.
@@ -1556,8 +1558,8 @@ class WikipediaResource(BaseWikipediaResource):
             pages: List of pages to fetch coordinates for.
             limit: Maximum coordinates per page (1–500).
             primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
-            prop: Additional properties, pipe-separated.
-            distance_from_point: Reference point as ``"lat|lon"``.
+            prop: Additional properties as an iterable.
+            distance_from_point: Reference point as :class:`GeoPoint`.
             distance_from_page: Reference page title.
 
         Returns:
@@ -1603,7 +1605,7 @@ class WikipediaResource(BaseWikipediaResource):
         page: WikipediaPage,
         *,
         limit: int = 10,
-        images: str | None = None,
+        images: Iterable[str] | None = None,
         direction: str = "ascending",
     ) -> PagesDict:
         """Fetch images (files) used on a page.
@@ -1618,7 +1620,7 @@ class WikipediaResource(BaseWikipediaResource):
         Args:
             page: Page to fetch images for.
             limit: Maximum images to return (1–500).
-            images: Only list these specific images (pipe-separated).
+            images: Specific images as an iterable.
             direction: Sort direction: ``"ascending"`` or ``"descending"``.
 
         Returns:
@@ -1664,7 +1666,7 @@ class WikipediaResource(BaseWikipediaResource):
         pages: list[WikipediaPage],
         *,
         limit: int = 10,
-        images: str | None = None,
+        images: Iterable[str] | None = None,
         direction: str = "ascending",
     ) -> dict[str, PagesDict]:
         """Batch-fetch images for multiple pages.
@@ -1675,7 +1677,7 @@ class WikipediaResource(BaseWikipediaResource):
         Args:
             pages: List of pages to fetch images for.
             limit: Maximum images per page (1–500).
-            images: Only list these specific images (pipe-separated).
+            images: Specific images as an iterable.
             direction: Sort direction: ``"ascending"`` or ``"descending"``.
 
         Returns:
@@ -1713,16 +1715,16 @@ class WikipediaResource(BaseWikipediaResource):
     def geosearch(
         self,
         *,
-        coord: str | None = None,
+        coord: GeoPoint | None = None,
         page: str | None = None,
-        bbox: str | None = None,
+        bbox: GeoBox | None = None,
         radius: int = 500,
         max_dim: int | None = None,
         sort: str = "distance",
         limit: int = 10,
         globe: str = "earth",
         namespace: int | None = None,
-        prop: str | None = None,
+        prop: Iterable[str] | None = None,
         primary: str | None = None,
     ) -> PagesDict:
         """Search for pages with coordinates near a location.
@@ -1737,16 +1739,16 @@ class WikipediaResource(BaseWikipediaResource):
         - https://www.mediawiki.org/wiki/Extension:GeoData#list.3Dgeosearch
 
         Args:
-            coord: Centre point as ``"lat|lon"``.
+            coord: Centre point as :class:`GeoPoint`.
             page: Title of page whose coordinates to use as centre.
-            bbox: Bounding box as ``"top_lat|left_lon|bottom_lat|right_lon"``.
+            bbox: Bounding box as :class:`GeoBox`.
             radius: Search radius in meters (10–10000).
             max_dim: Exclude objects larger than this many meters.
             sort: Sort order: ``"distance"`` or ``"relevance"``.
             limit: Maximum pages to return (1–500).
             globe: Celestial body.
             namespace: Restrict to this namespace number.
-            prop: Additional properties, pipe-separated.
+            prop: Additional properties as an iterable.
             primary: Which coordinates to consider.
 
         Returns:
@@ -1827,8 +1829,8 @@ class WikipediaResource(BaseWikipediaResource):
         *,
         namespace: int = 0,
         limit: int = 10,
-        prop: str | None = None,
-        info: str | None = None,
+        prop: Iterable[str] | None = None,
+        info: Iterable[str] | None = None,
         sort: str = "relevance",
         what: str | None = None,
         interwiki: bool = False,
@@ -1849,8 +1851,8 @@ class WikipediaResource(BaseWikipediaResource):
             query: Search string (required).
             namespace: Namespace to search in.
             limit: Maximum results to return (1–500).
-            prop: Properties to include, pipe-separated (deprecated upstream).
-            info: Metadata to return, pipe-separated.
+            prop: Properties as an iterable (deprecated upstream).
+            info: Metadata as an iterable.
             sort: Sort order.
             what: Search type: ``"title"``, ``"text"``, or ``"nearmatch"``.
             interwiki: Include interwiki results.
@@ -2158,8 +2160,8 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         *,
         limit: int = 10,
         primary: str = "primary",
-        prop: str = "globe",
-        distance_from_point: str | None = None,
+        prop: Iterable[str] = ("globe",),
+        distance_from_point: GeoPoint | None = None,
         distance_from_page: str | None = None,
     ) -> list[Coordinate]:
         """Async version of :meth:`WikipediaResource.coordinates`.
@@ -2170,8 +2172,8 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             page: Page to fetch coordinates for.
             limit: Maximum coordinates to return (1–500).
             primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
-            prop: Additional properties, pipe-separated.
-            distance_from_point: Reference point as ``"lat|lon"``.
+            prop: Additional properties as an iterable.
+            distance_from_point: Reference point as :class:`GeoPoint`.
             distance_from_page: Reference page title.
 
         Returns:
@@ -2207,8 +2209,8 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         *,
         limit: int = 10,
         primary: str = "primary",
-        prop: str = "globe",
-        distance_from_point: str | None = None,
+        prop: Iterable[str] = ("globe",),
+        distance_from_point: GeoPoint | None = None,
         distance_from_page: str | None = None,
     ) -> dict[str, list[Coordinate]]:
         """Async version of :meth:`WikipediaResource.batch_coordinates`.
@@ -2219,7 +2221,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             pages: List of pages to fetch coordinates for.
             limit: Maximum coordinates per page (1–500).
             primary: Which coordinates: ``"primary"``, ``"secondary"``, ``"all"``.
-            prop: Additional properties, pipe-separated.
+            prop: Additional properties as an iterable.
             distance_from_point: Reference point as ``"lat|lon"``.
             distance_from_page: Reference page title.
 
@@ -2266,7 +2268,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         page: "AsyncWikipediaPage",
         *,
         limit: int = 10,
-        images: str | None = None,
+        images: Iterable[str] | None = None,
         direction: str = "ascending",
     ) -> PagesDict:
         """Async version of :meth:`WikipediaResource.images`.
@@ -2276,7 +2278,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         Args:
             page: Page to fetch images for.
             limit: Maximum images to return (1–500).
-            images: Only list these specific images (pipe-separated).
+            images: Specific images as an iterable.
             direction: Sort direction: ``"ascending"`` or ``"descending"``.
 
         Returns:
@@ -2315,7 +2317,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         pages: list["AsyncWikipediaPage"],
         *,
         limit: int = 10,
-        images: str | None = None,
+        images: Iterable[str] | None = None,
         direction: str = "ascending",
     ) -> dict[str, PagesDict]:
         """Async version of :meth:`WikipediaResource.batch_images`.
@@ -2325,7 +2327,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         Args:
             pages: List of pages to fetch images for.
             limit: Maximum images per page (1–500).
-            images: Only list these specific images (pipe-separated).
+            images: Specific images as an iterable.
             direction: Sort direction: ``"ascending"`` or ``"descending"``.
 
         Returns:
@@ -2363,16 +2365,16 @@ class AsyncWikipediaResource(BaseWikipediaResource):
     async def geosearch(
         self,
         *,
-        coord: str | None = None,
+        coord: GeoPoint | None = None,
         page: str | None = None,
-        bbox: str | None = None,
+        bbox: GeoBox | None = None,
         radius: int = 500,
         max_dim: int | None = None,
         sort: str = "distance",
         limit: int = 10,
         globe: str = "earth",
         namespace: int | None = None,
-        prop: str | None = None,
+        prop: Iterable[str] | None = None,
         primary: str | None = None,
     ) -> PagesDict:
         """Async version of :meth:`WikipediaResource.geosearch`.
@@ -2380,16 +2382,16 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         See :meth:`WikipediaResource.geosearch` for full documentation.
 
         Args:
-            coord: Centre point as ``"lat|lon"``.
+            coord: Centre point as :class:`GeoPoint`.
             page: Title of page whose coordinates to use as centre.
-            bbox: Bounding box as ``"top_lat|left_lon|bottom_lat|right_lon"``.
+            bbox: Bounding box as :class:`GeoBox`.
             radius: Search radius in meters (10–10000).
             max_dim: Exclude objects larger than this many meters.
             sort: Sort order: ``"distance"`` or ``"relevance"``.
             limit: Maximum pages to return (1–500).
             globe: Celestial body.
             namespace: Restrict to this namespace number.
-            prop: Additional properties, pipe-separated.
+            prop: Additional properties as an iterable.
             primary: Which coordinates to consider.
 
         Returns:
@@ -2464,8 +2466,8 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         *,
         namespace: int = 0,
         limit: int = 10,
-        prop: str | None = None,
-        info: str | None = None,
+        prop: Iterable[str] | None = None,
+        info: Iterable[str] | None = None,
         sort: str = "relevance",
         what: str | None = None,
         interwiki: bool = False,
@@ -2480,8 +2482,8 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             query: Search string (required).
             namespace: Namespace to search in.
             limit: Maximum results to return (1–500).
-            prop: Properties to include, pipe-separated.
-            info: Metadata to return, pipe-separated.
+            prop: Properties as an iterable.
+            info: Metadata as an iterable.
             sort: Sort order.
             what: Search type.
             interwiki: Include interwiki results.

@@ -358,7 +358,7 @@ print(f"London images via property: {len(imgs_prop)}")
 # ──────────────────────────────────────────────────────────────────────────────
 
 # Find pages near a geographic point
-results = wiki.geosearch(coord="51.5074|-0.1278", radius=1000, limit=5)
+results = wiki.geosearch(coord=wikipediaapi.GeoPoint(51.5074, -0.1278), radius=1000, limit=5)
 print(f"Geosearch results ({len(results)}):")
 for title, p in results.items():
     meta = p.geosearch_meta

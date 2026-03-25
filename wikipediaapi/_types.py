@@ -16,6 +16,89 @@ if TYPE_CHECKING:
 
 
 @dataclass(frozen=True)
+class GeoPoint:
+    """A geographic point with latitude/longitude validation.
+
+    Used as pythonic input for API parameters that previously required
+    MediaWiki's ``"lat|lon"`` string format.
+
+    Args:
+        lat: Latitude in decimal degrees, valid range ``[-90.0, 90.0]``.
+        lon: Longitude in decimal degrees, valid range ``[-180.0, 180.0]``.
+
+    Raises:
+        ValueError: If ``lat`` is outside ``[-90.0, 90.0]``.
+        ValueError: If ``lon`` is outside ``[-180.0, 180.0]``.
+    """
+
+    lat: float = 0.0
+    lon: float = 0.0
+
+    def __post_init__(self) -> None:
+        """Validate latitude and longitude ranges after initialisation.
+
+        Raises:
+            ValueError: If ``lat`` is outside ``[-90.0, 90.0]``.
+            ValueError: If ``lon`` is outside ``[-180.0, 180.0]``.
+        """
+        if not -90.0 <= self.lat <= 90.0:
+            raise ValueError("GeoPoint.lat must be in range [-90.0, 90.0]")
+        if not -180.0 <= self.lon <= 180.0:
+            raise ValueError("GeoPoint.lon must be in range [-180.0, 180.0]")
+
+    def to_mediawiki(self) -> str:
+        """Convert this point to MediaWiki ``"lat|lon"`` format.
+
+        Returns:
+            The ``"lat|lon"`` string expected by MediaWiki query params.
+        """
+        return f"{self.lat}|{self.lon}"
+
+
+@dataclass(frozen=True)
+class GeoBox:
+    """A geographic bounding box defined by two validated corner points.
+
+    Represents MediaWiki's ``gsbbox`` value in a pythonic structured way.
+
+    Args:
+        top_left: Top-left corner of the box.
+        bottom_right: Bottom-right corner of the box.
+
+    Raises:
+        ValueError: If the top-left latitude is smaller than bottom-right latitude.
+        ValueError: If the top-left longitude is greater than bottom-right longitude.
+    """
+
+    top_left: GeoPoint = GeoPoint(0.0, 0.0)
+    bottom_right: GeoPoint = GeoPoint(0.0, 0.0)
+
+    def __post_init__(self) -> None:
+        """Validate corner ordering semantics for a north-west/south-east box.
+
+        Raises:
+            ValueError: If ``top_left.lat < bottom_right.lat``.
+            ValueError: If ``top_left.lon > bottom_right.lon``.
+        """
+        if self.top_left.lat < self.bottom_right.lat:
+            raise ValueError("GeoBox.top_left.lat must be >= GeoBox.bottom_right.lat")
+        if self.top_left.lon > self.bottom_right.lon:
+            raise ValueError("GeoBox.top_left.lon must be <= GeoBox.bottom_right.lon")
+
+    def to_mediawiki(self) -> str:
+        """Convert this box to MediaWiki ``"top|left|bottom|right"`` format.
+
+        Returns:
+            The ``"top_lat|left_lon|bottom_lat|right_lon"`` string expected
+            by MediaWiki query params.
+        """
+        return (
+            f"{self.top_left.lat}|{self.top_left.lon}|"
+            f"{self.bottom_right.lat}|{self.bottom_right.lon}"
+        )
+
+
+@dataclass(frozen=True)
 class Coordinate:
     """A single geographic coordinate associated with a Wikipedia page.
 

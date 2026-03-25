@@ -618,6 +618,15 @@ class TestGeoSearchResults(unittest.TestCase):
         with self.assertRaises(click.UsageError):
             get_geosearch_results(wiki)
 
+    def test_get_geosearch_results_invalid_coord(self):
+        """Test geosearch with invalid coord format raises error."""
+        import click
+
+        wiki = create_mock_wikipedia()
+
+        with self.assertRaises(click.UsageError):
+            get_geosearch_results(wiki, coord="invalid")
+
     def test_format_geosearch_text(self):
         """Test formatting geosearch results as text."""
         results = [

@@ -9,6 +9,8 @@ cases.
 from ._pages_dict import AsyncPagesDict
 from ._pages_dict import PagesDict
 from ._types import Coordinate
+from ._types import GeoBox
+from ._types import GeoPoint
 from ._types import GeoSearchMeta
 from ._types import SearchMeta
 from ._types import SearchResults
@@ -39,6 +41,8 @@ __all__ = [
     "AsyncWikipediaPage",
     "WikipediaPageSection",
     "Coordinate",
+    "GeoBox",
+    "GeoPoint",
     "GeoSearchMeta",
     "SearchMeta",
     "SearchResults",

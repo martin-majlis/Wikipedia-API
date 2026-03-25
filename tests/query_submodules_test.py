@@ -12,6 +12,8 @@ from wikipediaapi._params import GeoSearchParams
 from wikipediaapi._params import ImagesParams
 from wikipediaapi._params import RandomParams
 from wikipediaapi._params import SearchParams
+from wikipediaapi._types import GeoBox
+from wikipediaapi._types import GeoPoint
 
 
 class TestCoordinates(unittest.TestCase):
@@ -53,6 +55,11 @@ class TestCoordinates(unittest.TestCase):
         coords_all = self.wiki.coordinates(page2, primary="all")
         self.assertEqual(len(coords_default), 1)
         self.assertEqual(len(coords_all), 2)
+
+    def test_coordinates_with_iterable_prop(self):
+        page = self.wiki.page("Test_1")
+        coords = self.wiki.coordinates(page, prop=["globe"])
+        self.assertEqual(len(coords), 1)
 
     def test_page_coordinates_property(self):
         page = self.wiki.page("Test_1")
@@ -104,14 +111,14 @@ class TestGeoSearch(unittest.TestCase):
         self.wiki._get = wikipedia_api_request(self.wiki)
 
     def test_geosearch(self):
-        results = self.wiki.geosearch(coord="51.5074|-0.1278")
+        results = self.wiki.geosearch(coord=GeoPoint(51.5074, -0.1278))
         self.assertIsInstance(results, wikipediaapi.PagesDict)
         self.assertEqual(len(results), 2)
         self.assertIn("Nearby Page 1", results)
         self.assertIn("Nearby Page 2", results)
 
     def test_geosearch_meta(self):
-        results = self.wiki.geosearch(coord="51.5074|-0.1278")
+        results = self.wiki.geosearch(coord=GeoPoint(51.5074, -0.1278))
         p1 = results["Nearby Page 1"]
         self.assertIsNotNone(p1.geosearch_meta)
         self.assertAlmostEqual(p1.geosearch_meta.dist, 50.3)
@@ -119,7 +126,7 @@ class TestGeoSearch(unittest.TestCase):
         self.assertTrue(p1.geosearch_meta.primary)
 
     def test_geosearch_precaches_coordinates(self):
-        results = self.wiki.geosearch(coord="51.5074|-0.1278")
+        results = self.wiki.geosearch(coord=GeoPoint(51.5074, -0.1278))
         p1 = results["Nearby Page 1"]
         default_key = CoordinatesParams().cache_key()
         cached = p1._get_cached("coordinates", default_key)
@@ -128,7 +135,7 @@ class TestGeoSearch(unittest.TestCase):
         self.assertAlmostEqual(cached[0].lat, 51.508)
 
     def test_geosearch_pageid_preset(self):
-        results = self.wiki.geosearch(coord="51.5074|-0.1278")
+        results = self.wiki.geosearch(coord=GeoPoint(51.5074, -0.1278))
         p1 = results["Nearby Page 1"]
         self.assertEqual(p1._attributes["pageid"], 100)
 
@@ -242,7 +249,7 @@ class TestParamsToApi(unittest.TestCase):
         self.assertNotIn("codistancefrompoint", api)
 
     def test_coordinates_params_with_distance(self):
-        p = CoordinatesParams(distance_from_point="37.787|-122.4")
+        p = CoordinatesParams(distance_from_point=GeoPoint(37.787, -122.4))
         api = p.to_api()
         self.assertEqual(api["codistancefrompoint"], "37.787|-122.4")
 
@@ -252,6 +259,48 @@ class TestParamsToApi(unittest.TestCase):
         self.assertEqual(api["imlimit"], "10")
         self.assertEqual(api["imdir"], "ascending")
         self.assertNotIn("imimages", api)
+
+    def test_coordinates_params_with_iterable_prop(self):
+        p = CoordinatesParams(prop=["name", "globe"])
+        api = p.to_api()
+        self.assertEqual(api["coprop"], "name|globe")
+
+    def test_images_params_with_iterable_images(self):
+        p = ImagesParams(images=["File:Test.png", "File:Logo.svg"])
+        api = p.to_api()
+        self.assertEqual(api["imimages"], "File:Test.png|File:Logo.svg")
+
+    def test_coordinates_params_rejects_string_prop(self):
+        with self.assertRaises(TypeError):
+            CoordinatesParams(prop="globe")
+
+    def test_images_params_rejects_string_images(self):
+        with self.assertRaises(TypeError):
+            ImagesParams(images="File:Test.png")
+
+    def test_geosearch_params_rejects_string_prop(self):
+        with self.assertRaises(TypeError):
+            GeoSearchParams(coord=GeoPoint(51.5, -0.1), prop="name|country")
+
+    def test_geosearch_params_rejects_string_coord(self):
+        with self.assertRaises(TypeError):
+            GeoSearchParams(coord="51.5|-0.1")
+
+    def test_geosearch_params_rejects_string_bbox(self):
+        with self.assertRaises(TypeError):
+            GeoSearchParams(bbox="52.0|-1.0|51.0|0.0")
+
+    def test_coordinates_params_rejects_string_distance_from_point(self):
+        with self.assertRaises(TypeError):
+            CoordinatesParams(distance_from_point="37.787|-122.4")
+
+    def test_search_params_rejects_string_prop(self):
+        with self.assertRaises(TypeError):
+            SearchParams(query="test", prop="size|wordcount")
+
+    def test_search_params_rejects_string_info(self):
+        with self.assertRaises(TypeError):
+            SearchParams(query="test", info="totalhits|suggestion")
 
     def test_cache_key_is_hashable(self):
         p = CoordinatesParams()
@@ -276,6 +325,34 @@ class TestTypes(unittest.TestCase):
         m = wikipediaapi.SearchMeta(snippet="test", size=100, wordcount=10, timestamp="2024-01-01")
         with self.assertRaises(AttributeError):
             m.snippet = "new"  # type: ignore[misc]
+
+    def test_geo_point_defaults(self):
+        point = wikipediaapi.GeoPoint()
+        self.assertEqual(point.lat, 0.0)
+        self.assertEqual(point.lon, 0.0)
+
+    def test_geo_point_validation(self):
+        with self.assertRaises(ValueError):
+            wikipediaapi.GeoPoint(100.0, 0.0)
+        with self.assertRaises(ValueError):
+            wikipediaapi.GeoPoint(0.0, 200.0)
+
+    def test_geo_box_defaults(self):
+        box = wikipediaapi.GeoBox()
+        self.assertEqual(box.top_left, wikipediaapi.GeoPoint(0.0, 0.0))
+        self.assertEqual(box.bottom_right, wikipediaapi.GeoPoint(0.0, 0.0))
+
+    def test_geo_box_validation(self):
+        with self.assertRaises(ValueError):
+            wikipediaapi.GeoBox(
+                top_left=wikipediaapi.GeoPoint(10.0, 0.0),
+                bottom_right=wikipediaapi.GeoPoint(20.0, 1.0),
+            )
+        with self.assertRaises(ValueError):
+            wikipediaapi.GeoBox(
+                top_left=wikipediaapi.GeoPoint(20.0, 5.0),
+                bottom_right=wikipediaapi.GeoPoint(10.0, 4.0),
+            )
 
 
 class TestPagesDictClass(unittest.TestCase):
@@ -388,7 +465,7 @@ class TestPagesDictBatchMethods(unittest.TestCase):
 
 class TestParamsToApiExtended(unittest.TestCase):
     def test_geosearch_params(self):
-        p = GeoSearchParams(coord="51.5|-0.1")
+        p = GeoSearchParams(coord=GeoPoint(51.5, -0.1))
         api = p.to_api()
         self.assertEqual(api["gscoord"], "51.5|-0.1")
         self.assertEqual(api["gsradius"], "500")
@@ -404,8 +481,30 @@ class TestParamsToApiExtended(unittest.TestCase):
         self.assertEqual(api["srsearch"], "test")
         self.assertEqual(api["srnamespace"], "0")
 
+    def test_geosearch_params_with_iterable_prop(self):
+        p = GeoSearchParams(coord=GeoPoint(51.5, -0.1), prop=["name", "country"])
+        api = p.to_api()
+        self.assertEqual(api["gsprop"], "name|country")
+
+    def test_geosearch_params_with_bbox(self):
+        p = GeoSearchParams(
+            bbox=GeoBox(top_left=GeoPoint(52.0, -1.0), bottom_right=GeoPoint(51.0, 0.0))
+        )
+        api = p.to_api()
+        self.assertEqual(api["gsbbox"], "52.0|-1.0|51.0|0.0")
+
+    def test_search_params_with_iterable_prop_and_info(self):
+        p = SearchParams(
+            query="test",
+            prop=["size", "wordcount"],
+            info=["totalhits", "suggestion"],
+        )
+        api = p.to_api()
+        self.assertEqual(api["srprop"], "size|wordcount")
+        self.assertEqual(api["srinfo"], "totalhits|suggestion")
+
     def test_images_params_with_images(self):
-        p = ImagesParams(images="File:Test.png")
+        p = ImagesParams(images=["File:Test.png"])
         api = p.to_api()
         self.assertEqual(api["imimages"], "File:Test.png")
 
@@ -484,13 +583,13 @@ class TestAsyncQuerySubmodules(unittest.IsolatedAsyncioTestCase):
         self.assertIs(imgs1, imgs2)
 
     async def test_async_geosearch(self):
-        results = await self.wiki.geosearch(coord="51.5074|-0.1278")
+        results = await self.wiki.geosearch(coord=GeoPoint(51.5074, -0.1278))
         self.assertIsInstance(results, wikipediaapi.PagesDict)
         self.assertEqual(len(results), 2)
         self.assertIn("Nearby Page 1", results)
 
     async def test_async_geosearch_meta(self):
-        results = await self.wiki.geosearch(coord="51.5074|-0.1278")
+        results = await self.wiki.geosearch(coord=GeoPoint(51.5074, -0.1278))
         p1 = results["Nearby Page 1"]
         self.assertIsNotNone(p1.geosearch_meta)
         self.assertAlmostEqual(p1.geosearch_meta.dist, 50.3)
@@ -548,7 +647,7 @@ class TestAsyncQuerySubmodules(unittest.IsolatedAsyncioTestCase):
         self.assertIsNone(page.search_meta)
 
     async def test_async_page_geosearch_meta_set(self):
-        results = await self.wiki.geosearch(coord="51.5074|-0.1278")
+        results = await self.wiki.geosearch(coord=GeoPoint(51.5074, -0.1278))
         p1 = results["Nearby Page 1"]
         self.assertIsNotNone(p1.geosearch_meta)
         self.assertAlmostEqual(p1.geosearch_meta.dist, 50.3)

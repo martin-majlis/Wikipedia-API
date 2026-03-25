@@ -42,7 +42,7 @@ File Layout
     │   ├── BaseWikipediaResource  # Param builders, parsers, dispatchers
     │   ├── WikipediaResource      # Sync public API methods
     │   └── AsyncWikipediaResource # Async public API methods
-    ├── _types.py                # Typed dataclasses (Coordinate, GeoSearchMeta, SearchMeta, SearchResults)
+    ├── _types.py                # Typed dataclasses (GeoPoint, GeoBox, Coordinate, GeoSearchMeta, SearchMeta, SearchResults)
     ├── _params.py               # Query parameter dataclasses (CoordinatesParams, ImagesParams, …)
     ├── _pages_dict.py           # PagesDict / AsyncPagesDict (dict subclasses with batch methods)
     ├── wikipedia.py             # Wikipedia (sync concrete client)
@@ -693,8 +693,8 @@ preserved when adding new functionality.
 
 **Typed data (``_types.py``)**
 
-* ``Coordinate``, ``GeoSearchMeta``, ``SearchMeta`` — frozen
-  ``@dataclass`` value objects returned by the new query submodule
+* ``GeoPoint``, ``GeoBox``, ``Coordinate``, ``GeoSearchMeta``, ``SearchMeta`` —
+  frozen ``@dataclass`` value objects used by the new query submodule
   methods.
 * ``SearchResults`` — a wrapper around a ``PagesDict`` that adds
   ``totalhits`` and ``suggestion`` from the ``searchinfo`` block.
@@ -704,6 +704,10 @@ preserved when adding new functionality.
 * Each query submodule has a frozen ``@dataclass`` (e.g.
   ``CoordinatesParams``, ``ImagesParams``) that maps clean Python
   names to MediaWiki API parameter names with a configurable prefix.
+* Pipe-separated MediaWiki parameters (for example ``prop``, ``info``,
+  and ``images``) are exposed as iterable-only inputs in the Python API.
+  They are normalized to ``"|"``-joined strings in ``__post_init__``
+  before API serialization.
 * The ``to_api()`` method returns the ``dict[str, str]`` ready for the
   API call; ``cache_key()`` returns a hashable tuple for per-parameter
   caching.

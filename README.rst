@@ -539,7 +539,7 @@ To find pages near a geographic point, use ``geosearch()``.  Each returned page 
 
 .. code-block:: python
 
-    results = wiki_wiki.geosearch(coord="51.5074|-0.1278", radius=1000, limit=5)
+    results = wiki_wiki.geosearch(coord=wikipediaapi.GeoPoint(51.5074, -0.1278), radius=1000, limit=5)
     for title, page in results.items():
         meta = page.geosearch_meta
         print(f"{title}: {meta.dist:.0f}m away")
@@ -549,7 +549,9 @@ To find pages near a geographic point, use ``geosearch()``.  Each returned page 
 .. code-block:: python
 
     async def main():
-        results = await wiki_wiki.geosearch(coord="51.5074|-0.1278", radius=1000, limit=5)
+        results = await wiki_wiki.geosearch(
+            coord=wikipediaapi.GeoPoint(51.5074, -0.1278), radius=1000, limit=5
+        )
         for title, page in results.items():
             meta = page.geosearch_meta
             print(f"{title}: {meta.dist:.0f}m away")

@@ -6,12 +6,12 @@ Wikipedia
 * ``__init__(user_agent: str, language='en', variant=None, extract_format=ExtractFormat.WIKI, headers=None, extra_api_params=None, max_retries=3, retry_wait=1.0, **kwargs)``
 * ``page(title, ns=Namespace.MAIN)``
 * ``pages(titles)`` — create a ``PagesDict`` of lazy pages (no network call)
-* ``coordinates(page, *, limit=10, primary='primary', prop='globe', distance_from_point=None, distance_from_page=None)`` → ``list[Coordinate]``
+* ``coordinates(page, *, limit=10, primary='primary', prop=('globe',), distance_from_point=None (GeoPoint), distance_from_page=None)`` → ``list[Coordinate]``
 * ``images(page, *, limit=10, images=None, direction='ascending')`` → ``PagesDict``
-* ``geosearch(*, coord=None, page=None, bbox=None, radius=500, max_dim=None, sort='distance', limit=10, namespace=0, prop='globe')`` → ``PagesDict``
+* ``geosearch(*, coord=None (GeoPoint), page=None, bbox=None (GeoBox), radius=500, max_dim=None, sort='distance', limit=10, namespace=0, prop=None)`` → ``PagesDict``
 * ``random(*, limit=1, namespace=0, filter_redir='nonredirects')`` → ``PagesDict``
-* ``search(query, *, namespace=0, limit=10, sort='relevance')`` → ``SearchResults``
-* ``batch_coordinates(pages, *, limit=10, primary='primary', prop='globe', distance_from_point=None, distance_from_page=None)`` → ``dict[str, list[Coordinate]]``
+* ``search(query, *, namespace=0, limit=10, prop=None, info=None, sort='relevance')`` → ``SearchResults``
+* ``batch_coordinates(pages, *, limit=10, primary='primary', prop=('globe',), distance_from_point=None (GeoPoint), distance_from_page=None)`` → ``dict[str, list[Coordinate]]``
 * ``batch_images(pages, *, limit=10, images=None, direction='ascending')`` → ``dict[str, PagesDict]``
 
 AsyncWikipedia
@@ -154,6 +154,20 @@ Frozen dataclass returned by ``coordinates()``.
 * ``lon: float`` — longitude
 * ``primary: bool`` — whether this is the primary coordinate
 * ``globe: str`` — celestial body (default ``"earth"``)
+
+``GeoPoint``
+~~~~~~~~~~~~
+Frozen dataclass used as input for point-based coordinate parameters.
+
+* ``lat: float`` — latitude in range ``[-90.0, 90.0]``
+* ``lon: float`` — longitude in range ``[-180.0, 180.0]``
+
+``GeoBox``
+~~~~~~~~~~
+Frozen dataclass used as input for geosearch bounding boxes.
+
+* ``top_left: GeoPoint`` — north-west corner
+* ``bottom_right: GeoPoint`` — south-east corner
 
 ``GeoSearchMeta``
 ~~~~~~~~~~~~~~~~~

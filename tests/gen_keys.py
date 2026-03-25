@@ -10,6 +10,7 @@ from wikipediaapi._params import GeoSearchParams  # noqa: E402
 from wikipediaapi._params import ImagesParams  # noqa: E402
 from wikipediaapi._params import RandomParams  # noqa: E402
 from wikipediaapi._params import SearchParams  # noqa: E402
+from wikipediaapi._types import GeoPoint  # noqa: E402
 
 
 def gen_key(language, base_params, param_obj):
@@ -64,7 +65,9 @@ print(gen_key("en", {"action": "query", "prop": "images", "titles": "NonExistent
 print("\nGEOSEARCH:")
 print(
     gen_key(
-        "en", {"action": "query", "list": "geosearch"}, GeoSearchParams(coord="51.5074|-0.1278")
+        "en",
+        {"action": "query", "list": "geosearch"},
+        GeoSearchParams(coord=GeoPoint(51.5074, -0.1278)),
     )
 )
 

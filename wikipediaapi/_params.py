@@ -11,9 +11,13 @@ by ``_resources.py`` to convert explicit method signatures into API params.
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass
 from dataclasses import fields
 from typing import Any, ClassVar
+
+from ._types import GeoBox
+from ._types import GeoPoint
 
 
 class _BaseParams:
@@ -75,19 +79,39 @@ class CoordinatesParams(_BaseParams):
         limit: Maximum number of coordinates to return (1–500).
         primary: Which coordinates to return: ``"primary"``,
             ``"secondary"``, or ``"all"``.
-        prop: Additional coordinate properties to include, pipe-separated
-            (e.g. ``"type|name|dim|country|region|globe"``).
-        distance_from_point: Return distance from this point; format
-            ``"lat|lon"`` (e.g. ``"37.787|-122.4"``).
+        prop: Additional coordinate properties as an iterable
+            (e.g. ``["type", "name", "globe"]``).
+        distance_from_point: Return distance from this geographic point.
         distance_from_page: Return distance from the coordinates of
             this page title.
     """
 
     limit: int = 10
     primary: str = "primary"
-    prop: str = "globe"
-    distance_from_point: str | None = None
+    prop: Iterable[str] = ("globe",)
+    distance_from_point: GeoPoint | None = None
     distance_from_page: str | None = None
+
+    def __post_init__(self) -> None:
+        """Normalize iterable props and reject string input.
+
+        Converts the iterable ``prop`` value into the MediaWiki-required
+        pipe-separated string representation.
+
+        Raises:
+            TypeError: If ``prop`` is passed as a string instead of an iterable.
+        """
+        if isinstance(self.prop, str):
+            raise TypeError("CoordinatesParams.prop must be an iterable of strings, not str")
+        object.__setattr__(self, "prop", "|".join(self.prop))
+        if self.distance_from_point is not None:
+            if not isinstance(self.distance_from_point, GeoPoint):
+                raise TypeError("CoordinatesParams.distance_from_point must be GeoPoint or None")
+            object.__setattr__(
+                self,
+                "distance_from_point",
+                self.distance_from_point.to_mediawiki(),
+            )
 
     PREFIX: ClassVar[str] = "co"
     FIELD_MAP: ClassVar[dict[str, str]] = {
@@ -105,13 +129,28 @@ class ImagesParams(_BaseParams):
 
     Args:
         limit: Maximum number of images to return (1–500).
-        images: Only list these specific images (pipe-separated titles).
+        images: Specific images as an iterable.
         direction: Sort direction: ``"ascending"`` or ``"descending"``.
     """
 
     limit: int = 10
-    images: str | None = None
+    images: Iterable[str] | None = None
     direction: str = "ascending"
+
+    def __post_init__(self) -> None:
+        """Normalize iterable image titles and reject string input.
+
+        Converts the iterable ``images`` value into the MediaWiki-required
+        pipe-separated string representation when provided.
+
+        Raises:
+            TypeError: If ``images`` is passed as a string instead of an iterable.
+        """
+        if self.images is None:
+            return
+        if isinstance(self.images, str):
+            raise TypeError("ImagesParams.images must be an iterable of strings, not str")
+        object.__setattr__(self, "images", "|".join(self.images))
 
     PREFIX: ClassVar[str] = "im"
     FIELD_MAP: ClassVar[dict[str, str]] = {
@@ -128,31 +167,53 @@ class GeoSearchParams(_BaseParams):
     At least one of ``coord``, ``page``, or ``bbox`` must be provided.
 
     Args:
-        coord: Centre point as ``"lat|lon"`` (e.g. ``"37.787|-122.4"``).
+        coord: Centre point as :class:`~wikipediaapi._types.GeoPoint`.
         page: Title of page whose coordinates to use as centre.
-        bbox: Bounding box as ``"top_lat|left_lon|bottom_lat|right_lon"``.
+        bbox: Bounding box as :class:`~wikipediaapi._types.GeoBox`.
         radius: Search radius in meters (10–10000).
         max_dim: Exclude objects larger than this many meters.
         sort: Sort order: ``"distance"`` or ``"relevance"``.
         limit: Maximum pages to return (1–500).
         globe: Celestial body: ``"earth"``, ``"mars"``, ``"moon"``, ``"venus"``.
         namespace: Restrict to this namespace number.
-        prop: Additional properties, pipe-separated.
+        prop: Additional properties as an iterable.
         primary: Which coordinates to consider: ``"primary"``,
             ``"secondary"``, or ``"all"``.
     """
 
-    coord: str | None = None
+    coord: GeoPoint | None = None
     page: str | None = None
-    bbox: str | None = None
+    bbox: GeoBox | None = None
     radius: int = 500
     max_dim: int | None = None
     sort: str = "distance"
     limit: int = 10
     globe: str = "earth"
     namespace: int | None = None
-    prop: str | None = None
+    prop: Iterable[str] | None = None
     primary: str | None = None
+
+    def __post_init__(self) -> None:
+        """Normalize iterable geosearch properties and reject string input.
+
+        Converts the iterable ``prop`` value into the MediaWiki-required
+        pipe-separated string representation when provided.
+
+        Raises:
+            TypeError: If ``prop`` is passed as a string instead of an iterable.
+        """
+        if self.coord is not None:
+            if not isinstance(self.coord, GeoPoint):
+                raise TypeError("GeoSearchParams.coord must be GeoPoint or None")
+            object.__setattr__(self, "coord", self.coord.to_mediawiki())
+        if self.bbox is not None:
+            if not isinstance(self.bbox, GeoBox):
+                raise TypeError("GeoSearchParams.bbox must be GeoBox or None")
+            object.__setattr__(self, "bbox", self.bbox.to_mediawiki())
+        if self.prop is not None:
+            if isinstance(self.prop, str):
+                raise TypeError("GeoSearchParams.prop must be an iterable of strings, not str")
+            object.__setattr__(self, "prop", "|".join(self.prop))
 
     PREFIX: ClassVar[str] = "gs"
     FIELD_MAP: ClassVar[dict[str, str]] = {
@@ -207,9 +268,9 @@ class SearchParams(_BaseParams):
         query: Search string (required).
         namespace: Namespace to search in.
         limit: Maximum results to return (1–500).
-        prop: Properties to include, pipe-separated (deprecated upstream).
-        info: Metadata to return, pipe-separated
-            (e.g. ``"totalhits|suggestion|rewrittenquery"``).
+        prop: Properties as an iterable (deprecated upstream).
+        info: Metadata as an iterable
+            (e.g. ``["totalhits", "suggestion", "rewrittenquery"]``).
         sort: Sort order (e.g. ``"relevance"``, ``"last_edit_desc"``).
         what: Search type: ``"title"``, ``"text"``, or ``"nearmatch"``.
         interwiki: Include interwiki results.
@@ -220,13 +281,32 @@ class SearchParams(_BaseParams):
     query: str = ""
     namespace: int = 0
     limit: int = 10
-    prop: str | None = None
-    info: str | None = None
+    prop: Iterable[str] | None = None
+    info: Iterable[str] | None = None
     sort: str = "relevance"
     what: str | None = None
     interwiki: bool = False
     enable_rewrites: bool = False
     qi_profile: str | None = None
+
+    def __post_init__(self) -> None:
+        """Normalize iterable search properties and reject string input.
+
+        Converts iterable ``prop`` and ``info`` values into MediaWiki-required
+        pipe-separated string representations when provided.
+
+        Raises:
+            TypeError: If ``prop`` or ``info`` is passed as a string instead
+                of an iterable.
+        """
+        if self.prop is not None:
+            if isinstance(self.prop, str):
+                raise TypeError("SearchParams.prop must be an iterable of strings, not str")
+            object.__setattr__(self, "prop", "|".join(self.prop))
+        if self.info is not None:
+            if isinstance(self.info, str):
+                raise TypeError("SearchParams.info must be an iterable of strings, not str")
+            object.__setattr__(self, "info", "|".join(self.info))
 
     PREFIX: ClassVar[str] = "sr"
     FIELD_MAP: ClassVar[dict[str, str]] = {
