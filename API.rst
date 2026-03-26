@@ -239,19 +239,78 @@ while maintaining full backward compatibility with string values.
 Available Enums
 ~~~~~~~~~~~~~~~
 
-* ``CoordinateType``: ``ALL``, ``PRIMARY``, ``SECONDARY``
-* ``Globe``: ``EARTH``, ``MARS``, ``MOON``, ``VENUS``
-* ``SearchSort``: ``RELEVANCE``, ``NONE``, ``RANDOM``, ``CREATE_TIMESTAMP_ASC``, ``CREATE_TIMESTAMP_DESC``, ``INCOMING_LINKS_ASC``, ``INCOMING_LINKS_DESC``, ``JUST_MATCH``, ``LAST_EDIT_ASC``, ``LAST_EDIT_DESC``, ``TITLE_NATURAL_ASC``, ``TITLE_NATURAL_DESC``, ``USER_RANDOM``
-* ``GeoSearchSort``: ``DISTANCE``, ``RELEVANCE``
-* ``RedirectFilter``: ``ALL``, ``REDIRECTS``, ``NONREDIRECTS``
+**Direction**
+  Sort direction for image methods.
+
+  * ``ASCENDING`` - ascending order (default)
+  * ``DESCENDING`` - descending order
+
+**SearchSort**
+  Sort options for search results.
+
+  * ``RELEVANCE`` - sort by relevance (default)
+  * ``NONE`` - no sorting
+  * ``RANDOM`` - random order
+  * ``CREATE_TIMESTAMP_ASC`` - creation time ascending
+  * ``CREATE_TIMESTAMP_DESC`` - creation time descending
+  * ``INCOMING_LINKS_ASC`` - incoming links ascending
+  * ``INCOMING_LINKS_DESC`` - incoming links descending
+  * ``JUST_MATCH`` - exact match only
+  * ``LAST_EDIT_ASC`` - last edit time ascending
+  * ``LAST_EDIT_DESC`` - last edit time descending
+  * ``TITLE_NATURAL_ASC`` - title natural sort ascending
+  * ``TITLE_NATURAL_DESC`` - title natural sort descending
+  * ``USER_RANDOM`` - user-specific random
+
+**GeoSearchSort**
+  Sort options for geographic search.
+
+  * ``DISTANCE`` - sort by distance (default)
+  * ``RELEVANCE`` - sort by relevance
+
+**Globe**
+  Celestial body for coordinates.
+
+  * ``EARTH`` - Earth (default)
+  * ``MARS`` - Mars
+  * ``MOON`` - Moon
+  * ``VENUS`` - Venus
+
+**CoordinateType**
+  Coordinate filtering options.
+
+  * ``ALL`` - all coordinates (default)
+  * ``PRIMARY`` - primary coordinates only
+  * ``SECONDARY`` - secondary coordinates only
+
+**RedirectFilter**
+  Redirect filtering for random pages.
+
+  * ``ALL`` - all pages (redirects and non-redirects)
+  * ``REDIRECTS`` - redirect pages only
+  * ``NONREDIRECTS`` - non-redirect pages only (default)
+
+**CoordinatesProp**
+  Additional coordinate properties to fetch.
+
+  * ``COUNTRY`` - country information
+  * ``DIM`` - dimension information
+  * ``GLOBE`` - globe information
+  * ``NAME`` - name information
+  * ``REGION`` - region information
+  * ``TYPE`` - type information
 
 Usage Examples
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
+
+**Basic Enum Usage**
 
 Type-safe enum usage (recommended)::
 
     import wikipediaapi
-    from wikipediaapi._enums import SearchSort, GeoSearchSort, Globe, CoordinateType, RedirectFilter
+    from wikipediaapi._enums import (
+        SearchSort, GeoSearchSort, Globe, CoordinateType, RedirectFilter, Direction
+    )
     from wikipediaapi._types import GeoPoint
 
     wiki = wikipediaapi.Wikipedia('MyApp/1.0', 'en')
@@ -274,6 +333,93 @@ Type-safe enum usage (recommended)::
     # Random pages with enum filter
     random_pages = wiki.random(filter_redirect=RedirectFilter.NONREDIRECTS, limit=5)
 
+    # Images with enum direction
+    page = wiki.page("London")
+    images = wiki.images(page, direction=Direction.ASCENDING)
+
+**Advanced Enum Examples**
+
+Different search strategies::
+
+    # Search by last edited time (newest first)
+    results = wiki.search("python", sort=SearchSort.LAST_EDIT_DESC)
+
+    # Search by incoming links (most linked first)
+    results = wiki.search("python", sort=SearchSort.INCOMING_LINKS_DESC)
+
+    # Search by title (alphabetical)
+    results = wiki.search("python", sort=SearchSort.TITLE_NATURAL_ASC)
+
+    # Random search order
+    results = wiki.search("python", sort=SearchSort.RANDOM)
+
+Geographic search on different celestial bodies::
+
+    # Search on Mars
+    mars_point = GeoPoint(lat=14.5, lon=175.5)
+    mars_results = wiki.geosearch(
+        coord=mars_point,
+        globe=Globe.MARS,
+        sort=GeoSearchSort.DISTANCE,
+        radius=1000
+    )
+
+    # Search on the Moon
+    moon_point = GeoPoint(lat=0.7, lon=23.4)
+    moon_results = wiki.geosearch(
+        coord=moon_point,
+        globe=Globe.MOON,
+        sort=GeoSearchSort.DISTANCE,
+        radius=500
+    )
+
+Coordinate filtering::
+
+    # Get only primary coordinates
+    primary_coords = wiki.coordinates(page, primary=CoordinateType.PRIMARY)
+
+    # Get only secondary coordinates
+    secondary_coords = wiki.coordinates(page, primary=CoordinateType.SECONDARY)
+
+    # Get all coordinates (primary + secondary)
+    all_coords = wiki.coordinates(page, primary=CoordinateType.ALL)
+
+Redirect filtering::
+
+    # Get only redirect pages
+    redirects = wiki.random(filter_redirect=RedirectFilter.REDIRECTS, limit=10)
+
+    # Get only non-redirect pages
+    articles = wiki.random(filter_redirect=RedirectFilter.NONREDIRECTS, limit=10)
+
+    # Get all pages
+    all_pages = wiki.random(filter_redirect=RedirectFilter.ALL, limit=10)
+
+**Async Enum Usage**
+
+All enum parameters work identically in the async API::
+
+    import asyncio
+    from wikipediaapi._enums import SearchSort, GeoSearchSort, Globe
+
+    async def search_examples():
+        wiki = wikipediaapi.AsyncWikipedia('MyApp/1.0', 'en')
+
+        # Async search with enum
+        results = await wiki.search("python", sort=SearchSort.RELEVANCE)
+
+        # Async geosearch with enum
+        point = GeoPoint(lat=51.5074, lon=-0.1278)
+        geo_results = await wiki.geosearch(
+            coord=point,
+            sort=GeoSearchSort.DISTANCE,
+            globe=Globe.EARTH
+        )
+
+        return results, geo_results
+
+    results, geo_results = asyncio.run(search_examples())
+
 Backward-compatible string usage::
 
     # All of these still work exactly the same
@@ -281,6 +427,22 @@ Backward-compatible string usage::
     geo_results = wiki.geosearch(coord=point, sort="distance", globe="earth")
     coords = wiki.coordinates(page, primary="all")
     random_pages = wiki.random(filter_redirect="nonredirects", limit=5)
+    images = wiki.images(page, direction="ascending")
+
+**Mixed Enum and String Usage**
+
+You can mix enums and strings in the same call::
+
+    # Mix enum and string parameters
+    results = wiki.search("python", sort=SearchSort.RELEVANCE, ns=0)  # ns as int
+    geo_results = wiki.geosearch(
+        coord=point,
+        sort=GeoSearchSort.DISTANCE,  # enum
+        globe="earth",               # string
+        radius=1000
+    )
+
+    # This flexibility makes migration easy
 
 Type Aliases
 ~~~~~~~~~~~~
@@ -288,11 +450,13 @@ Type Aliases
 For function signatures, the library uses ``Wiki*`` type aliases that accept
 both enum members and strings:
 
+* ``WikiDirection`` = ``Union[Direction, str]``
 * ``WikiCoordinateType`` = ``Union[CoordinateType, str]``
 * ``WikiGlobe`` = ``Union[Globe, str]``
 * ``WikiSearchSort`` = ``Union[SearchSort, str]``
 * ``WikiGeoSearchSort`` = ``Union[GeoSearchSort, str]``
 * ``WikiRedirectFilter`` = ``Union[RedirectFilter, str]``
+* ``WikiCoordinatesProp`` = ``Union[CoordinatesProp, str]``
 
 This means you can write type-annotated code that accepts either form::
 
@@ -300,9 +464,20 @@ This means you can write type-annotated code that accepts either form::
         wiki = wikipediaapi.Wikipedia('MyApp/1.0')
         return wiki.search(query, sort=sort)
 
+    def geo_search_wiki(
+        coord: GeoPoint,
+        sort: WikiGeoSearchSort,
+        globe: WikiGlobe
+    ) -> PagesDict:
+        wiki = wikipediaapi.Wikipedia('MyApp/1.0')
+        return wiki.geosearch(coord=coord, sort=sort, globe=globe)
+
     # Both calls work
     search_wiki("python", SearchSort.RELEVANCE)  # Type-safe
     search_wiki("python", "relevance")          # Backward compatible
+
+    geo_search_wiki(point, GeoSearchSort.DISTANCE, Globe.EARTH)  # Type-safe
+    geo_search_wiki(point, "distance", "earth")                   # Backward compatible
 
 Converter Functions
 ~~~~~~~~~~~~~~~~~~
@@ -310,16 +485,55 @@ Converter Functions
 If you need to convert enum values to strings manually (e.g., for debugging
 or custom API calls), use the converter functions:
 
+* ``direction2str(value: WikiDirection) -> str``
 * ``coordinate_type2str(value: WikiCoordinateType) -> str``
 * ``globe2str(value: WikiGlobe) -> str``
 * ``search_sort2str(value: WikiSearchSort) -> str``
 * ``geosearch_sort2str(value: WikiGeoSearchSort) -> str``
 * ``redirect_filter2str(value: WikiRedirectFilter) -> str``
+* ``coordinates_prop2str(value: WikiCoordinatesProp) -> str``
 
 All converters handle both enum members and strings gracefully::
 
-    from wikipediaapi._enums import search_sort2str, SearchSort
+    from wikipediaapi._enums import (
+        search_sort2str, SearchSort,
+        geosearch_sort2str, GeoSearchSort,
+        globe2str, Globe
+    )
 
+    # Enum to string conversion
     assert search_sort2str(SearchSort.RELEVANCE) == "relevance"
+    assert geosearch_sort2str(GeoSearchSort.DISTANCE) == "distance"
+    assert globe2str(Globe.EARTH) == "earth"
+
+    # String pass-through (unchanged)
     assert search_sort2str("relevance") == "relevance"
-    assert search_sort2str("custom_sort") == "custom_sort"  # Pass-through
+    assert geosearch_sort2str("distance") == "distance"
+    assert globe2str("earth") == "earth"
+
+    # Custom values pass through unchanged
+    assert search_sort2str("custom_sort") == "custom_sort"
+    assert globe2str("custom_globe") == "custom_globe"
+
+**Use Cases for Converter Functions**
+
+::
+
+    # Debugging API parameters
+    def debug_search_params(sort: WikiSearchSort):
+        sort_str = search_sort2str(sort)
+        print(f"Searching with sort: {sort_str}")
+        return wiki.search("python", sort=sort)
+
+    # Building custom API URLs
+    def build_custom_search_url(sort: WikiSearchSort):
+        sort_str = search_sort2str(sort)
+        return f"https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=python&srsort={sort_str}"
+
+    # Logging and monitoring
+    import logging
+    logger = logging.getLogger(__name__)
+
+    def log_geosearch_params(sort: WikiGeoSearchSort, globe: WikiGlobe):
+        logger.info(f"Geosearch: sort={geosearch_sort2str(sort)}, globe={globe2str(globe)}")
+        return wiki.geosearch(coord=point, sort=sort, globe=globe)

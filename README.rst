@@ -479,6 +479,7 @@ To get geographic coordinates of a page, use ``coordinates()`` on the wiki clien
 
 .. code-block:: python
 
+    # Basic coordinates
     page = wiki_wiki.page('London')
     coords = wiki_wiki.coordinates(page)
     for c in coords:
@@ -488,11 +489,22 @@ To get geographic coordinates of a page, use ``coordinates()`` on the wiki clien
     coords = page.coordinates
     print(f"Coordinates: {len(coords)}")
 
+    # Coordinates with enum primary type (type-safe)
+    from wikipediaapi._enums import CoordinateType
+    coords = wiki_wiki.coordinates(page, primary=CoordinateType.ALL)
+
+    # Get only primary coordinates
+    coords = wiki_wiki.coordinates(page, primary=CoordinateType.PRIMARY)
+
+    # Get only secondary coordinates
+    coords = wiki_wiki.coordinates(page, primary=CoordinateType.SECONDARY)
+
 **Asynchronous**
 
 .. code-block:: python
 
     async def main():
+        # Basic coordinates
         page = wiki_wiki.page('London')
         coords = await wiki_wiki.coordinates(page)
         for c in coords:
@@ -500,6 +512,10 @@ To get geographic coordinates of a page, use ``coordinates()`` on the wiki clien
 
         # Or via the page property:
         coords = await page.coordinates
+
+        # Coordinates with enum primary type (type-safe)
+        from wikipediaapi._enums import CoordinateType
+        coords = await wiki_wiki.coordinates(page, primary=CoordinateType.ALL)
 
 How To Get Page Images
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -539,22 +555,52 @@ To find pages near a geographic point, use ``geosearch()``.  Each returned page 
 
 .. code-block:: python
 
+    # Basic geosearch
     results = wiki_wiki.geosearch(coord=wikipediaapi.GeoPoint(51.5074, -0.1278), radius=1000, limit=5)
     for title, page in results.items():
         meta = page.geosearch_meta
         print(f"{title}: {meta.dist:.0f}m away")
+
+    # Geosearch with enum parameters (type-safe)
+    from wikipediaapi._enums import GeoSearchSort, Globe
+    results = wiki_wiki.geosearch(
+        coord=wikipediaapi.GeoPoint(51.5074, -0.1278),
+        sort=GeoSearchSort.DISTANCE,
+        globe=Globe.EARTH,
+        radius=1000,
+        limit=5
+    )
+
+    # Geosearch with different sort
+    results = wiki_wiki.geosearch(
+        coord=wikipediaapi.GeoPoint(51.5074, -0.1278),
+        sort=GeoSearchSort.RELEVANCE,
+        radius=1000,
+        limit=5
+    )
 
 **Asynchronous**
 
 .. code-block:: python
 
     async def main():
+        # Basic geosearch
         results = await wiki_wiki.geosearch(
             coord=wikipediaapi.GeoPoint(51.5074, -0.1278), radius=1000, limit=5
         )
         for title, page in results.items():
             meta = page.geosearch_meta
             print(f"{title}: {meta.dist:.0f}m away")
+
+        # Geosearch with enum parameters (type-safe)
+        from wikipediaapi._enums import GeoSearchSort, Globe
+        results = await wiki_wiki.geosearch(
+            coord=wikipediaapi.GeoPoint(51.5074, -0.1278),
+            sort=GeoSearchSort.DISTANCE,
+            globe=Globe.EARTH,
+            radius=1000,
+            limit=5
+        )
 
 How To Get Random Pages
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -565,18 +611,34 @@ To get random Wikipedia pages, use ``random()``.
 
 .. code-block:: python
 
+    # Basic random pages
     pages = wiki_wiki.random(limit=3)
     for title in pages:
         print(title)
+
+    # Random pages with enum filter (type-safe)
+    from wikipediaapi._enums import RedirectFilter
+    pages = wiki_wiki.random(filter_redirect=RedirectFilter.NONREDIRECTS, limit=3)
+
+    # Get only redirects
+    pages = wiki_wiki.random(filter_redirect=RedirectFilter.REDIRECTS, limit=3)
+
+    # Get all pages (redirects and non-redirects)
+    pages = wiki_wiki.random(filter_redirect=RedirectFilter.ALL, limit=3)
 
 **Asynchronous**
 
 .. code-block:: python
 
     async def main():
+        # Basic random pages
         pages = await wiki_wiki.random(limit=3)
         for title in pages:
             print(title)
+
+        # Random pages with enum filter (type-safe)
+        from wikipediaapi._enums import RedirectFilter
+        pages = await wiki_wiki.random(filter_redirect=RedirectFilter.NONREDIRECTS, limit=3)
 
 How To Search Wikipedia
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -589,21 +651,35 @@ property with snippet, size, wordcount, and timestamp fields.
 
 .. code-block:: python
 
+    # Basic search
     results = wiki_wiki.search("Python programming", limit=5)
     print(f"Total hits: {results.totalhits}")
     print(f"Suggestion: {results.suggestion}")
     for title, page in results.pages.items():
         print(f"{title}: {page.search_meta.wordcount} words")
 
+    # Search with enum sort (type-safe)
+    from wikipediaapi._enums import SearchSort
+    results = wiki_wiki.search("Python programming", sort=SearchSort.RELEVANCE, limit=5)
+
+    # Search with different sort options
+    results = wiki_wiki.search("Python programming", sort=SearchSort.LAST_EDIT_DESC, limit=5)
+    results = wiki_wiki.search("Python programming", sort=SearchSort.TITLE_NATURAL_ASC, limit=5)
+
 **Asynchronous**
 
 .. code-block:: python
 
     async def main():
+        # Basic search
         results = await wiki_wiki.search("Python programming", limit=5)
         print(f"Total hits: {results.totalhits}")
         for title, page in results.pages.items():
             print(f"{title}: {page.search_meta.wordcount} words")
+
+        # Search with enum sort (type-safe)
+        from wikipediaapi._enums import SearchSort
+        results = await wiki_wiki.search("Python programming", sort=SearchSort.RELEVANCE, limit=5)
 
 How To Batch-Fetch Data for Multiple Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -664,6 +740,72 @@ specify parameter `converttitles`. If you want to specify it, you can use:
 
 .. _sandbox: https://en.wikipedia.org/wiki/Special:ApiSandbox
 .. _info API call: https://zh.wikipedia.org/wiki/Special:API%E6%B2%99%E7%9B%B2#action=query&format=json&variant=zh-tw&prop=info&titles=%E5%AD%9F%E5%8D%AF&converttitles=1&formatversion=2&inprop=varianttitles%7Cdisplaytitle
+
+Type-Safe Enum Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Wikipedia-API provides strongly-typed enum parameters for better type safety
+while maintaining full backward compatibility with string values. Using enums
+provides IDE autocomplete, type checking, and prevents runtime errors from typos.
+
+**Key Benefits:**
+
+- **Type Safety**: IDE autocomplete and compile-time type checking
+- **No Typos**: Enum values are validated by Python
+- **Backward Compatible**: All existing string-based code continues to work
+- **Self-Documenting**: Enum names clearly indicate the purpose
+
+**Available Enums:**
+
+- ``SearchSort``: Sort options for search results (``RELEVANCE``, ``LAST_EDIT_DESC``, etc.)
+- ``GeoSearchSort``: Sort options for geographic search (``DISTANCE``, ``RELEVANCE``)
+- ``Globe``: Celestial body for coordinates (``EARTH``, ``MARS``, ``MOON``, ``VENUS``)
+- ``CoordinateType``: Coordinate filtering (``ALL``, ``PRIMARY``, ``SECONDARY``)
+- ``RedirectFilter``: Redirect filtering for random pages (``ALL``, ``REDIRECTS``, ``NONREDIRECTS``)
+- ``Direction``: Sort direction for images (``ASCENDING``, ``DESCENDING``)
+
+**Enum vs String Usage:**
+
+.. code-block:: python
+
+    import wikipediaapi
+    from wikipediaapi._enums import SearchSort, GeoSearchSort, Globe, CoordinateType, RedirectFilter
+
+    wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'en')
+
+    # Type-safe enum usage (recommended)
+    results = wiki.search("python", sort=SearchSort.RELEVANCE)
+    geo_results = wiki.geosearch(
+        coord=wikipediaapi.GeoPoint(lat=51.5, lon=-0.1),
+        sort=GeoSearchSort.DISTANCE,
+        globe=Globe.EARTH
+    )
+    coords = wiki.coordinates(page, primary=CoordinateType.ALL)
+    random_pages = wiki.random(filter_redirect=RedirectFilter.NONREDIRECTS)
+
+    # Backward-compatible string usage (still works)
+    results = wiki.search("python", sort="relevance")
+    geo_results = wiki.geosearch(coord=wikipediaapi.GeoPoint(lat=51.5, lon=-0.1), sort="distance", globe="earth")
+    coords = wiki.coordinates(page, primary="all")
+    random_pages = wiki.random(filter_redirect="nonredirects")
+
+**Type Aliases for Function Signatures:**
+
+The library uses ``Wiki*`` type aliases that accept both enum members and strings,
+making it easy to write type-annotated code:
+
+.. code-block:: python
+
+    from wikipediaapi._enums import WikiSearchSort, SearchSort
+
+    def search_function(query: str, sort: WikiSearchSort) -> wikipediaapi.SearchResults:
+        """Search Wikipedia with either enum or string sort."""
+        wiki = wikipediaapi.Wikipedia('MyApp/1.0')
+        return wiki.search(query, sort=sort)
+
+    # Both calls work and are type-safe
+    search_function("python", SearchSort.RELEVANCE)  # Enum input
+    search_function("python", "relevance")          # String input
 
 Error Handling
 ~~~~~~~~~~~~~~
