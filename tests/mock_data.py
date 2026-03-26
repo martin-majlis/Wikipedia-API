@@ -696,6 +696,102 @@ _MOCK_DATA = {
             }
         },
     },
+    # ── coordinates with multiple properties (for enum testing) ───────────────────
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe|name|type&format=json&prop=coordinates&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                            "name": "Test Location",
+                            "type": "landmark",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe|name&format=json&prop=coordinates&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                            "name": "Test Location",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&colimit=10&coprimary=primary&coprop=country|dim|globe|name|region|type&format=json&prop=coordinates&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "country": "GB",
+                            "dim": "1000",
+                            "globe": "earth",
+                            "name": "Test Location",
+                            "region": "England",
+                            "type": "landmark",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe|name&format=json&prop=coordinates&redirects=1&titles=Test_1|NonExistent&": {
+        "batchcomplete": "",
+        "query": {
+            "normalized": [{"from": "Test_1", "to": "Test 1"}],
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                            "name": "Test Location",
+                        }
+                    ],
+                },
+                "-1": {
+                    "ns": 0,
+                    "title": "NonExistent",
+                    "missing": "",
+                },
+            },
+        },
+    },
     # ── images with normalized title (for CLI tests) ─────────────────────────
     "en:action=query&format=json&imdir=ascending&imlimit=10&prop=images&redirects=1&titles=Test 1&": {
         "batchcomplete": "",

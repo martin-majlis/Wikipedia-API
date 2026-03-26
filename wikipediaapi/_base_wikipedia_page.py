@@ -288,6 +288,22 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
         :return: ``bool`` (sync) or an awaitable ``bool`` (async)
         """
 
+    def __getattribute__(self, name: str) -> Any:
+        """
+        Intercept attribute access to block __dict__ and other special attributes.
+
+        This method is called for every attribute access, allowing us to
+        block access to __dict__ and other special attributes while preserving
+        normal attribute lookup behavior.
+
+        :param name: attribute name to look up
+        :return: the attribute value
+        :raises AttributeError: if accessing blocked special attributes
+        """
+        if name == "__dict__":
+            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        return super().__getattribute__(name)
+
     def __getattr__(self, name: str) -> Any:
         """
         Return a value stored in the API response cache.
