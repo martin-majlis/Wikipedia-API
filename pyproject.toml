@@ -42,16 +42,16 @@ dev = [
     "black==26.3.1",
     "coverage==7.13.5",
     "flake8==7.3.0",
-    "flake8-bugbear==24.8.19",
-    "flake8-comprehensions==3.15.0",
+    "flake8-bugbear==25.11.29",
+    "flake8-comprehensions==3.17.0",
     "flake8-docstrings==1.7.0",
     "isort==8.0.1",
     "mypy==1.19.1",
     "pre-commit==4.5.1",
     "pygments==2.19.2",
     "pyupgrade==3.21.2",
-    "tox==4.50.0",
-    "anyio[trio]==4.12.1",
+    "tox==4.50.3",
+    "anyio[trio]==4.13.0",
     "respx==0.22.0",
     "types-setuptools==82.0.0.20260210",
     "flake8-async>=25.7.1",
@@ -66,7 +66,7 @@ build = [
     "wheel==0.46.3",
 ]
 testing = [
-    "anyio[trio]==4.12.1",
+    "anyio[trio]==4.13.0",
     "respx==0.22.0",
 ]
 

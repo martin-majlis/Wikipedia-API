@@ -19,16 +19,16 @@ wheels = [
 
 [[package]]
 name = "anyio"
-version = "4.12.1"
+version = "4.13.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "exceptiongroup", marker = "python_full_version < '3.11'" },
     { name = "idna" },
     { name = "typing-extensions", marker = "python_full_version < '3.13'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/96/f0/5eb65b2bb0d09ac6776f2eb54adee6abe8228ea05b20a5ad0e4945de8aac/anyio-4.12.1.tar.gz", hash = "sha256:41cfcc3a4c85d3f05c932da7c26d0201ac36f72abd4435ba90d0464a3ffed703", size = 228685, upload-time = "2026-01-06T11:45:21.246Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/19/14/2c5dd9f512b66549ae92767a9c7b330ae88e1932ca57876909410251fe13/anyio-4.13.0.tar.gz", hash = "sha256:334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc", size = 231622, upload-time = "2026-03-24T12:59:09.671Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/38/0e/27be9fdef66e72d64c0cdc3cc2823101b80585f8119b5c112c2e8f5f7dab/anyio-4.12.1-py3-none-any.whl", hash = "sha256:d405828884fc140aa80a3c667b8beed277f1dfedec42ba031bd6ac3db606ab6c", size = 113592, upload-time = "2026-01-06T11:45:19.497Z" },
+    { url = "https://files.pythonhosted.org/packages/da/42/e921fccf5015463e32a3cf6ee7f980a6ed0f395ceeaa45060b61d86486c2/anyio-4.13.0-py3-none-any.whl", hash = "sha256:08b310f9e24a9594186fd75b4f73f4a4152069e3853f1ed8bfbf58369f4ad708", size = 114353, upload-time = "2026-03-24T12:59:08.246Z" },
 ]
 
 [package.optional-dependencies]
@@ -541,27 +541,27 @@ wheels = [
 
 [[package]]
 name = "flake8-bugbear"
-version = "24.8.19"
+version = "25.11.29"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "attrs" },
     { name = "flake8" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/00/b3/80043856ed90ceef0e95c01ed12d6bb7d4d76356e526450f0a9aeeb0a7b7/flake8_bugbear-24.8.19.tar.gz", hash = "sha256:9b77627eceda28c51c27af94560a72b5b2c97c016651bdce45d8f56c180d2d32", size = 78771, upload-time = "2024-08-20T02:16:03.749Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ec/20/2a996e2fca7810bd1b031901d65fc4292630895afcb946ebd00568bdc669/flake8_bugbear-25.11.29.tar.gz", hash = "sha256:b5d06710f3d26e595541ad303ad4d5cb52578bd4bccbb2c2c0b2c72e243dafc8", size = 84896, upload-time = "2025-11-29T20:51:57.75Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2b/3c/8885a79ae7bebfab19716969de9810722ff45354e4ccc974a090bc478eaa/flake8_bugbear-24.8.19-py3-none-any.whl", hash = "sha256:25bc3867f7338ee3b3e0916bf8b8a0b743f53a9a5175782ddc4325ed4f386b89", size = 35357, upload-time = "2024-08-20T02:16:01.516Z" },
+    { url = "https://files.pythonhosted.org/packages/0d/42/c18f199780d99a6f6a64c4a36f4ad28a445d9e11968a6025b21d0c8b6802/flake8_bugbear-25.11.29-py3-none-any.whl", hash = "sha256:9bf15e2970e736d2340da4c0a70493db964061c9c38f708cfe1f7b2d87392298", size = 37861, upload-time = "2025-11-29T20:51:56.439Z" },
 ]
 
 [[package]]
 name = "flake8-comprehensions"
-version = "3.15.0"
+version = "3.17.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "flake8" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/60/fa/68481f25fc8ecdbe8a763062ba4f5b17fa4ef7fc0646c081267cef4f67e5/flake8_comprehensions-3.15.0.tar.gz", hash = "sha256:923c22603e0310376a6b55b03efebdc09753c69f2d977755cba8bb73458a5d4d", size = 13079, upload-time = "2024-06-29T22:29:49.972Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/91/93/da2d30987ce4c06404326e7c8e6636cae18c2b2f2d5542891a8ad64a34f4/flake8_comprehensions-3.17.0.tar.gz", hash = "sha256:bf4fa102b2bf4d6c9e999e29e4b2724cbadffb70b937600fc782161be4dc0f4a", size = 13269, upload-time = "2025-09-09T22:37:18.335Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3a/aa/93667d6f398749d1a9dd37d646e092f9f1baade7cbac948331b50a1d513c/flake8_comprehensions-3.15.0-py3-none-any.whl", hash = "sha256:b7e027bbb52be2ceb779ee12484cdeef52b0ad3c1fcb8846292bdb86d3034681", size = 8162, upload-time = "2024-06-29T22:29:48.193Z" },
+    { url = "https://files.pythonhosted.org/packages/39/bd/d6739d685fdd79349aa51c37bdedc0d8eab6ae9c6e6ed2ca935b3f88210d/flake8_comprehensions-3.17.0-py3-none-any.whl", hash = "sha256:3943a9c6f2593c3bc5cc64106c2f89d63c6ecd49c8343597f8257b8fcfc8b0a2", size = 8185, upload-time = "2025-09-09T22:37:17.149Z" },
 ]
 
 [[package]]
@@ -1426,7 +1426,7 @@ wheels = [
 
 [[package]]
 name = "requests"
-version = "2.32.5"
+version = "2.33.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "certifi" },
@@ -1434,9 +1434,9 @@ dependencies = [
     { name = "idna" },
     { name = "urllib3" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz", hash = "sha256:dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf", size = 134517, upload-time = "2025-08-18T20:46:02.573Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz", hash = "sha256:c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652", size = 134232, upload-time = "2026-03-25T15:10:41.586Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1e/db/4254e3eabe8020b458f1a747140d32277ec7a271daf1d235b70dc0b4e6e3/requests-2.32.5-py3-none-any.whl", hash = "sha256:2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6", size = 64738, upload-time = "2025-08-18T20:46:00.542Z" },
+    { url = "https://files.pythonhosted.org/packages/56/5d/c814546c2333ceea4ba42262d8c4d55763003e767fa169adc693bd524478/requests-2.33.0-py3-none-any.whl", hash = "sha256:3324635456fa185245e24865e810cecec7b4caf933d7eb133dcde67d48cee69b", size = 65017, upload-time = "2026-03-25T15:10:40.382Z" },
 ]
 
 [[package]]
@@ -1717,7 +1717,7 @@ wheels = [
 
 [[package]]
 name = "tox"
-version = "4.50.0"
+version = "4.50.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cachetools" },
@@ -1732,9 +1732,9 @@ dependencies = [
     { name = "typing-extensions", marker = "python_full_version < '3.11'" },
     { name = "virtualenv" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e0/19/9feeea84d193333ba022c1154cdf70af14b5cb531911d968d7a47ce2b899/tox-4.50.0.tar.gz", hash = "sha256:1d9c1d678bb5c1a2d59c19ae58df7d033578ac1d91c5625aaa62aac792093401", size = 264526, upload-time = "2026-03-17T16:54:09.145Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ae/45/e4c0ac54af794f992790abe350770bb1fa6d5a85b25d47b6182c83ec7915/tox-4.50.3.tar.gz", hash = "sha256:c745641de6cc4f19d066bd9f98c1c25f7affb005b381b7f3694a1f142ea0946b", size = 266455, upload-time = "2026-03-20T01:17:59.351Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c1/ad/16a2cf605b81a2d615ee6fe1f7513afcdfee2e71cd52454198b55b84f572/tox-4.50.0-py3-none-any.whl", hash = "sha256:fb0bf14043b8d9d6cbe56b322b2860da50f6b898788ebfec621b84396dc948d6", size = 207490, upload-time = "2026-03-17T16:54:07.214Z" },
+    { url = "https://files.pythonhosted.org/packages/fe/ab/369d60db70d9031341082842071541f2497741b04140816c7df82734faf6/tox-4.50.3-py3-none-any.whl", hash = "sha256:5e788a512bfe6f7447e0c8d7c1b666eb2e56e5e676c65717490423bec37d1a07", size = 207667, upload-time = "2026-03-20T01:17:57.553Z" },
 ]
 
 [[package]]
@@ -1888,13 +1888,13 @@ build = [
     { name = "wheel", specifier = "==0.46.3" },
 ]
 dev = [
-    { name = "anyio", extras = ["trio"], specifier = "==4.12.1" },
+    { name = "anyio", extras = ["trio"], specifier = "==4.13.0" },
     { name = "black", specifier = "==26.3.1" },
     { name = "coverage", specifier = "==7.13.5" },
     { name = "flake8", specifier = "==7.3.0" },
     { name = "flake8-async", specifier = ">=25.7.1" },
-    { name = "flake8-bugbear", specifier = "==24.8.19" },
-    { name = "flake8-comprehensions", specifier = "==3.15.0" },
+    { name = "flake8-bugbear", specifier = "==25.11.29" },
+    { name = "flake8-comprehensions", specifier = "==3.17.0" },
     { name = "flake8-docstrings", specifier = "==1.7.0" },
     { name = "isort", specifier = "==8.0.1" },
     { name = "mypy", specifier = "==1.19.1" },
@@ -1902,12 +1902,12 @@ dev = [
     { name = "pygments", specifier = "==2.19.2" },
     { name = "pyupgrade", specifier = "==3.21.2" },
     { name = "respx", specifier = "==0.22.0" },
-    { name = "tox", specifier = "==4.50.0" },
+    { name = "tox", specifier = "==4.50.3" },
     { name = "types-setuptools", specifier = "==82.0.0.20260210" },
 ]
 doc = [{ name = "sphinx", marker = "python_full_version >= '3.12'", specifier = "==9.1.0" }]
 testing = [
-    { name = "anyio", extras = ["trio"], specifier = "==4.12.1" },
+    { name = "anyio", extras = ["trio"], specifier = "==4.13.0" },
     { name = "respx", specifier = "==0.22.0" },
 ]
 
