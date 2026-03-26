@@ -7,6 +7,8 @@ cases.
 """
 
 from ._enums import Direction
+from ._enums import direction2str
+from ._enums import WikiDirection
 from ._pages_dict import AsyncPagesDict
 from ._pages_dict import PagesDict
 from ._types import Coordinate
@@ -57,6 +59,8 @@ __all__ = [
     "WikiConnectionError",
     "ExtractFormat",
     "Direction",
+    "WikiDirection",
+    "direction2str",
     "Namespace",
     "WikiNamespace",
     "namespace2int",

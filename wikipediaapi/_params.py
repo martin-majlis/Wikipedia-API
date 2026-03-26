@@ -18,6 +18,8 @@ from enum import Enum
 from typing import Any, ClassVar, Protocol
 
 from ._enums import Direction
+from ._enums import direction2str
+from ._enums import WikiDirection
 from ._types import GeoBox
 from ._types import GeoPoint
 from .namespace import Namespace
@@ -144,12 +146,12 @@ class ImagesParams(_BaseParams):
     Args:
         limit: Maximum number of images to return (1–500).
         images: Specific images as an iterable.
-        direction: Sort direction as :class:`~wikipediaapi._enums.Direction`.
+        direction: Sort direction as :class:`~wikipediaapi._enums.WikiDirection`.
     """
 
     limit: int = 10
     images: Iterable[str] | None = None
-    direction: Direction = Direction.ASCENDING
+    direction: WikiDirection = Direction.ASCENDING
 
     def __post_init__(self) -> None:
         """Normalize iterable image titles and reject string input.
@@ -159,10 +161,11 @@ class ImagesParams(_BaseParams):
 
         Raises:
             TypeError: If ``images`` is passed as a string instead of an iterable.
-            TypeError: If ``direction`` is not a :class:`Direction`.
+            TypeError: If ``direction`` is not a :class:`WikiDirection`.
         """
-        if not isinstance(self.direction, Direction):
-            raise TypeError("ImagesParams.direction must be Direction")
+        if not isinstance(self.direction, (Direction, str)):
+            raise TypeError("ImagesParams.direction must be Direction or str")
+        object.__setattr__(self, "direction", direction2str(self.direction))
         if self.images is None:
             return
         if isinstance(self.images, str):

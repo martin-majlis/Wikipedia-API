@@ -369,8 +369,8 @@ async def main():
     # 13. Images (prop=images)
     # ──────────────────────────────────────────────────────────────────────────
 
-    # Fetch images/files used on a page
-    imgs = await wiki.images(london)
+    # Fetch images/files used on a page (using direction as string)
+    imgs = await wiki.images(london, direction="descending")
     print(f"London images ({len(imgs)}):")
     for title in sorted(imgs)[:5]:
         print(f"  {title}")

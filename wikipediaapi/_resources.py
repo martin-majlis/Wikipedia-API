@@ -8,6 +8,7 @@ from urllib import parse
 from ._base_wikipedia_page import BaseWikipediaPage
 from ._base_wikipedia_page import NOT_CACHED
 from ._enums import Direction
+from ._enums import WikiDirection
 from ._pages_dict import AsyncPagesDict
 from ._pages_dict import PagesDict
 from ._params import CoordinatesParams
@@ -1628,7 +1629,7 @@ class WikipediaResource(BaseWikipediaResource):
         *,
         limit: int = 10,
         images: Iterable[str] | None = None,
-        direction: Direction = Direction.ASCENDING,
+        direction: WikiDirection = Direction.ASCENDING,
     ) -> PagesDict:
         """Fetch images (files) used on a page.
 
@@ -1643,7 +1644,7 @@ class WikipediaResource(BaseWikipediaResource):
             page: Page to fetch images for.
             limit: Maximum images to return (1–500).
             images: Specific images as an iterable.
-            direction: Sort direction as :class:`Direction`.
+            direction: Sort direction as :class:`WikiDirection`.
 
         Returns:
             :class:`PagesDict` keyed by image title; empty if page missing.
@@ -1689,7 +1690,7 @@ class WikipediaResource(BaseWikipediaResource):
         *,
         limit: int = 10,
         images: Iterable[str] | None = None,
-        direction: Direction = Direction.ASCENDING,
+        direction: WikiDirection = Direction.ASCENDING,
     ) -> dict[str, PagesDict]:
         """Batch-fetch images for multiple pages.
 
@@ -1700,7 +1701,7 @@ class WikipediaResource(BaseWikipediaResource):
             pages: List of pages to fetch images for.
             limit: Maximum images per page (1–500).
             images: Specific images as an iterable.
-            direction: Sort direction as :class:`Direction`.
+            direction: Sort direction as :class:`WikiDirection`.
 
         Returns:
             ``{title: PagesDict}`` for every page.
@@ -2293,7 +2294,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         *,
         limit: int = 10,
         images: Iterable[str] | None = None,
-        direction: Direction = Direction.ASCENDING,
+        direction: WikiDirection = Direction.ASCENDING,
     ) -> PagesDict:
         """Async version of :meth:`WikipediaResource.images`.
 
@@ -2303,7 +2304,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             page: Page to fetch images for.
             limit: Maximum images to return (1–500).
             images: Specific images as an iterable.
-            direction: Sort direction as :class:`Direction`.
+            direction: Sort direction as :class:`WikiDirection`.
 
         Returns:
             :class:`PagesDict` keyed by image title; empty if page missing.
@@ -2342,7 +2343,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         *,
         limit: int = 10,
         images: Iterable[str] | None = None,
-        direction: Direction = Direction.ASCENDING,
+        direction: WikiDirection = Direction.ASCENDING,
     ) -> dict[str, PagesDict]:
         """Async version of :meth:`WikipediaResource.batch_images`.
 
@@ -2352,7 +2353,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             pages: List of pages to fetch images for.
             limit: Maximum images per page (1–500).
             images: Specific images as an iterable.
-            direction: Sort direction as :class:`Direction`.
+            direction: Sort direction as :class:`WikiDirection`.
 
         Returns:
             ``{title: PagesDict}`` for every page.

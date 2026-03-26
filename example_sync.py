@@ -343,8 +343,8 @@ print(f"London coords via property: {len(coords_prop)}")
 # 13. Images (prop=images)
 # ──────────────────────────────────────────────────────────────────────────────
 
-# Fetch images/files used on a page
-imgs = wiki.images(london)
+# Fetch images/files used on a page (using direction)
+imgs = wiki.images(london, direction="descending")
 print(f"London images ({len(imgs)}):")
 for title in sorted(imgs)[:5]:
     print(f"  {title}")

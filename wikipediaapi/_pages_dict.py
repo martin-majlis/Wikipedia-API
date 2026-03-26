@@ -15,6 +15,7 @@ from typing import Any, cast, Protocol, TYPE_CHECKING
 
 from ._base_wikipedia_page import BaseWikipediaPage
 from ._enums import Direction
+from ._enums import WikiDirection
 
 if TYPE_CHECKING:
     from ._resources import BaseWikipediaResource
@@ -42,7 +43,7 @@ class _SyncBatchWiki(Protocol):
         *,
         limit: int = 10,
         images: Iterable[str] | None = None,
-        direction: Direction = Direction.ASCENDING,
+        direction: WikiDirection = Direction.ASCENDING,
     ) -> dict[str, PagesDict]: ...
 
 
@@ -64,7 +65,7 @@ class _AsyncBatchWiki(Protocol):
         *,
         limit: int = 10,
         images: Iterable[str] | None = None,
-        direction: Direction = Direction.ASCENDING,
+        direction: WikiDirection = Direction.ASCENDING,
     ) -> dict[str, PagesDict]: ...
 
 
@@ -135,7 +136,7 @@ class PagesDict(dict[str, BaseWikipediaPage[Any]]):
         *,
         limit: int = 10,
         images: Iterable[str] | None = None,
-        direction: Direction = Direction.ASCENDING,
+        direction: WikiDirection = Direction.ASCENDING,
     ) -> dict[str, PagesDict]:
         """Batch-fetch images for all pages in this dict.
 
@@ -145,7 +146,7 @@ class PagesDict(dict[str, BaseWikipediaPage[Any]]):
         Args:
             limit: Maximum images per page (1–500).
             images: Specific images as an iterable.
-            direction: Sort direction as :class:`Direction`.
+            direction: Sort direction as :class:`WikiDirection`.
 
         Returns:
             ``{title: PagesDict}`` for every page in this dict.
@@ -225,7 +226,7 @@ class AsyncPagesDict(dict[str, BaseWikipediaPage[Any]]):
         *,
         limit: int = 10,
         images: Iterable[str] | None = None,
-        direction: Direction = Direction.ASCENDING,
+        direction: WikiDirection = Direction.ASCENDING,
     ) -> dict[str, PagesDict]:
         """Async batch-fetch images for all pages in this dict.
 
@@ -235,7 +236,7 @@ class AsyncPagesDict(dict[str, BaseWikipediaPage[Any]]):
         Args:
             limit: Maximum images per page (1–500).
             images: Specific images as an iterable.
-            direction: Sort direction as :class:`Direction`.
+            direction: Sort direction as :class:`WikiDirection`.
 
         Returns:
             ``{title: PagesDict}`` for every page in this dict.

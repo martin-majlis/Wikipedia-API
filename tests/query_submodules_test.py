@@ -510,9 +510,14 @@ class TestParamsToApiExtended(unittest.TestCase):
         self.assertEqual(api["imimages"], "File:Test.png")
         self.assertEqual(api["imdir"], "descending")
 
-    def test_images_params_rejects_string_direction(self):
+    def test_images_params_accepts_string_direction(self):
+        p = ImagesParams(direction="descending")
+        api = p.to_api()
+        self.assertEqual(api["imdir"], "descending")
+
+    def test_images_params_rejects_invalid_direction(self):
         with self.assertRaises(TypeError):
-            ImagesParams(direction="ascending")
+            ImagesParams(direction=123)  # type: ignore[arg-type]
 
 
 class TestAsyncPagesDictBatchMethods(unittest.IsolatedAsyncioTestCase):
