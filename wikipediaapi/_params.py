@@ -18,6 +18,8 @@ from enum import Enum
 from typing import Any, ClassVar, Protocol
 
 from ._enums import coordinate_type2str
+from ._enums import coordinates_prop2str
+from ._enums import CoordinatesProp
 from ._enums import CoordinateType
 from ._enums import Direction
 from ._enums import direction2str
@@ -29,6 +31,7 @@ from ._enums import redirect_filter2str
 from ._enums import RedirectFilter
 from ._enums import search_sort2str
 from ._enums import SearchSort
+from ._enums import WikiCoordinatesProp
 from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
 from ._enums import WikiGeoSearchSort
@@ -117,7 +120,7 @@ class CoordinatesParams(_BaseParams):
 
     limit: int = 10
     primary: WikiCoordinateType = CoordinateType.PRIMARY
-    prop: Iterable[str] = ("globe",)
+    prop: Iterable[WikiCoordinatesProp] = (CoordinatesProp.GLOBE,)
     distance_from_point: GeoPoint | None = None
     distance_from_page: _HasTitle | None = None
 
@@ -135,8 +138,11 @@ class CoordinatesParams(_BaseParams):
         object.__setattr__(self, "primary", coordinate_type2str(self.primary))
 
         if isinstance(self.prop, str):
-            raise TypeError("CoordinatesParams.prop must be an iterable of strings, not str")
-        object.__setattr__(self, "prop", "|".join(self.prop))
+            raise TypeError(
+                "CoordinatesParams.prop must be an iterable of WikiCoordinatesProp, not str"
+            )
+        converted_props = [coordinates_prop2str(p) for p in self.prop]
+        object.__setattr__(self, "prop", "|".join(converted_props))
         if self.distance_from_point is not None:
             if not isinstance(self.distance_from_point, GeoPoint):
                 raise TypeError("CoordinatesParams.distance_from_point must be GeoPoint or None")

@@ -14,8 +14,10 @@ from collections.abc import Iterable, Mapping
 from typing import Any, cast, Protocol, TYPE_CHECKING
 
 from ._base_wikipedia_page import BaseWikipediaPage
+from ._enums import CoordinatesProp
 from ._enums import CoordinateType
 from ._enums import Direction
+from ._enums import WikiCoordinatesProp
 from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
 
@@ -34,7 +36,7 @@ class _SyncBatchWiki(Protocol):
         *,
         limit: int = 10,
         primary: WikiCoordinateType = CoordinateType.PRIMARY,
-        prop: Iterable[str] = ("globe",),
+        prop: Iterable[WikiCoordinatesProp] = (CoordinatesProp.GLOBE,),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: WikipediaPage | None = None,
     ) -> dict[WikipediaPage, list[Coordinate]]: ...
@@ -56,7 +58,7 @@ class _AsyncBatchWiki(Protocol):
         *,
         limit: int = 10,
         primary: WikiCoordinateType = CoordinateType.PRIMARY,
-        prop: Iterable[str] = ("globe",),
+        prop: Iterable[WikiCoordinatesProp] = (CoordinatesProp.GLOBE,),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: AsyncWikipediaPage | None = None,
     ) -> dict[AsyncWikipediaPage, list[Coordinate]]: ...
@@ -103,7 +105,7 @@ class PagesDict(dict[str, BaseWikipediaPage[Any]]):
         *,
         limit: int = 10,
         primary: WikiCoordinateType = CoordinateType.PRIMARY,
-        prop: Iterable[str] = ("globe",),
+        prop: Iterable[WikiCoordinatesProp] = (CoordinatesProp.GLOBE,),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: WikipediaPage | None = None,
     ) -> dict[WikipediaPage, list[Coordinate]]:
@@ -193,7 +195,7 @@ class AsyncPagesDict(dict[str, BaseWikipediaPage[Any]]):
         *,
         limit: int = 10,
         primary: WikiCoordinateType = CoordinateType.PRIMARY,
-        prop: Iterable[str] = ("globe",),
+        prop: Iterable[WikiCoordinatesProp] = (CoordinatesProp.GLOBE,),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: AsyncWikipediaPage | None = None,
     ) -> dict[AsyncWikipediaPage, list[Coordinate]]:

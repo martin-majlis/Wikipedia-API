@@ -22,6 +22,8 @@ import asyncio
 import logging
 
 import wikipediaapi
+from wikipediaapi import coordinates_prop2str
+from wikipediaapi import CoordinatesProp
 
 # Set to INFO to see the actual API request URLs being made
 logging.basicConfig(level=logging.WARNING)
@@ -364,6 +366,57 @@ async def main():
     # Page-level awaitable property (uses default params, triggers fetch on first access)
     coords_prop = await london.coordinates
     print(f"London coords via property: {len(coords_prop)}")
+
+    # Using enum values for type-safe coordinate property selection
+    print("\n--- Coordinates with Enum Properties ---")
+
+    # Single property using enum
+    coords_enum_single = await wiki.coordinates(london, prop=[CoordinatesProp.GLOBE])
+    print(f"London with GLOBE property: {len(coords_enum_single)} coordinates")
+
+    # Multiple properties using enum values
+    coords_enum_multi = await wiki.coordinates(
+        london, prop=[CoordinatesProp.GLOBE, CoordinatesProp.NAME, CoordinatesProp.TYPE]
+    )
+    print(f"London with GLOBE+NAME+TYPE properties: {len(coords_enum_multi)} coordinates")
+    for c in coords_enum_multi:
+        print(
+            f"  lat={c.lat}, lon={c.lon}, name={getattr(c, 'name', 'N/A')}, type={getattr(c, 'type', 'N/A')}"
+        )
+
+    # Mixed enum and string values (backward compatible)
+    coords_mixed = await wiki.coordinates(london, prop=[CoordinatesProp.GLOBE, "name", "type"])
+    print(f"London with mixed enum+string properties: {len(coords_mixed)} coordinates")
+
+    # Using the converter function directly
+    print("\n--- Converter Function Examples ---")
+    print(
+        f"coordinates_prop2str(CoordinatesProp.GLOBE) = {coordinates_prop2str(CoordinatesProp.GLOBE)}"
+    )
+    print(f"coordinates_prop2str('globe') = {coordinates_prop2str('globe')}")
+    print(f"coordinates_prop2str('custom') = {coordinates_prop2str('custom')}")
+
+    # All available enum values
+    print(f"\nAll CoordinatesProp values: {[prop.value for prop in CoordinatesProp]}")
+
+    # Batch coordinates with enum properties
+    print("\n--- Batch Coordinates with Enum Properties ---")
+    pages = wiki.pages(["London", "Paris", "Berlin"])
+
+    # Using enum values for batch coordinates
+    batch_coords_enum = await pages.coordinates(
+        prop=[CoordinatesProp.GLOBE, CoordinatesProp.NAME, CoordinatesProp.DIM]
+    )
+    for page, coord_list in batch_coords_enum.items():
+        print(f"  {page.title}: {len(coord_list)} coordinate(s) with GLOBE+NAME+DIM")
+        for c in coord_list[:2]:  # Show first 2 coordinates
+            print(
+                f"    lat={c.lat}, lon={c.lon}, name={getattr(c, 'name', 'N/A')}, dim={getattr(c, 'dim', 'N/A')}"
+            )
+
+    # Backward-compatible string usage still works
+    batch_coords_strings = await pages.coordinates(prop=["globe", "name", "dim"])
+    print(f"Batch coordinates with strings: {len(batch_coords_strings)} pages")
 
     # ──────────────────────────────────────────────────────────────────────────
     # 13. Images (prop=images)

@@ -7,12 +7,14 @@ from urllib import parse
 
 from ._base_wikipedia_page import BaseWikipediaPage
 from ._base_wikipedia_page import NOT_CACHED
+from ._enums import CoordinatesProp
 from ._enums import CoordinateType
 from ._enums import Direction
 from ._enums import GeoSearchSort
 from ._enums import Globe
 from ._enums import RedirectFilter
 from ._enums import SearchSort
+from ._enums import WikiCoordinatesProp
 from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
 from ._enums import WikiGeoSearchSort
@@ -1576,7 +1578,7 @@ class WikipediaResource(BaseWikipediaResource):
         *,
         limit: int = 10,
         primary: WikiCoordinateType = CoordinateType.PRIMARY,
-        prop: Iterable[str] = ("globe",),
+        prop: Iterable[WikiCoordinatesProp] = (CoordinatesProp.GLOBE,),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: WikipediaPage | None = None,
     ) -> dict[WikipediaPage, list[Coordinate]]:
@@ -2242,7 +2244,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         *,
         limit: int = 10,
         primary: WikiCoordinateType = CoordinateType.PRIMARY,
-        prop: Iterable[str] = ("globe",),
+        prop: Iterable[WikiCoordinatesProp] = (CoordinatesProp.GLOBE,),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: "AsyncWikipediaPage | None" = None,
     ) -> dict["AsyncWikipediaPage", list[Coordinate]]:

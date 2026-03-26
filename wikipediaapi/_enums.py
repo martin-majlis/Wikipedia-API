@@ -151,6 +151,44 @@ def coordinate_type2str(ctype: WikiCoordinateType) -> str:
     return ctype
 
 
+class CoordinatesProp(Enum):
+    """Property values for coordinates query methods.
+
+    This enum is used by ``coordinates`` and ``batch_coordinates`` methods in both
+    sync and async APIs to specify which additional coordinate properties
+    to return from the MediaWiki API.
+    """
+
+    COUNTRY = "country"
+    DIM = "dim"
+    GLOBE = "globe"
+    NAME = "name"
+    REGION = "region"
+    TYPE = "type"
+
+
+#: Type alias for coordinates property arguments accepted throughout the library.
+#: Accepts either a :class:`CoordinatesProp` enum member or a raw ``str``,
+#: e.g. ``CoordinatesProp.GLOBE`` or simply ``"globe"``.
+WikiCoordinatesProp = Union[CoordinatesProp, str]
+
+
+def coordinates_prop2str(prop: WikiCoordinatesProp) -> str:
+    """
+    Convert a :class:`WikiCoordinatesProp` value to a plain ``str``.
+
+    If *prop* is a :class:`CoordinatesProp` enum member its string value
+    is returned.  If it is already a ``str`` it is returned unchanged.
+
+    :param prop: coordinates property to convert
+    :return: string representation of the coordinates property
+    """
+    if isinstance(prop, CoordinatesProp):
+        return prop.value
+
+    return prop
+
+
 class RedirectFilter(Enum):
     """Filter redirect values for methods like random."""
 

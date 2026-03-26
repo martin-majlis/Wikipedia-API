@@ -7,6 +7,8 @@ cases.
 """
 
 from ._enums import coordinate_type2str
+from ._enums import coordinates_prop2str
+from ._enums import CoordinatesProp
 from ._enums import CoordinateType
 from ._enums import Direction
 from ._enums import direction2str
@@ -18,6 +20,7 @@ from ._enums import redirect_filter2str
 from ._enums import RedirectFilter
 from ._enums import search_sort2str
 from ._enums import SearchSort
+from ._enums import WikiCoordinatesProp
 from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
 from ._enums import WikiGeoSearchSort
@@ -79,6 +82,9 @@ __all__ = [
     "CoordinateType",
     "WikiCoordinateType",
     "coordinate_type2str",
+    "CoordinatesProp",
+    "WikiCoordinatesProp",
+    "coordinates_prop2str",
     "GeoSearchSort",
     "WikiGeoSearchSort",
     "geosearch_sort2str",
