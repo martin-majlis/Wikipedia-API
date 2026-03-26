@@ -229,3 +229,4 @@ tests/cli/expected/*.error
 # Log files
 *.log
 *.out
+node_modules
