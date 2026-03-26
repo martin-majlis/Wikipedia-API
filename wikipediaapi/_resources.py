@@ -12,6 +12,7 @@ from ._enums import CoordinateType
 from ._enums import Direction
 from ._enums import GeoSearchSort
 from ._enums import Globe
+from ._enums import Namespace
 from ._enums import RedirectFilter
 from ._enums import SearchSort
 from ._enums import WikiCoordinatesProp
@@ -19,6 +20,7 @@ from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
 from ._enums import WikiGeoSearchSort
 from ._enums import WikiGlobe
+from ._enums import WikiNamespace
 from ._enums import WikiRedirectFilter
 from ._enums import WikiSearchSort
 from ._pages_dict import AsyncPagesDict
@@ -35,8 +37,6 @@ from ._types import GeoSearchMeta
 from ._types import SearchMeta
 from ._types import SearchResults
 from .extract_format import ExtractFormat
-from .namespace import Namespace
-from .namespace import WikiNamespace
 from .wikipedia_page import WikipediaPage
 from .wikipedia_page_section import WikipediaPageSection
 

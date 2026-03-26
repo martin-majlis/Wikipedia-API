@@ -27,6 +27,7 @@ from ._enums import geosearch_sort2str
 from ._enums import GeoSearchSort
 from ._enums import Globe
 from ._enums import globe2str
+from ._enums import Namespace
 from ._enums import redirect_filter2str
 from ._enums import RedirectFilter
 from ._enums import search_sort2str
@@ -36,12 +37,11 @@ from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
 from ._enums import WikiGeoSearchSort
 from ._enums import WikiGlobe
+from ._enums import WikiNamespace
 from ._enums import WikiRedirectFilter
 from ._enums import WikiSearchSort
 from ._types import GeoBox
 from ._types import GeoPoint
-from .namespace import Namespace
-from .namespace import WikiNamespace
 
 
 class _BaseParams:

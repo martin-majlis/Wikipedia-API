@@ -4,8 +4,8 @@ import unittest
 from tests.mock_data import async_wikipedia_api_request
 from tests.mock_data import user_agent
 import wikipediaapi
+from wikipediaapi._enums import Namespace
 from wikipediaapi.async_wikipedia_page import AsyncWikipediaPage
-from wikipediaapi.namespace import Namespace
 
 
 class TestAsyncWikipediaPageInit(unittest.TestCase):

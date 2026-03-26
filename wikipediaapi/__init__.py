@@ -16,6 +16,8 @@ from ._enums import geosearch_sort2str
 from ._enums import GeoSearchSort
 from ._enums import Globe
 from ._enums import globe2str
+from ._enums import Namespace
+from ._enums import namespace2int
 from ._enums import redirect_filter2str
 from ._enums import RedirectFilter
 from ._enums import search_sort2str
@@ -25,6 +27,7 @@ from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
 from ._enums import WikiGeoSearchSort
 from ._enums import WikiGlobe
+from ._enums import WikiNamespace
 from ._enums import WikiRedirectFilter
 from ._enums import WikiSearchSort
 from ._pages_dict import AsyncPagesDict
@@ -45,9 +48,6 @@ from .exceptions import WikiInvalidJsonError
 from .exceptions import WikipediaException
 from .exceptions import WikiRateLimitError
 from .extract_format import ExtractFormat
-from .namespace import Namespace
-from .namespace import namespace2int
-from .namespace import WikiNamespace
 from .wikipedia import USER_AGENT
 from .wikipedia import Wikipedia
 from .wikipedia_page import WikipediaPage
