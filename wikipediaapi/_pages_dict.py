@@ -14,7 +14,9 @@ from collections.abc import Iterable, Mapping
 from typing import Any, cast, Protocol, TYPE_CHECKING
 
 from ._base_wikipedia_page import BaseWikipediaPage
+from ._enums import CoordinateType
 from ._enums import Direction
+from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
 
 if TYPE_CHECKING:
@@ -31,7 +33,7 @@ class _SyncBatchWiki(Protocol):
         pages: list[WikipediaPage],
         *,
         limit: int = 10,
-        primary: str = "primary",
+        primary: WikiCoordinateType = CoordinateType.PRIMARY,
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: WikipediaPage | None = None,
@@ -53,7 +55,7 @@ class _AsyncBatchWiki(Protocol):
         pages: list[AsyncWikipediaPage],
         *,
         limit: int = 10,
-        primary: str = "primary",
+        primary: WikiCoordinateType = CoordinateType.PRIMARY,
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: AsyncWikipediaPage | None = None,
@@ -100,7 +102,7 @@ class PagesDict(dict[str, BaseWikipediaPage[Any]]):
         self,
         *,
         limit: int = 10,
-        primary: str = "primary",
+        primary: WikiCoordinateType = CoordinateType.PRIMARY,
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: WikipediaPage | None = None,
@@ -190,7 +192,7 @@ class AsyncPagesDict(dict[str, BaseWikipediaPage[Any]]):
         self,
         *,
         limit: int = 10,
-        primary: str = "primary",
+        primary: WikiCoordinateType = CoordinateType.PRIMARY,
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: AsyncWikipediaPage | None = None,

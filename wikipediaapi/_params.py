@@ -17,9 +17,24 @@ from dataclasses import fields
 from enum import Enum
 from typing import Any, ClassVar, Protocol
 
+from ._enums import coordinate_type2str
+from ._enums import CoordinateType
 from ._enums import Direction
 from ._enums import direction2str
+from ._enums import geosearch_sort2str
+from ._enums import GeoSearchSort
+from ._enums import Globe
+from ._enums import globe2str
+from ._enums import redirect_filter2str
+from ._enums import RedirectFilter
+from ._enums import search_sort2str
+from ._enums import SearchSort
+from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
+from ._enums import WikiGeoSearchSort
+from ._enums import WikiGlobe
+from ._enums import WikiRedirectFilter
+from ._enums import WikiSearchSort
 from ._types import GeoBox
 from ._types import GeoPoint
 from .namespace import Namespace
@@ -101,7 +116,7 @@ class CoordinatesParams(_BaseParams):
     """
 
     limit: int = 10
-    primary: str = "primary"
+    primary: WikiCoordinateType = CoordinateType.PRIMARY
     prop: Iterable[str] = ("globe",)
     distance_from_point: GeoPoint | None = None
     distance_from_page: _HasTitle | None = None
@@ -115,6 +130,10 @@ class CoordinatesParams(_BaseParams):
         Raises:
             TypeError: If ``prop`` is passed as a string instead of an iterable.
         """
+        if not isinstance(self.primary, (CoordinateType, str)):
+            raise TypeError("CoordinatesParams.primary must be CoordinateType or str")
+        object.__setattr__(self, "primary", coordinate_type2str(self.primary))
+
         if isinstance(self.prop, str):
             raise TypeError("CoordinatesParams.prop must be an iterable of strings, not str")
         object.__setattr__(self, "prop", "|".join(self.prop))
@@ -146,7 +165,7 @@ class ImagesParams(_BaseParams):
     Args:
         limit: Maximum number of images to return (1–500).
         images: Specific images as an iterable.
-        direction: Sort direction as :class:`~wikipediaapi._enums.WikiDirection`.
+        direction: Sort direction as :class:`~wikipediaapi.WikiDirection`.
     """
 
     limit: int = 10
@@ -187,9 +206,9 @@ class GeoSearchParams(_BaseParams):
     At least one of ``coord``, ``page``, or ``bbox`` must be provided.
 
     Args:
-        coord: Centre point as :class:`~wikipediaapi._types.GeoPoint`.
+        coord: Centre point as :class:`~wikipediaapi.GeoPoint`.
         page: Title of page whose coordinates to use as centre.
-        bbox: Bounding box as :class:`~wikipediaapi._types.GeoBox`.
+        bbox: Bounding box as :class:`~wikipediaapi.GeoBox`.
         radius: Search radius in meters (10–10000).
         max_dim: Exclude objects larger than this many meters.
         sort: Sort order: ``"distance"`` or ``"relevance"``.
@@ -206,12 +225,12 @@ class GeoSearchParams(_BaseParams):
     bbox: GeoBox | None = None
     radius: int = 500
     max_dim: int | None = None
-    sort: str = "distance"
+    sort: WikiGeoSearchSort = GeoSearchSort.DISTANCE
     limit: int = 10
-    globe: str = "earth"
+    globe: WikiGlobe = Globe.EARTH
     namespace: WikiNamespace = Namespace.MAIN
     prop: Iterable[str] | None = None
-    primary: str | None = None
+    primary: WikiCoordinateType | None = None
 
     def __post_init__(self) -> None:
         """Normalize iterable geosearch properties and reject string input.
@@ -222,6 +241,19 @@ class GeoSearchParams(_BaseParams):
         Raises:
             TypeError: If ``prop`` is passed as a string instead of an iterable.
         """
+        if not isinstance(self.sort, (GeoSearchSort, str)):
+            raise TypeError("GeoSearchParams.sort must be GeoSearchSort or str")
+        object.__setattr__(self, "sort", geosearch_sort2str(self.sort))
+
+        if not isinstance(self.globe, (Globe, str)):
+            raise TypeError("GeoSearchParams.globe must be Globe or str")
+        object.__setattr__(self, "globe", globe2str(self.globe))
+
+        if self.primary is not None:
+            if not isinstance(self.primary, (CoordinateType, str)):
+                raise TypeError("GeoSearchParams.primary must be CoordinateType or str")
+            object.__setattr__(self, "primary", coordinate_type2str(self.primary))
+
         if self.coord is not None:
             if not isinstance(self.coord, GeoPoint):
                 raise TypeError("GeoSearchParams.coord must be GeoPoint or None")
@@ -265,10 +297,20 @@ class RandomParams(_BaseParams):
     """
 
     namespace: WikiNamespace = Namespace.MAIN
-    filter_redirect: str = "nonredirects"
+    filter_redirect: WikiRedirectFilter = RedirectFilter.NONREDIRECTS
     min_size: int | None = None
     max_size: int | None = None
     limit: int = 1
+
+    def __post_init__(self) -> None:
+        """Normalize filter_redirect properly.
+
+        Raises:
+            TypeError: If ``filter_redirect`` is not a RedirectFilter or str.
+        """
+        if not isinstance(self.filter_redirect, (RedirectFilter, str)):
+            raise TypeError("RandomParams.filter_redirect must be RedirectFilter or str")
+        object.__setattr__(self, "filter_redirect", redirect_filter2str(self.filter_redirect))
 
     PREFIX: ClassVar[str] = "rn"
     FIELD_MAP: ClassVar[dict[str, str]] = {
@@ -303,7 +345,7 @@ class SearchParams(_BaseParams):
     limit: int = 10
     prop: Iterable[str] | None = None
     info: Iterable[str] | None = None
-    sort: str = "relevance"
+    sort: WikiSearchSort = SearchSort.RELEVANCE
     what: str | None = None
     interwiki: bool = False
     enable_rewrites: bool = False
@@ -319,6 +361,10 @@ class SearchParams(_BaseParams):
             TypeError: If ``prop`` or ``info`` is passed as a string instead
                 of an iterable.
         """
+        if not isinstance(self.sort, (SearchSort, str)):
+            raise TypeError("SearchParams.sort must be SearchSort or str")
+        object.__setattr__(self, "sort", search_sort2str(self.sort))
+
         if self.prop is not None:
             if isinstance(self.prop, str):
                 raise TypeError("SearchParams.prop must be an iterable of strings, not str")

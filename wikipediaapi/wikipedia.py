@@ -15,7 +15,7 @@ class Wikipedia(WikipediaResource, SyncHTTPClient):
     """
     Synchronous client for the Wikipedia API.
 
-    Combines :class:`~wikipediaapi._resources.WikipediaResource` (public
+    Combines :class:`~wikipediaapi.WikipediaResource` (public
     API methods) and :class:`~wikipediaapi._http_client.SyncHTTPClient`
     (blocking ``httpx`` transport with ``tenacity`` retry logic) via
     multiple inheritance.

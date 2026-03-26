@@ -6,9 +6,24 @@ from Wikipedia. Documentation provides code snippets for the most common use
 cases.
 """
 
+from ._enums import coordinate_type2str
+from ._enums import CoordinateType
 from ._enums import Direction
 from ._enums import direction2str
+from ._enums import geosearch_sort2str
+from ._enums import GeoSearchSort
+from ._enums import Globe
+from ._enums import globe2str
+from ._enums import redirect_filter2str
+from ._enums import RedirectFilter
+from ._enums import search_sort2str
+from ._enums import SearchSort
+from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
+from ._enums import WikiGeoSearchSort
+from ._enums import WikiGlobe
+from ._enums import WikiRedirectFilter
+from ._enums import WikiSearchSort
 from ._pages_dict import AsyncPagesDict
 from ._pages_dict import PagesDict
 from ._types import Coordinate
@@ -61,6 +76,21 @@ __all__ = [
     "Direction",
     "WikiDirection",
     "direction2str",
+    "CoordinateType",
+    "WikiCoordinateType",
+    "coordinate_type2str",
+    "GeoSearchSort",
+    "WikiGeoSearchSort",
+    "geosearch_sort2str",
+    "Globe",
+    "WikiGlobe",
+    "globe2str",
+    "RedirectFilter",
+    "WikiRedirectFilter",
+    "redirect_filter2str",
+    "SearchSort",
+    "WikiSearchSort",
+    "search_sort2str",
     "Namespace",
     "WikiNamespace",
     "namespace2int",

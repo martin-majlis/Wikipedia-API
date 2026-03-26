@@ -14,7 +14,7 @@ class AsyncWikipedia(AsyncWikipediaResource, AsyncHTTPClient):
     """
     Asynchronous client for the Wikipedia API.
 
-    Combines :class:`~wikipediaapi._resources.AsyncWikipediaResource`
+    Combines :class:`~wikipediaapi.AsyncWikipediaResource`
     (public async API methods) and
     :class:`~wikipediaapi._http_client.AsyncHTTPClient` (non-blocking
     ``httpx`` transport with ``tenacity`` retry logic) via multiple

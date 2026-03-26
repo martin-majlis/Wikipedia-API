@@ -179,7 +179,7 @@ class SearchResults:
     """Wrapper for search results combining pages with aggregate metadata.
 
     Returned by ``wiki.search()``.  The ``pages`` attribute is a
-    :class:`~wikipediaapi._pages_dict.PagesDict` keyed by title; each
+    :class:`~wikipediaapi.PagesDict` keyed by title; each
     page carries a :class:`SearchMeta` sub-object accessible via
     ``page.search_meta``.
 

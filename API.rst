@@ -229,3 +229,97 @@ constructor parameters:
 For HTTP 429, the ``Retry-After`` header is honored when present.
 
 Non-retryable errors (HTTP 4xx other than 429, invalid JSON) raise immediately.
+
+Enum Parameters
+---------------
+
+Many API methods accept strongly-typed enum parameters for better type safety
+while maintaining full backward compatibility with string values.
+
+Available Enums
+~~~~~~~~~~~~~~~
+
+* ``CoordinateType``: ``ALL``, ``PRIMARY``, ``SECONDARY``
+* ``Globe``: ``EARTH``, ``MARS``, ``MOON``, ``VENUS``
+* ``SearchSort``: ``RELEVANCE``, ``NONE``, ``RANDOM``, ``CREATE_TIMESTAMP_ASC``, ``CREATE_TIMESTAMP_DESC``, ``INCOMING_LINKS_ASC``, ``INCOMING_LINKS_DESC``, ``JUST_MATCH``, ``LAST_EDIT_ASC``, ``LAST_EDIT_DESC``, ``TITLE_NATURAL_ASC``, ``TITLE_NATURAL_DESC``, ``USER_RANDOM``
+* ``GeoSearchSort``: ``DISTANCE``, ``RELEVANCE``
+* ``RedirectFilter``: ``ALL``, ``REDIRECTS``, ``NONREDIRECTS``
+
+Usage Examples
+~~~~~~~~~~~~~~
+
+Type-safe enum usage (recommended)::
+
+    import wikipediaapi
+    from wikipediaapi._enums import SearchSort, GeoSearchSort, Globe, CoordinateType, RedirectFilter
+    from wikipediaapi._types import GeoPoint
+
+    wiki = wikipediaapi.Wikipedia('MyApp/1.0', 'en')
+
+    # Search with enum sort
+    results = wiki.search("python", sort=SearchSort.RELEVANCE)
+
+    # Geosearch with enum parameters
+    point = GeoPoint(lat=51.5074, lon=-0.1278)
+    geo_results = wiki.geosearch(
+        coord=point,
+        sort=GeoSearchSort.DISTANCE,
+        globe=Globe.EARTH
+    )
+
+    # Coordinates with enum primary type
+    page = wiki.page("Mount Everest")
+    coords = wiki.coordinates(page, primary=CoordinateType.ALL)
+
+    # Random pages with enum filter
+    random_pages = wiki.random(filter_redirect=RedirectFilter.NONREDIRECTS, limit=5)
+
+Backward-compatible string usage::
+
+    # All of these still work exactly the same
+    results = wiki.search("python", sort="relevance")
+    geo_results = wiki.geosearch(coord=point, sort="distance", globe="earth")
+    coords = wiki.coordinates(page, primary="all")
+    random_pages = wiki.random(filter_redirect="nonredirects", limit=5)
+
+Type Aliases
+~~~~~~~~~~~~
+
+For function signatures, the library uses ``Wiki*`` type aliases that accept
+both enum members and strings:
+
+* ``WikiCoordinateType`` = ``Union[CoordinateType, str]``
+* ``WikiGlobe`` = ``Union[Globe, str]``
+* ``WikiSearchSort`` = ``Union[SearchSort, str]``
+* ``WikiGeoSearchSort`` = ``Union[GeoSearchSort, str]``
+* ``WikiRedirectFilter`` = ``Union[RedirectFilter, str]``
+
+This means you can write type-annotated code that accepts either form::
+
+    def search_wiki(query: str, sort: WikiSearchSort) -> SearchResults:
+        wiki = wikipediaapi.Wikipedia('MyApp/1.0')
+        return wiki.search(query, sort=sort)
+
+    # Both calls work
+    search_wiki("python", SearchSort.RELEVANCE)  # Type-safe
+    search_wiki("python", "relevance")          # Backward compatible
+
+Converter Functions
+~~~~~~~~~~~~~~~~~~
+
+If you need to convert enum values to strings manually (e.g., for debugging
+or custom API calls), use the converter functions:
+
+* ``coordinate_type2str(value: WikiCoordinateType) -> str``
+* ``globe2str(value: WikiGlobe) -> str``
+* ``search_sort2str(value: WikiSearchSort) -> str``
+* ``geosearch_sort2str(value: WikiGeoSearchSort) -> str``
+* ``redirect_filter2str(value: WikiRedirectFilter) -> str``
+
+All converters handle both enum members and strings gracefully::
+
+    from wikipediaapi._enums import search_sort2str, SearchSort
+
+    assert search_sort2str(SearchSort.RELEVANCE) == "relevance"
+    assert search_sort2str("relevance") == "relevance"
+    assert search_sort2str("custom_sort") == "custom_sort"  # Pass-through

@@ -7,8 +7,18 @@ from urllib import parse
 
 from ._base_wikipedia_page import BaseWikipediaPage
 from ._base_wikipedia_page import NOT_CACHED
+from ._enums import CoordinateType
 from ._enums import Direction
+from ._enums import GeoSearchSort
+from ._enums import Globe
+from ._enums import RedirectFilter
+from ._enums import SearchSort
+from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
+from ._enums import WikiGeoSearchSort
+from ._enums import WikiGlobe
+from ._enums import WikiRedirectFilter
+from ._enums import WikiSearchSort
 from ._pages_dict import AsyncPagesDict
 from ._pages_dict import PagesDict
 from ._params import CoordinatesParams
@@ -1503,7 +1513,7 @@ class WikipediaResource(BaseWikipediaResource):
         page: WikipediaPage,
         *,
         limit: int = 10,
-        primary: str = "primary",
+        primary: WikiCoordinateType = CoordinateType.PRIMARY,
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: WikipediaPage | None = None,
@@ -1565,7 +1575,7 @@ class WikipediaResource(BaseWikipediaResource):
         pages: list[WikipediaPage],
         *,
         limit: int = 10,
-        primary: str = "primary",
+        primary: WikiCoordinateType = CoordinateType.PRIMARY,
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: WikipediaPage | None = None,
@@ -1743,12 +1753,12 @@ class WikipediaResource(BaseWikipediaResource):
         bbox: GeoBox | None = None,
         radius: int = 500,
         max_dim: int | None = None,
-        sort: str = "distance",
+        sort: WikiGeoSearchSort = GeoSearchSort.DISTANCE,
         limit: int = 10,
-        globe: str = "earth",
+        globe: WikiGlobe = Globe.EARTH,
         ns: WikiNamespace = Namespace.MAIN,
         prop: Iterable[str] | None = None,
-        primary: str | None = None,
+        primary: WikiCoordinateType | None = None,
     ) -> PagesDict:
         """Search for pages with coordinates near a location.
 
@@ -1804,7 +1814,7 @@ class WikipediaResource(BaseWikipediaResource):
         self,
         *,
         ns: WikiNamespace = Namespace.MAIN,
-        filter_redirect: str = "nonredirects",
+        filter_redirect: WikiRedirectFilter = RedirectFilter.NONREDIRECTS,
         min_size: int | None = None,
         max_size: int | None = None,
         limit: int = 1,
@@ -1854,7 +1864,7 @@ class WikipediaResource(BaseWikipediaResource):
         limit: int = 10,
         prop: Iterable[str] | None = None,
         info: Iterable[str] | None = None,
-        sort: str = "relevance",
+        sort: WikiSearchSort = SearchSort.RELEVANCE,
         what: str | None = None,
         interwiki: bool = False,
         enable_rewrites: bool = False,
@@ -2182,7 +2192,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         page: "AsyncWikipediaPage",
         *,
         limit: int = 10,
-        primary: str = "primary",
+        primary: WikiCoordinateType = CoordinateType.PRIMARY,
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: "AsyncWikipediaPage | None" = None,
@@ -2231,7 +2241,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         pages: list["AsyncWikipediaPage"],
         *,
         limit: int = 10,
-        primary: str = "primary",
+        primary: WikiCoordinateType = CoordinateType.PRIMARY,
         prop: Iterable[str] = ("globe",),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: "AsyncWikipediaPage | None" = None,
@@ -2395,12 +2405,12 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         bbox: GeoBox | None = None,
         radius: int = 500,
         max_dim: int | None = None,
-        sort: str = "distance",
+        sort: WikiGeoSearchSort = GeoSearchSort.DISTANCE,
         limit: int = 10,
-        globe: str = "earth",
+        globe: WikiGlobe = Globe.EARTH,
         ns: WikiNamespace = Namespace.MAIN,
         prop: Iterable[str] | None = None,
-        primary: str | None = None,
+        primary: WikiCoordinateType | None = None,
     ) -> PagesDict:
         """Async version of :meth:`WikipediaResource.geosearch`.
 
@@ -2449,7 +2459,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         self,
         *,
         ns: WikiNamespace = Namespace.MAIN,
-        filter_redirect: str = "nonredirects",
+        filter_redirect: WikiRedirectFilter = RedirectFilter.NONREDIRECTS,
         min_size: int | None = None,
         max_size: int | None = None,
         limit: int = 1,
@@ -2493,7 +2503,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         limit: int = 10,
         prop: Iterable[str] | None = None,
         info: Iterable[str] | None = None,
-        sort: str = "relevance",
+        sort: WikiSearchSort = SearchSort.RELEVANCE,
         what: str | None = None,
         interwiki: bool = False,
         enable_rewrites: bool = False,

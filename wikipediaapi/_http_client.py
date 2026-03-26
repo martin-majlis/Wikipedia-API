@@ -370,7 +370,7 @@ class SyncHTTPClient(BaseHTTPClient):
         :param language: two-letter Wikipedia language code; used to
             build the endpoint URL
         :param params: fully-merged query-string parameters (produced
-            by :meth:`~wikipediaapi._resources.BaseWikipediaResource
+            by :meth:`~wikipediaapi.BaseWikipediaResource
             ._construct_params`)
         :return: parsed JSON response dict
         :raises WikiHttpTimeoutError: if all attempts time out
@@ -468,7 +468,7 @@ class AsyncHTTPClient(BaseHTTPClient):
         :param language: two-letter Wikipedia language code; used to
             build the endpoint URL
         :param params: fully-merged query-string parameters (produced
-            by :meth:`~wikipediaapi._resources.BaseWikipediaResource
+            by :meth:`~wikipediaapi.BaseWikipediaResource
             ._construct_params`)
         :return: parsed JSON response dict
         :raises WikiHttpTimeoutError: if all attempts time out
