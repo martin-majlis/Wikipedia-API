@@ -1,11 +1,11 @@
 """
 Comprehensive tests and examples for enum usage with string and enum inputs.
 
-This module demonstrates how to use the new enum-based API parameters
+This module demonstrates how to use new enum-based API parameters
 with both enum members (type-safe) and string values (backward compatibility).
 """
 
-import unittest
+import pytest
 
 from tests.mock_data import user_agent
 from tests.mock_data import wikipedia_api_request
@@ -28,10 +28,11 @@ from wikipediaapi._enums import WikiSearchSort
 from wikipediaapi._types import GeoPoint
 
 
-class TestEnumUsageExamples(unittest.TestCase):
+class TestEnumUsageExamples:
     """Test cases demonstrating enum usage patterns."""
 
-    def setUp(self):
+    @pytest.fixture(autouse=True)
+    def setup_examples(self):
         """Set up test fixtures."""
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
@@ -51,14 +52,14 @@ class TestEnumUsageExamples(unittest.TestCase):
         for enum_val, expected_str in examples:
             result = coordinate_type2str(enum_val)
             print(f"  coordinate_type2str({enum_val}) -> '{result}'")
-            self.assertEqual(result, expected_str)
+            assert result == expected_str
 
         # String inputs (backward compatibility)
         string_examples = ["all", "primary", "secondary", "custom"]
         for string_val in string_examples:
             result = coordinate_type2str(string_val)
             print(f"  coordinate_type2str('{string_val}') -> '{result}'")
-            self.assertEqual(result, string_val)
+            assert result == string_val
 
     def test_globe_converter_examples(self):
         """Test Globe converter with various inputs."""
@@ -75,14 +76,14 @@ class TestEnumUsageExamples(unittest.TestCase):
         for enum_val, expected_str in examples:
             result = globe2str(enum_val)
             print(f"  globe2str({enum_val}) -> '{result}'")
-            self.assertEqual(result, expected_str)
+            assert result == expected_str
 
         # String inputs (backward compatibility)
         string_examples = ["earth", "mars", "moon", "venus", "custom_planet"]
         for string_val in string_examples:
             result = globe2str(string_val)
             print(f"  globe2str('{string_val}') -> '{result}'")
-            self.assertEqual(result, string_val)
+            assert result == string_val
 
     def test_search_sort_converter_examples(self):
         """Test SearchSort converter with various inputs."""
@@ -99,7 +100,7 @@ class TestEnumUsageExamples(unittest.TestCase):
         for enum_val, expected_str in common_enums:
             result = search_sort2str(enum_val)
             print(f"  search_sort2str({enum_val}) -> '{result}'")
-            self.assertEqual(result, expected_str)
+            assert result == expected_str
 
         # Test all enum values
         all_enums = list(SearchSort)
@@ -111,7 +112,7 @@ class TestEnumUsageExamples(unittest.TestCase):
         for string_val in string_examples:
             result = search_sort2str(string_val)
             print(f"  search_sort2str('{string_val}') -> '{result}'")
-            self.assertEqual(result, string_val)
+            assert result == string_val
 
     def test_geosearch_sort_converter_examples(self):
         """Test GeoSearchSort converter with various inputs."""
@@ -126,14 +127,14 @@ class TestEnumUsageExamples(unittest.TestCase):
         for enum_val, expected_str in examples:
             result = geosearch_sort2str(enum_val)
             print(f"  geosearch_sort2str({enum_val}) -> '{result}'")
-            self.assertEqual(result, expected_str)
+            assert result == expected_str
 
         # String inputs (backward compatibility)
         string_examples = ["distance", "relevance", "custom_geo_sort"]
         for string_val in string_examples:
             result = geosearch_sort2str(string_val)
             print(f"  geosearch_sort2str('{string_val}') -> '{result}'")
-            self.assertEqual(result, string_val)
+            assert result == string_val
 
     def test_redirect_filter_converter_examples(self):
         """Test RedirectFilter converter with various inputs."""
@@ -149,16 +150,16 @@ class TestEnumUsageExamples(unittest.TestCase):
         for enum_val, expected_str in examples:
             result = redirect_filter2str(enum_val)
             print(f"  redirect_filter2str({enum_val}) -> '{result}'")
-            self.assertEqual(result, expected_str)
+            assert result == expected_str
 
         # String inputs (backward compatibility)
         string_examples = ["all", "redirects", "nonredirects", "custom_filter"]
         for string_val in string_examples:
             result = redirect_filter2str(string_val)
             print(f"  redirect_filter2str('{string_val}') -> '{result}'")
-            self.assertEqual(result, string_val)
+            assert result == string_val
 
-    @unittest.skip("Skipping actual API calls to avoid network dependency")
+    @pytest.mark.skip("Skipping actual API calls to avoid network dependency")
     def test_api_usage_with_enums(self):
         """Test actual API usage with enum parameters."""
         print("\n=== API Usage with Enum Parameters ===")
@@ -185,17 +186,17 @@ class TestEnumUsageExamples(unittest.TestCase):
             globe=Globe.EARTH,
             primary=CoordinateType.PRIMARY,
         )
-        self.assertEqual(params_enum.radius, 1000)
-        self.assertEqual(params_enum.sort, "distance")  # Converted by __post_init__
-        self.assertEqual(params_enum.globe, "earth")  # Converted by __post_init__
+        assert params_enum.radius == 1000
+        assert params_enum.sort == "distance"  # Converted by __post_init__
+        assert params_enum.globe == "earth"  # Converted by __post_init__
 
         # Test creating params with string values (backward compatibility)
         params_str = GeoSearchParams(
             page=center_page, radius=1000, sort="distance", globe="earth", primary="primary"
         )
-        self.assertEqual(params_str.radius, 1000)
-        self.assertEqual(params_str.sort, "distance")
-        self.assertEqual(params_str.globe, "earth")
+        assert params_str.radius == 1000
+        assert params_str.sort == "distance"
+        assert params_str.globe == "earth"
 
         print(
             "  [PASS] GeoSearchParams handles page-based search with enum and string values correctly"
@@ -207,8 +208,8 @@ class TestEnumUsageExamples(unittest.TestCase):
             sort=GeoSearchSort.RELEVANCE,
             globe=Globe.MARS,  # Example of using different globe
         )
-        self.assertEqual(params_coord.sort, "relevance")
-        self.assertEqual(params_coord.globe, "mars")
+        assert params_coord.sort == "relevance"
+        assert params_coord.globe == "mars"
 
         print("  [PASS] GeoSearchParams handles coordinate-based search with enum values correctly")
 
@@ -233,20 +234,20 @@ class TestEnumUsageExamples(unittest.TestCase):
         filter_str: WikiRedirectFilter = "nonredirects"
 
         # Test that converters work with type alias inputs
-        self.assertEqual(coordinate_type2str(coord_type_enum), "primary")
-        self.assertEqual(coordinate_type2str(coord_type_str), "primary")
+        assert coordinate_type2str(coord_type_enum) == "primary"
+        assert coordinate_type2str(coord_type_str) == "primary"
 
-        self.assertEqual(globe2str(globe_enum), "earth")
-        self.assertEqual(globe2str(globe_str), "earth")
+        assert globe2str(globe_enum) == "earth"
+        assert globe2str(globe_str) == "earth"
 
-        self.assertEqual(search_sort2str(sort_enum), "relevance")
-        self.assertEqual(search_sort2str(sort_str), "relevance")
+        assert search_sort2str(sort_enum) == "relevance"
+        assert search_sort2str(sort_str) == "relevance"
 
-        self.assertEqual(geosearch_sort2str(geo_sort_enum), "distance")
-        self.assertEqual(geosearch_sort2str(geo_sort_str), "distance")
+        assert geosearch_sort2str(geo_sort_enum) == "distance"
+        assert geosearch_sort2str(geo_sort_str) == "distance"
 
-        self.assertEqual(redirect_filter2str(filter_enum), "nonredirects")
-        self.assertEqual(redirect_filter2str(filter_str), "nonredirects")
+        assert redirect_filter2str(filter_enum) == "nonredirects"
+        assert redirect_filter2str(filter_str) == "nonredirects"
 
         print("  All type alias assignments and conversions work correctly")
 
@@ -262,21 +263,21 @@ class TestEnumUsageExamples(unittest.TestCase):
             print(f"  coordinate_type2str(None) raises {type(e).__name__}")
 
         # Test with empty strings
-        self.assertEqual(coordinate_type2str(""), "")
-        self.assertEqual(globe2str(""), "")
-        self.assertEqual(search_sort2str(""), "")
-        self.assertEqual(geosearch_sort2str(""), "")
-        self.assertEqual(redirect_filter2str(""), "")
+        assert coordinate_type2str("") == ""
+        assert globe2str("") == ""
+        assert search_sort2str("") == ""
+        assert geosearch_sort2str("") == ""
+        assert redirect_filter2str("") == ""
         print("  Correctly handles empty strings")
 
         # Test with mixed case strings
-        self.assertEqual(coordinate_type2str("PRIMARY"), "PRIMARY")
-        self.assertEqual(globe2str("EARTH"), "EARTH")
+        assert coordinate_type2str("PRIMARY") == "PRIMARY"
+        assert globe2str("EARTH") == "EARTH"
         print("  Preserves string case (as expected)")
 
         # Test with whitespace strings
-        self.assertEqual(coordinate_type2str(" primary "), " primary ")
-        self.assertEqual(globe2str(" earth "), " earth ")
+        assert coordinate_type2str(" primary ") == " primary "
+        assert globe2str(" earth ") == " earth "
         print("  Preserves whitespace in strings")
 
     def test_comprehensive_enum_coverage(self):
@@ -286,51 +287,23 @@ class TestEnumUsageExamples(unittest.TestCase):
         # Test all CoordinateType values
         for coord_type in CoordinateType:
             result = coordinate_type2str(coord_type)
-            self.assertEqual(result, coord_type.value)
+            assert result == coord_type.value
         print(f"  All {len(CoordinateType)} CoordinateType values work")
 
         # Test all Globe values
         for globe in Globe:
             result = globe2str(globe)
-            self.assertEqual(result, globe.value)
+            assert result == globe.value
         print(f"  All {len(Globe)} Globe values work")
 
         # Test all SearchSort values
         for sort in SearchSort:
             result = search_sort2str(sort)
-            self.assertEqual(result, sort.value)
+            assert result == sort.value
         print(f"  All {len(SearchSort)} SearchSort values work")
 
         # Test all GeoSearchSort values
         for geo_sort in GeoSearchSort:
             result = geosearch_sort2str(geo_sort)
-            self.assertEqual(result, geo_sort.value)
+            assert result == geo_sort.value
         print(f"  All {len(GeoSearchSort)} GeoSearchSort values work")
-
-        # Test all RedirectFilter values
-        for filter_redirect in RedirectFilter:
-            result = redirect_filter2str(filter_redirect)
-            self.assertEqual(result, filter_redirect.value)
-        print(f"  All {len(RedirectFilter)} RedirectFilter values work")
-
-
-def run_examples():
-    """Run the examples as a demonstration."""
-    print("[INFO] Enum Usage Examples and Tests")
-    print("=" * 50)
-
-    # Create test suite and run with verbose output
-    suite = unittest.TestLoader().loadTestsFromTestCase(TestEnumUsageExamples)
-    runner = unittest.TextTestRunner(verbosity=2)
-    result = runner.run(suite)
-
-    if result.wasSuccessful():
-        print("\n[SUCCESS] All examples and tests passed!")
-    else:
-        print(f"\n[FAIL] {len(result.failures)} failures, {len(result.errors)} errors")
-
-    return result.wasSuccessful()
-
-
-if __name__ == "__main__":
-    run_examples()

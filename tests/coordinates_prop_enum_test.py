@@ -6,7 +6,7 @@ and coordinates_prop2str converter function with comprehensive coverage
 including edge cases and integration with coordinate methods.
 """
 
-import unittest
+import pytest
 
 from tests.mock_data import user_agent
 from tests.mock_data import wikipedia_api_request
@@ -16,7 +16,7 @@ from wikipediaapi import CoordinatesProp
 from wikipediaapi import WikiCoordinatesProp
 
 
-class TestCoordinatesPropEnum(unittest.TestCase):
+class TestCoordinatesPropEnum:
     """Test the CoordinatesProp enum definition and values."""
 
     def test_enum_values(self):
@@ -31,49 +31,49 @@ class TestCoordinatesPropEnum(unittest.TestCase):
         }
 
         for enum_member, expected_value in expected_values.items():
-            self.assertEqual(enum_member.value, expected_value)
-            self.assertIsInstance(enum_member.value, str)
+            assert enum_member.value == expected_value
+            assert isinstance(enum_member.value, str)
 
     def test_enum_completeness(self):
         """Test that we have exactly the expected number of enum values."""
         all_values = list(CoordinatesProp)
-        self.assertEqual(len(all_values), 6, "Should have exactly 6 CoordinatesProp values")
+        assert len(all_values) == 6, "Should have exactly 6 CoordinatesProp values"
 
         expected_names = {"COUNTRY", "DIM", "GLOBE", "NAME", "REGION", "TYPE"}
         actual_names = {prop.name for prop in all_values}
-        self.assertEqual(actual_names, expected_names)
+        assert actual_names == expected_names
 
     def test_enum_iteration(self):
         """Test that enum can be iterated and values are consistent."""
         values = list(CoordinatesProp)
-        self.assertEqual(len(values), 6)
+        assert len(values) == 6
 
         # Test that iteration is deterministic
         values1 = list(CoordinatesProp)
         values2 = list(CoordinatesProp)
-        self.assertEqual(values1, values2)
+        assert values1 == values2
 
     def test_enum_membership(self):
         """Test enum membership operations."""
-        self.assertIn(CoordinatesProp.GLOBE, CoordinatesProp)
+        assert CoordinatesProp.GLOBE in CoordinatesProp
 
         # Test that invalid string is not in enum values (compatible with all Python versions)
         try:
-            self.assertNotIn("invalid", CoordinatesProp)
+            assert "invalid" not in CoordinatesProp
         except TypeError:
             # In Python < 3.12, string membership in enum raises TypeError
             # Check against enum values instead
             enum_values = [prop.value for prop in CoordinatesProp]
-            self.assertNotIn("invalid", enum_values)
+            assert "invalid" not in enum_values
 
-        # Test that all expected values are in the enum
+        # Test that all expected values are in enum
         expected_values = ["country", "dim", "globe", "name", "region", "type"]
         actual_values = [prop.value for prop in CoordinatesProp]
         for expected in expected_values:
-            self.assertIn(expected, actual_values)
+            assert expected in actual_values
 
 
-class TestCoordinatesPropConverter(unittest.TestCase):
+class TestCoordinatesPropConverter:
     """Test the coordinates_prop2str converter function."""
 
     def test_enum_to_string_conversion(self):
@@ -88,10 +88,9 @@ class TestCoordinatesPropConverter(unittest.TestCase):
         ]
 
         for enum_val, expected_str in test_cases:
-            with self.subTest(enum_val=enum_val):
-                result = coordinates_prop2str(enum_val)
-                self.assertEqual(result, expected_str)
-                self.assertIsInstance(result, str)
+            result = coordinates_prop2str(enum_val)
+            assert result == expected_str
+            assert isinstance(result, str)
 
     def test_string_passthrough(self):
         """Test that strings are returned unchanged."""
@@ -110,9 +109,8 @@ class TestCoordinatesPropConverter(unittest.TestCase):
         ]
 
         for test_str in test_strings:
-            with self.subTest(test_str=test_str):
-                result = coordinates_prop2str(test_str)
-                self.assertEqual(result, test_str)
+            result = coordinates_prop2str(test_str)
+            assert result == test_str
 
     def test_mixed_input_types(self):
         """Test converter with both enum and string inputs."""
@@ -120,9 +118,9 @@ class TestCoordinatesPropConverter(unittest.TestCase):
         string_input = "globe"
         custom_string = "custom_prop"
 
-        self.assertEqual(coordinates_prop2str(enum_input), "globe")
-        self.assertEqual(coordinates_prop2str(string_input), "globe")
-        self.assertEqual(coordinates_prop2str(custom_string), "custom_prop")
+        assert coordinates_prop2str(enum_input) == "globe"
+        assert coordinates_prop2str(string_input) == "globe"
+        assert coordinates_prop2str(custom_string) == "custom_prop"
 
     def test_type_alias_compatibility(self):
         """Test that WikiCoordinatesProp accepts both enums and strings."""
@@ -136,22 +134,22 @@ class TestCoordinatesPropConverter(unittest.TestCase):
         ]
 
         for valid_input in valid_inputs:
-            with self.subTest(input=valid_input):
-                result = coordinates_prop2str(valid_input)
-                self.assertIsInstance(result, str)
+            result = coordinates_prop2str(valid_input)
+            assert isinstance(result, str)
 
-                # If it's an enum, verify the conversion
-                if isinstance(valid_input, CoordinatesProp):
-                    self.assertEqual(result, valid_input.value)
-                else:
-                    # If it's a string, it should pass through unchanged
-                    self.assertEqual(result, valid_input)
+            # If it's an enum, verify the conversion
+            if isinstance(valid_input, CoordinatesProp):
+                assert result == valid_input.value
+            else:
+                # If it's a string, it should pass through unchanged
+                assert result == valid_input
 
 
-class TestCoordinatesPropIntegration(unittest.TestCase):
+class TestCoordinatesPropIntegration:
     """Test integration of CoordinatesProp with actual coordinate methods."""
 
-    def setUp(self):
+    @pytest.fixture(autouse=True)
+    def setup_integration(self):
         """Set up test fixtures with mock data."""
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
@@ -161,25 +159,25 @@ class TestCoordinatesPropIntegration(unittest.TestCase):
         """Test coordinates method with single enum property."""
         # This should work without errors
         coords = self.wiki.coordinates(self.test_page, prop=[CoordinatesProp.GLOBE])
-        self.assertIsInstance(coords, list)
+        assert isinstance(coords, list)
 
     def test_coordinates_with_multiple_enum_props(self):
         """Test coordinates method with multiple enum properties."""
         props = [CoordinatesProp.GLOBE, CoordinatesProp.NAME, CoordinatesProp.TYPE]
         coords = self.wiki.coordinates(self.test_page, prop=props)
-        self.assertIsInstance(coords, list)
+        assert isinstance(coords, list)
 
     def test_coordinates_with_mixed_props(self):
         """Test coordinates method with mixed enum and string properties."""
         props = [CoordinatesProp.GLOBE, "name", "type"]  # Mixed enum and strings
         coords = self.wiki.coordinates(self.test_page, prop=props)
-        self.assertIsInstance(coords, list)
+        assert isinstance(coords, list)
 
     def test_coordinates_with_all_enum_props(self):
         """Test coordinates method with all available enum properties."""
         all_props = list(CoordinatesProp)
         coords = self.wiki.coordinates(self.test_page, prop=all_props)
-        self.assertIsInstance(coords, list)
+        assert isinstance(coords, list)
 
     def test_batch_coordinates_with_enum_props(self):
         """Test batch coordinates with enum properties."""
@@ -187,56 +185,55 @@ class TestCoordinatesPropIntegration(unittest.TestCase):
         props = [CoordinatesProp.GLOBE, CoordinatesProp.NAME]
 
         batch_coords = pages.coordinates(prop=props)
-        self.assertIsInstance(batch_coords, dict)
+        assert isinstance(batch_coords, dict)
 
         # Should have results for both pages (including empty result for NonExistent)
-        self.assertGreaterEqual(len(batch_coords), 1)
+        assert len(batch_coords) >= 1
 
         for page, coord_list in batch_coords.items():
-            self.assertIsInstance(coord_list, list)
+            assert isinstance(coord_list, list)
 
     def test_backward_compatibility_strings_still_work(self):
         """Test that string-based property specification still works."""
         # Traditional string approach should still work
         coords_strings = self.wiki.coordinates(self.test_page, prop=["globe", "name"])
-        self.assertIsInstance(coords_strings, list)
+        assert isinstance(coords_strings, list)
 
         # Should produce similar results to enum approach
         coords_enums = self.wiki.coordinates(
             self.test_page, prop=[CoordinatesProp.GLOBE, CoordinatesProp.NAME]
         )
-        self.assertIsInstance(coords_enums, list)
+        assert isinstance(coords_enums, list)
 
 
-class TestCoordinatesPropEdgeCases(unittest.TestCase):
+class TestCoordinatesPropEdgeCases:
     """Test edge cases and error handling for CoordinatesProp."""
 
     def test_converter_with_none(self):
         """Test converter behavior with None input."""
         # The converter should handle None gracefully
         result = coordinates_prop2str(None)
-        self.assertIsNone(result)
+        assert result is None
 
     def test_converter_with_empty_string(self):
         """Test converter behavior with empty string."""
         result = coordinates_prop2str("")
-        self.assertEqual(result, "")
+        assert result == ""
 
     def test_converter_with_whitespace(self):
         """Test converter behavior with whitespace strings."""
         test_cases = [" ", "  ", "\t", "\n", "  \t\n  "]
 
         for test_str in test_cases:
-            with self.subTest(test_str=repr(test_str)):
-                result = coordinates_prop2str(test_str)
-                self.assertEqual(result, test_str)
+            result = coordinates_prop2str(test_str)
+            assert result == test_str
 
     def test_enum_immutability(self):
         """Test that enum values are immutable."""
         prop = CoordinatesProp.GLOBE
 
         # Enum values should be immutable
-        with self.assertRaises(AttributeError):
+        with pytest.raises(AttributeError):
             prop.value = "modified"
 
     def test_type_alias_annotations(self):
@@ -246,9 +243,9 @@ class TestCoordinatesPropEdgeCases(unittest.TestCase):
             return coordinates_prop2str(prop)
 
         # These should all be valid calls
-        self.assertEqual(test_function(CoordinatesProp.GLOBE), "globe")
-        self.assertEqual(test_function("globe"), "globe")
-        self.assertEqual(test_function("custom"), "custom")
+        assert test_function(CoordinatesProp.GLOBE) == "globe"
+        assert test_function("globe") == "globe"
+        assert test_function("custom") == "custom"
 
     def test_all_enum_values_in_mediawiki_spec(self):
         """Test that all enum values match MediaWiki API specification."""
@@ -257,7 +254,7 @@ class TestCoordinatesPropEdgeCases(unittest.TestCase):
         expected_api_values = {"country", "dim", "globe", "name", "region", "type"}
 
         actual_enum_values = {prop.value for prop in CoordinatesProp}
-        self.assertEqual(actual_enum_values, expected_api_values)
+        assert actual_enum_values == expected_api_values
 
     def test_performance_with_large_prop_lists(self):
         """Test converter performance with large property lists."""
@@ -278,8 +275,4 @@ class TestCoordinatesPropEdgeCases(unittest.TestCase):
         end_time = time.time()
 
         # Should complete quickly (less than 1 second for 1000 conversions)
-        self.assertLess(end_time - start_time, 1.0)
-
-
-if __name__ == "__main__":
-    unittest.main()
+        assert end_time - start_time < 1.0
