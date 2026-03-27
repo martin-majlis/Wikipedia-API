@@ -1,7 +1,5 @@
 import asyncio
 
-import pytest
-
 from tests.mock_data import async_wikipedia_api_request
 from tests.mock_data import user_agent
 import wikipediaapi
@@ -12,8 +10,7 @@ from wikipediaapi.async_wikipedia_page import AsyncWikipediaPage
 class TestAsyncWikipediaPageInit:
     """Tests for AsyncWikipediaPage construction."""
 
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.AsyncWikipedia(user_agent, "en")
 
     def test_title(self):
@@ -104,8 +101,7 @@ class TestAsyncWikipediaPageInit:
 class TestAsyncWikipediaPageFetch:
     """Tests for async fetch methods on AsyncWikipediaPage."""
 
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.AsyncWikipedia(user_agent, "en")
         self.wiki._get = async_wikipedia_api_request(self.wiki)
 
@@ -252,8 +248,7 @@ class TestAsyncWikipediaPageFetch:
 class TestAsyncWikipediaPageAttributesMapping:
     """Verify every key in ATTRIBUTES_MAPPING is accessible on AsyncWikipediaPage."""
 
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.AsyncWikipedia(user_agent, "en")
         self.wiki._get = async_wikipedia_api_request(self.wiki)
 

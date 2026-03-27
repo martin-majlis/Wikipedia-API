@@ -4,7 +4,6 @@ from unittest.mock import MagicMock
 from unittest.mock import patch
 
 from click.testing import CliRunner
-import pytest
 
 from tests.mock_data import create_mock_wikipedia
 import wikipediaapi.cli
@@ -13,8 +12,7 @@ import wikipediaapi.cli
 class TestCLICommands:
     """Test CLI command functions directly using Click's test runner."""
 
-    @pytest.fixture(autouse=True)
-    def setup_cli(self):
+    def setup_method(self):
         self.runner = CliRunner()
         self.mock_wiki = create_mock_wikipedia()
 

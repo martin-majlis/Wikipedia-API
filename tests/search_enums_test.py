@@ -14,8 +14,7 @@ import wikipediaapi
 class TestSearchEnums:
     """Test search enum values and converter functions."""
 
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         """Set up test fixtures."""
         self.wiki = wikipediaapi.Wikipedia(user_agent="UnitTests (bot@example.com)", language="en")
         self.wiki._session = wikipedia_api_request(self.wiki)

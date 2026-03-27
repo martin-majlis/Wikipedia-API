@@ -6,8 +6,7 @@ import wikipediaapi
 
 
 class TestWikipediaPage:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -242,8 +241,7 @@ class TestWikipediaPage:
 class TestWikipediaPageAttributesMapping:
     """Verify every key in ATTRIBUTES_MAPPING is accessible on WikipediaPage."""
 
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 

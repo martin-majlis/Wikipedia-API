@@ -69,8 +69,7 @@ class TestSyncHTTPClientInit:
 class TestSyncHTTPClientGet:
     """Tests for SyncHTTPClient._get."""
 
-    @pytest.fixture(autouse=True)
-    def setup_client(self):
+    def setup_method(self):
         self.client = SyncHTTPClient(user_agent, "en", max_retries=0, retry_wait=0.0)
 
     @respx.mock
@@ -138,8 +137,7 @@ class TestSyncHTTPClientGet:
 class TestSyncHTTPClientRetry:
     """Tests for retry behaviour in SyncHTTPClient."""
 
-    @pytest.fixture(autouse=True)
-    def setup_client(self):
+    def setup_method(self):
         self.client = SyncHTTPClient(user_agent, "en", max_retries=2, retry_wait=0.0)
 
     @respx.mock

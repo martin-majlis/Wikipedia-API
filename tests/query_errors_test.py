@@ -11,8 +11,7 @@ API_URL = "https://en.wikipedia.org/w/api.php"
 class TestQueryHttpErrors:
     """Tests for _get HTTP error handling."""
 
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en", max_retries=0, retry_wait=0.0)
 
     @respx.mock
@@ -95,8 +94,7 @@ class TestQueryHttpErrors:
 class TestQueryRetryLogic:
     """Tests for _get retry behavior."""
 
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en", max_retries=2, retry_wait=0.0)
 
     @respx.mock

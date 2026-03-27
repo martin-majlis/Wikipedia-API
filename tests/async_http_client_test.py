@@ -45,8 +45,7 @@ class TestAsyncHTTPClientInit:
 class TestAsyncHTTPClientGet:
     """Tests for AsyncHTTPClient._get."""
 
-    @pytest.fixture(autouse=True)
-    def setup_client(self):
+    def setup_method(self):
         self.client = AsyncHTTPClient(user_agent, "en", max_retries=0, retry_wait=0.0)
 
     @respx.mock
@@ -101,8 +100,7 @@ class TestAsyncHTTPClientGet:
 class TestAsyncHTTPClientRetry:
     """Tests for retry behaviour in AsyncHTTPClient."""
 
-    @pytest.fixture(autouse=True)
-    def setup_client(self):
+    def setup_method(self):
         self.client = AsyncHTTPClient(user_agent, "en", max_retries=2, retry_wait=0.0)
 
     @respx.mock

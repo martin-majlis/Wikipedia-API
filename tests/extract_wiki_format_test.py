@@ -1,13 +1,10 @@
-import pytest
-
 from tests.mock_data import user_agent
 from tests.mock_data import wikipedia_api_request
 import wikipediaapi
 
 
 class TestWikiFormatExtracts:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 

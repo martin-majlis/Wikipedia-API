@@ -31,8 +31,7 @@ from wikipediaapi._types import GeoPoint
 class TestEnumUsageExamples:
     """Test cases demonstrating enum usage patterns."""
 
-    @pytest.fixture(autouse=True)
-    def setup_examples(self):
+    def setup_method(self):
         """Set up test fixtures."""
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)

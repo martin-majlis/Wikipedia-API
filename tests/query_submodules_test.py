@@ -18,8 +18,7 @@ from wikipediaapi._types import GeoPoint
 
 
 class TestCoordinates:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -77,8 +76,7 @@ class TestCoordinates:
 
 
 class TestImages:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -109,8 +107,7 @@ class TestImages:
 
 
 class TestGeoSearch:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -161,8 +158,7 @@ class TestGeoSearch:
 
 
 class TestRandom:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -180,8 +176,7 @@ class TestRandom:
 
 
 class TestSearch:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -216,8 +211,7 @@ class TestSearch:
 
 
 class TestPages:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -235,8 +229,7 @@ class TestPages:
 
 
 class TestParamCache:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -380,8 +373,7 @@ class TestTypes:
 
 
 class TestPagesDictClass:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -415,8 +407,7 @@ class TestSentinel:
 
 
 class TestBasePageGetattr:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -434,8 +425,7 @@ class TestBasePageGetattr:
 
 
 class TestBatchCoordinates:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -452,8 +442,7 @@ class TestBatchCoordinates:
 
 
 class TestBatchImages:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -470,8 +459,7 @@ class TestBatchImages:
 
 
 class TestPagesDictBatchMethods:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
 
@@ -549,8 +537,7 @@ class TestParamsToApiExtended:
 
 
 class TestAsyncPagesDictBatchMethods:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.AsyncWikipedia(user_agent, "en")
         self.wiki._get = async_wikipedia_api_request(self.wiki)
 
@@ -584,8 +571,7 @@ class TestAsyncPagesDictBatchMethods:
 
 
 class TestAsyncQuerySubmodules:
-    @pytest.fixture(autouse=True)
-    def setup_wiki(self):
+    def setup_method(self):
         self.wiki = wikipediaapi.AsyncWikipedia(user_agent, "en")
         self.wiki._get = async_wikipedia_api_request(self.wiki)
 

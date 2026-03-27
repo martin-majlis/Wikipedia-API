@@ -148,8 +148,7 @@ class TestCoordinatesPropConverter:
 class TestCoordinatesPropIntegration:
     """Test integration of CoordinatesProp with actual coordinate methods."""
 
-    @pytest.fixture(autouse=True)
-    def setup_integration(self):
+    def setup_method(self):
         """Set up test fixtures with mock data."""
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.wiki._get = wikipedia_api_request(self.wiki)
