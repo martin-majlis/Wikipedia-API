@@ -160,6 +160,10 @@ testpaths = ["tests"]
 python_files = ["*_test.py", "test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
+filterwarnings = [
+    "ignore::DeprecationWarning:pytest_asyncio.plugin:",
+    "ignore::pytest.PytestDeprecationWarning:asyncio_default_fixture_loop_scope",
+]
 addopts = [
     "--strict-markers",
     "--strict-config",

@@ -388,15 +388,17 @@ class TestSyncAsyncPropertySymmetry(unittest.IsolatedAsyncioTestCase):
 
         # Check sync page has all properties
         sync_page = self.sync_wiki.page("Test_1")
+        sync_props = set(dir(sync_page))
         for prop in documented_props:
             with self.subTest(property=prop, api="sync"):
-                self.assertTrue(hasattr(sync_page, prop), f"Sync page missing property: {prop}")
+                self.assertIn(prop, sync_props, f"Sync page missing property: {prop}")
 
-        # Check async page has all properties
+        # Check async page has all properties (using dir to avoid property access)
         async_page = self.async_wiki.page("Test_1")
+        async_props = set(dir(async_page))
         for prop in documented_props:
             with self.subTest(property=prop, api="async"):
-                self.assertTrue(hasattr(async_page, prop), f"Async page missing property: {prop}")
+                self.assertIn(prop, async_props, f"Async page missing property: {prop}")
 
     async def test_text_property_symmetry(self):
         """Specifically test the text property symmetry."""

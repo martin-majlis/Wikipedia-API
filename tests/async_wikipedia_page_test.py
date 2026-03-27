@@ -76,11 +76,17 @@ class TestAsyncWikipediaPageInit(unittest.TestCase):
 
     def test_sections_empty_before_fetch(self):
         page = self.wiki.page("Python")
-        sections = page.sections
-        # sections should be a coroutine (awaitable) now
+        # Check that the property exists on the class
+        sections_prop = getattr(type(page), "sections", None)
+        self.assertIsNotNone(sections_prop, "sections property should exist")
+
+        # Verify that accessing it returns a coroutine (this will create a coroutine that we don't await)
         import asyncio
 
-        self.assertTrue(asyncio.iscoroutine(sections))
+        sections = page.sections
+        self.assertTrue(asyncio.iscoroutine(sections), "sections should return a coroutine")
+        # Explicitly close the coroutine to avoid warnings
+        sections.close()
 
     def test_url_stored_in_attributes(self):
         page = AsyncWikipediaPage(
