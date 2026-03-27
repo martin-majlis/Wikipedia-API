@@ -27,7 +27,7 @@ run-pre-commit:
 run-tests: run-tests-unit run-test-cli-verify run-tests-cli-unit
 
 run-tests-unit:
-	uv run python -m unittest discover tests/ '*test.py'
+	uv run pytest tests/
 
 run-test-cli-verify:
 	uv run ./tests/cli/test_cli.sh verify
@@ -36,7 +36,7 @@ run-test-cli-record:
 	uv run ./tests/cli/test_cli.sh record
 
 run-tests-cli-unit:
-	uv run python -m unittest tests.cli_test -v
+	uv run pytest tests/cli_test.py -v
 
 run-type-check:
 	uv run mypy ./wikipediaapi
@@ -53,9 +53,7 @@ run-tox-ci:
 	uv run tox -e py
 
 run-coverage:
-	uv run coverage run --source=wikipediaapi -m unittest discover tests/ '*test.py'
-	uv run coverage report -m
-	uv run coverage xml
+	uv run pytest --cov=wikipediaapi --cov-report=term-missing --cov-report=xml tests/
 
 run-validate-attributes-mappping:
 	uv run python ./validate_attributes_mapping.py

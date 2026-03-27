@@ -50,6 +50,9 @@ dev = [
     "pre-commit==4.5.1",
     "pygments==2.19.2",
     "pyupgrade==3.21.2",
+    "pytest==8.3.5",
+    "pytest-asyncio==0.26.0",
+    "pytest-cov==6.1.0",
     "tox==4.50.3",
     "anyio[trio]==4.13.0",
     "respx==0.22.0",
@@ -151,3 +154,19 @@ source = ["wikipediaapi"]
 
 [tool.coverage.report]
 show_missing = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["*_test.py", "test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--verbose",
+]
+asyncio_mode = "auto"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+]
