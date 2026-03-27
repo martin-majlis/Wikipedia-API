@@ -534,8 +534,8 @@
 "language": "en",
 "ns": 6
 },
-"File:Wiktionary-logo-v2.svg": {
-"title": "File:Wiktionary-logo-v2.svg",
+"File:Wiktionary-logo-en-v2.svg": {
+"title": "File:Wiktionary-logo-en-v2.svg",
 "language": "en",
 "ns": 6
 },

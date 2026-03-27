@@ -2,19 +2,28 @@ Usage: wikipedia-api geosearch [OPTIONS]
 
 Search for Wikipedia pages near a geographic location.
 
-Requires either --coord or --page to specify the centre point.
+Requires either --coord, --page, or --bbox to specify the search area.
 
 \b Examples:     wikipedia-api geosearch --coord "51.5074|-0.1278"
 wikipedia-api geosearch --page "Big Ben" --radius 1000     wikipedia-api
-geosearch --coord "48.8566|2.3522" --json r
+geosearch --bbox "51.5|-0.2|51.6|-0.1" --sort relevance     wikipedia-api
+geosearch --coord "48.8566|2.3522" --globe mars --json r
 
 Options:
 --coord TEXT                    Coordinates as "lat|lon" (e.g.
 "51.5074|-0.1278").
 --page TEXT                     Page title to use as centre point.
+--bbox TEXT                     Bounding box as "lat1|lon1|lat2|lon2".
 --radius INTEGER                Search radius in meters (max 10000).
 [default: 500]
+--max-dim INTEGER               Maximum dimension in meters.
+--sort [distance|relevance]     Sort results by distance or relevance.
+[default: distance]
 --limit INTEGER                 Maximum number of results.  [default: 10]
+--globe [earth|mars|moon|venus]
+Globe to search on.  [default: earth]
+--primary [primary|secondary|all]
+Filter by primary coordinates.
 -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
 de, zh).  [default: en]
 -u, --user-agent TEXT           HTTP User-Agent string sent with requests.

@@ -5,12 +5,15 @@ Search Wikipedia for pages matching a query.
 QUERY is the search string.
 
 \b Examples:     wikipedia-api search "Python programming"     wikipedia-api
-search "Python programming" --json     wikipedia-api search "машинное
-обучение" --language ru r
+search "Python programming" --search-sort create_timestamp_desc
+wikipedia-api search "машинное обучение" --language ru --json r
 
 Options:
 --limit INTEGER                 Maximum number of search results.  [default:
 10]
+--search-sort [relevance|none|random|create_timestamp_asc|create_timestamp_desc|incoming_links_asc|incoming_links_desc|just_match|last_edit_asc|last_edit_desc|title_natural_asc|title_natural_desc|user_random]
+Sort search results by relevance, timestamp,
+etc.  [default: relevance]
 -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
 de, zh).  [default: en]
 -u, --user-agent TEXT           HTTP User-Agent string sent with requests.

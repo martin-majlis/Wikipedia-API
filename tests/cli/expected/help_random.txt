@@ -3,12 +3,17 @@ Usage: wikipedia-api random [OPTIONS]
 Get random Wikipedia pages.
 
 \b Examples:     wikipedia-api random     wikipedia-api random --limit 5
-wikipedia-api random --limit 3 --json     wikipedia-api random --language de
-r
+wikipedia-api random --filter-redirect all --json     wikipedia-api random
+--min-size 1000 --max-size 10000     wikipedia-api random --language de r
 
 Options:
 --limit INTEGER                 Number of random pages to return.  [default:
 1]
+--filter-redirect [all|redirects|nonredirects]
+Filter for redirects: all, redirects,
+nonredirects.  [default: nonredirects]
+--min-size INTEGER              Minimum page size in bytes.
+--max-size INTEGER              Maximum page size in bytes.
 -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
 de, zh).  [default: en]
 -u, --user-agent TEXT           HTTP User-Agent string sent with requests.

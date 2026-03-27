@@ -4,6 +4,11 @@
 "language": "ab",
 "url": "https://ab.wikipedia.org/wiki/%D0%90%D0%B4%D0%B3%D1%8C%D1%8B%D0%BB"
 },
+"abstract": {
+"title": "Q2",
+"language": "abstract",
+"url": "https://abstract.wikipedia.org/wiki/Q2"
+},
 "ace": {
 "title": "Bumoe",
 "language": "ace",

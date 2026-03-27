@@ -162,7 +162,7 @@ class TestEnumUsageExamples(unittest.TestCase):
     def test_api_usage_with_enums(self):
         """Test actual API usage with enum parameters."""
         print("\n=== API Usage with Enum Parameters ===")
-        print("  ⚠️  SKIPPED: This test would make network calls")
+        print("  [SKIPPED] This test would make network calls")
 
     def test_geosearch_api_with_enums(self):
         """Test geosearch API with enum parameters using page as center."""
@@ -197,7 +197,9 @@ class TestEnumUsageExamples(unittest.TestCase):
         self.assertEqual(params_str.sort, "distance")
         self.assertEqual(params_str.globe, "earth")
 
-        print("  ✓ GeoSearchParams handles page-based search with enum and string values correctly")
+        print(
+            "  [PASS] GeoSearchParams handles page-based search with enum and string values correctly"
+        )
 
         # Test coordinate-based geosearch as alternative
         params_coord = GeoSearchParams(
@@ -208,7 +210,7 @@ class TestEnumUsageExamples(unittest.TestCase):
         self.assertEqual(params_coord.sort, "relevance")
         self.assertEqual(params_coord.globe, "mars")
 
-        print("  ✓ GeoSearchParams handles coordinate-based search with enum values correctly")
+        print("  [PASS] GeoSearchParams handles coordinate-based search with enum values correctly")
 
     def test_type_alias_examples(self):
         """Test usage of type aliases with both enums and strings."""
@@ -314,7 +316,7 @@ class TestEnumUsageExamples(unittest.TestCase):
 
 def run_examples():
     """Run the examples as a demonstration."""
-    print("🎯 Enum Usage Examples and Tests")
+    print("[INFO] Enum Usage Examples and Tests")
     print("=" * 50)
 
     # Create test suite and run with verbose output
@@ -323,9 +325,9 @@ def run_examples():
     result = runner.run(suite)
 
     if result.wasSuccessful():
-        print("\n🎉 All examples and tests passed!")
+        print("\n[SUCCESS] All examples and tests passed!")
     else:
-        print(f"\n❌ {len(result.failures)} failures, {len(result.errors)} errors")
+        print(f"\n[FAIL] {len(result.failures)} failures, {len(result.errors)} errors")
 
     return result.wasSuccessful()
 

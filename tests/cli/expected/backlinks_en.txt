@@ -1174,6 +1174,7 @@ Minimum orbit intersection distance
 Minor Planet 134340 Pluto
 Minor Planet Pluto
 Minor planet
+Minor-planet designation
 Minor-planet moon
 Minute and second of arc
 Miracle's Are Real
@@ -1516,6 +1517,7 @@ Portal:Solar System/Selected article/27
 Portal:Solar System/Selected picture
 Portal:Solar System/Solar System topics
 Portal:Solar System/Solar System topics/imagebox
+Portal:Somerset
 Portal:Somerset/Did you know
 Portal:Somerset/Did you know/2
 Portal:Somerset/Nominate/Did you know
@@ -2454,6 +2456,8 @@ User:Amage9/sandbox
 User:AmandaWins
 User:AmberSalome
 User:Ambi Valent
+User:Amechania/Angular diameter size comparison
+User:Amechania/List of objects for a size comparison
 User:American2
 User:Amirber/Dwarf moons
 User:Ammonight423
@@ -3576,8 +3580,6 @@ User:Nrco0e/Userboxes
 User:Nrco0e/Userboxes/Pluto
 User:Nrco0e/sandbox
 User:Nsammon
-User:Nussun05/Angular diameter size comparison
-User:Nussun05/List of objects for a size comparison
 User:Nwbeeson/sandbox
 User:Nyiffi
 User:Nzcit
@@ -3603,7 +3605,6 @@ User:Onion1996
 User:Onore Baka Sama
 User:Oobleckman
 User:Orangepilled
-User:OrdinaryGiraffe/Books/Vital/L2/A
 User:Oren neu dag
 User:Oren0
 User:Orinoco-w
@@ -3703,7 +3704,6 @@ User:PvtHudson IV
 User:Pwillows
 User:Pythagorean Theorem
 User:Python187
-User:PÆon/Sandbox
 User:QN/tamrin
 User:Qrstw
 User:RP88/Images
@@ -4412,6 +4412,7 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
+Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1

@@ -1,4 +1,5 @@
 ab: Адгьыл (https://ab.wikipedia.org/wiki/%D0%90%D0%B4%D0%B3%D1%8C%D1%8B%D0%BB)
+abstract: Q2 (https://abstract.wikipedia.org/wiki/Q2)
 ace: Bumoe (https://ace.wikipedia.org/wiki/Bumoe)
 ady: ЧӀыгу (https://ady.wikipedia.org/wiki/%D0%A7%D3%80%D1%8B%D0%B3%D1%83)
 af: Aarde (https://af.wikipedia.org/wiki/Aarde)

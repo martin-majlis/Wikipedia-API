@@ -5879,6 +5879,11 @@
 "language": "en",
 "ns": 0
 },
+"Minor-planet designation": {
+"title": "Minor-planet designation",
+"language": "en",
+"ns": 0
+},
 "Minor-planet moon": {
 "title": "Minor-planet moon",
 "language": "en",
@@ -7586,6 +7591,11 @@
 },
 "Portal:Solar System/Solar System topics/imagebox": {
 "title": "Portal:Solar System/Solar System topics/imagebox",
+"language": "en",
+"ns": 100
+},
+"Portal:Somerset": {
+"title": "Portal:Somerset",
 "language": "en",
 "ns": 100
 },
@@ -12276,6 +12286,16 @@
 },
 "User:Ambi Valent": {
 "title": "User:Ambi Valent",
+"language": "en",
+"ns": 2
+},
+"User:Amechania/Angular diameter size comparison": {
+"title": "User:Amechania/Angular diameter size comparison",
+"language": "en",
+"ns": 2
+},
+"User:Amechania/List of objects for a size comparison": {
+"title": "User:Amechania/List of objects for a size comparison",
 "language": "en",
 "ns": 2
 },
@@ -17889,16 +17909,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Nussun05/Angular diameter size comparison": {
-"title": "User:Nussun05/Angular diameter size comparison",
-"language": "en",
-"ns": 2
-},
-"User:Nussun05/List of objects for a size comparison": {
-"title": "User:Nussun05/List of objects for a size comparison",
-"language": "en",
-"ns": 2
-},
 "User:Nwbeeson/sandbox": {
 "title": "User:Nwbeeson/sandbox",
 "language": "en",
@@ -18021,11 +18031,6 @@
 },
 "User:Orangepilled": {
 "title": "User:Orangepilled",
-"language": "en",
-"ns": 2
-},
-"User:OrdinaryGiraffe/Books/Vital/L2/A": {
-"title": "User:OrdinaryGiraffe/Books/Vital/L2/A",
 "language": "en",
 "ns": 2
 },
@@ -18521,11 +18526,6 @@
 },
 "User:Python187": {
 "title": "User:Python187",
-"language": "en",
-"ns": 2
-},
-"User:PÆon/Sandbox": {
-"title": "User:PÆon/Sandbox",
 "language": "en",
 "ns": 2
 },
@@ -22066,6 +22066,11 @@
 },
 "Wikipedia talk:WikiProject Medicine/Archive 152": {
 "title": "Wikipedia talk:WikiProject Medicine/Archive 152",
+"language": "en",
+"ns": 5
+},
+"Wikipedia talk:WikiProject Portals/Design/Archive 3": {
+"title": "Wikipedia talk:WikiProject Portals/Design/Archive 3",
 "language": "en",
 "ns": 5
 },

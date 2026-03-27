@@ -1755,7 +1755,7 @@ class WikipediaResource(BaseWikipediaResource):
         self,
         *,
         coord: GeoPoint | None = None,
-        page: Union["AsyncWikipediaPage", None] = None,
+        page: WikipediaPage | None = None,
         bbox: GeoBox | None = None,
         radius: int = 500,
         max_dim: int | None = None,

@@ -1,5 +1,5 @@
 {
-"totalhits": 6041,
+"totalhits": 6043,
 "pages": [
 {
 "title": "Python (programming language)",
@@ -7,7 +7,7 @@
 "snippet": "<span class=\"searchmatch\">Python</span> is a high-level, general-purpose <span class=\"searchmatch\">programming</span> language. Its design philosophy emphasizes code readability with the use of significant indentation",
 "size": 140415,
 "wordcount": 11448,
-"timestamp": "2026-03-24T18:57:42Z"
+"timestamp": "2026-03-25T15:46:00Z"
 },
 {
 "title": "History of Python",
@@ -34,20 +34,20 @@
 "timestamp": "2026-01-19T22:21:34Z"
 },
 {
-"title": "Core Python Programming",
-"pageid": 25061839,
-"snippet": "Core <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> is a textbook on the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, written by Wesley J. Chun. The first edition of the book was released on December",
-"size": 3926,
-"wordcount": 316,
-"timestamp": "2026-01-31T19:07:48Z"
-},
-{
 "title": "Mojo (programming language)",
 "pageid": 73729965,
 "snippet": "proprietary <span class=\"searchmatch\">programming</span> language based on <span class=\"searchmatch\">Python</span> available for Linux and macOS. Mojo aims to combine the usability of a high-level <span class=\"searchmatch\">programming</span> language,",
 "size": 18574,
 "wordcount": 1480,
 "timestamp": "2026-03-15T08:21:22Z"
+},
+{
+"title": "Core Python Programming",
+"pageid": 25061839,
+"snippet": "Core <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> is a textbook on the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, written by Wesley J. Chun. The first edition of the book was released on December",
+"size": 3926,
+"wordcount": 316,
+"timestamp": "2026-01-31T19:07:48Z"
 },
 {
 "title": "Flask (web framework)",
@@ -74,12 +74,12 @@
 "timestamp": "2026-03-10T10:36:25Z"
 },
 {
-"title": "Stackless Python",
-"pageid": 2009536,
-"snippet": "Stackless <span class=\"searchmatch\">Python</span>, or Stackless, was a <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language interpreter. Its GitHub repository has been archived since February 2025, and the project",
-"size": 6573,
-"wordcount": 556,
-"timestamp": "2025-09-08T05:44:49Z"
+"title": "Glob (programming)",
+"pageid": 484117,
+"snippet": "on these same wildcard patterns. Guido van Rossum, author of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, wrote and contributed a glob routine to BSD Unix in 1986",
+"size": 27549,
+"wordcount": 2505,
+"timestamp": "2026-03-01T01:55:39Z"
 }
 ]
 }
