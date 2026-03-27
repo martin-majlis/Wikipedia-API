@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.12.0
+------
+
+* Add API for coordinates, random, search, and geosearch - `PR 504`_
+
+.. _PR 504: https://github.com/martin-majlis/Wikipedia-API/pull/504
+
 0.11.0
 ------
 
