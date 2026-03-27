@@ -5,16 +5,17 @@ Tests the new SearchProp, SearchInfo, SearchWhat, and SearchQiProfile enums
 along with their corresponding type aliases and converter functions.
 """
 
-import unittest
+import pytest
 
 from tests.mock_data import wikipedia_api_request
 import wikipediaapi
 
 
-class TestSearchEnums(unittest.TestCase):
+class TestSearchEnums:
     """Test search enum values and converter functions."""
 
-    def setUp(self):
+    @pytest.fixture(autouse=True)
+    def setup_wiki(self):
         """Set up test fixtures."""
         self.wiki = wikipediaapi.Wikipedia(user_agent="UnitTests (bot@example.com)", language="en")
         self.wiki._session = wikipedia_api_request(self.wiki)
@@ -42,7 +43,7 @@ class TestSearchEnums(unittest.TestCase):
         }
 
         for enum_member, expected_value in expected_values.items():
-            self.assertEqual(enum_member.value, expected_value)
+            assert enum_member.value == expected_value
             # Note: str(enum_member) returns "EnumName.VALUE" not the value itself
 
     def test_search_info_enum_values(self):
@@ -56,7 +57,7 @@ class TestSearchEnums(unittest.TestCase):
         }
 
         for enum_member, expected_value in expected_values.items():
-            self.assertEqual(enum_member.value, expected_value)
+            assert enum_member.value == expected_value
             # Note: str(enum_member) returns "EnumName.VALUE" not the value itself
 
     def test_search_what_enum_values(self):
@@ -70,7 +71,7 @@ class TestSearchEnums(unittest.TestCase):
         }
 
         for enum_member, expected_value in expected_values.items():
-            self.assertEqual(enum_member.value, expected_value)
+            assert enum_member.value == expected_value
             # Note: str(enum_member) returns "EnumName.VALUE" not the value itself
 
     def test_search_qi_profile_enum_values(self):
@@ -92,7 +93,7 @@ class TestSearchEnums(unittest.TestCase):
         }
 
         for enum_member, expected_value in expected_values.items():
-            self.assertEqual(enum_member.value, expected_value)
+            assert enum_member.value == expected_value
             # Note: str(enum_member) returns "EnumName.VALUE" not the value itself
 
     def test_search_prop_converter(self):
@@ -101,18 +102,18 @@ class TestSearchEnums(unittest.TestCase):
         from wikipediaapi import SearchProp
 
         # Test enum to string conversion
-        self.assertEqual(search_prop2str(SearchProp.SIZE), "size")
-        self.assertEqual(search_prop2str(SearchProp.WORDCOUNT), "wordcount")
-        self.assertEqual(search_prop2str(SearchProp.TIMESTAMP), "timestamp")
+        assert search_prop2str(SearchProp.SIZE) == "size"
+        assert search_prop2str(SearchProp.WORDCOUNT) == "wordcount"
+        assert search_prop2str(SearchProp.TIMESTAMP) == "timestamp"
 
         # Test string pass-through
-        self.assertEqual(search_prop2str("size"), "size")
-        self.assertEqual(search_prop2str("wordcount"), "wordcount")
-        self.assertEqual(search_prop2str("custom_prop"), "custom_prop")
+        assert search_prop2str("size") == "size"
+        assert search_prop2str("wordcount") == "wordcount"
+        assert search_prop2str("custom_prop") == "custom_prop"
 
         # Test case sensitivity preservation for strings
-        self.assertEqual(search_prop2str("Size"), "Size")
-        self.assertEqual(search_prop2str("WORDCOUNT"), "WORDCOUNT")
+        assert search_prop2str("Size") == "Size"
+        assert search_prop2str("WORDCOUNT") == "WORDCOUNT"
 
     def test_search_info_converter(self):
         """Test search_info2str converter function."""
@@ -120,14 +121,14 @@ class TestSearchEnums(unittest.TestCase):
         from wikipediaapi import SearchInfo
 
         # Test enum to string conversion
-        self.assertEqual(search_info2str(SearchInfo.TOTAL_HITS), "totalhits")
-        self.assertEqual(search_info2str(SearchInfo.SUGGESTION), "suggestion")
-        self.assertEqual(search_info2str(SearchInfo.REWRITTEN_QUERY), "rewrittenquery")
+        assert search_info2str(SearchInfo.TOTAL_HITS) == "totalhits"
+        assert search_info2str(SearchInfo.SUGGESTION) == "suggestion"
+        assert search_info2str(SearchInfo.REWRITTEN_QUERY) == "rewrittenquery"
 
         # Test string pass-through
-        self.assertEqual(search_info2str("totalhits"), "totalhits")
-        self.assertEqual(search_info2str("suggestion"), "suggestion")
-        self.assertEqual(search_info2str("custom_info"), "custom_info")
+        assert search_info2str("totalhits") == "totalhits"
+        assert search_info2str("suggestion") == "suggestion"
+        assert search_info2str("custom_info") == "custom_info"
 
     def test_search_what_converter(self):
         """Test search_what2str converter function."""
@@ -135,14 +136,14 @@ class TestSearchEnums(unittest.TestCase):
         from wikipediaapi import SearchWhat
 
         # Test enum to string conversion
-        self.assertEqual(search_what2str(SearchWhat.TEXT), "text")
-        self.assertEqual(search_what2str(SearchWhat.TITLE), "title")
-        self.assertEqual(search_what2str(SearchWhat.NEAR_MATCH), "nearmatch")
+        assert search_what2str(SearchWhat.TEXT) == "text"
+        assert search_what2str(SearchWhat.TITLE) == "title"
+        assert search_what2str(SearchWhat.NEAR_MATCH) == "nearmatch"
 
         # Test string pass-through
-        self.assertEqual(search_what2str("text"), "text")
-        self.assertEqual(search_what2str("title"), "title")
-        self.assertEqual(search_what2str("custom_what"), "custom_what")
+        assert search_what2str("text") == "text"
+        assert search_what2str("title") == "title"
+        assert search_what2str("custom_what") == "custom_what"
 
     def test_search_qi_profile_converter(self):
         """Test search_qi_profile2str converter function."""
@@ -150,16 +151,14 @@ class TestSearchEnums(unittest.TestCase):
         from wikipediaapi import SearchQiProfile
 
         # Test enum to string conversion
-        self.assertEqual(
-            search_qi_profile2str(SearchQiProfile.ENGINE_AUTO_SELECT), "engine_autoselect"
-        )
-        self.assertEqual(search_qi_profile2str(SearchQiProfile.CLASSIC), "classic")
-        self.assertEqual(search_qi_profile2str(SearchQiProfile.EMPTY), "empty")
+        assert search_qi_profile2str(SearchQiProfile.ENGINE_AUTO_SELECT) == "engine_autoselect"
+        assert search_qi_profile2str(SearchQiProfile.CLASSIC) == "classic"
+        assert search_qi_profile2str(SearchQiProfile.EMPTY) == "empty"
 
         # Test string pass-through
-        self.assertEqual(search_qi_profile2str("engine_autoselect"), "engine_autoselect")
-        self.assertEqual(search_qi_profile2str("classic"), "classic")
-        self.assertEqual(search_qi_profile2str("custom_profile"), "custom_profile")
+        assert search_qi_profile2str("engine_autoselect") == "engine_autoselect"
+        assert search_qi_profile2str("classic") == "classic"
+        assert search_qi_profile2str("custom_profile") == "custom_profile"
 
     def test_type_aliases_accept_enums(self):
         """Test Wiki* type aliases accept enum members."""
@@ -178,10 +177,10 @@ class TestSearchEnums(unittest.TestCase):
         what: WikiSearchWhat = SearchWhat.TEXT
         qi_profile: WikiSearchQiProfile = SearchQiProfile.ENGINE_AUTO_SELECT
 
-        self.assertIsInstance(prop, SearchProp)
-        self.assertIsInstance(info, SearchInfo)
-        self.assertIsInstance(what, SearchWhat)
-        self.assertIsInstance(qi_profile, SearchQiProfile)
+        assert isinstance(prop, SearchProp)
+        assert isinstance(info, SearchInfo)
+        assert isinstance(what, SearchWhat)
+        assert isinstance(qi_profile, SearchQiProfile)
 
     def test_type_aliases_accept_strings(self):
         """Test Wiki* type aliases accept strings."""
@@ -196,10 +195,10 @@ class TestSearchEnums(unittest.TestCase):
         what: WikiSearchWhat = "text"
         qi_profile: WikiSearchQiProfile = "engine_autoselect"
 
-        self.assertEqual(prop, "size")
-        self.assertEqual(info, "totalhits")
-        self.assertEqual(what, "text")
-        self.assertEqual(qi_profile, "engine_autoselect")
+        assert prop == "size"
+        assert info == "totalhits"
+        assert what == "text"
+        assert qi_profile == "engine_autoselect"
 
     def test_search_with_enum_parameters(self):
         """Test search method accepts enum parameters."""
@@ -220,8 +219,8 @@ class TestSearchEnums(unittest.TestCase):
         )
 
         # Verify we get results (mock data should return something)
-        self.assertIsNotNone(results)
-        self.assertGreaterEqual(len(results.pages), 1)  # Should have at least 1 result
+        assert results is not None
+        assert len(results.pages) >= 1  # Should have at least 1 result
 
     def test_search_with_string_parameters(self):
         """Test search method accepts string parameters (backward compatibility)."""
@@ -236,8 +235,8 @@ class TestSearchEnums(unittest.TestCase):
         )
 
         # Verify we get results
-        self.assertIsNotNone(results)
-        self.assertGreaterEqual(len(results.pages), 1)
+        assert results is not None
+        assert len(results.pages) >= 1
 
     def test_search_with_mixed_parameters(self):
         """Test search method accepts mixed enum and string parameters."""
@@ -256,8 +255,8 @@ class TestSearchEnums(unittest.TestCase):
         )
 
         # Verify we get results
-        self.assertIsNotNone(results)
-        self.assertGreaterEqual(len(results.pages), 1)
+        assert results is not None
+        assert len(results.pages) >= 1
 
     def test_enum_immutability(self):
         """Test enum values are immutable."""
@@ -267,16 +266,16 @@ class TestSearchEnums(unittest.TestCase):
         from wikipediaapi import SearchWhat
 
         # Enums should be immutable
-        with self.assertRaises(AttributeError):
+        with pytest.raises(AttributeError):
             SearchProp.SIZE = "invalid"
 
-        with self.assertRaises(AttributeError):
+        with pytest.raises(AttributeError):
             SearchInfo.TOTAL_HITS = "invalid"
 
-        with self.assertRaises(AttributeError):
+        with pytest.raises(AttributeError):
             SearchWhat.TEXT = "invalid"
 
-        with self.assertRaises(AttributeError):
+        with pytest.raises(AttributeError):
             SearchQiProfile.ENGINE_AUTO_SELECT = "invalid"
 
     def test_enum_completeness(self):
@@ -287,7 +286,7 @@ class TestSearchEnums(unittest.TestCase):
         from wikipediaapi import SearchWhat
 
         # SearchProp should have 14 values
-        self.assertEqual(len(SearchProp), 14)
+        assert len(SearchProp) == 14
         expected_props = {
             "SIZE",
             "WORDCOUNT",
@@ -305,22 +304,22 @@ class TestSearchEnums(unittest.TestCase):
             "EXTENSION_DATA",
         }
         actual_props = {member.name for member in SearchProp}
-        self.assertEqual(actual_props, expected_props)
+        assert actual_props == expected_props
 
         # SearchInfo should have 3 values
-        self.assertEqual(len(SearchInfo), 3)
+        assert len(SearchInfo) == 3
         expected_infos = {"TOTAL_HITS", "SUGGESTION", "REWRITTEN_QUERY"}
         actual_infos = {member.name for member in SearchInfo}
-        self.assertEqual(actual_infos, expected_infos)
+        assert actual_infos == expected_infos
 
         # SearchWhat should have 3 values
-        self.assertEqual(len(SearchWhat), 3)
+        assert len(SearchWhat) == 3
         expected_whats = {"TEXT", "TITLE", "NEAR_MATCH"}
         actual_whats = {member.name for member in SearchWhat}
-        self.assertEqual(actual_whats, expected_whats)
+        assert actual_whats == expected_whats
 
         # SearchQiProfile should have 11 values
-        self.assertEqual(len(SearchQiProfile), 11)
+        assert len(SearchQiProfile) == 11
         expected_profiles = {
             "CLASSIC",
             "CLASSIC_NO_BOOST_LINKS",
@@ -335,8 +334,8 @@ class TestSearchEnums(unittest.TestCase):
             "WSUM_INCLINKS_PV",
         }
         actual_profiles = {member.name for member in SearchQiProfile}
-        self.assertEqual(actual_profiles, expected_profiles)
+        assert actual_profiles == expected_profiles
 
 
 if __name__ == "__main__":
-    unittest.main()
+    pass
