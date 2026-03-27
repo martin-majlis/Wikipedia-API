@@ -2,7 +2,7 @@ from abc import ABC
 from collections import defaultdict
 from collections.abc import Callable, Iterable
 import re
-from typing import Any, TYPE_CHECKING, TypeVar
+from typing import Any, TYPE_CHECKING, TypeVar, Union
 from urllib import parse
 
 from ._base_wikipedia_page import BaseWikipediaPage
@@ -1755,7 +1755,7 @@ class WikipediaResource(BaseWikipediaResource):
         self,
         *,
         coord: GeoPoint | None = None,
-        page: WikipediaPage | None = None,
+        page: Union["AsyncWikipediaPage", None] = None,
         bbox: GeoBox | None = None,
         radius: int = 500,
         max_dim: int | None = None,
@@ -2201,7 +2201,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         primary: WikiCoordinateType = CoordinateType.PRIMARY,
         prop: Iterable[WikiCoordinatesProp] = (CoordinatesProp.GLOBE,),
         distance_from_point: GeoPoint | None = None,
-        distance_from_page: "AsyncWikipediaPage | None" = None,
+        distance_from_page: Union["AsyncWikipediaPage", None] = None,
     ) -> list[Coordinate]:
         """Async version of :meth:`WikipediaResource.coordinates`.
 
@@ -2250,7 +2250,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         primary: WikiCoordinateType = CoordinateType.PRIMARY,
         prop: Iterable[WikiCoordinatesProp] = (CoordinatesProp.GLOBE,),
         distance_from_point: GeoPoint | None = None,
-        distance_from_page: "AsyncWikipediaPage | None" = None,
+        distance_from_page: Union["AsyncWikipediaPage", None] = None,
     ) -> dict["AsyncWikipediaPage", list[Coordinate]]:
         """Async version of :meth:`WikipediaResource.batch_coordinates`.
 
@@ -2407,7 +2407,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         self,
         *,
         coord: GeoPoint | None = None,
-        page: "AsyncWikipediaPage" | None = None,
+        page: Union["AsyncWikipediaPage", None] = None,
         bbox: GeoBox | None = None,
         radius: int = 500,
         max_dim: int | None = None,

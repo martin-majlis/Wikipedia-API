@@ -53,7 +53,7 @@ repos:
         name: Run pyupgrade
         entry: uv run pyupgrade
         language: system
-        args: ["--py310-plus"]
+        args: ["--py310"]
         types: [file, python]
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.16.3
