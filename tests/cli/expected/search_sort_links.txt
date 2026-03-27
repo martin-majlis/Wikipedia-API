@@ -1,0 +1,85 @@
+{
+"totalhits": 6043,
+"pages": [
+{
+"title": "Tilde",
+"pageid": 212390,
+"snippet": "or influenced by C, such as C++, C#, D, Java, JavaScript, Perl, PHP, and <span class=\"searchmatch\">Python</span>. The MySQL database also use tilde as bitwise invert as does Microsoft&#039;s",
+"size": 77779,
+"wordcount": 8258,
+"timestamp": "2026-03-07T11:53:50Z"
+},
+{
+"title": "Time zone",
+"pageid": 30890,
+"snippet": "implemented via the PECL timezonedb. The standard module datetime included with <span class=\"searchmatch\">Python</span> stores and operates on the time zone information class tzinfo. The third",
+"size": 94734,
+"wordcount": 5816,
+"timestamp": "2026-03-25T04:48:07Z"
+},
+{
+"title": "IMDb",
+"pageid": 2855554,
+"snippet": "but the movie related data are in English, as made available by IMDb. A <span class=\"searchmatch\">Python</span> package called IMDbPY (since renamed cinemagoer) can also be used to process",
+"size": 54493,
+"wordcount": 5090,
+"timestamp": "2026-03-25T20:38:59Z"
+},
+{
+"title": "England",
+"pageid": 9316,
+"snippet": "blood and guts in colour. The BFI Top 100 British films includes Monty <span class=\"searchmatch\">Python&#039;s</span> Life of Brian (1979), a film regularly voted the funniest of all time by",
+"size": 258529,
+"wordcount": 23155,
+"timestamp": "2026-03-22T11:00:17Z"
+},
+{
+"title": "PubMed",
+"pageid": 503009,
+"snippet": "Alternative methods to mine the data in PubMed use <span class=\"searchmatch\">programming</span> environments such as Matlab, <span class=\"searchmatch\">Python</span> or R. In these cases, queries of PubMed are written",
+"size": 39851,
+"wordcount": 3839,
+"timestamp": "2026-03-20T07:11:33Z"
+},
+{
+"title": "Television show",
+"pageid": 19508643,
+"snippet": "providers began offering certain <span class=\"searchmatch\">programming</span> &quot;pay-per-view&quot; or on-demand, with viewers paying a one-time fee to watch a <span class=\"searchmatch\">program</span> at a time of their own choosing",
+"size": 46560,
+"wordcount": 5443,
+"timestamp": "2026-03-26T08:21:02Z"
+},
+{
+"title": "YouTube",
+"pageid": 3524766,
+"snippet": "15, 2023. Claburn, Thomas (January 5, 2017). &quot;Google&#039;s Grumpy code makes <span class=\"searchmatch\">Python</span> Go&quot;. The Register. Archived from the original on December 14, 2019. Retrieved",
+"size": 215801,
+"wordcount": 19558,
+"timestamp": "2026-03-26T20:38:58Z"
+},
+{
+"title": "BBC",
+"pageid": 19344654,
+"snippet": "England, the larger regions also produce some <span class=\"searchmatch\">programming</span>. Previously the largest hub of BBC <span class=\"searchmatch\">programming</span> from the regions had been BBC North West. At present",
+"size": 219647,
+"wordcount": 21293,
+"timestamp": "2026-03-25T14:01:05Z"
+},
+{
+"title": "Bangladesh",
+"pageid": 3454,
+"snippet": "sambar deer, jungle cat, king cobra, wild boar, mongooses, pangolins, <span class=\"searchmatch\">pythons</span> and water monitors. Bangladesh has one of the largest populations of Irrawaddy",
+"size": 273561,
+"wordcount": 22517,
+"timestamp": "2026-03-24T22:22:46Z"
+},
+{
+"title": "Florida",
+"pageid": 18933066,
+"snippet": "animal species. Some exotic species living in Florida include the Burmese <span class=\"searchmatch\">python</span>, green iguana, veiled chameleon, Argentine black and white tegu, peacock",
+"size": 250985,
+"wordcount": 20659,
+"timestamp": "2026-03-26T22:19:00Z"
+}
+]
+}
