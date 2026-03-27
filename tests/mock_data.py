@@ -835,6 +835,32 @@ _MOCK_DATA = {
             ]
         },
     },
+    # ── geosearch with page (list=geosearch) ────────────────────────────────────────
+    "en:action=query&format=json&gsglobe=earth&gslimit=10&gsnamespace=0&gspage=Test_1&gsradius=500&gssort=distance&list=geosearch&redirects=1&": {
+        "batchcomplete": "",
+        "query": {
+            "geosearch": [
+                {
+                    "pageid": 100,
+                    "ns": 0,
+                    "title": "Nearby Page 1",
+                    "lat": 51.508,
+                    "lon": -0.128,
+                    "dist": 50.3,
+                    "primary": "",
+                },
+                {
+                    "pageid": 101,
+                    "ns": 0,
+                    "title": "Nearby Page 2",
+                    "lat": 51.510,
+                    "lon": -0.130,
+                    "dist": 200.7,
+                    "primary": "",
+                },
+            ]
+        },
+    },
     # ── random (list=random) ────────────────────────────────────────────────────
     "en:action=query&format=json&list=random&redirects=1&rnfilterredir=nonredirects&rnlimit=2&": {
         "batchcomplete": "",
@@ -1376,6 +1402,126 @@ _CLI_MOCK_DATA = {
                     "displaytitle": "Category:Nonexistent",
                 }
             },
+        },
+    },
+    # Add search API mock data for testing search enums
+    "en:action=query&format=json&list=search&redirects=1&srsearch=test&srlimit=5&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 13308, "suggestion": "test", "rewrittenquery": "test"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Test page",
+                    "pageid": 12345,
+                    "size": 5000,
+                    "wordcount": 250,
+                    "timestamp": "2023-01-15T10:30:00Z",
+                    "snippet": "This is a test <span class='searchmatch'>page</span> with some content.",
+                }
+            ],
+        },
+    },
+    "en:action=query&format=json&list=search&redirects=1&srinfo=totalhits|suggestion|rewrittenquery&srprop=size|wordcount|timestamp|snippet&srsearch=test&srlimit=5&srwhat=text&srsort=relevance&sriprofile=engine_autoselect&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 13308, "suggestion": "test", "rewrittenquery": "test"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Test page",
+                    "pageid": 12345,
+                    "size": 5000,
+                    "wordcount": 250,
+                    "timestamp": "2023-01-15T10:30:00Z",
+                    "snippet": "This is a test <span class='searchmatch'>page</span> with some content.",
+                }
+            ],
+        },
+    },
+    "en:action=query&format=json&list=search&redirects=1&srinfo=totalhits&srprop=size|wordcount&srsearch=python&srlimit=3&srwhat=title&srsort=lasteditdesc&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 2500, "suggestion": None, "rewrittenquery": "python"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Python (programming language)",
+                    "pageid": 23862,
+                    "size": 15000,
+                    "wordcount": 1200,
+                    "timestamp": "2023-12-01T15:45:00Z",
+                    "snippet": "<span class='searchmatch'>Python</span> is a high-level programming language.",
+                },
+                {
+                    "ns": 0,
+                    "title": "Python (genus)",
+                    "pageid": 45678,
+                    "size": 3000,
+                    "wordcount": 150,
+                    "timestamp": "2023-11-20T09:15:00Z",
+                    "snippet": "<span class='searchmatch'>Python</span> is a genus of snakes.",
+                },
+                {
+                    "ns": 0,
+                    "title": "Monty Python",
+                    "pageid": 78901,
+                    "size": 8000,
+                    "wordcount": 600,
+                    "timestamp": "2023-10-15T12:30:00Z",
+                    "snippet": "Monty <span class='searchmatch'>Python</span> was a British surreal comedy troupe.",
+                },
+            ],
+        },
+    },
+    "en:action=query&format=json&list=search&redirects=1&srinfo=totalhits&srprop=size|wordcount|timestamp&srsearch=python&srlimit=3&srwhat=nearmatch&srsort=incominglinks_desc&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 1500, "suggestion": None, "rewrittenquery": "python"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Python (programming language)",
+                    "pageid": 23862,
+                    "size": 15000,
+                    "wordcount": 1200,
+                    "timestamp": "2023-12-01T15:45:00Z",
+                },
+                {
+                    "ns": 0,
+                    "title": "Pythonidae",
+                    "pageid": 34567,
+                    "size": 4000,
+                    "wordcount": 300,
+                    "timestamp": "2023-09-10T14:20:00Z",
+                },
+                {
+                    "ns": 0,
+                    "title": "Monty Python's Flying Circus",
+                    "pageid": 56789,
+                    "size": 9000,
+                    "wordcount": 750,
+                    "timestamp": "2023-08-05T11:10:00Z",
+                },
+            ],
+        },
+    },
+    # Add search with mixed enum and string parameters
+    "en:action=query&format=json&list=search&prop=size|wordcount&redirects=1&srinfo=totalhits|suggestion&srprop=size|wordcount|timestamp&srsearch=python&srlimit=3&srwhat=text&sriprofile=engine_autoselect&srsort=relevance&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 2500, "suggestion": None, "rewrittenquery": "python"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Python (programming language)",
+                    "pageid": 23862,
+                    "size": 15000,
+                    "wordcount": 1200,
+                    "timestamp": "2023-12-01T15:45:00Z",
+                    "snippet": "<span class='searchmatch'>Python</span> is a high-level programming language.",
+                }
+            ],
         },
     },
 }

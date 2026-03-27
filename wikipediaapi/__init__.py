@@ -20,16 +20,27 @@ from ._enums import Namespace
 from ._enums import namespace2int
 from ._enums import redirect_filter2str
 from ._enums import RedirectFilter
+from ._enums import search_info2str
+from ._enums import search_prop2str
+from ._enums import search_qi_profile2str
 from ._enums import search_sort2str
+from ._enums import search_what2str
+from ._enums import SearchInfo
+from ._enums import SearchProp
+from ._enums import SearchQiProfile
 from ._enums import SearchSort
+from ._enums import SearchWhat
 from ._enums import WikiCoordinatesProp
 from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
 from ._enums import WikiGeoSearchSort
 from ._enums import WikiGlobe
 from ._enums import WikiNamespace
-from ._enums import WikiRedirectFilter
+from ._enums import WikiSearchInfo
+from ._enums import WikiSearchProp
+from ._enums import WikiSearchQiProfile
 from ._enums import WikiSearchSort
+from ._enums import WikiSearchWhat
 from ._pages_dict import AsyncPagesDict
 from ._pages_dict import PagesDict
 from ._types import Coordinate
@@ -94,6 +105,18 @@ __all__ = [
     "RedirectFilter",
     "WikiRedirectFilter",
     "redirect_filter2str",
+    "SearchInfo",
+    "WikiSearchInfo",
+    "search_info2str",
+    "SearchProp",
+    "WikiSearchProp",
+    "search_prop2str",
+    "SearchQiProfile",
+    "WikiSearchQiProfile",
+    "search_qi_profile2str",
+    "SearchWhat",
+    "WikiSearchWhat",
+    "search_what2str",
     "SearchSort",
     "WikiSearchSort",
     "search_sort2str",

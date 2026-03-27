@@ -30,8 +30,14 @@ from ._enums import globe2str
 from ._enums import Namespace
 from ._enums import redirect_filter2str
 from ._enums import RedirectFilter
+from ._enums import search_info2str
+from ._enums import search_prop2str
+from ._enums import search_qi_profile2str
 from ._enums import search_sort2str
+from ._enums import search_what2str
+from ._enums import SearchQiProfile
 from ._enums import SearchSort
+from ._enums import SearchWhat
 from ._enums import WikiCoordinatesProp
 from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
@@ -39,7 +45,11 @@ from ._enums import WikiGeoSearchSort
 from ._enums import WikiGlobe
 from ._enums import WikiNamespace
 from ._enums import WikiRedirectFilter
+from ._enums import WikiSearchInfo
+from ._enums import WikiSearchProp
+from ._enums import WikiSearchQiProfile
 from ._enums import WikiSearchSort
+from ._enums import WikiSearchWhat
 from ._types import GeoBox
 from ._types import GeoPoint
 
@@ -213,7 +223,7 @@ class GeoSearchParams(_BaseParams):
 
     Args:
         coord: Centre point as :class:`~wikipediaapi.GeoPoint`.
-        page: Title of page whose coordinates to use as centre.
+        page: Page whose coordinates to use as centre.
         bbox: Bounding box as :class:`~wikipediaapi.GeoBox`.
         radius: Search radius in meters (10–10000).
         max_dim: Exclude objects larger than this many meters.
@@ -221,13 +231,13 @@ class GeoSearchParams(_BaseParams):
         limit: Maximum pages to return (1–500).
         globe: Celestial body: ``"earth"``, ``"mars"``, ``"moon"``, ``"venus"``.
         namespace: Restrict to this namespace number.
-        prop: Additional properties as an iterable.
+        prop: Additional coordinate properties as an iterable.
         primary: Which coordinates to consider: ``"primary"``,
             ``"secondary"``, or ``"all"``.
     """
 
     coord: GeoPoint | None = None
-    page: str | None = None
+    page: _HasTitle | None = None
     bbox: GeoBox | None = None
     radius: int = 500
     max_dim: int | None = None
@@ -235,7 +245,7 @@ class GeoSearchParams(_BaseParams):
     limit: int = 10
     globe: WikiGlobe = Globe.EARTH
     namespace: WikiNamespace = Namespace.MAIN
-    prop: Iterable[str] | None = None
+    prop: Iterable[WikiCoordinatesProp] | None = None
     primary: WikiCoordinateType | None = None
 
     def __post_init__(self) -> None:
@@ -268,10 +278,21 @@ class GeoSearchParams(_BaseParams):
             if not isinstance(self.bbox, GeoBox):
                 raise TypeError("GeoSearchParams.bbox must be GeoBox or None")
             object.__setattr__(self, "bbox", self.bbox.to_mediawiki())
+        if self.page is not None:
+            # Convert page object to title string
+            if hasattr(self.page, "title"):
+                object.__setattr__(self, "page", self.page.title)
+            else:
+                raise TypeError(
+                    "GeoSearchParams.page must be an object with a 'title' attribute or None"
+                )
         if self.prop is not None:
             if isinstance(self.prop, str):
-                raise TypeError("GeoSearchParams.prop must be an iterable of strings, not str")
-            object.__setattr__(self, "prop", "|".join(self.prop))
+                raise TypeError(
+                    "GeoSearchParams.prop must be an iterable of WikiCoordinatesProp, not str"
+                )
+            converted_props = [coordinates_prop2str(p) for p in self.prop]
+            object.__setattr__(self, "prop", "|".join(converted_props))
 
     PREFIX: ClassVar[str] = "gs"
     FIELD_MAP: ClassVar[dict[str, str]] = {
@@ -338,7 +359,7 @@ class SearchParams(_BaseParams):
         limit: Maximum results to return (1–500).
         prop: Properties as an iterable (deprecated upstream).
         info: Metadata as an iterable
-            (e.g. ``["totalhits", "suggestion", "rewrittenquery"]``).
+            (e.g. ``[SearchInfo.TOTAL_HITS, SearchInfo.SUGGESTION, SearchInfo.REWRITTEN_QUERY]``).
         sort: Sort order (e.g. ``"relevance"``, ``"last_edit_desc"``).
         what: Search type: ``"title"``, ``"text"``, or ``"nearmatch"``.
         interwiki: Include interwiki results.
@@ -349,19 +370,20 @@ class SearchParams(_BaseParams):
     query: str = ""
     namespace: WikiNamespace = Namespace.MAIN
     limit: int = 10
-    prop: Iterable[str] | None = None
-    info: Iterable[str] | None = None
+    prop: Iterable[WikiSearchProp] | None = None
+    info: Iterable[WikiSearchInfo] | None = None
     sort: WikiSearchSort = SearchSort.RELEVANCE
-    what: str | None = None
+    what: WikiSearchWhat | None = None
     interwiki: bool = False
     enable_rewrites: bool = False
-    qi_profile: str | None = None
+    qi_profile: WikiSearchQiProfile | None = None
 
     def __post_init__(self) -> None:
         """Normalize iterable search properties and reject string input.
 
         Converts iterable ``prop`` and ``info`` values into MediaWiki-required
-        pipe-separated string representations when provided.
+        pipe-separated string representations when provided. Also converts
+        enum values for sort, what, and qi_profile parameters.
 
         Raises:
             TypeError: If ``prop`` or ``info`` is passed as a string instead
@@ -371,14 +393,26 @@ class SearchParams(_BaseParams):
             raise TypeError("SearchParams.sort must be SearchSort or str")
         object.__setattr__(self, "sort", search_sort2str(self.sort))
 
+        if self.what is not None:
+            if not isinstance(self.what, (SearchWhat, str)):
+                raise TypeError("SearchParams.what must be SearchWhat or str")
+            object.__setattr__(self, "what", search_what2str(self.what))
+
+        if self.qi_profile is not None:
+            if not isinstance(self.qi_profile, (SearchQiProfile, str)):
+                raise TypeError("SearchParams.qi_profile must be SearchQiProfile or str")
+            object.__setattr__(self, "qi_profile", search_qi_profile2str(self.qi_profile))
+
         if self.prop is not None:
             if isinstance(self.prop, str):
-                raise TypeError("SearchParams.prop must be an iterable of strings, not str")
-            object.__setattr__(self, "prop", "|".join(self.prop))
+                raise TypeError("SearchParams.prop must be an iterable of WikiSearchProp, not str")
+            converted_props = [search_prop2str(p) for p in self.prop]
+            object.__setattr__(self, "prop", "|".join(converted_props))
         if self.info is not None:
             if isinstance(self.info, str):
-                raise TypeError("SearchParams.info must be an iterable of strings, not str")
-            object.__setattr__(self, "info", "|".join(self.info))
+                raise TypeError("SearchParams.info must be an iterable of WikiSearchInfo, not str")
+            converted_info = [search_info2str(i) for i in self.info]
+            object.__setattr__(self, "info", "|".join(converted_info))
 
     PREFIX: ClassVar[str] = "sr"
     FIELD_MAP: ClassVar[dict[str, str]] = {

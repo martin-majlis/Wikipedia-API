@@ -489,9 +489,13 @@ To get geographic coordinates of a page, use ``coordinates()`` on the wiki clien
     coords = page.coordinates
     print(f"Coordinates: {len(coords)}")
 
-    # Coordinates with enum primary type (type-safe)
-    from wikipediaapi._enums import CoordinateType
-    coords = wiki_wiki.coordinates(page, primary=CoordinateType.ALL)
+    # Coordinates with enum parameters (type-safe)
+    from wikipediaapi import CoordinatesProp, CoordinateType
+    coords = wiki_wiki.coordinates(
+        page,
+        prop=[CoordinatesProp.GLOBE, CoordinatesProp.TYPE, CoordinatesProp.COUNTRY],
+        primary=CoordinateType.ALL
+    )
 
     # Get only primary coordinates
     coords = wiki_wiki.coordinates(page, primary=CoordinateType.PRIMARY)
@@ -513,9 +517,13 @@ To get geographic coordinates of a page, use ``coordinates()`` on the wiki clien
         # Or via the page property:
         coords = await page.coordinates
 
-        # Coordinates with enum primary type (type-safe)
-        from wikipediaapi._enums import CoordinateType
-        coords = await wiki_wiki.coordinates(page, primary=CoordinateType.ALL)
+        # Coordinates with enum parameters (type-safe)
+        from wikipediaapi import CoordinatesProp, CoordinateType
+        coords = await wiki_wiki.coordinates(
+            page,
+            prop=[CoordinatesProp.GLOBE, CoordinatesProp.TYPE, CoordinatesProp.COUNTRY],
+            primary=CoordinateType.ALL
+        )
 
 How To Get Page Images
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -658,13 +666,27 @@ property with snippet, size, wordcount, and timestamp fields.
     for title, page in results.pages.items():
         print(f"{title}: {page.search_meta.wordcount} words")
 
-    # Search with enum sort (type-safe)
-    from wikipediaapi._enums import SearchSort
-    results = wiki_wiki.search("Python programming", sort=SearchSort.RELEVANCE, limit=5)
+    # Search with enum parameters (type-safe)
+    from wikipediaapi import SearchProp, SearchInfo, SearchWhat, SearchQiProfile, SearchSort
+    results = wiki_wiki.search(
+        "Python programming",
+        prop=[SearchProp.SIZE, SearchProp.WORDCOUNT, SearchProp.TIMESTAMP],
+        info=[SearchInfo.TOTAL_HITS, SearchInfo.SUGGESTION],
+        what=SearchWhat.TEXT,
+        qi_profile=SearchQiProfile.ENGINE_AUTO_SELECT,
+        sort=SearchSort.RELEVANCE,
+        limit=5
+    )
 
     # Search with different sort options
     results = wiki_wiki.search("Python programming", sort=SearchSort.LAST_EDIT_DESC, limit=5)
     results = wiki_wiki.search("Python programming", sort=SearchSort.TITLE_NATURAL_ASC, limit=5)
+
+    # Search by title only
+    results = wiki_wiki.search("Python", what=SearchWhat.TITLE, limit=5)
+
+    # Near match search
+    results = wiki_wiki.search("Pythn", what=SearchWhat.NEAR_MATCH, limit=5)
 
 **Asynchronous**
 
@@ -677,9 +699,17 @@ property with snippet, size, wordcount, and timestamp fields.
         for title, page in results.pages.items():
             print(f"{title}: {page.search_meta.wordcount} words")
 
-        # Search with enum sort (type-safe)
-        from wikipediaapi._enums import SearchSort
-        results = await wiki_wiki.search("Python programming", sort=SearchSort.RELEVANCE, limit=5)
+        # Search with enum parameters (type-safe)
+        from wikipediaapi import SearchProp, SearchInfo, SearchWhat, SearchQiProfile, SearchSort
+        results = await wiki_wiki.search(
+            "Python programming",
+            prop=[SearchProp.SIZE, SearchProp.WORDCOUNT],
+            info=[SearchInfo.TOTAL_HITS],
+            what=SearchWhat.TEXT,
+            qi_profile=SearchQiProfile.ENGINE_AUTO_SELECT,
+            sort=SearchSort.RELEVANCE,
+            limit=5
+        )
 
 How To Batch-Fetch Data for Multiple Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -757,10 +787,15 @@ provides IDE autocomplete, type checking, and prevents runtime errors from typos
 
 **Available Enums:**
 
+- ``SearchProp``: Search result properties (``SIZE``, ``WORDCOUNT``, ``TIMESTAMP``, ``SNIPPET``, etc.)
+- ``SearchInfo``: Search metadata (``TOTAL_HITS``, ``SUGGESTION``, ``REWRITTEN_QUERY``)
+- ``SearchWhat``: Search types (``TEXT``, ``TITLE``, ``NEAR_MATCH``)
+- ``SearchQiProfile``: Search ranking profiles (``ENGINE_AUTO_SELECT``, ``CLASSIC``, etc.)
 - ``SearchSort``: Sort options for search results (``RELEVANCE``, ``LAST_EDIT_DESC``, etc.)
 - ``GeoSearchSort``: Sort options for geographic search (``DISTANCE``, ``RELEVANCE``)
 - ``Globe``: Celestial body for coordinates (``EARTH``, ``MARS``, ``MOON``, ``VENUS``)
 - ``CoordinateType``: Coordinate filtering (``ALL``, ``PRIMARY``, ``SECONDARY``)
+- ``CoordinatesProp``: Coordinate properties (``COUNTRY``, ``DIM``, ``GLOBE``, ``NAME``, ``REGION``, ``TYPE``)
 - ``RedirectFilter``: Redirect filtering for random pages (``ALL``, ``REDIRECTS``, ``NONREDIRECTS``)
 - ``Direction``: Sort direction for images (``ASCENDING``, ``DESCENDING``)
 
@@ -769,24 +804,37 @@ provides IDE autocomplete, type checking, and prevents runtime errors from typos
 .. code-block:: python
 
     import wikipediaapi
-    from wikipediaapi._enums import SearchSort, GeoSearchSort, Globe, CoordinateType, RedirectFilter
+    from wikipediaapi import (
+        SearchProp, SearchInfo, SearchWhat, SearchQiProfile, SearchSort,
+        GeoSearchSort, Globe, CoordinateType, CoordinatesProp, RedirectFilter
+    )
 
     wiki = wikipediaapi.Wikipedia('MyProjectName (merlin@example.com)', 'en')
 
     # Type-safe enum usage (recommended)
-    results = wiki.search("python", sort=SearchSort.RELEVANCE)
-    geo_results = wiki.geosearch(
-        coord=wikipediaapi.GeoPoint(lat=51.5, lon=-0.1),
-        sort=GeoSearchSort.DISTANCE,
-        globe=Globe.EARTH
+    results = wiki.search(
+        "python",
+        prop=[SearchProp.SIZE, SearchProp.WORDCOUNT],
+        info=[SearchInfo.TOTAL_HITS],
+        what=SearchWhat.TEXT,
+        qi_profile=SearchQiProfile.ENGINE_AUTO_SELECT,
+        sort=SearchSort.RELEVANCE
     )
-    coords = wiki.coordinates(page, primary=CoordinateType.ALL)
+    geo_results = wiki.geosearch(coord=wikipediaapi.GeoPoint(lat=51.5, lon=-0.1), sort=GeoSearchSort.DISTANCE, globe=Globe.EARTH)
+    coords = wiki.coordinates(page, prop=[CoordinatesProp.GLOBE, CoordinatesProp.TYPE, CoordinatesProp.COUNTRY], primary=CoordinateType.ALL)
     random_pages = wiki.random(filter_redirect=RedirectFilter.NONREDIRECTS)
 
     # Backward-compatible string usage (still works)
-    results = wiki.search("python", sort="relevance")
+    results = wiki.search(
+        "python",
+        prop=["size", "wordcount"],
+        info=["totalhits"],
+        what="text",
+        qi_profile="engine_autoselect",
+        sort="relevance"
+    )
     geo_results = wiki.geosearch(coord=wikipediaapi.GeoPoint(lat=51.5, lon=-0.1), sort="distance", globe="earth")
-    coords = wiki.coordinates(page, primary="all")
+    coords = wiki.coordinates(page, prop=["globe", "type", "country"], primary="all")
     random_pages = wiki.random(filter_redirect="nonredirects")
 
 **Type Aliases for Function Signatures:**
@@ -796,16 +844,51 @@ making it easy to write type-annotated code:
 
 .. code-block:: python
 
-    from wikipediaapi._enums import WikiSearchSort, SearchSort
+    from wikipediaapi import (
+        WikiSearchSort, WikiSearchProp, WikiSearchInfo,
+        WikiSearchWhat, WikiSearchQiProfile, SearchSort,
+        WikiCoordinatesProp, WikiCoordinateType
+    )
 
-    def search_function(query: str, sort: WikiSearchSort) -> wikipediaapi.SearchResults:
-        """Search Wikipedia with either enum or string sort."""
+    def search_function(
+        query: str,
+        sort: WikiSearchSort,
+        prop: list[WikiSearchProp] | None = None,
+        info: list[WikiSearchInfo] | None = None,
+        what: WikiSearchWhat | None = None,
+        qi_profile: WikiSearchQiProfile | None = None
+    ) -> wikipediaapi.SearchResults:
+        """Search Wikipedia with either enum or string parameters."""
         wiki = wikipediaapi.Wikipedia('MyApp/1.0')
-        return wiki.search(query, sort=sort)
+        return wiki.search(query, sort=sort, prop=prop, info=info, what=what, qi_profile=qi_profile)
+
+    def coords_function(
+        page: wikipediaapi.WikipediaPage,
+        prop: list[WikiCoordinatesProp] | None = None,
+        primary: WikiCoordinateType = CoordinateType.PRIMARY
+    ) -> list[wikipediaapi.Coordinate]:
+        """Get coordinates with either enum or string parameters."""
+        wiki = wikipediaapi.Wikipedia('MyApp/1.0')
+        return wiki.coordinates(page, prop=prop, primary=primary)
 
     # Both calls work and are type-safe
-    search_function("python", SearchSort.RELEVANCE)  # Enum input
-    search_function("python", "relevance")          # String input
+    search_function(
+        "python",
+        SearchSort.RELEVANCE,
+        prop=[SearchProp.SIZE, SearchProp.WORDCOUNT],
+        info=[SearchInfo.TOTAL_HITS],
+        what=SearchWhat.TEXT,
+        qi_profile=SearchQiProfile.ENGINE_AUTO_SELECT
+    )  # Enum input
+
+    search_function(
+        "python",
+        "relevance",
+        prop=["size", "wordcount"],
+        info=["totalhits"],
+        what="text",
+        qi_profile="engine_autoselect"
+    )  # String input
 
 Error Handling
 ~~~~~~~~~~~~~~

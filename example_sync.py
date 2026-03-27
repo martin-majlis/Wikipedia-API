@@ -10,6 +10,11 @@ import logging
 import wikipediaapi
 from wikipediaapi import coordinates_prop2str
 from wikipediaapi import CoordinatesProp
+from wikipediaapi import SearchInfo
+from wikipediaapi import SearchProp
+from wikipediaapi import SearchQiProfile
+from wikipediaapi import SearchSort
+from wikipediaapi import SearchWhat
 
 # Set to INFO to see the actual API request URLs being made
 logging.basicConfig(level=logging.WARNING)
@@ -438,9 +443,10 @@ for title in random_pages:
     print(f"  {title}")
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 16. Search (list=search)
+# 16. Search (list=search) with Type-Safe Enums
 # ──────────────────────────────────────────────────────────────────────────────
 
+# Basic search (backward compatible)
 search_results = wiki.search("Python programming", limit=5)
 print(f"Search: {search_results.totalhits} total hits, suggestion={search_results.suggestion}")
 print(f"Search results ({len(search_results.pages)}):")
@@ -448,6 +454,47 @@ for title, p in search_results.pages.items():
     meta = p.search_meta
     if meta:
         print(f"  {title}: size={meta.size}, wordcount={meta.wordcount}")
+
+# Type-safe search with comprehensive enum parameters
+enum_search_results = wiki.search(
+    "Python programming",
+    prop=[SearchProp.SIZE, SearchProp.WORDCOUNT, SearchProp.TIMESTAMP, SearchProp.SNIPPET],
+    info=[SearchInfo.TOTAL_HITS, SearchInfo.SUGGESTION, SearchInfo.REWRITTEN_QUERY],
+    what=SearchWhat.TEXT,
+    qi_profile=SearchQiProfile.ENGINE_AUTO_SELECT,
+    sort=SearchSort.RELEVANCE,
+    limit=5,
+)
+print(f"Enum search: {enum_search_results.totalhits} total hits")
+print(f"Enum search results ({len(enum_search_results.pages)}):")
+for title, p in enum_search_results.pages.items():
+    meta = p.search_meta
+    if meta:
+        print(
+            f"  {title}: size={meta.size}, wordcount={meta.wordcount}, timestamp={meta.timestamp}"
+        )
+
+# Search by title only
+title_search = wiki.search("Python", what=SearchWhat.TITLE, limit=5)
+print(f"Title search: {title_search.totalhits} total hits")
+
+# Different sort strategies
+recent_search = wiki.search("Python", sort=SearchSort.LAST_EDIT_DESC, limit=3)
+print(f"Most recently edited: {len(recent_search.pages)} pages")
+
+popular_search = wiki.search("Python", sort=SearchSort.INCOMING_LINKS_DESC, limit=3)
+print(f"Most linked: {len(popular_search.pages)} pages")
+
+# Mixed enum and string usage (fully supported)
+mixed_search = wiki.search(
+    "Python",
+    prop=[SearchProp.SIZE, "wordcount"],  # Mixed enum and string
+    info=[SearchInfo.TOTAL_HITS, "suggestion"],  # Mixed enum and string
+    what=SearchWhat.TEXT,
+    qi_profile="engine_autoselect",  # String
+    sort="relevance",  # String
+)
+print(f"Mixed search: {mixed_search.totalhits} total hits")
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 17. Batch methods and PagesDict

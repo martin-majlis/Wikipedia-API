@@ -22,7 +22,11 @@ from ._enums import WikiGeoSearchSort
 from ._enums import WikiGlobe
 from ._enums import WikiNamespace
 from ._enums import WikiRedirectFilter
+from ._enums import WikiSearchInfo
+from ._enums import WikiSearchProp
+from ._enums import WikiSearchQiProfile
 from ._enums import WikiSearchSort
+from ._enums import WikiSearchWhat
 from ._pages_dict import AsyncPagesDict
 from ._pages_dict import PagesDict
 from ._params import CoordinatesParams
@@ -1516,7 +1520,7 @@ class WikipediaResource(BaseWikipediaResource):
         *,
         limit: int = 10,
         primary: WikiCoordinateType = CoordinateType.PRIMARY,
-        prop: Iterable[str] = ("globe",),
+        prop: Iterable[WikiCoordinatesProp] = (CoordinatesProp.GLOBE,),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: WikipediaPage | None = None,
     ) -> list[Coordinate]:
@@ -1751,7 +1755,7 @@ class WikipediaResource(BaseWikipediaResource):
         self,
         *,
         coord: GeoPoint | None = None,
-        page: str | None = None,
+        page: WikipediaPage | None = None,
         bbox: GeoBox | None = None,
         radius: int = 500,
         max_dim: int | None = None,
@@ -1759,7 +1763,7 @@ class WikipediaResource(BaseWikipediaResource):
         limit: int = 10,
         globe: WikiGlobe = Globe.EARTH,
         ns: WikiNamespace = Namespace.MAIN,
-        prop: Iterable[str] | None = None,
+        prop: Iterable[WikiCoordinatesProp] | None = None,
         primary: WikiCoordinateType | None = None,
     ) -> PagesDict:
         """Search for pages with coordinates near a location.
@@ -1864,13 +1868,13 @@ class WikipediaResource(BaseWikipediaResource):
         *,
         ns: WikiNamespace = Namespace.MAIN,
         limit: int = 10,
-        prop: Iterable[str] | None = None,
-        info: Iterable[str] | None = None,
+        prop: Iterable[WikiSearchProp] | None = None,
+        info: Iterable[WikiSearchInfo] | None = None,
         sort: WikiSearchSort = SearchSort.RELEVANCE,
-        what: str | None = None,
+        what: WikiSearchWhat | None = None,
         interwiki: bool = False,
         enable_rewrites: bool = False,
-        qi_profile: str | None = None,
+        qi_profile: WikiSearchQiProfile | None = None,
     ) -> SearchResults:
         """Perform a full-text search.
 
@@ -2195,7 +2199,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         *,
         limit: int = 10,
         primary: WikiCoordinateType = CoordinateType.PRIMARY,
-        prop: Iterable[str] = ("globe",),
+        prop: Iterable[WikiCoordinatesProp] = (CoordinatesProp.GLOBE,),
         distance_from_point: GeoPoint | None = None,
         distance_from_page: "AsyncWikipediaPage | None" = None,
     ) -> list[Coordinate]:
@@ -2403,7 +2407,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         self,
         *,
         coord: GeoPoint | None = None,
-        page: str | None = None,
+        page: "AsyncWikipediaPage" | None = None,
         bbox: GeoBox | None = None,
         radius: int = 500,
         max_dim: int | None = None,
@@ -2411,7 +2415,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         limit: int = 10,
         globe: WikiGlobe = Globe.EARTH,
         ns: WikiNamespace = Namespace.MAIN,
-        prop: Iterable[str] | None = None,
+        prop: Iterable[WikiCoordinatesProp] | None = None,
         primary: WikiCoordinateType | None = None,
     ) -> PagesDict:
         """Async version of :meth:`WikipediaResource.geosearch`.
@@ -2503,13 +2507,13 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         *,
         ns: WikiNamespace = Namespace.MAIN,
         limit: int = 10,
-        prop: Iterable[str] | None = None,
-        info: Iterable[str] | None = None,
+        prop: Iterable[WikiSearchProp] | None = None,
+        info: Iterable[WikiSearchInfo] | None = None,
         sort: WikiSearchSort = SearchSort.RELEVANCE,
-        what: str | None = None,
+        what: WikiSearchWhat | None = None,
         interwiki: bool = False,
         enable_rewrites: bool = False,
-        qi_profile: str | None = None,
+        qi_profile: WikiSearchQiProfile | None = None,
     ) -> SearchResults:
         """Async version of :meth:`WikipediaResource.search`.
 

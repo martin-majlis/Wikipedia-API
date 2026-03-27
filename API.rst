@@ -251,16 +251,63 @@ Available Enums
   * ``RELEVANCE`` - sort by relevance (default)
   * ``NONE`` - no sorting
   * ``RANDOM`` - random order
-  * ``CREATE_TIMESTAMP_ASC`` - creation time ascending
-  * ``CREATE_TIMESTAMP_DESC`` - creation time descending
-  * ``INCOMING_LINKS_ASC`` - incoming links ascending
-  * ``INCOMING_LINKS_DESC`` - incoming links descending
-  * ``JUST_MATCH`` - exact match only
-  * ``LAST_EDIT_ASC`` - last edit time ascending
-  * ``LAST_EDIT_DESC`` - last edit time descending
+  * ``CREATE_TIMESTAMP_ASC`` - sort by creation time (oldest first)
+  * ``CREATE_TIMESTAMP_DESC`` - sort by creation time (newest first)
+  * ``INCOMING_LINKS_ASC`` - sort by incoming links (fewest first)
+  * ``INCOMING_LINKS_DESC`` - sort by incoming links (most first)
+  * ``JUST_MATCH`` - sort by match quality
+  * ``LAST_EDIT_ASC`` - sort by last edit time (oldest first)
+  * ``LAST_EDIT_DESC`` - sort by last edit time (newest first)
   * ``TITLE_NATURAL_ASC`` - title natural sort ascending
   * ``TITLE_NATURAL_DESC`` - title natural sort descending
   * ``USER_RANDOM`` - user-specific random
+
+**SearchProp**
+  Properties to return in search results (deprecated upstream but still supported).
+
+  * ``SIZE`` - page size in bytes
+  * ``WORDCOUNT`` - word count
+  * ``TIMESTAMP`` - last edit timestamp
+  * ``SNIPPET`` - search snippet with highlighting
+  * ``TITLE_SNIPPET`` - title snippet with highlighting
+  * ``REDIRECT_TITLE`` - redirect title
+  * ``REDIRECT_SNIPPET`` - redirect snippet with highlighting
+  * ``SECTION_TITLE`` - section title
+  * ``SECTION_SNIPPET`` - section snippet with highlighting
+  * ``IS_FILE_MATCH`` - whether file content matched
+  * ``CATEGORY_SNIPPET`` - category snippet with highlighting
+  * ``SCORE`` - relevance score (deprecated)
+  * ``HAS_RELATED`` - has related suggestions (deprecated)
+  * ``EXTENSION_DATA`` - extension-generated data
+
+**SearchInfo**
+  Metadata to return in search results.
+
+  * ``TOTAL_HITS`` - total number of matches
+  * ``SUGGESTION`` - spelling suggestion
+  * ``REWRITTEN_QUERY`` - rewritten query
+
+**SearchWhat**
+  Type of search to perform.
+
+  * ``TEXT`` - search page text (default)
+  * ``TITLE`` - search page titles only
+  * ``NEAR_MATCH`` - near match search
+
+**SearchQiProfile**
+  Query-independent ranking profile.
+
+  * ``ENGINE_AUTO_SELECT`` - let engine choose (default)
+  * ``CLASSIC`` - classic ranking
+  * ``CLASSIC_NO_BOOST_LINKS`` - classic without link boost
+  * ``EMPTY`` - empty profile (debug only)
+  * ``GROWTH_UNDERLINKED`` - prioritize underlinked articles
+  * ``MLR_1024RS`` - machine learning ranking
+  * ``MLR_1024RS_NEXT`` - next generation ML ranking
+  * ``POPULAR_INCLINKS`` - prioritize popular pages with links
+  * ``POPULAR_INCLINKS_PV`` - prioritize popular pages with pageviews
+  * ``WSUM_INCLINKS`` - weighted sum of incoming links
+  * ``WSUM_INCLINKS_PV`` - weighted sum of links and pageviews
 
 **GeoSearchSort**
   Sort options for geographic search.
@@ -293,12 +340,12 @@ Available Enums
 **CoordinatesProp**
   Additional coordinate properties to fetch.
 
-  * ``COUNTRY`` - country information
-  * ``DIM`` - dimension information
-  * ``GLOBE`` - globe information
-  * ``NAME`` - name information
-  * ``REGION`` - region information
-  * ``TYPE`` - type information
+  * ``COUNTRY`` - ISO 3166-1 alpha-2 country code (e.g. US or RU)
+  * ``DIM`` - Approximate size of the object in meters
+  * ``GLOBE`` - Which terrestrial body the coordinates are relative to (e.g. moon or pluto)
+  * ``NAME`` - Name of the object the coordinates point to
+  * ``REGION`` - ISO 3166-2 region code (the part after the dash; e.g. FL or MOS)
+  * ``TYPE`` - Type of the object the coordinates point to
 
 Usage Examples
 ~~~~~~~~~~~~~~~~
@@ -308,15 +355,23 @@ Usage Examples
 Type-safe enum usage (recommended)::
 
     import wikipediaapi
-    from wikipediaapi._enums import (
-        SearchSort, GeoSearchSort, Globe, CoordinateType, RedirectFilter, Direction
+    from wikipediaapi import (
+        SearchProp, SearchInfo, SearchWhat, SearchQiProfile, SearchSort,
+        GeoSearchSort, Globe, CoordinateType, RedirectFilter, Direction
     )
-    from wikipediaapi._types import GeoPoint
+    from wikipediaapi import GeoPoint
 
     wiki = wikipediaapi.Wikipedia('MyApp/1.0', 'en')
 
-    # Search with enum sort
-    results = wiki.search("python", sort=SearchSort.RELEVANCE)
+    # Search with comprehensive enum parameters
+    results = wiki.search(
+        "python",
+        prop=[SearchProp.SIZE, SearchProp.WORDCOUNT, SearchProp.TIMESTAMP],
+        info=[SearchInfo.TOTAL_HITS, SearchInfo.SUGGESTION],
+        what=SearchWhat.TEXT,
+        qi_profile=SearchQiProfile.ENGINE_AUTO_SELECT,
+        sort=SearchSort.RELEVANCE
+    )
 
     # Geosearch with enum parameters
     point = GeoPoint(lat=51.5074, lon=-0.1278)
@@ -326,9 +381,13 @@ Type-safe enum usage (recommended)::
         globe=Globe.EARTH
     )
 
-    # Coordinates with enum primary type
+    # Coordinates with enum parameters
     page = wiki.page("Mount Everest")
-    coords = wiki.coordinates(page, primary=CoordinateType.ALL)
+    coords = wiki.coordinates(
+        page,
+        prop=[CoordinatesProp.GLOBE, CoordinatesProp.TYPE, CoordinatesProp.COUNTRY],
+        primary=CoordinateType.ALL
+    )
 
     # Random pages with enum filter
     random_pages = wiki.random(filter_redirect=RedirectFilter.NONREDIRECTS, limit=5)
@@ -384,6 +443,12 @@ Coordinate filtering::
     # Get all coordinates (primary + secondary)
     all_coords = wiki.coordinates(page, primary=CoordinateType.ALL)
 
+    # Get coordinates with specific properties
+    coords_with_props = wiki.coordinates(
+        page,
+        prop=[CoordinatesProp.GLOBE, CoordinatesProp.TYPE, CoordinatesProp.COUNTRY]
+    )
+
 Redirect filtering::
 
     # Get only redirect pages
@@ -425,7 +490,7 @@ Backward-compatible string usage::
     # All of these still work exactly the same
     results = wiki.search("python", sort="relevance")
     geo_results = wiki.geosearch(coord=point, sort="distance", globe="earth")
-    coords = wiki.coordinates(page, primary="all")
+    coords = wiki.coordinates(page, prop=["globe", "type", "country"], primary="all")
     random_pages = wiki.random(filter_redirect="nonredirects", limit=5)
     images = wiki.images(page, direction="ascending")
 
@@ -454,6 +519,10 @@ both enum members and strings:
 * ``WikiCoordinateType`` = ``Union[CoordinateType, str]``
 * ``WikiGlobe`` = ``Union[Globe, str]``
 * ``WikiSearchSort`` = ``Union[SearchSort, str]``
+* ``WikiSearchProp`` = ``Union[SearchProp, str]``
+* ``WikiSearchInfo`` = ``Union[SearchInfo, str]``
+* ``WikiSearchWhat`` = ``Union[SearchWhat, str]``
+* ``WikiSearchQiProfile`` = ``Union[SearchQiProfile, str]``
 * ``WikiGeoSearchSort`` = ``Union[GeoSearchSort, str]``
 * ``WikiRedirectFilter`` = ``Union[RedirectFilter, str]``
 * ``WikiCoordinatesProp`` = ``Union[CoordinatesProp, str]``
@@ -489,6 +558,10 @@ or custom API calls), use the converter functions:
 * ``coordinate_type2str(value: WikiCoordinateType) -> str``
 * ``globe2str(value: WikiGlobe) -> str``
 * ``search_sort2str(value: WikiSearchSort) -> str``
+* ``search_prop2str(value: WikiSearchProp) -> str``
+* ``search_info2str(value: WikiSearchInfo) -> str``
+* ``search_what2str(value: WikiSearchWhat) -> str``
+* ``search_qi_profile2str(value: WikiSearchQiProfile) -> str``
 * ``geosearch_sort2str(value: WikiGeoSearchSort) -> str``
 * ``redirect_filter2str(value: WikiRedirectFilter) -> str``
 * ``coordinates_prop2str(value: WikiCoordinatesProp) -> str``

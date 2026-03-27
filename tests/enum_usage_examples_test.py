@@ -164,44 +164,51 @@ class TestEnumUsageExamples(unittest.TestCase):
         print("\n=== API Usage with Enum Parameters ===")
         print("  ⚠️  SKIPPED: This test would make network calls")
 
-    def test_coordinates_api_with_enums(self):
-        """Test coordinates API with enum parameters using mock data."""
-        print("\n=== Coordinates API with Enum Parameters ===")
+    def test_geosearch_api_with_enums(self):
+        """Test geosearch API with enum parameters using page as center."""
+        print("\n=== GeoSearch API with Enum Parameters ===")
 
-        # Get a test page that exists in mock data
-        page = self.wiki.page("Test_1")
+        # Get a test page to use as center point
+        center_page = self.wiki.page("Test_1")
 
-        # Trigger pageid fetch to ensure page exists() works correctly
-        _ = page.pageid
-        self.assertTrue(page.exists())
-
-        # Test that we can create CoordinatesParams with enum values
-        from wikipediaapi._enums import CoordinatesProp
+        # Test that we can create GeoSearchParams with enum values for page-based search
         from wikipediaapi._enums import CoordinateType
-        from wikipediaapi._params import CoordinatesParams
+        from wikipediaapi._enums import GeoSearchSort
+        from wikipediaapi._enums import Globe
+        from wikipediaapi._params import GeoSearchParams
 
-        # Test creating params with enum values
-        params_enum = CoordinatesParams(
-            limit=5, primary=CoordinateType.ALL, prop=[CoordinatesProp.GLOBE, CoordinatesProp.NAME]
+        # Test creating params for page-based geosearch with enum values
+        params_enum = GeoSearchParams(
+            page=center_page,
+            radius=1000,
+            sort=GeoSearchSort.DISTANCE,
+            globe=Globe.EARTH,
+            primary=CoordinateType.PRIMARY,
         )
-        self.assertEqual(params_enum.limit, 5)
-        self.assertEqual(params_enum.prop, "globe|name")  # Converted by __post_init__
+        self.assertEqual(params_enum.radius, 1000)
+        self.assertEqual(params_enum.sort, "distance")  # Converted by __post_init__
+        self.assertEqual(params_enum.globe, "earth")  # Converted by __post_init__
 
         # Test creating params with string values (backward compatibility)
-        params_str = CoordinatesParams(limit=5, primary="all", prop=["globe", "name"])
-        self.assertEqual(params_str.limit, 5)
-        self.assertEqual(params_str.prop, "globe|name")  # Converted by __post_init__
-
-        # Test mixed enum and string values
-        params_mixed = CoordinatesParams(
-            limit=5,
-            primary=CoordinateType.PRIMARY,
-            prop=[CoordinatesProp.GLOBE, "name", CoordinatesProp.TYPE],
+        params_str = GeoSearchParams(
+            page=center_page, radius=1000, sort="distance", globe="earth", primary="primary"
         )
-        self.assertEqual(params_mixed.limit, 5)
-        self.assertEqual(params_mixed.prop, "globe|name|type")  # Converted by __post_init__
+        self.assertEqual(params_str.radius, 1000)
+        self.assertEqual(params_str.sort, "distance")
+        self.assertEqual(params_str.globe, "earth")
 
-        print("  ✓ CoordinatesParams handles enum and string values correctly")
+        print("  ✓ GeoSearchParams handles page-based search with enum and string values correctly")
+
+        # Test coordinate-based geosearch as alternative
+        params_coord = GeoSearchParams(
+            coord=self.test_point,
+            sort=GeoSearchSort.RELEVANCE,
+            globe=Globe.MARS,  # Example of using different globe
+        )
+        self.assertEqual(params_coord.sort, "relevance")
+        self.assertEqual(params_coord.globe, "mars")
+
+        print("  ✓ GeoSearchParams handles coordinate-based search with enum values correctly")
 
     def test_type_alias_examples(self):
         """Test usage of type aliases with both enums and strings."""

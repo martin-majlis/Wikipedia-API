@@ -112,6 +112,16 @@ class TestGeoSearch(unittest.TestCase):
         self.wiki._get = wikipedia_api_request(self.wiki)
 
     def test_geosearch(self):
+        # Test geosearch using a page as the center point
+        center_page = self.wiki.page("Test_1")
+        results = self.wiki.geosearch(page=center_page)
+        self.assertIsInstance(results, wikipediaapi.PagesDict)
+        self.assertEqual(len(results), 2)
+        self.assertIn("Nearby Page 1", results)
+        self.assertIn("Nearby Page 2", results)
+
+    def test_geosearch_with_coordinates(self):
+        # Test geosearch using direct coordinates (alternative to page-based)
         results = self.wiki.geosearch(coord=GeoPoint(51.5074, -0.1278))
         self.assertIsInstance(results, wikipediaapi.PagesDict)
         self.assertEqual(len(results), 2)
@@ -119,7 +129,9 @@ class TestGeoSearch(unittest.TestCase):
         self.assertIn("Nearby Page 2", results)
 
     def test_geosearch_meta(self):
-        results = self.wiki.geosearch(coord=GeoPoint(51.5074, -0.1278))
+        # Test geosearch metadata using page as center
+        center_page = self.wiki.page("Test_1")
+        results = self.wiki.geosearch(page=center_page)
         p1 = results["Nearby Page 1"]
         self.assertIsNotNone(p1.geosearch_meta)
         self.assertAlmostEqual(p1.geosearch_meta.dist, 50.3)
@@ -127,7 +139,9 @@ class TestGeoSearch(unittest.TestCase):
         self.assertTrue(p1.geosearch_meta.primary)
 
     def test_geosearch_precaches_coordinates(self):
-        results = self.wiki.geosearch(coord=GeoPoint(51.5074, -0.1278))
+        # Test that geosearch precaches coordinates using page as center
+        center_page = self.wiki.page("Test_1")
+        results = self.wiki.geosearch(page=center_page)
         p1 = results["Nearby Page 1"]
         default_key = CoordinatesParams().cache_key()
         cached = p1._get_cached("coordinates", default_key)
@@ -136,7 +150,9 @@ class TestGeoSearch(unittest.TestCase):
         self.assertAlmostEqual(cached[0].lat, 51.508)
 
     def test_geosearch_pageid_preset(self):
-        results = self.wiki.geosearch(coord=GeoPoint(51.5074, -0.1278))
+        # Test pageid preset using page as center
+        center_page = self.wiki.page("Test_1")
+        results = self.wiki.geosearch(page=center_page)
         p1 = results["Nearby Page 1"]
         self.assertEqual(p1._attributes["pageid"], 100)
 

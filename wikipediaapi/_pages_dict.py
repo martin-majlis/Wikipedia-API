@@ -178,7 +178,7 @@ class AsyncPagesDict(dict[str, BaseWikipediaPage[Any]]):
     def __init__(
         self,
         wiki: BaseWikipediaResource | None = None,
-        data: Mapping[str, Any] | None = None,
+        data: Mapping[str, BaseWikipediaPage[Any]] | None = None,
     ) -> None:
         """Initialise the AsyncPagesDict with an optional wiki client and data.
 
