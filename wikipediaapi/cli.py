@@ -525,7 +525,7 @@ def get_page_images(
     title: str,
     namespace: int = 0,
     limit: int = 10,
-) -> wikipediaapi.PagesDict:
+) -> wikipediaapi.ImagesDict:
     r"""Get images (files) used on a Wikipedia page.
 
     Args:
@@ -535,7 +535,7 @@ def get_page_images(
         limit: Maximum number of images to return
 
     Returns:
-        Dictionary of image pages keyed by title
+        Dictionary of image objects keyed by title
 
     Raises:
         PageNotFoundError: If the page does not exist
@@ -544,6 +544,88 @@ def get_page_images(
     if not page.exists():
         raise PageNotFoundError(f"Page '{title}' does not exist.")
     return wiki.images(page, limit=limit)
+
+
+def get_image_info(
+    wiki: wikipediaapi.Wikipedia,
+    image_title: str,
+    props: str = "timestamp|user",
+    limit: int = 1,
+) -> dict[str, Any]:
+    r"""Get detailed information about a Wikipedia image.
+
+    Args:
+        wiki: Wikipedia instance
+        image_title: Image title (with or without 'File:' prefix)
+        props: Image info properties to fetch (pipe-separated)
+        limit: Maximum number of file revisions to return
+
+    Returns:
+        Dictionary containing image information
+
+    Raises:
+        Exception: If the image does not exist or API call fails
+    r"""
+    # Ensure image title has File: prefix
+    if not image_title.startswith("File:"):
+        image_title = f"File:{image_title}"
+
+    # Create image object
+    image = wikipediaapi.WikipediaImage(
+        wiki=wiki,
+        title=image_title,
+        ns=wikipediaapi.Namespace.FILE,
+        language=wiki.language,
+    )
+
+    # Parse properties
+    prop_list = [prop.strip() for prop in props.split("|")]
+
+    # Get image info
+    image_info_dict = wiki.imageinfo(image, props=prop_list, iilimit=limit)
+
+    if not image_info_dict:
+        return {}
+
+    return image_info_dict
+
+
+def format_image_info(image_info: dict[str, Any], output_format: str) -> str:
+    r"""Format image information for CLI output.
+
+    Args:
+        image_info: Dictionary containing image information
+        output_format: Output format ('text' or 'json')
+
+    Returns:
+        Formatted string
+    r"""
+    if output_format == "json":
+        return json.dumps(image_info, indent=2, ensure_ascii=False)
+
+    # Text format
+    lines = []
+    if not image_info:
+        lines.append("No image information available.")
+        return "\n".join(lines)
+
+    # Display key properties
+    if "timestamp" in image_info:
+        lines.append(f"Timestamp: {image_info['timestamp']}")
+    if "user" in image_info:
+        lines.append(f"User: {image_info['user']}")
+    if "size" in image_info:
+        lines.append(f"Size: {image_info['size']} bytes")
+    if "url" in image_info:
+        lines.append(f"URL: {image_info['url']}")
+    if "width" in image_info and "height" in image_info:
+        lines.append(f"Dimensions: {image_info['width']}x{image_info['height']}")
+    if "mime" in image_info:
+        lines.append(f"MIME type: {image_info['mime']}")
+    if "comment" in image_info and image_info["comment"]:
+        lines.append(f"Comment: {image_info['comment']}")
+
+    return "\n".join(lines)
 
 
 def get_geosearch_results(
@@ -1229,6 +1311,52 @@ def images(
         result = format_page_dict(images_data, output_format)
         click.echo(result)
     except PageNotFoundError as e:
+        click.echo(str(e), err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument("image_title")
+@click.option(
+    "--props",
+    default="timestamp|user",
+    help="Image info properties to fetch (pipe-separated, e.g. 'timestamp|user|url').",
+)
+@click.option(
+    "--limit",
+    default=1,
+    type=int,
+    help="Maximum number of file revisions to return (1-500).",
+)
+@add_options(_common_options)
+@_json_option
+def imageinfo(
+    image_title,
+    props,
+    limit,
+    language,
+    user_agent,
+    variant,
+    extract_format,
+    namespace,
+    output_format,
+):
+    r"""Get detailed information about a Wikipedia image.
+
+    IMAGE_TITLE is the Wikipedia image title (including 'File:' prefix if applicable).
+
+    \b
+    Examples:
+        wikipedia-api imageinfo "File:Albert Einstein Head.jpg"
+        wikipedia-api imageinfo "Albert Einstein Head.jpg" --props "timestamp|user|url|size" --json
+        wikipedia-api imageinfo "File:Example.jpg" --limit 5
+    r"""
+    try:
+        wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+        image_info_data = get_image_info(wiki, image_title, props, limit)
+        result = format_image_info(image_info_data, output_format)
+        click.echo(result)
+    except Exception as e:
         click.echo(str(e), err=True)
         sys.exit(1)
 

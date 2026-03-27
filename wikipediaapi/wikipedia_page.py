@@ -9,6 +9,7 @@ from typing import Any
 
 from ._base_wikipedia_page import BaseWikipediaPage
 from ._base_wikipedia_page import NOT_CACHED
+from ._pages_dict import ImagesDict
 from ._pages_dict import PagesDict
 from ._params import CoordinatesParams
 from ._params import ImagesParams
@@ -377,7 +378,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         return cached  # type: ignore[no-any-return]
 
     @property
-    def images(self) -> PagesDict:
+    def images(self) -> ImagesDict:
         """Images (files) used on this page.
 
         Triggers an ``images`` API call on first access using default
@@ -385,7 +386,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         Use ``wiki.images(page, limit=50)`` for non-default params.
 
         Returns:
-            :class:`PagesDict` keyed by image title; empty if the page
+            :class:`ImagesDict` keyed by image title; empty if the page
             has no images or does not exist.
         """
         default_params = ImagesParams()
@@ -394,7 +395,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
             self.wiki.images(self)
             cached = self._get_cached("images", default_params.cache_key())
             if isinstance(cached, type(NOT_CACHED)):
-                return PagesDict()
+                return ImagesDict(self.wiki)
         return cached  # type: ignore[no-any-return]
 
     @property

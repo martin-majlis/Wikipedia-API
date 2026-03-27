@@ -17,9 +17,13 @@ from ._base_wikipedia_page import BaseWikipediaPage
 from ._enums import CoordinatesProp
 from ._enums import CoordinateType
 from ._enums import Direction
+from ._enums import ImageInfoProp
 from ._enums import WikiCoordinatesProp
 from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
+from ._enums import WikiImageInfoProp
+from .async_wikipedia_image import AsyncWikipediaImage
+from .wikipedia_image import WikipediaImage
 
 if TYPE_CHECKING:
     from ._resources import BaseWikipediaResource
@@ -252,4 +256,162 @@ class AsyncPagesDict(dict[str, BaseWikipediaPage[Any]]):
             limit=limit,
             images=images,
             direction=direction,
+        )
+
+
+class ImagesDict(dict[str, WikipediaImage]):
+    """Dictionary of WikipediaImage objects with batch operations support.
+
+    Subclass of ``dict`` that carries a back-reference to the wiki client
+    and exposes batch-fetching methods for image information operations.
+
+    Backward compatible: ``ImagesDict`` subclasses ``dict``, so all existing
+    code that treats it as a plain dict continues to work.
+    """
+
+    def __init__(self, wiki: Any, *args: Any, **kwargs: Any) -> None:
+        """Initialize ImagesDict with wiki reference.
+
+        Args:
+            wiki: The Wikipedia client instance.
+            *args: Positional arguments passed to dict.__init__.
+            **kwargs: Keyword arguments passed to dict.__init__.
+        """
+        super().__init__(*args, **kwargs)
+        self._wiki: Any = wiki
+
+    def imageinfo(
+        self,
+        *,
+        props: Iterable[WikiImageInfoProp] = (ImageInfoProp.TIMESTAMP, ImageInfoProp.USER),
+        iilimit: int = 1,
+        iiurlwidth: int = -1,
+        iiurlheight: int = -1,
+        iistart: str | None = None,
+        iiend: str | None = None,
+        iimetadataversion: str | None = None,
+        iiextmetadatalanguage: str = "en",
+        iiextmetadatamultilang: bool = False,
+        iiextmetadatafilter: Iterable[str] | None = None,
+        iiurlparam: str = "",
+        iibadfilecontexttitle: str = "",
+        iilocalonly: bool = False,
+    ) -> dict[str, dict[str, Any]]:
+        """Batch-fetch image information for all images in this dictionary.
+
+        Sends multi-title API requests (up to 50 titles per request)
+        and distributes results to each image's cache.
+
+        Args:
+            props: Image information properties to get as iterable of :class:`WikiImageInfoProp`.
+            iilimit: How many file revisions to return per file (1–500).
+            iiurlwidth: If iiprop=url is set, a URL to an image scaled to this width will be returned.
+            iiurlheight: Similar to iiurlwidth.
+            iistart: Timestamp to start listing from.
+            iiend: Timestamp to stop listing at.
+            iimetadataversion: Version of metadata to use (1 or latest).
+            iiextmetadatalanguage: Language to fetch extmetadata in.
+            iiextmetadatamultilang: Fetch all translations if available.
+            iiextmetadatafilter: Specific keys to return for iiprop=extmetadata.
+            iiurlparam: Handler specific parameter string.
+            iibadfilecontexttitle: Page title used when evaluating bad image list.
+            iilocalonly: Look only for files in the local repository.
+
+        Returns:
+            ``{title: imageinfo_dict}`` for every image in the dictionary.
+        """
+        return self._wiki.batch_imageinfo(  # type: ignore[no-any-return]
+            list(self.values()),
+            props=props,
+            iilimit=iilimit,
+            iiurlwidth=iiurlwidth,
+            iiurlheight=iiurlheight,
+            iistart=iistart,
+            iiend=iiend,
+            iimetadataversion=iimetadataversion,
+            iiextmetadatalanguage=iiextmetadatalanguage,
+            iiextmetadatamultilang=iiextmetadatamultilang,
+            iiextmetadatafilter=iiextmetadatafilter,
+            iiurlparam=iiurlparam,
+            iibadfilecontexttitle=iibadfilecontexttitle,
+            iilocalonly=iilocalonly,
+        )
+
+
+class AsyncImagesDict(dict[str, AsyncWikipediaImage]):
+    """Asynchronous dictionary of AsyncWikipediaImage objects with batch operations.
+
+    Subclass of ``dict`` that carries a back-reference to the async wiki client
+    and exposes async batch-fetching methods for image information operations.
+
+    Backward compatible: ``AsyncImagesDict`` subclasses ``dict``, so all existing
+    code that treats it as a plain dict continues to work.
+    """
+
+    def __init__(self, wiki: Any, *args: Any, **kwargs: Any) -> None:
+        """Initialize AsyncImagesDict with wiki reference.
+
+        Args:
+            wiki: The AsyncWikipedia client instance.
+            *args: Positional arguments passed to dict.__init__.
+            **kwargs: Keyword arguments passed to dict.__init__.
+        """
+        super().__init__(*args, **kwargs)
+        self._wiki: Any = wiki
+
+    async def imageinfo(
+        self,
+        *,
+        props: Iterable[WikiImageInfoProp] = (ImageInfoProp.TIMESTAMP, ImageInfoProp.USER),
+        iilimit: int = 1,
+        iiurlwidth: int = -1,
+        iiurlheight: int = -1,
+        iistart: str | None = None,
+        iiend: str | None = None,
+        iimetadataversion: str | None = None,
+        iiextmetadatalanguage: str = "en",
+        iiextmetadatamultilang: bool = False,
+        iiextmetadatafilter: Iterable[str] | None = None,
+        iiurlparam: str = "",
+        iibadfilecontexttitle: str = "",
+        iilocalonly: bool = False,
+    ) -> dict[str, dict[str, Any]]:
+        """Asynchronously batch-fetch image information for all images in this dictionary.
+
+        Sends multi-title API requests (up to 50 titles per request)
+        and distributes results to each image's cache.
+
+        Args:
+            props: Image information properties to get as iterable of :class:`WikiImageInfoProp`.
+            iilimit: How many file revisions to return per file (1–500).
+            iiurlwidth: If iiprop=url is set, a URL to an image scaled to this width will be returned.
+            iiurlheight: Similar to iiurlwidth.
+            iistart: Timestamp to start listing from.
+            iiend: Timestamp to stop listing at.
+            iimetadataversion: Version of metadata to use (1 or latest).
+            iiextmetadatalanguage: Language to fetch extmetadata in.
+            iiextmetadatamultilang: Fetch all translations if available.
+            iiextmetadatafilter: Specific keys to return for iiprop=extmetadata.
+            iiurlparam: Handler specific parameter string.
+            iibadfilecontexttitle: Page title used when evaluating bad image list.
+            iilocalonly: Look only for files in the local repository.
+
+        Returns:
+            ``{title: imageinfo_dict}`` for every image in the dictionary.
+        """
+        return await self._wiki.batch_imageinfo(  # type: ignore[no-any-return]
+            list(self.values()),
+            props=props,
+            iilimit=iilimit,
+            iiurlwidth=iiurlwidth,
+            iiurlheight=iiurlheight,
+            iistart=iistart,
+            iiend=iiend,
+            iimetadataversion=iimetadataversion,
+            iiextmetadatalanguage=iiextmetadatalanguage,
+            iiextmetadatamultilang=iiextmetadatamultilang,
+            iiextmetadatafilter=iiextmetadatafilter,
+            iiurlparam=iiurlparam,
+            iibadfilecontexttitle=iibadfilecontexttitle,
+            iilocalonly=iilocalonly,
         )

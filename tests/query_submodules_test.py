@@ -83,7 +83,7 @@ class TestImages(unittest.TestCase):
     def test_images_default(self):
         page = self.wiki.page("Test_1")
         imgs = self.wiki.images(page)
-        self.assertIsInstance(imgs, wikipediaapi.PagesDict)
+        self.assertIsInstance(imgs, wikipediaapi.ImagesDict)
         self.assertEqual(len(imgs), 2)
         self.assertIn("File:Example.png", imgs)
         self.assertIn("File:Logo.svg", imgs)
@@ -102,7 +102,7 @@ class TestImages(unittest.TestCase):
     def test_page_images_property(self):
         page = self.wiki.page("Test_1")
         imgs = page.images
-        self.assertIsInstance(imgs, wikipediaapi.PagesDict)
+        self.assertIsInstance(imgs, wikipediaapi.ImagesDict)
         self.assertEqual(len(imgs), 2)
 
 
@@ -595,7 +595,7 @@ class TestAsyncQuerySubmodules(unittest.IsolatedAsyncioTestCase):
     async def test_async_images(self):
         page = self.wiki.page("Test_1")
         imgs = await self.wiki.images(page)
-        self.assertIsInstance(imgs, wikipediaapi.PagesDict)
+        self.assertIsInstance(imgs, wikipediaapi.AsyncImagesDict)
         self.assertEqual(len(imgs), 2)
 
     async def test_async_images_nonexistent(self):
@@ -662,7 +662,7 @@ class TestAsyncQuerySubmodules(unittest.IsolatedAsyncioTestCase):
     async def test_async_page_images_property(self):
         page = self.wiki.page("Test_1")
         imgs = await page.images
-        self.assertIsInstance(imgs, wikipediaapi.PagesDict)
+        self.assertIsInstance(imgs, wikipediaapi.AsyncImagesDict)
         self.assertEqual(len(imgs), 2)
 
     async def test_async_page_geosearch_meta_none(self):

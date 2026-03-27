@@ -27,6 +27,8 @@ from ._enums import geosearch_sort2str
 from ._enums import GeoSearchSort
 from ._enums import Globe
 from ._enums import globe2str
+from ._enums import image_info_prop2str
+from ._enums import ImageInfoProp
 from ._enums import Namespace
 from ._enums import redirect_filter2str
 from ._enums import RedirectFilter
@@ -43,6 +45,7 @@ from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
 from ._enums import WikiGeoSearchSort
 from ._enums import WikiGlobe
+from ._enums import WikiImageInfoProp
 from ._enums import WikiNamespace
 from ._enums import WikiRedirectFilter
 from ._enums import WikiSearchInfo
@@ -212,6 +215,83 @@ class ImagesParams(_BaseParams):
         "limit": "limit",
         "images": "images",
         "direction": "dir",
+    }
+
+
+@dataclass(frozen=True)
+class ImageInfoParams(_BaseParams):
+    """Parameters for ``prop=imageinfo`` (prefix ``ii``).
+
+    Args:
+        iiprop: Image information properties to get as iterable of :class:`WikiImageInfoProp`.
+        iilimit: How many file revisions to return per file (1–500).
+        iiurlwidth: If iiprop=url is set, a URL to an image scaled to this width will be returned.
+        iiurlheight: Similar to iiurlwidth.
+        iistart: Timestamp to start listing from.
+        iiend: Timestamp to stop listing at.
+        iimetadataversion: Version of metadata to use (1 or latest).
+        iiextmetadatalanguage: Language to fetch extmetadata in.
+        iiextmetadatamultilang: Fetch all translations if available.
+        iiextmetadatafilter: Specific keys to return for iiprop=extmetadata.
+        iiurlparam: Handler specific parameter string.
+        iibadfilecontexttitle: Page title used when evaluating bad image list.
+        iilocalonly: Look only for files in the local repository.
+    """
+
+    iiprop: Iterable[WikiImageInfoProp] = (ImageInfoProp.TIMESTAMP, ImageInfoProp.USER)
+    iilimit: int = 1
+    iiurlwidth: int = -1
+    iiurlheight: int = -1
+    iistart: str | None = None
+    iiend: str | None = None
+    iimetadataversion: str | None = None
+    iiextmetadatalanguage: str = "en"
+    iiextmetadatamultilang: bool = False
+    iiextmetadatafilter: Iterable[str] | None = None
+    iiurlparam: str = ""
+    iibadfilecontexttitle: str = ""
+    iilocalonly: bool = False
+
+    def __post_init__(self) -> None:
+        """Normalize iterable iiprop values and validate types.
+
+        Converts the iterable ``iiprop`` value into the MediaWiki-required
+        pipe-separated string representation when provided.
+
+        Raises:
+            TypeError: If any parameter has an invalid type.
+        """
+        # Convert iiprop enum values to strings
+        normalized_props = []
+        for prop in self.iiprop:
+            if not isinstance(prop, (ImageInfoProp, str)):
+                raise TypeError("ImageInfoParams.iiprop must contain ImageInfoProp or str values")
+            normalized_props.append(image_info_prop2str(prop))
+        object.__setattr__(self, "iiprop", "|".join(normalized_props))
+
+        # Convert extmetadatafilter to pipe-separated string if provided
+        if self.iiextmetadatafilter is not None:
+            if isinstance(self.iiextmetadatafilter, str):
+                raise TypeError(
+                    "ImageInfoParams.iiextmetadatafilter must be an iterable of strings, not str"
+                )
+            object.__setattr__(self, "iiextmetadatafilter", "|".join(self.iiextmetadatafilter))
+
+    PREFIX: ClassVar[str] = "ii"
+    FIELD_MAP: ClassVar[dict[str, str]] = {
+        "iiprop": "prop",
+        "iilimit": "limit",
+        "iiurlwidth": "urlwidth",
+        "iiurlheight": "urlheight",
+        "iistart": "start",
+        "iiend": "end",
+        "iimetadataversion": "metadataversion",
+        "iiextmetadatalanguage": "extmetadatalanguage",
+        "iiextmetadatamultilang": "extmetadatamultilang",
+        "iiextmetadatafilter": "extmetadatafilter",
+        "iiurlparam": "urlparam",
+        "iibadfilecontexttitle": "badfilecontexttitle",
+        "iilocalonly": "localonly",
     }
 
 

@@ -5,6 +5,7 @@ import re
 from typing import Any, TYPE_CHECKING, TypeVar, Union
 from urllib import parse
 
+from ._base_wikipedia_image import BaseWikipediaImage
 from ._base_wikipedia_page import BaseWikipediaPage
 from ._base_wikipedia_page import NOT_CACHED
 from ._enums import CoordinatesProp
@@ -12,6 +13,7 @@ from ._enums import CoordinateType
 from ._enums import Direction
 from ._enums import GeoSearchSort
 from ._enums import Globe
+from ._enums import ImageInfoProp
 from ._enums import Namespace
 from ._enums import RedirectFilter
 from ._enums import SearchSort
@@ -20,6 +22,7 @@ from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
 from ._enums import WikiGeoSearchSort
 from ._enums import WikiGlobe
+from ._enums import WikiImageInfoProp
 from ._enums import WikiNamespace
 from ._enums import WikiRedirectFilter
 from ._enums import WikiSearchInfo
@@ -27,10 +30,13 @@ from ._enums import WikiSearchProp
 from ._enums import WikiSearchQiProfile
 from ._enums import WikiSearchSort
 from ._enums import WikiSearchWhat
+from ._pages_dict import AsyncImagesDict
 from ._pages_dict import AsyncPagesDict
+from ._pages_dict import ImagesDict
 from ._pages_dict import PagesDict
 from ._params import CoordinatesParams
 from ._params import GeoSearchParams
+from ._params import ImageInfoParams
 from ._params import ImagesParams
 from ._params import RandomParams
 from ._params import SearchParams
@@ -41,6 +47,7 @@ from ._types import GeoSearchMeta
 from ._types import SearchMeta
 from ._types import SearchResults
 from .extract_format import ExtractFormat
+from .wikipedia_image import WikipediaImage
 from .wikipedia_page import WikipediaPage
 from .wikipedia_page_section import WikipediaPageSection
 
@@ -49,6 +56,7 @@ _PageP = TypeVar("_PageP", bound=BaseWikipediaPage)
 
 
 if TYPE_CHECKING:
+    from .async_wikipedia_image import AsyncWikipediaImage
     from .async_wikipedia_page import AsyncWikipediaPage
 
 RE_SECTION = {
@@ -82,7 +90,9 @@ class BaseWikipediaResource(ABC):
     """
 
     def _construct_params(
-        self, page: "BaseWikipediaPage[Any]", params: dict[str, Any]
+        self,
+        page: "BaseWikipediaPage[Any] | BaseWikipediaImage[Any]",
+        params: dict[str, Any],
     ) -> dict[str, Any]:
         """
         Merge caller-supplied params with mandatory API defaults.
@@ -92,7 +102,7 @@ class BaseWikipediaResource(ABC):
         params take precedence over defaults; ``_extra_api_params`` take
         precedence over everything.
 
-        :param page: source page, used to read ``page.variant``
+        :param page: source page or image, used to read ``page.variant``
         :param params: API-specific parameters produced by a ``_*_params`` method
         :return: fully merged parameter dict ready to pass to ``_get``
         """
@@ -136,6 +146,35 @@ class BaseWikipediaResource(ABC):
             language=language,
             variant=variant,
             url=url,
+        )
+
+    def _make_image(
+        self,
+        title: str,
+        ns: WikiNamespace,
+        language: str,
+        variant: str | None = None,
+    ) -> WikipediaImage:
+        """
+        Create a stub :class:`WikipediaImage` bound to this resource instance.
+
+        The returned image is *not* yet populated with API data; it will fetch
+        lazily when its properties are accessed.  Overridden in
+        :class:`AsyncWikipediaResource` to return :class:`AsyncWikipediaImage`.
+
+        :param title: image title exactly as it appears in Wikipedia URLs
+        :param ns: namespace constant from :class:`~wikipediaapi.Namespace`
+        :param language: two-letter language code (e.g. ``"en"``)
+        :param variant: optional language variant (e.g. ``"zh-tw"``);
+            ``None`` means no variant conversion
+        :return: uninitialised :class:`WikipediaImage` instance
+        """
+        return WikipediaImage(
+            wiki=self,  # type: ignore[arg-type]
+            title=title,
+            ns=ns,
+            language=language,
+            variant=variant,
         )
 
     @staticmethod
@@ -1038,10 +1077,10 @@ class BaseWikipediaResource(ABC):
         extract: dict[str, Any],
         page: "BaseWikipediaPage[Any]",
         params: ImagesParams,
-    ) -> PagesDict:
+    ) -> ImagesDict:
         """Parse images from a single page API response entry.
 
-        Builds a :class:`PagesDict` of stub pages from ``extract["images"]``
+        Builds a :class:`ImagesDict` of stub images from ``extract["images"]``
         and stores it in the page's per-param cache.
 
         Args:
@@ -1050,19 +1089,19 @@ class BaseWikipediaResource(ABC):
             params: The parameters used for this fetch (for cache key).
 
         Returns:
-            :class:`PagesDict` keyed by image title.
+            :class:`ImagesDict` keyed by image title.
         """
         self._common_attributes(extract, page)
-        result = PagesDict(wiki=self)
+        result = ImagesDict(wiki=self)
         for img in extract.get("images", []):
-            result[img["title"]] = self._make_page(
+            result[img["title"]] = self._make_image(
                 title=img["title"],
                 ns=int(img.get("ns", 6)),
                 language=page.language,
                 variant=page.variant,
             )
         page._set_cached("images", params.cache_key(), result)
-        return result
+        return result  # type: ignore[no-any-return]
 
     def _build_geosearch_results(self, raw_query: dict[str, Any]) -> PagesDict:
         """Parse geosearch list results into a PagesDict.
@@ -1094,7 +1133,7 @@ class BaseWikipediaResource(ABC):
             coord = Coordinate(lat=lat, lon=lon, primary=is_primary, globe="earth")
             p._set_cached("coordinates", default_coords_key, [coord])
             result[entry["title"]] = p
-        return result
+        return result  # type: ignore[no-any-return]
 
     def _build_random_results(self, raw_query: dict[str, Any]) -> PagesDict:
         """Parse random list results into a PagesDict.
@@ -1117,7 +1156,7 @@ class BaseWikipediaResource(ABC):
             )
             p._attributes["pageid"] = entry.get("id", -1)
             result[entry["title"]] = p
-        return result
+        return result  # type: ignore[no-any-return]
 
     def _build_search_results(
         self,
@@ -1571,10 +1610,10 @@ class WikipediaResource(BaseWikipediaResource):
             if k == "-1":
                 page._attributes["pageid"] = self._missing_pageid(page)
                 page._set_cached("coordinates", params.cache_key(), [])
-                return []
+                return []  # type: ignore[return-value]
             return self._build_coordinates_for_page(v, page, params)
         page._set_cached("coordinates", params.cache_key(), [])
-        return []
+        return []  # type: ignore[return-value]
 
     def batch_coordinates(
         self,
@@ -1637,7 +1676,7 @@ class WikipediaResource(BaseWikipediaResource):
         for p in pages:
             if p not in result:
                 result[p] = []
-        return result
+        return result  # type: ignore[no-any-return]
 
     def images(
         self,
@@ -1646,7 +1685,7 @@ class WikipediaResource(BaseWikipediaResource):
         limit: int = 10,
         images: Iterable[str] | None = None,
         direction: WikiDirection = Direction.ASCENDING,
-    ) -> PagesDict:
+    ) -> ImagesDict:
         """Fetch images (files) used on a page.
 
         Calls ``prop=images`` with automatic pagination and caches
@@ -1663,7 +1702,7 @@ class WikipediaResource(BaseWikipediaResource):
             direction: Sort direction as :class:`WikiDirection`.
 
         Returns:
-            :class:`PagesDict` keyed by image title; empty if page missing.
+            :class:`ImagesDict` keyed by image title; empty if page missing.
 
         Raises:
             WikiHttpTimeoutError: If the request times out.
@@ -1684,7 +1723,7 @@ class WikipediaResource(BaseWikipediaResource):
         for k, v in raw.get("query", {}).get("pages", {}).items():
             if k == "-1":
                 page._attributes["pageid"] = self._missing_pageid(page)
-                empty = PagesDict(wiki=self)
+                empty = ImagesDict(wiki=self)
                 page._set_cached("images", params.cache_key(), empty)
                 return empty
             while "continue" in raw:
@@ -1696,7 +1735,7 @@ class WikipediaResource(BaseWikipediaResource):
                     raw.get("query", {}).get("pages", {}).get(k, {}).get("images", [])
                 )
             return self._build_images_for_page(v, page, params)
-        empty = PagesDict(wiki=self)
+        empty = ImagesDict(wiki=self)
         page._set_cached("images", params.cache_key(), empty)
         return empty
 
@@ -1707,7 +1746,7 @@ class WikipediaResource(BaseWikipediaResource):
         limit: int = 10,
         images: Iterable[str] | None = None,
         direction: WikiDirection = Direction.ASCENDING,
-    ) -> dict[str, PagesDict]:
+    ) -> dict[str, ImagesDict]:
         """Batch-fetch images for multiple pages.
 
         Sends multi-title API requests (up to 50 titles per request)
@@ -1720,10 +1759,10 @@ class WikipediaResource(BaseWikipediaResource):
             direction: Sort direction as :class:`WikiDirection`.
 
         Returns:
-            ``{title: PagesDict}`` for every page.
+            ``{title: ImagesDict}`` for every page.
         """
         params = ImagesParams(limit=limit, images=images, direction=direction)
-        result: dict[str, PagesDict] = {}
+        result: dict[str, ImagesDict] = {}
         page_map = {p.title: p for p in pages}
         for i in range(0, len(pages), 50):
             chunk = pages[i : i + 50]
@@ -1748,8 +1787,227 @@ class WikipediaResource(BaseWikipediaResource):
                     result[title] = imgs
         for p in pages:
             if p.title not in result:
-                result[p.title] = PagesDict(wiki=self)
-        return result
+                result[p.title] = ImagesDict(wiki=self)
+        return result  # type: ignore[no-any-return]
+
+    def imageinfo(
+        self,
+        image: WikipediaImage,
+        *,
+        props: Iterable[WikiImageInfoProp] = (ImageInfoProp.TIMESTAMP, ImageInfoProp.USER),
+        iilimit: int = 1,
+        iiurlwidth: int = -1,
+        iiurlheight: int = -1,
+        iistart: str | None = None,
+        iiend: str | None = None,
+        iimetadataversion: str | None = None,
+        iiextmetadatalanguage: str = "en",
+        iiextmetadatamultilang: bool = False,
+        iiextmetadatafilter: Iterable[str] | None = None,
+        iiurlparam: str = "",
+        iibadfilecontexttitle: str = "",
+        iilocalonly: bool = False,
+    ) -> list[dict[str, Any]]:
+        """Fetch detailed image information.
+
+        Calls ``prop=imageinfo`` with automatic pagination and caches
+        the result per parameter set.
+
+        API reference:
+
+        - https://www.mediawiki.org/wiki/API:Imageinfo
+
+        Args:
+            image: Image to fetch information for.
+            props: Image information properties to get as iterable of :class:`WikiImageInfoProp`.
+            iilimit: How many file revisions to return per file (1–500).
+            iiurlwidth: If iiprop=url is set, a URL to an image scaled to this width will be returned.
+            iiurlheight: Similar to iiurlwidth.
+            iistart: Timestamp to start listing from.
+            iiend: Timestamp to stop listing at.
+            iimetadataversion: Version of metadata to use (1 or latest).
+            iiextmetadatalanguage: Language to fetch extmetadata in.
+            iiextmetadatamultilang: Fetch all translations if available.
+            iiextmetadatafilter: Specific keys to return for iiprop=extmetadata.
+            iiurlparam: Handler specific parameter string.
+            iibadfilecontexttitle: Page title used when evaluating bad image list.
+            iilocalonly: Look only for files in the local repository.
+
+        Returns:
+            Raw imageinfo data from the API response.
+
+        Raises:
+            WikiHttpTimeoutError: If the request times out.
+            WikiConnectionError: If a connection cannot be established.
+            WikiRateLimitError: If the API returns HTTP 429.
+            WikiHttpError: If the API returns a non-success HTTP status.
+            WikiInvalidJsonError: If the response is not valid JSON.
+        """
+        params = ImageInfoParams(
+            props=props,  # type: ignore[call-arg]
+            iilimit=iilimit,
+            iiurlwidth=iiurlwidth,
+            iiurlheight=iiurlheight,
+            iistart=iistart,
+            iiend=iiend,
+            iimetadataversion=iimetadataversion,
+            iiextmetadatalanguage=iiextmetadatalanguage,
+            iiextmetadatamultilang=iiextmetadatamultilang,
+            iiextmetadatafilter=iiextmetadatafilter,
+            iiurlparam=iiurlparam,
+            iibadfilecontexttitle=iibadfilecontexttitle,
+            iilocalonly=iilocalonly,
+        )
+        cache_key = f"imageinfo:{params.cache_key()}"
+        cached = image._get_cached("imageinfo", cache_key)
+        if not isinstance(cached, type(NOT_CACHED)):
+            return cached  # type: ignore[no-any-return]
+
+        api_params: dict[str, Any] = {
+            "action": "query",
+            "prop": "imageinfo",
+            "titles": image.title,
+        }
+        api_params.update(params.to_api())
+        raw = self._get(  # type: ignore[attr-defined]
+            image.language, self._construct_params(image, api_params)  # type: ignore[arg-type]
+        )
+
+        # Extract imageinfo from response
+        query = raw.get("query", {})
+        pages = query.get("pages", {})
+        for page_id, page_data in pages.items():
+            if page_id == "-1":
+                # Image doesn't exist
+                image._set_cached("imageinfo", cache_key, [])
+                return []  # type: ignore[return-value]
+            imageinfo_list = page_data.get("imageinfo", [])
+
+            # Handle pagination if needed
+            while "continue" in raw:
+                api_params["iicontinue"] = raw["continue"]["iicontinue"]
+                raw = self._get(  # type: ignore[attr-defined]
+                    image.language,
+                    self._construct_params(image, api_params),  # type: ignore[arg-type]
+                )
+                continued_pages = raw.get("query", {}).get("pages", {})
+                continued_data = continued_pages.get(page_id, {})
+                continued_imageinfo = continued_data.get("imageinfo", [])
+                imageinfo_list.extend(continued_imageinfo)
+
+            image._set_cached("imageinfo", cache_key, imageinfo_list)
+            return imageinfo_list
+
+        # Fallback if no pages found
+        image._set_cached("imageinfo", cache_key, [])
+        return []  # type: ignore[return-value]
+
+    def batch_imageinfo(
+        self,
+        images: list[WikipediaImage],
+        *,
+        props: Iterable[WikiImageInfoProp] = (ImageInfoProp.TIMESTAMP, ImageInfoProp.USER),
+        iilimit: int = 1,
+        iiurlwidth: int = -1,
+        iiurlheight: int = -1,
+        iistart: str | None = None,
+        iiend: str | None = None,
+        iimetadataversion: str | None = None,
+        iiextmetadatalanguage: str = "en",
+        iiextmetadatamultilang: bool = False,
+        iiextmetadatafilter: Iterable[str] | None = None,
+        iiurlparam: str = "",
+        iibadfilecontexttitle: str = "",
+        iilocalonly: bool = False,
+    ) -> dict[str, dict[str, Any]]:
+        """Batch-fetch image information for multiple images.
+
+        Sends multi-title API requests (up to 50 titles per request)
+        and distributes results to each image's cache.
+
+        Args:
+            images: List of images to fetch information for.
+            props: Image information properties to get as iterable of :class:`WikiImageInfoProp`.
+            iilimit: How many file revisions to return per file (1–500).
+            iiurlwidth: If iiprop=url is set, a URL to an image scaled to this width will be returned.
+            iiurlheight: Similar to iiurlwidth.
+            iistart: Timestamp to start listing from.
+            iiend: Timestamp to stop listing at.
+            iimetadataversion: Version of metadata to use (1 or latest).
+            iiextmetadatalanguage: Language to fetch extmetadata in.
+            iiextmetadatamultilang: Fetch all translations if available.
+            iiextmetadatafilter: Specific keys to return for iiprop=extmetadata.
+            iiurlparam: Handler specific parameter string.
+            iibadfilecontexttitle: Page title used when evaluating bad image list.
+            iilocalonly: Look only for files in the local repository.
+
+        Returns:
+            ``{title: imageinfo_dict}`` for every image.
+        """
+        params = ImageInfoParams(
+            props=props,  # type: ignore[call-arg]
+            iilimit=iilimit,
+            iiurlwidth=iiurlwidth,
+            iiurlheight=iiurlheight,
+            iistart=iistart,
+            iiend=iiend,
+            iimetadataversion=iimetadataversion,
+            iiextmetadatalanguage=iiextmetadatalanguage,
+            iiextmetadatamultilang=iiextmetadatamultilang,
+            iiextmetadatafilter=iiextmetadatafilter,
+            iiurlparam=iiurlparam,
+            iibadfilecontexttitle=iibadfilecontexttitle,
+            iilocalonly=iilocalonly,
+        )
+        result: dict[str, dict[str, Any]] = {}
+        image_map = {img.title: img for img in images}
+
+        for i in range(0, len(images), 50):
+            chunk = images[i : i + 50]
+            titles = "|".join(img.title for img in chunk)
+            api_params: dict[str, Any] = {
+                "action": "query",
+                "prop": "imageinfo",
+                "titles": titles,
+            }
+            api_params.update(params.to_api())
+            dummy_image = chunk[0]
+            raw = self._get(  # type: ignore[attr-defined]
+                dummy_image.language,  # type: ignore[arg-type]
+                self._construct_params(dummy_image, api_params),  # type: ignore[arg-type]
+            )
+
+            norm_map = self._build_normalization_map(raw)
+            for page_id, page_data in raw.get("query", {}).get("pages", {}).items():
+                title = page_data.get("title", "")
+                orig = norm_map.get(title, title)
+                img = image_map.get(orig) or image_map.get(title)
+                if img is not None:
+                    imageinfo_list = page_data.get("imageinfo", [])
+
+                    # Handle pagination if needed
+                    while "continue" in raw:
+                        api_params["iicontinue"] = raw["continue"]["iicontinue"]
+                        raw = self._get(  # type: ignore[attr-defined]
+                            dummy_image.language,
+                            self._construct_params(
+                                dummy_image, api_params  # type: ignore[arg-type]
+                            ),
+                        )
+                        continued_pages = raw.get("query", {}).get("pages", {})
+                        continued_data = continued_pages.get(page_id, {})
+                        continued_imageinfo = continued_data.get("imageinfo", [])
+                        imageinfo_list.extend(continued_imageinfo)
+
+                    cache_key = f"imageinfo:{params.cache_key()}"
+                    img._set_cached("imageinfo", cache_key, imageinfo_list)
+                    result[title] = imageinfo_list[0] if imageinfo_list else {}
+
+        for img in images:
+            if img.title not in result:
+                result[img.title] = {}
+
+        return result  # type: ignore[no-any-return]
 
     def geosearch(
         self,
@@ -1992,6 +2250,66 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             variant=variant,
             url=url,
         )
+
+    def _make_image(  # type: ignore[override]
+        self,
+        title: str,
+        ns: WikiNamespace,
+        language: str,
+        variant: str | None = None,
+    ) -> "AsyncWikipediaImage":
+        """
+        Override of BaseWikipediaResource._make_image that returns AsyncWikipediaImage.
+
+        All _build_* methods call _make_image to create stub images,
+        so stub images produced in an async context are automatically async.
+
+        :param title: image title exactly as it appears in Wikipedia URLs
+        :param ns: namespace constant
+        :param language: two-letter language code
+        :param variant: optional language variant; ``None`` for none
+        :return: uninitialised :class:`AsyncWikipediaImage` instance
+        """
+        from .async_wikipedia_image import AsyncWikipediaImage
+
+        return AsyncWikipediaImage(
+            wiki=self,  # type: ignore[arg-type]
+            title=title,
+            ns=ns,
+            language=language,
+            variant=variant,
+        )
+
+    def _build_images_for_page(  # type: ignore[override]
+        self,
+        extract: dict[str, Any],
+        page: "BaseWikipediaPage[Any]",
+        params: ImagesParams,
+    ) -> AsyncImagesDict:
+        """Parse images from a single page API response entry.
+
+        Builds a :class:`AsyncImagesDict` of stub images from ``extract["images"]``
+        and stores it in the page's per-param cache.
+
+        Args:
+            extract: Single page entry from ``raw["query"]["pages"]``.
+            page: Page object to populate in-place.
+            params: The parameters used for this fetch (for cache key).
+
+        Returns:
+            :class:`AsyncImagesDict` keyed by image title.
+        """
+        self._common_attributes(extract, page)
+        result = AsyncImagesDict(wiki=self)
+        for img in extract.get("images", []):
+            result[img["title"]] = self._make_image(
+                title=img["title"],
+                ns=int(img.get("ns", 6)),
+                language=page.language,
+                variant=page.variant,
+            )
+        page._set_cached("images", params.cache_key(), result)
+        return result  # type: ignore[no-any-return]
 
     def page(
         self,
@@ -2237,10 +2555,10 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             if k == "-1":
                 page._attributes["pageid"] = self._missing_pageid(page)
                 page._set_cached("coordinates", params.cache_key(), [])
-                return []
+                return []  # type: ignore[return-value]
             return self._build_coordinates_for_page(v, page, params)
         page._set_cached("coordinates", params.cache_key(), [])
-        return []
+        return []  # type: ignore[return-value]
 
     async def batch_coordinates(
         self,
@@ -2302,7 +2620,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         for p in pages:
             if p not in result:
                 result[p] = []
-        return result
+        return result  # type: ignore[no-any-return]
 
     async def images(
         self,
@@ -2311,7 +2629,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         limit: int = 10,
         images: Iterable[str] | None = None,
         direction: WikiDirection = Direction.ASCENDING,
-    ) -> PagesDict:
+    ) -> AsyncImagesDict:
         """Async version of :meth:`WikipediaResource.images`.
 
         See :meth:`WikipediaResource.images` for full documentation.
@@ -2323,7 +2641,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             direction: Sort direction as :class:`WikiDirection`.
 
         Returns:
-            :class:`PagesDict` keyed by image title; empty if page missing.
+            :class:`AsyncImagesDict` keyed by image title; empty if page missing.
         """
         params = ImagesParams(limit=limit, images=images, direction=direction)
         cached = page._get_cached("images", params.cache_key())
@@ -2337,7 +2655,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         for k, v in raw.get("query", {}).get("pages", {}).items():
             if k == "-1":
                 page._attributes["pageid"] = self._missing_pageid(page)
-                empty_pd: PagesDict = PagesDict(wiki=self)
+                empty_pd: AsyncImagesDict = AsyncImagesDict(wiki=self)
                 page._set_cached("images", params.cache_key(), empty_pd)
                 return empty_pd
             while "continue" in raw:
@@ -2349,7 +2667,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
                     raw.get("query", {}).get("pages", {}).get(k, {}).get("images", [])
                 )
             return self._build_images_for_page(v, page, params)
-        empty_pd = PagesDict(wiki=self)
+        empty_pd = AsyncImagesDict(wiki=self)
         page._set_cached("images", params.cache_key(), empty_pd)
         return empty_pd
 
@@ -2360,7 +2678,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         limit: int = 10,
         images: Iterable[str] | None = None,
         direction: WikiDirection = Direction.ASCENDING,
-    ) -> dict[str, PagesDict]:
+    ) -> dict[str, AsyncImagesDict]:
         """Async version of :meth:`WikipediaResource.batch_images`.
 
         See :meth:`WikipediaResource.batch_images` for full documentation.
@@ -2372,10 +2690,10 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             direction: Sort direction as :class:`WikiDirection`.
 
         Returns:
-            ``{title: PagesDict}`` for every page.
+            ``{title: AsyncImagesDict}`` for every page.
         """
         params = ImagesParams(limit=limit, images=images, direction=direction)
-        result: dict[str, PagesDict] = {}
+        result: dict[str, AsyncImagesDict] = {}
         page_map = {p.title: p for p in pages}
         for i in range(0, len(pages), 50):
             chunk = pages[i : i + 50]
@@ -2400,8 +2718,213 @@ class AsyncWikipediaResource(BaseWikipediaResource):
                     result[title] = imgs
         for p in pages:
             if p.title not in result:
-                result[p.title] = PagesDict(wiki=self)
-        return result
+                result[p.title] = AsyncImagesDict(wiki=self)
+        return result  # type: ignore[no-any-return]
+
+    async def imageinfo(
+        self,
+        image: "AsyncWikipediaImage",
+        *,
+        props: Iterable[WikiImageInfoProp] = (ImageInfoProp.TIMESTAMP, ImageInfoProp.USER),
+        iilimit: int = 1,
+        iiurlwidth: int = -1,
+        iiurlheight: int = -1,
+        iistart: str | None = None,
+        iiend: str | None = None,
+        iimetadataversion: str | None = None,
+        iiextmetadatalanguage: str = "en",
+        iiextmetadatamultilang: bool = False,
+        iiextmetadatafilter: Iterable[str] | None = None,
+        iiurlparam: str = "",
+        iibadfilecontexttitle: str = "",
+        iilocalonly: bool = False,
+    ) -> dict[str, Any]:
+        """Async version of :meth:`WikipediaResource.imageinfo`.
+
+        See :meth:`WikipediaResource.imageinfo` for full documentation.
+
+        Args:
+            image: Image to fetch information for.
+            props: Image information properties to get as iterable of :class:`WikiImageInfoProp`.
+            iilimit: How many file revisions to return per file (1–500).
+            iiurlwidth: If iiprop=url is set, a URL to an image scaled to this width will be returned.
+            iiurlheight: Similar to iiurlwidth.
+            iistart: Timestamp to start listing from.
+            iiend: Timestamp to stop listing at.
+            iimetadataversion: Version of metadata to use (1 or latest).
+            iiextmetadatalanguage: Language to fetch extmetadata in.
+            iiextmetadatamultilang: Fetch all translations if available.
+            iiextmetadatafilter: Specific keys to return for iiprop=extmetadata.
+            iiurlparam: Handler specific parameter string.
+            iibadfilecontexttitle: Page title used when evaluating bad image list.
+            iilocalonly: Look only for files in the local repository.
+
+        Returns:
+            Raw imageinfo data from the API response.
+        """
+        params = ImageInfoParams(
+            props=props,  # type: ignore[call-arg]
+            iilimit=iilimit,
+            iiurlwidth=iiurlwidth,
+            iiurlheight=iiurlheight,
+            iistart=iistart,
+            iiend=iiend,
+            iimetadataversion=iimetadataversion,
+            iiextmetadatalanguage=iiextmetadatalanguage,
+            iiextmetadatamultilang=iiextmetadatamultilang,
+            iiextmetadatafilter=iiextmetadatafilter,
+            iiurlparam=iiurlparam,
+            iibadfilecontexttitle=iibadfilecontexttitle,
+            iilocalonly=iilocalonly,
+        )
+        cache_key = f"imageinfo:{params.cache_key()}"
+        cached = image._get_cached("imageinfo", cache_key)
+        if not isinstance(cached, type(NOT_CACHED)):
+            return cached  # type: ignore[no-any-return]
+
+        api_params: dict[str, Any] = {
+            "action": "query",
+            "prop": "imageinfo",
+            "titles": image.title,
+        }
+        api_params.update(params.to_api())
+        raw = await self._get(  # type: ignore[attr-defined]
+            image.language, self._construct_params(image, api_params)
+        )
+
+        # Extract imageinfo from response
+        query = raw.get("query", {})
+        pages = query.get("pages", {})
+        for page_id, page_data in pages.items():
+            if page_id == "-1":
+                # Image doesn't exist
+                image._set_cached("imageinfo", cache_key, [])
+                return []  # type: ignore[return-value]
+            imageinfo_list = page_data.get("imageinfo", [])
+
+            # Handle pagination if needed
+            while "continue" in raw:
+                api_params["iicontinue"] = raw["continue"]["iicontinue"]
+                raw = await self._get(  # type: ignore[attr-defined]
+                    image.language, self._construct_params(image, api_params)
+                )
+                continued_pages = raw.get("query", {}).get("pages", {})
+                continued_data = continued_pages.get(page_id, {})
+                continued_imageinfo = continued_data.get("imageinfo", [])
+                imageinfo_list.extend(continued_imageinfo)
+
+            image._set_cached("imageinfo", cache_key, imageinfo_list)
+            return imageinfo_list
+
+        # Fallback if no pages found
+        image._set_cached("imageinfo", cache_key, [])
+        return []  # type: ignore[return-value]
+
+    async def batch_imageinfo(
+        self,
+        images: list["AsyncWikipediaImage"],
+        *,
+        props: Iterable[WikiImageInfoProp] = (ImageInfoProp.TIMESTAMP, ImageInfoProp.USER),
+        iilimit: int = 1,
+        iiurlwidth: int = -1,
+        iiurlheight: int = -1,
+        iistart: str | None = None,
+        iiend: str | None = None,
+        iimetadataversion: str | None = None,
+        iiextmetadatalanguage: str = "en",
+        iiextmetadatamultilang: bool = False,
+        iiextmetadatafilter: Iterable[str] | None = None,
+        iiurlparam: str = "",
+        iibadfilecontexttitle: str = "",
+        iilocalonly: bool = False,
+    ) -> dict[str, dict[str, Any]]:
+        """Async version of :meth:`WikipediaResource.batch_imageinfo`.
+
+        See :meth:`WikipediaResource.batch_imageinfo` for full documentation.
+
+        Args:
+            images: List of images to fetch information for.
+            props: Image information properties to get as iterable of :class:`WikiImageInfoProp`.
+            iilimit: How many file revisions to return per file (1–500).
+            iiurlwidth: If iiprop=url is set, a URL to an image scaled to this width will be returned.
+            iiurlheight: Similar to iiurlwidth.
+            iistart: Timestamp to start listing from.
+            iiend: Timestamp to stop listing at.
+            iimetadataversion: Version of metadata to use (1 or latest).
+            iiextmetadatalanguage: Language to fetch extmetadata in.
+            iiextmetadatamultilang: Fetch all translations if available.
+            iiextmetadatafilter: Specific keys to return for iiprop=extmetadata.
+            iiurlparam: Handler specific parameter string.
+            iibadfilecontexttitle: Page title used when evaluating bad image list.
+            iilocalonly: Look only for files in the local repository.
+
+        Returns:
+            ``{title: imageinfo_dict}`` for every image.
+        """
+        params = ImageInfoParams(
+            props=props,  # type: ignore[call-arg]
+            iilimit=iilimit,
+            iiurlwidth=iiurlwidth,
+            iiurlheight=iiurlheight,
+            iistart=iistart,
+            iiend=iiend,
+            iimetadataversion=iimetadataversion,
+            iiextmetadatalanguage=iiextmetadatalanguage,
+            iiextmetadatamultilang=iiextmetadatamultilang,
+            iiextmetadatafilter=iiextmetadatafilter,
+            iiurlparam=iiurlparam,
+            iibadfilecontexttitle=iibadfilecontexttitle,
+            iilocalonly=iilocalonly,
+        )
+        result: dict[str, dict[str, Any]] = {}
+        image_map = {img.title: img for img in images}
+
+        for i in range(0, len(images), 50):
+            chunk = images[i : i + 50]
+            titles = "|".join(img.title for img in chunk)
+            api_params: dict[str, Any] = {
+                "action": "query",
+                "prop": "imageinfo",
+                "titles": titles,
+            }
+            api_params.update(params.to_api())
+            dummy_image = chunk[0]
+            raw = await self._get(  # type: ignore[attr-defined]
+                dummy_image.language,
+                self._construct_params(dummy_image, api_params),  # type: ignore[arg-type]
+            )
+
+            norm_map = self._build_normalization_map(raw)
+            for page_id, page_data in raw.get("query", {}).get("pages", {}).items():
+                title = page_data.get("title", "")
+                orig = norm_map.get(title, title)
+                img = image_map.get(orig) or image_map.get(title)
+                if img is not None:
+                    imageinfo_list = page_data.get("imageinfo", [])
+
+                    # Handle pagination if needed
+                    while "continue" in raw:
+                        api_params["iicontinue"] = raw["continue"]["iicontinue"]
+                        raw = await self._get(  # type: ignore[attr-defined]
+                            dummy_image.language,
+                            self._construct_params(
+                                dummy_image, api_params  # type: ignore[arg-type]
+                            ),
+                        )
+                        continued_pages = raw.get("query", {}).get("pages", {})
+                        continued_data = continued_pages.get(page_id, {})
+                        continued_imageinfo = continued_data.get("imageinfo", [])
+                        imageinfo_list.extend(continued_imageinfo)
+
+                    cache_key = f"imageinfo:{params.cache_key()}"
+                    img._set_cached("imageinfo", cache_key, imageinfo_list)
+                    result[title] = imageinfo_list[0] if imageinfo_list else {}
+
+        for img in images:
+            if img.title not in result:
+                result[img.title] = {}
+
+        return result  # type: ignore[no-any-return]
 
     async def geosearch(
         self,

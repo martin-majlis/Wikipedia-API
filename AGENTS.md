@@ -51,6 +51,74 @@ Examples of correct symmetry currently in place:
 - `page.sections`, `page.title`, `page.ns`, `page.language`,
   `page.variant` — plain `@property` in both (no awaiting needed).
 
+## Using Mock Data for Testing
+
+The `tests/mock_data.py` file provides comprehensive mock responses for all API endpoints. For testing the new `imageinfo` functionality, you can use these existing mock entries:
+
+### ImageInfo Mock Examples
+
+```python
+from tests.mock_data import wikipedia_api_request
+
+# Test basic imageinfo response
+wiki = create_wikipedia_instance('MyApp/1.0')
+response = wikipedia_api_request(wiki, 'en:action=query&format=json&prop=imageinfo&iiprop=timestamp|user|url&titles=File:Albert%20Einstein%20Head.jpg&')
+image_info = response['query']['pages']['-1']['imageinfo'][0]
+
+# Test batch imageinfo response
+response = wikipedia_api_request(wiki, 'en:action=query&format=json&prop=imageinfo&iiprop=timestamp|user|url&titles=File:Example1.jpg|File:Example2.png&')
+image_info_batch = response['query']['pages']
+
+# Test missing file response
+response = wikipedia_api_request(wiki, 'en:action=query&format=json&prop=imageinfo&iiprop=timestamp|user|url&titles=File:Missing.jpg&')
+missing_info = response['query']['pages']['-1']['imageinfo']  # Empty list
+
+# Test imageinfo with multiple properties
+response = wikipedia_api_request(wiki, 'en:action=query&format=json&prop=imageinfo&iiprop=timestamp|user|url|size|dimensions|mime|comment|canonicaltitle|sha1|mediatype|metadata|extmetadata&titles=File:Example.jpg&')
+full_image_info = response['query']['pages']['123']['imageinfo'][0]
+```
+
+### Key Mock Data Structure
+
+The mock data follows this pattern for `prop=imageinfo`:
+
+```json
+{
+  "query": {
+    "pages": {
+      "pageid": {
+        "title": "File:Example.jpg",
+        "imageinfo": [
+          {
+            "timestamp": "2023-11-20T14:25:00Z",
+            "user": "ExampleUser",
+            "size": 5432100,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/File:Example.jpg/4096px-File:Example.jpg",
+            "mime": "image/jpeg",
+            "extmetadata": {
+              "ImageDescription": "Example image description",
+              "License": "CC BY-SA 4.0"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+### Adding New Mock Entries
+
+When adding new mock data for imageinfo:
+
+1. Use the existing key pattern: `"en:action=query&format=json&prop=imageinfo&..."`
+2. Follow the MediaWiki API response structure exactly
+3. Include realistic metadata (EXIF, licensing, dimensions, etc.)
+4. Test both single and batch operations
+5. Include error cases (missing files, invalid properties)
+
+This ensures your tests will have realistic data to work with while maintaining consistency with existing test patterns.
+
 ## Typing Standards
 
 **🧠 Prefer explicit type annotations and minimize `Any`.**

@@ -16,6 +16,8 @@ from ._enums import geosearch_sort2str
 from ._enums import GeoSearchSort
 from ._enums import Globe
 from ._enums import globe2str
+from ._enums import image_info_prop2str
+from ._enums import ImageInfoProp
 from ._enums import Namespace
 from ._enums import namespace2int
 from ._enums import redirect_filter2str
@@ -35,13 +37,16 @@ from ._enums import WikiCoordinateType
 from ._enums import WikiDirection
 from ._enums import WikiGeoSearchSort
 from ._enums import WikiGlobe
+from ._enums import WikiImageInfoProp
 from ._enums import WikiNamespace
 from ._enums import WikiSearchInfo
 from ._enums import WikiSearchProp
 from ._enums import WikiSearchQiProfile
 from ._enums import WikiSearchSort
 from ._enums import WikiSearchWhat
+from ._pages_dict import AsyncImagesDict
 from ._pages_dict import AsyncPagesDict
+from ._pages_dict import ImagesDict
 from ._pages_dict import PagesDict
 from ._types import Coordinate
 from ._types import GeoBox
@@ -51,6 +56,7 @@ from ._types import SearchMeta
 from ._types import SearchResults
 from ._version import __version__ as __version
 from .async_wikipedia import AsyncWikipedia
+from .async_wikipedia_image import AsyncWikipediaImage
 from .async_wikipedia_page import AsyncWikipediaPage
 from .exceptions import WikiConnectionError
 from .exceptions import WikiHttpError
@@ -61,6 +67,7 @@ from .exceptions import WikiRateLimitError
 from .extract_format import ExtractFormat
 from .wikipedia import USER_AGENT
 from .wikipedia import Wikipedia
+from .wikipedia_image import WikipediaImage
 from .wikipedia_page import WikipediaPage
 from .wikipedia_page_section import WikipediaPageSection
 
@@ -72,6 +79,8 @@ __all__ = [
     "WikipediaPage",
     "AsyncWikipediaPage",
     "WikipediaPageSection",
+    "WikipediaImage",
+    "AsyncWikipediaImage",
     "Coordinate",
     "GeoBox",
     "GeoPoint",
@@ -80,6 +89,8 @@ __all__ = [
     "SearchResults",
     "PagesDict",
     "AsyncPagesDict",
+    "ImagesDict",
+    "AsyncImagesDict",
     "WikipediaException",
     "WikiHttpTimeoutError",
     "WikiHttpError",
@@ -102,6 +113,9 @@ __all__ = [
     "Globe",
     "WikiGlobe",
     "globe2str",
+    "ImageInfoProp",
+    "WikiImageInfoProp",
+    "image_info_prop2str",
     "RedirectFilter",
     "WikiRedirectFilter",
     "redirect_filter2str",

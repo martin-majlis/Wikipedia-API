@@ -30,6 +30,9 @@ and string usage while maintaining backward compatibility.
   - :class:`RedirectFilter` - Redirect filtering (``ALL``, ``REDIRECTS``, ``NONREDIRECTS``)
   - :class:`Direction` - Sort direction (``ASCENDING``, ``DESCENDING``)
 
+- **Image Enums**:
+  - :class:`ImageInfoProp` - Image information properties (``TIMESTAMP``, ``USER``, ``URL``, ``SIZE``, etc.)
+
 **Usage Examples:**
 
 .. code-block:: python
@@ -110,6 +113,19 @@ seamless backward compatibility while providing type safety for new code.
 
 from enum import Enum
 from enum import IntEnum
+import sys
+
+# Handle StrEnum import for Python 3.10 compatibility
+if sys.version_info >= (3, 11):
+    from enum import StrEnum
+else:
+
+    class StrEnum(str, Enum):
+        """Fallback StrEnum for Python 3.10 compatibility."""
+
+        pass
+
+
 from typing import Union
 
 
@@ -957,3 +973,105 @@ def search_qi_profile2str(qi_profile: WikiSearchQiProfile) -> str:
         return qi_profile.value
 
     return qi_profile
+
+
+class ImageInfoProp(StrEnum):
+    """String enumeration of MediaWiki imageinfo properties.
+
+    These properties control what information is returned when using
+    ``prop=imageinfo`` to fetch detailed file metadata.
+
+    Pass a member of this enum wherever a ``WikiImageInfoProp`` is accepted
+    (e.g. ``wiki.imageinfo(page, props=[ImageInfoProp.TIMESTAMP, ImageInfoProp.URL])``).
+
+    Full imageinfo reference:
+
+    * https://www.mediawiki.org/wiki/API:Imageinfo
+    """
+
+    TIMESTAMP = "timestamp"
+    """Adds timestamp for the uploaded version."""
+
+    USER = "user"
+    """Adds the user who uploaded each file version."""
+
+    USERID = "userid"
+    """Add the ID of the user that uploaded each file version."""
+
+    COMMENT = "comment"
+    """Comment on the version."""
+
+    PARSEDCOMMENT = "parsedcomment"
+    """Parse the comment on the version."""
+
+    CANONICALTITLE = "canonicaltitle"
+    """Adds the canonical title of the file."""
+
+    URL = "url"
+    """Gives URL to the file and the description page."""
+
+    SIZE = "size"
+    """Adds the size of the file in bytes and the height, width and page count."""
+
+    DIMENSIONS = "dimensions"
+    """Alias for size."""
+
+    SHA1 = "sha1"
+    """Adds SHA-1 hash for the file."""
+
+    MIME = "mime"
+    """Adds MIME type of the file."""
+
+    THUMBMIME = "thumbmime"
+    """Adds MIME type of the image thumbnail (requires url and param iiurlwidth)."""
+
+    MEDIATYPE = "mediatype"
+    """Adds the media type of the file."""
+
+    METADATA = "metadata"
+    """Lists Exif metadata for the version of the file."""
+
+    COMMONMETADATA = "commonmetadata"
+    """Lists file format generic metadata for the version of the file."""
+
+    EXTMETADATA = "extmetadata"
+    """Lists formatted metadata combined from multiple sources."""
+
+
+WikiImageInfoProp = Union[ImageInfoProp, str]
+
+
+def image_info_prop2str(prop: WikiImageInfoProp) -> str:
+    """
+    Convert a :class:`WikiImageInfoProp` value to a plain ``str``.
+
+    If *prop* is a :class:`ImageInfoProp` enum member its string value
+    is returned.  If it is already a ``str`` it is returned unchanged.
+    This converter is used internally by the library to handle both enum
+    and string inputs gracefully, providing backward compatibility while
+    enabling type-safe usage.
+
+    :param prop: enum value to convert
+    :return: string representation of the enum value
+
+    **Examples:**
+
+    .. code-block:: python
+
+        from wikipediaapi import image_info_prop2str, ImageInfoProp
+
+        # Convert enum to string
+        assert image_info_prop2str(ImageInfoProp.TIMESTAMP) == "timestamp"
+        assert image_info_prop2str(ImageInfoProp.URL) == "url"
+
+        # String pass-through (unchanged)
+        assert image_info_prop2str("timestamp") == "timestamp"
+        assert image_info_prop2str("url") == "url"
+
+        # Custom values pass through
+        assert image_info_prop2str("custom_prop") == "custom_prop"
+    """
+    if isinstance(prop, ImageInfoProp):
+        return prop.value
+
+    return str(prop)
