@@ -22,6 +22,8 @@ import asyncio
 import logging
 
 import wikipediaapi
+from wikipediaapi import coordinates_prop2str
+from wikipediaapi import CoordinatesProp
 
 # Set to INFO to see the actual API request URLs being made
 logging.basicConfig(level=logging.WARNING)
@@ -345,6 +347,143 @@ async def main():
     wiki_zh_sg = wikipediaapi.AsyncWikipedia(user_agent=user_agent, language="zh", variant="zh-sg")
     zh_page_sg = wiki_zh_sg.page("Python")
     print("ZH-SG:", zh_page_sg.title, "— variant:", zh_page_sg.variant)
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # 12. Coordinates (prop=coordinates)
+    # ──────────────────────────────────────────────────────────────────────────
+
+    # Fetch geographic coordinates for a page (default: primary only)
+    london = wiki.page("London")
+    coords = await wiki.coordinates(london)
+    print(f"London coordinates ({len(coords)}):")
+    for c in coords:
+        print(f"  lat={c.lat}, lon={c.lon}, primary={c.primary}, globe={c.globe}")
+
+    # Fetch all coordinates (primary + secondary) with custom params
+    coords_all = await wiki.coordinates(london, primary="all")
+    print(f"London all coordinates: {len(coords_all)}")
+
+    # Page-level awaitable property (uses default params, triggers fetch on first access)
+    coords_prop = await london.coordinates
+    print(f"London coords via property: {len(coords_prop)}")
+
+    # Using enum values for type-safe coordinate property selection
+    print("\n--- Coordinates with Enum Properties ---")
+
+    # Single property using enum
+    coords_enum_single = await wiki.coordinates(london, prop=[CoordinatesProp.GLOBE])
+    print(f"London with GLOBE property: {len(coords_enum_single)} coordinates")
+
+    # Multiple properties using enum values
+    coords_enum_multi = await wiki.coordinates(
+        london, prop=[CoordinatesProp.GLOBE, CoordinatesProp.NAME, CoordinatesProp.TYPE]
+    )
+    print(f"London with GLOBE+NAME+TYPE properties: {len(coords_enum_multi)} coordinates")
+    for c in coords_enum_multi:
+        print(
+            f"  lat={c.lat}, lon={c.lon}, name={getattr(c, 'name', 'N/A')}, type={getattr(c, 'type', 'N/A')}"
+        )
+
+    # Mixed enum and string values (backward compatible)
+    coords_mixed = await wiki.coordinates(london, prop=[CoordinatesProp.GLOBE, "name", "type"])
+    print(f"London with mixed enum+string properties: {len(coords_mixed)} coordinates")
+
+    # Using the converter function directly
+    print("\n--- Converter Function Examples ---")
+    print(
+        f"coordinates_prop2str(CoordinatesProp.GLOBE) = {coordinates_prop2str(CoordinatesProp.GLOBE)}"
+    )
+    print(f"coordinates_prop2str('globe') = {coordinates_prop2str('globe')}")
+    print(f"coordinates_prop2str('custom') = {coordinates_prop2str('custom')}")
+
+    # All available enum values
+    print(f"\nAll CoordinatesProp values: {[prop.value for prop in CoordinatesProp]}")
+
+    # Batch coordinates with enum properties
+    print("\n--- Batch Coordinates with Enum Properties ---")
+    pages = wiki.pages(["London", "Paris", "Berlin"])
+
+    # Using enum values for batch coordinates
+    batch_coords_enum = await pages.coordinates(
+        prop=[CoordinatesProp.GLOBE, CoordinatesProp.NAME, CoordinatesProp.DIM]
+    )
+    for page, coord_list in batch_coords_enum.items():
+        print(f"  {page.title}: {len(coord_list)} coordinate(s) with GLOBE+NAME+DIM")
+        for c in coord_list[:2]:  # Show first 2 coordinates
+            print(
+                f"    lat={c.lat}, lon={c.lon}, name={getattr(c, 'name', 'N/A')}, dim={getattr(c, 'dim', 'N/A')}"
+            )
+
+    # Backward-compatible string usage still works
+    batch_coords_strings = await pages.coordinates(prop=["globe", "name", "dim"])
+    print(f"Batch coordinates with strings: {len(batch_coords_strings)} pages")
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # 13. Images (prop=images)
+    # ──────────────────────────────────────────────────────────────────────────
+
+    # Fetch images/files used on a page (using direction as string)
+    imgs = await wiki.images(london, direction="descending")
+    print(f"London images ({len(imgs)}):")
+    for title in sorted(imgs)[:5]:
+        print(f"  {title}")
+
+    # Page-level awaitable property
+    imgs_prop = await london.images
+    print(f"London images via property: {len(imgs_prop)}")
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # 14. Geosearch (list=geosearch)
+    # ──────────────────────────────────────────────────────────────────────────
+
+    # Find pages near a geographic point
+    results = await wiki.geosearch(
+        coord=wikipediaapi.GeoPoint(51.5074, -0.1278), radius=1000, limit=5
+    )
+    print(f"Geosearch results ({len(results)}):")
+    for title, p in results.items():
+        meta = p.geosearch_meta
+        if meta:
+            print(f"  {title}: dist={meta.dist:.1f}m, lat={meta.lat}, lon={meta.lon}")
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # 15. Random pages (list=random)
+    # ──────────────────────────────────────────────────────────────────────────
+
+    random_pages = await wiki.random(limit=3)
+    print(f"Random pages ({len(random_pages)}):")
+    for title in random_pages:
+        print(f"  {title}")
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # 16. Search (list=search)
+    # ──────────────────────────────────────────────────────────────────────────
+
+    search_results = await wiki.search("Python programming", limit=5)
+    print(f"Search: {search_results.totalhits} total hits, suggestion={search_results.suggestion}")
+    print(f"Search results ({len(search_results.pages)}):")
+    for title, p in search_results.pages.items():
+        meta = p.search_meta
+        if meta:
+            print(f"  {title}: size={meta.size}, wordcount={meta.wordcount}")
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # 17. Batch methods and PagesDict
+    # ──────────────────────────────────────────────────────────────────────────
+
+    # pages() creates an AsyncPagesDict of lazy page stubs
+    pd = wiki.pages(["London", "Paris", "Berlin"])
+    print(f"PagesDict: {len(pd)} pages")
+
+    # Batch-fetch coordinates for all pages at once (efficient multi-title request)
+    batch_coords = await pd.coordinates()
+    for title, coord_list in batch_coords.items():
+        print(f"  {title}: {len(coord_list)} coordinate(s)")
+
+    # Batch-fetch images for all pages at once
+    batch_imgs = await pd.images()
+    for title, img_dict in batch_imgs.items():
+        print(f"  {title}: {len(img_dict)} image(s)")
 
 
 asyncio.run(main())

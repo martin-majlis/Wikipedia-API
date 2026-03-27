@@ -1,0 +1,8 @@
+[
+{
+"lat": 50.0875,
+"lon": 14.42138889,
+"primary": true,
+"globe": "earth"
+}
+]

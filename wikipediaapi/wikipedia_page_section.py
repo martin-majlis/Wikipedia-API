@@ -24,7 +24,7 @@ class WikipediaPageSection:
     sub-headings, and so on.
 
     Instances are created by
-    :meth:`~wikipediaapi._resources.BaseWikipediaResource._build_extracts`
+    :meth:`~wikipediaapi.BaseWikipediaResource._build_extracts`
     and should not normally be constructed directly.
 
     :attr wiki: the :class:`~wikipediaapi.Wikipedia` instance used to

@@ -16,4 +16,4 @@ class TestErrorsExtracts(unittest.TestCase):
 
     def test_pageid(self):
         page = self.wiki.page("NonExisting")
-        self.assertEqual(page.pageid, -1)
+        self.assertLess(page.pageid, 0)

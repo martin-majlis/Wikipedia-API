@@ -10,19 +10,28 @@ import wikipediaapi
 from wikipediaapi.cli import create_wikipedia_instance
 from wikipediaapi.cli import fetch_page
 from wikipediaapi.cli import format_category_members
+from wikipediaapi.cli import format_coordinates
+from wikipediaapi.cli import format_geosearch
 from wikipediaapi.cli import format_langlinks
 from wikipediaapi.cli import format_page_dict
 from wikipediaapi.cli import format_page_info
+from wikipediaapi.cli import format_random
+from wikipediaapi.cli import format_search
 from wikipediaapi.cli import format_sections
 from wikipediaapi.cli import get_category_members
+from wikipediaapi.cli import get_geosearch_results
 from wikipediaapi.cli import get_langlinks
 from wikipediaapi.cli import get_page_backlinks
 from wikipediaapi.cli import get_page_categories
+from wikipediaapi.cli import get_page_coordinates
+from wikipediaapi.cli import get_page_images
 from wikipediaapi.cli import get_page_info
 from wikipediaapi.cli import get_page_links
 from wikipediaapi.cli import get_page_sections
 from wikipediaapi.cli import get_page_summary
 from wikipediaapi.cli import get_page_text
+from wikipediaapi.cli import get_random_pages
+from wikipediaapi.cli import get_search_results
 from wikipediaapi.cli import get_section_text
 from wikipediaapi.cli import PageNotFoundError
 from wikipediaapi.cli import SectionNotFoundError
@@ -496,6 +505,254 @@ class TestFormatPageDict(unittest.TestCase):
         parsed = json.loads(result)
 
         self.assertNotIn("url", parsed["Page 1"])
+
+
+class TestPageCoordinates(unittest.TestCase):
+    """Test the get_page_coordinates and format_coordinates functions."""
+
+    def test_get_page_coordinates_success(self):
+        """Test getting coordinates of an existing page."""
+        wiki = create_mock_wikipedia()
+        coords = get_page_coordinates(wiki, "Test_1", 0)
+
+        self.assertIsInstance(coords, list)
+        self.assertEqual(len(coords), 1)
+        self.assertAlmostEqual(coords[0]["lat"], 51.5074)
+        self.assertAlmostEqual(coords[0]["lon"], -0.1278)
+        self.assertTrue(coords[0]["primary"])
+        self.assertEqual(coords[0]["globe"], "earth")
+
+    def test_get_page_coordinates_nonexistent(self):
+        """Test getting coordinates of a non-existent page."""
+        wiki = create_mock_wikipedia()
+
+        with self.assertRaises(PageNotFoundError):
+            get_page_coordinates(wiki, "NonExisting", 0)
+
+    def test_format_coordinates_text(self):
+        """Test formatting coordinates as text."""
+        coords = [
+            {"lat": 51.5074, "lon": -0.1278, "primary": True, "globe": "earth"},
+            {"lat": 48.8566, "lon": 2.3522, "primary": False, "globe": "earth"},
+        ]
+
+        result = format_coordinates(coords, "text")
+        lines = result.split("\n")
+
+        self.assertIn("51.5074", lines[0])
+        self.assertIn("(primary)", lines[0])
+        self.assertIn("48.8566", lines[1])
+        self.assertNotIn("(primary)", lines[1])
+
+    def test_format_coordinates_json(self):
+        """Test formatting coordinates as JSON."""
+        coords = [
+            {"lat": 51.5074, "lon": -0.1278, "primary": True, "globe": "earth"},
+        ]
+
+        result = format_coordinates(coords, "json")
+        parsed = json.loads(result)
+
+        self.assertEqual(len(parsed), 1)
+        self.assertAlmostEqual(parsed[0]["lat"], 51.5074)
+
+    def test_format_coordinates_text_with_dist(self):
+        """Test formatting coordinates with distance."""
+        coords = [
+            {"lat": 51.5, "lon": -0.1, "primary": True, "globe": "earth", "dist": 123.4},
+        ]
+
+        result = format_coordinates(coords, "text")
+        self.assertIn("dist=123.4m", result)
+
+    def test_format_coordinates_text_non_earth_globe(self):
+        """Test formatting coordinates with non-earth globe."""
+        coords = [
+            {"lat": 10.0, "lon": 20.0, "primary": False, "globe": "mars"},
+        ]
+
+        result = format_coordinates(coords, "text")
+        self.assertIn("globe=mars", result)
+
+
+class TestPageImages(unittest.TestCase):
+    """Test the get_page_images function."""
+
+    def test_get_page_images_success(self):
+        """Test getting images of an existing page."""
+        wiki = create_mock_wikipedia()
+        imgs = get_page_images(wiki, "Test_1", 0)
+
+        self.assertIsInstance(imgs, dict)
+        self.assertEqual(len(imgs), 2)
+        self.assertIn("File:Example.png", imgs)
+        self.assertIn("File:Logo.svg", imgs)
+
+    def test_get_page_images_nonexistent(self):
+        """Test getting images of a non-existent page."""
+        wiki = create_mock_wikipedia()
+
+        with self.assertRaises(PageNotFoundError):
+            get_page_images(wiki, "NonExisting", 0)
+
+
+class TestGeoSearchResults(unittest.TestCase):
+    """Test the get_geosearch_results and format_geosearch functions."""
+
+    def test_get_geosearch_results_by_coord(self):
+        """Test geosearch by coordinates."""
+        wiki = create_mock_wikipedia()
+        results = get_geosearch_results(wiki, coord="51.5074|-0.1278")
+
+        self.assertIsInstance(results, list)
+        self.assertEqual(len(results), 2)
+        self.assertEqual(results[0]["title"], "Nearby Page 1")
+        self.assertAlmostEqual(results[0]["dist"], 50.3)
+
+    def test_get_geosearch_results_no_params(self):
+        """Test geosearch without coord or page raises error."""
+        import click
+
+        wiki = create_mock_wikipedia()
+
+        with self.assertRaises(click.UsageError):
+            get_geosearch_results(wiki)
+
+    def test_get_geosearch_results_invalid_coord(self):
+        """Test geosearch with invalid coord format raises error."""
+        import click
+
+        wiki = create_mock_wikipedia()
+
+        with self.assertRaises(click.UsageError):
+            get_geosearch_results(wiki, coord="invalid")
+
+    def test_format_geosearch_text(self):
+        """Test formatting geosearch results as text."""
+        results = [
+            {"title": "Page 1", "dist": 50.3, "lat": 51.508, "lon": -0.128, "primary": True},
+            {"title": "Page 2", "dist": 200.7, "lat": 51.510, "lon": -0.130, "primary": True},
+        ]
+
+        result = format_geosearch(results, "text")
+        lines = result.split("\n")
+
+        self.assertIn("Page 1", lines[0])
+        self.assertIn("(50.3m)", lines[0])
+        self.assertIn("Page 2", lines[1])
+
+    def test_format_geosearch_json(self):
+        """Test formatting geosearch results as JSON."""
+        results = [
+            {"title": "Page 1", "dist": 50.3, "lat": 51.508, "lon": -0.128, "primary": True},
+        ]
+
+        result = format_geosearch(results, "json")
+        parsed = json.loads(result)
+
+        self.assertEqual(len(parsed), 1)
+        self.assertEqual(parsed[0]["title"], "Page 1")
+
+
+class TestRandomPages(unittest.TestCase):
+    """Test the get_random_pages and format_random functions."""
+
+    def test_get_random_pages(self):
+        """Test getting random pages."""
+        wiki = create_mock_wikipedia()
+        results = get_random_pages(wiki, limit=2)
+
+        self.assertIsInstance(results, list)
+        self.assertEqual(len(results), 2)
+        titles = [r["title"] for r in results]
+        self.assertIn("Random Page A", titles)
+        self.assertIn("Random Page B", titles)
+
+    def test_format_random_text(self):
+        """Test formatting random results as text."""
+        results = [{"title": "Page A"}, {"title": "Page B"}]
+
+        result = format_random(results, "text")
+        lines = result.split("\n")
+
+        self.assertEqual(lines[0], "Page A")
+        self.assertEqual(lines[1], "Page B")
+
+    def test_format_random_json(self):
+        """Test formatting random results as JSON."""
+        results = [{"title": "Page A", "pageid": 100}]
+
+        result = format_random(results, "json")
+        parsed = json.loads(result)
+
+        self.assertEqual(len(parsed), 1)
+        self.assertEqual(parsed[0]["title"], "Page A")
+
+
+class TestSearchResults(unittest.TestCase):
+    """Test the get_search_results and format_search functions."""
+
+    def test_get_search_results(self):
+        """Test searching for pages."""
+        wiki = create_mock_wikipedia()
+        results = get_search_results(wiki, "Python")
+
+        self.assertIsInstance(results, dict)
+        self.assertEqual(results["totalhits"], 5432)
+        self.assertEqual(results["suggestion"], "python programming")
+        self.assertEqual(len(results["pages"]), 2)
+        titles = [p["title"] for p in results["pages"]]
+        self.assertIn("Python (programming language)", titles)
+
+    def test_get_search_results_meta(self):
+        """Test that search results include metadata."""
+        wiki = create_mock_wikipedia()
+        results = get_search_results(wiki, "Python")
+
+        py_page = next(p for p in results["pages"] if p["title"] == "Python (programming language)")
+        self.assertEqual(py_page["size"], 123456)
+        self.assertEqual(py_page["wordcount"], 15000)
+        self.assertIn("Python", py_page["snippet"])
+
+    def test_format_search_text(self):
+        """Test formatting search results as text."""
+        results = {
+            "totalhits": 100,
+            "suggestion": "test query",
+            "pages": [{"title": "Page 1"}, {"title": "Page 2"}],
+        }
+
+        result = format_search(results, "text")
+
+        self.assertIn("Total hits: 100", result)
+        self.assertIn("Suggestion: test query", result)
+        self.assertIn("Page 1", result)
+        self.assertIn("Page 2", result)
+
+    def test_format_search_text_no_suggestion(self):
+        """Test formatting search results without suggestion."""
+        results = {
+            "totalhits": 50,
+            "pages": [{"title": "Page 1"}],
+        }
+
+        result = format_search(results, "text")
+
+        self.assertIn("Total hits: 50", result)
+        self.assertNotIn("Suggestion:", result)
+
+    def test_format_search_json(self):
+        """Test formatting search results as JSON."""
+        results = {
+            "totalhits": 100,
+            "pages": [{"title": "Page 1"}],
+        }
+
+        result = format_search(results, "json")
+        parsed = json.loads(result)
+
+        self.assertEqual(parsed["totalhits"], 100)
+        self.assertEqual(len(parsed["pages"]), 1)
 
 
 class TestCLIExceptions(unittest.TestCase):

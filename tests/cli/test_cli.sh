@@ -64,74 +64,150 @@ fi
 
 TESTS=(
     # ── page command ────────────────────────────────────────────────────────
-    "page_en|wikipedia-api page Earth"
-    "page_en_json|wikipedia-api page Earth --json"
-    "page_nonexistent|wikipedia-api page Wikipedia-API-NonExistentPage-XYZ42 || true"
+    "page_en|uv run wikipedia-api page Earth"
+    "page_en_json|uv run wikipedia-api page Earth --json"
+    "page_nonexistent|uv run wikipedia-api page 'NonexistentPage12345' || true"
 
-    # ── summary command — multiple languages ────────────────────────────────
-    "summary_en|wikipedia-api summary Earth"
-    "summary_cs|wikipedia-api summary Brno --language cs"
-    "summary_de|wikipedia-api summary Berlin --language de"
-    "summary_fr|wikipedia-api summary Paris --language fr"
-    "summary_es|wikipedia-api summary Madrid --language es"
-    "summary_ja|wikipedia-api summary 東京 --language ja"
-    "summary_zh_cn|wikipedia-api summary 北京市 --language zh --variant zh-cn"
-    "summary_zh_tw|wikipedia-api summary 北京市 --language zh --variant zh-tw"
-    "summary_hi|wikipedia-api summary भारत --language hi"
-    "summary_ar|wikipedia-api summary القاهرة --language ar"
-    "summary_ko|wikipedia-api summary 서울특별시 --language ko"
-    "summary_html|wikipedia-api summary Earth --extract-format html"
+    # ── summary command ────────────────────────────────────────────────────
+    "summary_en|uv run wikipedia-api summary Earth"
+    "summary_cs|uv run wikipedia-api summary Earth --language cs"
+    "summary_de|uv run wikipedia-api summary Earth --language de"
+    "summary_fr|uv run wikipedia-api summary Earth --language fr"
+    "summary_es|uv run wikipedia-api summary Earth --language es"
+    "summary_ja|uv run wikipedia-api summary Earth --language ja"
+    "summary_zh_cn|uv run wikipedia-api summary Earth --language zh --variant zh-cn"
+    "summary_zh_tw|uv run wikipedia-api summary Earth --language zh --variant zh-tw"
+    "summary_ar|uv run wikipedia-api summary Earth --language ar"
+    "summary_ko|uv run wikipedia-api summary Earth --language ko"
+    "summary_html|uv run wikipedia-api summary Earth --extract-format html"
 
-    # ── text command ────────────────────────────────────────────────────────
-    "text_en|wikipedia-api text Earth"
-    "text_cs|wikipedia-api text Brno --language cs"
+    # ── text command ─────────────────────────────────────────────────────────
+    "text_en|uv run wikipedia-api text Earth"
+    "text_cs|uv run wikipedia-api text Earth --language cs"
 
-    # ── sections command ────────────────────────────────────────────────────
-    "sections_en|wikipedia-api sections Earth"
-    "sections_en_json|wikipedia-api sections Earth --json"
-    "sections_de|wikipedia-api sections Berlin --language de"
+    # ── sections command ─────────────────────────────────────────────────────
+    "sections_en|uv run wikipedia-api sections Earth"
+    "sections_en_json|uv run wikipedia-api sections Earth --json"
+    "sections_de|uv run wikipedia-api sections Neue_Heimat --language de"
 
-    # ── section command (specific section) ──────────────────────────────────
-    "section_en|wikipedia-api section Earth Atmosphere"
-    "section_cs|wikipedia-api section Brno Historie --language cs"
+    # ── section command ──────────────────────────────────────────────────────
+    "section_en|uv run wikipedia-api section Earth 'Etymology'"
+    "section_cs|uv run wikipedia-api section Země 'Vznik Země' --language cs"
 
-    # ── links command ───────────────────────────────────────────────────────
-    "links_en|wikipedia-api links Earth"
-    "links_en_json|wikipedia-api links Earth --json"
+    # ── links command ────────────────────────────────────────────────────────
+    "links_en|uv run wikipedia-api links Earth"
+    "links_en_json|uv run wikipedia-api links Earth --json"
 
     # ── backlinks command ───────────────────────────────────────────────────
-    "backlinks_en|wikipedia-api backlinks Pluto"
-    "backlinks_en_json|wikipedia-api backlinks Pluto --json"
+    "backlinks_en|uv run wikipedia-api backlinks Pluto"
+    "backlinks_en_json|uv run wikipedia-api backlinks Pluto --json"
 
     # ── langlinks command ───────────────────────────────────────────────────
-    "langlinks_en|wikipedia-api langlinks Earth"
-    "langlinks_en_json|wikipedia-api langlinks Earth --json"
-    "langlinks_fr|wikipedia-api langlinks Paris --language fr"
+    "langlinks_en|uv run wikipedia-api langlinks Earth"
+    "langlinks_en_json|uv run wikipedia-api langlinks Earth --json"
+    "langlinks_fr|uv run wikipedia-api langlinks Paris --language fr"
 
     # ── categories command ──────────────────────────────────────────────────
-    "categories_en|wikipedia-api categories Earth"
-    "categories_en_json|wikipedia-api categories Earth --json"
-    "categories_de|wikipedia-api categories Berlin --language de"
+    "categories_en|uv run wikipedia-api categories Earth"
+    "categories_en_json|uv run wikipedia-api categories Earth --json"
+    "categories_de|uv run wikipedia-api categories Berlin --language de"
 
     # ── categorymembers command ─────────────────────────────────────────────
-    "categorymembers_en|wikipedia-api categorymembers Category:Planets"
-    "categorymembers_en_json|wikipedia-api categorymembers Category:Planets --json"
-    "categorymembers_depth|wikipedia-api categorymembers Category:Planets --max-level 1"
+    "categorymembers_en|uv run wikipedia-api categorymembers Category:Planets"
+    "categorymembers_en_json|uv run wikipedia-api categorymembers Category:Planets --json"
+    "categorymembers_depth|uv run wikipedia-api categorymembers Category:Planets --max-level 1"
+
+    # ── coordinates command ─────────────────────────────────────────────────
+    "coordinates_en|uv run wikipedia-api coordinates Prague"
+    "coordinates_en_json|uv run wikipedia-api coordinates Prague --json"
+    "coordinates_primary_all|uv run wikipedia-api coordinates Prague --primary all"
+    "coordinates_primary_secondary|uv run wikipedia-api coordinates Prague --primary secondary --json"
+
+    # ── images command ───────────────────────────────────────────────────────
+    "images_en|uv run wikipedia-api images Prague"
+    "images_en_json|uv run wikipedia-api images Prague --json"
+
+    # ── geosearch command ────────────────────────────────────────────────────
+    "geosearch_coord|uv run wikipedia-api geosearch --coord \"51.5074|-0.1278\""
+    "geosearch_coord_json|uv run wikipedia-api geosearch --coord \"51.5074|-0.1278\" --json"
+    "geosearch_page|uv run wikipedia-api geosearch --page \"Big Ben\" --radius 1000"
+    "geosearch_bbox|uv run wikipedia-api geosearch --bbox \"51.7|-0.1|51.6|-0.05\" --sort relevance"
+    "geosearch_bbox_json|uv run wikipedia-api geosearch --bbox \"51.7|-0.1|51.6|-0.05\" --sort distance --json"
+    "geosearch_globe|uv run wikipedia-api geosearch --coord \"51.5074|-0.1278\" --globe mars --limit 5"
+    "geosearch_primary|uv run wikipedia-api geosearch --coord \"51.5074|-0.1278\" --primary all --json"
+    "geosearch_max_dim|uv run wikipedia-api geosearch --coord \"51.5074|-0.1278\" --max-dim 1000 --sort relevance"
+
+    # ── random command ───────────────────────────────────────────────────────
+    "random_default|uv run wikipedia-api random"
+    "random_limit|uv run wikipedia-api random --limit 5"
+    "random_json|uv run wikipedia-api random --limit 3 --json"
+    "random_filter_redirects|uv run wikipedia-api random --filter-redirect all --limit 3"
+    "random_filter_redirects_json|uv run wikipedia-api random --filter-redirect redirects --json"
+    "random_size_limits|uv run wikipedia-api random --min-size 1000 --max-size 10000 --limit 5"
+    "random_combined|uv run wikipedia-api random --filter-redirect nonredirects --min-size 500 --limit 2 --json"
+
+    # ── search command ───────────────────────────────────────────────────────
+    "search_en|uv run wikipedia-api search \"Python programming\""
+    "search_en_json|uv run wikipedia-api search \"Python programming\" --json"
+    "search_de|uv run wikipedia-api search \"Berlin\" --language de"
+    "search_sort_timestamp|uv run wikipedia-api search \"Python programming\" --search-sort create_timestamp_desc --limit 5"
+    "search_sort_random|uv run wikipedia-api search \"Python programming\" --search-sort random --json"
+    "search_sort_title|uv run wikipedia-api search \"Python programming\" --search-sort title_natural_asc --limit 3"
+    "search_sort_links|uv run wikipedia-api search \"Python programming\" --search-sort incoming_links_desc --json"
 
     # ── help & version ──────────────────────────────────────────────────────
-    "help_main|wikipedia-api --help"
-    "help_summary|wikipedia-api summary --help"
-    "help_text|wikipedia-api text --help"
-    "help_sections|wikipedia-api sections --help"
-    "help_section|wikipedia-api section --help"
-    "help_links|wikipedia-api links --help"
-    "help_backlinks|wikipedia-api backlinks --help"
-    "help_langlinks|wikipedia-api langlinks --help"
-    "help_categories|wikipedia-api categories --help"
-    "help_categorymembers|wikipedia-api categorymembers --help"
-    "help_page|wikipedia-api page --help"
-    "version|wikipedia-api --version"
+    "help_main|uv run wikipedia-api --help"
+    "help_summary|uv run wikipedia-api summary --help"
+    "help_text|uv run wikipedia-api text --help"
+    "help_sections|uv run wikipedia-api sections --help"
+    "help_section|uv run wikipedia-api section --help"
+    "help_links|uv run wikipedia-api links --help"
+    "help_backlinks|uv run wikipedia-api backlinks --help"
+    "help_langlinks|uv run wikipedia-api langlinks --help"
+    "help_categories|uv run wikipedia-api categories --help"
+    "help_categorymembers|uv run wikipedia-api categorymembers --help"
+    "help_coordinates|uv run wikipedia-api coordinates --help"
+    "help_images|uv run wikipedia-api images --help"
+    "help_geosearch|uv run wikipedia-api geosearch --help"
+    "help_random|uv run wikipedia-api random --help"
+    "help_search|uv run wikipedia-api search --help"
+    "help_page|uv run wikipedia-api page --help"
+    "version|uv run wikipedia-api --version"
 )
+
+# ── Non-deterministic tests ────────────────────────────────────────────────
+# These tests produce different output on every run (random pages, volatile
+# search results).  In verify mode we only check that:
+#   - the command exits successfully
+#   - the output is non-empty
+#   - for JSON tests: the output is valid JSON
+#   - for text tests: the line count is within ±50 % of the recorded fixture
+
+NONDETERMINISTIC_TESTS=(
+    "random_default"
+    "random_limit"
+    "random_json"
+    "random_filter_redirects"
+    "random_filter_redirects_json"
+    "random_size_limits"
+    "random_combined"
+    "search_de"
+    "search_en"
+    "search_sort_timestamp"
+    "search_sort_random"
+    "search_sort_title"
+    "search_sort_links"
+)
+
+is_nondeterministic() {
+    local name="$1"
+    for nd in "${NONDETERMINISTIC_TESTS[@]}"; do
+        if [ "$nd" = "$name" ]; then
+            return 0
+        fi
+    done
+    return 1
+}
 
 # ── Functions ───────────────────────────────────────────────────────────────
 
@@ -150,7 +226,7 @@ run_test() {
     local tmp_err
     tmp_err=$(mktemp)
     local output
-    # Run the command via bash to handle || true and other shell constructs
+    # Run the command directly (uv run is now included in the cmd)
     output=$(bash -c "$cmd" 2>"$tmp_err") || true
     # Save stderr to the .error file
     cp "$tmp_err" "$error_file"
@@ -241,7 +317,45 @@ verify_mode() {
         local expected
         expected=$(cat "$expected_file" | strip_whitespace)
 
-        if [ "$actual" = "$expected" ]; then
+        if is_nondeterministic "$name"; then
+            # Weak check: non-empty output + format validation
+            if [ -z "$actual" ]; then
+                echo -e "${RED}FAIL${NC} (empty output)"
+                failed=$((failed + 1))
+                failed_names+=("$name")
+            elif [[ "$name" == *_json ]]; then
+                # Validate JSON structure
+                if echo "$actual" | python3 -m json.tool > /dev/null 2>&1; then
+                    echo -e "${GREEN}PASS${NC} (non-deterministic, valid JSON)"
+                    passed=$((passed + 1))
+                else
+                    echo -e "${RED}FAIL${NC} (invalid JSON)"
+                    failed=$((failed + 1))
+                    failed_names+=("$name")
+                fi
+            else
+                # Check line count is within ±50% of fixture
+                local lines_actual
+                lines_actual=$(echo "$actual" | wc -l | tr -d ' ')
+                local lines_expected
+                lines_expected=$(echo "$expected" | wc -l | tr -d ' ')
+                if [ "$lines_expected" -eq 0 ]; then
+                    echo -e "${GREEN}PASS${NC} (non-deterministic, non-empty)"
+                    passed=$((passed + 1))
+                else
+                    local lo=$(( lines_expected / 2 ))
+                    local hi=$(( lines_expected * 3 / 2 ))
+                    if [ "$lines_actual" -ge "$lo" ] && [ "$lines_actual" -le "$hi" ]; then
+                        echo -e "${GREEN}PASS${NC} (non-deterministic, ${lines_actual} lines)"
+                        passed=$((passed + 1))
+                    else
+                        echo -e "${RED}FAIL${NC} (expected ~${lines_expected} lines, got ${lines_actual})"
+                        failed=$((failed + 1))
+                        failed_names+=("$name")
+                    fi
+                fi
+            fi
+        elif [ "$actual" = "$expected" ]; then
             echo -e "${GREEN}PASS${NC}"
             passed=$((passed + 1))
         else

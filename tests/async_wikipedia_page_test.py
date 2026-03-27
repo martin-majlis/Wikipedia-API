@@ -4,8 +4,8 @@ import unittest
 from tests.mock_data import async_wikipedia_api_request
 from tests.mock_data import user_agent
 import wikipediaapi
+from wikipediaapi._enums import Namespace
 from wikipediaapi.async_wikipedia_page import AsyncWikipediaPage
-from wikipediaapi.namespace import Namespace
 
 
 class TestAsyncWikipediaPageInit(unittest.TestCase):
@@ -34,6 +34,17 @@ class TestAsyncWikipediaPageInit(unittest.TestCase):
         wiki = wikipediaapi.AsyncWikipedia(user_agent, "zh", variant="zh-tw")
         page = wiki.page("Test")
         self.assertEqual(page.variant, "zh-tw")
+
+    def test_page_identity_equality(self):
+        p1 = self.wiki.page("Test_1")
+        p2 = self.wiki.page("Test_1")
+        self.assertEqual(p1, p2)
+        self.assertEqual(hash(p1), hash(p2))
+
+    def test_page_identity_inequality(self):
+        p1 = self.wiki.page("Test_1")
+        p2 = self.wiki.page("Test_1", ns=wikipediaapi.Namespace.CATEGORY)
+        self.assertNotEqual(p1, p2)
 
     def test_dir_includes_attributes_mapping_keys(self):
         page = self.wiki.page("Test_1")

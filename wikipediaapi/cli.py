@@ -2,11 +2,60 @@ r"""Command line interface for Wikipedia-API.r"""
 
 import json
 import sys
-from typing import Any
+from typing import Any, TypedDict
 
 import click
 
 import wikipediaapi
+from wikipediaapi._enums import coordinate_type2str
+from wikipediaapi._enums import CoordinateType
+from wikipediaapi._enums import geosearch_sort2str
+from wikipediaapi._enums import GeoSearchSort
+from wikipediaapi._enums import Globe
+from wikipediaapi._enums import globe2str
+from wikipediaapi._enums import redirect_filter2str
+from wikipediaapi._enums import RedirectFilter
+from wikipediaapi._enums import search_sort2str
+from wikipediaapi._enums import SearchSort
+from wikipediaapi._enums import WikiCoordinateType
+from wikipediaapi._enums import WikiGeoSearchSort
+from wikipediaapi._enums import WikiGlobe
+from wikipediaapi._enums import WikiRedirectFilter
+from wikipediaapi._enums import WikiSearchSort
+
+
+# TypedDict classes for type-safe kwargs
+class GeoSearchKwargs(TypedDict, total=False):
+    """TypedDict for geosearch method keyword arguments."""
+
+    coord: wikipediaapi.GeoPoint
+    page: wikipediaapi.WikipediaPage
+    bbox: wikipediaapi.GeoBox
+    radius: int
+    max_dim: int | None
+    sort: WikiGeoSearchSort
+    limit: int
+    globe: WikiGlobe
+    ns: int
+    primary: WikiCoordinateType | None
+
+
+class RandomKwargs(TypedDict, total=False):
+    """TypedDict for random method keyword arguments."""
+
+    ns: int
+    filter_redirect: WikiRedirectFilter
+    min_size: int | None
+    max_size: int | None
+    limit: int
+
+
+class SearchKwargs(TypedDict, total=False):
+    """TypedDict for search method keyword arguments."""
+
+    ns: int
+    limit: int
+    sort: WikiSearchSort
 
 
 def create_wikipedia_instance(
@@ -42,7 +91,7 @@ def _get_page(wiki, title, namespace):
     return fetch_page(wiki, title, namespace)
 
 
-def format_page_dict(pages: dict[str, wikipediaapi.WikipediaPage], output_format: str) -> str:
+def format_page_dict(pages: wikipediaapi.PagesDict, output_format: str) -> str:
     r"""Format a PagesDict in the requested format as a string.r"""
     if output_format == "json":
         result = {}
@@ -75,6 +124,61 @@ class SectionNotFoundError(Exception):
     r"""Raised when a Wikipedia section does not exist.r"""
 
     pass
+
+
+def validate_enum_value(value: str, enum_class, converter_func, param_name: str):
+    """Validate and convert enum value with helpful error message.
+
+    Args:
+        value: String value from CLI
+        enum_class: Enum class to validate against
+        converter_func: Converter function for the enum
+        param_name: Parameter name for error messages
+
+    Returns:
+        Converted enum value or original string for backward compatibility
+
+    Raises:
+        click.BadParameter: If value is invalid
+    """
+    try:
+        # Try to find matching enum member (case-insensitive)
+        for member in enum_class:
+            if member.value.lower() == value.lower():
+                return member
+        # If no enum match, return string (for backward compatibility)
+        return value
+    except Exception as exc:
+        valid_values = ", ".join(m.value for m in enum_class)
+        raise click.BadParameter(
+            f"Invalid {param_name}: {value}. Valid values are: {valid_values}"
+        ) from exc
+
+
+def parse_bbox_string(bbox_str: str) -> wikipediaapi.GeoBox:
+    """Parse bounding box string in format 'lat1|lon1|lat2|lon2'.
+
+    Args:
+        bbox_str: Bounding box string
+
+    Returns:
+        GeoBox object
+
+    Raises:
+        click.BadParameter: If format is invalid
+    """
+    parts = bbox_str.split("|")
+    if len(parts) != 4:
+        raise click.BadParameter(f"Invalid bbox format: {bbox_str}. Expected 'lat1|lon1|lat2|lon2'")
+    try:
+        lat1, lon1, lat2, lon2 = map(float, parts)
+        top_left = wikipediaapi.GeoPoint(lat=lat1, lon=lon1)
+        bottom_right = wikipediaapi.GeoPoint(lat=lat2, lon=lon2)
+        return wikipediaapi.GeoBox(top_left=top_left, bottom_right=bottom_right)
+    except ValueError as exc:
+        raise click.BadParameter(
+            f"Invalid bbox coordinates: {bbox_str}. All values must be numeric"
+        ) from exc
 
 
 def get_page_summary(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> str:
@@ -191,7 +295,7 @@ def get_section_text(
 
 def get_page_links(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
-) -> dict[str, wikipediaapi.WikipediaPage]:
+) -> wikipediaapi.PagesDict:
     r"""Get pages linked from a Wikipedia page.
 
     Args:
@@ -213,7 +317,7 @@ def get_page_links(
 
 def get_page_backlinks(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
-) -> dict[str, wikipediaapi.WikipediaPage]:
+) -> wikipediaapi.PagesDict:
     r"""Get pages that link to a Wikipedia page.
 
     Args:
@@ -235,7 +339,7 @@ def get_page_backlinks(
 
 def get_langlinks(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
-) -> dict[str, wikipediaapi.WikipediaPage]:
+) -> wikipediaapi.PagesDict:
     r"""Get language links for a Wikipedia page.
 
     Args:
@@ -255,7 +359,7 @@ def get_langlinks(
     return page.langlinks
 
 
-def format_langlinks(langlinks: dict[str, wikipediaapi.WikipediaPage], output_format: str) -> str:
+def format_langlinks(langlinks: wikipediaapi.PagesDict, output_format: str) -> str:
     r"""Format language links in the requested format.r"""
     if output_format == "json":
         result = {}
@@ -278,7 +382,7 @@ def format_langlinks(langlinks: dict[str, wikipediaapi.WikipediaPage], output_fo
 
 def get_page_categories(
     wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
-) -> dict[str, wikipediaapi.WikipediaPage]:
+) -> wikipediaapi.PagesDict:
     r"""Get categories for a Wikipedia page.
 
     Args:
@@ -344,6 +448,330 @@ def format_category_members(members: list[dict[str, Any]], output_format: str) -
         return "\n".join(lines)
 
 
+def get_page_coordinates(
+    wiki: wikipediaapi.Wikipedia,
+    title: str,
+    namespace: int = 0,
+    limit: int = 10,
+    primary: str = "primary",
+) -> list[dict[str, Any]]:
+    r"""Get geographic coordinates for a Wikipedia page.
+
+    Args:
+        wiki: Wikipedia instance
+        title: Page title
+        namespace: Wikipedia namespace
+        limit: Maximum number of coordinates to return
+        primary: Which coordinates: primary, secondary, or all
+
+    Returns:
+        List of coordinate dictionaries
+
+    Raises:
+        PageNotFoundError: If the page does not exist
+    r"""
+    page = fetch_page(wiki, title, namespace)
+    if not page.exists():
+        raise PageNotFoundError(f"Page '{title}' does not exist.")
+
+    # Convert primary parameter to proper enum
+    primary_enum = validate_enum_value(primary, CoordinateType, coordinate_type2str, "primary")
+
+    coords = wiki.coordinates(page, limit=limit, primary=primary_enum)
+    result: list[dict[str, Any]] = []
+    for c in coords:
+        entry: dict[str, Any] = {
+            "lat": c.lat,
+            "lon": c.lon,
+            "primary": c.primary,
+            "globe": c.globe,
+        }
+        if c.type is not None:
+            entry["type"] = c.type
+        if c.name is not None:
+            entry["name"] = c.name
+        if c.dim is not None:
+            entry["dim"] = c.dim
+        if c.country is not None:
+            entry["country"] = c.country
+        if c.region is not None:
+            entry["region"] = c.region
+        if c.dist is not None:
+            entry["dist"] = c.dist
+        result.append(entry)
+    return result
+
+
+def format_coordinates(coords: list[dict[str, Any]], output_format: str) -> str:
+    r"""Format coordinates in the requested format.r"""
+    if output_format == "json":
+        return json.dumps(coords, ensure_ascii=False, indent=2)
+    else:
+        lines = []
+        for c in coords:
+            parts = [f"{c['lat']}, {c['lon']}"]
+            if c.get("primary"):
+                parts.append("(primary)")
+            if c.get("globe") and c["globe"] != "earth":
+                parts.append(f"globe={c['globe']}")
+            if c.get("dist") is not None:
+                parts.append(f"dist={c['dist']}m")
+            lines.append(" ".join(parts))
+        return "\n".join(lines)
+
+
+def get_page_images(
+    wiki: wikipediaapi.Wikipedia,
+    title: str,
+    namespace: int = 0,
+    limit: int = 10,
+) -> wikipediaapi.PagesDict:
+    r"""Get images (files) used on a Wikipedia page.
+
+    Args:
+        wiki: Wikipedia instance
+        title: Page title
+        namespace: Wikipedia namespace
+        limit: Maximum number of images to return
+
+    Returns:
+        Dictionary of image pages keyed by title
+
+    Raises:
+        PageNotFoundError: If the page does not exist
+    r"""
+    page = fetch_page(wiki, title, namespace)
+    if not page.exists():
+        raise PageNotFoundError(f"Page '{title}' does not exist.")
+    return wiki.images(page, limit=limit)
+
+
+def get_geosearch_results(
+    wiki: wikipediaapi.Wikipedia,
+    coord: str | None = None,
+    page_title: str | None = None,
+    bbox: str | None = None,
+    radius: int = 500,
+    max_dim: int | None = None,
+    sort: str = "distance",
+    limit: int = 10,
+    globe: str = "earth",
+    ns: int = 0,
+    primary: str | None = None,
+) -> list[dict[str, Any]]:
+    r"""Search for Wikipedia pages near a geographic location.
+
+    Args:
+        wiki: Wikipedia instance
+        coord: Coordinates as "lat|lon"
+        page_title: Page title to use as centre
+        bbox: Bounding box as "lat1|lon1|lat2|lon2"
+        radius: Search radius in meters
+        max_dim: Maximum dimension in meters
+        sort: Sort results by distance or relevance
+        limit: Maximum results
+        globe: Globe to search on
+        ns: Namespace to search in
+        primary: Filter by primary coordinates
+
+    Returns:
+        List of result dictionaries with title, dist, lat, lon
+    r"""
+
+    def _parse_coord(value: str) -> wikipediaapi.GeoPoint:
+        """Parse ``lat|lon`` into a validated :class:`wikipediaapi.GeoPoint`.
+
+        Args:
+            value: Coordinate string in ``lat|lon`` format.
+
+        Returns:
+            Parsed and validated geographic point.
+
+        Raises:
+            click.UsageError: If the value format is invalid.
+        """
+        parts = value.split("|", 1)
+        if len(parts) != 2:
+            raise click.UsageError("Invalid --coord format, expected 'lat|lon'.")
+        try:
+            lat = float(parts[0])
+            lon = float(parts[1])
+            return wikipediaapi.GeoPoint(lat=lat, lon=lon)
+        except ValueError as exc:
+            raise click.UsageError("Invalid --coord format, expected numeric 'lat|lon'.") from exc
+
+    # Convert enum parameters
+    sort_enum = validate_enum_value(sort, GeoSearchSort, geosearch_sort2str, "sort")
+    globe_enum = validate_enum_value(globe, Globe, globe2str, "globe")
+
+    kwargs: GeoSearchKwargs = {
+        "radius": radius,
+        "limit": limit,
+        "sort": sort_enum,
+        "globe": globe_enum,
+    }
+
+    if coord:
+        kwargs["coord"] = _parse_coord(coord)
+    elif page_title:
+        kwargs["page"] = wiki.page(page_title)
+    elif bbox:
+        kwargs["bbox"] = parse_bbox_string(bbox)
+    else:
+        raise click.UsageError("Either --coord, --page, or --bbox must be provided.")
+
+    if max_dim is not None:
+        kwargs["max_dim"] = max_dim
+    if ns != 0:
+        kwargs["ns"] = ns
+    if primary is not None:
+        kwargs["primary"] = validate_enum_value(
+            primary, CoordinateType, coordinate_type2str, "primary"
+        )
+
+    results = wiki.geosearch(**kwargs)
+    output: list[dict[str, Any]] = []
+    for title, p in results.items():
+        entry: dict[str, Any] = {"title": title}
+        if p.geosearch_meta is not None:
+            entry["dist"] = p.geosearch_meta.dist
+            entry["lat"] = p.geosearch_meta.lat
+            entry["lon"] = p.geosearch_meta.lon
+            entry["primary"] = p.geosearch_meta.primary
+        output.append(entry)
+    return output
+
+
+def format_geosearch(results: list[dict[str, Any]], output_format: str) -> str:
+    r"""Format geosearch results in the requested format.r"""
+    if output_format == "json":
+        return json.dumps(results, ensure_ascii=False, indent=2)
+    else:
+        lines = []
+        for r in results:
+            parts = [r["title"]]
+            if "dist" in r:
+                parts.append(f"({r['dist']}m)")
+            if "lat" in r and "lon" in r:
+                parts.append(f"[{r['lat']}, {r['lon']}]")
+            lines.append(" ".join(parts))
+        return "\n".join(lines)
+
+
+def get_random_pages(
+    wiki: wikipediaapi.Wikipedia,
+    limit: int = 1,
+    ns: int = 0,
+    filter_redirect: str = "nonredirects",
+    min_size: int | None = None,
+    max_size: int | None = None,
+) -> list[dict[str, Any]]:
+    r"""Get random Wikipedia pages.
+
+    Args:
+        wiki: Wikipedia instance
+        limit: Number of random pages
+        ns: Namespace to restrict to
+        filter_redirect: Filter for redirects: all, redirects, nonredirects
+        min_size: Minimum page size in bytes
+        max_size: Maximum page size in bytes
+
+    Returns:
+        List of page dictionaries with title and pageid
+    r"""
+    # Convert enum parameters
+    filter_redirect_enum = validate_enum_value(
+        filter_redirect, RedirectFilter, redirect_filter2str, "filter_redirect"
+    )
+
+    kwargs: RandomKwargs = {"limit": limit, "filter_redirect": filter_redirect_enum}
+    if ns != 0:
+        kwargs["ns"] = ns
+    if min_size is not None:
+        kwargs["min_size"] = min_size
+    if max_size is not None:
+        kwargs["max_size"] = max_size
+
+    results = wiki.random(**kwargs)
+    output: list[dict[str, Any]] = []
+    for title, p in results.items():
+        entry: dict[str, Any] = {"title": title}
+        if "pageid" in p._attributes:
+            entry["pageid"] = p._attributes["pageid"]
+        output.append(entry)
+    return output
+
+
+def format_random(results: list[dict[str, Any]], output_format: str) -> str:
+    r"""Format random page results in the requested format.r"""
+    if output_format == "json":
+        return json.dumps(results, ensure_ascii=False, indent=2)
+    else:
+        return "\n".join(r["title"] for r in results)
+
+
+def get_search_results(
+    wiki: wikipediaapi.Wikipedia,
+    query: str,
+    limit: int = 10,
+    ns: int = 0,
+    sort: str = "relevance",
+) -> dict[str, Any]:
+    r"""Search Wikipedia for pages matching a query.
+
+    Args:
+        wiki: Wikipedia instance
+        query: Search query string
+        limit: Maximum results
+        ns: Namespace to search
+        sort: Sort results by relevance, create_timestamp, etc.
+
+    Returns:
+        Dictionary with pages list, totalhits, and suggestion
+    r"""
+    # Convert enum parameters
+    sort_enum = validate_enum_value(sort, SearchSort, search_sort2str, "sort")
+
+    kwargs: SearchKwargs = {"limit": limit, "sort": sort_enum}
+    if ns != 0:
+        kwargs["ns"] = ns
+
+    sr = wiki.search(query, **kwargs)
+    pages_list: list[dict[str, Any]] = []
+    for title, p in sr.pages.items():
+        entry: dict[str, Any] = {"title": title}
+        if "pageid" in p._attributes:
+            entry["pageid"] = p._attributes["pageid"]
+        if p.search_meta is not None:
+            entry["snippet"] = p.search_meta.snippet
+            entry["size"] = p.search_meta.size
+            entry["wordcount"] = p.search_meta.wordcount
+            entry["timestamp"] = p.search_meta.timestamp
+        pages_list.append(entry)
+    result: dict[str, Any] = {
+        "totalhits": sr.totalhits,
+        "pages": pages_list,
+    }
+    if sr.suggestion is not None:
+        result["suggestion"] = sr.suggestion
+    return result
+
+
+def format_search(results: dict[str, Any], output_format: str) -> str:
+    r"""Format search results in the requested format.r"""
+    if output_format == "json":
+        return json.dumps(results, ensure_ascii=False, indent=2)
+    else:
+        lines = []
+        lines.append(f"Total hits: {results['totalhits']}")
+        if "suggestion" in results:
+            lines.append(f"Suggestion: {results['suggestion']}")
+        lines.append("")
+        for p in results["pages"]:
+            lines.append(p["title"])
+        return "\n".join(lines)
+
+
 def get_page_info(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> dict[str, Any]:
     r"""Get metadata and existence info for a Wikipedia page.
 
@@ -399,7 +827,8 @@ def cli():
     r"""Command line tool for querying Wikipedia using Wikipedia-API.
 
     Supports fetching page summaries, full text, sections, links,
-    backlinks, language links, categories, and category members.
+    backlinks, language links, categories, category members,
+    coordinates, images, geosearch, random pages, and search.
 
     Every command requires a TITLE argument — the Wikipedia page title.
 
@@ -408,6 +837,9 @@ def cli():
         wikipedia-api summary "Python (programming language)"
         wikipedia-api links "Python (programming language)" --language cs
         wikipedia-api categories "Python (programming language)" --json
+        wikipedia-api coordinates "Mount Everest"
+        wikipedia-api geosearch --coord "51.5074|-0.1278"
+        wikipedia-api search "Python programming"
     r"""
 
 
@@ -709,6 +1141,315 @@ def categorymembers(
     except PageNotFoundError as e:
         click.echo(str(e), err=True)
         sys.exit(1)
+
+
+@cli.command()
+@click.argument("title")
+@click.option(
+    "--limit",
+    type=int,
+    default=10,
+    show_default=True,
+    help="Maximum number of coordinates to return.",
+)
+@click.option(
+    "--primary",
+    type=click.Choice(["primary", "secondary", "all"], case_sensitive=False),
+    default="primary",
+    show_default=True,
+    help="Which coordinates to return.",
+)
+@add_options(_common_options)
+@_json_option
+def coordinates(
+    title,
+    limit,
+    primary,
+    language,
+    user_agent,
+    variant,
+    extract_format,
+    namespace,
+    output_format,
+):
+    r"""Show geographic coordinates for a Wikipedia page.
+
+    TITLE is the Wikipedia page title.
+
+    \b
+    Examples:
+        wikipedia-api coordinates "Mount Everest"
+        wikipedia-api coordinates "Mount Everest" --primary all
+        wikipedia-api coordinates "Mount Everest" --json
+    r"""
+    try:
+        wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+        coords_data = get_page_coordinates(wiki, title, namespace, limit, primary)
+        result = format_coordinates(coords_data, output_format)
+        click.echo(result)
+    except PageNotFoundError as e:
+        click.echo(str(e), err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.argument("title")
+@click.option(
+    "--limit",
+    type=int,
+    default=10,
+    show_default=True,
+    help="Maximum number of images to return.",
+)
+@add_options(_common_options)
+@_json_option
+def images(
+    title,
+    limit,
+    language,
+    user_agent,
+    variant,
+    extract_format,
+    namespace,
+    output_format,
+):
+    r"""List images (files) used on a Wikipedia page.
+
+    TITLE is the Wikipedia page title.
+
+    \b
+    Examples:
+        wikipedia-api images "Python (programming language)"
+        wikipedia-api images "Python (programming language)" --json
+        wikipedia-api images "Earth" --limit 50
+    r"""
+    try:
+        wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+        images_data = get_page_images(wiki, title, namespace, limit)
+        result = format_page_dict(images_data, output_format)
+        click.echo(result)
+    except PageNotFoundError as e:
+        click.echo(str(e), err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.option(
+    "--coord",
+    default=None,
+    help='Coordinates as "lat|lon" (e.g. "51.5074|-0.1278").',
+)
+@click.option(
+    "--page",
+    "page_title",
+    default=None,
+    help="Page title to use as centre point.",
+)
+@click.option(
+    "--bbox",
+    default=None,
+    help='Bounding box as "lat1|lon1|lat2|lon2".',
+)
+@click.option(
+    "--radius",
+    type=int,
+    default=500,
+    show_default=True,
+    help="Search radius in meters (max 10000).",
+)
+@click.option(
+    "--max-dim",
+    type=int,
+    default=None,
+    help="Maximum dimension in meters.",
+)
+@click.option(
+    "--sort",
+    type=click.Choice(["distance", "relevance"], case_sensitive=False),
+    default="distance",
+    show_default=True,
+    help="Sort results by distance or relevance.",
+)
+@click.option(
+    "--limit",
+    type=int,
+    default=10,
+    show_default=True,
+    help="Maximum number of results.",
+)
+@click.option(
+    "--globe",
+    type=click.Choice(["earth", "mars", "moon", "venus"], case_sensitive=False),
+    default="earth",
+    show_default=True,
+    help="Globe to search on.",
+)
+@click.option(
+    "--primary",
+    type=click.Choice(["primary", "secondary", "all"], case_sensitive=False),
+    default=None,
+    help="Filter by primary coordinates.",
+)
+@add_options(_common_options)
+@_json_option
+def geosearch(
+    coord,
+    page_title,
+    bbox,
+    radius,
+    max_dim,
+    sort,
+    limit,
+    globe,
+    primary,
+    language,
+    user_agent,
+    variant,
+    extract_format,
+    namespace,
+    output_format,
+):
+    r"""Search for Wikipedia pages near a geographic location.
+
+    Requires either --coord, --page, or --bbox to specify the search area.
+
+    \b
+    Examples:
+        wikipedia-api geosearch --coord "51.5074|-0.1278"
+        wikipedia-api geosearch --page "Big Ben" --radius 1000
+        wikipedia-api geosearch --bbox "51.5|-0.2|51.6|-0.1" --sort relevance
+        wikipedia-api geosearch --coord "48.8566|2.3522" --globe mars --json
+    r"""
+    try:
+        wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+        results_data = get_geosearch_results(
+            wiki, coord, page_title, bbox, radius, max_dim, sort, limit, globe, namespace, primary
+        )
+        result = format_geosearch(results_data, output_format)
+        click.echo(result)
+    except click.UsageError as e:
+        click.echo(str(e), err=True)
+        sys.exit(1)
+
+
+@cli.command(name="random")
+@click.option(
+    "--limit",
+    type=int,
+    default=1,
+    show_default=True,
+    help="Number of random pages to return.",
+)
+@click.option(
+    "--filter-redirect",
+    type=click.Choice(["all", "redirects", "nonredirects"], case_sensitive=False),
+    default="nonredirects",
+    show_default=True,
+    help="Filter for redirects: all, redirects, nonredirects.",
+)
+@click.option(
+    "--min-size",
+    type=int,
+    default=None,
+    help="Minimum page size in bytes.",
+)
+@click.option(
+    "--max-size",
+    type=int,
+    default=None,
+    help="Maximum page size in bytes.",
+)
+@add_options(_common_options)
+@_json_option
+def random_cmd(
+    limit,
+    filter_redirect,
+    min_size,
+    max_size,
+    language,
+    user_agent,
+    variant,
+    extract_format,
+    namespace,
+    output_format,
+):
+    r"""Get random Wikipedia pages.
+
+    \b
+    Examples:
+        wikipedia-api random
+        wikipedia-api random --limit 5
+        wikipedia-api random --filter-redirect all --json
+        wikipedia-api random --min-size 1000 --max-size 10000
+        wikipedia-api random --language de
+    r"""
+    wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+    results_data = get_random_pages(wiki, limit, namespace, filter_redirect, min_size, max_size)
+    result = format_random(results_data, output_format)
+    click.echo(result)
+
+
+@cli.command()
+@click.argument("query")
+@click.option(
+    "--limit",
+    type=int,
+    default=10,
+    show_default=True,
+    help="Maximum number of search results.",
+)
+@click.option(
+    "--search-sort",
+    "sort",
+    type=click.Choice(
+        [
+            "relevance",
+            "none",
+            "random",
+            "create_timestamp_asc",
+            "create_timestamp_desc",
+            "incoming_links_asc",
+            "incoming_links_desc",
+            "just_match",
+            "last_edit_asc",
+            "last_edit_desc",
+            "title_natural_asc",
+            "title_natural_desc",
+            "user_random",
+        ],
+        case_sensitive=False,
+    ),
+    default="relevance",
+    show_default=True,
+    help="Sort search results by relevance, timestamp, etc.",
+)
+@add_options(_common_options)
+@_json_option
+def search(
+    query,
+    limit,
+    sort,
+    language,
+    user_agent,
+    variant,
+    extract_format,
+    namespace,
+    output_format,
+):
+    r"""Search Wikipedia for pages matching a query.
+
+    QUERY is the search string.
+
+    \b
+    Examples:
+        wikipedia-api search "Python programming"
+        wikipedia-api search "Python programming" --search-sort create_timestamp_desc
+        wikipedia-api search "машинное обучение" --language ru --json
+    r"""
+    wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+    results_data = get_search_results(wiki, query, limit, namespace, sort)
+    result = format_search(results_data, output_format)
+    click.echo(result)
 
 
 @cli.command()

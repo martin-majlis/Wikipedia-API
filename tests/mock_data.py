@@ -588,6 +588,384 @@ _MOCK_DATA = {
             },
         },
     },
+    # ── coordinates (prop=coordinates) ──────────────────────────────────────────
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe&format=json&prop=coordinates&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&colimit=10&coprimary=all&coprop=globe&format=json&prop=coordinates&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                        },
+                        {
+                            "lat": 48.8566,
+                            "lon": 2.3522,
+                            "globe": "earth",
+                        },
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe&format=json&prop=coordinates&redirects=1&titles=NonExistent&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "ns": 0,
+                    "title": "NonExistent",
+                    "missing": "",
+                }
+            }
+        },
+    },
+    # ── images (prop=images) ────────────────────────────────────────────────────
+    "en:action=query&format=json&imdir=ascending&imlimit=10&prop=images&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "images": [
+                        {"ns": 6, "title": "File:Example.png"},
+                        {"ns": 6, "title": "File:Logo.svg"},
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&format=json&imdir=ascending&imlimit=10&prop=images&redirects=1&titles=NonExistent&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "ns": 0,
+                    "title": "NonExistent",
+                    "missing": "",
+                }
+            }
+        },
+    },
+    # ── coordinates with normalized title (for CLI tests) ──────────────────────
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe&format=json&prop=coordinates&redirects=1&titles=Test 1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    # ── coordinates with multiple properties (for enum testing) ───────────────────
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe|name|type&format=json&prop=coordinates&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                            "name": "Test Location",
+                            "type": "landmark",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe|name&format=json&prop=coordinates&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                            "name": "Test Location",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&colimit=10&coprimary=primary&coprop=country|dim|globe|name|region|type&format=json&prop=coordinates&redirects=1&titles=Test_1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "country": "GB",
+                            "dim": "1000",
+                            "globe": "earth",
+                            "name": "Test Location",
+                            "region": "England",
+                            "type": "landmark",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe|name&format=json&prop=coordinates&redirects=1&titles=Test_1|NonExistent&": {
+        "batchcomplete": "",
+        "query": {
+            "normalized": [{"from": "Test_1", "to": "Test 1"}],
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                            "name": "Test Location",
+                        }
+                    ],
+                },
+                "-1": {
+                    "ns": 0,
+                    "title": "NonExistent",
+                    "missing": "",
+                },
+            },
+        },
+    },
+    # ── images with normalized title (for CLI tests) ─────────────────────────
+    "en:action=query&format=json&imdir=ascending&imlimit=10&prop=images&redirects=1&titles=Test 1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "images": [
+                        {"ns": 6, "title": "File:Example.png"},
+                        {"ns": 6, "title": "File:Logo.svg"},
+                    ],
+                }
+            }
+        },
+    },
+    # ── geosearch (list=geosearch) ──────────────────────────────────────────────
+    "en:action=query&format=json&gscoord=51.5074|-0.1278&gsglobe=earth&gslimit=10&gsnamespace=0&gsradius=500&gssort=distance&list=geosearch&redirects=1&": {
+        "batchcomplete": "",
+        "query": {
+            "geosearch": [
+                {
+                    "pageid": 100,
+                    "ns": 0,
+                    "title": "Nearby Page 1",
+                    "lat": 51.508,
+                    "lon": -0.128,
+                    "dist": 50.3,
+                    "primary": "",
+                },
+                {
+                    "pageid": 101,
+                    "ns": 0,
+                    "title": "Nearby Page 2",
+                    "lat": 51.510,
+                    "lon": -0.130,
+                    "dist": 200.7,
+                    "primary": "",
+                },
+            ]
+        },
+    },
+    # ── geosearch with page (list=geosearch) ────────────────────────────────────────
+    "en:action=query&format=json&gsglobe=earth&gslimit=10&gsnamespace=0&gspage=Test_1&gsradius=500&gssort=distance&list=geosearch&redirects=1&": {
+        "batchcomplete": "",
+        "query": {
+            "geosearch": [
+                {
+                    "pageid": 100,
+                    "ns": 0,
+                    "title": "Nearby Page 1",
+                    "lat": 51.508,
+                    "lon": -0.128,
+                    "dist": 50.3,
+                    "primary": "",
+                },
+                {
+                    "pageid": 101,
+                    "ns": 0,
+                    "title": "Nearby Page 2",
+                    "lat": 51.510,
+                    "lon": -0.130,
+                    "dist": 200.7,
+                    "primary": "",
+                },
+            ]
+        },
+    },
+    # ── random (list=random) ────────────────────────────────────────────────────
+    "en:action=query&format=json&list=random&redirects=1&rnfilterredir=nonredirects&rnlimit=2&": {
+        "batchcomplete": "",
+        "query": {
+            "random": [
+                {"id": 200, "ns": 0, "title": "Random Page A"},
+                {"id": 201, "ns": 0, "title": "Random Page B"},
+            ]
+        },
+    },
+    # ── random with namespace (for CLI tests) ──────────────────────────────────
+    "en:action=query&format=json&list=random&redirects=1&rnfilterredir=nonredirects&rnlimit=2&rnnamespace=0&": {
+        "batchcomplete": "",
+        "query": {
+            "random": [
+                {"id": 200, "ns": 0, "title": "Random Page A"},
+                {"id": 201, "ns": 0, "title": "Random Page B"},
+            ]
+        },
+    },
+    "en:action=query&format=json&list=random&redirects=1&rnfilterredir=nonredirects&rnlimit=1&rnnamespace=0&": {
+        "batchcomplete": "",
+        "query": {
+            "random": [
+                {"id": 200, "ns": 0, "title": "Random Page A"},
+            ]
+        },
+    },
+    # ── batch coordinates (multi-title) ──────────────────────────────────────────
+    "en:action=query&colimit=10&coprimary=primary&coprop=globe&format=json&prop=coordinates&redirects=1&titles=Test_1|NonExistent&": {
+        "batchcomplete": "",
+        "query": {
+            "normalized": [{"from": "Test_1", "to": "Test 1"}],
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "coordinates": [
+                        {
+                            "lat": 51.5074,
+                            "lon": -0.1278,
+                            "primary": "",
+                            "globe": "earth",
+                        }
+                    ],
+                },
+                "-1": {
+                    "ns": 0,
+                    "title": "NonExistent",
+                    "missing": "",
+                },
+            },
+        },
+    },
+    # ── batch images (multi-title) ─────────────────────────────────────────────
+    "en:action=query&format=json&imdir=ascending&imlimit=10&prop=images&redirects=1&titles=Test_1|NonExistent&": {
+        "batchcomplete": "",
+        "query": {
+            "normalized": [{"from": "Test_1", "to": "Test 1"}],
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "images": [
+                        {"ns": 6, "title": "File:Example.png"},
+                        {"ns": 6, "title": "File:Logo.svg"},
+                    ],
+                },
+                "-1": {
+                    "ns": 0,
+                    "title": "NonExistent",
+                    "missing": "",
+                },
+            },
+        },
+    },
+    # ── search (list=search) ────────────────────────────────────────────────────
+    "en:action=query&format=json&list=search&redirects=1&srlimit=10&srnamespace=0&srsearch=Python&srsort=relevance&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 5432, "suggestion": "python programming"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Python (programming language)",
+                    "pageid": 300,
+                    "size": 123456,
+                    "wordcount": 15000,
+                    "snippet": '<span class="searchmatch">Python</span> is a programming language',
+                    "timestamp": "2024-01-01T00:00:00Z",
+                },
+                {
+                    "ns": 0,
+                    "title": "Python (mythology)",
+                    "pageid": 301,
+                    "size": 5678,
+                    "wordcount": 800,
+                    "snippet": '<span class="searchmatch">Python</span> is a creature',
+                    "timestamp": "2024-02-01T00:00:00Z",
+                },
+            ],
+        },
+    },
 }
 
 
@@ -1024,6 +1402,126 @@ _CLI_MOCK_DATA = {
                     "displaytitle": "Category:Nonexistent",
                 }
             },
+        },
+    },
+    # Add search API mock data for testing search enums
+    "en:action=query&format=json&list=search&redirects=1&srsearch=test&srlimit=5&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 13308, "suggestion": "test", "rewrittenquery": "test"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Test page",
+                    "pageid": 12345,
+                    "size": 5000,
+                    "wordcount": 250,
+                    "timestamp": "2023-01-15T10:30:00Z",
+                    "snippet": "This is a test <span class='searchmatch'>page</span> with some content.",
+                }
+            ],
+        },
+    },
+    "en:action=query&format=json&list=search&redirects=1&srinfo=totalhits|suggestion|rewrittenquery&srprop=size|wordcount|timestamp|snippet&srsearch=test&srlimit=5&srwhat=text&srsort=relevance&sriprofile=engine_autoselect&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 13308, "suggestion": "test", "rewrittenquery": "test"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Test page",
+                    "pageid": 12345,
+                    "size": 5000,
+                    "wordcount": 250,
+                    "timestamp": "2023-01-15T10:30:00Z",
+                    "snippet": "This is a test <span class='searchmatch'>page</span> with some content.",
+                }
+            ],
+        },
+    },
+    "en:action=query&format=json&list=search&redirects=1&srinfo=totalhits&srprop=size|wordcount&srsearch=python&srlimit=3&srwhat=title&srsort=lasteditdesc&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 2500, "suggestion": None, "rewrittenquery": "python"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Python (programming language)",
+                    "pageid": 23862,
+                    "size": 15000,
+                    "wordcount": 1200,
+                    "timestamp": "2023-12-01T15:45:00Z",
+                    "snippet": "<span class='searchmatch'>Python</span> is a high-level programming language.",
+                },
+                {
+                    "ns": 0,
+                    "title": "Python (genus)",
+                    "pageid": 45678,
+                    "size": 3000,
+                    "wordcount": 150,
+                    "timestamp": "2023-11-20T09:15:00Z",
+                    "snippet": "<span class='searchmatch'>Python</span> is a genus of snakes.",
+                },
+                {
+                    "ns": 0,
+                    "title": "Monty Python",
+                    "pageid": 78901,
+                    "size": 8000,
+                    "wordcount": 600,
+                    "timestamp": "2023-10-15T12:30:00Z",
+                    "snippet": "Monty <span class='searchmatch'>Python</span> was a British surreal comedy troupe.",
+                },
+            ],
+        },
+    },
+    "en:action=query&format=json&list=search&redirects=1&srinfo=totalhits&srprop=size|wordcount|timestamp&srsearch=python&srlimit=3&srwhat=nearmatch&srsort=incominglinks_desc&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 1500, "suggestion": None, "rewrittenquery": "python"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Python (programming language)",
+                    "pageid": 23862,
+                    "size": 15000,
+                    "wordcount": 1200,
+                    "timestamp": "2023-12-01T15:45:00Z",
+                },
+                {
+                    "ns": 0,
+                    "title": "Pythonidae",
+                    "pageid": 34567,
+                    "size": 4000,
+                    "wordcount": 300,
+                    "timestamp": "2023-09-10T14:20:00Z",
+                },
+                {
+                    "ns": 0,
+                    "title": "Monty Python's Flying Circus",
+                    "pageid": 56789,
+                    "size": 9000,
+                    "wordcount": 750,
+                    "timestamp": "2023-08-05T11:10:00Z",
+                },
+            ],
+        },
+    },
+    # Add search with mixed enum and string parameters
+    "en:action=query&format=json&list=search&prop=size|wordcount&redirects=1&srinfo=totalhits|suggestion&srprop=size|wordcount|timestamp&srsearch=python&srlimit=3&srwhat=text&sriprofile=engine_autoselect&srsort=relevance&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 2500, "suggestion": None, "rewrittenquery": "python"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Python (programming language)",
+                    "pageid": 23862,
+                    "size": 15000,
+                    "wordcount": 1200,
+                    "timestamp": "2023-12-01T15:45:00Z",
+                    "snippet": "<span class='searchmatch'>Python</span> is a high-level programming language.",
+                }
+            ],
         },
     },
 }

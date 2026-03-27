@@ -1,0 +1,32 @@
+[
+{
+"lat": 50.1775,
+"lon": 14.52694444,
+"primary": true,
+"globe": "earth"
+},
+{
+"lat": 49.94194444,
+"lon": 14.39555556,
+"primary": true,
+"globe": "earth"
+},
+{
+"lat": 50.10388889,
+"lon": 14.22527778,
+"primary": true,
+"globe": "earth"
+},
+{
+"lat": 50.08722222,
+"lon": 14.70638889,
+"primary": true,
+"globe": "earth"
+},
+{
+"lat": 50.08333333,
+"lon": 14.41666667,
+"primary": true,
+"globe": "earth"
+}
+]

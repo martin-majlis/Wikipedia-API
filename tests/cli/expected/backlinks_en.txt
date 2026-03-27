@@ -213,7 +213,6 @@
 2010 BK118
 2010 EU65
 2010 GB174
-2010 KZ39
 2010 in science
 2010s in science and technology
 2011 HM102
@@ -808,6 +807,7 @@ Isolated brain
 Italian names in the Solar System
 Işıl Eğrikavuk
 Jack Wisdom
+Jake Heggie
 James Ferguson (American astronomer)
 James L. Elliot
 James T. Kirk
@@ -1517,6 +1517,7 @@ Portal:Solar System/Selected article/27
 Portal:Solar System/Selected picture
 Portal:Solar System/Solar System topics
 Portal:Solar System/Solar System topics/imagebox
+Portal:Somerset
 Portal:Somerset/Did you know
 Portal:Somerset/Did you know/2
 Portal:Somerset/Nominate/Did you know
@@ -1856,6 +1857,7 @@ Talk:New Horizons/Archive 2
 Talk:New York City/Archive 16
 Talk:Ninth planet (disambiguation)
 Talk:Orbit/Archive 1
+Talk:Orcus (dwarf planet)
 Talk:Orders of magnitude (pressure)
 Talk:PLUTO
 Talk:Pamela Geller/Archive 7
@@ -1878,7 +1880,7 @@ Talk:Planets in astrology
 Talk:Pluto
 Talk:Pluto (Disney)/Archive 1
 Talk:Pluto (disambiguation)
-Talk:Pluto (mythology)
+Talk:Pluto (mythology)/Archive 1
 Talk:Pluto in fiction
 Talk:Pluto/Archive 1
 Talk:Pluto/Archive 2
@@ -2293,6 +2295,7 @@ User talk:Rowan iF
 User talk:Ryulong/Archive 3
 User talk:Ryulong/Archive 4
 User talk:ST47/Archive1
+User talk:Sapphaline
 User talk:Sds6065
 User talk:Serendipodous/Solar System
 User talk:Serendipodous/User talk:Serendipodous archive 10
@@ -2453,6 +2456,8 @@ User:Amage9/sandbox
 User:AmandaWins
 User:AmberSalome
 User:Ambi Valent
+User:Amechania/Angular diameter size comparison
+User:Amechania/List of objects for a size comparison
 User:American2
 User:Amirber/Dwarf moons
 User:Ammonight423
@@ -3575,8 +3580,6 @@ User:Nrco0e/Userboxes
 User:Nrco0e/Userboxes/Pluto
 User:Nrco0e/sandbox
 User:Nsammon
-User:Nussun05/Angular diameter size comparison
-User:Nussun05/List of objects for a size comparison
 User:Nwbeeson/sandbox
 User:Nyiffi
 User:Nzcit
@@ -3602,7 +3605,6 @@ User:Onion1996
 User:Onore Baka Sama
 User:Oobleckman
 User:Orangepilled
-User:OrdinaryGiraffe/Books/Vital/L2/A
 User:Oren neu dag
 User:Oren0
 User:Orinoco-w
@@ -3702,7 +3704,6 @@ User:PvtHudson IV
 User:Pwillows
 User:Pythagorean Theorem
 User:Python187
-User:PÆon/Sandbox
 User:QN/tamrin
 User:Qrstw
 User:RP88/Images
@@ -3830,6 +3831,8 @@ User:Sandmouse/userboxes
 User:Sanja Simat
 User:Santhosh06udaya/Books/Universe
 User:Sapienyia
+User:Sapphaline/sandbox
+User:Sapphaline/ub
 User:Sarah chocoholic93/Userboxen
 User:Saraid
 User:Sarathvk
@@ -4384,7 +4387,7 @@ Wikipedia talk:Verifiability/RfC
 Wikipedia talk:Vital articles/Archive 1
 Wikipedia talk:Vital articles/Archive 14
 Wikipedia talk:Vital articles/Archive 2
-Wikipedia talk:Vital articles/Level/4/Archive 51
+Wikipedia talk:Vital articles/Level 4/Archive 51
 Wikipedia talk:WikiProject Astronomical objects/Archive 10
 Wikipedia talk:WikiProject Astronomical objects/Archive 20
 Wikipedia talk:WikiProject Astronomical objects/Archive 25
@@ -4895,8 +4898,8 @@ Wikipedia:Village pump (policy)/Archive 203
 Wikipedia:Village pump (policy)/Archive 208
 Wikipedia:Village pump (technical)/Archive 139
 Wikipedia:Village pump (technical)/Archive 162
-Wikipedia:Vital articles/Level/4/Physical sciences
-Wikipedia:Vital articles/Level/5/Physical sciences/Astronomy
+Wikipedia:Vital articles/Level 4/Physical sciences
+Wikipedia:Vital articles/Level 5/Physical sciences/Astronomy
 Wikipedia:Vital articles/List of all articles
 Wikipedia:Vital articles/List of all level 1–4 vital articles
 Wikipedia:Vital articles/Popular pages

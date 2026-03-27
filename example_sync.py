@@ -8,6 +8,13 @@ Wikipedia, WikipediaPage, and WikipediaPageSection.
 import logging
 
 import wikipediaapi
+from wikipediaapi import coordinates_prop2str
+from wikipediaapi import CoordinatesProp
+from wikipediaapi import SearchInfo
+from wikipediaapi import SearchProp
+from wikipediaapi import SearchQiProfile
+from wikipediaapi import SearchSort
+from wikipediaapi import SearchWhat
 
 # Set to INFO to see the actual API request URLs being made
 logging.basicConfig(level=logging.WARNING)
@@ -319,3 +326,190 @@ print("ZH-TW:", zh_page_tw.title, "— variant:", zh_page_tw.variant)
 wiki_zh_sg = wikipediaapi.Wikipedia(user_agent=user_agent, language="zh", variant="zh-sg")
 zh_page_sg = wiki_zh_sg.page("Python")
 print("ZH-SG:", zh_page_sg.title, "— variant:", zh_page_sg.variant)
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 12. Coordinates (prop=coordinates)
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Fetch geographic coordinates for a page (default: primary only)
+london = wiki.page("London")
+coords = wiki.coordinates(london)
+print(f"London coordinates ({len(coords)}):")
+for c in coords:
+    print(f"  lat={c.lat}, lon={c.lon}, primary={c.primary}, globe={c.globe}")
+
+# Fetch all coordinates (primary + secondary) with custom params
+coords_all = wiki.coordinates(london, primary="all")
+print(f"London all coordinates: {len(coords_all)}")
+
+# Page-level property (uses default params, triggers fetch on first access)
+coords_prop = london.coordinates
+print(f"London coords via property: {len(coords_prop)}")
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 12.1. Coordinates with Properties Enum (NEW)
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Using enum values for type-safe coordinate property selection
+print("\n--- Coordinates with Enum Properties ---")
+
+# Single property using enum
+coords_enum_single = wiki.coordinates(london, prop=[CoordinatesProp.GLOBE])  # type: ignore
+print(f"London with GLOBE property: {len(coords_enum_single)} coordinates")
+
+# Multiple properties using enum values
+coords_enum_multi = wiki.coordinates(
+    london, prop=[CoordinatesProp.GLOBE, CoordinatesProp.NAME, CoordinatesProp.TYPE]  # type: ignore
+)
+print(f"London with GLOBE+NAME+TYPE properties: {len(coords_enum_multi)} coordinates")
+for c in coords_enum_multi:
+    print(
+        f"  lat={c.lat}, lon={c.lon}, name={getattr(c, 'name', 'N/A')}, type={getattr(c, 'type', 'N/A')}"
+    )
+
+# Mixed enum and string values (backward compatible)
+coords_mixed = wiki.coordinates(
+    london, prop=[CoordinatesProp.GLOBE, "name", "type"]  # type: ignore
+)
+print(f"London with mixed enum+string properties: {len(coords_mixed)} coordinates")
+
+# Using the converter function directly
+print("\n--- Converter Function Examples ---")
+print(
+    f"coordinates_prop2str(CoordinatesProp.GLOBE) = {coordinates_prop2str(CoordinatesProp.GLOBE)}"
+)
+print(f"coordinates_prop2str('globe') = {coordinates_prop2str('globe')}")
+print(f"coordinates_prop2str('custom') = {coordinates_prop2str('custom')}")
+
+# All available enum values
+print(f"\nAll CoordinatesProp values: {[prop.value for prop in CoordinatesProp]}")
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 12.2. Batch Coordinates with Enum Properties (NEW)
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Batch coordinates with enum properties
+print("\n--- Batch Coordinates with Enum Properties ---")
+pages = wiki.pages(["London", "Paris", "Berlin"])
+
+# Using enum values for batch coordinates
+batch_coords_enum = pages.coordinates(
+    prop=[CoordinatesProp.GLOBE, CoordinatesProp.NAME, CoordinatesProp.DIM]  # type: ignore
+)
+for page, coord_list in batch_coords_enum.items():
+    print(f"  {page.title}: {len(coord_list)} coordinate(s) with GLOBE+NAME+DIM")
+    for c in coord_list[:2]:  # Show first 2 coordinates
+        print(
+            f"    lat={c.lat}, lon={c.lon}, name={getattr(c, 'name', 'N/A')}, dim={getattr(c, 'dim', 'N/A')}"
+        )
+
+# Backward-compatible string usage still works
+batch_coords_strings = pages.coordinates(prop=["globe", "name", "dim"])
+print(f"Batch coordinates with strings: {len(batch_coords_strings)} pages")
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 13. Images (prop=images)
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Fetch images/files used on a page (using direction)
+imgs = wiki.images(london, direction="descending")
+print(f"London images ({len(imgs)}):")
+for title in sorted(imgs)[:5]:
+    print(f"  {title}")
+
+# Page-level property
+imgs_prop = london.images
+print(f"London images via property: {len(imgs_prop)}")
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 14. Geosearch (list=geosearch)
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Find pages near a geographic point
+results = wiki.geosearch(coord=wikipediaapi.GeoPoint(51.5074, -0.1278), radius=1000, limit=5)
+print(f"Geosearch results ({len(results)}):")
+for title, p in results.items():
+    meta = p.geosearch_meta
+    if meta:
+        print(f"  {title}: dist={meta.dist:.1f}m, lat={meta.lat}, lon={meta.lon}")
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 15. Random pages (list=random)
+# ──────────────────────────────────────────────────────────────────────────────
+
+random_pages = wiki.random(limit=3)
+print(f"Random pages ({len(random_pages)}):")
+for title in random_pages:
+    print(f"  {title}")
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 16. Search (list=search) with Type-Safe Enums
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Basic search (backward compatible)
+search_results = wiki.search("Python programming", limit=5)
+print(f"Search: {search_results.totalhits} total hits, suggestion={search_results.suggestion}")
+print(f"Search results ({len(search_results.pages)}):")
+for title, p in search_results.pages.items():
+    meta = p.search_meta
+    if meta:
+        print(f"  {title}: size={meta.size}, wordcount={meta.wordcount}")
+
+# Type-safe search with comprehensive enum parameters
+enum_search_results = wiki.search(
+    "Python programming",
+    prop=[SearchProp.SIZE, SearchProp.WORDCOUNT, SearchProp.TIMESTAMP, SearchProp.SNIPPET],
+    info=[SearchInfo.TOTAL_HITS, SearchInfo.SUGGESTION, SearchInfo.REWRITTEN_QUERY],
+    what=SearchWhat.TEXT,
+    qi_profile=SearchQiProfile.ENGINE_AUTO_SELECT,
+    sort=SearchSort.RELEVANCE,
+    limit=5,
+)
+print(f"Enum search: {enum_search_results.totalhits} total hits")
+print(f"Enum search results ({len(enum_search_results.pages)}):")
+for title, p in enum_search_results.pages.items():
+    meta = p.search_meta
+    if meta:
+        print(
+            f"  {title}: size={meta.size}, wordcount={meta.wordcount}, timestamp={meta.timestamp}"
+        )
+
+# Search by title only
+title_search = wiki.search("Python", what=SearchWhat.TITLE, limit=5)
+print(f"Title search: {title_search.totalhits} total hits")
+
+# Different sort strategies
+recent_search = wiki.search("Python", sort=SearchSort.LAST_EDIT_DESC, limit=3)
+print(f"Most recently edited: {len(recent_search.pages)} pages")
+
+popular_search = wiki.search("Python", sort=SearchSort.INCOMING_LINKS_DESC, limit=3)
+print(f"Most linked: {len(popular_search.pages)} pages")
+
+# Mixed enum and string usage (fully supported)
+mixed_search = wiki.search(
+    "Python",
+    prop=[SearchProp.SIZE, "wordcount"],  # Mixed enum and string
+    info=[SearchInfo.TOTAL_HITS, "suggestion"],  # Mixed enum and string
+    what=SearchWhat.TEXT,
+    qi_profile="engine_autoselect",  # String
+    sort="relevance",  # String
+)
+print(f"Mixed search: {mixed_search.totalhits} total hits")
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 17. Batch methods and PagesDict
+# ──────────────────────────────────────────────────────────────────────────────
+
+# pages() creates a PagesDict of lazy page stubs
+pd = wiki.pages(["London", "Paris", "Berlin"])
+print(f"PagesDict: {len(pd)} pages")
+
+# Batch-fetch coordinates for all pages at once (efficient multi-title request)
+batch_coords = pd.coordinates()
+for page, coord_list in batch_coords.items():
+    print(f"  {page.title}: {len(coord_list)} coordinate(s)")
+
+# Batch-fetch images for all pages at once
+batch_imgs = pd.images()
+for title, img_dict in batch_imgs.items():
+    print(f"  {title}: {len(img_dict)} image(s)")

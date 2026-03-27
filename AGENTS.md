@@ -273,6 +273,31 @@ If any module shows coverage below 90%, you must:
 2. Write tests to cover the uncovered code paths
 3. Re-run coverage until all modules meet the 90% threshold
 
+### HTTP Request Testing Requirements
+
+**🌐 CRITICAL: All tests making HTTP requests must use `tests/mock_data.py`**
+
+When writing or updating tests that make HTTP requests to Wikipedia's API:
+
+1. **Always use `tests/mock_data.py`**: All HTTP request-based tests must import and use the mock fixtures from `tests/mock_data.py`
+2. **Never make real HTTP requests in unit tests**: Tests should be deterministic and fast, not dependent on network connectivity
+3. **Use existing mock fixtures**: Import functions like `create_mock_wikipedia()`, `create_mock_page()`, and predefined API responses
+4. **Add new mock data when needed**: If testing new API endpoints, add appropriate mock responses to `tests/mock_data.py`
+5. **Keep mock data consistent**: Ensure mock responses match the actual Wikipedia API structure and format
+
+Examples of tests that must use `mock_data.py`:
+
+- All `*test.py` files that test API methods (`page.summary()`, `page.text()`, `wiki.search()`, etc.)
+- Integration tests for `Wikipedia`, `AsyncWikipedia`, `WikipediaPage`, `AsyncWikipediaPage`
+- CLI tests that verify API command output
+- Error handling tests for network-related failures
+
+Tests that don't need `mock_data.py`:
+
+- Pure unit tests for enums, converters, parameter validation
+- Type checking and validation logic tests
+- Internal algorithm tests that don't touch external APIs
+
 ### Code Quality Requirements
 
 **🔧 CRITICAL: All pre-commit hooks must pass**
@@ -362,7 +387,22 @@ Ensure each of the following files accurately reflects the change:
 Both files serve as living documentation and must exercise every
 publicly available method and attribute.
 
-### 3. Update tests
+### 3. Update the CLI tool
+
+Whenever the public API of `Wikipedia` or `AsyncWikipedia` changes
+(new methods, renamed parameters, changed return types), the
+command-line interface and its tests **must** be updated in lockstep:
+
+- **`wikipediaapi/cli.py`** — add or update CLI commands and their
+  helper functions to expose the new or changed API functionality.
+- **`tests/cli/test_cli.sh`** — add new test entries to the `TESTS`
+  array for every new command, then run `make run-test-cli-record` to
+  generate the expected output fixtures.
+- **`tests/cli_test.py`** — add or update unit tests for the CLI
+  helper functions (e.g. `get_*`, `format_*`).
+- **`CLI.rst`** — document new commands, options, and examples.
+
+### 4. Update tests
 
 - Add or update unit tests in `tests/` for every new or modified code
   path.
@@ -380,6 +420,13 @@ publicly available method and attribute.
   symmetry is maintained for all API features.
 - Run the full suite and coverage check (see [Test](#test) below)
   before committing.
+- **Run `make run-validate-attributes-mappping`** whenever you add or
+  modify a property, method, or attribute on `WikipediaPage`,
+  `AsyncWikipediaPage`, `Wikipedia`, or `AsyncWikipedia`. This
+  validates that `ATTRIBUTES_MAPPING` in `_base_wikipedia_page.py` is
+  in sync with the actual page properties. If the script fails, add
+  the missing entries to `ATTRIBUTES_MAPPING` (use an empty list `[]`
+  for properties that use `_param_cache` instead of `_called`).
 
 ## Pre-release Check
 

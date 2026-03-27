@@ -97,6 +97,73 @@ class TestWikipediaPage(unittest.TestCase):
         page = self.wiki.page("Test_1")
         self.assertTrue(page.exists())
 
+    def test_page_identity_equality(self):
+        p1 = self.wiki.page("Test_1")
+        p2 = self.wiki.page("Test_1")
+        self.assertEqual(p1, p2)
+        self.assertEqual(hash(p1), hash(p2))
+
+    def test_page_identity_inequality(self):
+        p1 = self.wiki.page("Test_1")
+        p2 = self.wiki.page("Test_1", ns=wikipediaapi.Namespace.CATEGORY)
+        self.assertNotEqual(p1, p2)
+
+    def test_page_equality_with_non_page_object(self):
+        p1 = self.wiki.page("Test_1")
+        self.assertNotEqual(p1, "not a page")
+        self.assertNotEqual(p1, None)
+        self.assertNotEqual(p1, 42)
+
+    def test_page_hash_consistency(self):
+        p1 = self.wiki.page("Test_1")
+        p2 = self.wiki.page("Test_1")
+        p3 = self.wiki.page("Test_2")
+
+        # Same pages should have same hash
+        self.assertEqual(hash(p1), hash(p2))
+        # Different pages should have different hashes
+        self.assertNotEqual(hash(p1), hash(p3))
+
+        # Hash should be consistent across multiple calls
+        h1 = hash(p1)
+        h2 = hash(p1)
+        self.assertEqual(h1, h2)
+
+    def test_private_attribute_access(self):
+        p = self.wiki.page("Test_1")
+
+        # Test accessing private attributes raises AttributeError
+        with self.assertRaises(AttributeError) as cm:
+            _ = p._private_attr
+        self.assertIn("object has no attribute '_private_attr'", str(cm.exception))
+
+        with self.assertRaises(AttributeError) as cm:
+            _ = p.__dict__
+        self.assertIn("object has no attribute '__dict__'", str(cm.exception))
+
+    def test_missing_attribute_access(self):
+        p = self.wiki.page("Test_1")
+
+        # Test accessing non-existent attributes raises AttributeError
+        with self.assertRaises(AttributeError) as cm:
+            _ = p.non_existent_attr
+        self.assertIn("object has no attribute 'non_existent_attr'", str(cm.exception))
+
+        with self.assertRaises(AttributeError) as cm:
+            _ = p.definitely_not_here
+        self.assertIn("object has no attribute 'definitely_not_here'", str(cm.exception))
+
+    def test_attribute_access_without_cache(self):
+        p = self.wiki.page("Test_1")
+
+        # Remove _attributes to simulate uninitialized state
+        if hasattr(p, "_attributes"):
+            object.__delattr__(p, "_attributes")
+
+        with self.assertRaises(AttributeError) as cm:
+            _ = p.any_attr
+        self.assertIn("object has no attribute 'any_attr'", str(cm.exception))
+
     def test_article_method(self):
         p = self.wiki.page("Test_1")
         a = self.wiki.article("Test_1")

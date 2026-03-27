@@ -1,0 +1,28 @@
+Usage: wikipedia-api images [OPTIONS] TITLE
+
+List images (files) used on a Wikipedia page.
+
+TITLE is the Wikipedia page title.
+
+\b Examples:     wikipedia-api images "Python (programming language)"
+wikipedia-api images "Python (programming language)" --json     wikipedia-
+api images "Earth" --limit 50 r
+
+Options:
+--limit INTEGER                 Maximum number of images to return.
+[default: 10]
+-l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
+de, zh).  [default: en]
+-u, --user-agent TEXT           HTTP User-Agent string sent with requests.
+[default: wikipedia-api-cli
+(https://github.com/martin-majlis/Wikipedia-
+API)]
+-v, --variant TEXT              Language variant (e.g. zh-cn, zh-tw). Only
+for languages that support variants.
+-f, --extract-format [wiki|html]
+Extraction format for page text.  [default:
+wiki]
+-n, --namespace INTEGER         Wikipedia namespace (0=Main, 14=Category,
+etc.).  [default: 0]
+--json                          Output results as JSON.
+-h, --help                      Show this message and exit.

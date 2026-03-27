@@ -2,12 +2,35 @@ from abc import ABC
 from abc import abstractmethod
 from typing import Any, Generic, TypeVar
 
-from .namespace import Namespace
-from .namespace import namespace2int
-from .namespace import WikiNamespace
+from ._enums import Namespace
+from ._enums import namespace2int
+from ._enums import WikiNamespace
 from .wikipedia_page_section import WikipediaPageSection
 
 PageT = TypeVar("PageT", bound="BaseWikipediaPage[Any]")
+
+
+class _Sentinel:
+    """Singleton sentinel indicating a cache miss (distinct from None)."""
+
+    _instance: "_Sentinel | None" = None
+
+    def __new__(cls) -> "_Sentinel":
+        """Return the singleton instance."""
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def __repr__(self) -> str:
+        """Return a readable representation."""
+        return "<NOT_CACHED>"
+
+    def __bool__(self) -> bool:
+        """Return False so ``if cached:`` skips sentinels."""
+        return False
+
+
+NOT_CACHED = _Sentinel()
 
 
 class BaseWikipediaPage(ABC, Generic[PageT]):
@@ -75,6 +98,10 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
         "summary": ["extracts"],
         "text": ["extracts"],
         "sections": ["extracts"],
+        "coordinates": [],
+        "images": [],
+        "geosearch_meta": [],
+        "search_meta": [],
     }
 
     def __init__(
@@ -123,6 +150,11 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
             "categories": False,
             "categorymembers": False,
         }
+
+        self._param_cache: dict[str, dict[tuple[tuple[str, Any], ...], Any]] = {}
+
+        self._geosearch_meta: Any = None
+        self._search_meta: Any = None
 
         self._attributes: dict[str, Any] = {
             "title": title,
@@ -191,6 +223,39 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
         """
         return int(self._attributes["ns"])
 
+    def __eq__(self, other: object) -> bool:
+        """Compare pages by logical identity tuple.
+
+        Two page objects are considered equal when they refer to the same
+        language, title, and namespace.
+
+        Args:
+            other: Object to compare against.
+
+        Returns:
+            ``True`` when ``other`` is a ``BaseWikipediaPage`` with the same
+            language, title, and namespace; otherwise ``False``.
+        """
+        if not isinstance(other, BaseWikipediaPage):
+            return False
+        return (
+            self.language,
+            self.title,
+            self.ns,
+        ) == (
+            other.language,
+            other.title,
+            other.ns,
+        )
+
+    def __hash__(self) -> int:
+        """Return the hash of the page identity tuple.
+
+        Returns:
+            Hash computed from ``(language, title, namespace)``.
+        """
+        return hash((self.language, self.title, self.ns))
+
     @property
     @abstractmethod
     def sections(self) -> list[WikipediaPageSection]:
@@ -222,6 +287,22 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
 
         :return: ``bool`` (sync) or an awaitable ``bool`` (async)
         """
+
+    def __getattribute__(self, name: str) -> Any:
+        """
+        Intercept attribute access to block __dict__ and other special attributes.
+
+        This method is called for every attribute access, allowing us to
+        block access to __dict__ and other special attributes while preserving
+        normal attribute lookup behavior.
+
+        :param name: attribute name to look up
+        :return: the attribute value
+        :raises AttributeError: if accessing blocked special attributes
+        """
+        if name == "__dict__":
+            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        return super().__getattribute__(name)
 
     def __getattr__(self, name: str) -> Any:
         """
@@ -298,3 +379,30 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
         if sections:
             return sections[-1]
         return None
+
+    def _get_cached(self, key: str, cache_key: tuple[tuple[str, Any], ...]) -> Any:
+        """Return a cached value for *key* and *cache_key*, or :data:`NOT_CACHED`.
+
+        Args:
+            key: Top-level cache namespace (e.g. ``"coordinates"``).
+            cache_key: Hashable tuple produced by ``params.cache_key()``.
+
+        Returns:
+            The cached value, or :data:`NOT_CACHED` if no entry exists.
+        """
+        bucket = self._param_cache.get(key)
+        if bucket is None:
+            return NOT_CACHED
+        return bucket.get(cache_key, NOT_CACHED)
+
+    def _set_cached(self, key: str, cache_key: tuple[tuple[str, Any], ...], value: Any) -> None:
+        """Store *value* in the per-param cache under *key* / *cache_key*.
+
+        Args:
+            key: Top-level cache namespace (e.g. ``"coordinates"``).
+            cache_key: Hashable tuple produced by ``params.cache_key()``.
+            value: The value to cache (may be ``None``).
+        """
+        if key not in self._param_cache:
+            self._param_cache[key] = {}
+        self._param_cache[key][cache_key] = value

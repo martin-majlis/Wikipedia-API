@@ -5,8 +5,8 @@ Print the text of a specific section.
 TITLE is the Wikipedia page title. SECTION_TITLE is the name of the section
 to retrieve.
 
-Examples:
-wikipedia-api section "Python (programming language)" "Features and philosophy"
+\b Examples:     wikipedia-api section "Python (programming language)"
+"Features and philosophy" r
 
 Options:
 -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,

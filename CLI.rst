@@ -147,6 +147,81 @@ Output as JSON::
 
     wikipedia-api categorymembers "Category:Physics" --json
 
+Coordinates
+-----------
+
+Show geographic coordinates for a page::
+
+    wikipedia-api coordinates "Mount Everest"
+
+Show all coordinates (primary and secondary)::
+
+    wikipedia-api coordinates "Mount Everest" --primary all
+
+Output as JSON::
+
+    wikipedia-api coordinates "Mount Everest" --json
+
+Images
+------
+
+List images (files) used on a page::
+
+    wikipedia-api images "Python (programming language)"
+
+Output as JSON::
+
+    wikipedia-api images "Python (programming language)" --json
+
+Limit the number of images::
+
+    wikipedia-api images "Earth" --limit 50
+
+Geosearch
+---------
+
+Search for pages near a geographic coordinate::
+
+    wikipedia-api geosearch --coord "51.5074|-0.1278"
+
+Search near a named page::
+
+    wikipedia-api geosearch --page "Big Ben" --radius 1000
+
+Output as JSON::
+
+    wikipedia-api geosearch --coord "48.8566|2.3522" --json
+
+Random
+------
+
+Get a random Wikipedia page::
+
+    wikipedia-api random
+
+Get multiple random pages::
+
+    wikipedia-api random --limit 5
+
+Output as JSON::
+
+    wikipedia-api random --limit 3 --json
+
+Search
+------
+
+Search Wikipedia for pages matching a query::
+
+    wikipedia-api search "Python programming"
+
+Output as JSON::
+
+    wikipedia-api search "Python programming" --json
+
+Search in another language::
+
+    wikipedia-api search "машинное обучение" --language ru
+
 Complete Workflow Example
 -------------------------
 
@@ -169,3 +244,15 @@ Fetch a page summary, then explore its sections and links::
 
     # Get the same page in German
     wikipedia-api summary "Python (Programmiersprache)" --language de
+
+    # Show coordinates for a geographic page
+    wikipedia-api coordinates "Mount Everest"
+
+    # Search for pages near a location
+    wikipedia-api geosearch --coord "27.9881|86.9250"
+
+    # Search Wikipedia
+    wikipedia-api search "Mount Everest"
+
+    # Get random pages
+    wikipedia-api random --limit 3
