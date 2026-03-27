@@ -232,6 +232,40 @@ _MOCK_DATA = {
             },
         },
     },
+    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=Test 1&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "4": {
+                    "pageid": 4,
+                    "ns": 0,
+                    "title": "Test 1",
+                    "missing": "",
+                    "contentmodel": "wikitext",
+                    "pagelanguage": "en",
+                    "pagelanguagehtmlcode": "en",
+                    "pagelanguagedir": "ltr",
+                    "touched": "2023-01-01T00:00:00Z",
+                    "lastrevid": 12345,
+                    "length": 6789,
+                    "protection": [{"type": "create", "level": "sysop", "expiry": "infinity"}],
+                    "restrictiontypes": ["create"],
+                    "watchers": 100,
+                    "visitingwatchers": 50,
+                    "notificationtimestamp": "",
+                    "talkid": 5,
+                    "fullurl": "https://en.wikipedia.org/wiki/Test_1",
+                    "editurl": "https://en.wikipedia.org/w/index.php?title=Test_1&action=edit",
+                    "canonicalurl": "https://en.wikipedia.org/wiki/Test_1",
+                    "readable": "",
+                    "preload": None,
+                    "displaytitle": "Test 1",
+                    "varianttitles": {},
+                    "api_new_experimental_field": "test_value",
+                }
+            },
+        },
+    },
     "l1:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=Test 1 - 1&": {
         "batchcomplete": "",
         "query": {
