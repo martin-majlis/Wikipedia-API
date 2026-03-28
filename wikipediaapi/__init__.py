@@ -6,43 +6,51 @@ from Wikipedia. Documentation provides code snippets for the most common use
 cases.
 """
 
-from ._enums import coordinate_type2str
-from ._enums import coordinates_prop2str
-from ._enums import CoordinatesProp
-from ._enums import CoordinateType
-from ._enums import Direction
-from ._enums import direction2str
-from ._enums import geosearch_sort2str
-from ._enums import GeoSearchSort
-from ._enums import Globe
-from ._enums import globe2str
-from ._enums import Namespace
-from ._enums import namespace2int
-from ._enums import redirect_filter2str
-from ._enums import RedirectFilter
-from ._enums import search_info2str
-from ._enums import search_prop2str
-from ._enums import search_qi_profile2str
-from ._enums import search_sort2str
-from ._enums import search_what2str
-from ._enums import SearchInfo
-from ._enums import SearchProp
-from ._enums import SearchQiProfile
-from ._enums import SearchSort
-from ._enums import SearchWhat
-from ._enums import WikiCoordinatesProp
-from ._enums import WikiCoordinateType
-from ._enums import WikiDirection
-from ._enums import WikiGeoSearchSort
-from ._enums import WikiGlobe
-from ._enums import WikiNamespace
-from ._enums import WikiSearchInfo
-from ._enums import WikiSearchProp
-from ._enums import WikiSearchQiProfile
-from ._enums import WikiSearchSort
-from ._enums import WikiSearchWhat
+from ._enums.coordinate_type import coordinate_type2str
+from ._enums.coordinate_type import CoordinateType
+from ._enums.coordinate_type import WikiCoordinateType
+from ._enums.coordinates_prop import coordinates_prop2str
+from ._enums.coordinates_prop import CoordinatesProp
+from ._enums.coordinates_prop import WikiCoordinatesProp
+from ._enums.direction import Direction
+from ._enums.direction import direction2str
+from ._enums.direction import WikiDirection
+from ._enums.geosearch_sort import geosearch_sort2str
+from ._enums.geosearch_sort import GeoSearchSort
+from ._enums.geosearch_sort import WikiGeoSearchSort
+from ._enums.globe import Globe
+from ._enums.globe import globe2str
+from ._enums.globe import WikiGlobe
+from ._enums.namespace import Namespace
+from ._enums.namespace import namespace2int
+from ._enums.namespace import WikiNamespace
+from ._enums.redirect_filter import redirect_filter2str
+from ._enums.redirect_filter import RedirectFilter
+from ._enums.redirect_filter import WikiRedirectFilter
+from ._enums.search_info import search_info2str
+from ._enums.search_info import SearchInfo
+from ._enums.search_info import WikiSearchInfo
+from ._enums.search_prop import search_prop2str
+from ._enums.search_prop import SearchProp
+from ._enums.search_prop import WikiSearchProp
+from ._enums.search_qi_profile import search_qi_profile2str
+from ._enums.search_qi_profile import SearchQiProfile
+from ._enums.search_qi_profile import WikiSearchQiProfile
+from ._enums.search_sort import search_sort2str
+from ._enums.search_sort import SearchSort
+from ._enums.search_sort import WikiSearchSort
+from ._enums.search_what import search_what2str
+from ._enums.search_what import SearchWhat
+from ._enums.search_what import WikiSearchWhat
+from ._http_client import AsyncHTTPClient
+from ._http_client import BaseHTTPClient
+from ._http_client import SyncHTTPClient
+from ._http_client import USER_AGENT
 from ._pages_dict import AsyncPagesDict
 from ._pages_dict import PagesDict
+from ._resources import AsyncWikipediaResource
+from ._resources import BaseWikipediaResource
+from ._resources import WikipediaResource
 from ._types import Coordinate
 from ._types import GeoBox
 from ._types import GeoPoint
@@ -59,7 +67,6 @@ from .exceptions import WikiInvalidJsonError
 from .exceptions import WikipediaException
 from .exceptions import WikiRateLimitError
 from .extract_format import ExtractFormat
-from .wikipedia import USER_AGENT
 from .wikipedia import Wikipedia
 from .wikipedia_page import WikipediaPage
 from .wikipedia_page_section import WikipediaPageSection
@@ -87,6 +94,12 @@ __all__ = [
     "WikiInvalidJsonError",
     "WikiConnectionError",
     "ExtractFormat",
+    "BaseHTTPClient",
+    "SyncHTTPClient",
+    "AsyncHTTPClient",
+    "BaseWikipediaResource",
+    "WikipediaResource",
+    "AsyncWikipediaResource",
     "Direction",
     "WikiDirection",
     "direction2str",
@@ -102,6 +115,9 @@ __all__ = [
     "Globe",
     "WikiGlobe",
     "globe2str",
+    "Namespace",
+    "WikiNamespace",
+    "namespace2int",
     "RedirectFilter",
     "WikiRedirectFilter",
     "redirect_filter2str",
@@ -114,14 +130,11 @@ __all__ = [
     "SearchQiProfile",
     "WikiSearchQiProfile",
     "search_qi_profile2str",
-    "SearchWhat",
-    "WikiSearchWhat",
-    "search_what2str",
     "SearchSort",
     "WikiSearchSort",
     "search_sort2str",
-    "Namespace",
-    "WikiNamespace",
-    "namespace2int",
+    "SearchWhat",
+    "WikiSearchWhat",
+    "search_what2str",
     "USER_AGENT",
 ]

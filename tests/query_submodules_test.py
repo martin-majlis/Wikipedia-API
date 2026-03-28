@@ -595,7 +595,7 @@ class TestAsyncQuerySubmodules:
     async def test_async_images(self):
         page = self.wiki.page("Test_1")
         imgs = await self.wiki.images(page)
-        assert isinstance(imgs, wikipediaapi.PagesDict)
+        assert isinstance(imgs, wikipediaapi.AsyncPagesDict)
         assert len(imgs) == 2
 
     async def test_async_images_nonexistent(self):
@@ -611,7 +611,7 @@ class TestAsyncQuerySubmodules:
 
     async def test_async_geosearch(self):
         results = await self.wiki.geosearch(coord=GeoPoint(51.5074, -0.1278))
-        assert isinstance(results, wikipediaapi.PagesDict)
+        assert isinstance(results, wikipediaapi.AsyncPagesDict)
         assert len(results) == 2
         assert "Nearby Page 1" in results
 
@@ -623,7 +623,7 @@ class TestAsyncQuerySubmodules:
 
     async def test_async_random(self):
         results = await self.wiki.random(limit=2)
-        assert isinstance(results, wikipediaapi.PagesDict)
+        assert isinstance(results, wikipediaapi.AsyncPagesDict)
         assert len(results) == 2
         assert "Random Page A" in results
 
@@ -662,7 +662,7 @@ class TestAsyncQuerySubmodules:
     async def test_async_page_images_property(self):
         page = self.wiki.page("Test_1")
         imgs = await page.images
-        assert isinstance(imgs, wikipediaapi.PagesDict)
+        assert isinstance(imgs, wikipediaapi.AsyncPagesDict)
         assert len(imgs) == 2
 
     async def test_async_page_geosearch_meta_none(self):

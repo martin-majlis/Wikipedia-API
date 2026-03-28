@@ -10,8 +10,8 @@ from typing import Any
 from ._base_wikipedia_page import BaseWikipediaPage
 from ._base_wikipedia_page import NOT_CACHED
 from ._pages_dict import PagesDict
-from ._params import CoordinatesParams
-from ._params import ImagesParams
+from ._params.coordinates_params import CoordinatesParams
+from ._params.images_params import ImagesParams
 from ._types import Coordinate
 from ._types import GeoSearchMeta
 from ._types import SearchMeta

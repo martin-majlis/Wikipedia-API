@@ -34,17 +34,62 @@ File Layout
 
     wikipediaapi/
     ├── __init__.py              # Public exports
-    ├── _http_client.py          # Transport layer
-    │   ├── BaseHTTPClient       # Shared retry & config logic
-    │   ├── SyncHTTPClient       # Blocking httpx.Client
-    │   └── AsyncHTTPClient      # Non-blocking httpx.AsyncClient
-    ├── _resources.py            # API layer
-    │   ├── BaseWikipediaResource  # Param builders, parsers, dispatchers
-    │   ├── WikipediaResource      # Sync public API methods
-    │   └── AsyncWikipediaResource # Async public API methods
-    ├── _types.py                # Typed dataclasses (GeoPoint, GeoBox, Coordinate, GeoSearchMeta, SearchMeta, SearchResults)
-    ├── _params.py               # Query parameter dataclasses (CoordinatesParams, ImagesParams, …)
-    ├── _pages_dict.py           # PagesDict / AsyncPagesDict (dict subclasses with batch methods)
+    ├── _http_client/            # Transport layer package
+    │   ├── __init__.py
+    │   ├── base_http_client.py  # Shared retry & config logic
+    │   ├── sync_http_client.py   # Blocking httpx.Client
+    │   ├── async_http_client.py  # Non-blocking httpx.AsyncClient
+    │   ├── retry_utils.py        # Retry utilities
+    │   └── retry_after_wait.py   # Retry-After header handling
+    ├── _resources/              # API layer package
+    │   ├── __init__.py
+    │   ├── base_wikipedia_resource.py  # Param builders, parsers, dispatchers
+    │   ├── wikipedia_resource.py      # Sync public API methods
+    │   └── async_wikipedia_resource.py # Async public API methods
+    ├── _types/                  # Typed dataclasses package
+    │   ├── __init__.py
+    │   ├── coordinate.py         # Coordinate dataclass
+    │   ├── geo_point.py          # GeoPoint dataclass
+    │   ├── geo_box.py            # GeoBox dataclass
+    │   ├── geo_search_meta.py    # GeoSearchMeta dataclass
+    │   ├── search_meta.py        # SearchMeta dataclass
+    │   └── search_results.py     # SearchResults dataclass
+    ├── _params/                 # Query parameter dataclasses package
+    │   ├── __init__.py
+    │   ├── base_params.py       # Base parameter class
+    │   ├── coordinates_params.py # CoordinatesParams
+    │   ├── geo_search_params.py  # GeoSearchParams
+    │   ├── images_params.py      # ImagesParams
+    │   ├── random_params.py      # RandomParams
+    │   ├── search_params.py      # SearchParams
+    │   └── protocols.py          # Protocol constants
+    ├── _pages_dict/             # PagesDict package
+    │   ├── __init__.py
+    │   ├── base_pages_dict.py   # Base PagesDict functionality
+    │   ├── pages_dict.py         # PagesDict (sync)
+    │   └── async_pages_dict.py   # AsyncPagesDict
+    ├── _enums/                  # Enums package
+    │   ├── __init__.py
+    │   ├── coordinate_type.py    # CoordinateType enum
+    │   ├── coordinates_prop.py  # CoordinatesProp enum
+    │   ├── direction.py          # Direction enum
+    │   ├── geosearch_sort.py     # GeoSearchSort enum
+    │   ├── globe.py              # Globe enum
+    │   ├── namespace.py          # Namespace enum
+    │   ├── redirect_filter.py    # RedirectFilter enum
+    │   ├── search_info.py        # SearchInfo enum
+    │   ├── search_prop.py        # SearchProp enum
+    │   ├── search_qi_profile.py  # SearchQiProfile enum
+    │   ├── search_sort.py        # SearchSort enum
+    │   └── search_what.py        # SearchWhat enum
+    ├── exceptions/              # Exception classes package
+    │   ├── __init__.py
+    │   ├── wikipedia_exception.py      # Base exception
+    │   ├── wiki_connection_error.py     # Connection errors
+    │   ├── wiki_http_error.py            # HTTP errors
+    │   ├── wiki_http_timeout_error.py   # Timeout errors
+    │   ├── wiki_invalid_json_error.py   # JSON parsing errors
+    │   └── wiki_rate_limit_error.py     # Rate limiting errors
     ├── wikipedia.py             # Wikipedia (sync concrete client)
     ├── async_wikipedia.py       # AsyncWikipedia (async concrete client)
     ├── _base_wikipedia_page.py  # BaseWikipediaPage (shared page state & methods)
@@ -52,7 +97,7 @@ File Layout
     ├── async_wikipedia_page.py  # AsyncWikipediaPage (lazy async page object)
     ├── wikipedia_page_section.py  # WikipediaPageSection
     ├── extract_format.py        # ExtractFormat enum (WIKI / HTML)
-    └── namespace.py             # Namespace / WikiNamespace
+    └── namespace.py             # Legacy namespace module (redirects to _enums.namespace)
 
 
 Class Hierarchy
@@ -228,12 +273,12 @@ Full Class Diagram
 Transport Layer
 ---------------
 
-``_http_client.py`` implements three classes.
+``_http_client/`` package implements the HTTP transport layer with three classes.
 
 BaseHTTPClient
 ~~~~~~~~~~~~~~
 
-Abstract base that holds shared configuration (language, variant,
+Abstract base in ``base_http_client.py`` that holds shared configuration (language, variant,
 user-agent, extract format, retry parameters, extra API params) and
 the ``_check_and_correct_params()`` validator.  It does **not** make
 HTTP requests directly.
@@ -241,14 +286,14 @@ HTTP requests directly.
 SyncHTTPClient
 ~~~~~~~~~~~~~~
 
-Provides a blocking ``_get(language, params) -> dict`` method backed by
+Provides a blocking ``_get(language, params) -> dict`` method in ``sync_http_client.py`` backed by
 ``httpx.Client``.  Retry logic uses ``tenacity`` with exponential
 backoff; ``Retry-After`` headers are honoured for HTTP 429 responses.
 
 AsyncHTTPClient
 ~~~~~~~~~~~~~~~
 
-Provides an ``async def _get(language, params) -> dict`` coroutine
+Provides an ``async def _get(language, params) -> dict`` coroutine in ``async_http_client.py``
 backed by ``httpx.AsyncClient``.  Retry logic mirrors
 ``SyncHTTPClient`` but uses ``tenacity``'s ``AsyncRetrying``.
 
@@ -256,16 +301,21 @@ Both clients construct the endpoint URL as::
 
     https://{language}.wikipedia.org/w/api.php
 
+Additional utilities:
+
+- ``retry_utils.py`` - Common retry utilities and helpers
+- ``retry_after_wait.py`` - Retry-After header handling logic
+
 
 API Layer
 ---------
 
-``_resources.py`` implements three classes.
+``_resources/`` package implements the API layer with three classes.
 
 BaseWikipediaResource
 ~~~~~~~~~~~~~~~~~~~~~
 
-Pure mixin with no HTTP transport.  Contains:
+Pure mixin in ``base_wikipedia_resource.py`` with no HTTP transport.  Contains:
 
 * **Parameter builders** (``_*_params``) — each returns a ``dict``
   ready to pass to the dispatcher.
@@ -279,7 +329,7 @@ Pure mixin with no HTTP transport.  Contains:
 WikipediaResource
 ~~~~~~~~~~~~~~~~~
 
-Thin synchronous mixin.  Each public API method (``extracts``,
+Thin synchronous mixin in ``wikipedia_resource.py``.  Each public API method (``extracts``,
 ``info``, ``langlinks``, ``links``, ``backlinks``, ``categories``,
 ``categorymembers``) is a one-liner that delegates to the appropriate
 sync dispatch helper::
@@ -293,7 +343,7 @@ sync dispatch helper::
 AsyncWikipediaResource
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Mirror of ``WikipediaResource`` using async dispatch helpers::
+Mirror of ``WikipediaResource`` using async dispatch helpers in ``async_wikipedia_resource.py``::
 
     async def extracts(self, page, **kwargs):
         return await self._async_dispatch_prop(
@@ -472,7 +522,7 @@ In ``_base_wikipedia_page.py``, add a cache slot in
 Step 3 — Add the Parameter Builder
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In ``BaseWikipediaResource`` (``_resources.py``), add::
+In ``BaseWikipediaResource`` (``_resources/base_wikipedia_resource.py``), add::
 
     def _templates_params(self, page: WikipediaPage) -> dict[str, Any]:
         """
@@ -495,7 +545,7 @@ In ``BaseWikipediaResource`` (``_resources.py``), add::
 Step 4 — Add the Response Parser
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In ``BaseWikipediaResource``, add::
+In ``BaseWikipediaResource`` (``_resources/base_wikipedia_resource.py``), add::
 
     def _build_templates(
         self, extract: Any, page: WikipediaPage
@@ -691,19 +741,20 @@ preserved when adding new functionality.
   ``_build_*`` implementations without duplication.
 * All raises must be documented in the docstring.
 
-**Typed data (``_types.py``)**
+**Typed data (``_types/`` package)**
 
-* ``GeoPoint``, ``GeoBox``, ``Coordinate``, ``GeoSearchMeta``, ``SearchMeta`` —
-  frozen ``@dataclass`` value objects used by the new query submodule
-  methods.
-* ``SearchResults`` — a wrapper around a ``PagesDict`` that adds
-  ``totalhits`` and ``suggestion`` from the ``searchinfo`` block.
+* ``coordinate.py`` — ``Coordinate`` frozen ``@dataclass`` value objects
+* ``geo_point.py`` — ``GeoPoint`` frozen ``@dataclass`` value objects
+* ``geo_box.py`` — ``GeoBox`` frozen ``@dataclass`` value objects
+* ``geo_search_meta.py`` — ``GeoSearchMeta`` frozen ``@dataclass`` value objects
+* ``search_meta.py`` — ``SearchMeta`` frozen ``@dataclass`` value objects
+* ``search_results.py`` — ``SearchResults`` wrapper around ``PagesDict``
 
-**Parameter dataclasses (``_params.py``)**
+**Parameter dataclasses (``_params/`` package)**
 
-* Each query submodule has a frozen ``@dataclass`` (e.g.
-  ``CoordinatesParams``, ``ImagesParams``) that maps clean Python
-  names to MediaWiki API parameter names with a configurable prefix.
+Each query submodule has a frozen ``@dataclass`` (e.g.
+``CoordinatesParams``, ``ImagesParams``) that maps clean Python
+names to MediaWiki API parameter names with a configurable prefix.
 * Pipe-separated MediaWiki parameters (for example ``prop``, ``info``,
   and ``images``) are exposed as iterable-only inputs in the Python API.
   They are normalized to ``"|"``-joined strings in ``__post_init__``
@@ -711,6 +762,31 @@ preserved when adding new functionality.
 * The ``to_api()`` method returns the ``dict[str, str]`` ready for the
   API call; ``cache_key()`` returns a hashable tuple for per-parameter
   caching.
+
+**Enums (``_enums/`` package)**
+
+Strongly-typed enums for API parameters:
+* ``coordinate_type.py`` — ``CoordinateType`` enum for coordinate filtering
+* ``coordinates_prop.py`` — ``CoordinatesProp`` enum for coordinate properties
+* ``direction.py`` — ``Direction`` enum for sort direction
+* ``geosearch_sort.py`` — ``GeoSearchSort`` enum for geographic search sorting
+* ``globe.py`` — ``Globe`` enum for celestial bodies
+* ``namespace.py`` — ``Namespace`` enum for MediaWiki namespaces
+* ``redirect_filter.py`` — ``RedirectFilter`` enum for redirect filtering
+* ``search_info.py`` — ``SearchInfo`` enum for search metadata
+* ``search_prop.py`` — ``SearchProp`` enum for search properties
+* ``search_qi_profile.py`` — ``SearchQiProfile`` enum for query-independent ranking
+* ``search_sort.py`` — ``SearchSort`` enum for search sorting
+* ``search_what.py`` — ``SearchWhat`` enum for search type
+
+**Exceptions (``exceptions/`` package)**
+
+* ``wikipedia_exception.py`` — ``WikipediaException`` base exception
+* ``wiki_connection_error.py`` — ``WikiConnectionError`` for connection failures
+* ``wiki_http_error.py`` — ``WikiHttpError`` for HTTP errors
+* ``wiki_http_timeout_error.py`` — ``WikiHttpTimeoutError`` for timeouts
+* ``wiki_invalid_json_error.py`` — ``WikiInvalidJsonError`` for JSON parsing errors
+* ``wiki_rate_limit_error.py`` — ``WikiRateLimitError`` for rate limiting
 
 **Per-parameter caching**
 
