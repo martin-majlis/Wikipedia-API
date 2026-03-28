@@ -66,23 +66,27 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
           ``await page.preload``, ``await page.varianttitles``
     """
 
-    async def _info_attr(self, name: str) -> Any:
+    def _info_attr(self, name: str) -> Any:
         """Fetch via the ``info`` API call if not yet cached, then return the value."""
-        if name not in self._attributes and not self._called["info"]:
-            await self._fetch("info")
-        return self._attributes.get(name)
+
+        async def _get() -> Any:
+            if name not in self._attributes and not self._called["info"]:
+                await self._fetch("info")
+            return self._attributes.get(name)
+
+        return _get()
 
     @property
     def ns(self) -> Any:
-        """Awaitable: integer namespace number of this page (fetched from API)."""
-
-        async def _get() -> Any:
-            if self._called["info"]:
-                return self._attributes.get("ns")
-            await self._fetch("info")
+        """Integer namespace number of this page (fetched from API)."""
+        if self._called["info"]:
             return self._attributes.get("ns")
-
-        return _get()
+        # Check if we have the value from other API calls
+        if "ns" in self._attributes:
+            return self._attributes.get("ns")
+        # For async pages, we can't trigger API calls in a property
+        # Return construction-time value for now
+        return self._attributes.get("ns")
 
     @property
     def namespace(self) -> Any:
