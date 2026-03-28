@@ -8,11 +8,11 @@ from .._base_wikipedia_page import BaseWikipediaPage
 from .._enums import Namespace
 from .._enums import WikiNamespace
 from .._pages_dict import PagesDict
-from .._params import CoordinatesParams
-from .._params import GeoSearchParams
-from .._params import ImagesParams
-from .._params import RandomParams
-from .._params import SearchParams
+from .._params.coordinates_params import CoordinatesParams
+from .._params.geo_search_params import GeoSearchParams
+from .._params.images_params import ImagesParams
+from .._params.random_params import RandomParams
+from .._params.search_params import SearchParams
 from .._types import Coordinate
 from .._types import GeoSearchMeta
 from .._types import SearchMeta

@@ -22,11 +22,11 @@ from .._enums import WikiSearchQiProfile
 from .._enums import WikiSearchSort
 from .._enums import WikiSearchWhat
 from .._pages_dict import PagesDict
-from .._params import CoordinatesParams
-from .._params import GeoSearchParams
-from .._params import ImagesParams
-from .._params import RandomParams
-from .._params import SearchParams
+from .._params.coordinates_params import CoordinatesParams
+from .._params.geo_search_params import GeoSearchParams
+from .._params.images_params import ImagesParams
+from .._params.random_params import RandomParams
+from .._params.search_params import SearchParams
 from .._types import Coordinate
 from .._types import GeoBox
 from .._types import GeoPoint
