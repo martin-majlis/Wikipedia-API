@@ -401,7 +401,7 @@ async def main():
 
     # Batch coordinates with enum properties
     print("\n--- Batch Coordinates with Enum Properties ---")
-    pages = wiki.pages(["London", "Paris", "Berlin"])
+    pages = await wiki.pages(["London", "Paris", "Berlin"])
 
     # Using enum values for batch coordinates
     batch_coords_enum = await pages.coordinates(
@@ -472,7 +472,7 @@ async def main():
     # ──────────────────────────────────────────────────────────────────────────
 
     # pages() creates an AsyncPagesDict of lazy page stubs
-    pd = wiki.pages(["London", "Paris", "Berlin"])
+    pd = await wiki.pages(["London", "Paris", "Berlin"])
     print(f"PagesDict: {len(pd)} pages")
 
     # Batch-fetch coordinates for all pages at once (efficient multi-title request)
