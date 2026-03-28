@@ -43,6 +43,9 @@ from ._enums import WikiSearchSort
 from ._enums import WikiSearchWhat
 from ._pages_dict import AsyncPagesDict
 from ._pages_dict import PagesDict
+from ._resources import AsyncWikipediaResource
+from ._resources import BaseWikipediaResource
+from ._resources import WikipediaResource
 from ._types import Coordinate
 from ._types import GeoBox
 from ._types import GeoPoint
@@ -87,6 +90,9 @@ __all__ = [
     "WikiInvalidJsonError",
     "WikiConnectionError",
     "ExtractFormat",
+    "BaseWikipediaResource",
+    "WikipediaResource",
+    "AsyncWikipediaResource",
     "Direction",
     "WikiDirection",
     "direction2str",
