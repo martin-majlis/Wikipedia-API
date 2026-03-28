@@ -21,10 +21,12 @@ class TestSyncAsyncPropertySymmetry:
     async def test_property_symmetry_all_attributes(self):
         """Test that all properties return the same values in sync and async versions."""
         # Properties that should be available without any API call (construction-time)
-        construction_props = ["title", "ns", "namespace", "language", "variant"]
+        construction_props = ["title", "language", "variant"]
 
         # Properties that require API calls and should be awaitable in async
         awaitable_props = [
+            "ns",
+            "namespace",
             "pageid",
             "contentmodel",
             "pagelanguage",
