@@ -73,6 +73,23 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
         return self._attributes.get(name)
 
     @property
+    def ns(self) -> Any:
+        """Awaitable: integer namespace number of this page (fetched from API)."""
+
+        async def _get() -> Any:
+            if self._called["info"]:
+                return self._attributes.get("ns")
+            await self._fetch("info")
+            return self._attributes.get("ns")
+
+        return _get()
+
+    @property
+    def namespace(self) -> Any:
+        """Awaitable: integer namespace number of this page (alias for :attr:`ns`)."""
+        return self.ns
+
+    @property
     def pageid(self) -> Any:
         """Awaitable: MediaWiki numeric page ID (negative for missing pages)."""
         return self._info_attr("pageid")

@@ -1241,6 +1241,103 @@ _CLI_MOCK_DATA = {
             },
         },
     },
+    # Add info queries for namespace tests
+    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=Category:foo&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "63805020": {
+                    "pageid": 63805020,
+                    "ns": 14,
+                    "title": "Category:Foo",
+                    "contentmodel": "wikitext",
+                    "pagelanguage": "en",
+                    "pagelanguagehtmlcode": "en",
+                    "pagelanguagedir": "ltr",
+                    "protection": [],
+                    "restrictiontypes": ["edit", "move"],
+                    "notificationtimestamp": "",
+                    "fullurl": "https://en.wikipedia.org/wiki/Category:Foo",
+                    "editurl": "https://en.wikipedia.org/w/index.php?title=Category:Foo&action=edit",
+                    "canonicalurl": "https://en.wikipedia.org/wiki/Category:Foo",
+                    "readable": "",
+                    "preload": "",
+                    "displaytitle": "Category:Foo",
+                    "varianttitles": {"en": "Category:Foo"},
+                }
+            },
+        },
+    },
+    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=Python_(programming_language)&": {
+        "batchcomplete": "",
+        "query": {
+            "normalized": [
+                {"from": "Python_(programming_language)", "to": "Python (programming language)"}
+            ],
+            "pages": {
+                "23862": {
+                    "pageid": 23862,
+                    "ns": 0,
+                    "title": "Python (programming language)",
+                    "contentmodel": "wikitext",
+                    "pagelanguage": "en",
+                    "pagelanguagehtmlcode": "en",
+                    "pagelanguagedir": "ltr",
+                    "protection": [],
+                    "restrictiontypes": ["edit", "move"],
+                    "notificationtimestamp": "",
+                    "fullurl": "https://en.wikipedia.org/wiki/Python_(programming_language)",
+                    "editurl": "https://en.wikipedia.org/w/index.php?title=Python_(programming_language)&action=edit",
+                    "canonicalurl": "https://en.wikipedia.org/wiki/Python_(programming_language)",
+                    "readable": "",
+                    "preload": "",
+                    "displaytitle": "Python (programming language)",
+                    "varianttitles": {"en": "Python (programming language)"},
+                }
+            },
+        },
+    },
+    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=NonExistentPage12345&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "pageid": -1,
+                    "ns": 0,
+                    "title": "NonExistentPage12345",
+                    "contentmodel": "wikitext",
+                    "pagelanguage": "en",
+                    "pagelanguagehtmlcode": "en",
+                    "pagelanguagedir": "ltr",
+                    "protection": [],
+                    "restrictiontypes": ["edit", "move"],
+                    "notificationtimestamp": "",
+                    "fullurl": "https://en.wikipedia.org/wiki/NonExistentPage12345",
+                    "editurl": "https://en.wikipedia.org/w/index.php?title=NonExistentPage12345&action=edit",
+                    "canonicalurl": "https://en.wikipedia.org/wiki/NonExistentPage12345",
+                    "readable": "",
+                    "preload": "",
+                    "displaytitle": "NonExistentPage12345",
+                    "varianttitles": {"en": "NonExistentPage12345"},
+                    "missing": True,
+                }
+            },
+        },
+    },
+    # Add extracts query for Category:Foo (normalized title)
+    "en:action=query&explaintext=1&exsectionformat=wiki&format=json&prop=extracts&redirects=1&titles=Category:Foo&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "63805020": {
+                    "pageid": 63805020,
+                    "ns": 14,
+                    "title": "Category:Foo",
+                    "extract": "This is a test category for foo-related topics.",
+                }
+            },
+        },
+    },
     # Add backlinks query for CLI tests
     "en:action=query&format=json&prop=backlinks&redirects=1&titles=Test_1&": {
         "batchcomplete": "",
