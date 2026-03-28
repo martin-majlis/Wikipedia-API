@@ -1,6 +1,5 @@
 """Integration tests for CLI commands using Click's testing utilities."""
 
-import unittest
 from unittest.mock import MagicMock
 from unittest.mock import patch
 
@@ -10,10 +9,10 @@ from tests.mock_data import create_mock_wikipedia
 import wikipediaapi.cli
 
 
-class TestCLICommands(unittest.TestCase):
+class TestCLICommands:
     """Test CLI command functions directly using Click's test runner."""
 
-    def setUp(self):
+    def setup_method(self):
         self.runner = CliRunner()
         self.mock_wiki = create_mock_wikipedia()
 
@@ -26,8 +25,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["summary", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn("Test summary content", result.output)
+        assert result.exit_code == 0
+        assert "Test summary content" in result.output
         mock_create_wiki.assert_called_once()
         mock_get_summary.assert_called_once()
 
@@ -42,8 +41,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["summary", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 1)
-        self.assertIn("Page 'Test_Page' does not exist.", result.output)
+        assert result.exit_code == 1
+        assert "Page 'Test_Page' does not exist." in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_text")
@@ -54,8 +53,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["text", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn("Full page text content", result.output)
+        assert result.exit_code == 0
+        assert "Full page text content" in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_text")
@@ -68,8 +67,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["text", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 1)
-        self.assertIn("Page 'Test_Page' does not exist.", result.output)
+        assert result.exit_code == 1
+        assert "Page 'Test_Page' does not exist." in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_sections")
@@ -82,8 +81,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["sections", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn("Section 1", result.output)
+        assert result.exit_code == 0
+        assert "Section 1" in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_sections")
@@ -96,8 +95,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["sections", "Test_Page", "--json"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn('[{"title": "Section 1", "level": 1, "indent": 0}]', result.output)
+        assert result.exit_code == 0
+        assert '[{"title": "Section 1", "level": 1, "indent": 0}]' in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_sections")
@@ -110,8 +109,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["sections", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 1)
-        self.assertIn("Page 'Test_Page' does not exist.", result.output)
+        assert result.exit_code == 1
+        assert "Page 'Test_Page' does not exist." in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_section_text")
@@ -122,8 +121,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["section", "Test_Page", "Section_Name"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn("Section content here", result.output)
+        assert result.exit_code == 0
+        assert "Section content here" in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_section_text")
@@ -136,8 +135,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["section", "Test_Page", "Section_Name"])
 
-        self.assertEqual(result.exit_code, 1)
-        self.assertIn("Page 'Test_Page' does not exist.", result.output)
+        assert result.exit_code == 1
+        assert "Page 'Test_Page' does not exist." in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_section_text")
@@ -150,8 +149,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["section", "Test_Page", "Section_Name"])
 
-        self.assertEqual(result.exit_code, 1)
-        self.assertIn("Section 'Section_Name' not found.", result.output)
+        assert result.exit_code == 1
+        assert "Section 'Section_Name' not found." in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_links")
@@ -164,9 +163,9 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["links", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn("Link 1", result.output)
-        self.assertIn("Link 2", result.output)
+        assert result.exit_code == 0
+        assert "Link 1" in result.output
+        assert "Link 2" in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_links")
@@ -179,8 +178,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["links", "Test_Page", "--json"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn('{"Link 1": {"title": "Link 1"}}', result.output)
+        assert result.exit_code == 0
+        assert '{"Link 1": {"title": "Link 1"}}' in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_links")
@@ -193,8 +192,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["links", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 1)
-        self.assertIn("Page 'Test_Page' does not exist.", result.output)
+        assert result.exit_code == 1
+        assert "Page 'Test_Page' does not exist." in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_backlinks")
@@ -207,9 +206,9 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["backlinks", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn("Backlink 1", result.output)
-        self.assertIn("Backlink 2", result.output)
+        assert result.exit_code == 0
+        assert "Backlink 1" in result.output
+        assert "Backlink 2" in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_backlinks")
@@ -222,8 +221,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["backlinks", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 1)
-        self.assertIn("Page 'Test_Page' does not exist.", result.output)
+        assert result.exit_code == 1
+        assert "Page 'Test_Page' does not exist." in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_langlinks")
@@ -236,9 +235,9 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["langlinks", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn("de: German Title", result.output)
-        self.assertIn("fr: French Title", result.output)
+        assert result.exit_code == 0
+        assert "de: German Title" in result.output
+        assert "fr: French Title" in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_langlinks")
@@ -251,8 +250,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["langlinks", "Test_Page", "--json"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn('{"de": {"title": "German Title"}}', result.output)
+        assert result.exit_code == 0
+        assert '{"de": {"title": "German Title"}}' in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_langlinks")
@@ -265,8 +264,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["langlinks", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 1)
-        self.assertIn("Page 'Test_Page' does not exist.", result.output)
+        assert result.exit_code == 1
+        assert "Page 'Test_Page' does not exist." in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_categories")
@@ -279,9 +278,9 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["categories", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn("Category 1", result.output)
-        self.assertIn("Category 2", result.output)
+        assert result.exit_code == 0
+        assert "Category 1" in result.output
+        assert "Category 2" in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_categories")
@@ -294,8 +293,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["categories", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 1)
-        self.assertIn("Page 'Test_Page' does not exist.", result.output)
+        assert result.exit_code == 1
+        assert "Page 'Test_Page' does not exist." in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_category_members")
@@ -308,8 +307,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["categorymembers", "Category:Test"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn("Member 1 (ns: 0)", result.output)
+        assert result.exit_code == 0
+        assert "Member 1 (ns: 0)" in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_category_members")
@@ -324,8 +323,8 @@ class TestCLICommands(unittest.TestCase):
             wikipediaapi.cli.cli, ["categorymembers", "Category:Test", "--json"]
         )
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn('[{"title": "Member 1", "ns": 0, "level": 0}]', result.output)
+        assert result.exit_code == 0
+        assert '[{"title": "Member 1", "ns": 0, "level": 0}]' in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_category_members")
@@ -338,8 +337,8 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["categorymembers", "Category:Test"])
 
-        self.assertEqual(result.exit_code, 1)
-        self.assertIn("Page 'Category:Test' does not exist.", result.output)
+        assert result.exit_code == 1
+        assert "Page 'Category:Test' does not exist." in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_info")
@@ -352,9 +351,9 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["page", "Test_Page"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn("title: Test Page", result.output)
-        self.assertIn("exists: True", result.output)
+        assert result.exit_code == 0
+        assert "title: Test Page" in result.output
+        assert "exists: True" in result.output
 
     @patch("wikipediaapi.cli.create_wikipedia_instance")
     @patch("wikipediaapi.cli.get_page_info")
@@ -367,25 +366,25 @@ class TestCLICommands(unittest.TestCase):
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["page", "Test_Page", "--json"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn('{"title": "Test Page", "exists": true}', result.output)
+        assert result.exit_code == 0
+        assert '{"title": "Test Page", "exists": true}' in result.output
 
     def test_cli_help_command(self):
         """Test CLI help command."""
         result = self.runner.invoke(wikipediaapi.cli.cli, ["--help"])
 
-        self.assertEqual(result.exit_code, 0)
-        self.assertIn("Command line tool for querying Wikipedia", result.output)
-        self.assertIn("summary", result.output)
-        self.assertIn("text", result.output)
+        assert result.exit_code == 0
+        assert "Command line tool for querying Wikipedia" in result.output
+        assert "summary" in result.output
+        assert "text" in result.output
 
     def test_cli_version_command(self):
         """Test CLI version command."""
         result = self.runner.invoke(wikipediaapi.cli.cli, ["--version"])
 
-        self.assertEqual(result.exit_code, 0)
+        assert result.exit_code == 0
         # Version should be in output (format varies by click version)
-        self.assertTrue(len(result.output.strip()) > 0)
+        assert len(result.output.strip()) > 0
 
     def test_legacy_print_page_dict_function(self):
         """Test the legacy _print_page_dict function for backward compatibility."""
@@ -415,7 +414,3 @@ class TestCLICommands(unittest.TestCase):
         with patch("wikipediaapi.cli.cli") as mock_cli:
             main()
             mock_cli.assert_called_once()
-
-
-if __name__ == "__main__":
-    unittest.main()

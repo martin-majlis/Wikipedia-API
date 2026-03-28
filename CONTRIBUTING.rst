@@ -62,7 +62,7 @@ The main test command runs both unit tests and CLI verification tests::
 
     make run-tests
 
-* The unit tests are executed via ``python3 -m unittest discover tests/ '*test.py'``. All test files are in the ``tests/`` directory and follow the ``*test.py`` naming pattern.
+* The unit tests are executed via ``uv run pytest tests/``. All test files are in the ``tests/`` directory and follow the ``*_test.py`` naming pattern.
 * The CLI verification tests are run using ``./tests/cli/test_cli.sh verify``.
 
 CLI Tests
@@ -82,6 +82,8 @@ Test Coverage
 Run tests with coverage to generate a coverage report and ``coverage.xml`` for the ``wikipediaapi`` package::
 
     make run-coverage
+
+This uses pytest with pytest-cov to generate coverage reports.
 
 Multi-Python Testing
 ~~~~~~~~~~~~~~~~~~~~~

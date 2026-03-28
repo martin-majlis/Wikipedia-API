@@ -1,9 +1,10 @@
 """Unit tests for Wikipedia-API CLI functionality."""
 
 import json
-import unittest
 from unittest.mock import MagicMock
 from unittest.mock import patch
+
+import pytest
 
 from tests.mock_data import create_mock_wikipedia
 import wikipediaapi
@@ -37,7 +38,7 @@ from wikipediaapi.cli import PageNotFoundError
 from wikipediaapi.cli import SectionNotFoundError
 
 
-class TestCLIFactoryFunctions(unittest.TestCase):
+class TestCLIFactoryFunctions:
     """Test the factory functions that create Wikipedia instances and pages."""
 
     def test_create_wikipedia_instance_default_params(self):
@@ -46,11 +47,11 @@ class TestCLIFactoryFunctions(unittest.TestCase):
             user_agent="test-agent", language="en", variant=None, extract_format="wiki"
         )
 
-        self.assertEqual(wiki.language, "en")
-        self.assertIsNone(wiki.variant)
-        self.assertEqual(wiki.extract_format, wikipediaapi.ExtractFormat.WIKI)
+        assert wiki.language == "en"
+        assert wiki.variant is None
+        assert wiki.extract_format == wikipediaapi.ExtractFormat.WIKI
         # User agent is stored in session headers
-        self.assertIn("test-agent", wiki._client.headers["User-Agent"])
+        assert "test-agent" in wiki._client.headers["User-Agent"]
 
     def test_create_wikipedia_instance_html_format(self):
         """Test creating Wikipedia instance with HTML format."""
@@ -58,7 +59,7 @@ class TestCLIFactoryFunctions(unittest.TestCase):
             user_agent="test-agent", language="en", variant=None, extract_format="html"
         )
 
-        self.assertEqual(wiki.extract_format, wikipediaapi.ExtractFormat.HTML)
+        assert wiki.extract_format == wikipediaapi.ExtractFormat.HTML
 
     def test_create_wikipedia_instance_with_variant(self):
         """Test creating Wikipedia instance with language variant."""
@@ -66,9 +67,9 @@ class TestCLIFactoryFunctions(unittest.TestCase):
             user_agent="test-agent", language="zh", variant="zh-cn", extract_format="wiki"
         )
 
-        self.assertEqual(wiki.language, "zh")
-        self.assertEqual(wiki.variant, "zh-cn")
-        self.assertIn("test-agent", wiki._client.headers["User-Agent"])
+        assert wiki.language == "zh"
+        assert wiki.variant == "zh-cn"
+        assert "test-agent" in wiki._client.headers["User-Agent"]
 
     def test_fetch_page_success(self):
         """Test fetching a page successfully."""
@@ -77,19 +78,19 @@ class TestCLIFactoryFunctions(unittest.TestCase):
 
         # Access a property to trigger fetch and normalization
         _ = page.pageid
-        self.assertEqual(page.title, "Test 1")  # Title gets normalized after fetch
-        self.assertTrue(page.exists())
+        assert page.title == "Test 1"  # Title gets normalized after fetch
+        assert page.exists()
 
     def test_fetch_page_nonexistent(self):
         """Test fetching a non-existent page."""
         wiki = create_mock_wikipedia()
         page = fetch_page(wiki, "NonExisting", 0)
 
-        self.assertEqual(page.title, "NonExisting")
-        self.assertFalse(page.exists())
+        assert page.title == "NonExisting"
+        assert not page.exists()
 
 
-class TestPageSummary(unittest.TestCase):
+class TestPageSummary:
     """Test the get_page_summary function."""
 
     def test_get_page_summary_success(self):
@@ -97,27 +98,27 @@ class TestPageSummary(unittest.TestCase):
         wiki = create_mock_wikipedia()
         summary = get_page_summary(wiki, "Test_1", 0)
 
-        self.assertIsInstance(summary, str)
-        self.assertIn("Summary text", summary)
+        assert isinstance(summary, str)
+        assert "Summary text" in summary
 
     def test_get_page_summary_nonexistent(self):
         """Test getting summary of a non-existent page."""
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(PageNotFoundError) as cm:
+        with pytest.raises(PageNotFoundError) as cm:
             get_page_summary(wiki, "NonExisting", 0)
 
-        self.assertIn("does not exist", str(cm.exception))
+        assert "does not exist" in str(cm.value)
 
     def test_get_page_summary_with_namespace(self):
         """Test getting summary with namespace parameter."""
         wiki = create_mock_wikipedia()
         summary = get_page_summary(wiki, "Test_1", 14)  # Category namespace
 
-        self.assertIsInstance(summary, str)
+        assert isinstance(summary, str)
 
 
-class TestPageText(unittest.TestCase):
+class TestPageText:
     """Test the get_page_text function."""
 
     def test_get_page_text_success(self):
@@ -125,19 +126,19 @@ class TestPageText(unittest.TestCase):
         wiki = create_mock_wikipedia()
         text = get_page_text(wiki, "Test_1", 0)
 
-        self.assertIsInstance(text, str)
-        self.assertIn("Summary text", text)
-        self.assertIn("Section 1", text)
+        assert isinstance(text, str)
+        assert "Summary text" in text
+        assert "Section 1" in text
 
     def test_get_page_text_nonexistent(self):
         """Test getting text of a non-existent page."""
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(PageNotFoundError):
+        with pytest.raises(PageNotFoundError):
             get_page_text(wiki, "NonExisting", 0)
 
 
-class TestPageSections(unittest.TestCase):
+class TestPageSections:
     """Test the get_page_sections and format_sections functions."""
 
     def test_get_page_sections_success(self):
@@ -145,20 +146,20 @@ class TestPageSections(unittest.TestCase):
         wiki = create_mock_wikipedia()
         sections = get_page_sections(wiki, "Test_1", 0)
 
-        self.assertIsInstance(sections, list)
-        self.assertTrue(len(sections) > 0)
+        assert isinstance(sections, list)
+        assert len(sections) > 0
 
         # Check section structure
         first_section = sections[0]
-        self.assertIn("title", first_section)
-        self.assertIn("level", first_section)
-        self.assertIn("indent", first_section)
+        assert "title" in first_section
+        assert "level" in first_section
+        assert "indent" in first_section
 
     def test_get_page_sections_nonexistent(self):
         """Test getting sections of a non-existent page."""
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(PageNotFoundError):
+        with pytest.raises(PageNotFoundError):
             get_page_sections(wiki, "NonExisting", 0)
 
     def test_format_sections_text(self):
@@ -172,9 +173,9 @@ class TestPageSections(unittest.TestCase):
         result = format_sections(sections, "text")
         lines = result.split("\n")
 
-        self.assertEqual(lines[0], "Section 1")
-        self.assertEqual(lines[1], "  Subsection 1.1")
-        self.assertEqual(lines[2], "Section 2")
+        assert lines[0] == "Section 1"
+        assert lines[1] == "  Subsection 1.1"
+        assert lines[2] == "Section 2"
 
     def test_format_sections_json(self):
         """Test formatting sections as JSON."""
@@ -186,12 +187,12 @@ class TestPageSections(unittest.TestCase):
         result = format_sections(sections, "json")
         parsed = json.loads(result)
 
-        self.assertEqual(len(parsed), 2)
-        self.assertEqual(parsed[0]["title"], "Section 1")
-        self.assertEqual(parsed[1]["title"], "Subsection 1.1")
+        assert len(parsed) == 2
+        assert parsed[0]["title"] == "Section 1"
+        assert parsed[1]["title"] == "Subsection 1.1"
 
 
-class TestSectionText(unittest.TestCase):
+class TestSectionText:
     """Test the get_section_text function."""
 
     def test_get_section_text_success(self):
@@ -205,14 +206,14 @@ class TestSectionText(unittest.TestCase):
 
             result = get_section_text(wiki, "Test_1", "Section 1", 0)
 
-            self.assertEqual(result, "Section content here")
+            assert result == "Section content here"
             mock_section.assert_called_once_with("Section 1")
 
     def test_get_section_text_nonexistent_page(self):
         """Test getting section text from non-existent page."""
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(PageNotFoundError):
+        with pytest.raises(PageNotFoundError):
             get_section_text(wiki, "NonExisting", "Section 1", 0)
 
     def test_get_section_text_nonexistent_section(self):
@@ -223,13 +224,13 @@ class TestSectionText(unittest.TestCase):
         page = fetch_page(wiki, "Test_1", 0)
         with patch.object(page, "section_by_title", return_value=None):
 
-            with self.assertRaises(SectionNotFoundError) as cm:
+            with pytest.raises(SectionNotFoundError) as cm:
                 get_section_text(wiki, "Test_1", "Nonexistent Section", 0)
 
-            self.assertIn("not found", str(cm.exception))
+            assert "not found" in str(cm.value)
 
 
-class TestPageLinks(unittest.TestCase):
+class TestPageLinks:
     """Test the get_page_links function."""
 
     def test_get_page_links_success(self):
@@ -237,17 +238,17 @@ class TestPageLinks(unittest.TestCase):
         wiki = create_mock_wikipedia()
         links = get_page_links(wiki, "Test_1", 0)
 
-        self.assertIsInstance(links, dict)
+        assert isinstance(links, dict)
 
     def test_get_page_links_nonexistent(self):
         """Test getting links from a non-existent page."""
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(PageNotFoundError):
+        with pytest.raises(PageNotFoundError):
             get_page_links(wiki, "NonExisting", 0)
 
 
-class TestPageBacklinks(unittest.TestCase):
+class TestPageBacklinks:
     """Test the get_page_backlinks function."""
 
     def test_get_page_backlinks_success(self):
@@ -255,17 +256,17 @@ class TestPageBacklinks(unittest.TestCase):
         wiki = create_mock_wikipedia()
         backlinks = get_page_backlinks(wiki, "Test_1", 0)
 
-        self.assertIsInstance(backlinks, dict)
+        assert isinstance(backlinks, dict)
 
     def test_get_page_backlinks_nonexistent(self):
         """Test getting backlinks to a non-existent page."""
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(PageNotFoundError):
+        with pytest.raises(PageNotFoundError):
             get_page_backlinks(wiki, "NonExisting", 0)
 
 
-class TestLangLinks(unittest.TestCase):
+class TestLangLinks:
     """Test the get_langlinks and format_langlinks functions."""
 
     def test_get_langlinks_success(self):
@@ -273,13 +274,13 @@ class TestLangLinks(unittest.TestCase):
         wiki = create_mock_wikipedia()
         langlinks = get_langlinks(wiki, "Test_1", 0)
 
-        self.assertIsInstance(langlinks, dict)
+        assert isinstance(langlinks, dict)
 
     def test_get_langlinks_nonexistent(self):
         """Test getting language links from a non-existent page."""
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(PageNotFoundError):
+        with pytest.raises(PageNotFoundError):
             get_langlinks(wiki, "NonExisting", 0)
 
     def test_format_langlinks_text(self):
@@ -300,8 +301,8 @@ class TestLangLinks(unittest.TestCase):
         result = format_langlinks(langlinks, "text")
         lines = result.split("\n")
 
-        self.assertIn("de: Test Seite", lines[0])
-        self.assertIn("fr: Page de test", lines[1])
+        assert lines[0] == "de: Test Seite (https://de.wikipedia.org/wiki/Test)"
+        assert lines[1] == "fr: Page de test (https://fr.wikipedia.org/wiki/Test)"
 
     def test_format_langlinks_json(self):
         """Test formatting language links as JSON."""
@@ -315,12 +316,12 @@ class TestLangLinks(unittest.TestCase):
         result = format_langlinks(langlinks, "json")
         parsed = json.loads(result)
 
-        self.assertIn("de", parsed)
-        self.assertEqual(parsed["de"]["title"], "Test Seite")
-        self.assertEqual(parsed["de"]["language"], "de")
+        assert "de" in parsed
+        assert parsed["de"]["title"] == "Test Seite"
+        assert parsed["de"]["language"] == "de"
 
 
-class TestPageCategories(unittest.TestCase):
+class TestPageCategories:
     """Test the get_page_categories function."""
 
     def test_get_page_categories_success(self):
@@ -328,17 +329,17 @@ class TestPageCategories(unittest.TestCase):
         wiki = create_mock_wikipedia()
         categories = get_page_categories(wiki, "Test_1", 0)
 
-        self.assertIsInstance(categories, dict)
+        assert isinstance(categories, dict)
 
     def test_get_page_categories_nonexistent(self):
         """Test getting categories from a non-existent page."""
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(PageNotFoundError):
+        with pytest.raises(PageNotFoundError):
             get_page_categories(wiki, "NonExisting", 0)
 
 
-class TestCategoryMembers(unittest.TestCase):
+class TestCategoryMembers:
     """Test the get_category_members and format_category_members functions."""
 
     def test_get_category_members_success(self):
@@ -346,13 +347,13 @@ class TestCategoryMembers(unittest.TestCase):
         wiki = create_mock_wikipedia()
         members = get_category_members(wiki, "Category:CLI_Test", 0, 14)
 
-        self.assertIsInstance(members, list)
+        assert isinstance(members, list)
 
     def test_get_category_members_nonexistent(self):
         """Test getting members of a non-existent category."""
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(PageNotFoundError):
+        with pytest.raises(PageNotFoundError):
             get_category_members(wiki, "Category:Nonexistent", 0, 14)
 
     def test_get_category_members_with_max_level(self):
@@ -360,7 +361,7 @@ class TestCategoryMembers(unittest.TestCase):
         wiki = create_mock_wikipedia()
         members = get_category_members(wiki, "Category:CLI_Test", 1, 14)
 
-        self.assertIsInstance(members, list)
+        assert isinstance(members, list)
 
     def test_format_category_members_text(self):
         """Test formatting category members as text."""
@@ -373,9 +374,9 @@ class TestCategoryMembers(unittest.TestCase):
         result = format_category_members(members, "text")
         lines = result.split("\n")
 
-        self.assertEqual(lines[0], "Page 1 (ns: 0)")
-        self.assertEqual(lines[1], "Subcategory (ns: 14)")
-        self.assertEqual(lines[2], "  Subcategory Page (ns: 0)")
+        assert lines[0] == "Page 1 (ns: 0)"
+        assert lines[1] == "Subcategory (ns: 14)"
+        assert lines[2] == "  Subcategory Page (ns: 0)"
 
     def test_format_category_members_json(self):
         """Test formatting category members as JSON."""
@@ -387,12 +388,12 @@ class TestCategoryMembers(unittest.TestCase):
         result = format_category_members(members, "json")
         parsed = json.loads(result)
 
-        self.assertEqual(len(parsed), 2)
-        self.assertEqual(parsed[0]["title"], "Page 1")
-        self.assertEqual(parsed[1]["ns"], 14)
+        assert len(parsed) == 2
+        assert parsed[0]["title"] == "Page 1"
+        assert parsed[1]["ns"] == 14
 
 
-class TestPageInfo(unittest.TestCase):
+class TestPageInfo:
     """Test the get_page_info and format_page_info functions."""
 
     def test_get_page_info_existing(self):
@@ -400,22 +401,22 @@ class TestPageInfo(unittest.TestCase):
         wiki = create_mock_wikipedia()
         info = get_page_info(wiki, "Test_1", 0)
 
-        self.assertIsInstance(info, dict)
-        self.assertIn("title", info)
-        self.assertIn("exists", info)
-        self.assertIn("language", info)
-        self.assertIn("namespace", info)
-        self.assertTrue(info["exists"])
-        self.assertIn("pageid", info)
+        assert isinstance(info, dict)
+        assert "title" in info
+        assert "exists" in info
+        assert "language" in info
+        assert "namespace" in info
+        assert info["exists"]
+        assert "pageid" in info
 
     def test_get_page_info_nonexistent(self):
         """Test getting info about a non-existent page."""
         wiki = create_mock_wikipedia()
         info = get_page_info(wiki, "NonExisting", 0)
 
-        self.assertIsInstance(info, dict)
-        self.assertFalse(info["exists"])
-        self.assertNotIn("pageid", info)
+        assert isinstance(info, dict)
+        assert not info["exists"]
+        assert "pageid" not in info
 
     def test_format_page_info_text(self):
         """Test formatting page info as text."""
@@ -429,9 +430,9 @@ class TestPageInfo(unittest.TestCase):
 
         result = format_page_info(info, "text")
 
-        self.assertIn("title: Test Page", result)
-        self.assertIn("exists: True", result)
-        self.assertIn("pageid: 123", result)
+        assert "title: Test Page" in result
+        assert "exists: True" in result
+        assert "pageid: 123" in result
 
     def test_format_page_info_json(self):
         """Test formatting page info as JSON."""
@@ -445,11 +446,11 @@ class TestPageInfo(unittest.TestCase):
         result = format_page_info(info, "json")
         parsed = json.loads(result)
 
-        self.assertEqual(parsed["title"], "Test Page")
-        self.assertTrue(parsed["exists"])
+        assert parsed["title"] == "Test Page"
+        assert parsed["exists"]
 
 
-class TestFormatPageDict(unittest.TestCase):
+class TestFormatPageDict:
     """Test the format_page_dict function."""
 
     def test_format_page_dict_text(self):
@@ -469,8 +470,8 @@ class TestFormatPageDict(unittest.TestCase):
         result = format_page_dict(pages, "text")
         lines = result.split("\n")
 
-        self.assertEqual(lines[0], "Page 1")
-        self.assertEqual(lines[1], "Page 2")
+        assert lines[0] == "Page 1"
+        assert lines[1] == "Page 2"
 
     def test_format_page_dict_json(self):
         """Test formatting page dictionary as JSON."""
@@ -485,11 +486,11 @@ class TestFormatPageDict(unittest.TestCase):
         result = format_page_dict(pages, "json")
         parsed = json.loads(result)
 
-        self.assertIn("Page 1", parsed)
-        self.assertEqual(parsed["Page 1"]["title"], "Page 1")
-        self.assertEqual(parsed["Page 1"]["language"], "en")
-        self.assertEqual(parsed["Page 1"]["ns"], 0)
-        self.assertEqual(parsed["Page 1"]["url"], "https://en.wikipedia.org/wiki/Page_1")
+        assert "Page 1" in parsed
+        assert parsed["Page 1"]["title"] == "Page 1"
+        assert parsed["Page 1"]["language"] == "en"
+        assert parsed["Page 1"]["ns"] == 0
+        assert parsed["Page 1"]["url"] == "https://en.wikipedia.org/wiki/Page_1"
 
     def test_format_page_dict_json_without_url(self):
         """Test formatting page dictionary as JSON without URL."""
@@ -504,10 +505,10 @@ class TestFormatPageDict(unittest.TestCase):
         result = format_page_dict(pages, "json")
         parsed = json.loads(result)
 
-        self.assertNotIn("url", parsed["Page 1"])
+        assert "url" not in parsed["Page 1"]
 
 
-class TestPageCoordinates(unittest.TestCase):
+class TestPageCoordinates:
     """Test the get_page_coordinates and format_coordinates functions."""
 
     def test_get_page_coordinates_success(self):
@@ -515,18 +516,18 @@ class TestPageCoordinates(unittest.TestCase):
         wiki = create_mock_wikipedia()
         coords = get_page_coordinates(wiki, "Test_1", 0)
 
-        self.assertIsInstance(coords, list)
-        self.assertEqual(len(coords), 1)
-        self.assertAlmostEqual(coords[0]["lat"], 51.5074)
-        self.assertAlmostEqual(coords[0]["lon"], -0.1278)
-        self.assertTrue(coords[0]["primary"])
-        self.assertEqual(coords[0]["globe"], "earth")
+        assert isinstance(coords, list)
+        assert len(coords) == 1
+        assert coords[0]["lat"] == 51.5074
+        assert coords[0]["lon"] == -0.1278
+        assert coords[0]["primary"]
+        assert coords[0]["globe"] == "earth"
 
     def test_get_page_coordinates_nonexistent(self):
         """Test getting coordinates of a non-existent page."""
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(PageNotFoundError):
+        with pytest.raises(PageNotFoundError):
             get_page_coordinates(wiki, "NonExisting", 0)
 
     def test_format_coordinates_text(self):
@@ -539,10 +540,8 @@ class TestPageCoordinates(unittest.TestCase):
         result = format_coordinates(coords, "text")
         lines = result.split("\n")
 
-        self.assertIn("51.5074", lines[0])
-        self.assertIn("(primary)", lines[0])
-        self.assertIn("48.8566", lines[1])
-        self.assertNotIn("(primary)", lines[1])
+        assert lines[0] == "51.5074, -0.1278 (primary)"
+        assert lines[1] == "48.8566, 2.3522"
 
     def test_format_coordinates_json(self):
         """Test formatting coordinates as JSON."""
@@ -553,8 +552,8 @@ class TestPageCoordinates(unittest.TestCase):
         result = format_coordinates(coords, "json")
         parsed = json.loads(result)
 
-        self.assertEqual(len(parsed), 1)
-        self.assertAlmostEqual(parsed[0]["lat"], 51.5074)
+        assert len(parsed) == 1
+        assert parsed[0]["lat"] == 51.5074
 
     def test_format_coordinates_text_with_dist(self):
         """Test formatting coordinates with distance."""
@@ -563,7 +562,7 @@ class TestPageCoordinates(unittest.TestCase):
         ]
 
         result = format_coordinates(coords, "text")
-        self.assertIn("dist=123.4m", result)
+        assert "dist=123.4m" in result
 
     def test_format_coordinates_text_non_earth_globe(self):
         """Test formatting coordinates with non-earth globe."""
@@ -572,10 +571,10 @@ class TestPageCoordinates(unittest.TestCase):
         ]
 
         result = format_coordinates(coords, "text")
-        self.assertIn("globe=mars", result)
+        assert "globe=mars" in result
 
 
-class TestPageImages(unittest.TestCase):
+class TestPageImages:
     """Test the get_page_images function."""
 
     def test_get_page_images_success(self):
@@ -583,20 +582,20 @@ class TestPageImages(unittest.TestCase):
         wiki = create_mock_wikipedia()
         imgs = get_page_images(wiki, "Test_1", 0)
 
-        self.assertIsInstance(imgs, dict)
-        self.assertEqual(len(imgs), 2)
-        self.assertIn("File:Example.png", imgs)
-        self.assertIn("File:Logo.svg", imgs)
+        assert isinstance(imgs, dict)
+        assert len(imgs) == 2
+        assert "File:Example.png" in imgs
+        assert "File:Logo.svg" in imgs
 
     def test_get_page_images_nonexistent(self):
         """Test getting images of a non-existent page."""
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(PageNotFoundError):
+        with pytest.raises(PageNotFoundError):
             get_page_images(wiki, "NonExisting", 0)
 
 
-class TestGeoSearchResults(unittest.TestCase):
+class TestGeoSearchResults:
     """Test the get_geosearch_results and format_geosearch functions."""
 
     def test_get_geosearch_results_by_coord(self):
@@ -604,10 +603,10 @@ class TestGeoSearchResults(unittest.TestCase):
         wiki = create_mock_wikipedia()
         results = get_geosearch_results(wiki, coord="51.5074|-0.1278")
 
-        self.assertIsInstance(results, list)
-        self.assertEqual(len(results), 2)
-        self.assertEqual(results[0]["title"], "Nearby Page 1")
-        self.assertAlmostEqual(results[0]["dist"], 50.3)
+        assert isinstance(results, list)
+        assert len(results) == 2
+        assert results[0]["title"] == "Nearby Page 1"
+        assert results[0]["dist"] == 50.3
 
     def test_get_geosearch_results_no_params(self):
         """Test geosearch without coord or page raises error."""
@@ -615,7 +614,7 @@ class TestGeoSearchResults(unittest.TestCase):
 
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(click.UsageError):
+        with pytest.raises(click.UsageError):
             get_geosearch_results(wiki)
 
     def test_get_geosearch_results_invalid_coord(self):
@@ -624,7 +623,7 @@ class TestGeoSearchResults(unittest.TestCase):
 
         wiki = create_mock_wikipedia()
 
-        with self.assertRaises(click.UsageError):
+        with pytest.raises(click.UsageError):
             get_geosearch_results(wiki, coord="invalid")
 
     def test_format_geosearch_text(self):
@@ -637,9 +636,8 @@ class TestGeoSearchResults(unittest.TestCase):
         result = format_geosearch(results, "text")
         lines = result.split("\n")
 
-        self.assertIn("Page 1", lines[0])
-        self.assertIn("(50.3m)", lines[0])
-        self.assertIn("Page 2", lines[1])
+        assert lines[0] == "Page 1 (50.3m) [51.508, -0.128]"
+        assert lines[1] == "Page 2 (200.7m) [51.51, -0.13]"
 
     def test_format_geosearch_json(self):
         """Test formatting geosearch results as JSON."""
@@ -650,11 +648,11 @@ class TestGeoSearchResults(unittest.TestCase):
         result = format_geosearch(results, "json")
         parsed = json.loads(result)
 
-        self.assertEqual(len(parsed), 1)
-        self.assertEqual(parsed[0]["title"], "Page 1")
+        assert len(parsed) == 1
+        assert parsed[0]["title"] == "Page 1"
 
 
-class TestRandomPages(unittest.TestCase):
+class TestRandomPages:
     """Test the get_random_pages and format_random functions."""
 
     def test_get_random_pages(self):
@@ -662,11 +660,11 @@ class TestRandomPages(unittest.TestCase):
         wiki = create_mock_wikipedia()
         results = get_random_pages(wiki, limit=2)
 
-        self.assertIsInstance(results, list)
-        self.assertEqual(len(results), 2)
+        assert isinstance(results, list)
+        assert len(results) == 2
         titles = [r["title"] for r in results]
-        self.assertIn("Random Page A", titles)
-        self.assertIn("Random Page B", titles)
+        assert "Random Page A" in titles
+        assert "Random Page B" in titles
 
     def test_format_random_text(self):
         """Test formatting random results as text."""
@@ -675,8 +673,8 @@ class TestRandomPages(unittest.TestCase):
         result = format_random(results, "text")
         lines = result.split("\n")
 
-        self.assertEqual(lines[0], "Page A")
-        self.assertEqual(lines[1], "Page B")
+        assert lines[0] == "Page A"
+        assert lines[1] == "Page B"
 
     def test_format_random_json(self):
         """Test formatting random results as JSON."""
@@ -685,11 +683,11 @@ class TestRandomPages(unittest.TestCase):
         result = format_random(results, "json")
         parsed = json.loads(result)
 
-        self.assertEqual(len(parsed), 1)
-        self.assertEqual(parsed[0]["title"], "Page A")
+        assert len(parsed) == 1
+        assert parsed[0]["title"] == "Page A"
 
 
-class TestSearchResults(unittest.TestCase):
+class TestSearchResults:
     """Test the get_search_results and format_search functions."""
 
     def test_get_search_results(self):
@@ -697,12 +695,12 @@ class TestSearchResults(unittest.TestCase):
         wiki = create_mock_wikipedia()
         results = get_search_results(wiki, "Python")
 
-        self.assertIsInstance(results, dict)
-        self.assertEqual(results["totalhits"], 5432)
-        self.assertEqual(results["suggestion"], "python programming")
-        self.assertEqual(len(results["pages"]), 2)
+        assert isinstance(results, dict)
+        assert results["totalhits"] == 5432
+        assert results["suggestion"] == "python programming"
+        assert len(results["pages"]) == 2
         titles = [p["title"] for p in results["pages"]]
-        self.assertIn("Python (programming language)", titles)
+        assert "Python (programming language)" in titles
 
     def test_get_search_results_meta(self):
         """Test that search results include metadata."""
@@ -710,9 +708,9 @@ class TestSearchResults(unittest.TestCase):
         results = get_search_results(wiki, "Python")
 
         py_page = next(p for p in results["pages"] if p["title"] == "Python (programming language)")
-        self.assertEqual(py_page["size"], 123456)
-        self.assertEqual(py_page["wordcount"], 15000)
-        self.assertIn("Python", py_page["snippet"])
+        assert py_page["size"] == 123456
+        assert py_page["wordcount"] == 15000
+        assert "Python" in py_page["snippet"]
 
     def test_format_search_text(self):
         """Test formatting search results as text."""
@@ -724,10 +722,10 @@ class TestSearchResults(unittest.TestCase):
 
         result = format_search(results, "text")
 
-        self.assertIn("Total hits: 100", result)
-        self.assertIn("Suggestion: test query", result)
-        self.assertIn("Page 1", result)
-        self.assertIn("Page 2", result)
+        assert "Total hits: 100" in result
+        assert "Suggestion: test query" in result
+        assert "Page 1" in result
+        assert "Page 2" in result
 
     def test_format_search_text_no_suggestion(self):
         """Test formatting search results without suggestion."""
@@ -738,8 +736,8 @@ class TestSearchResults(unittest.TestCase):
 
         result = format_search(results, "text")
 
-        self.assertIn("Total hits: 50", result)
-        self.assertNotIn("Suggestion:", result)
+        assert "Total hits: 50" in result
+        assert "Suggestion:" not in result
 
     def test_format_search_json(self):
         """Test formatting search results as JSON."""
@@ -751,29 +749,29 @@ class TestSearchResults(unittest.TestCase):
         result = format_search(results, "json")
         parsed = json.loads(result)
 
-        self.assertEqual(parsed["totalhits"], 100)
-        self.assertEqual(len(parsed["pages"]), 1)
+        assert parsed["totalhits"] == 100
+        assert len(parsed["pages"]) == 1
 
 
-class TestCLIExceptions(unittest.TestCase):
+class TestCLIExceptions:
     """Test CLI-specific exception classes."""
 
     def test_page_not_found_error(self):
         """Test PageNotFoundError exception."""
         error = PageNotFoundError("Page not found")
-        self.assertEqual(str(error), "Page not found")
+        assert str(error) == "Page not found"
 
-        with self.assertRaises(PageNotFoundError):
+        with pytest.raises(PageNotFoundError):
             raise PageNotFoundError("Test message")
 
     def test_section_not_found_error(self):
         """Test SectionNotFoundError exception."""
         error = SectionNotFoundError("Section not found")
-        self.assertEqual(str(error), "Section not found")
+        assert str(error) == "Section not found"
 
-        with self.assertRaises(SectionNotFoundError):
+        with pytest.raises(SectionNotFoundError):
             raise SectionNotFoundError("Test message")
 
 
 if __name__ == "__main__":
-    unittest.main()
+    pytest.main()

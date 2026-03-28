@@ -1,4 +1,4 @@
-import unittest
+import pytest
 
 from tests.mock_data import async_wikipedia_api_request
 from tests.mock_data import user_agent
@@ -6,10 +6,10 @@ from tests.mock_data import wikipedia_api_request
 import wikipediaapi
 
 
-class TestSyncAsyncPropertySymmetry(unittest.IsolatedAsyncioTestCase):
+class TestSyncAsyncPropertySymmetry:
     """Test that sync and async WikipediaPage have identical property behavior."""
 
-    def setUp(self):
+    def setup_method(self):
         """Set up sync and async Wikipedia instances with mock data."""
         self.sync_wiki = wikipediaapi.Wikipedia(user_agent, "en")
         self.sync_wiki._get = wikipedia_api_request(self.sync_wiki)
@@ -17,6 +17,7 @@ class TestSyncAsyncPropertySymmetry(unittest.IsolatedAsyncioTestCase):
         self.async_wiki = wikipediaapi.AsyncWikipedia(user_agent, "en")
         self.async_wiki._get = async_wikipedia_api_request(self.async_wiki)
 
+    @pytest.mark.asyncio
     async def test_property_symmetry_all_attributes(self):
         """Test that all properties return the same values in sync and async versions."""
         # Properties that should be available without any API call (construction-time)
@@ -67,246 +68,213 @@ class TestSyncAsyncPropertySymmetry(unittest.IsolatedAsyncioTestCase):
         test_titles = ["Test_1"]
 
         for title in test_titles:
-            with self.subTest(title=title):
-                # Create fresh pages to get their full attribute lists
-                sync_page = self.sync_wiki.page(title)
-                async_page = self.async_wiki.page(title)
+            # Create fresh pages to get their full attribute lists
+            sync_page = self.sync_wiki.page(title)
+            async_page = self.async_wiki.page(title)
 
-                # Get all attributes from both pages
-                sync_attrs = set(dir(sync_page))
-                async_attrs = set(dir(async_page))
+            # Get all attributes from both pages
+            sync_attrs = set(dir(sync_page))
+            async_attrs = set(dir(async_page))
 
-                # Find attributes that exist in both versions
-                common_attrs = sync_attrs & async_attrs
+            # Find attributes that exist in both versions
+            common_attrs = sync_attrs & async_attrs
 
-                # Filter out internal/private attributes (starting with _)
-                public_attrs = {attr for attr in common_attrs if not attr.startswith("_")}
+            # Filter out internal/private attributes (starting with _)
+            public_attrs = {attr for attr in common_attrs if not attr.startswith("_")}
 
-                # Verify all our expected properties are covered
-                all_expected_props = set(
-                    construction_props
-                    + awaitable_props
-                    + collection_props
-                    + category_collection_props
-                    + methods
+            # Verify all our expected properties are covered
+            all_expected_props = set(
+                construction_props
+                + awaitable_props
+                + collection_props
+                + category_collection_props
+                + methods
+            )
+            missing_props = all_expected_props - public_attrs
+            assert (
+                len(missing_props) == 0
+            ), f"Expected properties not found on pages: {missing_props}"
+
+            # Find any unexpected public attributes (excluding class-level constants)
+            class_constants = {"ATTRIBUTES_MAPPING"}  # Class-level constants we don't need to test
+            instance_attrs = {"wiki"}  # Instance attributes that don't need symmetry testing
+            unexpected_props = public_attrs - all_expected_props - class_constants - instance_attrs
+            if unexpected_props:
+                print(
+                    "Note: Found additional public attributes not in test lists: "
+                    f"{sorted(unexpected_props)}"
                 )
-                missing_props = all_expected_props - public_attrs
-                self.assertEqual(
-                    len(missing_props),
-                    0,
-                    f"Expected properties not found on pages: {missing_props}",
-                )
 
-                # Find any unexpected public attributes (excluding class-level constants)
-                class_constants = {
-                    "ATTRIBUTES_MAPPING"
-                }  # Class-level constants we don't need to test
-                instance_attrs = {"wiki"}  # Instance attributes that don't need symmetry testing
-                unexpected_props = (
-                    public_attrs - all_expected_props - class_constants - instance_attrs
-                )
-                if unexpected_props:
-                    print(
-                        "Note: Found additional public attributes not in test lists: "
-                        f"{sorted(unexpected_props)}"
+            # Test construction-time properties (no API call needed)
+            for prop in construction_props:
+                if prop in public_attrs:
+                    # Create fresh pages for each property test
+                    sync_page = self.sync_wiki.page(title)
+                    async_page = self.async_wiki.page(title)
+
+                    sync_value = getattr(sync_page, prop)
+                    async_value = getattr(async_page, prop)
+                    assert sync_value == async_value, (
+                        f"Mismatch for {prop} on page '{title}': "
+                        f"sync={sync_value}, async={async_value}"
                     )
 
-                # Test construction-time properties (no API call needed)
-                for prop in construction_props:
-                    if prop in public_attrs:
-                        with self.subTest(property=prop, title=title):
-                            # Create fresh pages for each property test
-                            sync_page = self.sync_wiki.page(title)
-                            async_page = self.async_wiki.page(title)
+            # Test awaitable properties
+            for prop in awaitable_props:
+                if prop in public_attrs:
+                    # Create fresh pages for each property test
+                    sync_page = self.sync_wiki.page(title)
+                    async_page = self.async_wiki.page(title)
 
-                            sync_value = getattr(sync_page, prop)
-                            async_value = getattr(async_page, prop)
-                            self.assertEqual(
-                                sync_value,
-                                async_value,
-                                f"Mismatch for {prop} on page '{title}': "
-                                f"sync={sync_value}, async={async_value}",
-                            )
+                    sync_value = getattr(sync_page, prop)
+                    async_value = await getattr(async_page, prop)
 
-                # Test awaitable properties
-                for prop in awaitable_props:
-                    if prop in public_attrs:
-                        with self.subTest(property=prop, title=title):
-                            # Create fresh pages for each property test
-                            sync_page = self.sync_wiki.page(title)
-                            async_page = self.async_wiki.page(title)
+                    # Special handling for sections - compare structure
+                    # rather than exact equality
+                    if prop == "sections":
+                        self._compare_sections_structure(sync_value, async_value, title)
+                    else:
+                        assert sync_value == async_value, (
+                            f"Mismatch for {prop} on page '{title}': "
+                            f"sync={sync_value}, async={async_value}"
+                        )
 
-                            sync_value = getattr(sync_page, prop)
-                            async_value = await getattr(async_page, prop)
+            # Test collection properties (compare keys and basic attributes, not types)
+            for prop in collection_props:
+                if prop in public_attrs:
+                    # Create fresh pages for each property test
+                    sync_page = self.sync_wiki.page(title)
+                    async_page = self.async_wiki.page(title)
 
-                            # Special handling for sections - compare structure
-                            # rather than exact equality
-                            if prop == "sections":
-                                self._compare_sections_structure(sync_value, async_value, title)
+                    sync_collection = getattr(sync_page, prop)
+                    async_collection = await getattr(async_page, prop)
+
+                    # Compare keys
+                    assert set(sync_collection.keys()) == set(
+                        async_collection.keys()
+                    ), f"Keys differ for {prop} on page '{title}'"
+
+                    # Compare basic attributes of page objects (not their types)
+                    for key in sync_collection.keys():
+                        if key in async_collection:  # Safety check
+                            sync_item = sync_collection[key]
+                            async_item = async_collection[key]
+
+                            # Compare basic attributes that should be the same
+                            basic_attrs = ["title", "ns", "language"]
+                            for attr in basic_attrs:
+                                if hasattr(sync_item, attr) and hasattr(async_item, attr):
+                                    sync_attr_val = getattr(sync_item, attr)
+                                    async_attr_val = getattr(async_item, attr)
+                                    assert sync_attr_val == async_attr_val, (
+                                        f"Mismatch for {prop}[{key}].{attr} " f"on page '{title}'"
+                                    )
+
+            # Test categorymembers on a category page
+            category_title = "Category:C1"
+            for prop in category_collection_props:
+                if prop in public_attrs:
+                    # Create fresh pages for each property test
+                    sync_category_page = self.sync_wiki.page(category_title)
+                    async_category_page = self.async_wiki.page(category_title)
+
+                    sync_collection = getattr(sync_category_page, prop)
+                    async_collection = await getattr(async_category_page, prop)
+
+                    # Compare keys
+                    assert set(sync_collection.keys()) == set(
+                        async_collection.keys()
+                    ), f"Keys differ for {prop} on page '{category_title}'"
+
+                    # Compare basic attributes of page objects (not their types)
+                    for key in sync_collection.keys():
+                        if key in async_collection:  # Safety check
+                            sync_item = sync_collection[key]
+                            async_item = async_collection[key]
+
+                            # Compare basic attributes that should be the same
+                            basic_attrs = ["title", "ns", "language"]
+                            for attr in basic_attrs:
+                                if hasattr(sync_item, attr) and hasattr(async_item, attr):
+                                    sync_attr_val = getattr(sync_item, attr)
+                                    async_attr_val = getattr(async_item, attr)
+                                    assert sync_attr_val == async_attr_val, (
+                                        f"Mismatch for {prop}[{key}].{attr} "
+                                        f"on page '{category_title}'"
+                                    )
+
+            # Test methods
+            for method in methods:
+                if method in public_attrs:
+                    # Create fresh pages for each method test
+                    sync_page = self.sync_wiki.page(title)
+                    async_page = self.async_wiki.page(title)
+
+                    # For section methods, ensure sections are loaded first
+                    if method in ["section_by_title", "sections_by_title"]:
+                        _ = sync_page.sections
+                        _ = await async_page.sections
+                        # Test with a section title that exists in Test_1
+                        test_section_title = "Section 1"
+                        sync_result = getattr(sync_page, method)(test_section_title)
+                        async_result = getattr(async_page, method)(test_section_title)
+
+                        # For section methods, compare attributes rather than objects
+                        if method == "section_by_title":
+                            if sync_result is None and async_result is None:
+                                # Both None - good
+                                pass
+                            elif sync_result is not None and async_result is not None:
+                                assert sync_result.title == async_result.title
+                                assert sync_result.level == async_result.level
+                                assert sync_result.text.strip() == async_result.text.strip()
                             else:
-                                self.assertEqual(
-                                    sync_value,
-                                    async_value,
-                                    f"Mismatch for {prop} on page '{title}': "
-                                    f"sync={sync_value}, async={async_value}",
+                                raise AssertionError(
+                                    "One result is None, other is not: "
+                                    f"sync={sync_result}, async={async_result}"
                                 )
-
-                # Test collection properties (compare keys and basic attributes, not types)
-                for prop in collection_props:
-                    if prop in public_attrs:
-                        with self.subTest(property=prop, title=title):
-                            # Create fresh pages for each property test
-                            sync_page = self.sync_wiki.page(title)
-                            async_page = self.async_wiki.page(title)
-
-                            sync_collection = getattr(sync_page, prop)
-                            async_collection = await getattr(async_page, prop)
-
-                            # Compare keys
-                            self.assertEqual(
-                                set(sync_collection.keys()),
-                                set(async_collection.keys()),
-                                f"Keys differ for {prop} on page '{title}'",
-                            )
-
-                            # Compare basic attributes of the page objects (not their types)
-                            for key in sync_collection.keys():
-                                if key in async_collection:  # Safety check
-                                    sync_item = sync_collection[key]
-                                    async_item = async_collection[key]
-
-                                    # Compare basic attributes that should be the same
-                                    basic_attrs = ["title", "ns", "language"]
-                                    for attr in basic_attrs:
-                                        if hasattr(sync_item, attr) and hasattr(async_item, attr):
-                                            sync_attr_val = getattr(sync_item, attr)
-                                            async_attr_val = getattr(async_item, attr)
-                                            self.assertEqual(
-                                                sync_attr_val,
-                                                async_attr_val,
-                                                f"Mismatch for {prop}[{key}].{attr} "
-                                                f"on page '{title}'",
-                                            )
-
-                # Test categorymembers on a category page
-                category_title = "Category:C1"
-                for prop in category_collection_props:
-                    if prop in public_attrs:
-                        with self.subTest(property=prop, title=category_title):
-                            # Create fresh pages for each property test
-                            sync_category_page = self.sync_wiki.page(category_title)
-                            async_category_page = self.async_wiki.page(category_title)
-
-                            sync_collection = getattr(sync_category_page, prop)
-                            async_collection = await getattr(async_category_page, prop)
-
-                            # Compare keys
-                            self.assertEqual(
-                                set(sync_collection.keys()),
-                                set(async_collection.keys()),
-                                f"Keys differ for {prop} on page '{category_title}'",
-                            )
-
-                            # Compare basic attributes of the page objects (not their types)
-                            for key in sync_collection.keys():
-                                if key in async_collection:  # Safety check
-                                    sync_item = sync_collection[key]
-                                    async_item = async_collection[key]
-
-                                    # Compare basic attributes that should be the same
-                                    basic_attrs = ["title", "ns", "language"]
-                                    for attr in basic_attrs:
-                                        if hasattr(sync_item, attr) and hasattr(async_item, attr):
-                                            sync_attr_val = getattr(sync_item, attr)
-                                            async_attr_val = getattr(async_item, attr)
-                                            self.assertEqual(
-                                                sync_attr_val,
-                                                async_attr_val,
-                                                f"Mismatch for {prop}[{key}].{attr} "
-                                                f"on page '{category_title}'",
-                                            )
-
-                # Test methods
-                for method in methods:
-                    if method in public_attrs:
-                        with self.subTest(method=method, title=title):
-                            # Create fresh pages for each method test
-                            sync_page = self.sync_wiki.page(title)
-                            async_page = self.async_wiki.page(title)
-
-                            # For section methods, ensure sections are loaded first
-                            if method in ["section_by_title", "sections_by_title"]:
-                                _ = sync_page.sections
-                                _ = await async_page.sections
-                                # Test with a section title that exists in Test_1
-                                test_section_title = "Section 1"
-                                sync_result = getattr(sync_page, method)(test_section_title)
-                                async_result = getattr(async_page, method)(test_section_title)
-
-                                # For section methods, compare attributes rather than objects
-                                if method == "section_by_title":
-                                    if sync_result is None and async_result is None:
-                                        # Both None - good
-                                        pass
-                                    elif sync_result is not None and async_result is not None:
-                                        self.assertEqual(sync_result.title, async_result.title)
-                                        self.assertEqual(sync_result.level, async_result.level)
-                                        self.assertEqual(
-                                            sync_result.text.strip(), async_result.text.strip()
-                                        )
-                                    else:
-                                        self.fail(
-                                            "One result is None, other is not: "
-                                            f"sync={sync_result}, async={async_result}"
-                                        )
-                                elif method == "sections_by_title":
-                                    self.assertEqual(len(sync_result), len(async_result))
-                                    for i, (sync_sec, async_sec) in enumerate(
-                                        zip(sync_result, async_result)
-                                    ):
-                                        self.assertEqual(sync_sec.title, async_sec.title)
-                                        self.assertEqual(sync_sec.level, async_sec.level)
-                                        self.assertEqual(
-                                            sync_sec.text.strip(), async_sec.text.strip()
-                                        )
-                            else:
-                                # For other methods like exists()
-                                sync_result = getattr(sync_page, method)()
-                                async_result = await getattr(async_page, method)()
-                                self.assertEqual(
-                                    sync_result,
-                                    async_result,
-                                    f"Mismatch for {method}() on page '{title}': "
-                                    f"sync={sync_result}, async={async_result}",
-                                )
+                        else:
+                            assert len(sync_result) == len(async_result)
+                            for i, (sync_sec, async_sec) in enumerate(
+                                zip(sync_result, async_result)
+                            ):
+                                assert sync_sec.title == async_sec.title
+                                assert sync_sec.level == async_sec.level
+                                assert sync_sec.text.strip() == async_sec.text.strip()
+                    else:
+                        # For other methods like exists()
+                        sync_result = getattr(sync_page, method)()
+                        async_result = await getattr(async_page, method)()
+                        assert sync_result == async_result, (
+                            f"Mismatch for {method}() on page '{title}': "
+                            f"sync={sync_result}, async={async_result}"
+                        )
 
     def _compare_sections_structure(self, sync_sections, async_sections, title):
         """Compare section structure rather than exact string equality."""
-        self.assertEqual(
-            len(sync_sections), len(async_sections), f"Section count differs for page '{title}'"
-        )
+        assert len(sync_sections) == len(
+            async_sections
+        ), f"Section count differs for page '{title}'"
 
         for i, (sync_sec, async_sec) in enumerate(zip(sync_sections, async_sections)):
-            with self.subTest(section_index=i, title=title):
-                self.assertEqual(
-                    sync_sec.title, async_sec.title, f"Section {i} title differs for page '{title}'"
-                )
-                self.assertEqual(
-                    sync_sec.level, async_sec.level, f"Section {i} level differs for page '{title}'"
-                )
-                self.assertEqual(
-                    sync_sec.text.strip(),
-                    async_sec.text.strip(),
-                    f"Section {i} text differs for page '{title}'",
-                )
+            assert (
+                sync_sec.title == async_sec.title
+            ), f"Section {i} title differs for page '{title}'"
+            assert (
+                sync_sec.level == async_sec.level
+            ), f"Section {i} level differs for page '{title}'"
+            assert (
+                sync_sec.text.strip() == async_sec.text.strip()
+            ), f"Section {i} text differs for page '{title}'"
 
-                # Recursively compare subsections
-                self._compare_sections_structure(
-                    sync_sec.sections, async_sec.sections, f"{title}-section-{i}"
-                )
+            # Recursively compare subsections
+            self._compare_sections_structure(
+                sync_sec.sections, async_sec.sections, f"{title}-section-{i}"
+            )
 
+    @pytest.mark.asyncio
     async def test_sections_property_symmetry(self):
-        """Specifically test the sections property symmetry."""
+        """Specifically test sections property symmetry."""
         title = "Test_1"
 
         # Create fresh pages
@@ -320,6 +288,7 @@ class TestSyncAsyncPropertySymmetry(unittest.IsolatedAsyncioTestCase):
         # Compare structure
         self._compare_sections_structure(sync_sections, async_sections, title)
 
+    @pytest.mark.asyncio
     async def test_section_methods_symmetry(self):
         """Test section_by_title and sections_by_title methods."""
         title = "Test_1"  # Use a title that exists in mock data
@@ -338,26 +307,26 @@ class TestSyncAsyncPropertySymmetry(unittest.IsolatedAsyncioTestCase):
         async_section = async_page.section_by_title(test_title)
 
         if sync_section is None:
-            self.assertIsNone(async_section)
+            assert async_section is None
         else:
-            self.assertIsNotNone(async_section)
-            self.assertEqual(sync_section.title, async_section.title)
-            self.assertEqual(sync_section.level, async_section.level)
-            self.assertEqual(sync_section.text.strip(), async_section.text.strip())
+            assert async_section is not None
+            assert sync_section.title == async_section.title
+            assert sync_section.level == async_section.level
+            assert sync_section.text.strip() == async_section.text.strip()
 
         # Test sections_by_title - use a title that might have multiple sections
         # For Test_1, let's use a section that appears multiple times if available
-        # Since Test_1 doesn't have duplicates, this will just test the basic functionality
+        # Since Test_1 doesn't have duplicates, this will just test basic functionality
         sync_sections = sync_page.sections_by_title(test_title)
         async_sections = async_page.sections_by_title(test_title)
 
-        self.assertEqual(len(sync_sections), len(async_sections))
+        assert len(sync_sections) == len(async_sections)
         for i, (sync_sec, async_sec) in enumerate(zip(sync_sections, async_sections)):
-            with self.subTest(section_index=i):
-                self.assertEqual(sync_sec.title, async_sec.title)
-                self.assertEqual(sync_sec.level, async_sec.level)
-                self.assertEqual(sync_sec.text.strip(), async_sec.text.strip())
+            assert sync_sec.title == async_sec.title
+            assert sync_sec.level == async_sec.level
+            assert sync_sec.text.strip() == async_sec.text.strip()
 
+    @pytest.mark.asyncio
     async def test_undocumented_attributes_symmetry(self):
         """Test that undocumented API fields are accessible in both versions."""
         title = "Test_1"
@@ -377,7 +346,7 @@ class TestSyncAsyncPropertySymmetry(unittest.IsolatedAsyncioTestCase):
         sync_value = getattr(sync_page, undocumented_field, None)
         async_value = await getattr(async_page, undocumented_field, None)
 
-        self.assertEqual(sync_value, async_value)
+        assert sync_value == async_value
 
     def test_property_availability(self):
         """Test that all documented properties are available in both classes."""
@@ -388,18 +357,19 @@ class TestSyncAsyncPropertySymmetry(unittest.IsolatedAsyncioTestCase):
 
         # Check sync page has all properties
         sync_page = self.sync_wiki.page("Test_1")
+        sync_props = set(dir(sync_page))
         for prop in documented_props:
-            with self.subTest(property=prop, api="sync"):
-                self.assertTrue(hasattr(sync_page, prop), f"Sync page missing property: {prop}")
+            assert prop in sync_props, f"Sync page missing property: {prop}"
 
-        # Check async page has all properties
+        # Check async page has all properties (using dir to avoid property access)
         async_page = self.async_wiki.page("Test_1")
+        async_props = set(dir(async_page))
         for prop in documented_props:
-            with self.subTest(property=prop, api="async"):
-                self.assertTrue(hasattr(async_page, prop), f"Async page missing property: {prop}")
+            assert prop in async_props, f"Async page missing property: {prop}"
 
+    @pytest.mark.asyncio
     async def test_text_property_symmetry(self):
-        """Specifically test the text property symmetry."""
+        """Specifically test text property symmetry."""
         title = "Test_1"
 
         # Create fresh pages
@@ -410,10 +380,9 @@ class TestSyncAsyncPropertySymmetry(unittest.IsolatedAsyncioTestCase):
         sync_text = sync_page.text
         async_text = await async_page.text
 
-        self.assertEqual(
-            sync_text.strip(), async_text.strip(), f"text property mismatch for page '{title}'"
-        )
+        assert sync_text.strip() == async_text.strip(), f"text property mismatch for page '{title}'"
 
+    @pytest.mark.asyncio
     async def test_sections_auto_fetch_behavior(self):
         """Test that sections auto-fetches in both sync and async versions."""
         title = "Test_1"
@@ -425,28 +394,18 @@ class TestSyncAsyncPropertySymmetry(unittest.IsolatedAsyncioTestCase):
         # Both should be able to access sections without prior API calls
         # Sync: direct access should trigger fetch
         sync_sections = sync_page.sections
-        self.assertIsInstance(sync_sections, list, "Sync sections should return a list")
-        self.assertGreater(len(sync_sections), 0, "Sync sections should not be empty")
+        assert isinstance(sync_sections, list), "Sync sections should return a list"
+        assert len(sync_sections) > 0, "Sync sections should not be empty"
 
         # Async: should return a coroutine that when awaited gives a list
         async_sections_coro = async_page.sections
         import asyncio
 
-        self.assertTrue(
-            asyncio.iscoroutine(async_sections_coro), "Async sections should return a coroutine"
-        )
+        assert asyncio.iscoroutine(async_sections_coro), "Async sections should return a coroutine"
 
         async_sections = await async_sections_coro
-        self.assertIsInstance(
-            async_sections, list, "Async sections should return a list when awaited"
-        )
-        self.assertGreater(
-            len(async_sections), 0, "Async sections should not be empty when awaited"
-        )
+        assert isinstance(async_sections, list), "Async sections should return a list when awaited"
+        assert len(async_sections) > 0, "Async sections should not be empty when awaited"
 
         # Compare structure
         self._compare_sections_structure(sync_sections, async_sections, title)
-
-
-if __name__ == "__main__":
-    unittest.main()

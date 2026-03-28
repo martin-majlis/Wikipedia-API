@@ -1,11 +1,9 @@
 """
 Unit tests for enum converter edge cases and error handling.
 
-These tests complement the comprehensive usage examples by focusing on
-edge cases, error conditions, and boundary testing for the converter functions.
+These tests complement comprehensive usage examples by focusing on
+edge cases, error conditions, and boundary testing for converter functions.
 """
-
-import unittest
 
 from wikipediaapi._enums import coordinate_type2str
 from wikipediaapi._enums import CoordinateType
@@ -19,29 +17,29 @@ from wikipediaapi._enums import search_sort2str
 from wikipediaapi._enums import SearchSort
 
 
-class TestEnumConvertersEdgeCases(unittest.TestCase):
+class TestEnumConvertersEdgeCases:
     """Test edge cases and error handling for enum converter functions."""
 
     def test_coordinate_type2str_edge_cases(self):
         """Test coordinate_type2str with edge cases."""
         # Test None handling
         result = coordinate_type2str(None)  # type: ignore[arg-type]
-        self.assertIsNone(result)
+        assert result is None
 
         # Test empty string
-        self.assertEqual(coordinate_type2str(""), "")
+        assert coordinate_type2str("") == ""
 
         # Test whitespace handling
-        self.assertEqual(coordinate_type2str(" "), " ")
-        self.assertEqual(coordinate_type2str("\tprimary\n"), "\tprimary\n")
+        assert coordinate_type2str(" ") == " "
+        assert coordinate_type2str("\tprimary\n") == "\tprimary\n"
 
         # Test case sensitivity
-        self.assertEqual(coordinate_type2str("PRIMARY"), "PRIMARY")
-        self.assertEqual(coordinate_type2str("Primary"), "Primary")
+        assert coordinate_type2str("PRIMARY") == "PRIMARY"
+        assert coordinate_type2str("Primary") == "Primary"
 
         # Test unknown strings (pass-through)
-        self.assertEqual(coordinate_type2str("unknown_type"), "unknown_type")
-        self.assertEqual(coordinate_type2str("123"), "123")
+        assert coordinate_type2str("unknown_type") == "unknown_type"
+        assert coordinate_type2str("123") == "123"
 
         # Test all enum values explicitly
         enum_values = [
@@ -50,28 +48,28 @@ class TestEnumConvertersEdgeCases(unittest.TestCase):
             (CoordinateType.SECONDARY, "secondary"),
         ]
         for enum_val, expected in enum_values:
-            self.assertEqual(coordinate_type2str(enum_val), expected)
+            assert coordinate_type2str(enum_val) == expected
 
     def test_globe2str_edge_cases(self):
         """Test globe2str with edge cases."""
         # Test None handling
         result = globe2str(None)  # type: ignore[arg-type]
-        self.assertIsNone(result)
+        assert result is None
 
         # Test empty string
-        self.assertEqual(globe2str(""), "")
+        assert globe2str("") == ""
 
         # Test whitespace handling
-        self.assertEqual(globe2str(" "), " ")
-        self.assertEqual(globe2str("\tearth\n"), "\tearth\n")
+        assert globe2str(" ") == " "
+        assert globe2str("\tearth\n") == "\tearth\n"
 
         # Test case sensitivity
-        self.assertEqual(globe2str("EARTH"), "EARTH")
-        self.assertEqual(globe2str("Earth"), "Earth")
+        assert globe2str("EARTH") == "EARTH"
+        assert globe2str("Earth") == "Earth"
 
         # Test unknown strings (pass-through)
-        self.assertEqual(globe2str("unknown_planet"), "unknown_planet")
-        self.assertEqual(globe2str("pluto"), "pluto")
+        assert globe2str("unknown_planet") == "unknown_planet"
+        assert globe2str("pluto") == "pluto"
 
         # Test all enum values explicitly
         enum_values = [
@@ -81,28 +79,28 @@ class TestEnumConvertersEdgeCases(unittest.TestCase):
             (Globe.VENUS, "venus"),
         ]
         for enum_val, expected in enum_values:
-            self.assertEqual(globe2str(enum_val), expected)
+            assert globe2str(enum_val) == expected
 
     def test_search_sort2str_edge_cases(self):
         """Test search_sort2str with edge cases."""
         # Test None handling
         result = search_sort2str(None)  # type: ignore[arg-type]
-        self.assertIsNone(result)
+        assert result is None
 
         # Test empty string
-        self.assertEqual(search_sort2str(""), "")
+        assert search_sort2str("") == ""
 
         # Test whitespace handling
-        self.assertEqual(search_sort2str(" "), " ")
-        self.assertEqual(search_sort2str("\trelevance\n"), "\trelevance\n")
+        assert search_sort2str(" ") == " "
+        assert search_sort2str("\trelevance\n") == "\trelevance\n"
 
         # Test case sensitivity
-        self.assertEqual(search_sort2str("RELEVANCE"), "RELEVANCE")
-        self.assertEqual(search_sort2str("Relevance"), "Relevance")
+        assert search_sort2str("RELEVANCE") == "RELEVANCE"
+        assert search_sort2str("Relevance") == "Relevance"
 
         # Test unknown strings (pass-through)
-        self.assertEqual(search_sort2str("unknown_sort"), "unknown_sort")
-        self.assertEqual(search_sort2str("custom"), "custom")
+        assert search_sort2str("unknown_sort") == "unknown_sort"
+        assert search_sort2str("custom") == "custom"
 
         # Test all enum values explicitly
         enum_values = [
@@ -121,28 +119,28 @@ class TestEnumConvertersEdgeCases(unittest.TestCase):
             (SearchSort.USER_RANDOM, "user_random"),
         ]
         for enum_val, expected in enum_values:
-            self.assertEqual(search_sort2str(enum_val), expected)
+            assert search_sort2str(enum_val) == expected
 
     def test_geosearch_sort2str_edge_cases(self):
         """Test geosearch_sort2str with edge cases."""
         # Test None handling
         result = geosearch_sort2str(None)  # type: ignore[arg-type]
-        self.assertIsNone(result)
+        assert result is None
 
         # Test empty string
-        self.assertEqual(geosearch_sort2str(""), "")
+        assert geosearch_sort2str("") == ""
 
         # Test whitespace handling
-        self.assertEqual(geosearch_sort2str(" "), " ")
-        self.assertEqual(geosearch_sort2str("\tdistance\n"), "\tdistance\n")
+        assert geosearch_sort2str(" ") == " "
+        assert geosearch_sort2str("\tdistance\n") == "\tdistance\n"
 
         # Test case sensitivity
-        self.assertEqual(geosearch_sort2str("DISTANCE"), "DISTANCE")
-        self.assertEqual(geosearch_sort2str("Distance"), "Distance")
+        assert geosearch_sort2str("DISTANCE") == "DISTANCE"
+        assert geosearch_sort2str("Distance") == "Distance"
 
         # Test unknown strings (pass-through)
-        self.assertEqual(geosearch_sort2str("unknown_sort"), "unknown_sort")
-        self.assertEqual(geosearch_sort2str("custom"), "custom")
+        assert geosearch_sort2str("unknown_sort") == "unknown_sort"
+        assert geosearch_sort2str("custom") == "custom"
 
         # Test all enum values explicitly
         enum_values = [
@@ -150,28 +148,28 @@ class TestEnumConvertersEdgeCases(unittest.TestCase):
             (GeoSearchSort.RELEVANCE, "relevance"),
         ]
         for enum_val, expected in enum_values:
-            self.assertEqual(geosearch_sort2str(enum_val), expected)
+            assert geosearch_sort2str(enum_val) == expected
 
     def test_redirect_filter2str_edge_cases(self):
         """Test redirect_filter2str with edge cases."""
         # Test None handling
         result = redirect_filter2str(None)  # type: ignore[arg-type]
-        self.assertIsNone(result)
+        assert result is None
 
         # Test empty string
-        self.assertEqual(redirect_filter2str(""), "")
+        assert redirect_filter2str("") == ""
 
         # Test whitespace handling
-        self.assertEqual(redirect_filter2str(" "), " ")
-        self.assertEqual(redirect_filter2str("\tall\n"), "\tall\n")
+        assert redirect_filter2str(" ") == " "
+        assert redirect_filter2str("\tall\n") == "\tall\n"
 
         # Test case sensitivity
-        self.assertEqual(redirect_filter2str("ALL"), "ALL")
-        self.assertEqual(redirect_filter2str("All"), "All")
+        assert redirect_filter2str("ALL") == "ALL"
+        assert redirect_filter2str("All") == "All"
 
         # Test unknown strings (pass-through)
-        self.assertEqual(redirect_filter2str("unknown_filter"), "unknown_filter")
-        self.assertEqual(redirect_filter2str("custom"), "custom")
+        assert redirect_filter2str("unknown_filter") == "unknown_filter"
+        assert redirect_filter2str("custom") == "custom"
 
         # Test all enum values explicitly
         enum_values = [
@@ -180,7 +178,7 @@ class TestEnumConvertersEdgeCases(unittest.TestCase):
             (RedirectFilter.NONREDIRECTS, "nonredirects"),
         ]
         for enum_val, expected in enum_values:
-            self.assertEqual(redirect_filter2str(enum_val), expected)
+            assert redirect_filter2str(enum_val) == expected
 
     def test_converter_consistency(self):
         """Test that converters are consistent across multiple calls."""
@@ -196,8 +194,8 @@ class TestEnumConvertersEdgeCases(unittest.TestCase):
         for converter, enum_val in enum_inputs:
             result1 = converter(enum_val)
             result2 = converter(enum_val)
-            self.assertEqual(result1, result2)
-            self.assertEqual(result1, enum_val.value)
+            assert result1 == result2
+            assert result1 == enum_val.value
 
         # Test string consistency
         string_inputs = [
@@ -211,8 +209,8 @@ class TestEnumConvertersEdgeCases(unittest.TestCase):
         for converter, string_val in string_inputs:
             result1 = converter(string_val)
             result2 = converter(string_val)
-            self.assertEqual(result1, result2)
-            self.assertEqual(result1, string_val)
+            assert result1 == result2
+            assert result1 == string_val
 
     def test_converter_return_types(self):
         """Test that converters always return strings or None."""
@@ -227,15 +225,15 @@ class TestEnumConvertersEdgeCases(unittest.TestCase):
         for converter, enum_val in converters_and_enums:
             # Test with enum
             enum_result = converter(enum_val)
-            self.assertIsInstance(enum_result, str)
+            assert isinstance(enum_result, str)
 
             # Test with string
             string_result = converter("test")
-            self.assertIsInstance(string_result, str)
+            assert isinstance(string_result, str)
 
             # Test with None
             none_result = converter(None)  # type: ignore[arg-type]
-            self.assertIsNone(none_result)
+            assert none_result is None
 
     def test_converter_performance_basic(self):
         """Basic performance test to ensure converters are not overly slow."""
@@ -262,11 +260,9 @@ class TestEnumConvertersEdgeCases(unittest.TestCase):
         total_time = end_time - start_time
 
         # Should complete in reasonable time (less than 1 second for 10,000 operations)
-        self.assertLess(
-            total_time,
-            1.0,
-            f"Converters too slow: {total_time:.3f}s for {iterations * len(converters) * 2} operations",
-        )
+        assert (
+            total_time < 1.0
+        ), f"Converters too slow: {total_time:.3f}s for {iterations * len(converters) * 2} operations"
 
     def test_enum_value_immutability(self):
         """Test that enum values remain immutable after conversion."""
@@ -285,11 +281,11 @@ class TestEnumConvertersEdgeCases(unittest.TestCase):
         redirect_filter2str(original_filter)
 
         # Verify they haven't changed
-        self.assertEqual(original_coord.value, "primary")
-        self.assertEqual(original_globe.value, "earth")
-        self.assertEqual(original_sort.value, "relevance")
-        self.assertEqual(original_geo_sort.value, "distance")
-        self.assertEqual(original_filter.value, "nonredirects")
+        assert original_coord.value == "primary"
+        assert original_globe.value == "earth"
+        assert original_sort.value == "relevance"
+        assert original_geo_sort.value == "distance"
+        assert original_filter.value == "nonredirects"
 
     def test_special_characters_in_strings(self):
         """Test converters with special characters in string inputs."""
@@ -327,12 +323,6 @@ class TestEnumConvertersEdgeCases(unittest.TestCase):
         for converter in converters:
             for special_string in special_strings:
                 result = converter(special_string)
-                self.assertEqual(
-                    result,
-                    special_string,
-                    f"Converter {converter.__name__} should pass through special characters unchanged",
-                )
-
-
-if __name__ == "__main__":
-    unittest.main()
+                assert (
+                    result == special_string
+                ), f"Converter {converter.__name__} should pass through special characters unchanged"

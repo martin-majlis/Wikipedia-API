@@ -1,20 +1,21 @@
 Development
 ===========
 
-Prerequisities
+Prerequisites
 --------------
+
 * Make
-* Python3.10+
+* Python 3.10+
 * Pip
 
 Makefile targets
-----------------
+-----------------
 * ``make run-pre-commit`` - lints source code
 * ``make requirements-all`` - install all requirements
   * ``make requirements`` - install package requirements
   * ``make requirements-dev`` - install development requirements
-* ``make run-tests`` - run unit tests
-* ``make run-coverage`` - run code coverage
+* ``make run-tests`` - run unit tests (pytest)
+* ``make run-coverage`` - run code coverage (pytest-cov)
 * ``make pypi-html`` - generates single HTML documentation into ``pypi-doc.html``
 * ``make html`` - generates HTML documentation similar to RTFD into folder ``_build/html/``
 * ``make release`` - creates new release as well as git tag

@@ -219,9 +219,9 @@ make html
 make run-tests
 ```
 
-This command runs both the unit tests and the CLI verification tests.
+This command runs both the unit tests and CLI verification tests.
 
-- The unit tests are executed via `python3 -m unittest discover tests/ '*test.py'`. All test files are in the `tests/` directory and follow the `*test.py` naming pattern.
+- The unit tests are executed via `uv run pytest tests/`. All test files are in the `tests/` directory and follow the `*_test.py` naming pattern.
 - The CLI verification tests are run using `./tests/cli/test_cli.sh verify`.
 
 ### CLI Tests
@@ -240,7 +240,7 @@ You can run the CLI tests independently.
 make run-coverage
 ```
 
-Produces a coverage report and `coverage.xml` for the `wikipediaapi` package.
+Produces a coverage report and `coverage.xml` for the `wikipediaapi` package using pytest and pytest-cov.
 
 ### Code Coverage Requirements
 
