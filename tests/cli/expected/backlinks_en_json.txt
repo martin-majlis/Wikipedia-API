@@ -7594,11 +7594,6 @@
 "language": "en",
 "ns": 100
 },
-"Portal:Somerset": {
-"title": "Portal:Somerset",
-"language": "en",
-"ns": 100
-},
 "Portal:Somerset/Did you know": {
 "title": "Portal:Somerset/Did you know",
 "language": "en",
@@ -11026,6 +11021,11 @@
 },
 "User talk:Frog luva96": {
 "title": "User talk:Frog luva96",
+"language": "en",
+"ns": 3
+},
+"User talk:Gazamp/Archive 2": {
+"title": "User talk:Gazamp/Archive 2",
 "language": "en",
 "ns": 3
 },
@@ -18034,6 +18034,11 @@
 "language": "en",
 "ns": 2
 },
+"User:OrdinaryGiraffe/Books/Vital/L2/A": {
+"title": "User:OrdinaryGiraffe/Books/Vital/L2/A",
+"language": "en",
+"ns": 2
+},
 "User:Oren neu dag": {
 "title": "User:Oren neu dag",
 "language": "en",
@@ -22066,11 +22071,6 @@
 },
 "Wikipedia talk:WikiProject Medicine/Archive 152": {
 "title": "Wikipedia talk:WikiProject Medicine/Archive 152",
-"language": "en",
-"ns": 5
-},
-"Wikipedia talk:WikiProject Portals/Design/Archive 3": {
-"title": "Wikipedia talk:WikiProject Portals/Design/Archive 3",
 "language": "en",
 "ns": 5
 },

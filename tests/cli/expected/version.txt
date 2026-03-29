@@ -1,1 +1,1 @@
-wikipedia-api, version 0.11.0
+wikipedia-api, version 0.12.0
