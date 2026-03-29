@@ -1,12 +1,12 @@
-Total hits: 504962
+Total hits: 505132
 
 Berlin
 Berlin, Berlin
-Humboldt-Universität zu Berlin
-Freie Universität Berlin
 Ost-Berlin
-Technische Universität Berlin
-Berliner Mauer
+Freie Universität Berlin
 West-Berlin
+Berliner Mauer
+Humboldt-Universität zu Berlin
+Technische Universität Berlin
 Berlin in Berlin
-Berliner Zeitung
+Berlin Hauptbahnhof

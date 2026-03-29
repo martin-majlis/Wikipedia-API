@@ -1,85 +1,85 @@
 {
-"totalhits": 6043,
+"totalhits": 6045,
 "pages": [
 {
-"title": "GoAgent",
-"pageid": 40544305,
-"snippet": "open-source cross-platform network access software. It is mainly written with <span class=\"searchmatch\">Python</span> and supports Windows, OS X, Linux and most Linux-based OS like Android and",
-"size": 3077,
-"wordcount": 144,
-"timestamp": "2025-12-28T11:06:40Z"
+"title": "Expression (mathematics)",
+"pageid": 609125,
+"snippet": "statements. All statements characterised in modern <span class=\"searchmatch\">programming</span> languages are well-defined, including C++, <span class=\"searchmatch\">Python</span>, and Java. Common examples of computation are",
+"size": 44204,
+"wordcount": 5359,
+"timestamp": "2025-10-14T12:08:50Z"
 },
 {
-"title": "Steffensen's method",
-"pageid": 12180274,
-"snippet": "end Here is the source for an implementation of Steffensen&#039;s method in <span class=\"searchmatch\">Python</span>. from typing import Callable, Iterator Func = Callable[[float], float, float]",
-"size": 20349,
-"wordcount": 3406,
-"timestamp": "2025-12-01T17:21:57Z"
+"title": "Outline of the Perl programming language",
+"pageid": 33957176,
+"snippet": "topical guide to the Perl <span class=\"searchmatch\">programming</span> language: Perl – high-level, general-purpose, interpreted, multi-paradigm, dynamic <span class=\"searchmatch\">programming</span> language. Perl was originally",
+"size": 32321,
+"wordcount": 3960,
+"timestamp": "2026-01-23T23:43:07Z"
 },
 {
-"title": "Stephen Hawking",
-"pageid": 19376148,
-"snippet": "Hawking was featured at the Monty <span class=\"searchmatch\">Python</span> Live (Mostly) show in 2014, shown in a pre-recorded video singing Monty <span class=\"searchmatch\">Python&#039;s</span> &quot;Galaxy Song&quot; and Brian Cox with",
-"size": 200914,
-"wordcount": 18712,
-"timestamp": "2026-03-23T03:46:50Z"
+"title": "Plug-in (computing)",
+"pageid": 23659,
+"snippet": "installation-steps. <span class=\"searchmatch\">Programs</span> may also implement plug-ins by loading a directory of simple script files written in a scripting language like <span class=\"searchmatch\">Python</span> or Lua. In the",
+"size": 9607,
+"wordcount": 1005,
+"timestamp": "2026-02-01T07:08:46Z"
 },
 {
-"title": "SQL",
-"pageid": 29004,
-"snippet": "declarative <span class=\"searchmatch\">programming</span> language, not an imperative <span class=\"searchmatch\">programming</span> language like C or BASIC. However, extensions to Standard SQL add procedural <span class=\"searchmatch\">programming</span> language",
-"size": 46621,
-"wordcount": 4063,
-"timestamp": "2026-03-12T15:10:41Z"
+"title": "FlyBack",
+"pageid": 14215011,
+"snippet": "all or selected files. FlyBack is written in <span class=\"searchmatch\">Python</span> using GTK. These libraries, as well as the <span class=\"searchmatch\">program</span> Git, should be installed for the software to function",
+"size": 3728,
+"wordcount": 292,
+"timestamp": "2024-11-24T22:42:29Z"
 },
 {
-"title": "Corinne Rey-Bellet",
-"pageid": 4685210,
-"snippet": "original on 29 July 2023. Retrieved 29 July 2023. Hofner, Marie-Claude; <span class=\"searchmatch\">Python</span>, Nataly Viens (2014). &quot;La violence, une affaire de santé publique&quot;. Violences",
-"size": 34886,
-"wordcount": 3506,
-"timestamp": "2025-09-05T15:01:20Z"
+"title": "Unit type",
+"pageid": 3646268,
+"snippet": "is implemented in most functional <span class=\"searchmatch\">programming</span> languages. The void type that is used in some imperative <span class=\"searchmatch\">programming</span> languages serves some of its functions",
+"size": 10162,
+"wordcount": 1250,
+"timestamp": "2025-12-08T01:48:54Z"
 },
 {
-"title": "IBM Db2",
-"pageid": 142983,
-"snippet": "COBOL, RPG, Fortran, C++, C, Delphi, .NET CLI, Java, <span class=\"searchmatch\">Python</span>, Perl, PHP, Ruby, and many other <span class=\"searchmatch\">programming</span> languages. Db2 also supports integration into the",
-"size": 40460,
-"wordcount": 4452,
-"timestamp": "2025-12-23T22:19:09Z"
+"title": "Louisville Zoo",
+"pageid": 1687465,
+"snippet": "October 23, 2014, the zoo announced that their 11-year-old reticulated <span class=\"searchmatch\">python</span>, Thelma, had produced six healthy baby snakes in 2012 without any prior",
+"size": 38832,
+"wordcount": 3253,
+"timestamp": "2026-03-27T22:47:12Z"
 },
 {
-"title": "Lars Mjøen",
-"pageid": 14293200,
-"snippet": "sent enn alvor” (Better late than seriously) in 1975, a <span class=\"searchmatch\">program</span> heavily influenced by Monty <span class=\"searchmatch\">Python</span>. In 1976, they moved on to television where they joined",
-"size": 3851,
-"wordcount": 436,
-"timestamp": "2025-09-07T10:40:55Z"
+"title": "Multitaper",
+"pageid": 9166436,
+"snippet": "code base to generate spherical vector Slepian functions [8] <span class=\"searchmatch\">Python</span> module [9] R (<span class=\"searchmatch\">programming</span> language) multitaper Package [10] S-Plus script to generate",
+"size": 12407,
+"wordcount": 1507,
+"timestamp": "2026-01-06T09:40:45Z"
 },
 {
-"title": "CPL (programming language)",
-"pageid": 828614,
-"snippet": "CPL (Combined <span class=\"searchmatch\">Programming</span> Language) is a multi-paradigm <span class=\"searchmatch\">programming</span> language developed in the early 1960s. It is an early ancestor of the C language via",
-"size": 7631,
-"wordcount": 701,
-"timestamp": "2026-01-07T17:45:22Z"
+"title": "Programmable calculator",
+"pageid": 3695788,
+"snippet": "other onboard languages and <span class=\"searchmatch\">programming</span> tools discussed by many include Fortran, awk, Pascal, Rexx, Perl, Common Lisp, <span class=\"searchmatch\">Python</span>, tcl, and various Unix shells",
+"size": 23741,
+"wordcount": 2957,
+"timestamp": "2026-01-16T07:00:21Z"
 },
 {
-"title": "Tribler",
-"pageid": 7754042,
-"snippet": "regarded as helpful to boost the download speed of files. The SwarmPlayer is a <span class=\"searchmatch\">Python</span>-based BitTorrent Internet TV viewer. It allows one to watch BitTorrent-hosted",
-"size": 13853,
-"wordcount": 1146,
-"timestamp": "2025-09-15T16:23:09Z"
+"title": "Marburg virus disease",
+"pageid": 58743,
+"snippet": "the Environment reported that a 41-year-old Dutch woman, who had visited <span class=\"searchmatch\">Python</span> Cave in Maramagambo Forest during her holiday in Uganda, had MVD due to",
+"size": 88933,
+"wordcount": 7564,
+"timestamp": "2026-01-29T11:32:35Z"
 },
 {
-"title": "Kamibox",
-"pageid": 72408226,
-"snippet": "(2017) - a physics based high score game with graphics inspired by Monty <span class=\"searchmatch\">Python</span>. Mechanics involve using momentum to generate spin, which is then released",
-"size": 38331,
-"wordcount": 4009,
-"timestamp": "2026-03-01T19:46:17Z"
+"title": "Sinewave synthesis",
+"pageid": 8227051,
+"snippet": "Synthesis Smithsonian Speech Synthesis History Project (SSSHP) 1986-2002 A <span class=\"searchmatch\">Python</span> tool to convert WAV files to sinewave speech using linear predictive coding",
+"size": 2733,
+"wordcount": 288,
+"timestamp": "2026-01-06T02:00:04Z"
 }
 ]
 }

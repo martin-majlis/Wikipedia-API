@@ -147,8 +147,8 @@ TESTS=(
     "random_combined|uv run wikipedia-api random --filter-redirect nonredirects --min-size 500 --limit 2 --json"
 
     # ── search command ───────────────────────────────────────────────────────
-    "search_en|uv run wikipedia-api search \"Python programming\""
-    "search_en_json|uv run wikipedia-api search \"Python programming\" --json"
+    "search_en|uv run wikipedia-api search \"Python is a high-level, general-purpose programming language.\""
+    "search_en_json|uv run wikipedia-api search \"Python is a high-level, general-purpose programming language.\" --json"
     "search_de|uv run wikipedia-api search \"Berlin\" --language de"
     "search_sort_timestamp|uv run wikipedia-api search \"Python programming\" --search-sort create_timestamp_desc --limit 5"
     "search_sort_random|uv run wikipedia-api search \"Python programming\" --search-sort random --json"

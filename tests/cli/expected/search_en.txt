@@ -1,12 +1,12 @@
-Total hits: 6043
+Total hits: 552
 
 Python (programming language)
-History of Python
+Odin (programming language)
+Third-generation programming language
+List of programming languages
+List of programming languages for artificial intelligence
+Comparison of programming languages
+History of programming languages
+ABC (programming language)
+Zig (programming language)
 Outline of the Python programming language
-Python syntax and semantics
-Mojo (programming language)
-Core Python Programming
-Flask (web framework)
-Zen of Python
-Glob (programming)
-Python

@@ -1,13 +1,13 @@
 {
-"totalhits": 6043,
+"totalhits": 6045,
 "pages": [
 {
 "title": "Tilde",
 "pageid": 212390,
 "snippet": "or influenced by C, such as C++, C#, D, Java, JavaScript, Perl, PHP, and <span class=\"searchmatch\">Python</span>. The MySQL database also use tilde as bitwise invert as does Microsoft&#039;s",
-"size": 77779,
-"wordcount": 8258,
-"timestamp": "2026-03-07T11:53:50Z"
+"size": 77788,
+"wordcount": 8259,
+"timestamp": "2026-03-29T09:04:53Z"
 },
 {
 "title": "Time zone",
@@ -23,7 +23,7 @@
 "snippet": "but the movie related data are in English, as made available by IMDb. A <span class=\"searchmatch\">Python</span> package called IMDbPY (since renamed cinemagoer) can also be used to process",
 "size": 54493,
 "wordcount": 5090,
-"timestamp": "2026-03-25T20:38:59Z"
+"timestamp": "2026-03-29T04:48:19Z"
 },
 {
 "title": "England",
@@ -53,9 +53,9 @@
 "title": "YouTube",
 "pageid": 3524766,
 "snippet": "15, 2023. Claburn, Thomas (January 5, 2017). &quot;Google&#039;s Grumpy code makes <span class=\"searchmatch\">Python</span> Go&quot;. The Register. Archived from the original on December 14, 2019. Retrieved",
-"size": 215801,
-"wordcount": 19558,
-"timestamp": "2026-03-26T20:38:58Z"
+"size": 215720,
+"wordcount": 19544,
+"timestamp": "2026-03-29T14:01:02Z"
 },
 {
 "title": "BBC",
@@ -69,17 +69,17 @@
 "title": "Bangladesh",
 "pageid": 3454,
 "snippet": "sambar deer, jungle cat, king cobra, wild boar, mongooses, pangolins, <span class=\"searchmatch\">pythons</span> and water monitors. Bangladesh has one of the largest populations of Irrawaddy",
-"size": 273561,
-"wordcount": 22517,
-"timestamp": "2026-03-24T22:22:46Z"
+"size": 273585,
+"wordcount": 22519,
+"timestamp": "2026-03-29T13:34:18Z"
 },
 {
 "title": "Florida",
 "pageid": 18933066,
 "snippet": "animal species. Some exotic species living in Florida include the Burmese <span class=\"searchmatch\">python</span>, green iguana, veiled chameleon, Argentine black and white tegu, peacock",
-"size": 250985,
+"size": 250979,
 "wordcount": 20659,
-"timestamp": "2026-03-26T22:19:00Z"
+"timestamp": "2026-03-28T11:21:20Z"
 }
 ]
 }
