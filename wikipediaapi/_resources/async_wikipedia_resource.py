@@ -42,7 +42,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
 
     Combines :class:`BaseWikipediaResource` (parsing & dispatch logic) with
     :class:`~wikipediaapi._http_client.AsyncHTTPClient` (non-blocking HTTP
-    via ``httpx``) to form a concrete async client.  Intended to be used
+    via ``httpxyz``) to form a concrete async client.  Intended to be used
     via multiple inheritance::
 
         class AsyncWikipedia(AsyncWikipediaResource, AsyncHTTPClient): ...

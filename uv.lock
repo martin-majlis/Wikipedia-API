@@ -620,6 +620,21 @@ wheels = [
 ]
 
 [[package]]
+name = "httpxyz"
+version = "0.28.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "certifi" },
+    { name = "httpcore" },
+    { name = "idna" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ac/e1/dc8c184f5288347ed0260786132e4bb9b0b671c541a548de6ed403afbcb8/httpxyz-0.28.2.tar.gz", hash = "sha256:4905977f086df82657febb50250150626133fa014440bcd4264b9e2f29df86ca", size = 143851, upload-time = "2026-03-24T22:04:13.078Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/13/88/671bef30eb47e941fa3d301c5bb6908734886b73d920bf2c5b0b1f15af15/httpxyz-0.28.2-py3-none-any.whl", hash = "sha256:ba09e7fee29c36998a56270a41a56f7ebed87c4132db2dc9f0908c876efb0ea4", size = 74733, upload-time = "2026-03-24T22:04:21.589Z" },
+]
+
+[[package]]
 name = "id"
 version = "1.6.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1892,7 +1907,7 @@ version = "0.12.0"
 source = { editable = "." }
 dependencies = [
     { name = "click" },
-    { name = "httpx" },
+    { name = "httpxyz" },
     { name = "tenacity" },
 ]
 
@@ -1935,7 +1950,7 @@ testing = [
 [package.metadata]
 requires-dist = [
     { name = "click", specifier = "==8.3.1" },
-    { name = "httpx", specifier = "==0.28.1" },
+    { name = "httpxyz", specifier = ">=0.28.2" },
     { name = "tenacity", specifier = "==9.1.4" },
 ]
 

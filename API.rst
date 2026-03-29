@@ -132,7 +132,7 @@ Exceptions
 ----------
 
 All exceptions raised by the library inherit from ``WikipediaException``.
-No ``httpx`` or ``json`` exceptions are exposed.
+No ``httpxyz`` or ``json`` exceptions are exposed.
 
 * ``WikipediaException`` - base exception for all Wikipedia-API errors
 * ``WikiHttpError(status_code, url)`` - non-success HTTP status from Wikipedia API

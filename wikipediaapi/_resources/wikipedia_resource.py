@@ -41,7 +41,7 @@ class WikipediaResource(BaseWikipediaResource):
 
     Combines :class:`BaseWikipediaResource` (parsing & dispatch logic) with
     :class:`~wikipediaapi._http_client.SyncHTTPClient` (blocking HTTP via
-    ``httpx``) to form a concrete synchronous client.  Intended to be used
+    ``httpxyz``) to form a concrete synchronous client.  Intended to be used
     via multiple inheritance::
 
         class Wikipedia(WikipediaResource, SyncHTTPClient): ...
