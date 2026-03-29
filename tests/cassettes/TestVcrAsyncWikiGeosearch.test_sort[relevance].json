@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&list=geosearch&gscoord=51.5074%7C-0.1278&gsradius=500&gssort=relevance&gslimit=5&gsglobe=earth&gsnamespace=0",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:57:19 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-nw8xt"],
+          "x-content-type-options": ["nosniff"],
+          "x-search-id": ["4mbis32ktrdx2gjg2gjhlx6bb"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["2"],
+          "x-cache": ["cp6015 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=-TMlxWAsHJPFs8NrSJshVgMyAAAAAFvd4A4-P8mql7qhMjOJrKbGoGvSVW19VFR-;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "content-length": ["612"],
+          "x-request-id": ["ae359f68-7a96-4d67-971b-b4876945fe14"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"query\":{\"geosearch\":[{\"pageid\":17867,\"ns\":0,\"title\":\"London\",\"lat\":51.507222222222225,\"lon\":-0.1275,\"dist\":28.7,\"primary\":\"\"},{\"pageid\":496064,\"ns\":0,\"title\":\"Royal Society\",\"lat\":51.505833333333335,\"lon\":-0.1322222222222222,\"dist\":352.2,\"primary\":\"\"},{\"pageid\":62107,\"ns\":0,\"title\":\"Trafalgar Square\",\"lat\":51.50805555555556,\"lon\":-0.12805555555555556,\"dist\":75,\"primary\":\"\"},{\"pageid\":226294,\"ns\":0,\"title\":\"10 Downing Street\",\"lat\":51.5033,\"lon\":-0.1275,\"dist\":456.4,\"primary\":\"\"},{\"pageid\":98616,\"ns\":0,\"title\":\"National Gallery\",\"lat\":51.5089,\"lon\":-0.1283,\"dist\":170.3,\"primary\":\"\"}]}}"
+        }
+      }
+    }
+  ]
+}

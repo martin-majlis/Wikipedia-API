@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&list=search&srsearch=Python+programming&srnamespace=6&srlimit=10&srsort=relevance",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:57:32 GMT"],
+          "server": ["mw-api-ext.eqiad.canary-9d498b4cf-5zp85"],
+          "x-content-type-options": ["nosniff"],
+          "x-search-id": ["4l9a69i4xvd3l3vrnwwj8lcci"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["2"],
+          "x-cache": ["cp6015 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=mv8hTwxNw1fnBHhn6xxoiwMyAAAAAFvd6l_72WHJhjPhuPEnylGCHPZJD7Cqiy4M;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "transfer-encoding": ["chunked"],
+          "x-request-id": ["c1af7132-aef7-4025-b411-47dad2305552"],
+          "x-analytics": [""],
+          "content-length": ["4022"]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"continue\":{\"sroffset\":10,\"continue\":\"-||\"},\"query\":{\"searchinfo\":{\"totalhits\":2664},\"search\":[{\"ns\":6,\"title\":\"File:Python Programming.pdf\",\"pageid\":0,\"size\":1011,\"wordcount\":64,\"snippet\":\"The djinn 1275\\u00d71650\\u00d7 (531226 bytes) 2006-07-16 05:31 Hagindaz 1239\\u00d71754\\u00d7 (715907 bytes) A PDF version of the [[<span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">Programming</span>]] Wikibook. English\",\"timestamp\":\"2022-05-21T12:13:20Z\"},{\"ns\":6,\"title\":\"File:Think Python.pdf\",\"pageid\":0,\"size\":918,\"wordcount\":63,\"snippet\":\"lifeguard 1275\\u00d71650\\u00d7 (1091514 bytes) {{Information |Description=&#039;&#039;Think <span class=\\\"searchmatch\\\">Python</span>: An introduction to software design&#039;&#039; |Source=http://www.greenteapress\",\"timestamp\":\"2020-09-28T03:40:05Z\"},{\"ns\":6,\"title\":\"File:Python Programming eBook Reader.pdf\",\"pageid\":0,\"size\":386,\"wordcount\":157,\"snippet\":\"Description<span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">Programming</span> eBook Reader.pdf English: eBook Reader optimized version of the <span class=\\\"searchmatch\\\">Python</span> Wikibook Source Own work Author Dirk H\\u00fcnniger\",\"timestamp\":\"2020-10-30T00:06:53Z\"},{\"ns\":6,\"title\":\"File:Python Basics - With Illustrations from the Financial Markets.pdf\",\"pageid\":0,\"size\":1021,\"wordcount\":189,\"snippet\":\"Attribution-Share Alike 4.0 truetrue English The book is a condensed introduction to <span class=\\\"searchmatch\\\">Python</span> and its data science related libraries such as NumPy, Pandas, and Matplotlib\",\"timestamp\":\"2023-07-03T18:12:19Z\"},{\"ns\":6,\"title\":\"File:Python logo 01.svg\",\"pageid\":0,\"size\":302,\"wordcount\":38,\"snippet\":\"with Inkscape by v . English Logo of <span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">programming</span> language. Spanish Logo del lenguaje de programaci\\u00f3n <span class=\\\"searchmatch\\\">Python</span>. Wikimedia username: Dnu72 URL: https://commons\",\"timestamp\":\"2023-10-28T19:40:26Z\"},{\"ns\":6,\"title\":\"File:How to create high-quality offline video transcriptions and subtitles using Whisper and Python - 6 November 2024.pdf\",\"pageid\":0,\"size\":2745,\"wordcount\":157,\"snippet\":\"high-quality video transcriptions and subtitles using OpenAI&#039;s Whisper model with <span class=\\\"searchmatch\\\">Python</span>, emphasizing privacy, accuracy, and accessibility without needing cloud-based\",\"timestamp\":\"2024-11-21T09:13:34Z\"},{\"ns\":6,\"title\":\"File:Non-Programmer's Tutorial for Python 2.6.pdf\",\"pageid\":0,\"size\":969,\"wordcount\":68,\"snippet\":\"(206711 bytes) [[WB:PDF|PDF version]] of [[Non-Programmer&#039;s Tutorial for <span class=\\\"searchmatch\\\">Python</span>]], created by [[User:Jrincayc|Josh Cogliati]] as part of [http://www.geocities\",\"timestamp\":\"2022-05-21T12:17:20Z\"},{\"ns\":6,\"title\":\"File:Python 3. The standard type hierarchy.png\",\"pageid\":0,\"size\":791,\"wordcount\":205,\"snippet\":\"address) Data types in the <span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">programming</span> language Polish Przyk\\u0142adowe struktury danych i ich hierarchia w j\\u0119zyku <span class=\\\"searchmatch\\\">Python</span> 3 Russian \\u041f\\u0430\\u0439\\u0442\\u043e\\u043d 3 \\u0421\\u0442\\u0430\\u043d\\u0434\\u0430\\u0440\\u0442\\u043d\\u044b\\u0439\",\"timestamp\":\"2025-11-30T11:57:19Z\"},{\"ns\":6,\"title\":\"File:Python New Program Button.png\",\"pageid\":0,\"size\":335,\"wordcount\":16,\"snippet\":\"English <span class=\\\"searchmatch\\\">Python</span> New <span class=\\\"searchmatch\\\">Program</span> Button applies to jurisdiction: United States determination method or standard: SHA-1\",\"timestamp\":\"2025-05-28T08:44:06Z\"},{\"ns\":6,\"title\":\"File:Python Code.png\",\"pageid\":0,\"size\":576,\"wordcount\":195,\"snippet\":\"This is a <span class=\\\"searchmatch\\\">python</span> code, used for anything :) French Ceci est un code <span class=\\\"searchmatch\\\">python</span>, utilis\\u00e9 pour n&#039;importe quoi :) Spanish Este es un c\\u00f3digo de <span class=\\\"searchmatch\\\">Python</span>, se puede\",\"timestamp\":\"2025-04-30T09:10:01Z\"}]}}"
+        }
+      }
+    }
+  ]
+}

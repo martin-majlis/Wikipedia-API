@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&list=geosearch&gscoord=51.5074%7C-0.1278&gsradius=500&gssort=distance&gslimit=5&gsglobe=earth&gsnamespace=0",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:57:57 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-dbx95"],
+          "x-content-type-options": ["nosniff"],
+          "x-search-id": ["bvhsxya1ggm0sntw7by1wgsse"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["0"],
+          "x-cache": ["cp6009 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=avvQ9HjdPZK-6piAd5eykAMyAAAAAFvdLHFzo8zibNwwh6yofL7Qa8H5cttaKb6P;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "content-length": ["609"],
+          "x-request-id": ["405c5867-d428-44ea-83b8-f63b460f4e1f"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"query\":{\"geosearch\":[{\"pageid\":33109245,\"ns\":0,\"title\":\"Equestrian statue of Charles I, Charing Cross\",\"lat\":51.50734,\"lon\":-0.12768,\"dist\":10.7,\"primary\":\"\"},{\"pageid\":4347521,\"ns\":0,\"title\":\"Greater London Built-up Area\",\"lat\":51.5075,\"lon\":-0.1275,\"dist\":23.6,\"primary\":\"\"},{\"pageid\":424305,\"ns\":0,\"title\":\"Central London\",\"lat\":51.5075,\"lon\":-0.1275,\"dist\":23.6,\"primary\":\"\"},{\"pageid\":53113,\"ns\":0,\"title\":\"Charing Cross\",\"lat\":51.5075,\"lon\":-0.1275,\"dist\":23.6,\"primary\":\"\"},{\"pageid\":17867,\"ns\":0,\"title\":\"London\",\"lat\":51.507222222222225,\"lon\":-0.1275,\"dist\":28.7,\"primary\":\"\"}]}}"
+        }
+      }
+    }
+  ]
+}

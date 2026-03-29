@@ -15,6 +15,7 @@ Makefile targets
   * ``make requirements`` - install package requirements
   * ``make requirements-dev`` - install development requirements
 * ``make run-tests`` - run unit tests (pytest)
+* ``make run-tests-integration`` - run VCR integration tests (pytest)
 * ``make run-coverage`` - run code coverage (pytest-cov)
 * ``make pypi-html`` - generates single HTML documentation into ``pypi-doc.html``
 * ``make html`` - generates HTML documentation similar to RTFD into folder ``_build/html/``

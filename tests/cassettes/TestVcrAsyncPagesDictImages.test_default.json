@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=images&titles=Earth%7CPython_%28programming_language%29&imlimit=10&imdir=ascending",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:57:42 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-8q9dj"],
+          "x-content-type-options": ["nosniff"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["0"],
+          "x-cache": ["cp6015 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=W0Me-peH087WEyrRqRjxnAMyAAAAAFvd3miA4aYP6gE9SCKtol9ZCoa_GtfU3Vdf;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "content-length": ["812"],
+          "x-request-id": ["8efd04ca-83aa-4202-b35f-4ab3d1424ca9"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"continue\":{\"imcontinue\":\"9228|Earth-cutaway-schematic-english.svg\",\"continue\":\"||\"},\"query\":{\"normalized\":[{\"from\":\"Python_(programming_language)\",\"to\":\"Python (programming language)\"}],\"pages\":{\"9228\":{\"pageid\":9228,\"ns\":0,\"title\":\"Earth\",\"images\":[{\"ns\":6,\"title\":\"File:AYool topography 15min.png\"},{\"ns\":6,\"title\":\"File:Antarctic aurora ESA313457.jpg\"},{\"ns\":6,\"title\":\"File:Archean.png\"},{\"ns\":6,\"title\":\"File:Axial tilt vs tropical and polar circles.svg\"},{\"ns\":6,\"title\":\"File:BlackMarble20161km.jpg\"},{\"ns\":6,\"title\":\"File:Commons-logo.svg\"},{\"ns\":6,\"title\":\"File:Crab Nebula.jpg\"},{\"ns\":6,\"title\":\"File:Cscr-featured.svg\"},{\"ns\":6,\"title\":\"File:Cumulus clouds in fair weather.jpeg\"},{\"ns\":6,\"title\":\"File:Debris-GEO1280.jpg\"}]},\"23862\":{\"pageid\":23862,\"ns\":0,\"title\":\"Python (programming language)\"}}}}"
+        }
+      }
+    }
+  ]
+}

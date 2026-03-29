@@ -58,6 +58,8 @@ dev = [
     "respx==0.22.0",
     "types-setuptools==82.0.0.20260210",
     "flake8-async>=25.7.1",
+    "pytest-recording>=0.13.2",
+    "vcrpy>=6.0.0",
 ]
 doc = [
     "sphinx==9.1.0; python_version >= '3.12'",
@@ -173,4 +175,5 @@ asyncio_mode = "auto"
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "integration: marks tests as integration tests",
+    "vcr: marks tests that use VCR cassettes for HTTP recording/replay",
 ]

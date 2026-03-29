@@ -279,7 +279,7 @@ If any module shows coverage below 90%, you must:
 
 When writing or updating tests that make HTTP requests to Wikipedia's API:
 
-1. **Always use `tests/mock_data.py`**: All HTTP request-based tests must import and use the mock fixtures from `tests/mock_data.py`
+1. **Always use `tests/mock_data.py`**: All HTTP request-based tests must import and use mock fixtures from `tests/mock_data.py`
 2. **Never make real HTTP requests in unit tests**: Tests should be deterministic and fast, not dependent on network connectivity
 3. **Use existing mock fixtures**: Import functions like `create_mock_wikipedia()`, `create_mock_page()`, and predefined API responses
 4. **Add new mock data when needed**: If testing new API endpoints, add appropriate mock responses to `tests/mock_data.py`
@@ -297,6 +297,52 @@ Tests that don't need `mock_data.py`:
 - Pure unit tests for enums, converters, parameter validation
 - Type checking and validation logic tests
 - Internal algorithm tests that don't touch external APIs
+
+### VCR Integration Testing Requirements
+
+**📼 CRITICAL: All new public APIs must include VCR integration tests**
+
+When adding new public API methods or modifying existing ones that make HTTP requests:
+
+1. **Always add VCR tests**: Create integration tests in the `tests/vcr_*_test.py` files
+2. **Record real API responses**: Use `--record-mode=once` to record actual Wikipedia API responses
+3. **Test both sync and async**: Ensure both synchronous and asynchronous APIs have VCR coverage
+4. **Cover all parameter combinations**: Test different parameter values, enum options, and edge cases
+5. **Use appropriate test files**:
+   - `tests/vcr_wiki_client_sync_test.py` / `tests/vcr_wiki_client_async_test.py` for `Wikipedia`/`AsyncWikipedia` methods
+   - `tests/vcr_page_sync_test.py` / `tests/vcr_page_async_test.py` for `WikipediaPage`/`AsyncWikipediaPage` methods
+   - `tests/vcr_pages_dict_sync_test.py` / `tests/vcr_pages_dict_async_test.py` for `PagesDict`/`AsyncPagesDict` methods
+
+**VCR Test Workflow:**
+
+```bash
+# Record new API responses (run once when adding tests)
+uv run pytest tests/vcr_wiki_client_sync_test.py::TestClassName::test_method --record-mode=once
+
+# Run integration tests using recorded cassettes
+make run-tests-integration
+
+# Run specific VCR test files
+uv run pytest tests/vcr_page_sync_test.py tests/vcr_page_async_test.py --record-mode=none -v
+```
+
+**VCR Test Requirements:**
+
+- **Real API validation**: Tests must use actual Wikipedia API responses (not mocked data)
+- **Complete parameter coverage**: Test all enum values, optional parameters, and edge cases
+- **Both sync/async variants**: Maintain perfect symmetry between sync and async tests
+- **Deterministic results**: Tests should be fast and reliable using recorded cassettes
+- **Proper cassette naming**: Use descriptive test method names for clear cassette identification
+
+**Examples of APIs requiring VCR tests:**
+
+- New `wiki.search()` parameters or options
+- New `wiki.geosearch()` functionality
+- New `page.coordinates()` properties
+- Any new method that makes HTTP requests to Wikipedia's API
+- Modified parameter handling in existing HTTP-based methods
+
+VCR integration tests complement unit tests by ensuring the library works correctly against real Wikipedia API responses while maintaining test speed and reliability.
 
 ### Code Quality Requirements
 
@@ -410,6 +456,7 @@ command-line interface and its tests **must** be updated in lockstep:
   files.
 - For asynchronous code: `tests/async_wikipedia_page_test.py` and
   related files.
+- **Add VCR integration tests**: For any new public API methods that make HTTP requests, add corresponding tests in the appropriate `tests/vcr_*_test.py` files. Record real API responses using `--record-mode=once` and ensure both sync and async variants are covered.
 - **Keep `tests/test_sync_async_symmetry.py` up to date**: When adding new
   properties or methods to either `WikipediaPage` or `AsyncWikipediaPage`,
   update the `TestSyncAsyncPropertySymmetry` class to include the new
