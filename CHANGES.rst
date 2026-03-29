@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.13.0
+------
+
+* Pass parameters to the underlying htttp client - `PR 520`_
+
+.. _PR 520: https://github.com/martin-majlis/Wikipedia-API/pull/520
+
 0.12.0
 ------
 
