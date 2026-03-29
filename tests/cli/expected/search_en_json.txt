@@ -1,5 +1,5 @@
 {
-"totalhits": 6043,
+"totalhits": 6045,
 "pages": [
 {
 "title": "Python (programming language)",
@@ -66,20 +66,20 @@
 "timestamp": "2026-03-11T00:04:23Z"
 },
 {
-"title": "Python",
-"pageid": 46332325,
-"snippet": "and Australia <span class=\"searchmatch\">Python</span> (genus), a genus of Pythonidae found in Africa and Asia <span class=\"searchmatch\">Python</span> (mythology), a mythical serpent <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language), a widely",
-"size": 2240,
-"wordcount": 317,
-"timestamp": "2026-03-10T10:36:25Z"
-},
-{
 "title": "Glob (programming)",
 "pageid": 484117,
 "snippet": "on these same wildcard patterns. Guido van Rossum, author of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, wrote and contributed a glob routine to BSD Unix in 1986",
 "size": 27549,
-"wordcount": 2505,
+"wordcount": 2499,
 "timestamp": "2026-03-01T01:55:39Z"
+},
+{
+"title": "List of Python software",
+"pageid": 3673376,
+"snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform",
+"size": 35231,
+"wordcount": 3675,
+"timestamp": "2026-03-27T01:44:00Z"
 }
 ]
 }
