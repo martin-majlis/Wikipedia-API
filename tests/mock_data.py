@@ -1006,7 +1006,7 @@ _MOCK_DATA = {
 # ── CLI-specific mock data and helpers ───────────────────────────────────────────
 
 
-def create_mock_wikipedia(language="en", variant=None, extract_format="wiki"):
+def create_mock_wikipedia(language="en", variant=None, extract_format="wiki", **kwargs):
     """Create a mock Wikipedia instance for testing CLI functions."""
     import wikipediaapi
 
@@ -1019,8 +1019,28 @@ def create_mock_wikipedia(language="en", variant=None, extract_format="wiki"):
             if extract_format == "wiki"
             else wikipediaapi.ExtractFormat.HTML
         ),
+        **kwargs,
     )
     wiki._get = wikipedia_api_request(wiki)
+    return wiki
+
+
+def create_mock_async_wikipedia(language="en", variant=None, extract_format="wiki", **kwargs):
+    """Create a mock AsyncWikipedia instance for testing."""
+    import wikipediaapi
+
+    wiki = wikipediaapi.AsyncWikipedia(
+        user_agent=user_agent,
+        language=language,
+        variant=variant,
+        extract_format=(
+            wikipediaapi.ExtractFormat.WIKI
+            if extract_format == "wiki"
+            else wikipediaapi.ExtractFormat.HTML
+        ),
+        **kwargs,
+    )
+    wiki._get = async_wikipedia_api_request(wiki)
     return wiki
 
 
