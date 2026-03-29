@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&list=search&srsearch=Python+programming&srnamespace=14&srlimit=10&srsort=relevance",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:56:57 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-6vlqv"],
+          "x-content-type-options": ["nosniff"],
+          "x-search-id": ["andus84i26b6bv1ruu4jkxadm"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["0"],
+          "accept-ranges": ["bytes"],
+          "x-cache": ["cp6016 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=XH1uO3hoqxvw1R_rRldCHQMyAAAAAFvdAkhpdyjZEGJijDEKonBqVK9-3XZ4nKMJ;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "content-length": ["3483"],
+          "x-request-id": ["227b370e-799f-4ad8-a474-7fab5ed04c49"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"continue\":{\"sroffset\":10,\"continue\":\"-||\"},\"query\":{\"searchinfo\":{\"totalhits\":23},\"search\":[{\"ns\":14,\"title\":\"Category:Python (programming language) people\",\"pageid\":54209951,\"size\":263,\"wordcount\":16,\"snippet\":\"This category lists developers of the <span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">programming</span> language and important members of the <span class=\\\"searchmatch\\\">Python</span> community.\",\"timestamp\":\"2020-09-21T21:19:45Z\"},{\"ns\":14,\"title\":\"Category:Python (programming language)\",\"pageid\":32158745,\"size\":235,\"wordcount\":9,\"snippet\":\"Wikimedia Commons has media related to <span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language).\",\"timestamp\":\"2020-08-01T09:08:05Z\"},{\"ns\":14,\"title\":\"Category:User python-3\",\"pageid\":3568557,\"size\":208,\"wordcount\":39,\"snippet\":\"The main article for this category is <span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language). Top 0\\u20139 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z\",\"timestamp\":\"2021-10-27T00:57:34Z\"},{\"ns\":14,\"title\":\"Category:User python-2\",\"pageid\":3568408,\"size\":212,\"wordcount\":39,\"snippet\":\"The main article for this category is <span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language). Top 0\\u20139 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z\",\"timestamp\":\"2021-10-27T00:52:33Z\"},{\"ns\":14,\"title\":\"Category:User python-1\",\"pageid\":3568547,\"size\":209,\"wordcount\":39,\"snippet\":\"The main article for this category is <span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language). Top 0\\u20139 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z\",\"timestamp\":\"2021-10-27T00:52:10Z\"},{\"ns\":14,\"title\":\"Category:User python-4\",\"pageid\":3817566,\"size\":206,\"wordcount\":39,\"snippet\":\"The main article for this category is <span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language). Top 0\\u20139 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z\",\"timestamp\":\"2021-10-27T00:51:20Z\"},{\"ns\":14,\"title\":\"Category:User python-5\",\"pageid\":34514875,\"size\":212,\"wordcount\":39,\"snippet\":\"The main article for this category is <span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language). Top 0\\u20139 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z\",\"timestamp\":\"2021-10-27T00:51:30Z\"},{\"ns\":14,\"title\":\"Category:Python (programming language) web frameworks\",\"pageid\":12101442,\"size\":817,\"wordcount\":85,\"snippet\":\"development of dynamic websites they are also applicable to static websites. This category lists web frameworks written in and/or designed for use with <span class=\\\"searchmatch\\\">Python</span>.\",\"timestamp\":\"2020-09-21T21:14:29Z\"},{\"ns\":14,\"title\":\"Category:Python\",\"pageid\":64472399,\"size\":140,\"wordcount\":58,\"snippet\":\"Category:Pythonidae. For the genus, see Category:<span class=\\\"searchmatch\\\">Python</span> (genus). For the <span class=\\\"searchmatch\\\">programming</span> language, see Category:<span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language). Note: This category page\",\"timestamp\":\"2020-07-05T22:12:44Z\"},{\"ns\":14,\"title\":\"Category:Python (programming language) libraries\",\"pageid\":8962239,\"size\":195,\"wordcount\":4,\"snippet\":\"Contains reusable <span class=\\\"searchmatch\\\">Python</span> modules.\",\"timestamp\":\"2026-01-06T04:26:32Z\"}]}}"
+        }
+      }
+    }
+  ]
+}

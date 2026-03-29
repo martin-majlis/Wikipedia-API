@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&list=search&srsearch=Python+programming&srnamespace=2&srlimit=10&srsort=relevance",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:56:58 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-cxffc"],
+          "x-content-type-options": ["nosniff"],
+          "x-search-id": ["pupaiokwoltt9rel1gqs16d6"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["0"],
+          "accept-ranges": ["bytes"],
+          "x-cache": ["cp6009 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=596zSI5rkCW98LlzBUHDsQMyAAAAAFvdwThf1GyPZMbftprt9Ob-iiZ6_nD8LlhD;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "transfer-encoding": ["chunked"],
+          "x-request-id": ["7d164e74-1461-4f3b-85b3-b88d0a021ac7"],
+          "x-analytics": [""],
+          "content-length": ["4488"]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"continue\":{\"sroffset\":10,\"continue\":\"-||\"},\"query\":{\"searchinfo\":{\"totalhits\":5794},\"search\":[{\"ns\":2,\"title\":\"User:PARitto/Books/Python\",\"pageid\":40908813,\"size\":359,\"wordcount\":27,\"snippet\":\"operations CPython Guido van Rossum History of <span class=\\\"searchmatch\\\">Python</span> List of <span class=\\\"searchmatch\\\">Python</span> software <span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language) <span class=\\\"searchmatch\\\">Python</span> Software Foundation Scientific<span class=\\\"searchmatch\\\">Python</span> SciPy\",\"timestamp\":\"2019-07-29T19:13:03Z\"},{\"ns\":2,\"title\":\"User:Phoe6/Books/python\",\"pageid\":25373083,\"size\":932,\"wordcount\":55,\"snippet\":\"Microthread Parallel <span class=\\\"searchmatch\\\">programming</span> model Implicit parallelism Explicit parallelism Concurrency Scheduling <span class=\\\"searchmatch\\\">Python</span> Implementation <span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">Programming</span> Language CPython\",\"timestamp\":\"2011-07-04T17:49:30Z\"},{\"ns\":2,\"title\":\"User:PARitto/Books/Programming Languages\",\"pageid\":40908856,\"size\":229,\"wordcount\":12,\"snippet\":\"GNU Octave Fortran LabVIEW MATLAB MediaWiki <span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language) R (<span class=\\\"searchmatch\\\">programming</span> language)\",\"timestamp\":\"2019-07-29T19:13:03Z\"},{\"ns\":2,\"title\":\"User:Python Drink\",\"pageid\":70884407,\"size\":6954,\"wordcount\":511,\"snippet\":\"the <span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">programming</span> language and the snake. At the time I chose this nickname, I had the mistaken belief that <span class=\\\"searchmatch\\\">pythons</span> are venomous. So, <span class=\\\"searchmatch\\\">Python</span> Drink\",\"timestamp\":\"2026-03-26T04:38:56Z\"},{\"ns\":2,\"title\":\"User:Jetsetjohnny/Books/Programming, Vol. 1\",\"pageid\":58559026,\"size\":707,\"wordcount\":57,\"snippet\":\"Name resolution (<span class=\\\"searchmatch\\\">programming</span> languages) Environment variable <span class=\\\"searchmatch\\\">Python</span> Zen of <span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language) History of <span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">Python</span> syntax and semantics\",\"timestamp\":\"2018-09-23T18:25:45Z\"},{\"ns\":2,\"title\":\"User:Block-Te/sandbox\",\"pageid\":69728750,\"size\":1692,\"wordcount\":155,\"snippet\":\"<span class=\\\"searchmatch\\\">Python</span> is a free and open source <span class=\\\"searchmatch\\\">programming</span> Language. It is widely used now a days. It is easy to learn. It is a basic language to learn Object Oriented\",\"timestamp\":\"2022-01-11T08:28:44Z\"},{\"ns\":2,\"title\":\"User:XndrK/Books/Python\",\"pageid\":40383202,\"size\":196,\"wordcount\":10,\"snippet\":\"<span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language) History of <span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">Python</span> syntax and semantics\",\"timestamp\":\"2013-08-28T22:06:37Z\"},{\"ns\":2,\"title\":\"User:Prahlad1981/Books/Python\",\"pageid\":47445132,\"size\":603,\"wordcount\":41,\"snippet\":\"<span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language) History of <span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">Python</span> syntax and semantics List comprehension Duck typing Tuple List of <span class=\\\"searchmatch\\\">Python</span> software Django (web framework)\",\"timestamp\":\"2016-03-08T09:51:33Z\"},{\"ns\":2,\"title\":\"User:Lookup database/Scripts/Python/Python tutorial\",\"pageid\":65295110,\"size\":1763,\"wordcount\":256,\"snippet\":\"https://docs.<span class=\\\"searchmatch\\\">python</span>.org/ to view the basics. I also recommend the Udemy course <span class=\\\"searchmatch\\\">Python</span>: From Zero to Hero as a starter guide. More info on <span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language)\",\"timestamp\":\"2020-11-29T23:45:55Z\"},{\"ns\":2,\"title\":\"User:Axd/Books/python\",\"pageid\":44225799,\"size\":236,\"wordcount\":19,\"snippet\":\"<span class=\\\"searchmatch\\\">Python</span> (<span class=\\\"searchmatch\\\">programming</span> language) History of <span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">Python</span> syntax and semantics PyPy List of <span class=\\\"searchmatch\\\">Python</span> software CPython Flask (web framework)\",\"timestamp\":\"2014-10-27T16:20:19Z\"}]}}"
+        }
+      }
+    }
+  ]
+}

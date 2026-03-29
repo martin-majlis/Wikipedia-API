@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=images&titles=Python_%28programming_language%29&imlimit=10&imdir=ascending",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:57:14 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-t69qk"],
+          "x-content-type-options": ["nosniff"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["0"],
+          "x-cache": ["cp6011 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=mKWPKu_dykg8Yt40DjNTgwMyAAAAAFvdW-iN1ZtI2K6APM-27mujHCNWTjYqOjGP;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "content-length": ["796"],
+          "x-request-id": ["20dfbb5f-8b11-4149-8992-f9ac87c67e5a"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"continue\":{\"imcontinue\":\"23862|Symbol_portal_class.svg\",\"continue\":\"||\"},\"query\":{\"normalized\":[{\"from\":\"Python_(programming_language)\",\"to\":\"Python (programming language)\"}],\"pages\":{\"23862\":{\"pageid\":23862,\"ns\":0,\"title\":\"Python (programming language)\",\"images\":[{\"ns\":6,\"title\":\"File:Commons-logo.svg\"},{\"ns\":6,\"title\":\"File:Edit-clear.svg\"},{\"ns\":6,\"title\":\"File:Free and open-source software logo (2009).svg\"},{\"ns\":6,\"title\":\"File:Guido van Rossum in PyConUS24.jpg\"},{\"ns\":6,\"title\":\"File:OOjs UI icon edit-ltr-progressive.svg\"},{\"ns\":6,\"title\":\"File:Octicons-terminal.svg\"},{\"ns\":6,\"title\":\"File:Python-logo-notext.svg\"},{\"ns\":6,\"title\":\"File:Python 3.13 Standrd Type Hierarchy-en.svg\"},{\"ns\":6,\"title\":\"File:Symbol category class.svg\"},{\"ns\":6,\"title\":\"File:Symbol list class.svg\"}]}}}}"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=images&titles=Python_%28programming_language%29&imlimit=10&imdir=ascending&imcontinue=23862%7CSymbol_portal_class.svg",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"],
+          "Cookie": [
+            "WMF-Last-Access=29-Mar-2026; NetworkProbeLimit=0.001; WMF-Last-Access-Global=29-Mar-2026; GeoIP=CZ:64:Brno:49.20:16.60:v4; WMF-Uniq=mKWPKu_dykg8Yt40DjNTgwMyAAAAAFvdW-iN1ZtI2K6APM-27mujHCNWTjYqOjGP"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:57:14 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-lh98g"],
+          "x-content-type-options": ["nosniff"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["2"],
+          "x-cache": ["cp6012 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "set-cookie": [
+            "WMF-Uniq=mKWPKu_dykg8Yt40DjNTgwMyAAEBAFvdil3ECtD3-PueUetAilaEe1G-LdCSrjOO;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "content-length": ["497"],
+          "x-request-id": ["ad0a2963-42b0-4cf5-a062-b40ceb58e5f6"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"query\":{\"normalized\":[{\"from\":\"Python_(programming_language)\",\"to\":\"Python (programming language)\"}],\"pages\":{\"23862\":{\"pageid\":23862,\"ns\":0,\"title\":\"Python (programming language)\",\"images\":[{\"ns\":6,\"title\":\"File:Symbol portal class.svg\"},{\"ns\":6,\"title\":\"File:Wikibooks-logo-en-noslogan.svg\"},{\"ns\":6,\"title\":\"File:Wikibooks-logo.svg\"},{\"ns\":6,\"title\":\"File:Wikidata-logo.svg\"},{\"ns\":6,\"title\":\"File:Wikiquote-logo.svg\"},{\"ns\":6,\"title\":\"File:Wikiversity logo 2017.svg\"}]}}}}"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&list=categorymembers&cmtitle=Category%3APhysics&cmlimit=500",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:57:10 GMT"],
+          "server": ["mw-api-ext.eqiad.canary-9d498b4cf-vpcqv"],
+          "x-content-type-options": ["nosniff"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["2"],
+          "x-cache": ["cp6010 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=oze-8GMy4ojATnvr413W1gMyAAAAAFvdN-OaQdziKd4PNFxD37ANo5BinMeySzTq;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "content-length": ["2471"],
+          "x-request-id": ["52ebb038-80c8-45ea-867f-26dfb12a4d75"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"query\":{\"categorymembers\":[{\"pageid\":22939,\"ns\":0,\"title\":\"Physics\"},{\"pageid\":1653925,\"ns\":100,\"title\":\"Portal:Physics\"},{\"pageid\":82429008,\"ns\":0,\"title\":\"AIC Judd Award\"},{\"pageid\":80358385,\"ns\":0,\"title\":\"Atominstitute\"},{\"pageid\":74985603,\"ns\":0,\"title\":\"Edge states\"},{\"pageid\":78147827,\"ns\":0,\"title\":\"Electrostatic solitary wave\"},{\"pageid\":80064998,\"ns\":0,\"title\":\"Frenesy (physics)\"},{\"pageid\":79966709,\"ns\":0,\"title\":\"Haloscope (physics)\"},{\"pageid\":76868734,\"ns\":0,\"title\":\"HUN-REN Wigner Research Centre for Physics\"},{\"pageid\":5103597,\"ns\":0,\"title\":\"Jacchia Reference Atmosphere\"},{\"pageid\":79826334,\"ns\":0,\"title\":\"Joaquim da Costa Ribeiro\"},{\"pageid\":78751748,\"ns\":0,\"title\":\"Missile lofting\"},{\"pageid\":844186,\"ns\":0,\"title\":\"Modern physics\"},{\"pageid\":168907,\"ns\":0,\"title\":\"Na\\u00efve physics\"},{\"pageid\":77326503,\"ns\":0,\"title\":\"Negative air ions\"},{\"pageid\":78245824,\"ns\":0,\"title\":\"Nottingham effect\"},{\"pageid\":1996857,\"ns\":0,\"title\":\"Nucleation\"},{\"pageid\":2137509,\"ns\":0,\"title\":\"Perfect fluid\"},{\"pageid\":79820729,\"ns\":0,\"title\":\"Physics of Life\"},{\"pageid\":27481335,\"ns\":0,\"title\":\"Plasmaron\"},{\"pageid\":75463818,\"ns\":0,\"title\":\"Quasi-isodynamic stellarator\"},{\"pageid\":76197486,\"ns\":0,\"title\":\"Shockwave cosmology\"},{\"pageid\":21276538,\"ns\":0,\"title\":\"Surface stress\"},{\"pageid\":79850130,\"ns\":0,\"title\":\"Synchronous lateral excitation\"},{\"pageid\":467047,\"ns\":0,\"title\":\"Thermal energy\"},{\"pageid\":74170779,\"ns\":0,\"title\":\"Toroidal solenoid\"},{\"pageid\":79026168,\"ns\":0,\"title\":\"Wohlfarth Lectureship\"},{\"pageid\":70983414,\"ns\":14,\"title\":\"Category:Physics by country\"},{\"pageid\":49740128,\"ns\":14,\"title\":\"Category:Subfields of physics\"},{\"pageid\":37468090,\"ns\":14,\"title\":\"Category:Modern physics\"},{\"pageid\":694942,\"ns\":14,\"title\":\"Category:Physicists\"},{\"pageid\":63332556,\"ns\":14,\"title\":\"Category:Works about physics\"},{\"pageid\":37358141,\"ns\":14,\"title\":\"Category:Physics-related lists\"},{\"pageid\":36477012,\"ns\":14,\"title\":\"Category:Concepts in physics\"},{\"pageid\":78757847,\"ns\":14,\"title\":\"Category:Dimensionless numbers of physics\"},{\"pageid\":925607,\"ns\":14,\"title\":\"Category:Physics education\"},{\"pageid\":1310583,\"ns\":14,\"title\":\"Category:History of physics\"},{\"pageid\":69843652,\"ns\":14,\"title\":\"Category:Physical modeling\"},{\"pageid\":81309696,\"ns\":14,\"title\":\"Category:Physical horizons\"},{\"pageid\":74709478,\"ns\":14,\"title\":\"Category:Physics in society\"},{\"pageid\":1064843,\"ns\":14,\"title\":\"Category:Physics stubs\"}]}}"
+        }
+      }
+    }
+  ]
+}

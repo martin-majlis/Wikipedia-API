@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&list=search&srsearch=Python+programming&srnamespace=0&srlimit=10&srsort=none",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:57:27 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-tpbhz"],
+          "x-content-type-options": ["nosniff"],
+          "x-search-id": ["ujow95287ly79g4pau97cuzd"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["2"],
+          "x-cache": ["cp6014 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=7fs3c6ZtExbYYQdX50hq0QMyAAAAAFvd2ShRXdCfhuVabqvxMfgnoX8MSYC9jrLC;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "transfer-encoding": ["chunked"],
+          "x-request-id": ["a0dcd850-2b54-4a25-b2e0-8a3b54d4818f"],
+          "x-analytics": [""],
+          "content-length": ["3462"]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"continue\":{\"sroffset\":10,\"continue\":\"-||\"},\"query\":{\"searchinfo\":{\"totalhits\":6045},\"search\":[{\"ns\":0,\"title\":\"The Music Man\",\"pageid\":97723,\"size\":69698,\"wordcount\":6619,\"snippet\":\"monologue targeting NBC and their slide in the ratings. The television <span class=\\\"searchmatch\\\">program</span> Family Guy has parodied the musical at least three times. In the episode\",\"timestamp\":\"2026-03-04T00:40:48Z\"},{\"ns\":0,\"title\":\"Oberon-2\",\"pageid\":449019,\"size\":22544,\"wordcount\":2210,\"snippet\":\"of the original Oberon <span class=\\\"searchmatch\\\">programming</span> language that adds limited reflective <span class=\\\"searchmatch\\\">programming</span> (reflection) and object-oriented <span class=\\\"searchmatch\\\">programming</span> facilities, open arrays\",\"timestamp\":\"2025-11-07T12:39:06Z\"},{\"ns\":0,\"title\":\"Structured programming\",\"pageid\":27695,\"size\":29457,\"wordcount\":3689,\"snippet\":\"Structured <span class=\\\"searchmatch\\\">programming</span> is a <span class=\\\"searchmatch\\\">programming</span> paradigm characterized by source code that uses block-based source code structure to encode control flow such as\",\"timestamp\":\"2026-03-10T15:15:43Z\"},{\"ns\":0,\"title\":\"Binary search\",\"pageid\":4266,\"size\":79289,\"wordcount\":10026,\"snippet\":\"in his 1986 book <span class=\\\"searchmatch\\\">Programming</span> Pearls, contained an overflow error that remained undetected for over twenty years. The Java <span class=\\\"searchmatch\\\">programming</span> language library\",\"timestamp\":\"2026-02-28T10:51:19Z\"},{\"ns\":0,\"title\":\"Monster group\",\"pageid\":47422,\"size\":40797,\"wordcount\":3083,\"snippet\":\"representation of dimension 4370). Martin Seysen (2022) implemented a fast <span class=\\\"searchmatch\\\">Python</span> package named mmgroup, which claims to be the first implementation of the\",\"timestamp\":\"2026-03-06T01:16:39Z\"},{\"ns\":0,\"title\":\"Joy Reidenberg\",\"pageid\":37105167,\"size\":13534,\"wordcount\":970,\"snippet\":\"fin whale, sperm whale, lion, tiger, elephant, giraffe, hippo, crocodile, <span class=\\\"searchmatch\\\">python</span>, great white shark, giant squid, camel, kangaroo, cassowary, baboon, leatherback\",\"timestamp\":\"2026-01-12T21:22:43Z\"},{\"ns\":0,\"title\":\"Rietveld (software)\",\"pageid\":18728462,\"size\":1705,\"wordcount\":112,\"snippet\":\"Rietveld Original author Guido van Rossum Written in <span class=\\\"searchmatch\\\">Python</span>, Django Operating system Google App Engine Available in English Type Code review License Apache\",\"timestamp\":\"2025-12-30T18:26:37Z\"},{\"ns\":0,\"title\":\"Percolation theory\",\"pageid\":187805,\"size\":27204,\"wordcount\":3156,\"snippet\":\" 33: 856\\u2013859 Malthe-S\\u00f8renssen, Anders (2024). Percolation Theory Using <span class=\\\"searchmatch\\\">Python</span>. ISBN\\u00a0978-3-031-59900-2. Austin, David (July 2008). &quot;Percolation: Slipping\",\"timestamp\":\"2026-01-26T06:10:43Z\"},{\"ns\":0,\"title\":\"CircleCI\",\"pageid\":53038559,\"size\":19065,\"wordcount\":1743,\"snippet\":\"job(s) until manual approval is given. CircleCI supports Go, Java, Ruby, <span class=\\\"searchmatch\\\">Python</span>, Scala, Node.js, PHP, Haskell, and any other language that runs on Linux\",\"timestamp\":\"2025-12-18T03:17:22Z\"},{\"ns\":0,\"title\":\"Starship Titanic\",\"pageid\":159943,\"size\":48364,\"wordcount\":5236,\"snippet\":\"designed the ship&#039;s Art Deco visuals. The game&#039;s voice cast includes Monty <span class=\\\"searchmatch\\\">Python</span> members Terry Jones and John Cleese. A tie-in novel titled Douglas Adams&#039;s\",\"timestamp\":\"2025-12-27T00:25:52Z\"}]}}"
+        }
+      }
+    }
+  ]
+}

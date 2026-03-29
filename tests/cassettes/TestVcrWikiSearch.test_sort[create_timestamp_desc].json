@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&list=search&srsearch=Python+programming&srnamespace=0&srlimit=10&srsort=create_timestamp_desc",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:56:52 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-dhq7m"],
+          "x-content-type-options": ["nosniff"],
+          "x-search-id": ["btug0pbc63o8zd36tg5vs56xc"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["0"],
+          "accept-ranges": ["bytes"],
+          "x-cache": ["cp6012 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=NbK5TwwJqH35qwzq7WmQJAMyAAAAAFvdiO4ujzwx13PSCdXCaZmsPjmgB-WkQPG2;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "content-length": ["3656"],
+          "x-request-id": ["0b715aa0-f34c-4749-8a37-4d3281b2f0f6"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"continue\":{\"sroffset\":10,\"continue\":\"-||\"},\"query\":{\"searchinfo\":{\"totalhits\":6045},\"search\":[{\"ns\":0,\"title\":\"Programming Without Coding Technology (software)\",\"pageid\":82782717,\"size\":10546,\"wordcount\":1143,\"snippet\":\"with multiple visual <span class=\\\"searchmatch\\\">programming</span> languages that generates the textual source code in different <span class=\\\"searchmatch\\\">programming</span> languages like C, <span class=\\\"searchmatch\\\">Python</span>, Harbour, etc. The software\",\"timestamp\":\"2026-03-26T14:31:46Z\"},{\"ns\":0,\"title\":\"AMR (R package)\",\"pageid\":82770874,\"size\":11216,\"wordcount\":1000,\"snippet\":\"with common R workflows. A <span class=\\\"searchmatch\\\">Python</span> wrapper is also available, which runs the AMR R package natively in <span class=\\\"searchmatch\\\">Python</span>. The <span class=\\\"searchmatch\\\">Python</span> package follows the same version\",\"timestamp\":\"2026-03-29T16:48:45Z\"},{\"ns\":0,\"title\":\"Marginalia (search engine)\",\"pageid\":82753953,\"size\":3221,\"wordcount\":225,\"snippet\":\"Viktor Lofgren Created\\u00a0by Viktor Lofgren Founder Viktor Lofgren URL marginalia-search.com Advertising None Current\\u00a0status Online Written\\u00a0in Java C++ <span class=\\\"searchmatch\\\">Python</span>\",\"timestamp\":\"2026-03-26T20:33:38Z\"},{\"ns\":0,\"title\":\"Wagile\",\"pageid\":82719892,\"size\":3364,\"wordcount\":296,\"snippet\":\"2018). &quot;Synchronizing Systems Engineering and Implementation in Lean\\u2010Agile <span class=\\\"searchmatch\\\">Programs</span>&quot;. INCOSE International Symposium. 28 (1). Wiley: 490\\u2013502. doi:10.1002/j\",\"timestamp\":\"2026-03-21T10:32:44Z\"},{\"ns\":0,\"title\":\"VibeOS\",\"pageid\":82718791,\"size\":3931,\"wordcount\":359,\"snippet\":\"Compiler) - compile C <span class=\\\"searchmatch\\\">programs</span> directly on VibeOS Micro<span class=\\\"searchmatch\\\">Python</span> interpreter with full kernel API bindings 60+ userspace <span class=\\\"searchmatch\\\">programs</span> (coreutils, games, GUI\",\"timestamp\":\"2026-03-19T09:38:21Z\"},{\"ns\":0,\"title\":\"List of MATLAB software and tools\",\"pageid\":82687349,\"size\":7440,\"wordcount\":733,\"snippet\":\"com/help/matlab/call-<span class=\\\"searchmatch\\\">python</span>-libraries.html https://docs.scipy.org/doc/scipy/reference/io.matlab.html https://www.mathworks.com/help/matlab/matlab_external/<span class=\\\"searchmatch\\\">python</span>-pandas-dataframes\",\"timestamp\":\"2026-03-16T01:22:05Z\"},{\"ns\":0,\"title\":\"Jambu zoo\",\"pageid\":82676075,\"size\":6431,\"wordcount\":529,\"snippet\":\"Nilgai Indian porcupine Indian Peafowl Emu Helmeted guinea fowl Indian <span class=\\\"searchmatch\\\">python</span> ghariyal crocodile Russell&#039;s viper Leopard enclosure. Lioness playing her\",\"timestamp\":\"2026-03-16T19:06:16Z\"},{\"ns\":0,\"title\":\"OpenAI Codex (AI agent)\",\"pageid\":82664001,\"size\":17324,\"wordcount\":1627,\"snippet\":\"development. Reuters reported that month that OpenAI had agreed to acquire <span class=\\\"searchmatch\\\">Python</span> toolmaker Astral, a deal that would bring Astral&#039;s developer tools into\",\"timestamp\":\"2026-03-26T23:44:44Z\"},{\"ns\":0,\"title\":\"WebODM\",\"pageid\":82565461,\"size\":2966,\"wordcount\":167,\"snippet\":\"Stable release 3.1.3 / 3\\u00a0March 2026; 17 days ago\\u00a0(2026-03-03) Written in <span class=\\\"searchmatch\\\">Python</span>, JavaScript Operating system Windows, Linux, MacOS Available in CS, EN,\",\"timestamp\":\"2026-03-18T18:47:14Z\"},{\"ns\":0,\"title\":\"PDF Arranger\",\"pageid\":82547599,\"size\":11778,\"wordcount\":927,\"snippet\":\"rearrange pages of PDF files through an interactive interface. Written in <span class=\\\"searchmatch\\\">Python</span> using the GTK 3 toolkit, it serves as a frontend for the pikepdf library\",\"timestamp\":\"2026-03-01T23:05:33Z\"}]}}"
+        }
+      }
+    }
+  ]
+}

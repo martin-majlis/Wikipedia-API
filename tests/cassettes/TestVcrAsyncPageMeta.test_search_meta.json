@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&list=search&srsearch=Python+programming&srnamespace=0&srlimit=3&srsort=relevance",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:57:37 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-69dlh"],
+          "x-content-type-options": ["nosniff"],
+          "x-search-id": ["5wl3nmfdlos9xamfflx3e2k2p"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["0"],
+          "x-cache": ["cp6012 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=m2CAfFUyPb6b05ddm6w3qAMyAAAAAFvdoqXhskVe21RImJpxirb8aN0doIITDxMH;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "content-length": ["1334"],
+          "x-request-id": ["1ff4c590-7295-4140-ad2b-2531ab03ae93"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"continue\":{\"sroffset\":3,\"continue\":\"-||\"},\"query\":{\"searchinfo\":{\"totalhits\":6045},\"search\":[{\"ns\":0,\"title\":\"Python (programming language)\",\"pageid\":23862,\"size\":140415,\"wordcount\":11448,\"snippet\":\"<span class=\\\"searchmatch\\\">Python</span> is a high-level, general-purpose <span class=\\\"searchmatch\\\">programming</span> language. Its design philosophy emphasizes code readability with the use of significant indentation\",\"timestamp\":\"2026-03-25T15:46:00Z\"},{\"ns\":0,\"title\":\"History of Python\",\"pageid\":21356332,\"size\":57307,\"wordcount\":4262,\"snippet\":\"The <span class=\\\"searchmatch\\\">programming</span> language <span class=\\\"searchmatch\\\">Python</span> was conceived in the late 1980s, and its implementation was started in December 1989 by Guido van Rossum at CWI in the\",\"timestamp\":\"2026-03-17T08:37:45Z\"},{\"ns\":0,\"title\":\"Outline of the Python programming language\",\"pageid\":81118035,\"size\":12097,\"wordcount\":837,\"snippet\":\"functional <span class=\\\"searchmatch\\\">programming</span>. ABC (<span class=\\\"searchmatch\\\">programming</span> language) \\u2013 precursor to <span class=\\\"searchmatch\\\">Python</span> <span class=\\\"searchmatch\\\">Python</span> was started by Guido van Rossum in 1989 and first released in 1991. <span class=\\\"searchmatch\\\">Python</span> 2 \\u2014\",\"timestamp\":\"2026-02-18T06:39:30Z\"}]}}"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Python_%28programming_language%29&inprop=protection%7Ctalkid%7Cwatched%7Cwatchers%7Cvisitingwatchers%7Cnotificationtimestamp%7Csubjectid%7Curl%7Creadable%7Cpreload%7Cdisplaytitle%7Cvarianttitles",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:57:20 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-whmmr"],
+          "x-content-type-options": ["nosniff"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["0"],
+          "x-cache": ["cp6012 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=faf6NoG1qf91OiUifwv_oAMyAAAAAFvd_sVshV8dLzJ37vuVdo51-fxblRP4MD-s;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": ["Accept-Encoding,User-Agent"],
+          "content-length": ["1348"],
+          "x-request-id": ["43047ab5-685b-4411-a1ea-2821146d1014"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"warnings\":{\"main\":{\"*\":\"Subscribe to the mediawiki-api-announce mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/> for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]] to see usage of deprecated features by your application.\"},\"info\":{\"*\":\"The value \\\"readable\\\" to parameter \\\"inprop\\\" has been deprecated.\\nThe value \\\"preload\\\" to parameter \\\"inprop\\\" has been deprecated.\"}},\"query\":{\"normalized\":[{\"from\":\"Python_(programming_language)\",\"to\":\"Python (programming language)\"}],\"pages\":{\"23862\":{\"pageid\":23862,\"ns\":0,\"title\":\"Python (programming language)\",\"contentmodel\":\"wikitext\",\"pagelanguage\":\"en\",\"pagelanguagehtmlcode\":\"en\",\"pagelanguagedir\":\"ltr\",\"touched\":\"2026-03-27T09:26:22Z\",\"lastrevid\":1345336232,\"length\":140415,\"protection\":[],\"restrictiontypes\":[\"edit\",\"move\"],\"watchers\":1816,\"visitingwatchers\":33,\"notificationtimestamp\":\"\",\"talkid\":24235,\"fullurl\":\"https://en.wikipedia.org/wiki/Python_(programming_language)\",\"editurl\":\"https://en.wikipedia.org/w/index.php?title=Python_(programming_language)&action=edit\",\"canonicalurl\":\"https://en.wikipedia.org/wiki/Python_(programming_language)\",\"readable\":\"\",\"preload\":\"\",\"displaytitle\":\"Python (programming language)\",\"varianttitles\":{\"en\":\"Python (programming language)\"}}}}}"
+        }
+      }
+    }
+  ]
+}

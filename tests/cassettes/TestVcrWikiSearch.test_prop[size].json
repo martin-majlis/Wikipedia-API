@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&list=search&srsearch=Python+programming&srnamespace=0&srlimit=10&srprop=size&srsort=relevance",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:56:55 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-hp724"],
+          "x-content-type-options": ["nosniff"],
+          "x-search-id": ["6az7g4zktxx9murssq0ye3qvd"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["0"],
+          "accept-ranges": ["bytes"],
+          "x-cache": ["cp6013 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=be7smujj6RfbKKmMUQMekQMyAAAAAFvdkhDPgSGS7IncwK_2rGWRoJY4xKXa2B5_;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "content-length": ["843"],
+          "x-request-id": ["b6746fe3-193d-47d2-bfc9-3fc26030a92e"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"continue\":{\"sroffset\":10,\"continue\":\"-||\"},\"query\":{\"searchinfo\":{\"totalhits\":6045},\"search\":[{\"ns\":0,\"title\":\"Python (programming language)\",\"pageid\":23862,\"size\":140415},{\"ns\":0,\"title\":\"History of Python\",\"pageid\":21356332,\"size\":57307},{\"ns\":0,\"title\":\"Outline of the Python programming language\",\"pageid\":81118035,\"size\":12097},{\"ns\":0,\"title\":\"Python syntax and semantics\",\"pageid\":5250192,\"size\":68515},{\"ns\":0,\"title\":\"Mojo (programming language)\",\"pageid\":73729965,\"size\":18574},{\"ns\":0,\"title\":\"Core Python Programming\",\"pageid\":25061839,\"size\":3926},{\"ns\":0,\"title\":\"Flask (web framework)\",\"pageid\":29040606,\"size\":10240},{\"ns\":0,\"title\":\"Zen of Python\",\"pageid\":46448252,\"size\":11211},{\"ns\":0,\"title\":\"Glob (programming)\",\"pageid\":484117,\"size\":27549},{\"ns\":0,\"title\":\"Python\",\"pageid\":46332325,\"size\":2240}]}}"
+        }
+      }
+    }
+  ]
+}

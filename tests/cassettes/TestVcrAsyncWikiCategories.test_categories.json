@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=categories&titles=Python_%28programming_language%29&cllimit=500",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:57:10 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-k8kx5"],
+          "x-content-type-options": ["nosniff"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["0"],
+          "x-cache": ["cp6015 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=Sg13SLB4VL97bZJf2kOyoAMyAAAAAFvdUWwt2WzWMlEg2Zsxe3WmTXrjTuKc6E27;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "transfer-encoding": ["chunked"],
+          "x-request-id": ["06f6d719-d221-4a66-a36e-eb72e6b44de4"],
+          "x-analytics": [""],
+          "content-length": ["3224"]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"query\":{\"normalized\":[{\"from\":\"Python_(programming_language)\",\"to\":\"Python (programming language)\"}],\"pages\":{\"23862\":{\"pageid\":23862,\"ns\":0,\"title\":\"Python (programming language)\",\"categories\":[{\"ns\":14,\"title\":\"Category:All Wikipedia articles written in American English\"},{\"ns\":14,\"title\":\"Category:All articles containing potentially dated statements\"},{\"ns\":14,\"title\":\"Category:All articles with failed verification\"},{\"ns\":14,\"title\":\"Category:All articles with specifically marked weasel-worded phrases\"},{\"ns\":14,\"title\":\"Category:All articles with unsourced statements\"},{\"ns\":14,\"title\":\"Category:All pages needing cleanup\"},{\"ns\":14,\"title\":\"Category:Articles containing potentially dated statements from 2026\"},{\"ns\":14,\"title\":\"Category:Articles containing potentially dated statements from January 2026\"},{\"ns\":14,\"title\":\"Category:Articles containing potentially dated statements from March 2025\"},{\"ns\":14,\"title\":\"Category:Articles needing cleanup from October 2025\"},{\"ns\":14,\"title\":\"Category:Articles with example Python (programming language) code\"},{\"ns\":14,\"title\":\"Category:Articles with failed verification from August 2025\"},{\"ns\":14,\"title\":\"Category:Articles with short description\"},{\"ns\":14,\"title\":\"Category:Articles with specifically marked weasel-worded phrases from August 2025\"},{\"ns\":14,\"title\":\"Category:Articles with unsourced statements from August 2025\"},{\"ns\":14,\"title\":\"Category:Class-based programming languages\"},{\"ns\":14,\"title\":\"Category:Computer science in the Netherlands\"},{\"ns\":14,\"title\":\"Category:Concurrent programming languages\"},{\"ns\":14,\"title\":\"Category:Cross-platform free software\"},{\"ns\":14,\"title\":\"Category:Cross-platform software\"},{\"ns\":14,\"title\":\"Category:Dutch inventions\"},{\"ns\":14,\"title\":\"Category:Dynamically typed programming languages\"},{\"ns\":14,\"title\":\"Category:Educational programming languages\"},{\"ns\":14,\"title\":\"Category:Free software programmed in Python\"},{\"ns\":14,\"title\":\"Category:High-level programming languages\"},{\"ns\":14,\"title\":\"Category:Information technology in the Netherlands\"},{\"ns\":14,\"title\":\"Category:Monty Python references\"},{\"ns\":14,\"title\":\"Category:Multi-paradigm programming languages\"},{\"ns\":14,\"title\":\"Category:Notebook interface\"},{\"ns\":14,\"title\":\"Category:Object-oriented programming languages\"},{\"ns\":14,\"title\":\"Category:Pages using Sister project links with hidden wikidata\"},{\"ns\":14,\"title\":\"Category:Pages using Sister project links with wikidata namespace mismatch\"},{\"ns\":14,\"title\":\"Category:Pattern matching programming languages\"},{\"ns\":14,\"title\":\"Category:Programming languages\"},{\"ns\":14,\"title\":\"Category:Programming languages created in 1991\"},{\"ns\":14,\"title\":\"Category:Programming tools\"},{\"ns\":14,\"title\":\"Category:Python (programming language)\"},{\"ns\":14,\"title\":\"Category:Scripting languages\"},{\"ns\":14,\"title\":\"Category:Short description matches Wikidata\"},{\"ns\":14,\"title\":\"Category:Text-oriented programming languages\"},{\"ns\":14,\"title\":\"Category:Use American English from December 2024\"},{\"ns\":14,\"title\":\"Category:Use dmy dates from November 2021\"},{\"ns\":14,\"title\":\"Category:Web frameworks\"},{\"ns\":14,\"title\":\"Category:Wikipedia list cleanup from October 2025\"}]}}}}"
+        }
+      }
+    }
+  ]
+}

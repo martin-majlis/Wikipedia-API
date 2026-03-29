@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&list=geosearch&gsbbox=51.52%7C-0.15%7C51.5%7C-0.1&gsradius=500&gssort=distance&gslimit=5&gsglobe=earth&gsnamespace=0",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Sun, 29 Mar 2026 20:57:19 GMT"],
+          "server": ["mw-api-ext.eqiad.main-74665cb76d-h27rr"],
+          "x-content-type-options": ["nosniff"],
+          "x-search-id": ["bzd29f0awepavwaa4kom2akrl"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["0"],
+          "x-cache": ["cp6011 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=29-Mar-2026;Path=/;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=29-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Thu, 30 Apr 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.60:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=17JpO_HwA-ZxlsNGLZ14sgMyAAAAAFvdAA8BVv3tgeVnaBpUNqonszlxybIgNXLW;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Mon, 29 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "content-length": ["629"],
+          "x-request-id": ["20c16c4d-59cd-4f9e-82d6-48d985dc90cf"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"batchcomplete\":\"\",\"query\":{\"geosearch\":[{\"pageid\":76269797,\"ns\":0,\"title\":\"Charing Cross Police Station\",\"lat\":51.5097,\"lon\":-0.125,\"dist\":33.4,\"primary\":\"\"},{\"pageid\":56118560,\"ns\":0,\"title\":\"Brydges Place\",\"lat\":51.50980555555556,\"lon\":-0.12613888888888888,\"dist\":81.7,\"primary\":\"\"},{\"pageid\":3560636,\"ns\":0,\"title\":\"Embassy of Zimbabwe, London\",\"lat\":51.5096,\"lon\":-0.124,\"dist\":82.3,\"primary\":\"\"},{\"pageid\":44004672,\"ns\":0,\"title\":\"The Harp\",\"lat\":51.509638,\"lon\":-0.126062,\"dist\":83.8,\"primary\":\"\"},{\"pageid\":44596613,\"ns\":0,\"title\":\"Civil Service Supply Association\",\"lat\":51.5097,\"lon\":-0.1237,\"dist\":96,\"primary\":\"\"}]}}"
+        }
+      }
+    }
+  ]
+}
