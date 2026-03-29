@@ -50,7 +50,7 @@ class AsyncHTTPClient(BaseHTTPClient):
         super().__init__(*args, **kwargs)
         self._client = httpx.AsyncClient(
             headers=self._default_headers,
-            timeout=self._client_kwargs.get("timeout", 10.0),
+            **self._client_kwargs,
             transport=httpx.AsyncHTTPTransport(),
         )
 

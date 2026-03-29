@@ -57,7 +57,11 @@ class Wikipedia(WikipediaResource, SyncHTTPClient):
         ``Retry-After`` header value is used instead.  Defaults to
         ``1.0``.
     :param kwargs: additional keyword arguments forwarded to
-        ``httpx.Client`` (e.g. ``timeout=30.0``, ``proxies={…}``).
+        ``httpx.Client`` (e.g. ``timeout=30.0``, ``proxies={…}``,
+        ``verify=False``).  **Advanced Usage**: These provide direct
+        access to httpx capabilities.  For most use cases, prefer the
+        standard parameters above.  Use httpx parameters only for specific
+        requirements like custom proxies, SSL configuration, or connection pooling.
     """
 
     pass

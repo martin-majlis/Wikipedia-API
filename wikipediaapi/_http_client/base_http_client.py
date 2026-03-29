@@ -43,6 +43,13 @@ class BaseHTTPClient(ABC):
     Subclasses must implement ``_get(language, params)`` (sync or async)
     that issues the actual HTTP request.
 
+    **Note on HTTP Library**: This implementation uses ``httpx`` as the underlying
+    HTTP client library.  Advanced HTTP configuration (timeouts, proxies,
+    SSL settings, connection limits, etc.) is exposed through the
+    ``SyncHTTPClient`` and ``AsyncHTTPClient`` classes.  For most use
+    cases, use the standard Wikipedia API parameters.  Direct httpx
+    configuration should only be needed for advanced use cases.
+
     Instance attributes set by :meth:`__init__`:
 
     :attr language: normalised Wikipedia language code (e.g. ``"en"``)
@@ -87,7 +94,13 @@ class BaseHTTPClient(ABC):
         :param retry_wait: base wait time in seconds between retries
             (exponential backoff); overridden by ``Retry-After`` for 429
         :param kwargs: forwarded to ``httpx`` client constructor
-            (e.g. ``timeout=30.0``); ``timeout`` defaults to ``10.0``
+            (e.g. ``timeout=30.0``, ``proxy={'https://': 'http://proxy.example.com:8080'}``,
+            ``verify=False``, ``http2=True``); ``timeout`` defaults to ``10.0``.
+            **Advanced Usage**: These parameters provide direct access to httpx
+            capabilities.  For standard Wikipedia API usage, prefer the
+            documented parameters above.  Use httpx parameters only for
+            specific requirements like custom proxies, SSL configuration, or
+            connection pooling.
         :raises AssertionError: if *user_agent* is too short or
             *language* is empty
         """
