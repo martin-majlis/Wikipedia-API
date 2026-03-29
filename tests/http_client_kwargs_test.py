@@ -1,10 +1,10 @@
-"""Tests for HTTP client kwargs forwarding to httpx.
+"""Tests for HTTP client kwargs forwarding to httpxyz.
 
 This test module verifies that all kwargs passed to Wikipedia/AsyncWikipedia
-constructors are properly forwarded to underlying httpx client constructors.
+constructors are properly forwarded to underlying httpxyz client constructors.
 """
 
-import httpx
+import httpxyz
 import pytest
 import respx
 
@@ -19,14 +19,14 @@ class TestSyncHTTPClientKwargs:
     def test_timeout_parameter(self):
         """Test that timeout parameter is forwarded to .Client."""
         wiki = create_mock_wikipedia(timeout=30.0)
-        assert wiki._client.timeout == httpx.Timeout(30.0)
+        assert wiki._client.timeout == httpxyz.Timeout(30.0)
 
     @respx.mock
     def test_proxies_parameter(self):
         """Test that proxy parameter is forwarded to .Client."""
         proxy = "http://proxy.example.com:8080"
         wiki = create_mock_wikipedia(proxy=proxy)
-        # httpx stores proxy info in the transport, not as a direct attribute
+        # httpxyz.Responses proxy info in the transport, not as a direct attribute
         # We can verify the client was created successfully
         assert wiki._client is not None
         assert hasattr(wiki._client, "_transport")
@@ -35,7 +35,7 @@ class TestSyncHTTPClientKwargs:
     def test_verify_parameter_false(self):
         """Test that verify=False is forwarded to .Client."""
         wiki = create_mock_wikipedia(verify=False)
-        # httpx stores verify internally, but we can verify the client was created successfully
+        # httpxyz.Responses verify internally, but we can verify the client was created successfully
         assert wiki._client is not None
         # The fact that the client was created without error means verify was accepted
 
@@ -46,7 +46,7 @@ class TestSyncHTTPClientKwargs:
 
         custom_context = ssl.create_default_context()
         wiki = create_mock_wikipedia(verify=custom_context)
-        # httpx stores verify internally, but we can verify the client was created successfully
+        # httpxyz.Responses verify internally, but we can verify the client was created successfully
         assert wiki._client is not None
         # The fact that the client was created without error means verify was accepted
 
@@ -65,9 +65,9 @@ class TestSyncHTTPClientKwargs:
     @respx.mock
     def test_limits_parameter(self):
         """Test that limits parameter is forwarded to .Client."""
-        limits = httpx.Limits(max_connections=50, max_keepalive_connections=10)
+        limits = httpxyz.Limits(max_connections=50, max_keepalive_connections=10)
         wiki = create_mock_wikipedia(limits=limits)
-        # httpx stores limits internally, but we can verify client was created successfully
+        # httpxyz.Responses limits internally, but we can verify client was created successfully
         assert wiki._client is not None
         # The fact that client was created without error means limits was accepted
 
@@ -86,7 +86,7 @@ class TestSyncHTTPClientKwargs:
     @respx.mock
     def test_auth_parameter(self):
         """Test that auth parameter is forwarded to .Client."""
-        auth = httpx.BasicAuth("username", "password")
+        auth = httpxyz.BasicAuth("username", "password")
         wiki = create_mock_wikipedia(auth=auth)
         assert wiki._client._auth == auth
 
@@ -113,7 +113,7 @@ class TestSyncHTTPClientKwargs:
     def test_combined_parameters(self):
         """Test that multiple parameters work together."""
         proxy = "http://proxy.example.com:8080"
-        limits = httpx.Limits(max_connections=50)
+        limits = httpxyz.Limits(max_connections=50)
 
         wiki = create_mock_wikipedia(
             timeout=20.0,
@@ -125,7 +125,7 @@ class TestSyncHTTPClientKwargs:
         )
 
         # Test the parameters that are accessible
-        assert wiki._client.timeout == httpx.Timeout(20.0)
+        assert wiki._client.timeout == httpxyz.Timeout(20.0)
         assert wiki._client.max_redirects == 3
         assert wiki._client.follow_redirects is True
         # Verify the client was created successfully (means all parameters were accepted)
@@ -145,9 +145,9 @@ class TestSyncHTTPClientKwargs:
         assert "User-Agent" in wiki._client.headers
 
     @respx.mock
-    def test_invalid_httpx_parameter_raises_error(self):
-        """Test that invalid httpx parameters raise appropriate errors."""
-        # httpx should raise an error for invalid parameters
+    def test_invalid_httpxyz_parameter_raises_error(self):
+        """Test that invalid httpxyz parameters raise appropriate errors."""
+        # httpxyz should raise an error for invalid parameters
         with pytest.raises(TypeError):
             create_mock_wikipedia(invalid_param="should_fail")
 
@@ -159,14 +159,14 @@ class TestAsyncHTTPClientKwargs:
     async def test_timeout_parameter(self):
         """Test that timeout parameter is forwarded to .AsyncClient."""
         wiki = create_mock_async_wikipedia(timeout=30.0)
-        assert wiki._client.timeout == httpx.Timeout(30.0)
+        assert wiki._client.timeout == httpxyz.Timeout(30.0)
 
     @respx.mock
     async def test_proxies_parameter(self):
         """Test that proxy parameter is forwarded to .AsyncClient."""
         proxy = "http://proxy.example.com:8080"
         wiki = create_mock_async_wikipedia(proxy=proxy)
-        # httpx stores proxy info in the transport, not as a direct attribute
+        # httpxyz.Responses proxy info in the transport, not as a direct attribute
         # We can verify the client was created successfully
         assert wiki._client is not None
         assert hasattr(wiki._client, "_transport")
@@ -175,7 +175,7 @@ class TestAsyncHTTPClientKwargs:
     async def test_verify_parameter_false(self):
         """Test that verify=False is forwarded to .AsyncClient."""
         wiki = create_mock_async_wikipedia(verify=False)
-        # httpx stores verify internally, but we can verify the client was created successfully
+        # httpxyz.Responses verify internally, but we can verify the client was created successfully
         assert wiki._client is not None
         # The fact that the client was created without error means verify was accepted
 
@@ -194,9 +194,9 @@ class TestAsyncHTTPClientKwargs:
     @respx.mock
     async def test_limits_parameter(self):
         """Test that limits parameter is forwarded to .AsyncClient."""
-        limits = httpx.Limits(max_connections=50, max_keepalive_connections=10)
+        limits = httpxyz.Limits(max_connections=50, max_keepalive_connections=10)
         wiki = create_mock_async_wikipedia(limits=limits)
-        # httpx stores limits internally, but we can verify client was created successfully
+        # httpxyz.Responses limits internally, but we can verify client was created successfully
         assert wiki._client is not None
         # The fact that client was created without error means limits was accepted
 
@@ -215,7 +215,7 @@ class TestAsyncHTTPClientKwargs:
     @respx.mock
     async def test_auth_parameter(self):
         """Test that auth parameter is forwarded to .AsyncClient."""
-        auth = httpx.BasicAuth("username", "password")
+        auth = httpxyz.BasicAuth("username", "password")
         wiki = create_mock_async_wikipedia(auth=auth)
         assert wiki._client._auth == auth
 
@@ -230,7 +230,7 @@ class TestAsyncHTTPClientKwargs:
     async def test_combined_parameters(self):
         """Test that multiple parameters work together in async client."""
         proxy = "http://proxy.example.com:8080"
-        limits = httpx.Limits(max_connections=50)
+        limits = httpxyz.Limits(max_connections=50)
 
         wiki = create_mock_async_wikipedia(
             timeout=20.0,
@@ -242,7 +242,7 @@ class TestAsyncHTTPClientKwargs:
         )
 
         # Test the parameters that are accessible
-        assert wiki._client.timeout == httpx.Timeout(20.0)
+        assert wiki._client.timeout == httpxyz.Timeout(20.0)
         assert wiki._client.max_redirects == 3
         assert wiki._client.follow_redirects is True
         # Verify the client was created successfully (means all parameters were accepted)
@@ -262,9 +262,9 @@ class TestAsyncHTTPClientKwargs:
         assert "User-Agent" in wiki._client.headers
 
     @respx.mock
-    async def test_invalid_httpx_parameter_raises_error(self):
-        """Test that invalid httpx parameters raise appropriate errors in async client."""
-        # httpx should raise an error for invalid parameters
+    async def test_invalid_httpxyz_parameter_raises_error(self):
+        """Test that invalid httpxyz parameters raise appropriate errors in async client."""
+        # httpxyz should raise an error for invalid parameters
         with pytest.raises(TypeError):
             create_mock_async_wikipedia(invalid_param="should_fail")
 
@@ -277,22 +277,22 @@ class TestKwargsBackwardCompatibility:
         """Test that existing timeout-only usage still works."""
         # This is how users currently use timeout
         wiki = create_mock_wikipedia(timeout=25.0)
-        assert wiki._client.timeout == httpx.Timeout(25.0)
+        assert wiki._client.timeout == httpxyz.Timeout(25.0)
 
     @respx.mock
     async def test_backward_compatibility_timeout_only_async(self):
         """Test that existing timeout-only usage still works in async client."""
         wiki = create_mock_async_wikipedia(timeout=25.0)
-        assert wiki._client.timeout == httpx.Timeout(25.0)
+        assert wiki._client.timeout == httpxyz.Timeout(25.0)
 
     @respx.mock
     def test_default_timeout_still_works(self):
         """Test that default timeout is still applied when not specified."""
         wiki = create_mock_wikipedia()  # No timeout specified
-        assert wiki._client.timeout == httpx.Timeout(10.0)  # Should be default
+        assert wiki._client.timeout == httpxyz.Timeout(10.0)  # Should be default
 
     @respx.mock
     async def test_default_timeout_still_works_async(self):
         """Test that default timeout is still applied when not specified in async client."""
         wiki = create_mock_async_wikipedia()  # No timeout specified
-        assert wiki._client.timeout == httpx.Timeout(10.0)  # Should be default
+        assert wiki._client.timeout == httpxyz.Timeout(10.0)  # Should be default

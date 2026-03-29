@@ -9,7 +9,7 @@ strategy and _is_retryable as retry predicate.
 import logging
 from typing import Any
 
-import httpx
+import httpxyz
 from tenacity import AsyncRetrying
 from tenacity import retry_if_exception
 from tenacity import stop_after_attempt
@@ -40,7 +40,7 @@ class AsyncHTTPClient(BaseHTTPClient):
         Initialise the async client.
 
         Calls :meth:`BaseHTTPClient.__init__` then creates the shared
-        ``httpx.AsyncClient`` with the computed headers and timeout.
+        ``httpxyz.AsyncClient`` with the computed headers and timeout.
 
         :param args: positional arguments forwarded to
             :class:`BaseHTTPClient`
@@ -48,10 +48,10 @@ class AsyncHTTPClient(BaseHTTPClient):
             :class:`BaseHTTPClient`
         """
         super().__init__(*args, **kwargs)
-        self._client = httpx.AsyncClient(
+        self._client = httpxyz.AsyncClient(
             headers=self._default_headers,
             **self._client_kwargs,
-            transport=httpx.AsyncHTTPTransport(),
+            transport=httpxyz.AsyncHTTPTransport(),
         )
 
     async def _do_get(self, url: str, params: dict[str, Any]) -> dict[str, Any]:
@@ -59,26 +59,26 @@ class AsyncHTTPClient(BaseHTTPClient):
         Execute a single (non-retried) async GET request.
 
         Called by :meth:`_get` on each attempt.  Translates
-        ``httpx``-specific exceptions into library exceptions so
+        ``httpxyz``-specific exceptions into library exceptions so
         tenacity retry loop sees only :class:`~wikipediaapi.WikipediaException`
         subclasses.
 
         :param url: full API endpoint URL
         :param params: query-string parameters to send
         :return: parsed JSON response dict
-        :raises WikiHttpTimeoutError: on ``httpx.TimeoutException``
-        :raises WikiConnectionError: on ``httpx.ConnectError``
+        :raises WikiHttpTimeoutError: on ``httpxyz.TimeoutException``
+        :raises WikiConnectionError: on ``httpxyz.ConnectError``
         :raises WikiRateLimitError: on HTTP 429
         :raises WikiHttpError: on HTTP 5xx or other non-200
         :raises WikiInvalidJsonError: when 200 body is not valid JSON
         """
         try:
             r = await self._client.get(url, params=params)
-        except httpx.TimeoutException:
+        except httpxyz.TimeoutException:
             from ..exceptions import WikiHttpTimeoutError
 
             raise WikiHttpTimeoutError(url)
-        except httpx.ConnectError:
+        except httpxyz.ConnectError:
             from ..exceptions import WikiConnectionError
 
             raise WikiConnectionError(url)
@@ -119,7 +119,7 @@ class AsyncHTTPClient(BaseHTTPClient):
         )
         try:
             return await retryer(self._do_get, url, params)  # type: ignore[return-value]
-        except httpx.RequestError:
+        except httpxyz.RequestError:
             from ..exceptions import WikiConnectionError
 
             raise WikiConnectionError(url)

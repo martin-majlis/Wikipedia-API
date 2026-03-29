@@ -1,4 +1,4 @@
-import httpx
+import httpxyz
 import pytest
 import respx
 
@@ -75,14 +75,14 @@ class TestSyncHTTPClientGet:
     @respx.mock
     def test_successful_get_returns_json(self):
         data = {"query": {"pages": {"1": {"title": "Test"}}}}
-        respx.get(API_URL).mock(return_value=httpx.Response(200, json=data))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(200, json=data))
         result = self.client._get("en", {"action": "query"})
         assert result == data
 
     @respx.mock
     def test_get_uses_correct_url(self):
         data = {"ok": True}
-        route = respx.get(API_URL).mock(return_value=httpx.Response(200, json=data))
+        route = respx.get(API_URL).mock(return_value=httpxyz.Response(200, json=data))
         self.client._get("en", {"action": "query"})
         assert route.called is True
 
@@ -90,46 +90,46 @@ class TestSyncHTTPClientGet:
     def test_get_de_uses_de_url(self):
         de_url = "https://de.wikipedia.org/w/api.php"
         data = {"ok": True}
-        route = respx.get(de_url).mock(return_value=httpx.Response(200, json=data))
+        route = respx.get(de_url).mock(return_value=httpxyz.Response(200, json=data))
         self.client._get("de", {"action": "query"})
         assert route.called is True
 
     @respx.mock
     def test_404_raises_http_error(self):
-        respx.get(API_URL).mock(return_value=httpx.Response(404))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(404))
         with pytest.raises(wikipediaapi.WikiHttpError) as ctx:
             self.client._get("en", {"action": "query"})
         assert ctx.value.status_code == 404
 
     @respx.mock
     def test_500_raises_http_error(self):
-        respx.get(API_URL).mock(return_value=httpx.Response(500))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(500))
         with pytest.raises(wikipediaapi.WikiHttpError) as ctx:
             self.client._get("en", {"action": "query"})
         assert ctx.value.status_code == 500
 
     @respx.mock
     def test_429_raises_rate_limit_error(self):
-        respx.get(API_URL).mock(return_value=httpx.Response(429, headers={"Retry-After": "10"}))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(429, headers={"Retry-After": "10"}))
         with pytest.raises(wikipediaapi.WikiRateLimitError) as ctx:
             self.client._get("en", {"action": "query"})
         assert ctx.value.retry_after == 10
 
     @respx.mock
     def test_timeout_raises_timeout_error(self):
-        respx.get(API_URL).mock(side_effect=httpx.TimeoutException("timeout"))
+        respx.get(API_URL).mock(side_effect=httpxyz.TimeoutException("timeout"))
         with pytest.raises(wikipediaapi.WikiHttpTimeoutError):
             self.client._get("en", {"action": "query"})
 
     @respx.mock
     def test_connect_error_raises_connection_error(self):
-        respx.get(API_URL).mock(side_effect=httpx.ConnectError("err"))
+        respx.get(API_URL).mock(side_effect=httpxyz.ConnectError("err"))
         with pytest.raises(wikipediaapi.WikiConnectionError):
             self.client._get("en", {"action": "query"})
 
     @respx.mock
     def test_invalid_json_raises_invalid_json_error(self):
-        respx.get(API_URL).mock(return_value=httpx.Response(200, content=b"not-json"))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(200, content=b"not-json"))
         with pytest.raises(wikipediaapi.WikiInvalidJsonError):
             self.client._get("en", {"action": "query"})
 
@@ -143,7 +143,7 @@ class TestSyncHTTPClientRetry:
     @respx.mock
     def test_retries_on_500(self):
         success = {"ok": True}
-        responses = iter([httpx.Response(500), httpx.Response(200, json=success)])
+        responses = iter([httpxyz.Response(500), httpxyz.Response(200, json=success)])
         route = respx.get(API_URL).mock(side_effect=lambda req: next(responses))
         result = self.client._get("en", {"action": "query"})
         assert result == success
@@ -151,7 +151,7 @@ class TestSyncHTTPClientRetry:
 
     @respx.mock
     def test_exhausts_retries_on_500(self):
-        route = respx.get(API_URL).mock(return_value=httpx.Response(500))
+        route = respx.get(API_URL).mock(return_value=httpxyz.Response(500))
         with pytest.raises(wikipediaapi.WikiHttpError):
             self.client._get("en", {"action": "query"})
         assert route.call_count == 3
