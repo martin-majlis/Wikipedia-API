@@ -17,7 +17,7 @@ class Wikipedia(WikipediaResource, SyncHTTPClient):
 
     Combines :class:`~wikipediaapi.WikipediaResource` (public
     API methods) and :class:`~wikipediaapi._http_client.SyncHTTPClient`
-    (blocking ``httpx`` transport with ``tenacity`` retry logic) via
+    (blocking ``httpxyz`` transport with ``tenacity`` retry logic) via
     multiple inheritance.
 
     All constructor parameters are forwarded to
@@ -57,10 +57,10 @@ class Wikipedia(WikipediaResource, SyncHTTPClient):
         ``Retry-After`` header value is used instead.  Defaults to
         ``1.0``.
     :param kwargs: additional keyword arguments forwarded to
-        ``httpx.Client`` (e.g. ``timeout=30.0``, ``proxies={…}``,
+        ``httpxyz.Client`` (e.g. ``timeout=30.0``, ``proxies={…}``,
         ``verify=False``).  **Advanced Usage**: These provide direct
-        access to httpx capabilities.  For most use cases, prefer the
-        standard parameters above.  Use httpx parameters only for specific
+        access to httpxyz capabilities.  For most use cases, prefer the
+        standard parameters above.  Use httpxyz parameters only for specific
         requirements like custom proxies, SSL configuration, or connection pooling.
     """
 

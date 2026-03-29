@@ -10,7 +10,7 @@ from abc import abstractmethod
 import logging
 from typing import Any
 
-import httpx  # noqa: F401
+import httpxyz  # noqa: F401
 
 from .._version import __version_str__
 from ..exceptions import WikiConnectionError  # noqa: F401
@@ -43,11 +43,11 @@ class BaseHTTPClient(ABC):
     Subclasses must implement ``_get(language, params)`` (sync or async)
     that issues the actual HTTP request.
 
-    **Note on HTTP Library**: This implementation uses ``httpx`` as the underlying
+    **Note on HTTP Library**: This implementation uses ``httpxyz`` as the underlying
     HTTP client library.  Advanced HTTP configuration (timeouts, proxies,
     SSL settings, connection limits, etc.) is exposed through the
     ``SyncHTTPClient`` and ``AsyncHTTPClient`` classes.  For most use
-    cases, use the standard Wikipedia API parameters.  Direct httpx
+    cases, use the standard Wikipedia API parameters.  Direct httpxyz
     configuration should only be needed for advanced use cases.
 
     Instance attributes set by :meth:`__init__`:
@@ -93,12 +93,12 @@ class BaseHTTPClient(ABC):
             errors; ``0`` disables retries
         :param retry_wait: base wait time in seconds between retries
             (exponential backoff); overridden by ``Retry-After`` for 429
-        :param kwargs: forwarded to ``httpx`` client constructor
+        :param kwargs: forwarded to ``httpxyz`` client constructor
             (e.g. ``timeout=30.0``, ``proxy={'https://': 'http://proxy.example.com:8080'}``,
             ``verify=False``, ``http2=True``); ``timeout`` defaults to ``10.0``.
-            **Advanced Usage**: These parameters provide direct access to httpx
+            **Advanced Usage**: These parameters provide direct access to httpxyz
             capabilities.  For standard Wikipedia API usage, prefer the
-            documented parameters above.  Use httpx parameters only for
+            documented parameters above.  Use httpxyz parameters only for
             specific requirements like custom proxies, SSL configuration, or
             connection pooling.
         :raises AssertionError: if *user_agent* is too short or
@@ -166,7 +166,7 @@ class BaseHTTPClient(ABC):
 
     def _process_response(self, r: Any, url: str) -> dict[str, Any]:
         """
-        Convert an ``httpx`` response object to a parsed JSON dict.
+        Convert an ``httpxyz`` response object to a parsed JSON dict.
 
         Inspects HTTP status code and raises a typed exception for
         every non-success case:
@@ -178,7 +178,7 @@ class BaseHTTPClient(ABC):
         * ``200`` with invalid JSON →
           :class:`~wikipediaapi.WikiInvalidJsonError`
 
-        :param r: ``httpx.Response`` object
+        :param r: ``httpxyz.Response`` object
         :param url: request URL, embedded in raised exceptions
         :return: parsed JSON response body as a ``dict``
         :raises WikiRateLimitError: on HTTP 429

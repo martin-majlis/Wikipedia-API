@@ -11,7 +11,7 @@ class WikiHttpTimeoutError(WikipediaException):
     """
     Raised when a request to Wikipedia API times out.
 
-    Corresponds to ``httpx.TimeoutException`` from the underlying HTTP
+    Corresponds to ``httpxyz.TimeoutException`` from the underlying HTTP
     client.  May be raised after all retry attempts are exhausted.
 
     :attr url: endpoint URL that timed out

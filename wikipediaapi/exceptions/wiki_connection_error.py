@@ -10,8 +10,8 @@ class WikiConnectionError(WikipediaException):
     """
     Raised when a network connection to Wikipedia API cannot be established.
 
-    Corresponds to ``httpx.ConnectError`` or any other
-    ``httpx.RequestError`` that is not a timeout.  May be raised after all
+    Corresponds to ``httpxyz.ConnectError`` or any other
+    ``httpxyz.RequestError`` that is not a timeout.  May be raised after all
     retry attempts are exhausted.
 
     :attr url: endpoint URL that could not be reached

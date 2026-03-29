@@ -23,7 +23,7 @@ Overview
 Each concern is implemented as an abstract mixin.  Concrete client
 classes are assembled by combining one transport mixin with one API
 mixin through Python's multiple inheritance.  This keeps the two layers
-entirely decoupled: the API logic never imports ``httpx``, and the
+entirely decoupled: the API logic never imports ``httpxyz``, and the
 transport layer knows nothing about MediaWiki.
 
 
@@ -37,8 +37,8 @@ File Layout
     ├── _http_client/            # Transport layer package
     │   ├── __init__.py
     │   ├── base_http_client.py  # Shared retry & config logic
-    │   ├── sync_http_client.py   # Blocking httpx.Client
-    │   ├── async_http_client.py  # Non-blocking httpx.AsyncClient
+    │   ├── sync_http_client.py   # Blocking httpxyz.Client
+    │   ├── async_http_client.py  # Non-blocking httpxyz.AsyncClient
     │   ├── retry_utils.py        # Retry utilities
     │   └── retry_after_wait.py   # Retry-After header handling
     ├── _resources/              # API layer package
@@ -287,14 +287,14 @@ SyncHTTPClient
 ~~~~~~~~~~~~~~
 
 Provides a blocking ``_get(language, params) -> dict`` method in ``sync_http_client.py`` backed by
-``httpx.Client``.  Retry logic uses ``tenacity`` with exponential
+``httpxyz.Client``.  Retry logic uses ``tenacity`` with exponential
 backoff; ``Retry-After`` headers are honoured for HTTP 429 responses.
 
 AsyncHTTPClient
 ~~~~~~~~~~~~~~~
 
 Provides an ``async def _get(language, params) -> dict`` coroutine in ``async_http_client.py``
-backed by ``httpx.AsyncClient``.  Retry logic mirrors
+backed by ``httpxyz.AsyncClient``.  Retry logic mirrors
 ``SyncHTTPClient`` but uses ``tenacity``'s ``AsyncRetrying``.
 
 Both clients construct the endpoint URL as::
@@ -439,7 +439,7 @@ Synchronous (property access path)
         │
         ├─► SyncHTTPClient._get(language, merged_params)
         │       │
-        │       ├─► httpx.Client.get(url, params=…)
+        │       ├─► httpxyz.Client.get(url, params=…)
         │       └─► tenacity retry loop (429 / 5xx / timeout)
         │             → raw JSON dict
         │
@@ -475,7 +475,7 @@ Asynchronous (property access path)
         │
         ├─► await AsyncHTTPClient._get(language, merged_params)
         │       │
-        │       ├─► await httpx.AsyncClient.get(url, params=…)
+        │       ├─► await httpxyz.AsyncClient.get(url, params=…)
         │       └─► tenacity AsyncRetrying loop
         │             → raw JSON dict
         │
