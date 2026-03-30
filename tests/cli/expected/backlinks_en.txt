@@ -1502,6 +1502,7 @@ Portal:Physics/News/Archive
 Portal:Physics/Selected images
 Portal:Physics/Selected images/14
 Portal:Physics/Selected picture/August 2012
+Portal:Science
 Portal:Science/News/2007
 Portal:Science/Recognized content
 Portal:Solar System
@@ -1517,7 +1518,6 @@ Portal:Solar System/Selected article/27
 Portal:Solar System/Selected picture
 Portal:Solar System/Solar System topics
 Portal:Solar System/Solar System topics/imagebox
-Portal:Somerset
 Portal:Somerset/Did you know
 Portal:Somerset/Did you know/2
 Portal:Somerset/Nominate/Did you know
@@ -2740,6 +2740,7 @@ User:CommanderWiki35
 User:Commons is in a thing
 User:Comperr/userboxes
 User:ComputerHotline
+User:Computerfan0/sandbox
 User:Computernurd22/Userboxen
 User:Comrade Graham
 User:Concordbandgeek

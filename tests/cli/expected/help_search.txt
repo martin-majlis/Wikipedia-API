@@ -6,7 +6,7 @@ QUERY is the search string.
 
 \b Examples:     wikipedia-api search "Python programming"     wikipedia-api
 search "Python programming" --search-sort create_timestamp_desc
-wikipedia-api search "машинное обучение" --language ru --json r
+wikipedia-api search "машинное обучение" --language ru --json
 
 Options:
 --limit INTEGER                 Maximum number of search results.  [default:

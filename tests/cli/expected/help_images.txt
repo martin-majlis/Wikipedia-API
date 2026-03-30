@@ -6,7 +6,7 @@ TITLE is the Wikipedia page title.
 
 \b Examples:     wikipedia-api images "Python (programming language)"
 wikipedia-api images "Python (programming language)" --json     wikipedia-
-api images "Earth" --limit 50 r
+api images "Earth" --limit 50
 
 Options:
 --limit INTEGER                 Maximum number of images to return.

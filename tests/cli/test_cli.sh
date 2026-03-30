@@ -149,7 +149,7 @@ TESTS=(
     # ── search command ───────────────────────────────────────────────────────
     "search_en|uv run wikipedia-api search \"Python programming\""
     "search_en_json|uv run wikipedia-api search \"Python programming\" --json"
-    "search_de|uv run wikipedia-api search \"Berlin\" --language de"
+    "search_de|uv run wikipedia-api search \"Python unterstützt mehrere Programmierparadigmen\" --language de"
     "search_sort_timestamp|uv run wikipedia-api search \"Python programming\" --search-sort create_timestamp_desc --limit 5"
     "search_sort_random|uv run wikipedia-api search \"Python programming\" --search-sort random --json"
     "search_sort_title|uv run wikipedia-api search \"Python programming\" --search-sort title_natural_asc --limit 3"

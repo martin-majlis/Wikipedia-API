@@ -5,7 +5,7 @@ Show metadata and existence info for a Wikipedia page.
 TITLE is the Wikipedia page title.
 
 \b Examples:     wikipedia-api page "Python (programming language)"
-wikipedia-api page "Python (programming language)" --json r
+wikipedia-api page "Python (programming language)" --json
 
 Options:
 -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,

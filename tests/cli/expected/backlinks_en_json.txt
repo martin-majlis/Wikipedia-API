@@ -7519,6 +7519,11 @@
 "language": "en",
 "ns": 100
 },
+"Portal:Science": {
+"title": "Portal:Science",
+"language": "en",
+"ns": 100
+},
 "Portal:Science/News/2007": {
 "title": "Portal:Science/News/2007",
 "language": "en",
@@ -7591,11 +7596,6 @@
 },
 "Portal:Solar System/Solar System topics/imagebox": {
 "title": "Portal:Solar System/Solar System topics/imagebox",
-"language": "en",
-"ns": 100
-},
-"Portal:Somerset": {
-"title": "Portal:Somerset",
 "language": "en",
 "ns": 100
 },
@@ -13706,6 +13706,11 @@
 },
 "User:ComputerHotline": {
 "title": "User:ComputerHotline",
+"language": "en",
+"ns": 2
+},
+"User:Computerfan0/sandbox": {
+"title": "User:Computerfan0/sandbox",
 "language": "en",
 "ns": 2
 },

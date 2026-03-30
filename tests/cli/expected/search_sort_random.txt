@@ -1,85 +1,85 @@
 {
-"totalhits": 6043,
+"totalhits": 6044,
 "pages": [
 {
-"title": "GoAgent",
-"pageid": 40544305,
-"snippet": "open-source cross-platform network access software. It is mainly written with <span class=\"searchmatch\">Python</span> and supports Windows, OS X, Linux and most Linux-based OS like Android and",
-"size": 3077,
-"wordcount": 144,
-"timestamp": "2025-12-28T11:06:40Z"
+"title": "Perl Cookbook",
+"pageid": 5851133,
+"snippet": "PLEAC (<span class=\"searchmatch\">Programming</span> Language Examples Alike Cookbook) website, which translated the code snippets in the Perl Cookbook into other languages: <span class=\"searchmatch\">Python</span>, Ruby",
+"size": 3950,
+"wordcount": 288,
+"timestamp": "2026-01-22T10:40:50Z"
 },
 {
-"title": "Steffensen's method",
-"pageid": 12180274,
-"snippet": "end Here is the source for an implementation of Steffensen&#039;s method in <span class=\"searchmatch\">Python</span>. from typing import Callable, Iterator Func = Callable[[float], float, float]",
-"size": 20349,
-"wordcount": 3406,
-"timestamp": "2025-12-01T17:21:57Z"
+"title": "Toronto Zoo",
+"pageid": 506403,
+"snippet": "home to Sumatran orangutans, great hornbills, false gharials, reticulated <span class=\"searchmatch\">pythons</span>, Burmese star tortoises, and white-handed gibbons, as well as Sumatran",
+"size": 73499,
+"wordcount": 7505,
+"timestamp": "2026-03-27T15:22:39Z"
 },
 {
-"title": "Stephen Hawking",
-"pageid": 19376148,
-"snippet": "Hawking was featured at the Monty <span class=\"searchmatch\">Python</span> Live (Mostly) show in 2014, shown in a pre-recorded video singing Monty <span class=\"searchmatch\">Python&#039;s</span> &quot;Galaxy Song&quot; and Brian Cox with",
-"size": 200914,
-"wordcount": 18712,
-"timestamp": "2026-03-23T03:46:50Z"
+"title": "Gene expression programming",
+"pageid": 1098818,
+"snippet": "expression <span class=\"searchmatch\">programming</span> (GEP) in computer <span class=\"searchmatch\">programming</span> is an evolutionary algorithm that creates computer <span class=\"searchmatch\">programs</span> or models. These computer <span class=\"searchmatch\">programs</span> are complex",
+"size": 51417,
+"wordcount": 6491,
+"timestamp": "2026-03-26T12:35:37Z"
 },
 {
-"title": "SQL",
-"pageid": 29004,
-"snippet": "declarative <span class=\"searchmatch\">programming</span> language, not an imperative <span class=\"searchmatch\">programming</span> language like C or BASIC. However, extensions to Standard SQL add procedural <span class=\"searchmatch\">programming</span> language",
-"size": 46621,
-"wordcount": 4063,
-"timestamp": "2026-03-12T15:10:41Z"
+"title": "Death from laughter",
+"pageid": 647417,
+"snippet": "&quot;The Funniest Joke in the World&quot;, episode of British sketch comedy Monty <span class=\"searchmatch\">Python&#039;s</span> Flying Circus, which revolves around a joke so funny that anybody who hears",
+"size": 17071,
+"wordcount": 1916,
+"timestamp": "2026-03-18T01:30:26Z"
 },
 {
-"title": "Corinne Rey-Bellet",
-"pageid": 4685210,
-"snippet": "original on 29 July 2023. Retrieved 29 July 2023. Hofner, Marie-Claude; <span class=\"searchmatch\">Python</span>, Nataly Viens (2014). &quot;La violence, une affaire de santé publique&quot;. Violences",
-"size": 34886,
-"wordcount": 3506,
-"timestamp": "2025-09-05T15:01:20Z"
+"title": "Sugizo",
+"pageid": 1181083,
+"snippet": "on guitar, Fire on bass, Greg Ellis on drums, d-kiku on keyboards and <span class=\"searchmatch\">programming</span>, K-Ta and Kenji Yoshiura on percussion, Shinpei Ruike on trumpet. 2009–10:",
+"size": 79384,
+"wordcount": 7308,
+"timestamp": "2026-03-06T18:49:39Z"
 },
 {
-"title": "IBM Db2",
-"pageid": 142983,
-"snippet": "COBOL, RPG, Fortran, C++, C, Delphi, .NET CLI, Java, <span class=\"searchmatch\">Python</span>, Perl, PHP, Ruby, and many other <span class=\"searchmatch\">programming</span> languages. Db2 also supports integration into the",
-"size": 40460,
-"wordcount": 4452,
-"timestamp": "2025-12-23T22:19:09Z"
+"title": "ViewVC",
+"pageid": 1937784,
+"snippet": "as well as side-by-side diffs of different revisions. It is written in <span class=\"searchmatch\">Python</span> and the view parameters can be modified directly in a URL using a REST style",
+"size": 3353,
+"wordcount": 276,
+"timestamp": "2026-03-01T11:15:44Z"
 },
 {
-"title": "Lars Mjøen",
-"pageid": 14293200,
-"snippet": "sent enn alvor” (Better late than seriously) in 1975, a <span class=\"searchmatch\">program</span> heavily influenced by Monty <span class=\"searchmatch\">Python</span>. In 1976, they moved on to television where they joined",
-"size": 3851,
-"wordcount": 436,
-"timestamp": "2025-09-07T10:40:55Z"
+"title": "Vista Ridge High School (Texas)",
+"pageid": 3753344,
+"snippet": "earned the GAHSMTA award for Best Supporting Actor (Ryan Mills): &quot;Monty <span class=\"searchmatch\">Python&#039;s</span> Spamalot: School Edition&quot; (2018 - 2019) Vista Ridge earned the GAHSMTA",
+"size": 9128,
+"wordcount": 836,
+"timestamp": "2026-03-28T15:38:36Z"
 },
 {
-"title": "CPL (programming language)",
-"pageid": 828614,
-"snippet": "CPL (Combined <span class=\"searchmatch\">Programming</span> Language) is a multi-paradigm <span class=\"searchmatch\">programming</span> language developed in the early 1960s. It is an early ancestor of the C language via",
-"size": 7631,
-"wordcount": 701,
-"timestamp": "2026-01-07T17:45:22Z"
+"title": "Data mapper pattern",
+"pageid": 37202848,
+"snippet": "Implementations of the concept can be found in various frameworks for many <span class=\"searchmatch\">programming</span> environments. MyBatis persistence framework Hibernate (NHibernate) persistence",
+"size": 4522,
+"wordcount": 376,
+"timestamp": "2025-03-19T03:02:15Z"
 },
 {
-"title": "Tribler",
-"pageid": 7754042,
-"snippet": "regarded as helpful to boost the download speed of files. The SwarmPlayer is a <span class=\"searchmatch\">Python</span>-based BitTorrent Internet TV viewer. It allows one to watch BitTorrent-hosted",
-"size": 13853,
-"wordcount": 1146,
-"timestamp": "2025-09-15T16:23:09Z"
+"title": "Apex High School",
+"pageid": 7442280,
+"snippet": "<span class=\"searchmatch\">Programming</span> courses offered cover four different <span class=\"searchmatch\">programming</span> languages starting with <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span>) followed by C# (Computer <span class=\"searchmatch\">Programming</span>",
+"size": 12141,
+"wordcount": 1259,
+"timestamp": "2026-03-29T17:15:21Z"
 },
 {
-"title": "Kamibox",
-"pageid": 72408226,
-"snippet": "(2017) - a physics based high score game with graphics inspired by Monty <span class=\"searchmatch\">Python</span>. Mechanics involve using momentum to generate spin, which is then released",
-"size": 38331,
-"wordcount": 4009,
-"timestamp": "2026-03-01T19:46:17Z"
+"title": "Michael R. Lyu",
+"pageid": 22531984,
+"snippet": "SIGSOFT Distinguished Paper Award (2023)] Generative Type Inference for <span class=\"searchmatch\">Python</span> (ASE&#039;23) ICLR 2024 Oral (86/7404, 1.16%)] On the Humanity of Conversational",
+"size": 11105,
+"wordcount": 1016,
+"timestamp": "2026-02-07T18:18:01Z"
 }
 ]
 }
