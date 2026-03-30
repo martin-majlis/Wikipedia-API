@@ -6,7 +6,7 @@ TITLE is the Wikipedia page title (e.g. "Python_(programming_language)").
 
 \b Examples:     wikipedia-api summary "Python (programming language)"
 wikipedia-api summary "Ostrava" -l cs     wikipedia-api summary "Python" -l
-zh -v zh-cn r
+zh -v zh-cn
 
 Options:
 -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,

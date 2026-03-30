@@ -5,7 +5,7 @@ List sections of a Wikipedia page.
 TITLE is the Wikipedia page title.
 
 \b Examples:     wikipedia-api sections "Python (programming language)"
-wikipedia-api sections "Python (programming language)" --json r
+wikipedia-api sections "Python (programming language)" --json
 
 Options:
 -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,

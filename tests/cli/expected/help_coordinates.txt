@@ -6,7 +6,7 @@ TITLE is the Wikipedia page title.
 
 \b Examples:     wikipedia-api coordinates "Mount Everest"     wikipedia-api
 coordinates "Mount Everest" --primary all     wikipedia-api coordinates
-"Mount Everest" --json r
+"Mount Everest" --json
 
 Options:
 --limit INTEGER                 Maximum number of coordinates to return.

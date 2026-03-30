@@ -5,7 +5,7 @@ Print the full text of a Wikipedia page.
 TITLE is the Wikipedia page title.
 
 \b Examples:     wikipedia-api text "Python (programming language)"
-wikipedia-api text "Ostrava" -l cs -f html r
+wikipedia-api text "Ostrava" -l cs -f html
 
 Options:
 -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,

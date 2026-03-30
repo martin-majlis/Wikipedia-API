@@ -7,7 +7,7 @@ Requires either --coord, --page, or --bbox to specify the search area.
 \b Examples:     wikipedia-api geosearch --coord "51.5074|-0.1278"
 wikipedia-api geosearch --page "Big Ben" --radius 1000     wikipedia-api
 geosearch --bbox "51.5|-0.2|51.6|-0.1" --sort relevance     wikipedia-api
-geosearch --coord "48.8566|2.3522" --globe mars --json r
+geosearch --coord "48.8566|2.3522" --globe mars --json
 
 Options:
 --coord TEXT                    Coordinates as "lat|lon" (e.g.

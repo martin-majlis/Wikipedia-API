@@ -34,6 +34,15 @@ File Layout
 
     wikipediaapi/
     ├── __init__.py              # Public exports
+    ├── cli.py                   # Command line interface (main entry point)
+    ├── commands/                # CLI command modules
+    │   ├── __init__.py
+    │   ├── base.py              # Shared utilities and common options
+    │   ├── page_commands.py     # Page content commands
+    │   ├── link_commands.py     # Link-related commands
+    │   ├── category_commands.py # Category commands
+    │   ├── geo_commands.py      # Geographic commands
+    │   └── search_commands.py    # Search and discovery commands
     ├── _http_client/            # Transport layer package
     │   ├── __init__.py
     │   ├── base_http_client.py  # Shared retry & config logic
@@ -823,3 +832,89 @@ Strongly-typed enums for API parameters:
 * ``geosearch_meta`` and ``search_meta`` are plain ``@property`` in both
   sync and async — they are set by ``geosearch()`` / ``search()`` on
   the wiki client and require no network call on the page itself.
+
+
+Command Line Interface
+---------------------
+
+The CLI provides a command-line tool for querying Wikipedia using Wikipedia-API.
+It is organized into a modular structure for better maintainability.
+
+**Architecture**
+
+The CLI is split into a main entry point and functional command modules::
+
+    wikipediaapi/
+    ├── cli.py                     # Main CLI entry point (54 lines)
+    └── commands/                  # CLI command modules
+        ├── __init__.py
+        ├── base.py               # Shared utilities and common options
+        ├── page_commands.py      # Page content commands
+        ├── link_commands.py      # Link-related commands
+        ├── category_commands.py  # Category commands
+        ├── geo_commands.py       # Geographic commands
+        └── search_commands.py    # Search and discovery commands
+
+**Main Entry Point (``cli.py``)**
+
+* Sets up the Click command group with version and help options
+* Imports and registers all command modules
+* Provides the ``main()`` function for the console script entry point
+* Reduced from 1481 lines to 54 lines for better maintainability
+
+**Base Module (``commands/base.py``)**
+
+* Contains shared utilities: TypedDict classes, enum validators, formatters
+* Defines common Click options used across all commands
+* Provides helper functions for Wikipedia instance creation and page fetching
+* Centralizes formatting functions for consistent output
+
+**Command Modules**
+
+Each command module groups related functionality:
+
+* ``page_commands.py`` — ``summary``, ``text``, ``sections``, ``section``, ``page``
+* ``link_commands.py`` — ``links``, ``backlinks``, ``langlinks``
+* ``category_commands.py`` — ``categories``, ``categorymembers``
+* ``geo_commands.py`` — ``coordinates``, ``images``, ``geosearch``
+* ``search_commands.py`` — ``search``, ``random``
+
+**Command Pattern**
+
+Each command module follows this pattern:
+
+1. **Business logic functions** — Pure functions that handle Wikipedia API calls
+2. **Formatting functions** — Convert results to text/JSON output
+3. **Click command decorators** — Define CLI interface with options and arguments
+4. **Register function** — Registers commands with the main CLI group
+
+**Benefits of Modular Structure**
+
+* **Maintainable file sizes** — Each module 150-430 lines vs one 1481-line file
+* **Logical organization** — Related commands grouped together
+* **Easier development** — Changes to specific functionality isolated to relevant module
+* **Better testing** — Command modules can be tested independently
+* **Perfect backward compatibility** — All CLI commands work identically to before
+
+**Usage Examples**
+
+The CLI supports all original commands with identical interfaces::
+
+    wikipedia-api summary "Python (programming language)"
+    wikipedia-api links "Python (programming language)" --language cs
+    wikipedia-api categories "Python (programming language)" --json
+    wikipedia-api coordinates "Mount Everest"
+    wikipedia-api geosearch --coord "51.5074|-0.1278"
+    wikipedia-api search "Python programming"
+
+**Adding New Commands**
+
+To add a new CLI command:
+
+1. Choose the appropriate command module based on functionality
+2. Add business logic function (following existing patterns)
+3. Add formatting function for output
+4. Add Click command with proper options and documentation
+5. Register the command in the module's ``register_commands()`` function
+
+The modular structure makes it easy to extend the CLI while maintaining clean organization.

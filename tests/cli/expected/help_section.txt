@@ -6,7 +6,7 @@ TITLE is the Wikipedia page title. SECTION_TITLE is the name of the section
 to retrieve.
 
 \b Examples:     wikipedia-api section "Python (programming language)"
-"Features and philosophy" r
+"Features and philosophy"
 
 Options:
 -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
