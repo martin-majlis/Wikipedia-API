@@ -2,7 +2,6 @@ r"""Geographic-related CLI commands."""
 
 import json
 import sys
-from typing import Any
 
 import click
 
@@ -12,11 +11,13 @@ from .base import _common_options
 from .base import _json_option
 from .base import add_options
 from .base import coordinate_type2str
+from .base import CoordinateInfo
 from .base import CoordinateType
 from .base import create_wikipedia_instance
 from .base import fetch_page
 from .base import geosearch_sort2str
 from .base import GeoSearchKwargs
+from .base import GeoSearchResult
 from .base import GeoSearchSort
 from .base import Globe
 from .base import globe2str
@@ -26,12 +27,12 @@ from .base import validate_enum_value
 
 
 def get_page_coordinates(
-    wiki,
+    wiki: wikipediaapi.Wikipedia,
     title: str,
     namespace: int = 0,
     limit: int = 10,
     primary: str = "primary",
-) -> list[dict[str, Any]]:
+) -> list[CoordinateInfo]:
     r"""Get geographic coordinates for a Wikipedia page.
 
     Args:
@@ -55,9 +56,9 @@ def get_page_coordinates(
     primary_enum = validate_enum_value(primary, CoordinateType, coordinate_type2str, "primary")
 
     coords = wiki.coordinates(page, limit=limit, primary=primary_enum)
-    result: list[dict[str, Any]] = []
+    result: list[CoordinateInfo] = []
     for c in coords:
-        entry: dict[str, Any] = {
+        entry: CoordinateInfo = {
             "lat": c.lat,
             "lon": c.lon,
             "primary": c.primary,
@@ -79,7 +80,7 @@ def get_page_coordinates(
     return result
 
 
-def format_coordinates(coords: list[dict[str, Any]], output_format: str) -> str:
+def format_coordinates(coords: list[CoordinateInfo], output_format: str) -> str:
     r"""Format coordinates in the requested format."""
     if output_format == "json":
         return json.dumps(coords, ensure_ascii=False, indent=2)
@@ -97,19 +98,19 @@ def format_coordinates(coords: list[dict[str, Any]], output_format: str) -> str:
         return "\n".join(lines)
 
 
-def get_geosearch_results(
-    wiki,
+def geosearch(
+    wiki: wikipediaapi.Wikipedia,
     coord: str | None = None,
     page_title: str | None = None,
     bbox: str | None = None,
-    radius: int = 500,
+    radius: int = 1000,
     max_dim: int | None = None,
     sort: str = "distance",
     limit: int = 10,
     globe: str = "earth",
     ns: int = 0,
     primary: str | None = None,
-) -> list[dict[str, Any]]:
+) -> list[GeoSearchResult]:
     r"""Search for Wikipedia pages near a geographic location.
 
     Args:
@@ -181,9 +182,9 @@ def get_geosearch_results(
         )
 
     results = wiki.geosearch(**kwargs)
-    output: list[dict[str, Any]] = []
+    output: list[GeoSearchResult] = []
     for title, p in results.items():
-        entry: dict[str, Any] = {"title": title}
+        entry: GeoSearchResult = {"title": title}
         if p.geosearch_meta is not None:
             entry["dist"] = p.geosearch_meta.dist
             entry["lat"] = p.geosearch_meta.lat
@@ -193,7 +194,7 @@ def get_geosearch_results(
     return output
 
 
-def format_geosearch(results: list[dict[str, Any]], output_format: str) -> str:
+def format_geosearch(results: list[GeoSearchResult], output_format: str) -> str:
     r"""Format geosearch results in the requested format."""
     if output_format == "json":
         return json.dumps(results, ensure_ascii=False, indent=2)
@@ -207,6 +208,11 @@ def format_geosearch(results: list[dict[str, Any]], output_format: str) -> str:
                 parts.append(f"[{r['lat']}, {r['lon']}]")
             lines.append(" ".join(parts))
         return "\n".join(lines)
+
+
+def get_geosearch_results(wiki: wikipediaapi.Wikipedia, **kwargs) -> list[GeoSearchResult]:
+    """Wrap geosearch function for backward compatibility with tests."""
+    return geosearch(wiki, **kwargs)
 
 
 def register_commands(cli_group):

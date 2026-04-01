@@ -6,6 +6,8 @@ from typing import Any
 
 import click
 
+import wikipediaapi
+
 from .base import _common_options
 from .base import _json_option
 from .base import add_options
@@ -15,11 +17,11 @@ from .base import PageNotFoundError
 
 
 def get_page_images(
-    wiki,
+    wiki: wikipediaapi.Wikipedia,
     title: str,
     namespace: int = 0,
     limit: int = 10,
-):
+) -> wikipediaapi.ImagesDict:
     r"""Get images (files) used on a Wikipedia page.
 
     Args:
@@ -41,7 +43,7 @@ def get_page_images(
 
 
 def format_images(
-    images_dict: Any,
+    images_dict: wikipediaapi.ImagesDict,
     output_format: str,
     with_imageinfo: bool = False,
 ) -> str:

@@ -5,6 +5,8 @@ from typing import Any
 
 import click
 
+import wikipediaapi
+
 from .base import _common_options
 from .base import _json_option
 from .base import add_options
@@ -13,10 +15,11 @@ from .base import fetch_page
 from .base import format_page_info
 from .base import format_sections
 from .base import PageNotFoundError
+from .base import SectionInfo
 from .base import SectionNotFoundError
 
 
-def get_page_summary(wiki, title: str, namespace: int = 0) -> str:
+def get_page_summary(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> str:
     r"""Get the summary of a Wikipedia page.
 
     Args:
@@ -36,7 +39,7 @@ def get_page_summary(wiki, title: str, namespace: int = 0) -> str:
     return page.summary
 
 
-def get_page_text(wiki, title: str, namespace: int = 0) -> str:
+def get_page_text(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> str:
     r"""Get the full text of a Wikipedia page.
 
     Args:
@@ -56,7 +59,9 @@ def get_page_text(wiki, title: str, namespace: int = 0) -> str:
     return page.text
 
 
-def get_page_sections(wiki, title: str, namespace: int = 0) -> list[dict[str, Any]]:
+def get_page_sections(
+    wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
+) -> list[SectionInfo]:
     r"""Get sections of a Wikipedia page.
 
     Args:
@@ -85,7 +90,9 @@ def get_page_sections(wiki, title: str, namespace: int = 0) -> list[dict[str, An
     return sections  # type: ignore
 
 
-def get_section_text(wiki, title: str, section_title: str, namespace: int = 0) -> str:
+def get_section_text(
+    wiki: wikipediaapi.Wikipedia, title: str, section_title: str, namespace: int = 0
+) -> str:
     r"""Get the text of a specific section.
 
     Args:
@@ -112,7 +119,7 @@ def get_section_text(wiki, title: str, section_title: str, namespace: int = 0) -
     return sec.full_text()
 
 
-def get_page_info(wiki, title: str, namespace: int = 0) -> dict[str, Any]:
+def get_page_info(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> dict[str, Any]:
     r"""Get metadata and existence info for a Wikipedia page.
 
     Args:

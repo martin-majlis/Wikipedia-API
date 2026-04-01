@@ -2,7 +2,6 @@ r"""Category-related CLI commands."""
 
 import json
 import sys
-from typing import Any
 
 import click
 
@@ -11,13 +10,16 @@ import wikipediaapi
 from .base import _common_options
 from .base import _json_option
 from .base import add_options
+from .base import CategoryMember
 from .base import create_wikipedia_instance
 from .base import fetch_page
 from .base import format_page_dict
 from .base import PageNotFoundError
 
 
-def get_page_categories(wiki, title: str, namespace: int = 0):
+def get_page_categories(
+    wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
+) -> wikipediaapi.PagesDict:
     r"""Get categories for a Wikipedia page.
 
     Args:
@@ -38,8 +40,8 @@ def get_page_categories(wiki, title: str, namespace: int = 0):
 
 
 def get_category_members(
-    wiki, title: str, max_level: int = 0, namespace: int = 0
-) -> list[dict[str, Any]]:
+    wiki: wikipediaapi.Wikipedia, title: str, max_level: int = 0, namespace: int = 0
+) -> list[CategoryMember]:
     r"""Get pages in a Wikipedia category.
 
     Args:
@@ -71,7 +73,7 @@ def get_category_members(
     return members  # type: ignore
 
 
-def format_category_members(members: list[dict[str, Any]], output_format: str) -> str:
+def format_category_members(members: list[CategoryMember], output_format: str) -> str:
     r"""Format category members in the requested format."""
     if output_format == "json":
         return json.dumps(members, ensure_ascii=False, indent=2)

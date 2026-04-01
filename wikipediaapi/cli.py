@@ -16,7 +16,7 @@ from wikipediaapi.commands import search_commands
     version=".".join(str(s) for s in wikipediaapi.__version__),
     prog_name="wikipedia-api",
 )
-def cli():
+def cli() -> click.Group:
     r"""Command line tool for querying Wikipedia using Wikipedia-API.
 
     Supports fetching page summaries, full text, sections, links,
@@ -34,6 +34,7 @@ def cli():
         wikipedia-api geosearch --coord "51.5074|-0.1278"
         wikipedia-api search "Python programming"
     """
+    return cli  # type: ignore
 
 
 # Register all command modules
@@ -45,7 +46,7 @@ image_commands.register_commands(cli)
 search_commands.register_commands(cli)
 
 
-def main():
+def main() -> None:
     r"""Entry point for the CLI."""
     cli()
 

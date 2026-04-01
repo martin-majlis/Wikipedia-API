@@ -1,7 +1,7 @@
 r"""Shared utilities and common options for CLI commands."""
 
 import json
-from typing import Any, TypedDict
+from typing import TypedDict
 
 import click
 
@@ -55,6 +55,85 @@ class SearchKwargs(TypedDict, total=False):
     ns: int
     limit: int
     sort: WikiSearchSort
+
+
+# TypedDict classes for structured data
+class SectionInfo(TypedDict):
+    """TypedDict for section information."""
+
+    title: str
+    level: int
+    indent: int
+
+
+class PageInfo(TypedDict, total=False):
+    """TypedDict for page information."""
+
+    title: str
+    pageid: int | None
+    ns: int
+    exists: bool
+    language: str
+    fullurl: str | None
+    canonicalurl: str | None
+    displaytitle: str | None
+
+
+class CoordinateInfo(TypedDict, total=False):
+    """TypedDict for coordinate information."""
+
+    lat: float
+    lon: float
+    primary: bool
+    globe: str
+    type: str | None
+    name: str | None
+    dim: int | None
+    country: str | None
+    region: str | None
+    dist: float | None
+
+
+class GeoSearchResult(TypedDict, total=False):
+    """TypedDict for geosearch result information."""
+
+    title: str
+    dist: float | None
+    lat: float | None
+    lon: float | None
+    primary: bool | None
+
+
+class CategoryMember(TypedDict):
+    """TypedDict for category member information."""
+
+    title: str
+    ns: int
+    level: int
+
+
+class RandomPageResult(TypedDict, total=False):
+    """TypedDict for random page result information."""
+
+    title: str
+    pageid: int | None
+
+
+class SearchResult(TypedDict, total=False):
+    """TypedDict for search result information."""
+
+    title: str
+    pageid: int | None
+    wordcount: int | None
+    timestamp: str | None
+
+
+class SearchResults(TypedDict, total=False):
+    """TypedDict for search results container."""
+
+    totalhits: int
+    pages: list[SearchResult]
+    suggestion: str | None
 
 
 def create_wikipedia_instance(
@@ -241,7 +320,7 @@ def add_options(options):
     return wrapper
 
 
-def format_sections(sections: list[dict[str, Any]], output_format: str) -> str:
+def format_sections(sections: list[SectionInfo], output_format: str) -> str:
     r"""Format sections list in the requested format."""
     if output_format == "json":
         return json.dumps(sections, ensure_ascii=False, indent=2)
@@ -253,7 +332,7 @@ def format_sections(sections: list[dict[str, Any]], output_format: str) -> str:
         return "\n".join(lines)
 
 
-def format_page_info(info: dict[str, Any], output_format: str) -> str:
+def format_page_info(info: PageInfo, output_format: str) -> str:
     r"""Format page info in the requested format."""
     if output_format == "json":
         return json.dumps(info, ensure_ascii=False, indent=2)
