@@ -126,6 +126,11 @@ TESTS=(
     # ── images command ───────────────────────────────────────────────────────
     "images_en|uv run wikipedia-api images Prague"
     "images_en_json|uv run wikipedia-api images Prague --json"
+    "images_en_imageinfo|uv run wikipedia-api images Prague --imageinfo"
+    "images_en_imageinfo_json|uv run wikipedia-api images Prague --imageinfo --json"
+    "images_en_limit|uv run wikipedia-api images Prague --limit 5"
+    "images_en_language|uv run wikipedia-api images Prague --language de"
+    "images_nonexistent|uv run wikipedia-api images 'NonexistentPage12345' || true"
 
     # ── geosearch command ────────────────────────────────────────────────────
     "geosearch_coord|uv run wikipedia-api geosearch --coord \"51.5074|-0.1278\""

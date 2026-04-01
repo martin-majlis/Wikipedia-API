@@ -1,4 +1,4 @@
-Total hits: 6044
+Total hits: 6045
 
 Python (programming language)
 History of Python
@@ -7,6 +7,6 @@ Python syntax and semantics
 Mojo (programming language)
 Zen of Python
 Python
-List of Python software
 Glob (programming)
 Stackless Python
+List of Python software
