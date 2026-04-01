@@ -529,7 +529,8 @@ How To Get Page Images
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To get images (files) used on a page, use ``images()`` on the wiki client or the
-``images`` property on the page.
+``images`` property on the page.  The ``images`` method returns an ``ImagesDict``
+with ``WikipediaImage`` objects that provide lazy access to image metadata.
 
 **Synchronous**
 
@@ -537,11 +538,28 @@ To get images (files) used on a page, use ``images()`` on the wiki client or the
 
     page = wiki_wiki.page('London')
     imgs = wiki_wiki.images(page)
-    for title in imgs:
+    for title, img in imgs.items():
         print(title)
 
     # Or via the page property:
     imgs = page.images
+
+To fetch detailed metadata about images (URL, dimensions, MIME type, etc.),
+use the ``imageinfo()`` method on the ``ImagesDict``:
+
+.. code-block:: python
+
+    page = wiki_wiki.page('Python_(programming_language)')
+    for title, img in page.images.items():
+        # Lazy properties trigger imageinfo API call on first access:
+        print(f"{title}: {img.url}, {img.width}x{img.height}, {img.mime}")
+
+    # Or batch-fetch imageinfo for all images at once:
+    infos = page.images.imageinfo()
+    for title, info_list in infos.items():
+        if info_list:
+            info = info_list[0]
+            print(f"{title}: {info.url}, {info.width}x{info.height}")
 
 **Asynchronous**
 
@@ -550,8 +568,24 @@ To get images (files) used on a page, use ``images()`` on the wiki client or the
     async def main():
         page = wiki_wiki.page('London')
         imgs = await wiki_wiki.images(page)
-        for title in imgs:
+        for title, img in imgs.items():
             print(title)
+
+        # Fetch image metadata with lazy properties:
+        page = wiki_wiki.page('Python_(programming_language)')
+        for title, img in (await page.images).items():
+            url = await img.url
+            width = await img.width
+            height = await img.height
+            mime = await img.mime
+            print(f"{title}: {url}, {width}x{height}, {mime}")
+
+        # Or batch-fetch imageinfo for all images:
+        infos = await (await page.images).imageinfo()
+        for title, info_list in infos.items():
+            if info_list:
+                info = info_list[0]
+                print(f"{title}: {info.url}, {info.width}x{info.height}")
 
 How To Search Nearby Pages (Geosearch)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

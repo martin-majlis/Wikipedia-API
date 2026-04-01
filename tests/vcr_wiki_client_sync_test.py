@@ -197,7 +197,7 @@ class TestVcrWikiImages:
     def test_default(self, sync_wiki):
         page = sync_wiki.page("Python_(programming_language)")
         imgs = sync_wiki.images(page)
-        assert isinstance(imgs, wikipediaapi.PagesDict)
+        assert isinstance(imgs, wikipediaapi.ImagesDict)
         assert len(imgs) > 0
 
     @pytest.mark.vcr
@@ -209,13 +209,13 @@ class TestVcrWikiImages:
     def test_direction(self, sync_wiki, direction):
         page = sync_wiki.page("Python_(programming_language)")
         imgs = sync_wiki.images(page, direction=direction)
-        assert isinstance(imgs, wikipediaapi.PagesDict)
+        assert isinstance(imgs, wikipediaapi.ImagesDict)
 
     @pytest.mark.vcr
     def test_limit(self, sync_wiki):
         page = sync_wiki.page("Python_(programming_language)")
         imgs = sync_wiki.images(page, limit=3)
-        assert isinstance(imgs, wikipediaapi.PagesDict)
+        assert isinstance(imgs, wikipediaapi.ImagesDict)
 
 
 class TestVcrWikiBatchImages:

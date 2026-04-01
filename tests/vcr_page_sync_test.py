@@ -243,7 +243,7 @@ class TestVcrPageCoordinatesImages:
     def test_images(self, sync_wiki):
         page = sync_wiki.page("Python_(programming_language)")
         imgs = page.images
-        assert isinstance(imgs, wikipediaapi.PagesDict)
+        assert isinstance(imgs, wikipediaapi.ImagesDict)
         assert len(imgs) > 0
 
 

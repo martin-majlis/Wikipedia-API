@@ -1,13 +1,13 @@
 Total hits: 10
-Suggestion: python unterstütztes mehrerau programmierparadigmen
+Suggestion: python unterstützte meurer programmierparadigmen
 
 Python (Programmiersprache)
 R (Programmiersprache)
-JavaScript
 Hybridsprache
+JavaScript
 Ruby (Programmiersprache)
-Scratch (Programmiersprache)
 Rust (Programmiersprache)
 Wolfram Language
+Scratch (Programmiersprache)
 Objektorientierte Programmierung
 Tcl

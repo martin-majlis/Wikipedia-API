@@ -409,3 +409,60 @@ class TestSyncAsyncPropertySymmetry:
 
         # Compare structure
         self._compare_sections_structure(sync_sections, async_sections, title)
+
+
+class TestWikipediaImageSymmetry:
+    """Test that WikipediaImage and AsyncWikipediaImage have symmetric interfaces."""
+
+    IMAGE_PROPERTIES = [
+        "imageinfo",
+        "url",
+        "width",
+        "height",
+        "size",
+        "mime",
+        "mediatype",
+        "sha1",
+        "timestamp",
+        "user",
+        "descriptionurl",
+        "descriptionshorturl",
+        "sections",
+        "title",
+        "ns",
+        "language",
+    ]
+
+    IMAGE_METHODS = ["exists"]
+
+    def test_sync_image_has_all_properties(self):
+        """All expected properties exist on WikipediaImage."""
+        wiki = wikipediaapi.Wikipedia(user_agent, "en")
+        img = wikipediaapi.WikipediaImage(wiki, title="File:Test.png", ns=6, language="en")
+        img_attrs = set(dir(img))
+        for prop in self.IMAGE_PROPERTIES + self.IMAGE_METHODS:
+            assert prop in img_attrs, f"WikipediaImage missing property: {prop}"
+
+    def test_async_image_has_all_properties(self):
+        """All expected properties exist on AsyncWikipediaImage."""
+        wiki = wikipediaapi.AsyncWikipedia(user_agent, "en")
+        img = wikipediaapi.AsyncWikipediaImage(wiki, title="File:Test.png", ns=6, language="en")
+        img_attrs = set(dir(img))
+        for prop in self.IMAGE_PROPERTIES + self.IMAGE_METHODS:
+            assert prop in img_attrs, f"AsyncWikipediaImage missing property: {prop}"
+
+    def test_both_image_classes_have_same_public_properties(self):
+        """Sync and async image classes expose the same public API surface."""
+        wiki_sync = wikipediaapi.Wikipedia(user_agent, "en")
+        wiki_async = wikipediaapi.AsyncWikipedia(user_agent, "en")
+        sync_img = wikipediaapi.WikipediaImage(
+            wiki_sync, title="File:Test.png", ns=6, language="en"
+        )
+        async_img = wikipediaapi.AsyncWikipediaImage(
+            wiki_async, title="File:Test.png", ns=6, language="en"
+        )
+        sync_pub = {a for a in dir(sync_img) if not a.startswith("_")}
+        async_pub = {a for a in dir(async_img) if not a.startswith("_")}
+        for prop in self.IMAGE_PROPERTIES + self.IMAGE_METHODS:
+            assert prop in sync_pub, f"WikipediaImage missing {prop}"
+            assert prop in async_pub, f"AsyncWikipediaImage missing {prop}"

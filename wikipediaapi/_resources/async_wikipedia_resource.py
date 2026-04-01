@@ -1,5 +1,5 @@
 from collections.abc import Iterable
-from typing import Any, Union
+from typing import Any, TYPE_CHECKING, Union
 
 from .._base_wikipedia_page import NOT_CACHED
 from .._enums import CoordinatesProp
@@ -22,18 +22,26 @@ from .._enums import WikiSearchProp
 from .._enums import WikiSearchQiProfile
 from .._enums import WikiSearchSort
 from .._enums import WikiSearchWhat
+from .._pages_dict import AsyncImagesDict
 from .._pages_dict import AsyncPagesDict
 from .._params.coordinates_params import CoordinatesParams
 from .._params.geo_search_params import GeoSearchParams
+from .._params.imageinfo_params import _DEFAULT_PROP
+from .._params.imageinfo_params import ImageInfoParams
 from .._params.images_params import ImagesParams
 from .._params.random_params import RandomParams
 from .._params.search_params import SearchParams
 from .._types import Coordinate
 from .._types import GeoBox
 from .._types import GeoPoint
+from .._types import ImageInfo
 from .._types import SearchResults
+from ..async_wikipedia_image import AsyncWikipediaImage
 from ..async_wikipedia_page import AsyncWikipediaPage
 from .base_wikipedia_resource import BaseWikipediaResource
+
+if TYPE_CHECKING:
+    pass
 
 
 class AsyncWikipediaResource(BaseWikipediaResource):
@@ -80,6 +88,32 @@ class AsyncWikipediaResource(BaseWikipediaResource):
             language=language,
             variant=variant,
             url=url,
+        )
+
+    def _make_image(  # type: ignore[override]
+        self,
+        title: str,
+        ns: WikiNamespace,
+        language: str,
+        variant: str | None = None,
+    ) -> "AsyncWikipediaImage":
+        """Override of BaseWikipediaResource._make_image that returns AsyncWikipediaImage.
+
+        All ``_build_images_for_page`` calls delegate here, so image stubs
+        produced in an async context are automatically async.
+
+        :param title: file title including the ``File:`` prefix
+        :param ns: namespace constant (typically 6 for files)
+        :param language: two-letter language code
+        :param variant: optional language variant; ``None`` for none
+        :return: uninitialised :class:`AsyncWikipediaImage` instance
+        """
+        return AsyncWikipediaImage(
+            wiki=self,  # type: ignore[arg-type]
+            title=title,
+            ns=ns,
+            language=language,
+            variant=variant,
         )
 
     def page(
@@ -405,7 +439,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         limit: int = 10,
         images: Iterable[str] | None = None,
         direction: WikiDirection = Direction.ASCENDING,
-    ) -> "AsyncPagesDict":
+    ) -> "AsyncImagesDict":
         """Async version of :meth:`WikipediaResource.images`.
 
         See :meth:`WikipediaResource.images` for full documentation.
@@ -416,7 +450,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :param direction: Sort direction as :class:`WikiDirection`.
 
         Returns:
-            :class:`AsyncPagesDict` keyed by image title; empty if the page is missing.
+            :class:`AsyncImagesDict` keyed by image title; empty if the page is missing.
 
         Raises:
             WikiHttpTimeoutError: If the request times out.
@@ -437,7 +471,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         for k, v in raw.get("query", {}).get("pages", {}).items():
             if k == "-1":
                 page._attributes["pageid"] = self._missing_pageid(page)
-                empty_pd = AsyncPagesDict(wiki=self)
+                empty_pd = AsyncImagesDict(wiki=self)
                 page._set_cached("images", params.cache_key(), empty_pd)
                 return empty_pd
             while "continue" in raw:
@@ -449,11 +483,10 @@ class AsyncWikipediaResource(BaseWikipediaResource):
                     raw.get("query", {}).get("pages", {}).get(k, {}).get("images", [])
                 )
             result = self._build_images_for_page(v, page, params)
-            # Convert PagesDict to AsyncPagesDict
-            async_pd = AsyncPagesDict(wiki=self, data=dict(result))
+            async_pd = AsyncImagesDict(wiki=self, data=dict(result))
             page._set_cached("images", params.cache_key(), async_pd)
             return async_pd
-        empty_pd = AsyncPagesDict(wiki=self)
+        empty_pd = AsyncImagesDict(wiki=self)
         page._set_cached("images", params.cache_key(), empty_pd)
         return empty_pd
 
@@ -464,7 +497,7 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         limit: int = 10,
         images: Iterable[str] | None = None,
         direction: WikiDirection = Direction.ASCENDING,
-    ) -> dict[str, "AsyncPagesDict"]:
+    ) -> dict[str, "AsyncImagesDict"]:
         """Async version of :meth:`WikipediaResource.batch_images`.
 
         See :meth:`WikipediaResource.batch_images` for full documentation.
@@ -475,10 +508,10 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :param direction: Sort direction as :class:`WikiDirection`.
 
         Returns:
-            ``{title: AsyncPagesDict}`` for every page.
+            ``{title: AsyncImagesDict}`` for every page.
         """
         params = ImagesParams(limit=limit, images=images, direction=direction)
-        result: dict[str, "AsyncPagesDict"] = {}
+        result: dict[str, "AsyncImagesDict"] = {}
         page_map = {p.title: p for p in pages}
         for i in range(0, len(pages), 50):
             chunk = pages[i : i + 50]
@@ -500,10 +533,106 @@ class AsyncWikipediaResource(BaseWikipediaResource):
                 p = page_map.get(orig) or page_map.get(title)
                 if p is not None:
                     imgs = self._build_images_for_page(v, p, params)
-                    result[title] = AsyncPagesDict(wiki=self, data=dict(imgs))
+                    result[title] = AsyncImagesDict(wiki=self, data=dict(imgs))
         for p in pages:
             if p.title not in result:
-                result[p.title] = AsyncPagesDict(wiki=self)
+                result[p.title] = AsyncImagesDict(wiki=self)
+        return result
+
+    async def imageinfo(
+        self,
+        image: "AsyncWikipediaImage",
+        *,
+        prop: tuple[str, ...] = _DEFAULT_PROP,
+        limit: int = 1,
+    ) -> list[ImageInfo]:
+        """Async version of :meth:`WikipediaResource.imageinfo`.
+
+        See :meth:`WikipediaResource.imageinfo` for full documentation.
+
+        :param image: File page to fetch metadata for.
+        :param prop: Tuple of ``iiprop`` field names.
+        :param limit: Maximum number of file revisions to return (1–500).
+
+        Returns:
+            List of :class:`ImageInfo` objects; empty list if the file
+            does not exist.
+
+        Raises:
+            WikiHttpTimeoutError: If the request times out.
+            WikiConnectionError: If a connection cannot be established.
+            WikiRateLimitError: If the API returns HTTP 429.
+            WikiHttpError: If the API returns a non-success HTTP status.
+            WikiInvalidJsonError: If the response is not valid JSON.
+        """
+        params = ImageInfoParams(prop=prop, limit=limit)
+        cached = image._get_cached("imageinfo", params.cache_key())
+        if not isinstance(cached, type(NOT_CACHED)):
+            return cached  # type: ignore[no-any-return]
+        api_params = self._imageinfo_api_params(image, params)
+        raw = await self._get(  # type: ignore[attr-defined]
+            image.language, self._construct_params(image, api_params)
+        )
+        for k, v in raw.get("query", {}).get("pages", {}).items():
+            if k == "-1" and "known" not in v:
+                image._attributes["pageid"] = self._missing_pageid(image)
+                image._set_cached("imageinfo", params.cache_key(), [])
+                return []
+            return self._build_imageinfo_for_image(v, image, params)
+        image._set_cached("imageinfo", params.cache_key(), [])
+        return []
+
+    async def batch_imageinfo(
+        self,
+        images: list["AsyncWikipediaImage"],
+        *,
+        prop: tuple[str, ...] = _DEFAULT_PROP,
+        limit: int = 1,
+    ) -> dict[str, list[ImageInfo]]:
+        """Async version of :meth:`WikipediaResource.batch_imageinfo`.
+
+        See :meth:`WikipediaResource.batch_imageinfo` for full documentation.
+
+        :param images: List of file pages to fetch metadata for.
+        :param prop: Tuple of ``iiprop`` field names.
+        :param limit: Maximum number of file revisions to return (1–500).
+
+        Returns:
+            ``{title: [ImageInfo, ...]}`` for every image.
+        """
+        params = ImageInfoParams(prop=prop, limit=limit)
+        result: dict[str, list[ImageInfo]] = {}
+        image_map = {img.title: img for img in images}
+        for i in range(0, len(images), 50):
+            chunk = images[i : i + 50]
+            titles = "|".join(img.title for img in chunk)
+            api_params: dict[str, Any] = {
+                "action": "query",
+                "prop": "imageinfo",
+                "titles": titles,
+            }
+            api_params.update(params.to_api())
+            dummy_image = chunk[0]
+            raw = await self._get(  # type: ignore[attr-defined]
+                dummy_image.language, self._construct_params(dummy_image, api_params)
+            )
+            norm_map = self._build_normalization_map(raw)
+            for k, v in raw.get("query", {}).get("pages", {}).items():
+                title = v.get("title", "")
+                orig = norm_map.get(title, title)
+                img = image_map.get(orig) or image_map.get(title)
+                if img is not None:
+                    if k == "-1" and "known" not in v:
+                        img._attributes["pageid"] = self._missing_pageid(img)
+                        img._set_cached("imageinfo", params.cache_key(), [])
+                        result[title] = []
+                    else:
+                        infos = self._build_imageinfo_for_image(v, img, params)
+                        result[title] = infos
+        for img in images:
+            if img.title not in result:
+                cached = img._get_cached("imageinfo", params.cache_key())
+                result[img.title] = [] if isinstance(cached, type(NOT_CACHED)) else cached
         return result
 
     async def geosearch(

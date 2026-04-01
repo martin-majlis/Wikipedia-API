@@ -2,84 +2,84 @@
 "totalhits": 6044,
 "pages": [
 {
-"title": "Perl Cookbook",
-"pageid": 5851133,
-"snippet": "PLEAC (<span class=\"searchmatch\">Programming</span> Language Examples Alike Cookbook) website, which translated the code snippets in the Perl Cookbook into other languages: <span class=\"searchmatch\">Python</span>, Ruby",
-"size": 3950,
-"wordcount": 288,
-"timestamp": "2026-01-22T10:40:50Z"
+"title": "Postmodernist film",
+"pageid": 5378948,
+"snippet": "Country (1974) Celine and Julie Go Boating (1974) F for Fake (1975) Monty <span class=\"searchmatch\">Python</span> and the Holy Grail (1975) Taxi Driver (1976) Star Wars (1977) The American",
+"size": 101039,
+"wordcount": 7219,
+"timestamp": "2026-03-31T16:20:48Z"
 },
 {
-"title": "Toronto Zoo",
-"pageid": 506403,
-"snippet": "home to Sumatran orangutans, great hornbills, false gharials, reticulated <span class=\"searchmatch\">pythons</span>, Burmese star tortoises, and white-handed gibbons, as well as Sumatran",
-"size": 73499,
-"wordcount": 7505,
-"timestamp": "2026-03-27T15:22:39Z"
+"title": "Zeitgeist (free software)",
+"pageid": 27127327,
+"snippet": "years ago (2020-10-15) Preview release none Written in Vala (previously <span class=\"searchmatch\">Python</span>) Platform Linux, Unix-like Type Semantic Event Logger License LGPL v2.1",
+"size": 3559,
+"wordcount": 299,
+"timestamp": "2024-02-04T17:07:04Z"
 },
 {
-"title": "Gene expression programming",
-"pageid": 1098818,
-"snippet": "expression <span class=\"searchmatch\">programming</span> (GEP) in computer <span class=\"searchmatch\">programming</span> is an evolutionary algorithm that creates computer <span class=\"searchmatch\">programs</span> or models. These computer <span class=\"searchmatch\">programs</span> are complex",
-"size": 51417,
-"wordcount": 6491,
-"timestamp": "2026-03-26T12:35:37Z"
+"title": "ZBrush",
+"pageid": 3065770,
+"snippet": "effects and corrections without even touching another photo-manipulation <span class=\"searchmatch\">program</span>. This allows ZBrush to quickly generate a new model with uniform polygon",
+"size": 16237,
+"wordcount": 1538,
+"timestamp": "2026-03-21T17:59:38Z"
 },
 {
-"title": "Death from laughter",
-"pageid": 647417,
-"snippet": "&quot;The Funniest Joke in the World&quot;, episode of British sketch comedy Monty <span class=\"searchmatch\">Python&#039;s</span> Flying Circus, which revolves around a joke so funny that anybody who hears",
-"size": 17071,
-"wordcount": 1916,
-"timestamp": "2026-03-18T01:30:26Z"
+"title": "Normalization (machine learning)",
+"pageid": 77557393,
+"snippet": "learnable parameters, typically trained by gradient descent. The following is a <span class=\"searchmatch\">Python</span> implementation of BatchNorm: import numpy as np def batchnorm(x, gamma,",
+"size": 35464,
+"wordcount": 5363,
+"timestamp": "2026-02-25T12:55:53Z"
 },
 {
-"title": "Sugizo",
-"pageid": 1181083,
-"snippet": "on guitar, Fire on bass, Greg Ellis on drums, d-kiku on keyboards and <span class=\"searchmatch\">programming</span>, K-Ta and Kenji Yoshiura on percussion, Shinpei Ruike on trumpet. 2009–10:",
-"size": 79384,
-"wordcount": 7308,
-"timestamp": "2026-03-06T18:49:39Z"
+"title": "Perth Zoo",
+"pageid": 606539,
+"snippet": "spiny-tailed skink Rough-scaled <span class=\"searchmatch\">python</span> Southwestern carpet <span class=\"searchmatch\">python</span> Tiger snake Veiled chameleon Western blue-tongued skink Woma <span class=\"searchmatch\">python</span> Opened in July 2025, the",
+"size": 39096,
+"wordcount": 3973,
+"timestamp": "2026-03-28T21:05:07Z"
 },
 {
-"title": "ViewVC",
-"pageid": 1937784,
-"snippet": "as well as side-by-side diffs of different revisions. It is written in <span class=\"searchmatch\">Python</span> and the view parameters can be modified directly in a URL using a REST style",
-"size": 3353,
-"wordcount": 276,
-"timestamp": "2026-03-01T11:15:44Z"
+"title": "FluidSynth",
+"pageid": 11440245,
+"snippet": "written as a C library with a large application <span class=\"searchmatch\">programming</span> interface (API). Partial bindings for <span class=\"searchmatch\">Python</span>, Ruby, Haskell, and .NET Framework are available",
+"size": 5461,
+"wordcount": 498,
+"timestamp": "2025-08-01T00:28:56Z"
 },
 {
-"title": "Vista Ridge High School (Texas)",
-"pageid": 3753344,
-"snippet": "earned the GAHSMTA award for Best Supporting Actor (Ryan Mills): &quot;Monty <span class=\"searchmatch\">Python&#039;s</span> Spamalot: School Edition&quot; (2018 - 2019) Vista Ridge earned the GAHSMTA",
-"size": 9128,
-"wordcount": 836,
-"timestamp": "2026-03-28T15:38:36Z"
+"title": "Universal asynchronous receiver-transmitter",
+"pageid": 75008,
+"snippet": "Example(Micro<span class=\"searchmatch\">Python</span>)&quot;. Electrocredible. 2023-01-24. Archived from the original on 2023-06-03. Retrieved 2023-06-10. McKinney, Josh (2022-11-05). &quot;<span class=\"searchmatch\">Programmable</span> IO",
+"size": 38730,
+"wordcount": 3048,
+"timestamp": "2026-03-29T15:49:40Z"
 },
 {
-"title": "Data mapper pattern",
-"pageid": 37202848,
-"snippet": "Implementations of the concept can be found in various frameworks for many <span class=\"searchmatch\">programming</span> environments. MyBatis persistence framework Hibernate (NHibernate) persistence",
-"size": 4522,
-"wordcount": 376,
-"timestamp": "2025-03-19T03:02:15Z"
+"title": "Negative base",
+"pageid": 10784136,
+"snippet": "link. Specifically, the references are: Szudzik, M. &quot;<span class=\"searchmatch\">Programming</span> Challenge: A Mathematica <span class=\"searchmatch\">Programming</span> Contest&quot;. Wolfram Technology Conference, 1999. Schroeppel",
+"size": 28601,
+"wordcount": 3407,
+"timestamp": "2026-03-26T16:45:08Z"
 },
 {
-"title": "Apex High School",
-"pageid": 7442280,
-"snippet": "<span class=\"searchmatch\">Programming</span> courses offered cover four different <span class=\"searchmatch\">programming</span> languages starting with <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span>) followed by C# (Computer <span class=\"searchmatch\">Programming</span>",
-"size": 12141,
-"wordcount": 1259,
-"timestamp": "2026-03-29T17:15:21Z"
+"title": "Anna's Archive",
+"pageid": 72289240,
+"snippet": "compatible with the site&#039;s existing stack of MariaDB, Elasticsearch, and <span class=\"searchmatch\">Python</span>. High-speed downloads on Anna&#039;s Archive are only available to users with",
+"size": 52467,
+"wordcount": 4840,
+"timestamp": "2026-03-28T19:45:59Z"
 },
 {
-"title": "Michael R. Lyu",
-"pageid": 22531984,
-"snippet": "SIGSOFT Distinguished Paper Award (2023)] Generative Type Inference for <span class=\"searchmatch\">Python</span> (ASE&#039;23) ICLR 2024 Oral (86/7404, 1.16%)] On the Humanity of Conversational",
-"size": 11105,
-"wordcount": 1016,
-"timestamp": "2026-02-07T18:18:01Z"
+"title": "Croc Files",
+"pageid": 6852168,
+"snippet": "portal Television portal Australia portal United States portal List of <span class=\"searchmatch\">programs</span> broadcast by Animal Planet McCormick, Moira (12 May 2001). &quot;Sony Wonder",
+"size": 9786,
+"wordcount": 148,
+"timestamp": "2026-03-29T01:27:54Z"
 }
 ]
 }

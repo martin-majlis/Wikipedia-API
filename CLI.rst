@@ -173,9 +173,22 @@ Output as JSON::
 
     wikipedia-api images "Python (programming language)" --json
 
+Fetch image metadata (URL, dimensions, MIME type, uploader, etc.) with
+the ``--imageinfo`` flag::
+
+    wikipedia-api images "Mount Everest" --imageinfo
+
+Display imageinfo metadata as JSON::
+
+    wikipedia-api images "Mount Everest" --imageinfo --json
+
 Limit the number of images::
 
     wikipedia-api images "Earth" --limit 50
+
+Combine options::
+
+    wikipedia-api images "Earth" --limit 20 --imageinfo --language de
 
 Geosearch
 ---------

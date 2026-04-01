@@ -2,7 +2,7 @@ from abc import ABC
 from collections import defaultdict
 from collections.abc import Callable
 import re
-from typing import Any, TypeVar
+from typing import Any, TYPE_CHECKING, TypeVar
 
 from .._base_wikipedia_page import BaseWikipediaPage
 from .._enums import Namespace
@@ -10,16 +10,21 @@ from .._enums import WikiNamespace
 from .._pages_dict import PagesDict
 from .._params.coordinates_params import CoordinatesParams
 from .._params.geo_search_params import GeoSearchParams
+from .._params.imageinfo_params import ImageInfoParams
 from .._params.images_params import ImagesParams
 from .._params.random_params import RandomParams
 from .._params.search_params import SearchParams
 from .._types import Coordinate
 from .._types import GeoSearchMeta
+from .._types import ImageInfo
 from .._types import SearchMeta
 from .._types import SearchResults
 from ..extract_format import ExtractFormat
 from ..wikipedia_page import WikipediaPage
 from ..wikipedia_page_section import WikipediaPageSection
+
+if TYPE_CHECKING:
+    from .._pages_dict import ImagesDict
 
 T = TypeVar("T")
 _PageP = TypeVar("_PageP", bound=BaseWikipediaPage)
@@ -109,6 +114,35 @@ class BaseWikipediaResource(ABC):
             language=language,
             variant=variant,
             url=url,
+        )
+
+    def _make_image(
+        self,
+        title: str,
+        ns: WikiNamespace,
+        language: str,
+        variant: str | None = None,
+    ) -> "BaseWikipediaPage[Any]":
+        """Create a stub :class:`WikipediaImage` bound to this resource instance.
+
+        The returned image is *not* yet populated with API data; it will fetch
+        lazily when its properties are accessed.  Overridden in
+        :class:`AsyncWikipediaResource` to return :class:`AsyncWikipediaImage`.
+
+        :param title: file title including the ``File:`` prefix
+        :param ns: namespace constant (typically 6 for files)
+        :param language: two-letter language code (e.g. ``"en"``)
+        :param variant: optional language variant; ``None`` for none
+        :return: uninitialised :class:`WikipediaImage` instance
+        """
+        from ..wikipedia_image import WikipediaImage  # avoid circular import
+
+        return WikipediaImage(
+            wiki=self,  # type: ignore[arg-type]
+            title=title,
+            ns=ns,
+            language=language,
+            variant=variant,
         )
 
     @staticmethod
@@ -919,6 +953,73 @@ class BaseWikipediaResource(ABC):
         api_params.update(params.to_api())
         return api_params
 
+    def _imageinfo_api_params(
+        self,
+        image: "BaseWikipediaPage[Any]",
+        params: ImageInfoParams,
+    ) -> dict[str, Any]:
+        """Build API params for ``prop=imageinfo``.
+
+        Args:
+            image: Source image page (provides ``title``).
+            params: Clean-named imageinfo parameters.
+
+        Returns:
+            Params dict ready for dispatch.
+        """
+        api_params: dict[str, Any] = {
+            "action": "query",
+            "prop": "imageinfo",
+            "titles": image.title,
+        }
+        api_params.update(params.to_api())
+        return api_params
+
+    def _build_imageinfo_for_image(
+        self,
+        extract: dict[str, Any],
+        image: "BaseWikipediaPage[Any]",
+        params: ImageInfoParams,
+    ) -> list[ImageInfo]:
+        """Parse imageinfo from a single page API response entry.
+
+        Builds a list of :class:`ImageInfo` objects from
+        ``extract["imageinfo"]`` and stores it in the image's per-param
+        cache.  Also copies the ``known`` key from *extract* into
+        ``image._attributes`` so that :meth:`~WikipediaImage.exists` can
+        detect Commons-hosted files.
+
+        Args:
+            extract: Single page entry from ``raw["query"]["pages"]``.
+            image: Image page object to populate in-place.
+            params: The parameters used for this fetch (for cache key).
+
+        Returns:
+            List of :class:`ImageInfo` objects (may be empty).
+        """
+        self._common_attributes(extract, image)
+        if "known" in extract:
+            image._attributes["known"] = extract["known"]
+        infos: list[ImageInfo] = []
+        for raw_ii in extract.get("imageinfo", []):
+            infos.append(
+                ImageInfo(
+                    timestamp=raw_ii.get("timestamp"),
+                    user=raw_ii.get("user"),
+                    url=raw_ii.get("url"),
+                    descriptionurl=raw_ii.get("descriptionurl"),
+                    descriptionshorturl=raw_ii.get("descriptionshorturl"),
+                    width=raw_ii.get("width"),
+                    height=raw_ii.get("height"),
+                    size=raw_ii.get("size"),
+                    mime=raw_ii.get("mime"),
+                    mediatype=raw_ii.get("mediatype"),
+                    sha1=raw_ii.get("sha1"),
+                )
+            )
+        image._set_cached("imageinfo", params.cache_key(), infos)
+        return infos
+
     def _geosearch_api_params(self, params: GeoSearchParams) -> dict[str, Any]:
         """Build API params for ``list=geosearch``.
 
@@ -1011,11 +1112,11 @@ class BaseWikipediaResource(ABC):
         extract: dict[str, Any],
         page: "BaseWikipediaPage[Any]",
         params: ImagesParams,
-    ) -> PagesDict:
+    ) -> "ImagesDict":
         """Parse images from a single page API response entry.
 
-        Builds a :class:`PagesDict` of stub pages from ``extract["images"]``
-        and stores it in the page's per-param cache.
+        Builds an :class:`ImagesDict` of stub :class:`WikipediaImage` objects
+        from ``extract["images"]`` and stores it in the page's per-param cache.
 
         Args:
             extract: Single page entry from ``raw["query"]["pages"]``.
@@ -1023,12 +1124,14 @@ class BaseWikipediaResource(ABC):
             params: The parameters used for this fetch (for cache key).
 
         Returns:
-            :class:`PagesDict` keyed by image title.
+            :class:`ImagesDict` keyed by image title.
         """
+        from .._pages_dict import ImagesDict  # lazy import to avoid circular dependency
+
         self._common_attributes(extract, page)
-        result = PagesDict(wiki=self)
+        result = ImagesDict(wiki=self)
         for img in extract.get("images", []):
-            result[img["title"]] = self._make_page(
+            result[img["title"]] = self._make_image(
                 title=img["title"],
                 ns=int(img.get("ns", 6)),
                 language=page.language,

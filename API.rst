@@ -7,7 +7,9 @@ Wikipedia
 * ``page(title, ns=Namespace.MAIN)``
 * ``pages(titles)`` — create a ``PagesDict`` of lazy pages (no network call)
 * ``coordinates(page, *, limit=10, primary='primary', prop=('globe',), distance_from_point=None (GeoPoint), distance_from_page=None)`` → ``list[Coordinate]``
-* ``images(page, *, limit=10, images=None, direction=Direction.ASCENDING)`` → ``PagesDict``
+* ``images(page, *, limit=10, images=None, direction=Direction.ASCENDING)`` → ``ImagesDict``
+* ``imageinfo(image, *, prop=('url', 'width', 'height', ...), limit=1)`` → ``list[ImageInfo]``
+* ``batch_imageinfo(images, *, prop=('url', 'width', 'height', ...), limit=1)`` → ``dict[str, list[ImageInfo]]``
 * ``geosearch(*, coord=None (GeoPoint), page=None, bbox=None (GeoBox), radius=500, max_dim=None, sort='distance', limit=10, ns=Namespace.MAIN, prop=None)`` → ``PagesDict``
 * ``random(*, limit=1, ns=Namespace.MAIN, filter_redir='nonredirects')`` → ``PagesDict``
 * ``search(query, *, ns=Namespace.MAIN, limit=10, prop=None, info=None, sort='relevance')`` → ``SearchResults``
@@ -22,7 +24,9 @@ Same constructor parameters as ``Wikipedia``.  All methods are coroutines
 * ``page(title, ns=Namespace.MAIN)`` — returns an ``AsyncWikipediaPage`` (no network call)
 * ``pages(titles)`` — create an ``AsyncPagesDict`` of lazy pages (no network call)
 * ``await coordinates(page, ...)`` → ``list[Coordinate]``
-* ``await images(page, ...)`` → ``PagesDict``
+* ``await images(page, ...)`` → ``ImagesDict``
+* ``await imageinfo(image, ...)`` → ``list[ImageInfo]``
+* ``await batch_imageinfo(images, ...)`` → ``dict[str, list[ImageInfo]]``
 * ``await geosearch(...)`` → ``PagesDict``
 * ``await random(...)`` → ``PagesDict``
 * ``await search(query, ...)`` → ``SearchResults``
@@ -46,7 +50,7 @@ WikipediaPage
 * ``categories`` - categories this page belongs to ({title: ``WikipediaPage``})
 * ``categorymembers`` - pages in this category, when ``ns=Namespace.CATEGORY`` ({title: ``WikipediaPage``})
 * ``coordinates`` - geographic coordinates (list of ``Coordinate``); triggers ``coordinates`` API call with default params
-* ``images`` - images/files on this page (``PagesDict``); triggers ``images`` API call with default params
+* ``images`` - images/files on this page (``ImagesDict``); triggers ``images`` API call with default params
 * ``geosearch_meta`` - ``GeoSearchMeta`` or ``None``; set when page came from ``geosearch()`` (plain property, no fetch)
 * ``search_meta`` - ``SearchMeta`` or ``None``; set when page came from ``search()`` (plain property, no fetch)
 * ``displaytitle``
@@ -87,7 +91,7 @@ return coroutines (awaitable with ``await``).
 * ``await page.categories`` — awaitable property; ``{title: AsyncWikipediaPage}`` dict
 * ``await page.categorymembers`` — awaitable property; ``{title: AsyncWikipediaPage}`` dict
 * ``await page.coordinates`` — awaitable property; ``list[Coordinate]``
-* ``await page.images`` — awaitable property; ``PagesDict``
+* ``await page.images`` — awaitable property; ``ImagesDict``
 * ``page.geosearch_meta`` — plain property; ``GeoSearchMeta | None`` (no await)
 * ``page.search_meta`` — plain property; ``SearchMeta | None`` (no await)
 * ``await page.exists()`` — coroutine method; lazily fetches ``pageid`` via ``info`` if not yet cached
@@ -102,6 +106,60 @@ WikipediaPageSection
 * ``sections``
 * ``section_by_title(title)``
 * ``full_text(level=1)`` - rendered text of this section and all descendants
+
+WikipediaImage
+---------------
+Lazy representation of a Wikipedia/Commons file page.  No network call is
+made at construction time; accessing ``imageinfo`` (or any convenience
+property derived from it) triggers the minimum API call needed.
+
+* ``title`` — file title including the ``File:`` prefix
+* ``language`` — two-letter language code
+* ``namespace`` — integer namespace number (6 for files)
+* ``pageid`` — MediaWiki page ID
+* ``imageinfo`` — list of ``ImageInfo`` objects (lazy-fetched; triggers API call)
+* ``url`` — full URL of the file (from first ``ImageInfo``)
+* ``width`` — image width in pixels (from first ``ImageInfo``)
+* ``height`` — image height in pixels (from first ``ImageInfo``)
+* ``size`` — file size in bytes (from first ``ImageInfo``)
+* ``mime`` — MIME type (from first ``ImageInfo``)
+* ``mediatype`` — MediaWiki media type (from first ``ImageInfo``)
+* ``sha1`` — SHA-1 hash of the file (from first ``ImageInfo``)
+* ``timestamp`` — ISO 8601 timestamp of this revision (from first ``ImageInfo``)
+* ``user`` — username of the uploader (from first ``ImageInfo``)
+* ``descriptionurl`` — URL of the file description page (from first ``ImageInfo``)
+* ``descriptionshorturl`` — short URL of the description page (from first ``ImageInfo``)
+
+AsyncWikipediaImage
+--------------------
+Async mirror of ``WikipediaImage``.  All properties that trigger network calls
+are awaitable (use ``await``).
+
+* ``title``, ``language``, ``namespace``, ``pageid`` — plain properties (no await)
+* ``await imageinfo`` — awaitable property; list of ``ImageInfo`` objects
+* ``await url`` — awaitable property; full URL of the file
+* ``await width`` — awaitable property; image width in pixels
+* ``await height`` — awaitable property; image height in pixels
+* ``await size`` — awaitable property; file size in bytes
+* ``await mime`` — awaitable property; MIME type
+* ``await mediatype`` — awaitable property; MediaWiki media type
+* ``await sha1`` — awaitable property; SHA-1 hash of the file
+* ``await timestamp`` — awaitable property; ISO 8601 timestamp
+* ``await user`` — awaitable property; username of uploader
+* ``await descriptionurl`` — awaitable property; description page URL
+* ``await descriptionshorturl`` — awaitable property; short description page URL
+
+ImagesDict
+----------
+A ``dict[str, WikipediaImage]`` subclass with batch convenience methods.
+
+* ``imageinfo(*, prop=_DEFAULT_PROP, limit=1)`` → ``dict[str, list[ImageInfo]]`` — batch-fetch ``imageinfo`` for all images via ``batch_imageinfo()``
+
+AsyncImagesDict
+---------------
+Async mirror of ``ImagesDict``.
+
+* ``await imageinfo(*, prop=_DEFAULT_PROP, limit=1)`` → ``dict[str, list[ImageInfo]]``
 
 ExtractFormat
 -------------
@@ -193,6 +251,24 @@ Frozen dataclass attached to pages returned by ``search()``.
 * ``size: int`` — page size in bytes
 * ``wordcount: int`` — word count
 * ``timestamp: str`` — last edit timestamp (ISO 8601)
+
+``ImageInfo``
+~~~~~~~~~~~~~
+Frozen dataclass representing one file revision from ``prop=imageinfo``.
+All fields are optional and depend on the ``iiprop`` parameter and file
+availability.
+
+* ``url: str | None`` — full URL of the file
+* ``descriptionurl: str | None`` — URL of the file description page
+* ``descriptionshorturl: str | None`` — short URL of the description page
+* ``width: int | None`` — image width in pixels
+* ``height: int | None`` — image height in pixels
+* ``size: int | None`` — file size in bytes
+* ``mime: str | None`` — MIME type (e.g. ``"image/jpeg"``)
+* ``mediatype: str | None`` — MediaWiki media type (e.g. ``"BITMAP"``)
+* ``sha1: str | None`` — SHA-1 hash of the file content
+* ``timestamp: str | None`` — ISO 8601 timestamp of this revision
+* ``user: str | None`` — username of the uploader
 
 ``SearchResults``
 ~~~~~~~~~~~~~~~~~

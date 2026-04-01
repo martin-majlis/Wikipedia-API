@@ -5,6 +5,7 @@ import click
 import wikipediaapi
 from wikipediaapi.commands import category_commands
 from wikipediaapi.commands import geo_commands
+from wikipediaapi.commands import image_commands
 from wikipediaapi.commands import link_commands
 from wikipediaapi.commands import page_commands
 from wikipediaapi.commands import search_commands
@@ -40,6 +41,7 @@ page_commands.register_commands(cli)
 link_commands.register_commands(cli)
 category_commands.register_commands(cli)
 geo_commands.register_commands(cli)
+image_commands.register_commands(cli)
 search_commands.register_commands(cli)
 
 

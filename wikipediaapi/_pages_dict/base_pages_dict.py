@@ -22,7 +22,10 @@ if TYPE_CHECKING:
     from .._resources import BaseWikipediaResource  # noqa: F401
     from .._types import Coordinate  # noqa: F401
     from .._types import GeoPoint  # noqa: F401
+    from .._types import ImageInfo  # noqa: F401
+    from ..async_wikipedia_image import AsyncWikipediaImage  # noqa: F401
     from ..async_wikipedia_page import AsyncWikipediaPage  # noqa: F401
+    from ..wikipedia_image import WikipediaImage  # noqa: F401
     from ..wikipedia_page import WikipediaPage  # noqa: F401
     from .async_pages_dict import AsyncPagesDict  # noqa: F401
     from .pages_dict import PagesDict  # noqa: F401
@@ -70,3 +73,23 @@ class _AsyncBatchWiki(Protocol):
         images: Iterable[str] | None = None,
         direction: WikiDirection = Direction.ASCENDING,
     ) -> dict[str, PagesDict]: ...
+
+
+class _SyncImageWiki(Protocol):
+    def batch_imageinfo(
+        self,
+        images: list[WikipediaImage],
+        *,
+        prop: tuple[str, ...] = ...,
+        limit: int = 1,
+    ) -> dict[str, list[ImageInfo]]: ...
+
+
+class _AsyncImageWiki(Protocol):
+    async def batch_imageinfo(
+        self,
+        images: list[AsyncWikipediaImage],
+        *,
+        prop: tuple[str, ...] = ...,
+        limit: int = 1,
+    ) -> dict[str, list[ImageInfo]]: ...

@@ -9,4 +9,4 @@ Zen of Python
 Python
 List of Python software
 Glob (programming)
-Anaconda (Python distribution)
+Stackless Python

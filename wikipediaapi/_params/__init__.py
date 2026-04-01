@@ -12,6 +12,7 @@ by _resources.py to convert explicit method signatures into API params.
 from .base_params import _BaseParams  # noqa: F401
 from .coordinates_params import CoordinatesParams  # noqa: F401
 from .geo_search_params import GeoSearchParams  # noqa: F401
+from .imageinfo_params import ImageInfoParams  # noqa: F401
 from .images_params import ImagesParams  # noqa: F401
 from .protocols import _HasTitle  # noqa: F401
 from .random_params import RandomParams  # noqa: F401

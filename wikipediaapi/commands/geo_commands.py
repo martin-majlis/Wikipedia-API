@@ -15,7 +15,6 @@ from .base import coordinate_type2str
 from .base import CoordinateType
 from .base import create_wikipedia_instance
 from .base import fetch_page
-from .base import format_page_dict
 from .base import geosearch_sort2str
 from .base import GeoSearchKwargs
 from .base import GeoSearchSort
@@ -96,32 +95,6 @@ def format_coordinates(coords: list[dict[str, Any]], output_format: str) -> str:
                 parts.append(f"dist={c['dist']}m")
             lines.append(" ".join(parts))
         return "\n".join(lines)
-
-
-def get_page_images(
-    wiki,
-    title: str,
-    namespace: int = 0,
-    limit: int = 10,
-):
-    r"""Get images (files) used on a Wikipedia page.
-
-    Args:
-        wiki: Wikipedia instance
-        title: Page title
-        namespace: Wikipedia namespace
-        limit: Maximum number of images to return
-
-    Returns:
-        Dictionary of image pages keyed by title
-
-    Raises:
-        PageNotFoundError: If the page does not exist
-    """
-    page = fetch_page(wiki, title, namespace)
-    if not page.exists():
-        raise PageNotFoundError(f"Page '{title}' does not exist.")
-    return wiki.images(page, limit=limit)
 
 
 def get_geosearch_results(
@@ -282,46 +255,6 @@ def register_commands(cli_group):
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
             coords_data = get_page_coordinates(wiki, title, namespace, limit, primary)
             result = format_coordinates(coords_data, output_format)
-            click.echo(result)
-        except PageNotFoundError as e:
-            click.echo(str(e), err=True)
-            sys.exit(1)
-
-    @cli_group.command()
-    @click.argument("title")
-    @click.option(
-        "--limit",
-        type=int,
-        default=10,
-        show_default=True,
-        help="Maximum number of images to return.",
-    )
-    @add_options(_common_options)
-    @_json_option
-    def images(
-        title,
-        limit,
-        language,
-        user_agent,
-        variant,
-        extract_format,
-        namespace,
-        output_format,
-    ):
-        r"""List images (files) used on a Wikipedia page.
-
-        TITLE is the Wikipedia page title.
-
-        \b
-        Examples:
-            wikipedia-api images "Python (programming language)"
-            wikipedia-api images "Python (programming language)" --json
-            wikipedia-api images "Earth" --limit 50
-        """
-        try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-            images_data = get_page_images(wiki, title, namespace, limit)
-            result = format_page_dict(images_data, output_format)
             click.echo(result)
         except PageNotFoundError as e:
             click.echo(str(e), err=True)

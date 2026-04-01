@@ -46,7 +46,9 @@ from ._http_client import AsyncHTTPClient
 from ._http_client import BaseHTTPClient
 from ._http_client import SyncHTTPClient
 from ._http_client import USER_AGENT
+from ._pages_dict import AsyncImagesDict
 from ._pages_dict import AsyncPagesDict
+from ._pages_dict import ImagesDict
 from ._pages_dict import PagesDict
 from ._resources import AsyncWikipediaResource
 from ._resources import BaseWikipediaResource
@@ -55,10 +57,12 @@ from ._types import Coordinate
 from ._types import GeoBox
 from ._types import GeoPoint
 from ._types import GeoSearchMeta
+from ._types import ImageInfo
 from ._types import SearchMeta
 from ._types import SearchResults
 from ._version import __version__ as __version
 from .async_wikipedia import AsyncWikipedia
+from .async_wikipedia_image import AsyncWikipediaImage
 from .async_wikipedia_page import AsyncWikipediaPage
 from .exceptions import WikiConnectionError
 from .exceptions import WikiHttpError
@@ -68,6 +72,7 @@ from .exceptions import WikipediaException
 from .exceptions import WikiRateLimitError
 from .extract_format import ExtractFormat
 from .wikipedia import Wikipedia
+from .wikipedia_image import WikipediaImage
 from .wikipedia_page import WikipediaPage
 from .wikipedia_page_section import WikipediaPageSection
 
@@ -78,15 +83,20 @@ __all__ = [
     "AsyncWikipedia",
     "WikipediaPage",
     "AsyncWikipediaPage",
+    "WikipediaImage",
+    "AsyncWikipediaImage",
     "WikipediaPageSection",
     "Coordinate",
     "GeoBox",
     "GeoPoint",
     "GeoSearchMeta",
+    "ImageInfo",
     "SearchMeta",
     "SearchResults",
     "PagesDict",
     "AsyncPagesDict",
+    "ImagesDict",
+    "AsyncImagesDict",
     "WikipediaException",
     "WikiHttpTimeoutError",
     "WikiHttpError",

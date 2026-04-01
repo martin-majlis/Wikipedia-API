@@ -58,14 +58,6 @@
 "timestamp": "2026-03-10T10:36:25Z"
 },
 {
-"title": "List of Python software",
-"pageid": 3673376,
-"snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform",
-"size": 35231,
-"wordcount": 3675,
-"timestamp": "2026-03-27T01:44:00Z"
-},
-{
 "title": "Glob (programming)",
 "pageid": 484117,
 "snippet": "on these same wildcard patterns. Guido van Rossum, author of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, wrote and contributed a glob routine to BSD Unix in 1986",
@@ -74,12 +66,20 @@
 "timestamp": "2026-03-01T01:55:39Z"
 },
 {
-"title": "Anaconda (Python distribution)",
-"pageid": 43003632,
-"snippet": "science and artificial intelligence distribution platform for the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. Developed by Anaconda, Inc., an American company founded",
-"size": 24837,
-"wordcount": 1961,
-"timestamp": "2026-03-30T14:00:32Z"
+"title": "List of Python software",
+"pageid": 3673376,
+"snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform",
+"size": 35231,
+"wordcount": 3675,
+"timestamp": "2026-03-27T01:44:00Z"
+},
+{
+"title": "Stackless Python",
+"pageid": 2009536,
+"snippet": "Stackless <span class=\"searchmatch\">Python</span>, or Stackless, was a <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language interpreter. Its GitHub repository has been archived since February 2025, and the project",
+"size": 6573,
+"wordcount": 556,
+"timestamp": "2025-09-08T05:44:49Z"
 }
 ]
 }
