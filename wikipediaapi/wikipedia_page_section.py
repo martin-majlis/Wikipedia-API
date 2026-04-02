@@ -8,7 +8,7 @@ with the page summary as the root and headings as child sections.
 from typing import Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .wikipedia import Wikipedia
+    from ._resources.base_wikipedia_resource import BaseWikipediaResource
 
 from .extract_format import ExtractFormat
 
@@ -31,7 +31,9 @@ class WikipediaPageSection:
         determine the extract format when rendering
     """
 
-    def __init__(self, wiki: "Wikipedia", title: str, level: int = 0, text: str = "") -> None:
+    def __init__(
+        self, wiki: "BaseWikipediaResource", title: str, level: int = 0, text: str = ""
+    ) -> None:
         """
         Initialise a page section.
 

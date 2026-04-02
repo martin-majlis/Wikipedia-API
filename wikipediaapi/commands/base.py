@@ -71,7 +71,7 @@ class PageInfo(TypedDict, total=False):
 
     title: str
     pageid: int | None
-    ns: int
+    namespace: int
     exists: bool
     language: str
     fullurl: str | None

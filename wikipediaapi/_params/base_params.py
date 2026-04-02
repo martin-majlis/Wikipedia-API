@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from dataclasses import fields
 from enum import Enum
-from typing import Any, ClassVar
+from typing import Any, cast, ClassVar
 
 
 class _BaseParams:
@@ -59,4 +59,4 @@ class _BaseParams:
         Returns:
             Tuple of ``(field_name, value)`` pairs, sorted by field name.
         """
-        return tuple(sorted((f.name, getattr(self, f.name)) for f in dataclasses.fields(self)))
+        return tuple(sorted((f.name, getattr(self, f.name)) for f in fields(cast(Any, self))))

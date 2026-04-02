@@ -189,10 +189,3 @@ python-version = "3.10"
 "unresolved-attribute" = "warn"
 "invalid-await" = "warn"
 "empty-body" = "warn"
-
-[[tool.ty.overrides]]
-# Ignore complex async resource files temporarily
-exclude = [
-    "wikipediaapi/_resources/async_wikipedia_resource.py",
-    "wikipediaapi/_resources/base_wikipedia_resource.py"
-]

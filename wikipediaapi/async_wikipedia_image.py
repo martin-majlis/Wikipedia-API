@@ -5,6 +5,7 @@ file page in an asynchronous context.  It mirrors WikipediaImage but
 exposes all data-fetching as awaitables.
 """
 
+from collections.abc import Coroutine
 from typing import Any
 
 from ._base_wikipedia_page import BaseWikipediaPage
@@ -83,7 +84,7 @@ class AsyncWikipediaImage(BaseWikipediaPage["AsyncWikipediaImage"]):
         return int(self._attributes.get("pageid", -1)) > 0 or "known" in self._attributes
 
     @property
-    def imageinfo(self) -> object:
+    def imageinfo(self) -> Coroutine[Any, Any, list[ImageInfo]]:
         """Awaitable: list of :class:`~wikipediaapi.ImageInfo` objects.
 
         Triggers an ``imageinfo`` API call on first access using default
@@ -106,111 +107,111 @@ class AsyncWikipediaImage(BaseWikipediaPage["AsyncWikipediaImage"]):
         return _get()
 
     @property
-    def url(self) -> object:
+    def url(self) -> Coroutine[Any, Any, str | None]:
         """Awaitable: full URL of the file, or ``None`` if unavailable."""
 
         async def _get() -> str | None:
-            infos: list[ImageInfo] = await self.imageinfo  # type: ignore[misc]
+            infos: list[ImageInfo] = await self.imageinfo
             return infos[0].url if infos else None
 
         return _get()
 
     @property
-    def descriptionurl(self) -> object:
+    def descriptionurl(self) -> Coroutine[Any, Any, str | None]:
         """Awaitable: URL of the file description page, or ``None``."""
 
         async def _get() -> str | None:
-            infos: list[ImageInfo] = await self.imageinfo  # type: ignore[misc]
+            infos: list[ImageInfo] = await self.imageinfo
             return infos[0].descriptionurl if infos else None
 
         return _get()
 
     @property
-    def descriptionshorturl(self) -> object:
+    def descriptionshorturl(self) -> Coroutine[Any, Any, str | None]:
         """Awaitable: short URL of the file description page, or ``None``."""
 
         async def _get() -> str | None:
-            infos: list[ImageInfo] = await self.imageinfo  # type: ignore[misc]
+            infos: list[ImageInfo] = await self.imageinfo
             return infos[0].descriptionshorturl if infos else None
 
         return _get()
 
     @property
-    def width(self) -> object:
+    def width(self) -> Coroutine[Any, Any, int | None]:
         """Awaitable: image width in pixels, or ``None``."""
 
         async def _get() -> int | None:
-            infos: list[ImageInfo] = await self.imageinfo  # type: ignore[misc]
+            infos: list[ImageInfo] = await self.imageinfo
             return infos[0].width if infos else None
 
         return _get()
 
     @property
-    def height(self) -> object:
+    def height(self) -> Coroutine[Any, Any, int | None]:
         """Awaitable: image height in pixels, or ``None``."""
 
         async def _get() -> int | None:
-            infos: list[ImageInfo] = await self.imageinfo  # type: ignore[misc]
+            infos: list[ImageInfo] = await self.imageinfo
             return infos[0].height if infos else None
 
         return _get()
 
     @property
-    def size(self) -> object:
+    def size(self) -> Coroutine[Any, Any, int | None]:
         """Awaitable: file size in bytes, or ``None``."""
 
         async def _get() -> int | None:
-            infos: list[ImageInfo] = await self.imageinfo  # type: ignore[misc]
+            infos: list[ImageInfo] = await self.imageinfo
             return infos[0].size if infos else None
 
         return _get()
 
     @property
-    def mime(self) -> object:
+    def mime(self) -> Coroutine[Any, Any, str | None]:
         """Awaitable: MIME type of the file, or ``None``."""
 
         async def _get() -> str | None:
-            infos: list[ImageInfo] = await self.imageinfo  # type: ignore[misc]
+            infos: list[ImageInfo] = await self.imageinfo
             return infos[0].mime if infos else None
 
         return _get()
 
     @property
-    def mediatype(self) -> object:
+    def mediatype(self) -> Coroutine[Any, Any, str | None]:
         """Awaitable: MediaWiki media type, or ``None``."""
 
         async def _get() -> str | None:
-            infos: list[ImageInfo] = await self.imageinfo  # type: ignore[misc]
+            infos: list[ImageInfo] = await self.imageinfo
             return infos[0].mediatype if infos else None
 
         return _get()
 
     @property
-    def sha1(self) -> object:
+    def sha1(self) -> Coroutine[Any, Any, str | None]:
         """Awaitable: SHA-1 hash of the file content, or ``None``."""
 
         async def _get() -> str | None:
-            infos: list[ImageInfo] = await self.imageinfo  # type: ignore[misc]
+            infos: list[ImageInfo] = await self.imageinfo
             return infos[0].sha1 if infos else None
 
         return _get()
 
     @property
-    def timestamp(self) -> object:
+    def timestamp(self) -> Coroutine[Any, Any, str | None]:
         """Awaitable: ISO 8601 timestamp of this file revision, or ``None``."""
 
         async def _get() -> str | None:
-            infos: list[ImageInfo] = await self.imageinfo  # type: ignore[misc]
+            infos: list[ImageInfo] = await self.imageinfo
             return infos[0].timestamp if infos else None
 
         return _get()
 
     @property
-    def user(self) -> object:
+    def user(self) -> Coroutine[Any, Any, str | None]:
         """Awaitable: username of the uploader, or ``None``."""
 
         async def _get() -> str | None:
-            infos: list[ImageInfo] = await self.imageinfo  # type: ignore[misc]
+            infos: list[ImageInfo] = await self.imageinfo
             return infos[0].user if infos else None
 
         return _get()

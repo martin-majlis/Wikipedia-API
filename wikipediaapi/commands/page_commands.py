@@ -1,7 +1,6 @@
 r"""Page-related CLI commands."""
 
 import sys
-from typing import Any
 
 import click
 
@@ -137,7 +136,7 @@ def get_page_info(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) 
         "title": p.title,
         "exists": p.exists(),
         "language": p.language,
-        "ns": p.namespace,
+        "namespace": p.namespace,
     }
     if p.exists():
         info["pageid"] = p.pageid
