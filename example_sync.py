@@ -408,7 +408,7 @@ batch_coords_strings = pages.coordinates(prop=["globe", "name", "dim"])
 print(f"Batch coordinates with strings: {len(batch_coords_strings)} pages")
 
 # ──────────────────────────────────────────────────────────────────────────────
-# 13. Images (prop=images)
+# 13. Images (prop=images) and Image Metadata (prop=imageinfo)
 # ──────────────────────────────────────────────────────────────────────────────
 
 # Fetch images/files used on a page (using direction)
@@ -420,6 +420,27 @@ for title in sorted(imgs)[:5]:
 # Page-level property
 imgs_prop = london.images
 print(f"London images via property: {len(imgs_prop)}")
+
+# Fetch detailed metadata for images (URL, dimensions, MIME type, uploader, etc.)
+# Each image's convenience properties (url, width, height, mime, etc.) trigger lazy
+# imageinfo fetches on first access.  Subsequent accesses use the cached value.
+python_page = wiki.page("Python_(programming_language)")
+print("Python page images with metadata:")
+for title, img in sorted(python_page.images.items())[:3]:
+    # These properties trigger individual imageinfo API calls:
+    print(f"  {title}:")
+    print(f"    URL: {img.url}")
+    print(f"    Dimensions: {img.width}x{img.height}")
+    print(f"    MIME: {img.mime}")
+    print(f"    User: {img.user}")
+
+# Batch-fetch imageinfo for all images at once (more efficient):
+infos = python_page.images.imageinfo()
+print(f"Batch imageinfo: {len(infos)} images")
+for title, info_list in sorted(infos.items())[:3]:
+    if info_list:
+        info = info_list[0]
+        print(f"  {title}: {info.url}, {info.width}x{info.height}")
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 14. Geosearch (list=geosearch)

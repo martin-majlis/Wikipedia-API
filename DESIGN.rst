@@ -42,6 +42,7 @@ File Layout
     │   ├── link_commands.py     # Link-related commands
     │   ├── category_commands.py # Category commands
     │   ├── geo_commands.py      # Geographic commands
+    │   ├── image_commands.py    # Image file commands
     │   └── search_commands.py    # Search and discovery commands
     ├── _http_client/            # Transport layer package
     │   ├── __init__.py
@@ -61,6 +62,7 @@ File Layout
     │   ├── geo_point.py          # GeoPoint dataclass
     │   ├── geo_box.py            # GeoBox dataclass
     │   ├── geo_search_meta.py    # GeoSearchMeta dataclass
+    │   ├── image_info.py         # ImageInfo dataclass
     │   ├── search_meta.py        # SearchMeta dataclass
     │   └── search_results.py     # SearchResults dataclass
     ├── _params/                 # Query parameter dataclasses package
@@ -72,11 +74,13 @@ File Layout
     │   ├── random_params.py      # RandomParams
     │   ├── search_params.py      # SearchParams
     │   └── protocols.py          # Protocol constants
-    ├── _pages_dict/             # PagesDict package
+    ├── _pages_dict/             # PagesDict and ImagesDict package
     │   ├── __init__.py
     │   ├── base_pages_dict.py   # Base PagesDict functionality
     │   ├── pages_dict.py         # PagesDict (sync)
-    │   └── async_pages_dict.py   # AsyncPagesDict
+    │   ├── async_pages_dict.py   # AsyncPagesDict
+    │   ├── images_dict.py        # ImagesDict (sync)
+    │   └── async_images_dict.py  # AsyncImagesDict
     ├── _enums/                  # Enums package
     │   ├── __init__.py
     │   ├── coordinate_type.py    # CoordinateType enum
@@ -104,6 +108,8 @@ File Layout
     ├── _base_wikipedia_page.py  # BaseWikipediaPage (shared page state & methods)
     ├── wikipedia_page.py        # WikipediaPage (lazy sync page object)
     ├── async_wikipedia_page.py  # AsyncWikipediaPage (lazy async page object)
+    ├── wikipedia_image.py       # WikipediaImage (lazy sync file page object)
+    ├── async_wikipedia_image.py # AsyncWikipediaImage (lazy async file page object)
     ├── wikipedia_page_section.py  # WikipediaPageSection
     ├── extract_format.py        # ExtractFormat enum (WIKI / HTML)
     └── namespace.py             # Legacy namespace module (redirects to _enums.namespace)
@@ -124,7 +130,9 @@ The inheritance chains are::
 
     BaseWikipediaPage
     ├── WikipediaPage
-    └── AsyncWikipediaPage
+    ├── AsyncWikipediaPage
+    ├── WikipediaImage
+    └── AsyncWikipediaImage
 
 Concrete clients compose one transport and one API mixin::
 

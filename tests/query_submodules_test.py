@@ -10,11 +10,13 @@ from wikipediaapi._base_wikipedia_page import NOT_CACHED
 from wikipediaapi._enums import Direction
 from wikipediaapi._params import CoordinatesParams
 from wikipediaapi._params import GeoSearchParams
+from wikipediaapi._params import ImageInfoParams
 from wikipediaapi._params import ImagesParams
 from wikipediaapi._params import RandomParams
 from wikipediaapi._params import SearchParams
 from wikipediaapi._types import GeoBox
 from wikipediaapi._types import GeoPoint
+from wikipediaapi._types import ImageInfo
 
 
 class TestCoordinates:
@@ -83,10 +85,16 @@ class TestImages:
     def test_images_default(self):
         page = self.wiki.page("Test_1")
         imgs = self.wiki.images(page)
-        assert isinstance(imgs, wikipediaapi.PagesDict)
+        assert isinstance(imgs, wikipediaapi.ImagesDict)
         assert len(imgs) == 2
         assert "File:Example.png" in imgs
         assert "File:Logo.svg" in imgs
+
+    def test_images_values_are_wikipedia_image(self):
+        page = self.wiki.page("Test_1")
+        imgs = self.wiki.images(page)
+        for img in imgs.values():
+            assert isinstance(img, wikipediaapi.WikipediaImage)
 
     def test_images_nonexistent_page(self):
         page = self.wiki.page("NonExistent")
@@ -102,7 +110,7 @@ class TestImages:
     def test_page_images_property(self):
         page = self.wiki.page("Test_1")
         imgs = page.images
-        assert isinstance(imgs, wikipediaapi.PagesDict)
+        assert isinstance(imgs, wikipediaapi.ImagesDict)
         assert len(imgs) == 2
 
 
@@ -458,6 +466,230 @@ class TestBatchImages:
         assert len(result["NonExistent"]) == 0
 
 
+class TestImageInfo:
+    def setup_method(self):
+        self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
+        self.wiki._get = wikipedia_api_request(self.wiki)
+
+    def _make_image(self, title):
+        return wikipediaapi.WikipediaImage(
+            self.wiki,
+            title=title,
+            ns=6,
+            language="en",
+            variant=None,
+        )
+
+    def test_imageinfo_returns_list_of_imageinfo(self):
+        img = self._make_image("File:Example.png")
+        result = self.wiki.imageinfo(img)
+        assert isinstance(result, list)
+        assert len(result) == 1
+        assert isinstance(result[0], ImageInfo)
+
+    def test_imageinfo_fields_example_png(self):
+        img = self._make_image("File:Example.png")
+        result = self.wiki.imageinfo(img)
+        info = result[0]
+        assert info.timestamp == "2023-01-15T10:30:00Z"
+        assert info.user == "TestUser"
+        assert info.url == "https://upload.wikimedia.org/wikipedia/commons/e/example.png"
+        assert info.descriptionurl == "https://commons.wikimedia.org/wiki/File:Example.png"
+        assert info.descriptionshorturl == "https://commons.wikimedia.org/w/index.php?curid=12345"
+        assert info.size == 102400
+        assert info.width == 800
+        assert info.height == 600
+        assert info.sha1 == "abcdef1234567890abcdef1234567890abcdef12"
+        assert info.mime == "image/png"
+        assert info.mediatype == "BITMAP"
+
+    def test_imageinfo_fields_logo_svg(self):
+        img = self._make_image("File:Logo.svg")
+        result = self.wiki.imageinfo(img)
+        info = result[0]
+        assert info.mime == "image/svg+xml"
+        assert info.mediatype == "DRAWING"
+        assert info.width == 200
+        assert info.height == 200
+
+    def test_imageinfo_missing_file_returns_empty_list(self):
+        img = self._make_image("File:NonExistent.png")
+        result = self.wiki.imageinfo(img)
+        assert result == []
+
+    def test_imageinfo_cached_returns_same_object(self):
+        img = self._make_image("File:Example.png")
+        result1 = self.wiki.imageinfo(img)
+        result2 = self.wiki.imageinfo(img)
+        assert result1 is result2
+
+    def test_imageinfo_via_image_property(self):
+        img = self._make_image("File:Example.png")
+        result = img.imageinfo
+        assert isinstance(result, list)
+        assert len(result) == 1
+        assert isinstance(result[0], ImageInfo)
+
+    def test_imageinfo_property_cached(self):
+        img = self._make_image("File:Example.png")
+        result1 = img.imageinfo
+        result2 = img.imageinfo
+        assert result1 is result2
+
+    def test_imageinfo_missing_file_property_returns_empty(self):
+        img = self._make_image("File:NonExistent.png")
+        result = img.imageinfo
+        assert result == []
+
+    def test_exists_commons_file_returns_true(self):
+        img = self._make_image("File:Example.png")
+        assert img.exists() is True
+
+    def test_exists_missing_file_returns_false(self):
+        img = self._make_image("File:NonExistent.png")
+        assert img.exists() is False
+
+    def test_convenience_property_url(self):
+        img = self._make_image("File:Example.png")
+        assert img.url == "https://upload.wikimedia.org/wikipedia/commons/e/example.png"
+
+    def test_convenience_property_width(self):
+        img = self._make_image("File:Example.png")
+        assert img.width == 800
+
+    def test_convenience_property_height(self):
+        img = self._make_image("File:Example.png")
+        assert img.height == 600
+
+    def test_convenience_property_size(self):
+        img = self._make_image("File:Example.png")
+        assert img.size == 102400
+
+    def test_convenience_property_mime(self):
+        img = self._make_image("File:Example.png")
+        assert img.mime == "image/png"
+
+    def test_convenience_property_mediatype(self):
+        img = self._make_image("File:Example.png")
+        assert img.mediatype == "BITMAP"
+
+    def test_convenience_property_sha1(self):
+        img = self._make_image("File:Example.png")
+        assert img.sha1 == "abcdef1234567890abcdef1234567890abcdef12"
+
+    def test_convenience_property_timestamp(self):
+        img = self._make_image("File:Example.png")
+        assert img.timestamp == "2023-01-15T10:30:00Z"
+
+    def test_convenience_property_user(self):
+        img = self._make_image("File:Example.png")
+        assert img.user == "TestUser"
+
+    def test_convenience_property_descriptionurl(self):
+        img = self._make_image("File:Example.png")
+        assert img.descriptionurl == "https://commons.wikimedia.org/wiki/File:Example.png"
+
+    def test_convenience_property_descriptionshorturl(self):
+        img = self._make_image("File:Example.png")
+        assert img.descriptionshorturl == "https://commons.wikimedia.org/w/index.php?curid=12345"
+
+    def test_convenience_properties_missing_file_return_none(self):
+        img = self._make_image("File:NonExistent.png")
+        assert img.url is None
+        assert img.width is None
+        assert img.height is None
+        assert img.size is None
+        assert img.mime is None
+        assert img.mediatype is None
+        assert img.sha1 is None
+        assert img.timestamp is None
+        assert img.user is None
+        assert img.descriptionurl is None
+        assert img.descriptionshorturl is None
+
+    def test_images_dict_imageinfo_batch_method(self):
+        page = self.wiki.page("Test_1")
+        imgs = self.wiki.images(page)
+        assert isinstance(imgs, wikipediaapi.ImagesDict)
+        result = imgs.imageinfo()
+        assert isinstance(result, dict)
+        assert "File:Example.png" in result
+        assert "File:Logo.svg" in result
+        assert isinstance(result["File:Example.png"], list)
+        assert isinstance(result["File:Example.png"][0], ImageInfo)
+
+    def test_batch_imageinfo_returns_dict(self):
+        img1 = self._make_image("File:Example.png")
+        img2 = self._make_image("File:Logo.svg")
+        result = self.wiki.batch_imageinfo([img1, img2])
+        assert isinstance(result, dict)
+        assert "File:Example.png" in result
+        assert "File:Logo.svg" in result
+
+    def test_batch_imageinfo_populates_each_image(self):
+        img1 = self._make_image("File:Example.png")
+        img2 = self._make_image("File:Logo.svg")
+        result = self.wiki.batch_imageinfo([img1, img2])
+        assert len(result["File:Example.png"]) == 1
+        assert result["File:Example.png"][0].mime == "image/png"
+        assert len(result["File:Logo.svg"]) == 1
+        assert result["File:Logo.svg"][0].mime == "image/svg+xml"
+
+    def test_sections_returns_empty_list(self):
+        img = self._make_image("File:Example.png")
+        assert img.sections == []
+
+    def test_repr_before_fetch(self):
+        img = self._make_image("File:Example.png")
+        r = repr(img)
+        assert "File:Example.png" in r
+        assert "id: ??" in r
+
+    def test_exists_local_file_positive_pageid_returns_true(self):
+        img = self._make_image("File:LocalFile.png")
+        assert img.exists() is True
+
+    def test_getattr_triggers_info_fetch(self):
+        img = self._make_image("File:LocalFile.png")
+        # fullurl is stored in _attributes after info fetch
+        val = img.fullurl
+        assert val == "https://en.wikipedia.org/wiki/File:LocalFile.png"
+
+    def test_getattr_raises_for_missing_attribute(self):
+        img = self._make_image("File:LocalFile.png")
+        # Trigger info fetch first
+        _ = img.fullurl
+        with pytest.raises(AttributeError):
+            _ = img.totally_nonexistent_field_xyz
+
+    def test_getattr_raises_for_private_attribute(self):
+        img = self._make_image("File:Example.png")
+        with pytest.raises(AttributeError):
+            _ = img._nonexistent_private
+
+    def test_repr_after_info_fetch_includes_pageid(self):
+        img = self._make_image("File:LocalFile.png")
+        _ = img.fullurl  # triggers _fetch("info") via __getattr__
+        r = repr(img)
+        assert "File:LocalFile.png" in r
+        assert "id: ??" not in r
+
+    def test_imageinfo_params_to_api(self):
+        p = ImageInfoParams()
+        api = p.to_api()
+        assert api["iiprop"] == "url|size|mime|mediatype|sha1|timestamp|user"
+        assert api["iilimit"] == "1"
+
+    def test_imageinfo_params_rejects_string_prop(self):
+        with pytest.raises(TypeError):
+            ImageInfoParams(prop="url|size")
+
+    def test_imageinfo_frozen(self):
+        info = ImageInfo(url="http://example.com", width=100)
+        with pytest.raises(AttributeError):
+            info.url = "http://other.com"  # type: ignore[misc]
+
+
 class TestPagesDictBatchMethods:
     def setup_method(self):
         self.wiki = wikipediaapi.Wikipedia(user_agent, "en")
@@ -595,7 +827,7 @@ class TestAsyncQuerySubmodules:
     async def test_async_images(self):
         page = self.wiki.page("Test_1")
         imgs = await self.wiki.images(page)
-        assert isinstance(imgs, wikipediaapi.AsyncPagesDict)
+        assert isinstance(imgs, wikipediaapi.AsyncImagesDict)
         assert len(imgs) == 2
 
     async def test_async_images_nonexistent(self):
@@ -662,7 +894,7 @@ class TestAsyncQuerySubmodules:
     async def test_async_page_images_property(self):
         page = self.wiki.page("Test_1")
         imgs = await page.images
-        assert isinstance(imgs, wikipediaapi.AsyncPagesDict)
+        assert isinstance(imgs, wikipediaapi.AsyncImagesDict)
         assert len(imgs) == 2
 
     async def test_async_page_geosearch_meta_none(self):
@@ -684,3 +916,159 @@ class TestAsyncQuerySubmodules:
         p = results.pages["Python (programming language)"]
         assert p.search_meta is not None
         assert p.search_meta.size == 123456
+
+    def _make_async_image(self, title):
+        return wikipediaapi.AsyncWikipediaImage(
+            self.wiki,
+            title=title,
+            ns=6,
+            language="en",
+            variant=None,
+        )
+
+    async def test_async_imageinfo_returns_list(self):
+        img = self._make_async_image("File:Example.png")
+        result = await self.wiki.imageinfo(img)
+        assert isinstance(result, list)
+        assert len(result) == 1
+        assert isinstance(result[0], ImageInfo)
+
+    async def test_async_imageinfo_fields(self):
+        img = self._make_async_image("File:Example.png")
+        result = await self.wiki.imageinfo(img)
+        info = result[0]
+        assert info.url == "https://upload.wikimedia.org/wikipedia/commons/e/example.png"
+        assert info.width == 800
+        assert info.height == 600
+        assert info.mime == "image/png"
+        assert info.mediatype == "BITMAP"
+
+    async def test_async_imageinfo_missing_returns_empty(self):
+        img = self._make_async_image("File:NonExistent.png")
+        result = await self.wiki.imageinfo(img)
+        assert result == []
+
+    async def test_async_imageinfo_cached(self):
+        img = self._make_async_image("File:Example.png")
+        result1 = await self.wiki.imageinfo(img)
+        result2 = await self.wiki.imageinfo(img)
+        assert result1 is result2
+
+    async def test_async_imageinfo_via_property(self):
+        img = self._make_async_image("File:Example.png")
+        result = await img.imageinfo
+        assert isinstance(result, list)
+        assert len(result) == 1
+        assert result[0].mime == "image/png"
+
+    async def test_async_imageinfo_property_cached(self):
+        img = self._make_async_image("File:Example.png")
+        result1 = await img.imageinfo
+        result2 = await img.imageinfo
+        assert result1 is result2
+
+    async def test_async_exists_commons_file(self):
+        img = self._make_async_image("File:Example.png")
+        assert await img.exists() is True
+
+    async def test_async_exists_missing_file(self):
+        img = self._make_async_image("File:NonExistent.png")
+        assert await img.exists() is False
+
+    async def test_async_convenience_property_url(self):
+        img = self._make_async_image("File:Example.png")
+        assert await img.url == "https://upload.wikimedia.org/wikipedia/commons/e/example.png"
+
+    async def test_async_convenience_property_width(self):
+        img = self._make_async_image("File:Example.png")
+        assert await img.width == 800
+
+    async def test_async_convenience_property_height(self):
+        img = self._make_async_image("File:Example.png")
+        assert await img.height == 600
+
+    async def test_async_convenience_property_mime(self):
+        img = self._make_async_image("File:Example.png")
+        assert await img.mime == "image/png"
+
+    async def test_async_convenience_property_mediatype(self):
+        img = self._make_async_image("File:Example.png")
+        assert await img.mediatype == "BITMAP"
+
+    async def test_async_convenience_property_sha1(self):
+        img = self._make_async_image("File:Example.png")
+        assert await img.sha1 == "abcdef1234567890abcdef1234567890abcdef12"
+
+    async def test_async_convenience_property_timestamp(self):
+        img = self._make_async_image("File:Example.png")
+        assert await img.timestamp == "2023-01-15T10:30:00Z"
+
+    async def test_async_convenience_property_user(self):
+        img = self._make_async_image("File:Example.png")
+        assert await img.user == "TestUser"
+
+    async def test_async_convenience_property_descriptionurl(self):
+        img = self._make_async_image("File:Example.png")
+        assert await img.descriptionurl == "https://commons.wikimedia.org/wiki/File:Example.png"
+
+    async def test_async_convenience_property_descriptionshorturl(self):
+        img = self._make_async_image("File:Example.png")
+        assert (
+            await img.descriptionshorturl == "https://commons.wikimedia.org/w/index.php?curid=12345"
+        )
+
+    async def test_async_convenience_properties_missing_return_none(self):
+        img = self._make_async_image("File:NonExistent.png")
+        assert await img.url is None
+        assert await img.width is None
+        assert await img.height is None
+        assert await img.mime is None
+        assert await img.mediatype is None
+
+    async def test_async_images_dict_imageinfo_batch(self):
+        page = self.wiki.page("Test_1")
+        imgs = await self.wiki.images(page)
+        assert isinstance(imgs, wikipediaapi.AsyncImagesDict)
+        result = await imgs.imageinfo()
+        assert isinstance(result, dict)
+        assert "File:Example.png" in result
+        assert isinstance(result["File:Example.png"][0], ImageInfo)
+
+    async def test_async_batch_imageinfo(self):
+        img1 = self._make_async_image("File:Example.png")
+        img2 = self._make_async_image("File:Logo.svg")
+        result = await self.wiki.batch_imageinfo([img1, img2])
+        assert isinstance(result, dict)
+        assert "File:Example.png" in result
+        assert "File:Logo.svg" in result
+        assert result["File:Example.png"][0].mime == "image/png"
+        assert result["File:Logo.svg"][0].mime == "image/svg+xml"
+
+    async def test_async_image_sections_returns_empty_list(self):
+        img = self._make_async_image("File:Example.png")
+        assert img.sections == []
+
+    async def test_async_convenience_property_size(self):
+        img = self._make_async_image("File:Example.png")
+        assert await img.size == 102400
+
+    async def test_async_exists_local_file_positive_pageid(self):
+        img = self._make_async_image("File:LocalFile.png")
+        assert await img.exists() is True
+
+    async def test_async_getattr_triggers_info_fetch(self):
+        img = self._make_async_image("File:LocalFile.png")
+        val = await img.fullurl
+        assert val == "https://en.wikipedia.org/wiki/File:LocalFile.png"
+
+    async def test_async_getattr_raises_for_private_attribute(self):
+        img = self._make_async_image("File:Example.png")
+        with pytest.raises(AttributeError):
+            _ = img._nonexistent_private
+
+    async def test_async_repr_after_info_fetch_includes_pageid(self):
+        img = self._make_async_image("File:LocalFile.png")
+        _ = await img.fullurl  # triggers _fetch("info") via __getattr__ -> _info_attr
+        r = repr(img)
+        assert "File:LocalFile.png" in r
+        assert "id: ??" not in r

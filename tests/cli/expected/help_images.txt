@@ -4,13 +4,19 @@ List images (files) used on a Wikipedia page.
 
 TITLE is the Wikipedia page title.
 
+By default, shows only image titles. Use --imageinfo to include metadata
+such as URL, dimensions, MIME type, uploader, and upload timestamp.
+
 \b Examples:     wikipedia-api images "Python (programming language)"
-wikipedia-api images "Python (programming language)" --json     wikipedia-
-api images "Earth" --limit 50
+wikipedia-api images "Mount Everest" --imageinfo     wikipedia-api images
+"Mount Everest" --imageinfo --json     wikipedia-api images "Earth" --limit
+50
 
 Options:
 --limit INTEGER                 Maximum number of images to return.
 [default: 10]
+--imageinfo                     Fetch and display image metadata (url,
+dimensions, mime type, etc.).
 -l, --language TEXT             Language edition of Wikipedia (e.g. en, cs,
 de, zh).  [default: en]
 -u, --user-agent TEXT           HTTP User-Agent string sent with requests.

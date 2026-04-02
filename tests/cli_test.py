@@ -22,7 +22,7 @@ from wikipediaapi.commands.geo_commands import format_coordinates
 from wikipediaapi.commands.geo_commands import format_geosearch
 from wikipediaapi.commands.geo_commands import get_geosearch_results
 from wikipediaapi.commands.geo_commands import get_page_coordinates
-from wikipediaapi.commands.geo_commands import get_page_images
+from wikipediaapi.commands.image_commands import get_page_images
 from wikipediaapi.commands.link_commands import format_langlinks
 from wikipediaapi.commands.link_commands import get_langlinks
 from wikipediaapi.commands.link_commands import get_page_backlinks

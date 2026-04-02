@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "uri": "https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=imageinfo&titles=File%3AAlbert_Einstein_Head.jpg&iiprop=url&iilimit=1",
+        "body": "",
+        "headers": {
+          "Host": ["en.wikipedia.org"],
+          "Accept": ["*/*"],
+          "Connection": ["keep-alive"]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "date": ["Tue, 31 Mar 2026 20:05:07 GMT"],
+          "server": ["mw-api-ext.eqiad.main-f9d8577c4-g6v5l"],
+          "x-content-type-options": ["nosniff"],
+          "content-security-policy": [
+            "default-src 'self'; script-src 'none'; object-src 'none'"
+          ],
+          "x-frame-options": ["DENY"],
+          "content-disposition": ["inline; filename=api-result.json"],
+          "cache-control": ["private, must-revalidate, max-age=0"],
+          "content-type": ["application/json; charset=utf-8"],
+          "age": ["0"],
+          "accept-ranges": ["bytes"],
+          "x-cache": ["cp6016 miss, cp6010 pass"],
+          "x-cache-status": ["pass"],
+          "server-timing": ["cache;desc=\"pass\", host;desc=\"cp6010\""],
+          "strict-transport-security": [
+            "max-age=106384710; includeSubDomains; preload"
+          ],
+          "report-to": [
+            "{ \"group\": \"wm_nel\", \"max_age\": 604800, \"endpoints\": [{ \"url\": \"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\" }] }"
+          ],
+          "nel": [
+            "{ \"report_to\": \"wm_nel\", \"max_age\": 604800, \"failure_fraction\": 0.05, \"success_fraction\": 0.0}"
+          ],
+          "set-cookie": [
+            "WMF-Last-Access=31-Mar-2026;Path=/;HttpOnly;secure;Expires=Sat, 02 May 2026 12:00:00 GMT",
+            "WMF-Last-Access-Global=31-Mar-2026;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Sat, 02 May 2026 12:00:00 GMT",
+            "GeoIP=CZ:64:Brno:49.20:16.57:v4; Path=/; secure; Domain=.wikipedia.org",
+            "NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600",
+            "WMF-Uniq=26U0HsQX08FdHohnni9eUQM0AAAAAFvdvTtgVwyCiNL3qMjMKVxlUmkgdDBLRqyd;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Wed, 31 Mar 2027 00:00:00 GMT"
+          ],
+          "x-client-ip": ["85.193.0.48"],
+          "vary": [
+            "Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent"
+          ],
+          "content-length": ["545"],
+          "x-request-id": ["47bdf6a7-f898-4af9-86a4-4641a8feda35"],
+          "x-analytics": [""]
+        },
+        "body": {
+          "string": "{\"continue\":{\"iistart\":\"2008-06-06T22:27:45Z\",\"continue\":\"||\"},\"query\":{\"normalized\":[{\"from\":\"File:Albert_Einstein_Head.jpg\",\"to\":\"File:Albert Einstein Head.jpg\"}],\"pages\":{\"-1\":{\"ns\":6,\"title\":\"File:Albert Einstein Head.jpg\",\"missing\":\"\",\"known\":\"\",\"imagerepository\":\"shared\",\"imageinfo\":[{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg\",\"descriptionurl\":\"https://commons.wikimedia.org/wiki/File:Albert_Einstein_Head.jpg\",\"descriptionshorturl\":\"https://commons.wikimedia.org/w/index.php?curid=925243\"}]}}}}"
+        }
+      }
+    }
+  ]
+}

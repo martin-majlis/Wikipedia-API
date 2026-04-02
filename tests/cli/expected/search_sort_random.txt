@@ -1,85 +1,85 @@
 {
-"totalhits": 6044,
+"totalhits": 6046,
 "pages": [
 {
-"title": "Perl Cookbook",
-"pageid": 5851133,
-"snippet": "PLEAC (<span class=\"searchmatch\">Programming</span> Language Examples Alike Cookbook) website, which translated the code snippets in the Perl Cookbook into other languages: <span class=\"searchmatch\">Python</span>, Ruby",
-"size": 3950,
-"wordcount": 288,
-"timestamp": "2026-01-22T10:40:50Z"
+"title": "Comparison of data-serialization formats",
+"pageid": 23881009,
+"size": 43211,
+"wordcount": 705,
+"timestamp": "2026-04-02T14:31:53Z",
+"snippet": "newlines, and quote characters; it does not directly deal with serializing <span class=\"searchmatch\">programming</span> data structures. ^ The netstrings specification only deals with nested"
 },
 {
-"title": "Toronto Zoo",
-"pageid": 506403,
-"snippet": "home to Sumatran orangutans, great hornbills, false gharials, reticulated <span class=\"searchmatch\">pythons</span>, Burmese star tortoises, and white-handed gibbons, as well as Sumatran",
-"size": 73499,
-"wordcount": 7505,
-"timestamp": "2026-03-27T15:22:39Z"
+"title": "List of zoo escapes",
+"pageid": 78318308,
+"size": 213636,
+"wordcount": 8489,
+"timestamp": "2026-03-25T22:49:18Z",
+"snippet": "motorist. 2019 Albay Park &amp; Wildlife Legazpi, Albay <span class=\"searchmatch\">Python</span> Several days The 15 ft (4.5 m) long <span class=\"searchmatch\">python</span> called Sawa ventured into a farm and ate poultry."
 },
 {
-"title": "Gene expression programming",
-"pageid": 1098818,
-"snippet": "expression <span class=\"searchmatch\">programming</span> (GEP) in computer <span class=\"searchmatch\">programming</span> is an evolutionary algorithm that creates computer <span class=\"searchmatch\">programs</span> or models. These computer <span class=\"searchmatch\">programs</span> are complex",
-"size": 51417,
-"wordcount": 6491,
-"timestamp": "2026-03-26T12:35:37Z"
+"title": "Marker interface pattern",
+"pageid": 471373,
+"size": 4246,
+"wordcount": 454,
+"timestamp": "2025-09-03T18:14:21Z",
+"snippet": "using reflection. C++26 adds similar support for annotations to C++. In <span class=\"searchmatch\">Python</span>, the term &quot;marker interface&quot; is common in Zope and Plone. Interfaces are"
 },
 {
-"title": "Death from laughter",
-"pageid": 647417,
-"snippet": "&quot;The Funniest Joke in the World&quot;, episode of British sketch comedy Monty <span class=\"searchmatch\">Python&#039;s</span> Flying Circus, which revolves around a joke so funny that anybody who hears",
-"size": 17071,
-"wordcount": 1916,
-"timestamp": "2026-03-18T01:30:26Z"
+"title": "Lubuntu",
+"pageid": 22894063,
+"size": 118273,
+"wordcount": 12391,
+"timestamp": "2026-03-23T14:31:28Z",
+"snippet": "default installation. This version of Lubuntu uses the Linux kernel 3.5.5, <span class=\"searchmatch\">Python</span> 3.2 and OpenJDK7 as the default Java implementation. The installation requires"
 },
 {
-"title": "Sugizo",
-"pageid": 1181083,
-"snippet": "on guitar, Fire on bass, Greg Ellis on drums, d-kiku on keyboards and <span class=\"searchmatch\">programming</span>, K-Ta and Kenji Yoshiura on percussion, Shinpei Ruike on trumpet. 2009–10:",
-"size": 79384,
-"wordcount": 7308,
-"timestamp": "2026-03-06T18:49:39Z"
+"title": "Ping-pong scheme",
+"pageid": 12242679,
+"size": 5193,
+"wordcount": 633,
+"timestamp": "2025-09-25T05:31:00Z",
+"snippet": "were to get the next path from a function call, it would look like this in <span class=\"searchmatch\">Python</span>: def get_next_path(): &quot;&quot;&quot; This function is a generator that infinitely yields"
 },
 {
-"title": "ViewVC",
-"pageid": 1937784,
-"snippet": "as well as side-by-side diffs of different revisions. It is written in <span class=\"searchmatch\">Python</span> and the view parameters can be modified directly in a URL using a REST style",
-"size": 3353,
-"wordcount": 276,
-"timestamp": "2026-03-01T11:15:44Z"
+"title": "Thomas Kaplan",
+"pageid": 25372440,
+"size": 51438,
+"wordcount": 5053,
+"timestamp": "2026-02-05T22:53:49Z",
+"snippet": "conference in which he compared Iran&#039;s activities in Iraq to a reticulated <span class=\"searchmatch\">python</span> devouring a goat as well as saying that the Iranian government because of"
 },
 {
-"title": "Vista Ridge High School (Texas)",
-"pageid": 3753344,
-"snippet": "earned the GAHSMTA award for Best Supporting Actor (Ryan Mills): &quot;Monty <span class=\"searchmatch\">Python&#039;s</span> Spamalot: School Edition&quot; (2018 - 2019) Vista Ridge earned the GAHSMTA",
-"size": 9128,
-"wordcount": 836,
-"timestamp": "2026-03-28T15:38:36Z"
+"title": "GNOWSYS",
+"pageid": 450307,
+"size": 5706,
+"wordcount": 654,
+"timestamp": "2024-11-22T22:49:19Z",
+"snippet": "application for developing and maintaining semantic web content. It is written in <span class=\"searchmatch\">Python</span>. It is implemented as a Django app. The GNOWSYS project was launched by"
 },
 {
-"title": "Data mapper pattern",
-"pageid": 37202848,
-"snippet": "Implementations of the concept can be found in various frameworks for many <span class=\"searchmatch\">programming</span> environments. MyBatis persistence framework Hibernate (NHibernate) persistence",
-"size": 4522,
-"wordcount": 376,
-"timestamp": "2025-03-19T03:02:15Z"
+"title": "Fooocus",
+"pageid": 77321320,
+"size": 7433,
+"wordcount": 594,
+"timestamp": "2025-12-23T11:11:31Z",
+"snippet": "software portal Fooocus is an open source generative artificial intelligence <span class=\"searchmatch\">program</span> that allows users to generate images from a text prompt. It uses Stable"
 },
 {
-"title": "Apex High School",
-"pageid": 7442280,
-"snippet": "<span class=\"searchmatch\">Programming</span> courses offered cover four different <span class=\"searchmatch\">programming</span> languages starting with <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span>) followed by C# (Computer <span class=\"searchmatch\">Programming</span>",
-"size": 12141,
-"wordcount": 1259,
-"timestamp": "2026-03-29T17:15:21Z"
+"title": "Salt (software)",
+"pageid": 33960422,
+"size": 8179,
+"wordcount": 787,
+"timestamp": "2025-05-10T14:07:09Z",
+"snippet": "infrastructure as code software tool for configuration management. It is written in <span class=\"searchmatch\">Python</span> and published under the Apache License 2.0. Salt originated from the need"
 },
 {
-"title": "Michael R. Lyu",
-"pageid": 22531984,
-"snippet": "SIGSOFT Distinguished Paper Award (2023)] Generative Type Inference for <span class=\"searchmatch\">Python</span> (ASE&#039;23) ICLR 2024 Oral (86/7404, 1.16%)] On the Humanity of Conversational",
-"size": 11105,
-"wordcount": 1016,
-"timestamp": "2026-02-07T18:18:01Z"
+"title": "Comparison of free off-line satellite navigation software",
+"pageid": 42481286,
+"size": 34344,
+"wordcount": 1535,
+"timestamp": "2026-04-02T12:56:18Z",
+"snippet": "(no geocoding). However, in many cases, it is also that which makes the <span class=\"searchmatch\">program</span> free (and sometimes open source), avoid the need of an Internet connection"
 }
 ]
 }

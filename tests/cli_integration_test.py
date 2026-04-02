@@ -422,3 +422,135 @@ class TestCLICommands:
         with patch("wikipediaapi.cli.cli") as mock_cli:
             main()
             mock_cli.assert_called_once()
+
+    @patch("wikipediaapi.commands.image_commands.create_wikipedia_instance")
+    @patch("wikipediaapi.commands.image_commands.get_page_images")
+    @patch("wikipediaapi.commands.image_commands.format_images")
+    def test_images_command_text(self, mock_format, mock_get_images, mock_create_wiki):
+        """Test images command with text output."""
+        mock_create_wiki.return_value = self.mock_wiki
+        mock_get_images.return_value = {"Image 1": MagicMock(), "Image 2": MagicMock()}
+        mock_format.return_value = "Image 1\nImage 2"
+
+        result = self.runner.invoke(wikipediaapi.cli.cli, ["images", "Test_Page"])
+
+        assert result.exit_code == 0
+        assert "Image 1" in result.output
+        assert "Image 2" in result.output
+
+    @patch("wikipediaapi.commands.image_commands.create_wikipedia_instance")
+    @patch("wikipediaapi.commands.image_commands.get_page_images")
+    @patch("wikipediaapi.commands.image_commands.format_images")
+    def test_images_command_json(self, mock_format, mock_get_images, mock_create_wiki):
+        """Test images command with JSON output."""
+        mock_create_wiki.return_value = self.mock_wiki
+        mock_get_images.return_value = {"Image 1": MagicMock()}
+
+        # Create a mock image with required attributes
+        mock_image = MagicMock()
+        mock_image.title = "Image 1"
+        mock_image.language = "en"
+        mock_image.namespace = 6
+        mock_image._attributes = {"fullurl": "https://example.com/Image1.jpg"}
+
+        mock_get_images.return_value = {"Image 1": mock_image}
+        mock_format.return_value = '{\n  "Image 1": {\n    "title": "Image 1"\n  }\n}'
+
+        result = self.runner.invoke(wikipediaapi.cli.cli, ["images", "Test_Page", "--json"])
+
+        assert result.exit_code == 0
+        assert '"title": "Image 1"' in result.output
+
+    @patch("wikipediaapi.commands.image_commands.create_wikipedia_instance")
+    @patch("wikipediaapi.commands.image_commands.get_page_images")
+    @patch("wikipediaapi.commands.image_commands.format_images")
+    def test_images_command_with_limit(self, mock_format, mock_get_images, mock_create_wiki):
+        """Test images command with custom limit."""
+        mock_create_wiki.return_value = self.mock_wiki
+        mock_get_images.return_value = {"Image 1": MagicMock()}
+        mock_format.return_value = "Image 1"
+
+        result = self.runner.invoke(wikipediaapi.cli.cli, ["images", "Test_Page", "--limit", "5"])
+
+        assert result.exit_code == 0
+        assert "Image 1" in result.output
+        mock_get_images.assert_called_once()
+
+    @patch("wikipediaapi.commands.image_commands.create_wikipedia_instance")
+    @patch("wikipediaapi.commands.image_commands.get_page_images")
+    @patch("wikipediaapi.commands.image_commands.format_images")
+    def test_images_command_with_imageinfo(self, mock_format, mock_get_images, mock_create_wiki):
+        """Test images command with imageinfo flag."""
+        mock_create_wiki.return_value = self.mock_wiki
+        mock_get_images.return_value = {"Image 1": MagicMock()}
+        mock_format.return_value = "Image 1 (https://example.com/Image1.jpg) 800x600 image/jpeg"
+
+        result = self.runner.invoke(wikipediaapi.cli.cli, ["images", "Test_Page", "--imageinfo"])
+
+        assert result.exit_code == 0
+        assert "Image 1" in result.output
+
+    @patch("wikipediaapi.commands.image_commands.create_wikipedia_instance")
+    @patch("wikipediaapi.commands.image_commands.get_page_images")
+    @patch("wikipediaapi.commands.image_commands.format_images")
+    def test_images_command_with_imageinfo_json(
+        self, mock_format, mock_get_images, mock_create_wiki
+    ):
+        """Test images command with imageinfo flag and JSON output."""
+        mock_create_wiki.return_value = self.mock_wiki
+        mock_get_images.return_value = {"Image 1": MagicMock()}
+        mock_format.return_value = '{\n  "Image 1": {\n    "title": "Image 1",\n    "imageinfo_url": "https://example.com/Image1.jpg"\n  }\n}'
+
+        result = self.runner.invoke(
+            wikipediaapi.cli.cli, ["images", "Test_Page", "--imageinfo", "--json"]
+        )
+
+        assert result.exit_code == 0
+        assert '"imageinfo_url": "https://example.com/Image1.jpg"' in result.output
+
+    @patch("wikipediaapi.commands.image_commands.create_wikipedia_instance")
+    @patch("wikipediaapi.commands.image_commands.get_page_images")
+    def test_images_command_page_not_found(self, mock_get_images, mock_create_wiki):
+        """Test images command with non-existent page."""
+        from wikipediaapi.commands.base import PageNotFoundError
+
+        mock_create_wiki.return_value = self.mock_wiki
+        mock_get_images.side_effect = PageNotFoundError("Page 'Test_Page' does not exist.")
+
+        result = self.runner.invoke(wikipediaapi.cli.cli, ["images", "Test_Page"])
+
+        assert result.exit_code == 1
+        assert "Page 'Test_Page' does not exist." in result.output
+
+    @patch("wikipediaapi.commands.image_commands.create_wikipedia_instance")
+    @patch("wikipediaapi.commands.image_commands.get_page_images")
+    @patch("wikipediaapi.commands.image_commands.format_images")
+    def test_images_command_with_language(self, mock_format, mock_get_images, mock_create_wiki):
+        """Test images command with language option."""
+        mock_create_wiki.return_value = self.mock_wiki
+        mock_get_images.return_value = {"Image 1": MagicMock()}
+        mock_format.return_value = "Image 1"
+
+        result = self.runner.invoke(
+            wikipediaapi.cli.cli, ["images", "Test_Page", "--language", "de"]
+        )
+
+        assert result.exit_code == 0
+        assert "Image 1" in result.output
+        mock_create_wiki.assert_called_once()
+
+    @patch("wikipediaapi.commands.image_commands.create_wikipedia_instance")
+    @patch("wikipediaapi.commands.image_commands.get_page_images")
+    @patch("wikipediaapi.commands.image_commands.format_images")
+    def test_images_command_with_namespace(self, mock_format, mock_get_images, mock_create_wiki):
+        """Test images command with namespace option."""
+        mock_create_wiki.return_value = self.mock_wiki
+        mock_get_images.return_value = {"Image 1": MagicMock()}
+        mock_format.return_value = "Image 1"
+
+        result = self.runner.invoke(
+            wikipediaapi.cli.cli, ["images", "Test_Page", "--namespace", "6"]
+        )
+
+        assert result.exit_code == 0
+        assert "Image 1" in result.output

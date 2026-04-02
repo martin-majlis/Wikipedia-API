@@ -1015,6 +1015,7 @@ List of mutual planetary eclipses
 List of named minor planets: 100000–149999
 List of named minor planets: P
 List of natural satellites
+List of ocean worlds in solar system
 List of people from Boston
 List of people from Flagstaff, Arizona
 List of people from Illinois
@@ -1498,11 +1499,11 @@ Portal:Outer space/Selected article/34
 Portal:Outer space/Selected article/39
 Portal:Outer space/Selected article/7
 Portal:Physics/2012 Selected pictures
+Portal:Physics/Featured articles
 Portal:Physics/News/Archive
 Portal:Physics/Selected images
 Portal:Physics/Selected images/14
 Portal:Physics/Selected picture/August 2012
-Portal:Science
 Portal:Science/News/2007
 Portal:Science/Recognized content
 Portal:Solar System
@@ -1686,6 +1687,7 @@ Sweden Solar System
 Synchronous orbit
 TARDIS
 TAU (spacecraft)
+TON 618
 TRAPPIST
 Talk:(84522) 2002 TC302
 Talk:134340 Pluto.
@@ -1925,7 +1927,7 @@ Talk:Solar System/Archive 2
 Talk:Solar System/Archive 3
 Talk:Solid nitrogen
 Talk:Somerset Space Walk
-Talk:Space probe
+Talk:Space probe (spacecraft)
 Talk:Sport bike
 Talk:Sun/German translation
 Talk:Tahquitz
@@ -2479,7 +2481,6 @@ User:AngelLeVyette/Books/ObjectsBeyondPluto
 User:Animllover11
 User:Annatto/Sandbox/Tuesday
 User:Anne Arden
-User:AnnoDommini2025
 User:Anonymous Jules Fan
 User:Ansariibrahim/Books/solar
 User:Aocom teh spritar
@@ -2507,7 +2508,6 @@ User:ArkianNWM
 User:Armbrust/Userboxes - Science
 User:ArnoldJudasRimmer
 User:Arrogant Oriole
-User:Artem.G/sandbox3
 User:Arthur Water
 User:Artsygeek/Books/Solar system
 User:AryKun/Challenges
@@ -2735,6 +2735,7 @@ User:ColdFire
 User:Colinmartin74/Books/Dwarf Planets Of The Solar System & Their Satellites
 User:ComaDivine
 User:Combatcoffee
+User:CometNebulaLuna/sandbox
 User:Cominion
 User:CommanderWiki35
 User:Commons is in a thing
@@ -3010,7 +3011,6 @@ User:Georgeryall
 User:GetPossessed
 User:Ghostwar666/sandbox2
 User:Gidi70
-User:Gilderien
 User:Gilderien/Userpage
 User:Girla PurpleHeart
 User:Gisvlasta/Books/The Solar System
@@ -3606,6 +3606,7 @@ User:Onion1996
 User:Onore Baka Sama
 User:Oobleckman
 User:Orangepilled
+User:OrdinaryGiraffe/Books/Vital/L2/A
 User:Oren neu dag
 User:Oren0
 User:Orinoco-w

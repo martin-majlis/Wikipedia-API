@@ -869,6 +869,31 @@ _MOCK_DATA = {
             ]
         },
     },
+    "en:action=query&format=json&gscoord=51.5074|-0.1278&gsglobe=earth&gslimit=10&gsnamespace=0&gsradius=1000&gssort=distance&list=geosearch&redirects=1&": {
+        "batchcomplete": "",
+        "query": {
+            "geosearch": [
+                {
+                    "pageid": 100,
+                    "ns": 0,
+                    "title": "Nearby Page 1",
+                    "lat": 51.508,
+                    "lon": -0.128,
+                    "dist": 50.3,
+                    "primary": "",
+                },
+                {
+                    "pageid": 101,
+                    "ns": 0,
+                    "title": "Nearby Page 2",
+                    "lat": 51.510,
+                    "lon": -0.130,
+                    "dist": 200.7,
+                    "primary": "",
+                },
+            ]
+        },
+    },
     # ── geosearch with page (list=geosearch) ────────────────────────────────────────
     "en:action=query&format=json&gsglobe=earth&gslimit=10&gsnamespace=0&gspage=Test_1&gsradius=500&gssort=distance&list=geosearch&redirects=1&": {
         "batchcomplete": "",
@@ -971,6 +996,171 @@ _MOCK_DATA = {
                     "missing": "",
                 },
             },
+        },
+    },
+    # ── imageinfo (prop=imageinfo) ──────────────────────────────────────────────
+    "en:action=query&format=json&iilimit=1&iiprop=url|size|mime|mediatype|sha1|timestamp|user&prop=imageinfo&redirects=1&titles=File:Example.png&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "ns": 6,
+                    "title": "File:Example.png",
+                    "missing": "",
+                    "known": "",
+                    "imagerepository": "shared",
+                    "imageinfo": [
+                        {
+                            "timestamp": "2023-01-15T10:30:00Z",
+                            "user": "TestUser",
+                            "url": "https://upload.wikimedia.org/wikipedia/commons/e/example.png",
+                            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Example.png",
+                            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=12345",
+                            "size": 102400,
+                            "width": 800,
+                            "height": 600,
+                            "sha1": "abcdef1234567890abcdef1234567890abcdef12",
+                            "mime": "image/png",
+                            "mediatype": "BITMAP",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&format=json&iilimit=1&iiprop=url|size|mime|mediatype|sha1|timestamp|user&prop=imageinfo&redirects=1&titles=File:Logo.svg&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "ns": 6,
+                    "title": "File:Logo.svg",
+                    "missing": "",
+                    "known": "",
+                    "imagerepository": "shared",
+                    "imageinfo": [
+                        {
+                            "timestamp": "2022-06-01T08:00:00Z",
+                            "user": "SvgUploader",
+                            "url": "https://upload.wikimedia.org/wikipedia/commons/l/logo.svg",
+                            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Logo.svg",
+                            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=67890",
+                            "size": 4096,
+                            "width": 200,
+                            "height": 200,
+                            "sha1": "fedcba9876543210fedcba9876543210fedcba98",
+                            "mime": "image/svg+xml",
+                            "mediatype": "DRAWING",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&format=json&iilimit=1&iiprop=url|size|mime|mediatype|sha1|timestamp|user&prop=imageinfo&redirects=1&titles=File:LocalFile.png&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "999": {
+                    "pageid": 999,
+                    "ns": 6,
+                    "title": "File:LocalFile.png",
+                    "imagerepository": "local",
+                    "imageinfo": [
+                        {
+                            "timestamp": "2021-03-10T12:00:00Z",
+                            "user": "LocalUploader",
+                            "url": "https://en.wikipedia.org/wiki/Special:FilePath/LocalFile.png",
+                            "descriptionurl": "https://en.wikipedia.org/wiki/File:LocalFile.png",
+                            "descriptionshorturl": "https://en.wikipedia.org/w/index.php?curid=999",
+                            "size": 51200,
+                            "width": 400,
+                            "height": 300,
+                            "sha1": "aabbcc112233445566778899aabbcc1122334455",
+                            "mime": "image/png",
+                            "mediatype": "BITMAP",
+                        }
+                    ],
+                }
+            }
+        },
+    },
+    "en:action=query&format=json&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles&prop=info&redirects=1&titles=File:LocalFile.png&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "999": {
+                    "pageid": 999,
+                    "ns": 6,
+                    "title": "File:LocalFile.png",
+                    "fullurl": "https://en.wikipedia.org/wiki/File:LocalFile.png",
+                    "displaytitle": "File:LocalFile.png",
+                }
+            }
+        },
+    },
+    "en:action=query&format=json&iilimit=1&iiprop=url|size|mime|mediatype|sha1|timestamp|user&prop=imageinfo&redirects=1&titles=File:NonExistent.png&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "ns": 6,
+                    "title": "File:NonExistent.png",
+                    "missing": "",
+                    "imagerepository": "",
+                }
+            }
+        },
+    },
+    "en:action=query&format=json&iilimit=1&iiprop=url|size|mime|mediatype|sha1|timestamp|user&prop=imageinfo&redirects=1&titles=File:Example.png|File:Logo.svg&": {
+        "batchcomplete": "",
+        "query": {
+            "pages": {
+                "-1": {
+                    "ns": 6,
+                    "title": "File:Example.png",
+                    "missing": "",
+                    "known": "",
+                    "imagerepository": "shared",
+                    "imageinfo": [
+                        {
+                            "timestamp": "2023-01-15T10:30:00Z",
+                            "user": "TestUser",
+                            "url": "https://upload.wikimedia.org/wikipedia/commons/e/example.png",
+                            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Example.png",
+                            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=12345",
+                            "size": 102400,
+                            "width": 800,
+                            "height": 600,
+                            "sha1": "abcdef1234567890abcdef1234567890abcdef12",
+                            "mime": "image/png",
+                            "mediatype": "BITMAP",
+                        }
+                    ],
+                },
+                "-2": {
+                    "ns": 6,
+                    "title": "File:Logo.svg",
+                    "missing": "",
+                    "known": "",
+                    "imagerepository": "shared",
+                    "imageinfo": [
+                        {
+                            "timestamp": "2022-06-01T08:00:00Z",
+                            "user": "SvgUploader",
+                            "url": "https://upload.wikimedia.org/wikipedia/commons/l/logo.svg",
+                            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Logo.svg",
+                            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=67890",
+                            "size": 4096,
+                            "width": 200,
+                            "height": 200,
+                            "sha1": "fedcba9876543210fedcba9876543210fedcba98",
+                            "mime": "image/svg+xml",
+                            "mediatype": "DRAWING",
+                        }
+                    ],
+                },
+            }
         },
     },
     # ── search (list=search) ────────────────────────────────────────────────────

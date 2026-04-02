@@ -10,6 +10,7 @@ from .coordinate import Coordinate
 from .geo_box import GeoBox
 from .geo_point import GeoPoint
 from .geo_search_meta import GeoSearchMeta
+from .image_info import ImageInfo
 from .search_meta import SearchMeta
 from .search_results import SearchResults
 
@@ -18,6 +19,7 @@ __all__ = [
     "GeoBox",
     "Coordinate",
     "GeoSearchMeta",
+    "ImageInfo",
     "SearchMeta",
     "SearchResults",
 ]

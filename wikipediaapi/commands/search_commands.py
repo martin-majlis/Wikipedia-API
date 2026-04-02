@@ -1,31 +1,35 @@
 r"""Search-related CLI commands."""
 
 import json
-from typing import Any
 
 import click
+
+import wikipediaapi
 
 from .base import _common_options
 from .base import _json_option
 from .base import add_options
 from .base import create_wikipedia_instance
 from .base import RandomKwargs
+from .base import RandomPageResult
 from .base import redirect_filter2str
 from .base import RedirectFilter
 from .base import search_sort2str
 from .base import SearchKwargs
+from .base import SearchResult
+from .base import SearchResults
 from .base import SearchSort
 from .base import validate_enum_value
 
 
 def get_random_pages(
-    wiki,
+    wiki: wikipediaapi.Wikipedia,
     limit: int = 1,
     ns: int = 0,
     filter_redirect: str = "nonredirects",
     min_size: int | None = None,
     max_size: int | None = None,
-) -> list[dict[str, Any]]:
+) -> list[RandomPageResult]:
     r"""Get random Wikipedia pages.
 
     Args:
@@ -53,16 +57,16 @@ def get_random_pages(
         kwargs["max_size"] = max_size
 
     results = wiki.random(**kwargs)
-    output: list[dict[str, Any]] = []
+    output: list[RandomPageResult] = []
     for title, p in results.items():
-        entry: dict[str, Any] = {"title": title}
+        entry: RandomPageResult = {"title": title}
         if "pageid" in p._attributes:
             entry["pageid"] = p._attributes["pageid"]
         output.append(entry)
     return output
 
 
-def format_random(results: list[dict[str, Any]], output_format: str) -> str:
+def format_random(results: list[RandomPageResult], output_format: str) -> str:
     r"""Format random page results in the requested format."""
     if output_format == "json":
         return json.dumps(results, ensure_ascii=False, indent=2)
@@ -71,12 +75,12 @@ def format_random(results: list[dict[str, Any]], output_format: str) -> str:
 
 
 def get_search_results(
-    wiki,
+    wiki: wikipediaapi.Wikipedia,
     query: str,
     limit: int = 10,
     ns: int = 0,
     sort: str = "relevance",
-) -> dict[str, Any]:
+) -> SearchResults:
     r"""Search Wikipedia for pages matching a query.
 
     Args:
@@ -97,18 +101,22 @@ def get_search_results(
         kwargs["ns"] = ns
 
     sr = wiki.search(query, **kwargs)
-    pages_list: list[dict[str, Any]] = []
+    pages_list: list[SearchResult] = []
     for title, p in sr.pages.items():
-        entry: dict[str, Any] = {"title": title}
+        entry: SearchResult = {"title": title}
         if "pageid" in p._attributes:
             entry["pageid"] = p._attributes["pageid"]
         if p.search_meta is not None:
-            entry["snippet"] = p.search_meta.snippet
-            entry["size"] = p.search_meta.size
-            entry["wordcount"] = p.search_meta.wordcount
-            entry["timestamp"] = p.search_meta.timestamp
+            if p.search_meta.size > 0:
+                entry["size"] = p.search_meta.size
+            if p.search_meta.wordcount > 0:
+                entry["wordcount"] = p.search_meta.wordcount
+            if p.search_meta.timestamp:
+                entry["timestamp"] = p.search_meta.timestamp
+            if p.search_meta.snippet:
+                entry["snippet"] = p.search_meta.snippet
         pages_list.append(entry)
-    result: dict[str, Any] = {
+    result: SearchResults = {
         "totalhits": sr.totalhits,
         "pages": pages_list,
     }
@@ -117,7 +125,7 @@ def get_search_results(
     return result
 
 
-def format_search(results: dict[str, Any], output_format: str) -> str:
+def format_search(results: SearchResults, output_format: str) -> str:
     r"""Format search results in the requested format."""
     if output_format == "json":
         return json.dumps(results, ensure_ascii=False, indent=2)

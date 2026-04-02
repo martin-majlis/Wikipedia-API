@@ -9,8 +9,8 @@ from typing import Any
 
 from ._base_wikipedia_page import BaseWikipediaPage
 from ._base_wikipedia_page import NOT_CACHED
+from ._pages_dict import AsyncImagesDict
 from ._pages_dict import AsyncPagesDict
-from ._pages_dict import PagesDict
 from ._params.coordinates_params import CoordinatesParams
 from ._params.images_params import ImagesParams
 from ._types import Coordinate
@@ -301,17 +301,17 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
         Use ``await wiki.images(page, limit=50)`` for non-default params.
 
         Returns:
-            Coroutine resolving to a :class:`PagesDict` keyed by image title.
+            Coroutine resolving to an :class:`AsyncImagesDict` keyed by image title.
         """
 
-        async def _get() -> PagesDict:
+        async def _get() -> AsyncImagesDict:
             default_params = ImagesParams()
             cached = self._get_cached("images", default_params.cache_key())
             if isinstance(cached, type(NOT_CACHED)):
                 await self.wiki.images(self)
                 cached = self._get_cached("images", default_params.cache_key())
                 if isinstance(cached, type(NOT_CACHED)):
-                    return PagesDict()
+                    return AsyncImagesDict()
             return cached  # type: ignore[no-any-return]
 
         return _get()

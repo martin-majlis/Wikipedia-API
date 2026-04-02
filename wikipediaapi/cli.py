@@ -5,6 +5,7 @@ import click
 import wikipediaapi
 from wikipediaapi.commands import category_commands
 from wikipediaapi.commands import geo_commands
+from wikipediaapi.commands import image_commands
 from wikipediaapi.commands import link_commands
 from wikipediaapi.commands import page_commands
 from wikipediaapi.commands import search_commands
@@ -15,7 +16,7 @@ from wikipediaapi.commands import search_commands
     version=".".join(str(s) for s in wikipediaapi.__version__),
     prog_name="wikipedia-api",
 )
-def cli():
+def cli() -> click.Group:
     r"""Command line tool for querying Wikipedia using Wikipedia-API.
 
     Supports fetching page summaries, full text, sections, links,
@@ -33,6 +34,7 @@ def cli():
         wikipedia-api geosearch --coord "51.5074|-0.1278"
         wikipedia-api search "Python programming"
     """
+    return cli  # type: ignore
 
 
 # Register all command modules
@@ -40,10 +42,11 @@ page_commands.register_commands(cli)
 link_commands.register_commands(cli)
 category_commands.register_commands(cli)
 geo_commands.register_commands(cli)
+image_commands.register_commands(cli)
 search_commands.register_commands(cli)
 
 
-def main():
+def main() -> None:
     r"""Entry point for the CLI."""
     cli()
 

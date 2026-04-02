@@ -2,8 +2,11 @@ r"""Link-related CLI commands."""
 
 import json
 import sys
+from typing import Any
 
 import click
+
+import wikipediaapi
 
 from .base import _common_options
 from .base import _json_option
@@ -14,7 +17,9 @@ from .base import format_page_dict
 from .base import PageNotFoundError
 
 
-def get_page_links(wiki, title: str, namespace: int = 0):
+def get_page_links(
+    wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
+) -> wikipediaapi.PagesDict:
     r"""Get pages linked from a Wikipedia page.
 
     Args:
@@ -34,7 +39,9 @@ def get_page_links(wiki, title: str, namespace: int = 0):
     return page.links
 
 
-def get_page_backlinks(wiki, title: str, namespace: int = 0):
+def get_page_backlinks(
+    wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0
+) -> wikipediaapi.PagesDict:
     r"""Get pages that link to a Wikipedia page.
 
     Args:
@@ -54,7 +61,7 @@ def get_page_backlinks(wiki, title: str, namespace: int = 0):
     return page.backlinks
 
 
-def get_langlinks(wiki, title: str, namespace: int = 0):
+def get_langlinks(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> Any:
     r"""Get language links for a Wikipedia page.
 
     Args:

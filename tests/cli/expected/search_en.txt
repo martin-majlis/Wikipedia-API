@@ -1,4 +1,4 @@
-Total hits: 6044
+Total hits: 6046
 
 Python (programming language)
 History of Python
@@ -6,7 +6,7 @@ Outline of the Python programming language
 Python syntax and semantics
 Mojo (programming language)
 Zen of Python
+Glob (programming)
+Core Python Programming
 Python
 List of Python software
-Glob (programming)
-Anaconda (Python distribution)
