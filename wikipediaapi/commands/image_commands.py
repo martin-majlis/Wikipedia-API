@@ -63,15 +63,19 @@ def format_images(
             entry: dict[str, Any] = {
                 "title": img.title,
                 "language": img.language,
-                "ns": img.namespace,
+                "namespace": img.namespace,
+                "pageid": img.pageid if hasattr(img, "pageid") and img.pageid is not None else None,
+                "variant": img.variant,
             }
             if hasattr(img, "_attributes") and "fullurl" in img._attributes:
-                entry["url"] = img._attributes["fullurl"]
+                entry["fullurl"] = img._attributes["fullurl"]
 
             if with_imageinfo:
                 # Add imageinfo metadata
                 try:
-                    entry["imageinfo_url"] = img.url
+                    entry["url"] = img.url
+                    entry["descriptionurl"] = img.descriptionurl
+                    entry["descriptionshorturl"] = img.descriptionshorturl
                     entry["width"] = img.width
                     entry["height"] = img.height
                     entry["size"] = img.size

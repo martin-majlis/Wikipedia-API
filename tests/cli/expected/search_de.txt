@@ -7,7 +7,7 @@ JavaScript
 Hybridsprache
 Ruby (Programmiersprache)
 Rust (Programmiersprache)
-Scratch (Programmiersprache)
 Wolfram Language
+Scratch (Programmiersprache)
 Objektorientierte Programmierung
 Tcl

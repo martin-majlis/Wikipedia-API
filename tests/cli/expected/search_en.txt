@@ -8,5 +8,5 @@ Mojo (programming language)
 Zen of Python
 Python
 Glob (programming)
+Core Python Programming
 Stackless Python
-List of Python software

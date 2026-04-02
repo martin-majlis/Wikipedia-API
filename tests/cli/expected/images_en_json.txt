@@ -2,546 +2,777 @@
 "File:2022-10-15 Václavské náměstí 1.jpg": {
 "title": "File:2022-10-15 Václavské náměstí 1.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8436178454194448425,
+"variant": null
 },
 "File:Archikatedra Świętych Wita, Wacława i Wojciecha w Pradze 20190816 1333 5260.jpg": {
 "title": "File:Archikatedra Świętych Wita, Wacława i Wojciecha w Pradze 20190816 1333 5260.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -1066659969551557823,
+"variant": null
 },
 "File:Astronomical Clock (8341899828).jpg": {
 "title": "File:Astronomical Clock (8341899828).jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -5107461919878502048,
+"variant": null
 },
 "File:Barrande bridge.JPG": {
 "title": "File:Barrande bridge.JPG",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4734067042338756286,
+"variant": null
 },
 "File:Bohuslav Svoboda (2022).jpg": {
 "title": "File:Bohuslav Svoboda (2022).jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -6181942362433898503,
+"variant": null
 },
 "File:Charles Bridge (Karlův most), Vltava River, Prague, 2015.jpg": {
 "title": "File:Charles Bridge (Karlův most), Vltava River, Prague, 2015.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2538898517150785738,
+"variant": null
 },
 "File:Coat of arms of Prague.svg": {
 "title": "File:Coat of arms of Prague.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4223502695012605326,
+"variant": null
 },
 "File:Commons-logo.svg": {
 "title": "File:Commons-logo.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 33285577,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:Commons-logo.svg"
 },
 "File:Cs-Praha.ogg": {
 "title": "File:Cs-Praha.ogg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -3928579788805477267,
+"variant": null
 },
 "File:Europe relief laea location map.jpg": {
 "title": "File:Europe relief laea location map.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -1646641989612929956,
+"variant": null
 },
 "File:FFUK Praha.JPG": {
 "title": "File:FFUK Praha.JPG",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2315471220810784636,
+"variant": null
 },
 "File:Flag of Armenia.svg": {
 "title": "File:Flag of Armenia.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4455084895345179253,
+"variant": null
 },
 "File:Flag of Austria.svg": {
 "title": "File:Flag of Austria.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -5161203592863404740,
+"variant": null
 },
 "File:Flag of Azerbaijan.svg": {
 "title": "File:Flag of Azerbaijan.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 71426027,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:Flag_of_Azerbaijan.svg"
 },
 "File:Flag of Belarus.svg": {
 "title": "File:Flag of Belarus.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4159795011938895459,
+"variant": null
 },
 "File:Flag of Belgium (civil).svg": {
 "title": "File:Flag of Belgium (civil).svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -3625541275781229237,
+"variant": null
 },
 "File:Flag of Bosnia and Herzegovina.svg": {
 "title": "File:Flag of Bosnia and Herzegovina.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -5774582115680952750,
+"variant": null
 },
 "File:Flag of Bulgaria.svg": {
 "title": "File:Flag of Bulgaria.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -3930788169272793189,
+"variant": null
 },
 "File:Flag of Croatia.svg": {
 "title": "File:Flag of Croatia.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -5775450201303182765,
+"variant": null
 },
 "File:Flag of Europe.svg": {
 "title": "File:Flag of Europe.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -5736748824543086951,
+"variant": null
 },
 "File:Flag of France.svg": {
 "title": "File:Flag of France.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 33285388,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:Flag_of_France.svg"
 },
 "File:Flag of Georgia.svg": {
 "title": "File:Flag of Georgia.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -5660752766539890419,
+"variant": null
 },
 "File:Flag of Germany.svg": {
 "title": "File:Flag of Germany.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 33285421,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:Flag_of_Germany.svg"
 },
 "File:Flag of Hungary.svg": {
 "title": "File:Flag of Hungary.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -794682661931763625,
+"variant": null
 },
 "File:Flag of India.svg": {
 "title": "File:Flag of India.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 23473510,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:Flag_of_India.svg"
 },
 "File:Flag of Israel.svg": {
 "title": "File:Flag of Israel.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -6109370371873955493,
+"variant": null
 },
 "File:Flag of Italy.svg": {
 "title": "File:Flag of Italy.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 33285604,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:Flag_of_Italy.svg"
 },
 "File:Flag of Japan.svg": {
 "title": "File:Flag of Japan.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 33285241,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:Flag_of_Japan.svg"
 },
 "File:Flag of Kazakhstan.svg": {
 "title": "File:Flag of Kazakhstan.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4791278292624129924,
+"variant": null
 },
 "File:Flag of Kyrgyzstan.svg": {
 "title": "File:Flag of Kyrgyzstan.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8899659483141722262,
+"variant": null
 },
 "File:Flag of Moldova.svg": {
 "title": "File:Flag of Moldova.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4341778389515748543,
+"variant": null
 },
 "File:Flag of Mongolia.svg": {
 "title": "File:Flag of Mongolia.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8651478359530472458,
+"variant": null
 },
 "File:Flag of North Macedonia.svg": {
 "title": "File:Flag of North Macedonia.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -6281421498867051264,
+"variant": null
 },
 "File:Flag of Poland.svg": {
 "title": "File:Flag of Poland.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 23473485,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:Flag_of_Poland.svg"
 },
 "File:Flag of Prague.svg": {
 "title": "File:Flag of Prague.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -385619272745912176,
+"variant": null
 },
 "File:Flag of Romania.svg": {
 "title": "File:Flag of Romania.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -3338344302765126553,
+"variant": null
 },
 "File:Flag of Russia.svg": {
 "title": "File:Flag of Russia.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 33285605,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:Flag_of_Russia.svg"
 },
 "File:Flag of Serbia.svg": {
 "title": "File:Flag of Serbia.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8079954595005549855,
+"variant": null
 },
 "File:Flag of Slovakia.svg": {
 "title": "File:Flag of Slovakia.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2785676985185747932,
+"variant": null
 },
 "File:Flag of South Korea.svg": {
 "title": "File:Flag of South Korea.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -7868437513017499221,
+"variant": null
 },
 "File:Flag of Spain.svg": {
 "title": "File:Flag of Spain.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 33285608,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:Flag_of_Spain.svg"
 },
 "File:Flag of Turkey.svg": {
 "title": "File:Flag of Turkey.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8571195471040686155,
+"variant": null
 },
 "File:Flag of Ukraine.svg": {
 "title": "File:Flag of Ukraine.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -3952669502046470692,
+"variant": null
 },
 "File:Flag of Uzbekistan.svg": {
 "title": "File:Flag of Uzbekistan.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 42897420,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:Flag_of_Uzbekistan.svg"
 },
 "File:Flag of Vietnam.svg": {
 "title": "File:Flag of Vietnam.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2055378263296009995,
+"variant": null
 },
 "File:Flag of the Czech Republic.svg": {
 "title": "File:Flag of the Czech Republic.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -6125225759776982908,
+"variant": null
 },
 "File:Flag of the Netherlands.svg": {
 "title": "File:Flag of the Netherlands.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8889813299564922713,
+"variant": null
 },
 "File:Flag of the People's Republic of China.svg": {
 "title": "File:Flag of the People's Republic of China.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -828887590868014606,
+"variant": null
 },
 "File:Flag of the Philippines.svg": {
 "title": "File:Flag of the Philippines.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2063376996543841180,
+"variant": null
 },
 "File:Flag of the Republic of China.svg": {
 "title": "File:Flag of the Republic of China.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -7209954813632826097,
+"variant": null
 },
 "File:Flag of the United Kingdom (1-2).svg": {
 "title": "File:Flag of the United Kingdom (1-2).svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -883139782426164210,
+"variant": null
 },
 "File:Flag of the United States (23px).png": {
 "title": "File:Flag of the United States (23px).png",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -6065896054430056701,
+"variant": null
 },
 "File:Flag of the United States.svg": {
 "title": "File:Flag of the United States.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 33285428,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:Flag_of_the_United_States.svg"
 },
 "File:Frantisek Palacky monument.jpg": {
 "title": "File:Frantisek Palacky monument.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2349190046866493477,
+"variant": null
 },
 "File:Havla 1989.jpg": {
 "title": "File:Havla 1989.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -6692200385051396096,
+"variant": null
 },
 "File:Josef Mathauser - Kněžna Libuše věští slávu Prahy.jpg": {
 "title": "File:Josef Mathauser - Kněžna Libuše věští slávu Prahy.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -1811566979743268008,
+"variant": null
 },
 "File:Kafka statue Prague.jpg": {
 "title": "File:Kafka statue Prague.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -1005148730468861545,
+"variant": null
 },
 "File:Logo Praha.svg": {
 "title": "File:Logo Praha.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -5049496767842690885,
+"variant": null
 },
 "File:Maqueta del castell de praga.JPG": {
 "title": "File:Maqueta del castell de praga.JPG",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8314226875038469957,
+"variant": null
 },
 "File:Mariánské náměstí 2-2 Praha, Staré Město 20170906 001.jpg": {
 "title": "File:Mariánské náměstí 2-2 Praha, Staré Město 20170906 001.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -217757312778326423,
+"variant": null
 },
 "File:Mrakodrapy v Praze 2018.jpg": {
 "title": "File:Mrakodrapy v Praze 2018.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -6548908121303018648,
+"variant": null
 },
 "File:Na Perštýně 5, U Medvídků.jpg": {
 "title": "File:Na Perštýně 5, U Medvídků.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2544195673967911813,
+"variant": null
 },
 "File:Night view of the Castle and Charles Bridge, Prague - 8034.jpg": {
 "title": "File:Night view of the Castle and Charles Bridge, Prague - 8034.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -3784102482060945258,
+"variant": null
 },
 "File:Náměstí Míru sv. Ludmila.jpg": {
 "title": "File:Náměstí Míru sv. Ludmila.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4630534741128847053,
+"variant": null
 },
 "File:Národní divadlo z ostrova 1.jpg": {
 "title": "File:Národní divadlo z ostrova 1.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8711022998967254271,
+"variant": null
 },
 "File:Národní divadlo ze Střeleckého ostrova.jpg": {
 "title": "File:Národní divadlo ze Střeleckého ostrova.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8671750763761902397,
+"variant": null
 },
 "File:O2 Arena, od Českomoravské.jpg": {
 "title": "File:O2 Arena, od Českomoravské.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -5632211146546720073,
+"variant": null
 },
 "File:OOjs UI icon edit-ltr-progressive.svg": {
 "title": "File:OOjs UI icon edit-ltr-progressive.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": 61571911,
+"variant": null,
+"fullurl": "https://en.wikipedia.org/wiki/File:OOjs_UI_icon_edit-ltr-progressive.svg"
 },
 "File:Panorama von Prag – Vincenc Morstadt – 1835.jpg": {
 "title": "File:Panorama von Prag – Vincenc Morstadt – 1835.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -3637296008426061083,
+"variant": null
 },
 "File:PetrinObservationTower.jpg": {
 "title": "File:PetrinObservationTower.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2573990634719695619,
+"variant": null
 },
 "File:Prag Pulverturm.jpg": {
 "title": "File:Prag Pulverturm.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8703651457554536698,
+"variant": null
 },
 "File:Prag ginger u fred gehry.jpg": {
 "title": "File:Prag ginger u fred gehry.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2625266905330459564,
+"variant": null
 },
 "File:Prago-Ruzyně, flughaveno, el-aera vido, 7.jpeg": {
 "title": "File:Prago-Ruzyně, flughaveno, el-aera vido, 7.jpeg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -1462052415639528659,
+"variant": null
 },
 "File:Prague (6365119737).jpg": {
 "title": "File:Prague (6365119737).jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2416195050078105667,
+"variant": null
 },
 "File:Prague 07-2016 View from Old Town Hall Tower img3.jpg": {
 "title": "File:Prague 07-2016 View from Old Town Hall Tower img3.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8497272978658141971,
+"variant": null
 },
 "File:Prague 07-2016 View from Powder Tower img4.jpg": {
 "title": "File:Prague 07-2016 View from Powder Tower img4.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -6241949540606763304,
+"variant": null
 },
 "File:Prague 07-2016 tram at Florenc.jpg": {
 "title": "File:Prague 07-2016 tram at Florenc.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4553088774951425822,
+"variant": null
 },
 "File:Prague 07-2016 view from Lesser Town Tower of Charles Bridge img3.jpg": {
 "title": "File:Prague 07-2016 view from Lesser Town Tower of Charles Bridge img3.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -3009608093954537751,
+"variant": null
 },
 "File:Prague Congress Centre (1).JPG": {
 "title": "File:Prague Congress Centre (1).JPG",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4447589920571163831,
+"variant": null
 },
 "File:Prague Mala Strana St. Nicholas-02.jpg": {
 "title": "File:Prague Mala Strana St. Nicholas-02.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -7200387743806234035,
+"variant": null
 },
 "File:Prague Praha 2014 Holmstad flott gammelnye synagoge old-new synagogue Josefov.jpg": {
 "title": "File:Prague Praha 2014 Holmstad flott gammelnye synagoge old-new synagogue Josefov.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4417927753426122215,
+"variant": null
 },
 "File:Prague Zoo main entrance.JPG": {
 "title": "File:Prague Zoo main entrance.JPG",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4517149843844201469,
+"variant": null
 },
 "File:Prague banner c1477.png": {
 "title": "File:Prague banner c1477.png",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -6989375798954138593,
+"variant": null
 },
 "File:Prague by Sentinel-2, 2020-05-18.jpg": {
 "title": "File:Prague by Sentinel-2, 2020-05-18.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -6638801821252791308,
+"variant": null
 },
 "File:Prague districts en.svg": {
 "title": "File:Prague districts en.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -5282978951786767454,
+"variant": null
 },
 "File:Prague from Powder Tower 01.jpg": {
 "title": "File:Prague from Powder Tower 01.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8238978391447119928,
+"variant": null
 },
 "File:Prague liberation 1945 konev.jpg": {
 "title": "File:Prague liberation 1945 konev.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -1382228688043407904,
+"variant": null
 },
 "File:Prague old town square panorama.jpg": {
 "title": "File:Prague old town square panorama.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2661376739917170292,
+"variant": null
 },
 "File:Prague population pyramid in 2021.svg": {
 "title": "File:Prague population pyramid in 2021.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -3405698472605897699,
+"variant": null
 },
 "File:PragueCzechRepublicMalaStranaMostecka.jpg": {
 "title": "File:PragueCzechRepublicMalaStranaMostecka.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8277211366938311410,
+"variant": null
 },
 "File:Praha 2009-12-26-27.jpg": {
 "title": "File:Praha 2009-12-26-27.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4464830502093907796,
+"variant": null
 },
 "File:Praha CoA CZ small.svg": {
 "title": "File:Praha CoA CZ small.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2783847485352331082,
+"variant": null
 },
 "File:Praha Holešovice EUSPA 1.jpg": {
 "title": "File:Praha Holešovice EUSPA 1.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -3050425965434941745,
+"variant": null
 },
 "File:Praha Národní muzeum 2.jpg": {
 "title": "File:Praha Národní muzeum 2.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8562619419441295073,
+"variant": null
 },
 "File:Praha Rudolfinum isometric.jpg": {
 "title": "File:Praha Rudolfinum isometric.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2719260206891677477,
+"variant": null
 },
 "File:Praha Veletržní palác jih.jpg": {
 "title": "File:Praha Veletržní palác jih.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -7394529011982162090,
+"variant": null
 },
 "File:Praha, Letná, pohled na Pařížskou ulici.JPG": {
 "title": "File:Praha, Letná, pohled na Pařížskou ulici.JPG",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -1249259284127057360,
+"variant": null
 },
 "File:Praha, Vítkov, památník II.JPG": {
 "title": "File:Praha, Vítkov, památník II.JPG",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4527292068661250932,
+"variant": null
 },
 "File:Prazske-vystaviste-holesovice.jpg": {
 "title": "File:Prazske-vystaviste-holesovice.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -5978338156734700491,
+"variant": null
 },
 "File:Red pog.svg": {
 "title": "File:Red pog.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -8986028274280719202,
+"variant": null
 },
 "File:Relief Map of Czech Republic.png": {
 "title": "File:Relief Map of Czech Republic.png",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -1457340336959356847,
+"variant": null
 },
 "File:Strahov knihovna Teolog 2.jpg": {
 "title": "File:Strahov knihovna Teolog 2.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -5681077759167572699,
+"variant": null
 },
 "File:Vencovskeho aula.JPG": {
 "title": "File:Vencovskeho aula.JPG",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -3734080493702744342,
+"variant": null
 },
 "File:Vyšehrad, z Císařské louky.jpg": {
 "title": "File:Vyšehrad, z Císařské louky.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -7970696843116880671,
+"variant": null
 },
 "File:Wikidata-logo.svg": {
 "title": "File:Wikidata-logo.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -7920445922650079400,
+"variant": null
 },
 "File:Wikisource-logo.svg": {
 "title": "File:Wikisource-logo.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4924277473918877294,
+"variant": null
 },
 "File:Wikivoyage-Logo-v3-icon.svg": {
 "title": "File:Wikivoyage-Logo-v3-icon.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -2400860370452467027,
+"variant": null
 },
 "File:Wiktionary-logo-en-v2.svg": {
 "title": "File:Wiktionary-logo-en-v2.svg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -899252405228838325,
+"variant": null
 },
 "File:Zizkov tv tower.jpg": {
 "title": "File:Zizkov tv tower.jpg",
 "language": "en",
-"ns": 6
+"namespace": 6,
+"pageid": -4928033586835307143,
+"variant": null
 }
 }

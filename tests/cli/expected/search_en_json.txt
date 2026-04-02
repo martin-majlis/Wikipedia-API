@@ -4,82 +4,62 @@
 {
 "title": "Python (programming language)",
 "pageid": 23862,
-"snippet": "<span class=\"searchmatch\">Python</span> is a high-level, general-purpose <span class=\"searchmatch\">programming</span> language. Its design philosophy emphasizes code readability with the use of significant indentation",
-"size": 140424,
 "wordcount": 11448,
 "timestamp": "2026-03-30T16:24:18Z"
 },
 {
 "title": "History of Python",
 "pageid": 21356332,
-"snippet": "The <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> was conceived in the late 1980s, and its implementation was started in December 1989 by Guido van Rossum at CWI in the",
-"size": 57307,
 "wordcount": 4262,
 "timestamp": "2026-03-17T08:37:45Z"
 },
 {
 "title": "Outline of the Python programming language",
 "pageid": 81118035,
-"snippet": "functional <span class=\"searchmatch\">programming</span>. ABC (<span class=\"searchmatch\">programming</span> language) – precursor to <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Python</span> was started by Guido van Rossum in 1989 and first released in 1991. <span class=\"searchmatch\">Python</span> 2 —",
-"size": 12097,
 "wordcount": 837,
 "timestamp": "2026-02-18T06:39:30Z"
 },
 {
 "title": "Python syntax and semantics",
 "pageid": 5250192,
-"snippet": "The syntax of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is the set of rules that defines how a <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">program</span> will be written and interpreted (by both the runtime",
-"size": 68515,
 "wordcount": 7865,
 "timestamp": "2026-01-19T22:21:34Z"
 },
 {
 "title": "Mojo (programming language)",
 "pageid": 73729965,
-"snippet": "proprietary <span class=\"searchmatch\">programming</span> language based on <span class=\"searchmatch\">Python</span> available for Linux and macOS. Mojo aims to combine the usability of a high-level <span class=\"searchmatch\">programming</span> language,",
-"size": 18574,
 "wordcount": 1480,
 "timestamp": "2026-03-15T08:21:22Z"
 },
 {
 "title": "Zen of Python",
 "pageid": 46448252,
-"snippet": "<span class=\"searchmatch\">Python</span> is a collection of 19 &quot;guiding principles&quot; for writing computer <span class=\"searchmatch\">programs</span> that influence the design of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. <span class=\"searchmatch\">Python</span> code",
-"size": 11211,
 "wordcount": 1130,
 "timestamp": "2026-03-11T00:04:23Z"
 },
 {
 "title": "Python",
 "pageid": 46332325,
-"snippet": "and Australia <span class=\"searchmatch\">Python</span> (genus), a genus of Pythonidae found in Africa and Asia <span class=\"searchmatch\">Python</span> (mythology), a mythical serpent <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language), a widely",
-"size": 2240,
 "wordcount": 317,
 "timestamp": "2026-03-10T10:36:25Z"
 },
 {
 "title": "List of Python software",
 "pageid": 3673376,
-"snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform",
-"size": 35231,
 "wordcount": 3675,
 "timestamp": "2026-03-27T01:44:00Z"
 },
 {
 "title": "Glob (programming)",
 "pageid": 484117,
-"snippet": "on these same wildcard patterns. Guido van Rossum, author of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, wrote and contributed a glob routine to BSD Unix in 1986",
-"size": 27549,
 "wordcount": 2499,
 "timestamp": "2026-03-01T01:55:39Z"
 },
 {
-"title": "Core Python Programming",
-"pageid": 25061839,
-"snippet": "Core <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> is a textbook on the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, written by Wesley J. Chun. The first edition of the book was released on December",
-"size": 3926,
-"wordcount": 316,
-"timestamp": "2026-01-31T19:07:48Z"
+"title": "Stackless Python",
+"pageid": 2009536,
+"wordcount": 556,
+"timestamp": "2025-09-08T05:44:49Z"
 }
 ]
 }
