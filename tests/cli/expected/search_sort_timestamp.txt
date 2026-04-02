@@ -1,7 +1,7 @@
-Total hits: 6044
+Total hits: 6045
 
+Grype
+Zeta (programming language)
 Programming Without Coding Technology (software)
 AMR (R package)
 Marginalia (search engine)
-Wagile
-VibeOS

@@ -1,85 +1,85 @@
 {
-"totalhits": 6044,
+"totalhits": 6045,
 "pages": [
 {
-"title": "Perl Cookbook",
-"pageid": 5851133,
-"snippet": "PLEAC (<span class=\"searchmatch\">Programming</span> Language Examples Alike Cookbook) website, which translated the code snippets in the Perl Cookbook into other languages: <span class=\"searchmatch\">Python</span>, Ruby",
-"size": 3950,
-"wordcount": 288,
-"timestamp": "2026-01-22T10:40:50Z"
+"title": "Fle3",
+"pageid": 923805,
+"snippet": "Fle3 is used in more than 70 countries. Fle3 is a Zope product, written in <span class=\"searchmatch\">Python</span>. Fle3 is open-source and free software released under the GNU General Public",
+"size": 16083,
+"wordcount": 2105,
+"timestamp": "2025-08-04T19:27:27Z"
 },
 {
-"title": "Toronto Zoo",
-"pageid": 506403,
-"snippet": "home to Sumatran orangutans, great hornbills, false gharials, reticulated <span class=\"searchmatch\">pythons</span>, Burmese star tortoises, and white-handed gibbons, as well as Sumatran",
-"size": 73499,
-"wordcount": 7505,
-"timestamp": "2026-03-27T15:22:39Z"
+"title": "Autologistic actor attribute models",
+"pageid": 63809732,
+"snippet": "ALAAMs is available from https://github.com/johankoskinen/ALAAM. ALAAMEE is <span class=\"searchmatch\">Python</span> software for ALAAM parameter estimation, simulation, and goodness-of-fit",
+"size": 8779,
+"wordcount": 1079,
+"timestamp": "2025-10-04T02:43:14Z"
 },
 {
-"title": "Gene expression programming",
-"pageid": 1098818,
-"snippet": "expression <span class=\"searchmatch\">programming</span> (GEP) in computer <span class=\"searchmatch\">programming</span> is an evolutionary algorithm that creates computer <span class=\"searchmatch\">programs</span> or models. These computer <span class=\"searchmatch\">programs</span> are complex",
-"size": 51417,
-"wordcount": 6491,
-"timestamp": "2026-03-26T12:35:37Z"
+"title": "Land of the Tiger",
+"pageid": 15090173,
+"snippet": "adapted to the tidal conditions. Mudskippers, monitor lizards, macaques and <span class=\"searchmatch\">pythons</span> are all shown. It is also home to over 500 tigers and is now a protected",
+"size": 16840,
+"wordcount": 2311,
+"timestamp": "2026-03-29T09:21:26Z"
 },
 {
-"title": "Death from laughter",
-"pageid": 647417,
-"snippet": "&quot;The Funniest Joke in the World&quot;, episode of British sketch comedy Monty <span class=\"searchmatch\">Python&#039;s</span> Flying Circus, which revolves around a joke so funny that anybody who hears",
-"size": 17071,
-"wordcount": 1916,
-"timestamp": "2026-03-18T01:30:26Z"
+"title": "Agustín Maravall",
+"pageid": 54076135,
+"snippet": "contains, besides the DOS and WINDOWS versions of the <span class=\"searchmatch\">programs</span>, interfaces with C++, Java, <span class=\"searchmatch\">Python</span>, R, SAS, Matlab, C#, Fame and Linux, papers and documentation",
+"size": 14695,
+"wordcount": 1580,
+"timestamp": "2026-01-13T14:45:11Z"
 },
 {
-"title": "Sugizo",
-"pageid": 1181083,
-"snippet": "on guitar, Fire on bass, Greg Ellis on drums, d-kiku on keyboards and <span class=\"searchmatch\">programming</span>, K-Ta and Kenji Yoshiura on percussion, Shinpei Ruike on trumpet. 2009–10:",
-"size": 79384,
-"wordcount": 7308,
-"timestamp": "2026-03-06T18:49:39Z"
+"title": "CuPy",
+"pageid": 71062349,
+"snippet": "CuPy is an open source library for GPU-accelerated computing with <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, providing support for multi-dimensional arrays, sparse matrices",
+"size": 13891,
+"wordcount": 1116,
+"timestamp": "2026-03-04T04:30:35Z"
 },
 {
-"title": "ViewVC",
-"pageid": 1937784,
-"snippet": "as well as side-by-side diffs of different revisions. It is written in <span class=\"searchmatch\">Python</span> and the view parameters can be modified directly in a URL using a REST style",
-"size": 3353,
-"wordcount": 276,
-"timestamp": "2026-03-01T11:15:44Z"
+"title": "Pyrex (programming language)",
+"pageid": 3274540,
+"snippet": "<span class=\"searchmatch\">programming</span> language for creating <span class=\"searchmatch\">Python</span> modules. Its syntax is very close to <span class=\"searchmatch\">Python</span> and it makes it easy for <span class=\"searchmatch\">Python</span> programmers to write non-<span class=\"searchmatch\">Python</span> supporting",
+"size": 4277,
+"wordcount": 336,
+"timestamp": "2024-11-08T16:50:08Z"
 },
 {
-"title": "Vista Ridge High School (Texas)",
-"pageid": 3753344,
-"snippet": "earned the GAHSMTA award for Best Supporting Actor (Ryan Mills): &quot;Monty <span class=\"searchmatch\">Python&#039;s</span> Spamalot: School Edition&quot; (2018 - 2019) Vista Ridge earned the GAHSMTA",
-"size": 9128,
-"wordcount": 836,
-"timestamp": "2026-03-28T15:38:36Z"
+"title": "MINC",
+"pageid": 479897,
+"snippet": "the syntactical capabilities of the C <span class=\"searchmatch\">programming</span> language, and can be used to implement simple procedural <span class=\"searchmatch\">programs</span> that can be executed by a runtime parser",
+"size": 1442,
+"wordcount": 149,
+"timestamp": "2026-01-16T06:52:46Z"
 },
 {
-"title": "Data mapper pattern",
-"pageid": 37202848,
-"snippet": "Implementations of the concept can be found in various frameworks for many <span class=\"searchmatch\">programming</span> environments. MyBatis persistence framework Hibernate (NHibernate) persistence",
-"size": 4522,
-"wordcount": 376,
-"timestamp": "2025-03-19T03:02:15Z"
+"title": "MexScript",
+"pageid": 36276822,
+"snippet": "Java application Game Extractor. A script exists to convert MexScript into <span class=\"searchmatch\">Python</span> for OpenMEX. There is also a dialect of MexScript/BMS called QuickBMS, that",
+"size": 9498,
+"wordcount": 909,
+"timestamp": "2025-08-09T23:51:15Z"
 },
 {
-"title": "Apex High School",
-"pageid": 7442280,
-"snippet": "<span class=\"searchmatch\">Programming</span> courses offered cover four different <span class=\"searchmatch\">programming</span> languages starting with <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span>) followed by C# (Computer <span class=\"searchmatch\">Programming</span>",
-"size": 12141,
-"wordcount": 1259,
-"timestamp": "2026-03-29T17:15:21Z"
+"title": "Key Largo woodrat",
+"pageid": 4129284,
+"snippet": "invasive snakes such as Burmese <span class=\"searchmatch\">pythons</span>, reticulated <span class=\"searchmatch\">pythons</span>, Southern African rock <span class=\"searchmatch\">pythons</span>, Central African rock <span class=\"searchmatch\">pythons</span>, boa constrictors, yellow anacondas",
+"size": 22070,
+"wordcount": 2044,
+"timestamp": "2026-01-13T15:46:41Z"
 },
 {
-"title": "Michael R. Lyu",
-"pageid": 22531984,
-"snippet": "SIGSOFT Distinguished Paper Award (2023)] Generative Type Inference for <span class=\"searchmatch\">Python</span> (ASE&#039;23) ICLR 2024 Oral (86/7404, 1.16%)] On the Humanity of Conversational",
-"size": 11105,
-"wordcount": 1016,
-"timestamp": "2026-02-07T18:18:01Z"
+"title": "Translate Toolkit",
+"pageid": 13369887,
+"snippet": "to develop other localization tools. The toolkit is written in the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. It is free software originally developed and released by",
+"size": 7796,
+"wordcount": 723,
+"timestamp": "2026-03-02T23:29:24Z"
 }
 ]
 }

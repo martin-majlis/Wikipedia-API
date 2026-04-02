@@ -5084,6 +5084,11 @@
 "language": "en",
 "ns": 0
 },
+"List of ocean worlds in solar system": {
+"title": "List of ocean worlds in solar system",
+"language": "en",
+"ns": 0
+},
 "List of people from Boston": {
 "title": "List of people from Boston",
 "language": "en",
@@ -7499,6 +7504,11 @@
 "language": "en",
 "ns": 100
 },
+"Portal:Physics/Featured articles": {
+"title": "Portal:Physics/Featured articles",
+"language": "en",
+"ns": 100
+},
 "Portal:Physics/News/Archive": {
 "title": "Portal:Physics/News/Archive",
 "language": "en",
@@ -7516,11 +7526,6 @@
 },
 "Portal:Physics/Selected picture/August 2012": {
 "title": "Portal:Physics/Selected picture/August 2012",
-"language": "en",
-"ns": 100
-},
-"Portal:Science": {
-"title": "Portal:Science",
 "language": "en",
 "ns": 100
 },
@@ -8436,6 +8441,11 @@
 },
 "TAU (spacecraft)": {
 "title": "TAU (spacecraft)",
+"language": "en",
+"ns": 0
+},
+"TON 618": {
+"title": "TON 618",
 "language": "en",
 "ns": 0
 },
@@ -12404,11 +12414,6 @@
 "language": "en",
 "ns": 2
 },
-"User:AnnoDommini2025": {
-"title": "User:AnnoDommini2025",
-"language": "en",
-"ns": 2
-},
 "User:Anonymous Jules Fan": {
 "title": "User:Anonymous Jules Fan",
 "language": "en",
@@ -12541,11 +12546,6 @@
 },
 "User:Arrogant Oriole": {
 "title": "User:Arrogant Oriole",
-"language": "en",
-"ns": 2
-},
-"User:Artem.G/sandbox3": {
-"title": "User:Artem.G/sandbox3",
 "language": "en",
 "ns": 2
 },
@@ -15056,11 +15056,6 @@
 },
 "User:Gidi70": {
 "title": "User:Gidi70",
-"language": "en",
-"ns": 2
-},
-"User:Gilderien": {
-"title": "User:Gilderien",
 "language": "en",
 "ns": 2
 },
@@ -18036,6 +18031,11 @@
 },
 "User:Orangepilled": {
 "title": "User:Orangepilled",
+"language": "en",
+"ns": 2
+},
+"User:OrdinaryGiraffe/Books/Vital/L2/A": {
+"title": "User:OrdinaryGiraffe/Books/Vital/L2/A",
 "language": "en",
 "ns": 2
 },
@@ -22071,11 +22071,6 @@
 },
 "Wikipedia talk:WikiProject Medicine/Archive 152": {
 "title": "Wikipedia talk:WikiProject Medicine/Archive 152",
-"language": "en",
-"ns": 5
-},
-"Wikipedia talk:WikiProject Portals/Design/Archive 3": {
-"title": "Wikipedia talk:WikiProject Portals/Design/Archive 3",
 "language": "en",
 "ns": 5
 },

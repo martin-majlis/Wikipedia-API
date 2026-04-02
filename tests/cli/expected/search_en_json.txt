@@ -1,5 +1,5 @@
 {
-"totalhits": 6044,
+"totalhits": 6045,
 "pages": [
 {
 "title": "Python (programming language)",
@@ -13,9 +13,9 @@
 "title": "History of Python",
 "pageid": 21356332,
 "snippet": "The <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> was conceived in the late 1980s, and its implementation was started in December 1989 by Guido van Rossum at CWI in the",
-"size": 57307,
-"wordcount": 4262,
-"timestamp": "2026-03-17T08:37:45Z"
+"size": 57339,
+"wordcount": 4266,
+"timestamp": "2026-04-02T00:00:21Z"
 },
 {
 "title": "Outline of the Python programming language",
@@ -58,14 +58,6 @@
 "timestamp": "2026-03-10T10:36:25Z"
 },
 {
-"title": "List of Python software",
-"pageid": 3673376,
-"snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform",
-"size": 35231,
-"wordcount": 3675,
-"timestamp": "2026-03-27T01:44:00Z"
-},
-{
 "title": "Glob (programming)",
 "pageid": 484117,
 "snippet": "on these same wildcard patterns. Guido van Rossum, author of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, wrote and contributed a glob routine to BSD Unix in 1986",
@@ -74,12 +66,20 @@
 "timestamp": "2026-03-01T01:55:39Z"
 },
 {
-"title": "Anaconda (Python distribution)",
-"pageid": 43003632,
-"snippet": "science and artificial intelligence distribution platform for the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. Developed by Anaconda, Inc., an American company founded",
-"size": 24837,
-"wordcount": 1961,
-"timestamp": "2026-03-30T14:00:32Z"
+"title": "List of Python software",
+"pageid": 3673376,
+"snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform",
+"size": 35231,
+"wordcount": 3675,
+"timestamp": "2026-03-27T01:44:00Z"
+},
+{
+"title": "Core Python Programming",
+"pageid": 25061839,
+"snippet": "Core <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> is a textbook on the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, written by Wesley J. Chun. The first edition of the book was released on December",
+"size": 3926,
+"wordcount": 316,
+"timestamp": "2026-01-31T19:07:48Z"
 }
 ]
 }
