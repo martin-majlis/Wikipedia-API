@@ -25,6 +25,12 @@
 #   # Verify output matches expected:
 #   bash tests/cli/test_cli.sh verify
 #
+#   # Run only tests containing 'geo':
+#   bash tests/cli/test_cli.sh verify geo
+#
+#   # Record only tests containing 'coordinates':
+#   bash tests/cli/test_cli.sh record coordinates
+#
 # PREREQUISITES
 # -------------
 #   - The wikipedia-api CLI must be installed (pip install -e .)
@@ -216,11 +222,35 @@ is_nondeterministic() {
 
 # ── Functions ───────────────────────────────────────────────────────────────
 
+filter_tests() {
+    local pattern="$1"
+    if [ -z "$pattern" ]; then
+        # Return all tests if no pattern provided
+        printf '%s\n' "${TESTS[@]}"
+        return
+    fi
+
+    # Filter tests by name (case-insensitive)
+    for entry in "${TESTS[@]}"; do
+        local name="${entry%%|*}"
+        if echo "$name" | grep -iq "$pattern"; then
+            echo "$entry"
+        fi
+    done
+}
+
 usage() {
-    echo "Usage: $0 {record|verify}"
+    echo "Usage: $0 {record|verify} [grep_pattern]"
     echo ""
-    echo "  record  — Run all commands and save output as expected fixtures"
-    echo "  verify  — Run all commands and compare against expected output"
+    echo "  record         — Run all commands and save output as expected fixtures"
+    echo "  verify         — Run all commands and compare against expected output"
+    echo "  grep_pattern   — Optional pattern to filter tests (e.g., 'geo', 'coordinates')"
+    echo ""
+    echo "Examples:"
+    echo "  $0 record                    # Record all tests"
+    echo "  $0 verify                    # Verify all tests"
+    echo "  $0 verify geo               # Verify only tests containing 'geo'"
+    echo "  $0 record coordinates       # Record only tests containing 'coordinates'"
     exit 1
 }
 
@@ -250,14 +280,36 @@ strip_whitespace() {
 }
 
 record_mode() {
+    local grep_pattern="$1"
     mkdir -p "${EXPECTED_DIR}"
-    local total=${#TESTS[@]}
-    local count=0
 
-    echo -e "${CYAN}Recording ${total} test fixtures...${NC}"
+    # Get filtered tests
+    local filtered_tests=()
+    while IFS= read -r line; do
+        filtered_tests+=("$line")
+    done < <(filter_tests "$grep_pattern")
+    local total=${#filtered_tests[@]}
+    local count=0
+    local failed=0
+    local failed_names=()
+
+    if [ "$total" -eq 0 ]; then
+        if [ -n "$grep_pattern" ]; then
+            echo -e "${YELLOW}No tests found matching pattern '${grep_pattern}'${NC}"
+        else
+            echo -e "${YELLOW}No tests found${NC}"
+        fi
+        return 0
+    fi
+
+    if [ -n "$grep_pattern" ]; then
+        echo -e "${CYAN}Recording ${total} test fixtures matching '${grep_pattern}'...${NC}"
+    else
+        echo -e "${CYAN}Recording ${total} test fixtures...${NC}"
+    fi
     echo ""
 
-    for entry in "${TESTS[@]}"; do
+    for entry in "${filtered_tests[@]}"; do
         local name="${entry%%|*}"
         local cmd="${entry#*|}"
         count=$((count + 1))
@@ -266,22 +318,67 @@ record_mode() {
         local output
         local error_file="${EXPECTED_DIR}/${name}.error"
         output=$(run_test "$name" "$cmd" "$error_file" | strip_whitespace)
-        echo "$output" > "${EXPECTED_DIR}/${name}.txt"
-        echo -e "${GREEN}recorded${NC}"
+
+        # Only write fixture if output is non-empty
+        if [ -n "$output" ]; then
+            echo "$output" > "${EXPECTED_DIR}/${name}.txt"
+            echo -e "${GREEN}recorded${NC}"
+        else
+            echo -e "${RED}FAILED${NC} (empty output - fixture not saved)"
+            failed=$((failed + 1))
+            failed_names+=("$name (empty output)")
+            # Remove any existing empty fixture file
+            rm -f "${EXPECTED_DIR}/${name}.txt"
+        fi
     done
+
+    echo ""
+    local passed=$((total - failed))
+    echo "───────────────────────────────────────"
+    echo -e "  Total:   ${total}"
+    echo -e "  Recorded: ${GREEN}${passed}${NC}"
+    echo -e "  Failed:  ${RED}${failed}${NC}"
+    echo "───────────────────────────────────────"
+
+    if [ ${#failed_names[@]} -gt 0 ]; then
+        echo ""
+        echo -e "${RED}Failed tests (empty output - fixtures not saved):${NC}"
+        for name in "${failed_names[@]}"; do
+            echo "  - $name"
+        done
+        echo ""
+        echo -e "${YELLOW}Fix the API issues and re-run recording for these tests.${NC}"
+        exit 1
+    fi
 
     echo ""
     echo -e "${GREEN}All ${total} fixtures saved to ${EXPECTED_DIR}/${NC}"
 }
 
 verify_mode() {
+    local grep_pattern="$1"
     if [ ! -d "${EXPECTED_DIR}" ]; then
         echo -e "${RED}Expected output directory not found: ${EXPECTED_DIR}${NC}"
         echo "Run '$0 record' first to generate expected fixtures."
         exit 1
     fi
 
-    local total=${#TESTS[@]}
+    # Get filtered tests
+    local filtered_tests=()
+    while IFS= read -r line; do
+        filtered_tests+=("$line")
+    done < <(filter_tests "$grep_pattern")
+    local total=${#filtered_tests[@]}
+
+    if [ "$total" -eq 0 ]; then
+        if [ -n "$grep_pattern" ]; then
+            echo -e "${YELLOW}No tests found matching pattern '${grep_pattern}'${NC}"
+        else
+            echo -e "${YELLOW}No tests found${NC}"
+        fi
+        return 0
+    fi
+
     local count=0
     local passed=0
     local failed=0
@@ -291,10 +388,14 @@ verify_mode() {
     local failed_names=()
     local mismatched_names=()
 
-    echo -e "${CYAN}Verifying ${total} tests against expected output...${NC}"
+    if [ -n "$grep_pattern" ]; then
+        echo -e "${CYAN}Verifying ${total} tests matching '${grep_pattern}' against expected output...${NC}"
+    else
+        echo -e "${CYAN}Verifying ${total} tests against expected output...${NC}"
+    fi
     echo ""
 
-    for entry in "${TESTS[@]}"; do
+    for entry in "${filtered_tests[@]}"; do
         local name="${entry%%|*}"
         local cmd="${entry#*|}"
         count=$((count + 1))
@@ -423,7 +524,11 @@ verify_mode() {
             done
         fi
         echo ""
-        echo "To update expected output, run: $0 record"
+        if [ -n "$grep_pattern" ]; then
+            echo "To update expected output for filtered tests, run: $0 record $grep_pattern"
+        else
+            echo "To update expected output, run: $0 record"
+        fi
         exit 1
     fi
 
@@ -433,16 +538,19 @@ verify_mode() {
 
 # ── Main ────────────────────────────────────────────────────────────────────
 
-if [ $# -ne 1 ]; then
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
     usage
 fi
 
-case "$1" in
+MODE="$1"
+PATTERN="${2:-}"
+
+case "$MODE" in
     record)
-        record_mode
+        record_mode "$PATTERN"
         ;;
     verify)
-        verify_mode
+        verify_mode "$PATTERN"
         ;;
     *)
         usage
