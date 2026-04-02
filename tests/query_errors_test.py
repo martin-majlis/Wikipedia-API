@@ -1,4 +1,4 @@
-import httpx
+import httpxyz
 import pytest
 import respx
 
@@ -16,7 +16,7 @@ class TestQueryHttpErrors:
 
     @respx.mock
     def test_http_404_raises_http_error(self):
-        respx.get(API_URL).mock(return_value=httpx.Response(404))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(404))
         with pytest.raises(wikipediaapi.WikiHttpError) as ctx:
             self.wiki._get("en", {"action": "query"})
         assert ctx.value.status_code == 404
@@ -24,14 +24,14 @@ class TestQueryHttpErrors:
 
     @respx.mock
     def test_http_403_raises_http_error(self):
-        respx.get(API_URL).mock(return_value=httpx.Response(403))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(403))
         with pytest.raises(wikipediaapi.WikiHttpError) as ctx:
             self.wiki._get("en", {"action": "query"})
         assert ctx.value.status_code == 403
 
     @respx.mock
     def test_http_429_raises_rate_limit_error(self):
-        respx.get(API_URL).mock(return_value=httpx.Response(429, headers={"Retry-After": "5"}))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(429, headers={"Retry-After": "5"}))
         with pytest.raises(wikipediaapi.WikiRateLimitError) as ctx:
             self.wiki._get("en", {"action": "query"})
         assert ctx.value.status_code == 429
@@ -40,53 +40,53 @@ class TestQueryHttpErrors:
 
     @respx.mock
     def test_http_429_without_retry_after(self):
-        respx.get(API_URL).mock(return_value=httpx.Response(429))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(429))
         with pytest.raises(wikipediaapi.WikiRateLimitError) as ctx:
             self.wiki._get("en", {"action": "query"})
         assert ctx.value.retry_after is None
 
     @respx.mock
     def test_http_500_raises_http_error(self):
-        respx.get(API_URL).mock(return_value=httpx.Response(500))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(500))
         with pytest.raises(wikipediaapi.WikiHttpError) as ctx:
             self.wiki._get("en", {"action": "query"})
         assert ctx.value.status_code == 500
 
     @respx.mock
     def test_http_503_raises_http_error(self):
-        respx.get(API_URL).mock(return_value=httpx.Response(503))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(503))
         with pytest.raises(wikipediaapi.WikiHttpError) as ctx:
             self.wiki._get("en", {"action": "query"})
         assert ctx.value.status_code == 503
 
     @respx.mock
     def test_invalid_json_raises_invalid_json_error(self):
-        respx.get(API_URL).mock(return_value=httpx.Response(200, content=b"not json"))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(200, content=b"not json"))
         with pytest.raises(wikipediaapi.WikiInvalidJsonError):
             self.wiki._get("en", {"action": "query"})
 
     @respx.mock
     def test_timeout_raises_http_timeout_error(self):
-        respx.get(API_URL).mock(side_effect=httpx.TimeoutException("timeout"))
+        respx.get(API_URL).mock(side_effect=httpxyz.TimeoutException("timeout"))
         with pytest.raises(wikipediaapi.WikiHttpTimeoutError):
             self.wiki._get("en", {"action": "query"})
 
     @respx.mock
     def test_connection_error_raises_connection_error(self):
-        respx.get(API_URL).mock(side_effect=httpx.ConnectError("conn error"))
+        respx.get(API_URL).mock(side_effect=httpxyz.ConnectError("conn error"))
         with pytest.raises(wikipediaapi.WikiConnectionError):
             self.wiki._get("en", {"action": "query"})
 
     @respx.mock
     def test_request_exception_raises_connection_error(self):
-        respx.get(API_URL).mock(side_effect=httpx.RequestError("request error"))
+        respx.get(API_URL).mock(side_effect=httpxyz.RequestError("request error"))
         with pytest.raises(wikipediaapi.WikiConnectionError):
             self.wiki._get("en", {"action": "query"})
 
     @respx.mock
     def test_http_200_valid_json_returns_data(self):
         expected = {"query": {"pages": {}}}
-        respx.get(API_URL).mock(return_value=httpx.Response(200, json=expected))
+        respx.get(API_URL).mock(return_value=httpxyz.Response(200, json=expected))
         result = self.wiki._get("en", {"action": "query"})
         assert result == expected
 
@@ -100,7 +100,7 @@ class TestQueryRetryLogic:
     @respx.mock
     def test_retry_on_429_then_success(self):
         success_data = {"query": {"pages": {}}}
-        responses = iter([httpx.Response(429), httpx.Response(200, json=success_data)])
+        responses = iter([httpxyz.Response(429), httpxyz.Response(200, json=success_data)])
         route = respx.get(API_URL).mock(side_effect=lambda req: next(responses))
         result = self.wiki._get("en", {"action": "query"})
         assert result == success_data
@@ -109,7 +109,7 @@ class TestQueryRetryLogic:
     @respx.mock
     def test_retry_on_500_then_success(self):
         success_data = {"query": {"pages": {}}}
-        responses = iter([httpx.Response(500), httpx.Response(200, json=success_data)])
+        responses = iter([httpxyz.Response(500), httpxyz.Response(200, json=success_data)])
         route = respx.get(API_URL).mock(side_effect=lambda req: next(responses))
         result = self.wiki._get("en", {"action": "query"})
         assert result == success_data
@@ -123,8 +123,8 @@ class TestQueryRetryLogic:
         def side_effect(req):
             call_num[0] += 1
             if call_num[0] == 1:
-                raise httpx.TimeoutException("timeout")
-            return httpx.Response(200, json=success_data)
+                raise httpxyz.TimeoutException("timeout")
+            return httpxyz.Response(200, json=success_data)
 
         route = respx.get(API_URL).mock(side_effect=side_effect)
         result = self.wiki._get("en", {"action": "query"})
@@ -139,8 +139,8 @@ class TestQueryRetryLogic:
         def side_effect(req):
             call_num[0] += 1
             if call_num[0] == 1:
-                raise httpx.ConnectError("conn error")
-            return httpx.Response(200, json=success_data)
+                raise httpxyz.ConnectError("conn error")
+            return httpxyz.Response(200, json=success_data)
 
         route = respx.get(API_URL).mock(side_effect=side_effect)
         result = self.wiki._get("en", {"action": "query"})
@@ -149,7 +149,7 @@ class TestQueryRetryLogic:
 
     @respx.mock
     def test_max_retries_exhausted_raises(self):
-        route = respx.get(API_URL).mock(return_value=httpx.Response(429))
+        route = respx.get(API_URL).mock(return_value=httpxyz.Response(429))
         with pytest.raises(wikipediaapi.WikiRateLimitError):
             self.wiki._get("en", {"action": "query"})
         # 1 initial + 2 retries = 3 attempts
@@ -157,7 +157,7 @@ class TestQueryRetryLogic:
 
     @respx.mock
     def test_max_retries_exhausted_on_500(self):
-        route = respx.get(API_URL).mock(return_value=httpx.Response(500))
+        route = respx.get(API_URL).mock(return_value=httpxyz.Response(500))
         with pytest.raises(wikipediaapi.WikiHttpError) as ctx:
             self.wiki._get("en", {"action": "query"})
         assert ctx.value.status_code == 500
@@ -165,7 +165,7 @@ class TestQueryRetryLogic:
 
     @respx.mock
     def test_max_retries_exhausted_on_timeout(self):
-        route = respx.get(API_URL).mock(side_effect=httpx.TimeoutException("timeout"))
+        route = respx.get(API_URL).mock(side_effect=httpxyz.TimeoutException("timeout"))
         with pytest.raises(wikipediaapi.WikiHttpTimeoutError):
             self.wiki._get("en", {"action": "query"})
         assert route.call_count == 3
@@ -173,7 +173,7 @@ class TestQueryRetryLogic:
     @respx.mock
     def test_no_retry_on_4xx(self):
         """Non-retryable 4xx errors should raise immediately without retries."""
-        route = respx.get(API_URL).mock(return_value=httpx.Response(404))
+        route = respx.get(API_URL).mock(return_value=httpxyz.Response(404))
         with pytest.raises(wikipediaapi.WikiHttpError):
             self.wiki._get("en", {"action": "query"})
         assert route.call_count == 1
@@ -183,8 +183,8 @@ class TestQueryRetryLogic:
         success_data = {"query": {"pages": {}}}
         responses = iter(
             [
-                httpx.Response(429, headers={"Retry-After": "0"}),
-                httpx.Response(200, json=success_data),
+                httpxyz.Response(429, headers={"Retry-After": "0"}),
+                httpxyz.Response(200, json=success_data),
             ]
         )
         respx.get(API_URL).mock(side_effect=lambda req: next(responses))
@@ -194,7 +194,7 @@ class TestQueryRetryLogic:
     @respx.mock
     def test_no_retry_on_invalid_json(self):
         """Invalid JSON on 200 should raise immediately, no retry."""
-        route = respx.get(API_URL).mock(return_value=httpx.Response(200, content=b"not json"))
+        route = respx.get(API_URL).mock(return_value=httpxyz.Response(200, content=b"not json"))
         with pytest.raises(wikipediaapi.WikiInvalidJsonError):
             self.wiki._get("en", {"action": "query"})
         assert route.call_count == 1
@@ -202,7 +202,7 @@ class TestQueryRetryLogic:
     @respx.mock
     def test_no_retry_on_request_exception(self):
         """Generic RequestError (not Timeout/ConnectError) should not retry."""
-        route = respx.get(API_URL).mock(side_effect=httpx.RequestError("request error"))
+        route = respx.get(API_URL).mock(side_effect=httpxyz.RequestError("request error"))
         with pytest.raises(wikipediaapi.WikiConnectionError):
             self.wiki._get("en", {"action": "query"})
         assert route.call_count == 1
@@ -242,9 +242,9 @@ class TestExceptionHierarchy:
         e = wikipediaapi.WikiConnectionError("http://example.com")
         assert "http://example.com" in str(e)
 
-    def test_exceptions_do_not_expose_httpx(self):
-        """Ensure our exceptions don't inherit from httpx exceptions."""
-        assert not issubclass(wikipediaapi.WikipediaException, httpx.HTTPStatusError)
+    def test_exceptions_do_not_expose_httpxyz(self):
+        """Ensure our exceptions don't inherit from httpxyz exceptions."""
+        assert not issubclass(wikipediaapi.WikipediaException, httpxyz.HTTPStatusError)
 
 
 class TestDefaultRetryParams:
