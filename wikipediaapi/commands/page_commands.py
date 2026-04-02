@@ -1,7 +1,6 @@
 r"""Page-related CLI commands."""
 
 import sys
-from typing import Any
 
 import click
 
@@ -14,6 +13,7 @@ from .base import create_wikipedia_instance
 from .base import fetch_page
 from .base import format_page_info
 from .base import format_sections
+from .base import PageInfo
 from .base import PageNotFoundError
 from .base import SectionInfo
 from .base import SectionNotFoundError
@@ -87,7 +87,7 @@ def get_page_sections(
         return result
 
     sections = _collect_sections(page.sections)
-    return sections  # type: ignore
+    return sections
 
 
 def get_section_text(
@@ -116,10 +116,10 @@ def get_section_text(
     if sec is None:
         raise SectionNotFoundError(f"Section '{section_title}' not found in '{title}'.")
 
-    return sec.full_text()
+    return sec.full_text() if sec else ""
 
 
-def get_page_info(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> dict[str, Any]:
+def get_page_info(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> PageInfo:
     r"""Get metadata and existence info for a Wikipedia page.
 
     Args:
@@ -132,7 +132,7 @@ def get_page_info(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) 
     """
     p = fetch_page(wiki, title, namespace)
 
-    info = {
+    info: PageInfo = {
         "title": p.title,
         "exists": p.exists(),
         "language": p.language,

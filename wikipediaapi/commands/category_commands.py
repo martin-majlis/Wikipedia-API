@@ -70,7 +70,7 @@ def get_category_members(
         return result
 
     members = _collect_members(page.categorymembers)
-    return members  # type: ignore
+    return members
 
 
 def format_category_members(members: list[CategoryMember], output_format: str) -> str:

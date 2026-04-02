@@ -18,7 +18,7 @@ class TestParamsCoverage:
         """Test line 79: boolean True handling."""
         params = _BaseParams()
         params.test_bool = True
-        params.FIELD_MAP = {"test_bool": "test_bool"}
+        params.FIELD_MAP = {"test_bool": "test_bool"}  # ty: ignore[invalid-attribute-access]
         result = params.to_api()
         assert result["test_bool"] == "1"
 
@@ -26,7 +26,7 @@ class TestParamsCoverage:
         """Test boolean False handling (should not be included)."""
         params = _BaseParams()
         params.test_bool = False
-        params.FIELD_MAP = {"test_bool": "test_bool"}
+        params.FIELD_MAP = {"test_bool": "test_bool"}  # ty: ignore[invalid-attribute-access]
         result = params.to_api()
         assert "test_bool" not in result
 
@@ -39,7 +39,7 @@ class TestParamsCoverage:
 
         params = _BaseParams()
         params.test_enum = TestEnum.VALUE
-        params.FIELD_MAP = {"test_enum": "test_enum"}
+        params.FIELD_MAP = {"test_enum": "test_enum"}  # ty: ignore[invalid-attribute-access]
         result = params.to_api()
         assert result["test_enum"] == "test_value"
 

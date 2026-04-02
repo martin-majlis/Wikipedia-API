@@ -339,17 +339,17 @@ class TestTypes:
     def test_coordinate_frozen(self):
         c = wikipediaapi.Coordinate(lat=1.0, lon=2.0, primary=True)
         with pytest.raises(AttributeError):
-            c.lat = 3.0  # type: ignore[misc]
+            c.lat = 3.0  # ty: ignore[invalid-assignment]
 
     def test_geosearch_meta_frozen(self):
         m = wikipediaapi.GeoSearchMeta(dist=10.0, lat=1.0, lon=2.0, primary=True)
         with pytest.raises(AttributeError):
-            m.dist = 20.0  # type: ignore[misc]
+            m.dist = 20.0  # ty: ignore[invalid-assignment]
 
     def test_search_meta_frozen(self):
         m = wikipediaapi.SearchMeta(snippet="test", size=100, wordcount=10, timestamp="2024-01-01")
         with pytest.raises(AttributeError):
-            m.snippet = "new"  # type: ignore[misc]
+            m.snippet = "new"  # ty: ignore[invalid-assignment]
 
     def test_geo_point_defaults(self):
         point = wikipediaapi.GeoPoint()
@@ -397,7 +397,7 @@ class TestPagesDictClass:
 
     def test_pages_dict_backward_compatible(self):
         pd = wikipediaapi.PagesDict()
-        pd["key"] = "value"
+        pd["key"] = "value"  # ty: ignore[invalid-assignment]
         assert pd["key"] == "value"
 
 
@@ -687,7 +687,7 @@ class TestImageInfo:
     def test_imageinfo_frozen(self):
         info = ImageInfo(url="http://example.com", width=100)
         with pytest.raises(AttributeError):
-            info.url = "http://other.com"  # type: ignore[misc]
+            info.url = "http://other.com"  # ty: ignore[invalid-assignment]
 
 
 class TestPagesDictBatchMethods:
@@ -765,7 +765,7 @@ class TestParamsToApiExtended:
 
     def test_images_params_rejects_invalid_direction(self):
         with pytest.raises(TypeError):
-            ImagesParams(direction=123)  # type: ignore[arg-type]
+            ImagesParams(direction=123)  # ty: ignore[invalid-argument-type]
 
 
 class TestAsyncPagesDictBatchMethods:

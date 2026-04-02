@@ -44,11 +44,12 @@ repos:
         entry: uv run flake8
         language: system
         types: [file, python]
-      - id: mypy
-        name: Run mypy
-        entry: uv run mypy
+      - id: ty
+        name: Run ty
+        entry: uv run ty check wikipediaapi/ tests/
         language: system
         types: [file, python]
+        pass_filenames: false
       - id: pyupgrade
         name: Run pyupgrade
         entry: uv run pyupgrade

@@ -206,7 +206,7 @@ class TestAsyncWikipediaPageFetch:
         async def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
         page = wiki.page("NonExistent")
         assert (await page.exists()) is False
 

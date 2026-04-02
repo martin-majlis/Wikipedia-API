@@ -1,5 +1,5 @@
 from collections.abc import Iterable
-from typing import Any, TYPE_CHECKING
+from typing import Any, cast, TYPE_CHECKING
 
 from .._enums import CoordinatesProp
 from .._enums import CoordinateType
@@ -187,11 +187,14 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return self._dispatch_prop(  # type: ignore[return-value]
-            page,
-            self._langlinks_params(page, **kwargs),
-            {},
-            self._build_langlinks,  # type: ignore[arg-type]
+        return cast(
+            PagesDict,
+            self._dispatch_prop(
+                page,
+                self._langlinks_params(page, **kwargs),
+                {},
+                self._build_langlinks,  # type: ignore[arg-type]
+            ),
         )
 
     def links(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
@@ -217,8 +220,15 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return self._dispatch_prop_paginated(  # type: ignore[return-value]
-            page, {**self._links_params(page), **kwargs}, "plcontinue", "links", self._build_links
+        return cast(
+            PagesDict,
+            self._dispatch_prop_paginated(
+                page,
+                {**self._links_params(page), **kwargs},
+                "plcontinue",
+                "links",
+                self._build_links,
+            ),
         )
 
     def backlinks(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
@@ -244,12 +254,15 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return self._dispatch_list(  # type: ignore[return-value]
-            page,
-            {**self._backlinks_params(page), **kwargs},
-            "blcontinue",
-            "backlinks",
-            self._build_backlinks,
+        return cast(
+            PagesDict,
+            self._dispatch_list(
+                page,
+                {**self._backlinks_params(page), **kwargs},
+                "blcontinue",
+                "backlinks",
+                self._build_backlinks,
+            ),
         )
 
     def categories(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
@@ -274,11 +287,14 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return self._dispatch_prop(  # type: ignore[return-value]
-            page,
-            self._categories_params(page, **kwargs),
-            {},
-            self._build_categories,  # type: ignore[arg-type]
+        return cast(
+            PagesDict,
+            self._dispatch_prop(
+                page,
+                self._categories_params(page, **kwargs),
+                {},
+                self._build_categories,  # type: ignore[arg-type]
+            ),
         )
 
     def categorymembers(self, page: WikipediaPage, **kwargs: Any) -> PagesDict:
@@ -304,12 +320,15 @@ class WikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return self._dispatch_list(  # type: ignore[return-value]
-            page,
-            {**self._categorymembers_params(page), **kwargs},
-            "cmcontinue",
-            "categorymembers",
-            self._build_categorymembers,
+        return cast(
+            PagesDict,
+            self._dispatch_list(
+                page,
+                {**self._categorymembers_params(page), **kwargs},
+                "cmcontinue",
+                "categorymembers",
+                self._build_categorymembers,
+            ),
         )
 
     def coordinates(

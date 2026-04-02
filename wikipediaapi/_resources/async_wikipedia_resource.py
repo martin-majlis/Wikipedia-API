@@ -1,5 +1,5 @@
 from collections.abc import Iterable
-from typing import Any, TYPE_CHECKING, Union
+from typing import Any, cast, TYPE_CHECKING, Union
 
 from .._base_wikipedia_page import NOT_CACHED
 from .._enums import CoordinatesProp
@@ -218,11 +218,14 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return await self._async_dispatch_prop(  # type: ignore[return-value]
-            page,
-            self._langlinks_params(page, **kwargs),
-            {},  # type: ignore[arg-type]
-            self._build_langlinks,  # type: ignore[arg-type]
+        return cast(
+            "AsyncPagesDict",
+            await self._async_dispatch_prop(
+                page,
+                self._langlinks_params(page, **kwargs),
+                {},  # type: ignore[arg-type]
+                self._build_langlinks,  # type: ignore[arg-type]
+            ),
         )
 
     async def links(self, page: "AsyncWikipediaPage", **kwargs: Any) -> "AsyncPagesDict":
@@ -241,8 +244,15 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return await self._async_dispatch_prop_paginated(  # type: ignore[return-value]
-            page, {**self._links_params(page), **kwargs}, "plcontinue", "links", self._build_links
+        return cast(
+            "AsyncPagesDict",
+            await self._async_dispatch_prop_paginated(
+                page,
+                {**self._links_params(page), **kwargs},
+                "plcontinue",
+                "links",
+                self._build_links,
+            ),
         )
 
     async def backlinks(self, page: "AsyncWikipediaPage", **kwargs: Any) -> "AsyncPagesDict":
@@ -261,12 +271,15 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return await self._async_dispatch_list(  # type: ignore[return-value]
-            page,
-            {**self._backlinks_params(page), **kwargs},
-            "blcontinue",
-            "backlinks",
-            self._build_backlinks,
+        return cast(
+            "AsyncPagesDict",
+            await self._async_dispatch_list(
+                page,
+                {**self._backlinks_params(page), **kwargs},
+                "blcontinue",
+                "backlinks",
+                self._build_backlinks,
+            ),
         )
 
     async def categories(self, page: "AsyncWikipediaPage", **kwargs: Any) -> "AsyncPagesDict":
@@ -285,11 +298,14 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return await self._async_dispatch_prop(  # type: ignore[return-value]
-            page,
-            self._categories_params(page, **kwargs),
-            {},  # type: ignore[arg-type]
-            self._build_categories,  # type: ignore[arg-type]
+        return cast(
+            "AsyncPagesDict",
+            await self._async_dispatch_prop(
+                page,
+                self._categories_params(page, **kwargs),
+                {},  # type: ignore[arg-type]
+                self._build_categories,  # type: ignore[arg-type]
+            ),
         )
 
     async def categorymembers(self, page: "AsyncWikipediaPage", **kwargs: Any) -> "AsyncPagesDict":
@@ -308,12 +324,15 @@ class AsyncWikipediaResource(BaseWikipediaResource):
         :raises WikiHttpError: if the API returns a non-success HTTP status
         :raises WikiInvalidJsonError: if the response is not valid JSON
         """
-        return await self._async_dispatch_list(  # type: ignore[return-value]
-            page,
-            {**self._categorymembers_params(page), **kwargs},
-            "cmcontinue",
-            "categorymembers",
-            self._build_categorymembers,
+        return cast(
+            "AsyncPagesDict",
+            await self._async_dispatch_list(
+                page,
+                {**self._categorymembers_params(page), **kwargs},
+                "cmcontinue",
+                "categorymembers",
+                self._build_categorymembers,
+            ),
         )
 
     async def coordinates(

@@ -34,7 +34,7 @@ def cli() -> click.Group:
         wikipedia-api geosearch --coord "51.5074|-0.1278"
         wikipedia-api search "Python programming"
     """
-    return cli  # type: ignore
+    return cli
 
 
 # Register all command modules

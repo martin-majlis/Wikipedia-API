@@ -59,6 +59,16 @@ class BaseWikipediaResource(ABC):
       :class:`~wikipediaapi._http_client.AsyncHTTPClient`.
     """
 
+    # Attributes provided by BaseHTTPClient via multiple inheritance in concrete subclasses
+    language: str
+    variant: str | None
+    extract_format: "ExtractFormat"
+    _extra_api_params: dict[str, Any] | None
+
+    if TYPE_CHECKING:
+
+        def _get(self, language: str, params: dict[str, Any]) -> Any: ...
+
     def _construct_params(
         self, page: "BaseWikipediaPage[Any]", params: dict[str, Any]
     ) -> dict[str, Any]:

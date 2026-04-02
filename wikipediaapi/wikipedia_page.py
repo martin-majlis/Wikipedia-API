@@ -5,7 +5,7 @@ Wikipedia page in a synchronous context. It provides methods and properties
 for accessing page content, metadata, and related information.
 """
 
-from typing import Any
+from typing import Any, cast
 
 from ._base_wikipedia_page import BaseWikipediaPage
 from ._base_wikipedia_page import NOT_CACHED
@@ -276,7 +276,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         """
         if not self._called["langlinks"]:
             self._fetch("langlinks")
-        return self._langlinks  # type: ignore[return-value]
+        return cast(PagesDict, self._langlinks)
 
     @property
     def links(self) -> PagesDict:
@@ -296,7 +296,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         """
         if not self._called["links"]:
             self._fetch("links")
-        return self._links  # type: ignore[return-value]
+        return cast(PagesDict, self._links)
 
     @property
     def backlinks(self) -> PagesDict:
@@ -315,7 +315,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         """
         if not self._called["backlinks"]:
             self._fetch("backlinks")
-        return self._backlinks  # type: ignore[return-value]
+        return cast(PagesDict, self._backlinks)
 
     @property
     def categories(self) -> PagesDict:
@@ -334,7 +334,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         """
         if not self._called["categories"]:
             self._fetch("categories")
-        return self._categories  # type: ignore[return-value]
+        return cast(PagesDict, self._categories)
 
     @property
     def categorymembers(self) -> PagesDict:
@@ -354,7 +354,7 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         """
         if not self._called["categorymembers"]:
             self._fetch("categorymembers")
-        return self._categorymembers  # type: ignore[return-value]
+        return cast(PagesDict, self._categorymembers)
 
     @property
     def coordinates(self) -> list[Coordinate]:

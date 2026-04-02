@@ -98,14 +98,14 @@ Linting & Type Checking
 Run All Pre-commit Hooks
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This runs isort, black, flake8, mypy, pyupgrade, and other checks (trailing whitespace, YAML validation, etc.)::
+This runs isort, black, flake8, ty, pyupgrade, and other checks (trailing whitespace, YAML validation, etc.).::
 
     make run-pre-commit
 
 Individual Checks
 ~~~~~~~~~~~~~~~~~
 
-* **Type checking:** ``make run-type-check`` (runs ``mypy ./wikipediaapi``)
+* **Type checking:** ``make run-type-check`` (runs ``uv run ty check wikipediaapi/``)
 * **Linting:** ``make run-flake8`` (runs ``flake8 --max-line-length=100 wikipediaapi tests``)
 
 Building
