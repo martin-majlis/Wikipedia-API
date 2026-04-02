@@ -185,7 +185,7 @@ make requirements-all
 Or install individual dependency groups:
 
 - **Runtime dependencies:** `make requirements` (installs core dependencies)
-- **Dev dependencies:** `make requirements-dev` (installs black, coverage, flake8, isort, mypy, pre-commit, tox, etc.)
+- **Dev dependencies:** `make requirements-dev` (installs black, coverage, flake8, isort, ty, pre-commit, tox, etc.)
 - **Doc dependencies:** `make requirements-doc` (installs sphinx)
 - **Build dependencies:** `make requirements-build` (installs rst2html, setuptools, wheel)
 
@@ -397,11 +397,11 @@ Runs the test suite against Python 3.10–3.14 via tox.
 make run-pre-commit
 ```
 
-This runs isort, black, flake8, mypy, pyupgrade, and other checks (trailing whitespace, YAML validation, etc.).
+This runs isort, black, flake8, ty, pyupgrade, and other checks (trailing whitespace, YAML validation, etc.).
 
 ### Run Individual Checks
 
-- **Type checking:** `make run-type-check` (runs `mypy ./wikipediaapi`)
+- **Type checking:** `uv run ty check wikipediaapi/`
 - **Linting:** `make run-flake8` (runs `flake8 --max-line-length=100 wikipediaapi tests`)
 
 ## After Every Change

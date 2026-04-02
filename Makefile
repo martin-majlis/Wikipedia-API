@@ -42,7 +42,7 @@ run-tests-cli-unit:
 	uv run pytest tests/cli_test.py -v
 
 run-type-check:
-	uv run mypy ./wikipediaapi
+	uv run ty check wikipediaapi/
 
 run-flake8:
 	uv run flake8 --max-line-length=100 wikipediaapi tests

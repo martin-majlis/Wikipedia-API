@@ -10,7 +10,7 @@ Prerequisites
 
 Makefile targets
 -----------------
-* ``make run-pre-commit`` - lints source code
+* ``make run-type-check`` - lints source code (runs ``uv run ty check wikipediaapi/``)
 * ``make requirements-all`` - install all requirements
   * ``make requirements`` - install package requirements
   * ``make requirements-dev`` - install development requirements

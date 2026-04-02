@@ -59,6 +59,4 @@ class _BaseParams:
         Returns:
             Tuple of ``(field_name, value)`` pairs, sorted by field name.
         """
-        return tuple(
-            sorted((f.name, getattr(self, f.name)) for f in fields(self))  # type: ignore[arg-type]
-        )
+        return tuple(sorted((f.name, getattr(self, f.name)) for f in dataclasses.fields(self)))

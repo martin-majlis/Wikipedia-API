@@ -5,7 +5,7 @@ Wikipedia page in an asynchronous context. It provides async methods and
 awaitable properties for accessing page content, metadata, and related information.
 """
 
-from typing import Any
+from typing import Any, cast
 
 from ._base_wikipedia_page import BaseWikipediaPage
 from ._base_wikipedia_page import NOT_CACHED
@@ -195,7 +195,7 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
         async def _get() -> AsyncPagesDict:
             if not self._called["langlinks"]:
                 await self._fetch("langlinks")
-            return self._langlinks  # type: ignore[return-value]
+            return cast(AsyncPagesDict, self._langlinks)
 
         return _get()
 
@@ -206,7 +206,7 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
         async def _get() -> AsyncPagesDict:
             if not self._called["links"]:
                 await self._fetch("links")
-            return self._links  # type: ignore[return-value]
+            return cast(AsyncPagesDict, self._links)
 
         return _get()
 
@@ -217,7 +217,7 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
         async def _get() -> AsyncPagesDict:
             if not self._called["backlinks"]:
                 await self._fetch("backlinks")
-            return self._backlinks  # type: ignore[return-value]
+            return cast(AsyncPagesDict, self._backlinks)
 
         return _get()
 
@@ -228,7 +228,7 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
         async def _get() -> AsyncPagesDict:
             if not self._called["categories"]:
                 await self._fetch("categories")
-            return self._categories  # type: ignore[return-value]
+            return cast(AsyncPagesDict, self._categories)
 
         return _get()
 
@@ -239,7 +239,7 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
         async def _get() -> AsyncPagesDict:
             if not self._called["categorymembers"]:
                 await self._fetch("categorymembers")
-            return self._categorymembers  # type: ignore[return-value]
+            return cast(AsyncPagesDict, self._categorymembers)
 
         return _get()
 
