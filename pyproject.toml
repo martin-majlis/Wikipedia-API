@@ -53,7 +53,7 @@ dev = [
     "pytest==8.3.5",
     "pytest-asyncio==0.26.0",
     "pytest-cov==6.1.0",
-    "tox==4.50.3",
+    "tox==4.52.0",
     "anyio[trio]==4.13.0",
     "respx==0.22.0",
     "types-setuptools==82.0.0.20260210",
