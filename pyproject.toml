@@ -48,7 +48,7 @@ dev = [
     "isort==8.0.1",
     "mypy==1.20.0",
     "pre-commit==4.5.1",
-    "pygments==2.19.2",
+    "pygments==2.20.0",
     "pyupgrade==3.21.2",
     "pytest==8.3.5",
     "pytest-asyncio==0.26.0",
