@@ -710,7 +710,7 @@ class TestSearchResults:
         py_page = next(p for p in results["pages"] if p["title"] == "Python (programming language)")
         assert py_page["size"] == 123456
         assert py_page["wordcount"] == 15000
-        assert "Python" in py_page["snippet"]
+        assert "Python" in py_page["snippet"]  # ty: ignore[unsupported-operator]
 
     def test_format_search_text(self):
         """Test formatting search results as text."""

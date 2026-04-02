@@ -47,7 +47,7 @@ class TestAsyncWikipedia:
         async def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
         page = wiki.page("NonExistent")
         result = await wiki.extracts(page)
         assert result == ""
@@ -96,7 +96,7 @@ class TestAsyncWikipedia:
         async def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
         page = wiki.page("NonExistent")
         result = await wiki.links(page)
         assert result == {}
@@ -108,7 +108,7 @@ class TestAsyncWikipedia:
         async def mock_get(language, params):
             return {"query": {"backlinks": []}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
         page = wiki.page("NonExistent")
         result = await wiki.backlinks(page)
         assert result == {}
@@ -120,7 +120,7 @@ class TestAsyncWikipedia:
         async def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
         page = wiki.page("NonExistent")
         result = await wiki.categories(page)
         assert result == {}
@@ -132,7 +132,7 @@ class TestAsyncWikipedia:
         async def mock_get(language, params):
             return {"query": {"categorymembers": []}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
         page = wiki.page("NonExistent")
         result = await wiki.categorymembers(page)
         assert result == {}

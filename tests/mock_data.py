@@ -1771,4 +1771,4 @@ _CLI_MOCK_DATA = {
 }
 
 # Merge CLI mock data with main mock data
-_MOCK_DATA.update(_CLI_MOCK_DATA)
+_MOCK_DATA.update(_CLI_MOCK_DATA)  # ty: ignore[no-matching-overload]

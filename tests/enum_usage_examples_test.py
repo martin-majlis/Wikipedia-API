@@ -256,7 +256,7 @@ class TestEnumUsageExamples:
 
         # Test with None values (should not be used in practice, but test behavior)
         try:
-            result = coordinate_type2str(None)  # type: ignore[arg-type]
+            result = coordinate_type2str(None)  # ty: ignore[arg-type]
             print(f"  coordinate_type2str(None) -> {repr(result)}")
         except (AttributeError, TypeError) as e:
             print(f"  coordinate_type2str(None) raises {type(e).__name__}")

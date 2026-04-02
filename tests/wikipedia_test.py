@@ -98,7 +98,7 @@ class TestWikipedia:
         def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
 
         result = wiki.extracts(page)
         assert result == ""
@@ -118,7 +118,7 @@ class TestWikipedia:
         def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
 
         result = wiki.info(page)
         assert result == page
@@ -135,7 +135,7 @@ class TestWikipedia:
         def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
 
         result = wiki.langlinks(page)
         assert result == {}
@@ -155,7 +155,7 @@ class TestWikipedia:
         def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
 
         result = wiki.links(page)
         assert result == {}
@@ -175,7 +175,7 @@ class TestWikipedia:
         def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
 
         result = wiki.backlinks(page)
         assert result == {}
@@ -192,7 +192,7 @@ class TestWikipedia:
         def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
 
         result = wiki.categories(page)
         assert result == {}
@@ -209,7 +209,7 @@ class TestWikipedia:
         def mock_get(language, params):
             return {"query": {"pages": {"-1": {}}}}
 
-        wiki._get = mock_get
+        wiki._get = mock_get  # ty: ignore[invalid-assignment]
 
         result = wiki.categorymembers(page)
         assert result == {}

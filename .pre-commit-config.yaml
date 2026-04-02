@@ -46,9 +46,10 @@ repos:
         types: [file, python]
       - id: ty
         name: Run ty
-        entry: uv run ty check wikipediaapi/
+        entry: uv run ty check wikipediaapi/ tests/
         language: system
         types: [file, python]
+        pass_filenames: false
       - id: pyupgrade
         name: Run pyupgrade
         entry: uv run pyupgrade
