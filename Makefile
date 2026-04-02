@@ -41,8 +41,14 @@ run-test-cli-record:
 run-tests-cli-unit:
 	uv run pytest tests/cli_test.py -v
 
-run-type-check:
+run-type-check: run-type-check-library run-type-check-tests
+	date
+
+run-type-check-library:
 	uv run ty check wikipediaapi/
+
+run-type-check-tests:
+	uv run ty check tests/
 
 run-flake8:
 	uv run flake8 --max-line-length=100 wikipediaapi tests
