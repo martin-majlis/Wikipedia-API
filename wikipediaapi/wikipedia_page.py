@@ -5,13 +5,18 @@ Wikipedia page in a synchronous context. It provides methods and properties
 for accessing page content, metadata, and related information.
 """
 
-from typing import Any, cast
+from typing import Any
+from typing import cast
 
-from ._base_wikipedia_page import NOT_CACHED, BaseWikipediaPage
-from ._pages_dict import ImagesDict, PagesDict
+from ._base_wikipedia_page import NOT_CACHED
+from ._base_wikipedia_page import BaseWikipediaPage
+from ._pages_dict import ImagesDict
+from ._pages_dict import PagesDict
 from ._params.coordinates_params import CoordinatesParams
 from ._params.images_params import ImagesParams
-from ._types import Coordinate, GeoSearchMeta, SearchMeta
+from ._types import Coordinate
+from ._types import GeoSearchMeta
+from ._types import SearchMeta
 from .wikipedia_page_section import WikipediaPageSection
 
 

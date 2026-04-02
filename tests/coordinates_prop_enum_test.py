@@ -9,8 +9,11 @@ including edge cases and integration with coordinate methods.
 import pytest
 
 import wikipediaapi
-from tests.mock_data import user_agent, wikipedia_api_request
-from wikipediaapi import CoordinatesProp, WikiCoordinatesProp, coordinates_prop2str
+from tests.mock_data import user_agent
+from tests.mock_data import wikipedia_api_request
+from wikipediaapi import CoordinatesProp
+from wikipediaapi import WikiCoordinatesProp
+from wikipediaapi import coordinates_prop2str
 
 
 class TestCoordinatesPropEnum:

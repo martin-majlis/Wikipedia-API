@@ -3,7 +3,10 @@
 import pytest
 
 import wikipediaapi
-from wikipediaapi import CoordinatesProp, CoordinateType, Direction, GeoPoint
+from wikipediaapi import CoordinatesProp
+from wikipediaapi import CoordinateType
+from wikipediaapi import Direction
+from wikipediaapi import GeoPoint
 
 
 class TestVcrAsyncPagesDictCoordinates:

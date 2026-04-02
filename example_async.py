@@ -22,7 +22,8 @@ import asyncio
 import logging
 
 import wikipediaapi
-from wikipediaapi import CoordinatesProp, coordinates_prop2str
+from wikipediaapi import CoordinatesProp
+from wikipediaapi import coordinates_prop2str
 
 # Set to INFO to see the actual API request URLs being made
 logging.basicConfig(level=logging.WARNING)

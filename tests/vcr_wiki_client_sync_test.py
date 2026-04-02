@@ -3,21 +3,19 @@
 import pytest
 
 import wikipediaapi
-from wikipediaapi import (
-    CoordinatesProp,
-    CoordinateType,
-    Direction,
-    GeoBox,
-    GeoPoint,
-    GeoSearchSort,
-    Namespace,
-    RedirectFilter,
-    SearchInfo,
-    SearchProp,
-    SearchQiProfile,
-    SearchSort,
-    SearchWhat,
-)
+from wikipediaapi import CoordinatesProp
+from wikipediaapi import CoordinateType
+from wikipediaapi import Direction
+from wikipediaapi import GeoBox
+from wikipediaapi import GeoPoint
+from wikipediaapi import GeoSearchSort
+from wikipediaapi import Namespace
+from wikipediaapi import RedirectFilter
+from wikipediaapi import SearchInfo
+from wikipediaapi import SearchProp
+from wikipediaapi import SearchQiProfile
+from wikipediaapi import SearchSort
+from wikipediaapi import SearchWhat
 
 
 class TestVcrWikiConstruction:

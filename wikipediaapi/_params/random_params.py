@@ -13,13 +13,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import ClassVar
 
-from .._enums import (
-    Namespace,
-    RedirectFilter,
-    WikiNamespace,
-    WikiRedirectFilter,
-    redirect_filter2str,
-)
+from .._enums import Namespace
+from .._enums import RedirectFilter
+from .._enums import WikiNamespace
+from .._enums import WikiRedirectFilter
+from .._enums import redirect_filter2str
 from .base_params import _BaseParams
 
 

@@ -1,37 +1,44 @@
 from collections.abc import Iterable
-from typing import TYPE_CHECKING, Any, Union, cast
+from typing import TYPE_CHECKING
+from typing import Any
+from typing import Union
+from typing import cast
 
 from .._base_wikipedia_page import NOT_CACHED
-from .._enums import (
-    CoordinatesProp,
-    CoordinateType,
-    Direction,
-    GeoSearchSort,
-    Globe,
-    Namespace,
-    RedirectFilter,
-    SearchSort,
-    WikiCoordinatesProp,
-    WikiCoordinateType,
-    WikiDirection,
-    WikiGeoSearchSort,
-    WikiGlobe,
-    WikiNamespace,
-    WikiRedirectFilter,
-    WikiSearchInfo,
-    WikiSearchProp,
-    WikiSearchQiProfile,
-    WikiSearchSort,
-    WikiSearchWhat,
-)
-from .._pages_dict import AsyncImagesDict, AsyncPagesDict
+from .._enums import CoordinatesProp
+from .._enums import CoordinateType
+from .._enums import Direction
+from .._enums import GeoSearchSort
+from .._enums import Globe
+from .._enums import Namespace
+from .._enums import RedirectFilter
+from .._enums import SearchSort
+from .._enums import WikiCoordinatesProp
+from .._enums import WikiCoordinateType
+from .._enums import WikiDirection
+from .._enums import WikiGeoSearchSort
+from .._enums import WikiGlobe
+from .._enums import WikiNamespace
+from .._enums import WikiRedirectFilter
+from .._enums import WikiSearchInfo
+from .._enums import WikiSearchProp
+from .._enums import WikiSearchQiProfile
+from .._enums import WikiSearchSort
+from .._enums import WikiSearchWhat
+from .._pages_dict import AsyncImagesDict
+from .._pages_dict import AsyncPagesDict
 from .._params.coordinates_params import CoordinatesParams
 from .._params.geo_search_params import GeoSearchParams
-from .._params.imageinfo_params import _DEFAULT_PROP, ImageInfoParams
+from .._params.imageinfo_params import _DEFAULT_PROP
+from .._params.imageinfo_params import ImageInfoParams
 from .._params.images_params import ImagesParams
 from .._params.random_params import RandomParams
 from .._params.search_params import SearchParams
-from .._types import Coordinate, GeoBox, GeoPoint, ImageInfo, SearchResults
+from .._types import Coordinate
+from .._types import GeoBox
+from .._types import GeoPoint
+from .._types import ImageInfo
+from .._types import SearchResults
 from ..async_wikipedia_image import AsyncWikipediaImage
 from ..async_wikipedia_page import AsyncWikipediaPage
 from .base_wikipedia_resource import BaseWikipediaResource

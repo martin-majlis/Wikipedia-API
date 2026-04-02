@@ -5,24 +5,26 @@ Async mirror of PagesDict. Batch methods are coroutines.
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
-from typing import TYPE_CHECKING, Any, cast
+from collections.abc import Iterable
+from collections.abc import Mapping
+from typing import TYPE_CHECKING
+from typing import Any
+from typing import cast
 
 from .._base_wikipedia_page import BaseWikipediaPage
-from .._enums import (
-    CoordinatesProp,
-    CoordinateType,
-    Direction,
-    WikiCoordinatesProp,
-    WikiCoordinateType,
-    WikiDirection,
-)
+from .._enums import CoordinatesProp
+from .._enums import CoordinateType
+from .._enums import Direction
+from .._enums import WikiCoordinatesProp
+from .._enums import WikiCoordinateType
+from .._enums import WikiDirection
 from .base_pages_dict import _AsyncBatchWiki
 from .pages_dict import PagesDict
 
 if TYPE_CHECKING:
     from .._resources import BaseWikipediaResource
-    from .._types import Coordinate, GeoPoint
+    from .._types import Coordinate
+    from .._types import GeoPoint
     from ..async_wikipedia_page import AsyncWikipediaPage
 
 

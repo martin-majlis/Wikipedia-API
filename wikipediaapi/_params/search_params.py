@@ -20,23 +20,21 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 from typing import ClassVar
 
-from .._enums import (
-    Namespace,
-    SearchQiProfile,
-    SearchSort,
-    SearchWhat,
-    WikiNamespace,
-    WikiSearchInfo,
-    WikiSearchProp,
-    WikiSearchQiProfile,
-    WikiSearchSort,
-    WikiSearchWhat,
-    search_info2str,
-    search_prop2str,
-    search_qi_profile2str,
-    search_sort2str,
-    search_what2str,
-)
+from .._enums import Namespace
+from .._enums import SearchQiProfile
+from .._enums import SearchSort
+from .._enums import SearchWhat
+from .._enums import WikiNamespace
+from .._enums import WikiSearchInfo
+from .._enums import WikiSearchProp
+from .._enums import WikiSearchQiProfile
+from .._enums import WikiSearchSort
+from .._enums import WikiSearchWhat
+from .._enums import search_info2str
+from .._enums import search_prop2str
+from .._enums import search_qi_profile2str
+from .._enums import search_sort2str
+from .._enums import search_what2str
 from .base_params import _BaseParams
 
 

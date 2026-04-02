@@ -8,7 +8,8 @@ import httpx
 import pytest
 import respx
 
-from tests.mock_data import create_mock_async_wikipedia, create_mock_wikipedia
+from tests.mock_data import create_mock_async_wikipedia
+from tests.mock_data import create_mock_wikipedia
 
 
 class TestSyncHTTPClientKwargs:

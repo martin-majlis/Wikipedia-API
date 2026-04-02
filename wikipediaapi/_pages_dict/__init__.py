@@ -11,12 +11,10 @@ code that treats it as a plain dict continues to work.
 # Import classes for export and internal use
 from .async_images_dict import AsyncImagesDict  # noqa: F401
 from .async_pages_dict import AsyncPagesDict  # noqa: F401
-from .base_pages_dict import (
-    _AsyncBatchWiki,  # noqa: F401 - Internal protocol
-    _AsyncImageWiki,  # noqa: F401 - Internal protocol
-    _SyncBatchWiki,  # noqa: F401 - Internal protocol
-    _SyncImageWiki,  # noqa: F401 - Internal protocol
-)
+from .base_pages_dict import _AsyncBatchWiki  # noqa: F401 - Internal protocol
+from .base_pages_dict import _AsyncImageWiki  # noqa: F401 - Internal protocol
+from .base_pages_dict import _SyncBatchWiki  # noqa: F401 - Internal protocol
+from .base_pages_dict import _SyncImageWiki  # noqa: F401 - Internal protocol
 from .images_dict import ImagesDict  # noqa: F401
 from .pages_dict import PagesDict  # noqa: F401
 

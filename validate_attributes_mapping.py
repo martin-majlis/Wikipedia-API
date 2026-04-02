@@ -63,7 +63,8 @@ from collections.abc import Callable
 from typing import Any
 
 import wikipediaapi
-from wikipediaapi._http_client import AsyncHTTPClient, SyncHTTPClient
+from wikipediaapi._http_client import AsyncHTTPClient
+from wikipediaapi._http_client import SyncHTTPClient
 
 # Global cache to prevent duplicate HTTP requests
 _http_cache: dict[str, Any] = {}

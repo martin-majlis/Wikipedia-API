@@ -6,27 +6,25 @@ Provides the foundation for both sync and async page dictionaries.
 from __future__ import annotations
 
 from collections.abc import Iterable
-from typing import TYPE_CHECKING, Protocol
+from typing import TYPE_CHECKING
+from typing import Protocol
 
-from .._enums import (
-    CoordinatesProp,
-    CoordinateType,
-    Direction,
-    WikiCoordinatesProp,
-    WikiCoordinateType,
-    WikiDirection,
-)
+from .._enums import CoordinatesProp
+from .._enums import CoordinateType
+from .._enums import Direction
+from .._enums import WikiCoordinatesProp
+from .._enums import WikiCoordinateType
+from .._enums import WikiDirection
 
 if TYPE_CHECKING:
-    from typing import Any, cast  # noqa: F401
+    from typing import Any  # noqa: F401
+    from typing import cast  # noqa: F401
 
     from .._base_wikipedia_page import BaseWikipediaPage  # noqa: F401
     from .._resources import BaseWikipediaResource  # noqa: F401
-    from .._types import (
-        Coordinate,  # noqa: F401
-        GeoPoint,  # noqa: F401
-        ImageInfo,  # noqa: F401
-    )
+    from .._types import Coordinate  # noqa: F401
+    from .._types import GeoPoint  # noqa: F401
+    from .._types import ImageInfo  # noqa: F401
     from ..async_wikipedia_image import AsyncWikipediaImage  # noqa: F401
     from ..async_wikipedia_page import AsyncWikipediaPage  # noqa: F401
     from ..wikipedia_image import WikipediaImage  # noqa: F401

@@ -5,13 +5,11 @@ import sys
 
 sys.path.insert(0, "/Users/martin.majlis/development/Wikipedia-API")
 
-from wikipediaapi._params import (
-    CoordinatesParams,  # noqa: E402
-    GeoSearchParams,  # noqa: E402
-    ImagesParams,  # noqa: E402
-    RandomParams,  # noqa: E402
-    SearchParams,  # noqa: E402
-)
+from wikipediaapi._params import CoordinatesParams  # noqa: E402
+from wikipediaapi._params import GeoSearchParams  # noqa: E402
+from wikipediaapi._params import ImagesParams  # noqa: E402
+from wikipediaapi._params import RandomParams  # noqa: E402
+from wikipediaapi._params import SearchParams  # noqa: E402
 from wikipediaapi._types import GeoPoint  # noqa: E402
 
 

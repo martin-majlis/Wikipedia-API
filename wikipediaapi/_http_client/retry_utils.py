@@ -3,12 +3,10 @@
 Provides functions to determine which exceptions should trigger retry attempts.
 """
 
-from ..exceptions import (
-    WikiConnectionError,
-    WikiHttpError,
-    WikiHttpTimeoutError,
-    WikiRateLimitError,
-)
+from ..exceptions import WikiConnectionError
+from ..exceptions import WikiHttpError
+from ..exceptions import WikiHttpTimeoutError
+from ..exceptions import WikiRateLimitError
 
 
 def _is_retryable(exc: BaseException) -> bool:

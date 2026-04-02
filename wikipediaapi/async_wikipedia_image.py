@@ -8,7 +8,8 @@ exposes all data-fetching as awaitables.
 from collections.abc import Coroutine
 from typing import Any
 
-from ._base_wikipedia_page import NOT_CACHED, BaseWikipediaPage
+from ._base_wikipedia_page import NOT_CACHED
+from ._base_wikipedia_page import BaseWikipediaPage
 from ._enums import WikiNamespace
 from ._params.imageinfo_params import ImageInfoParams
 from ._types import ImageInfo

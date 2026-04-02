@@ -1,6 +1,7 @@
 """Integration tests for CLI commands using Click's testing utilities."""
 
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
+from unittest.mock import patch
 
 from click.testing import CliRunner
 

@@ -1,52 +1,41 @@
 """Unit tests for Wikipedia-API CLI functionality."""
 
 import json
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
+from unittest.mock import patch
 
 import pytest
 
 import wikipediaapi
 from tests.mock_data import create_mock_wikipedia
-from wikipediaapi.commands.base import (
-    PageNotFoundError,
-    SectionNotFoundError,
-    create_wikipedia_instance,
-    fetch_page,
-    format_page_dict,
-    format_page_info,
-    format_sections,
-)
-from wikipediaapi.commands.category_commands import (
-    format_category_members,
-    get_category_members,
-    get_page_categories,
-)
-from wikipediaapi.commands.geo_commands import (
-    format_coordinates,
-    format_geosearch,
-    get_geosearch_results,
-    get_page_coordinates,
-)
+from wikipediaapi.commands.base import PageNotFoundError
+from wikipediaapi.commands.base import SectionNotFoundError
+from wikipediaapi.commands.base import create_wikipedia_instance
+from wikipediaapi.commands.base import fetch_page
+from wikipediaapi.commands.base import format_page_dict
+from wikipediaapi.commands.base import format_page_info
+from wikipediaapi.commands.base import format_sections
+from wikipediaapi.commands.category_commands import format_category_members
+from wikipediaapi.commands.category_commands import get_category_members
+from wikipediaapi.commands.category_commands import get_page_categories
+from wikipediaapi.commands.geo_commands import format_coordinates
+from wikipediaapi.commands.geo_commands import format_geosearch
+from wikipediaapi.commands.geo_commands import get_geosearch_results
+from wikipediaapi.commands.geo_commands import get_page_coordinates
 from wikipediaapi.commands.image_commands import get_page_images
-from wikipediaapi.commands.link_commands import (
-    format_langlinks,
-    get_langlinks,
-    get_page_backlinks,
-    get_page_links,
-)
-from wikipediaapi.commands.page_commands import (
-    get_page_info,
-    get_page_sections,
-    get_page_summary,
-    get_page_text,
-    get_section_text,
-)
-from wikipediaapi.commands.search_commands import (
-    format_random,
-    format_search,
-    get_random_pages,
-    get_search_results,
-)
+from wikipediaapi.commands.link_commands import format_langlinks
+from wikipediaapi.commands.link_commands import get_langlinks
+from wikipediaapi.commands.link_commands import get_page_backlinks
+from wikipediaapi.commands.link_commands import get_page_links
+from wikipediaapi.commands.page_commands import get_page_info
+from wikipediaapi.commands.page_commands import get_page_sections
+from wikipediaapi.commands.page_commands import get_page_summary
+from wikipediaapi.commands.page_commands import get_page_text
+from wikipediaapi.commands.page_commands import get_section_text
+from wikipediaapi.commands.search_commands import format_random
+from wikipediaapi.commands.search_commands import format_search
+from wikipediaapi.commands.search_commands import get_random_pages
+from wikipediaapi.commands.search_commands import get_search_results
 
 
 class TestCLIFactoryFunctions:

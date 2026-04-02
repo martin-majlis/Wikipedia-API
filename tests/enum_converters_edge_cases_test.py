@@ -5,18 +5,16 @@ These tests complement comprehensive usage examples by focusing on
 edge cases, error conditions, and boundary testing for converter functions.
 """
 
-from wikipediaapi._enums import (
-    CoordinateType,
-    GeoSearchSort,
-    Globe,
-    RedirectFilter,
-    SearchSort,
-    coordinate_type2str,
-    geosearch_sort2str,
-    globe2str,
-    redirect_filter2str,
-    search_sort2str,
-)
+from wikipediaapi._enums import CoordinateType
+from wikipediaapi._enums import GeoSearchSort
+from wikipediaapi._enums import Globe
+from wikipediaapi._enums import RedirectFilter
+from wikipediaapi._enums import SearchSort
+from wikipediaapi._enums import coordinate_type2str
+from wikipediaapi._enums import geosearch_sort2str
+from wikipediaapi._enums import globe2str
+from wikipediaapi._enums import redirect_filter2str
+from wikipediaapi._enums import search_sort2str
 
 
 class TestEnumConvertersEdgeCases:

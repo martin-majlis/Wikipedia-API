@@ -1,7 +1,12 @@
-from abc import ABC, abstractmethod
-from typing import Any, Generic, TypeVar
+from abc import ABC
+from abc import abstractmethod
+from typing import Any
+from typing import Generic
+from typing import TypeVar
 
-from ._enums import Namespace, WikiNamespace, namespace2int
+from ._enums import Namespace
+from ._enums import WikiNamespace
+from ._enums import namespace2int
 from .wikipedia_page_section import WikipediaPageSection
 
 PageT = TypeVar("PageT", bound="BaseWikipediaPage[Any]")

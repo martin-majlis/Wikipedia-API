@@ -6,19 +6,18 @@ both SyncHTTPClient and AsyncHTTPClient.
 """
 
 import logging
-from abc import ABC, abstractmethod
+from abc import ABC
+from abc import abstractmethod
 from typing import Any
 
 import httpx  # noqa: F401
 
 from .._version import __version_str__
-from ..exceptions import (
-    WikiConnectionError,  # noqa: F401
-    WikiHttpError,
-    WikiHttpTimeoutError,  # noqa: F401
-    WikiInvalidJsonError,
-    WikiRateLimitError,
-)
+from ..exceptions import WikiConnectionError  # noqa: F401
+from ..exceptions import WikiHttpError
+from ..exceptions import WikiHttpTimeoutError  # noqa: F401
+from ..exceptions import WikiInvalidJsonError
+from ..exceptions import WikiRateLimitError
 from ..extract_format import ExtractFormat
 from .retry_after_wait import _RetryAfterWait  # noqa: F401
 from .retry_utils import _is_retryable  # noqa: F401

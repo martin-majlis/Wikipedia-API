@@ -10,7 +10,9 @@ import logging
 from typing import Any
 
 import httpx
-from tenacity import AsyncRetrying, retry_if_exception, stop_after_attempt
+from tenacity import AsyncRetrying
+from tenacity import retry_if_exception
+from tenacity import stop_after_attempt
 
 from .base_http_client import BaseHTTPClient
 from .retry_after_wait import _RetryAfterWait

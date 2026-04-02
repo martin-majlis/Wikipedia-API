@@ -6,22 +6,20 @@ import click
 
 import wikipediaapi
 
-from .base import (
-    RandomKwargs,
-    RandomPageResult,
-    RedirectFilter,
-    SearchKwargs,
-    SearchResult,
-    SearchResults,
-    SearchSort,
-    _common_options,
-    _json_option,
-    add_options,
-    create_wikipedia_instance,
-    redirect_filter2str,
-    search_sort2str,
-    validate_enum_value,
-)
+from .base import RandomKwargs
+from .base import RandomPageResult
+from .base import RedirectFilter
+from .base import SearchKwargs
+from .base import SearchResult
+from .base import SearchResults
+from .base import SearchSort
+from .base import _common_options
+from .base import _json_option
+from .base import add_options
+from .base import create_wikipedia_instance
+from .base import redirect_filter2str
+from .base import search_sort2str
+from .base import validate_enum_value
 
 
 def get_random_pages(

@@ -137,6 +137,7 @@ ignore = ["E203"]
 
 [tool.ruff.lint.isort]
 split-on-trailing-comma = true
+force-single-line = true
 
 [tool.ruff.format]
 # Black-compatible formatting (default)
