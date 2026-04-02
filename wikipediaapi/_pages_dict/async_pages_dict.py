@@ -5,8 +5,11 @@ Async mirror of PagesDict. Batch methods are coroutines.
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
-from typing import Any, cast, TYPE_CHECKING
+from collections.abc import Iterable
+from collections.abc import Mapping
+from typing import TYPE_CHECKING
+from typing import Any
+from typing import cast
 
 from .._base_wikipedia_page import BaseWikipediaPage
 from .._enums import CoordinatesProp

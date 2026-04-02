@@ -15,12 +15,12 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 from typing import ClassVar
 
-from .._enums import coordinate_type2str
-from .._enums import coordinates_prop2str
 from .._enums import CoordinatesProp
 from .._enums import CoordinateType
 from .._enums import WikiCoordinatesProp
 from .._enums import WikiCoordinateType
+from .._enums import coordinate_type2str
+from .._enums import coordinates_prop2str
 from .._types import GeoPoint
 from .base_params import _BaseParams
 from .protocols import _HasTitle

@@ -5,7 +5,8 @@ sections of a Wikipedia page. Sections are organized in a tree structure
 with the page summary as the root and headings as child sections.
 """
 
-from typing import Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING
+from typing import Optional
 
 if TYPE_CHECKING:
     from ._resources.base_wikipedia_resource import BaseWikipediaResource

@@ -7,21 +7,21 @@ import click
 
 import wikipediaapi
 
-from .base import _common_options
-from .base import _json_option
-from .base import add_options
-from .base import coordinate_type2str
 from .base import CoordinateInfo
 from .base import CoordinateType
-from .base import create_wikipedia_instance
-from .base import fetch_page
-from .base import geosearch_sort2str
 from .base import GeoSearchKwargs
 from .base import GeoSearchResult
 from .base import GeoSearchSort
 from .base import Globe
-from .base import globe2str
 from .base import PageNotFoundError
+from .base import _common_options
+from .base import _json_option
+from .base import add_options
+from .base import coordinate_type2str
+from .base import create_wikipedia_instance
+from .base import fetch_page
+from .base import geosearch_sort2str
+from .base import globe2str
 from .base import parse_bbox_string
 from .base import validate_enum_value
 

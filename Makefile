@@ -50,8 +50,9 @@ run-type-check-library:
 run-type-check-tests:
 	uv run ty check tests/
 
-run-flake8:
-	uv run flake8 --max-line-length=100 wikipediaapi tests
+run-ruff:
+	uv run ruff check wikipediaapi/ tests/
+	uv run ruff format --check wikipediaapi/ tests/
 
 run-tox:
 	uv run tox --version
@@ -94,7 +95,7 @@ update-pre-commit:
 		uv run pre-commit autoupdate --repo "$${repo}"; \
 	done;
 
-pre-release-check: run-pre-commit run-type-check run-flake8 run-coverage run-tox run-example-sync run-example-async run-validate-attributes-mappping
+pre-release-check: run-pre-commit run-type-check run-ruff run-coverage run-tox run-example-sync run-example-async run-validate-attributes-mappping
 	echo "Pre-release check was successful"
 
 release: requirements-build process-readme pre-release-check

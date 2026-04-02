@@ -8,13 +8,13 @@ Wikipedia, WikipediaPage, and WikipediaPageSection.
 import logging
 
 import wikipediaapi
-from wikipediaapi import coordinates_prop2str
 from wikipediaapi import CoordinatesProp
 from wikipediaapi import SearchInfo
 from wikipediaapi import SearchProp
 from wikipediaapi import SearchQiProfile
 from wikipediaapi import SearchSort
 from wikipediaapi import SearchWhat
+from wikipediaapi import coordinates_prop2str
 
 # Set to INFO to see the actual API request URLs being made
 logging.basicConfig(level=logging.WARNING)
@@ -359,17 +359,19 @@ print(f"London with GLOBE property: {len(coords_enum_single)} coordinates")
 
 # Multiple properties using enum values
 coords_enum_multi = wiki.coordinates(
-    london, prop=[CoordinatesProp.GLOBE, CoordinatesProp.NAME, CoordinatesProp.TYPE]  # type: ignore
+    london,
+    prop=[CoordinatesProp.GLOBE, CoordinatesProp.NAME, CoordinatesProp.TYPE],  # type: ignore
 )
 print(f"London with GLOBE+NAME+TYPE properties: {len(coords_enum_multi)} coordinates")
 for c in coords_enum_multi:
-    print(
-        f"  lat={c.lat}, lon={c.lon}, name={getattr(c, 'name', 'N/A')}, type={getattr(c, 'type', 'N/A')}"
-    )
+    name = getattr(c, "name", "N/A")
+    ctype = getattr(c, "type", "N/A")
+    print(f"  lat={c.lat}, lon={c.lon}, name={name}, type={ctype}")
 
 # Mixed enum and string values (backward compatible)
 coords_mixed = wiki.coordinates(
-    london, prop=[CoordinatesProp.GLOBE, "name", "type"]  # type: ignore
+    london,
+    prop=[CoordinatesProp.GLOBE, "name", "type"],  # type: ignore
 )
 print(f"London with mixed enum+string properties: {len(coords_mixed)} coordinates")
 
@@ -399,9 +401,9 @@ batch_coords_enum = pages.coordinates(
 for page, coord_list in batch_coords_enum.items():
     print(f"  {page.title}: {len(coord_list)} coordinate(s) with GLOBE+NAME+DIM")
     for c in coord_list[:2]:  # Show first 2 coordinates
-        print(
-            f"    lat={c.lat}, lon={c.lon}, name={getattr(c, 'name', 'N/A')}, dim={getattr(c, 'dim', 'N/A')}"
-        )
+        name = getattr(c, "name", "N/A")
+        dim = getattr(c, "dim", "N/A")
+        print(f"    lat={c.lat}, lon={c.lon}, name={name}, dim={dim}")
 
 # Backward-compatible string usage still works
 batch_coords_strings = pages.coordinates(prop=["globe", "name", "dim"])

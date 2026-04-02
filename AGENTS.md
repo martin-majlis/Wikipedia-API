@@ -185,7 +185,7 @@ make requirements-all
 Or install individual dependency groups:
 
 - **Runtime dependencies:** `make requirements` (installs core dependencies)
-- **Dev dependencies:** `make requirements-dev` (installs black, coverage, flake8, isort, ty, pre-commit, tox, etc.)
+- **Dev dependencies:** `make requirements-dev` (installs ruff, coverage, ty, pre-commit, tox, etc.)
 - **Doc dependencies:** `make requirements-doc` (installs sphinx)
 - **Build dependencies:** `make requirements-build` (installs rst2html, setuptools, wheel)
 
@@ -358,10 +358,9 @@ Before submitting any changes, ensure that:
 
 The pre-commit hooks include:
 
-- **isort**: Import sorting
-- **black**: Code formatting (max 100 characters per line)
-- **flake8**: Linting (max 100 characters per line)
-- **mypy**: Type checking
+- **ruff**: Linting and import sorting (replaces flake8 + isort)
+- **ruff-format**: Code formatting (replaces black, max 100 characters per line)
+- **ty**: Type checking
 - **pyupgrade**: Python syntax upgrades
 - **trailing whitespace**: Whitespace cleanup
 - **YAML validation**: YAML file checks
@@ -377,9 +376,8 @@ Common issues to fix:
 
 **Project Configuration**: Check `pyproject.toml` for:
 
-- `tool.black.line-length = 100` (should match flake8 max)
-- `tool.flake8.max-line-length = 100` (should match black limit)
-- Linter configurations in `[tool.*]` sections
+- `tool.ruff.line-length = 100`
+- Linter configurations in `[tool.ruff.*]` sections
 
 ### Run Tests Across Python Versions (tox)
 
@@ -397,12 +395,12 @@ Runs the test suite against Python 3.10–3.14 via tox.
 make run-pre-commit
 ```
 
-This runs isort, black, flake8, ty, pyupgrade, and other checks (trailing whitespace, YAML validation, etc.).
+This runs ruff (lint + format), ty, pyupgrade, and other checks (trailing whitespace, YAML validation, etc.).
 
 ### Run Individual Checks
 
 - **Type checking:** `uv run ty check wikipediaapi/`
-- **Linting:** `make run-flake8` (runs `flake8 --max-line-length=100 wikipediaapi tests`)
+- **Linting & formatting:** `make run-ruff` (runs `ruff check` and `ruff format --check`)
 
 ## After Every Change
 
@@ -477,7 +475,7 @@ command-line interface and its tests **must** be updated in lockstep:
 
 ## Pre-release Check
 
-Run the full validation suite (pre-commit, type check, flake8, coverage, pypi-html, tox, example):
+Run the full validation suite (pre-commit, type check, ruff, coverage, pypi-html, tox, example):
 
 ```bash
 make pre-release-check

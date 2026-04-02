@@ -10,7 +10,8 @@ Prerequisites
 
 Makefile targets
 -----------------
-* ``make run-type-check`` - lints source code (runs ``uv run ty check wikipediaapi/``)
+* ``make run-type-check`` - type checks source code (runs ``uv run ty check wikipediaapi/``)
+* ``make run-ruff`` - lints and checks formatting (runs ``ruff check`` and ``ruff format --check``)
 * ``make requirements-all`` - install all requirements
   * ``make requirements`` - install package requirements
   * ``make requirements-dev`` - install development requirements

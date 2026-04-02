@@ -6,7 +6,8 @@ Provides the foundation for both sync and async page dictionaries.
 from __future__ import annotations
 
 from collections.abc import Iterable
-from typing import Protocol, TYPE_CHECKING
+from typing import TYPE_CHECKING
+from typing import Protocol
 
 from .._enums import CoordinatesProp
 from .._enums import CoordinateType
@@ -16,7 +17,8 @@ from .._enums import WikiCoordinateType
 from .._enums import WikiDirection
 
 if TYPE_CHECKING:
-    from typing import Any, cast  # noqa: F401
+    from typing import Any  # noqa: F401
+    from typing import cast  # noqa: F401
 
     from .._base_wikipedia_page import BaseWikipediaPage  # noqa: F401
     from .._resources import BaseWikipediaResource  # noqa: F401

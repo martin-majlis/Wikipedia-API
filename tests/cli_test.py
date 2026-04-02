@@ -6,15 +6,15 @@ from unittest.mock import patch
 
 import pytest
 
-from tests.mock_data import create_mock_wikipedia
 import wikipediaapi
+from tests.mock_data import create_mock_wikipedia
+from wikipediaapi.commands.base import PageNotFoundError
+from wikipediaapi.commands.base import SectionNotFoundError
 from wikipediaapi.commands.base import create_wikipedia_instance
 from wikipediaapi.commands.base import fetch_page
 from wikipediaapi.commands.base import format_page_dict
 from wikipediaapi.commands.base import format_page_info
 from wikipediaapi.commands.base import format_sections
-from wikipediaapi.commands.base import PageNotFoundError
-from wikipediaapi.commands.base import SectionNotFoundError
 from wikipediaapi.commands.category_commands import format_category_members
 from wikipediaapi.commands.category_commands import get_category_members
 from wikipediaapi.commands.category_commands import get_page_categories
@@ -223,7 +223,6 @@ class TestSectionText:
         # Mock page that exists but has no section
         page = fetch_page(wiki, "Test_1", 0)
         with patch.object(page, "section_by_title", return_value=None):
-
             with pytest.raises(SectionNotFoundError) as cm:
                 get_section_text(wiki, "Test_1", "Nonexistent Section", 0)
 

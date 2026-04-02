@@ -1,8 +1,8 @@
 import pytest
 
+import wikipediaapi
 from tests.mock_data import user_agent
 from tests.mock_data import wikipedia_api_request
-import wikipediaapi
 
 
 class TestWikipediaPage:
@@ -70,7 +70,7 @@ class TestWikipediaPage:
     def test_unknown_property(self):
         page = self.wiki.page("Test_1")
         with pytest.raises(AttributeError):
-            page.unknown_property
+            _ = page.unknown_property
 
     def test_undocumented_api_field(self):
         page = self.wiki.page("Test_1")

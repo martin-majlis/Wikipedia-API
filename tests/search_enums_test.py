@@ -7,8 +7,8 @@ along with their corresponding type aliases and converter functions.
 
 import pytest
 
-from tests.mock_data import wikipedia_api_request
 import wikipediaapi
+from tests.mock_data import wikipedia_api_request
 
 
 class TestSearchEnums:
@@ -97,8 +97,8 @@ class TestSearchEnums:
 
     def test_search_prop_converter(self):
         """Test search_prop2str converter function."""
-        from wikipediaapi import search_prop2str
         from wikipediaapi import SearchProp
+        from wikipediaapi import search_prop2str
 
         # Test enum to string conversion
         assert search_prop2str(SearchProp.SIZE) == "size"
@@ -116,8 +116,8 @@ class TestSearchEnums:
 
     def test_search_info_converter(self):
         """Test search_info2str converter function."""
-        from wikipediaapi import search_info2str
         from wikipediaapi import SearchInfo
+        from wikipediaapi import search_info2str
 
         # Test enum to string conversion
         assert search_info2str(SearchInfo.TOTAL_HITS) == "totalhits"
@@ -131,8 +131,8 @@ class TestSearchEnums:
 
     def test_search_what_converter(self):
         """Test search_what2str converter function."""
-        from wikipediaapi import search_what2str
         from wikipediaapi import SearchWhat
+        from wikipediaapi import search_what2str
 
         # Test enum to string conversion
         assert search_what2str(SearchWhat.TEXT) == "text"
@@ -146,8 +146,8 @@ class TestSearchEnums:
 
     def test_search_qi_profile_converter(self):
         """Test search_qi_profile2str converter function."""
-        from wikipediaapi import search_qi_profile2str
         from wikipediaapi import SearchQiProfile
+        from wikipediaapi import search_qi_profile2str
 
         # Test enum to string conversion
         assert search_qi_profile2str(SearchQiProfile.ENGINE_AUTO_SELECT) == "engine_autoselect"

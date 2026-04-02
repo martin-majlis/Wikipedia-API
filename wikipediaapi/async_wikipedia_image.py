@@ -8,8 +8,8 @@ exposes all data-fetching as awaitables.
 from collections.abc import Coroutine
 from typing import Any
 
-from ._base_wikipedia_page import BaseWikipediaPage
 from ._base_wikipedia_page import NOT_CACHED
+from ._base_wikipedia_page import BaseWikipediaPage
 from ._enums import WikiNamespace
 from ._params.imageinfo_params import ImageInfoParams
 from ._types import ImageInfo
@@ -234,14 +234,18 @@ class AsyncWikipediaImage(BaseWikipediaPage["AsyncWikipediaImage"]):
         async def _get_attr() -> Any:
             try:
                 attrs = object.__getattribute__(self, "_attributes")
-            except AttributeError:
-                raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+            except AttributeError as err:
+                raise AttributeError(
+                    f"'{type(self).__name__}' object has no attribute '{name}'"
+                ) from err
             if name in attrs:
                 return attrs[name]
             try:
                 called = object.__getattribute__(self, "_called")
-            except AttributeError:
-                raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+            except AttributeError as err:
+                raise AttributeError(
+                    f"'{type(self).__name__}' object has no attribute '{name}'"
+                ) from err
             if not called.get("info", False):
                 await object.__getattribute__(self, "_fetch")("info")
                 if name in attrs:

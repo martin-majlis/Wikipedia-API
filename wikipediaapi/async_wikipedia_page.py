@@ -5,10 +5,11 @@ Wikipedia page in an asynchronous context. It provides async methods and
 awaitable properties for accessing page content, metadata, and related information.
 """
 
-from typing import Any, cast
+from typing import Any
+from typing import cast
 
-from ._base_wikipedia_page import BaseWikipediaPage
 from ._base_wikipedia_page import NOT_CACHED
+from ._base_wikipedia_page import BaseWikipediaPage
 from ._pages_dict import AsyncImagesDict
 from ._pages_dict import AsyncPagesDict
 from ._params.coordinates_params import CoordinatesParams
@@ -367,8 +368,10 @@ class AsyncWikipediaPage(BaseWikipediaPage["AsyncWikipediaPage"]):
             raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
         try:
             object.__getattribute__(self, "_attributes")
-        except AttributeError:
-            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        except AttributeError as err:
+            raise AttributeError(
+                f"'{type(self).__name__}' object has no attribute '{name}'"
+            ) from err
         return self._info_attr(name)
 
     async def _fetch(self, call: str) -> "AsyncWikipediaPage":

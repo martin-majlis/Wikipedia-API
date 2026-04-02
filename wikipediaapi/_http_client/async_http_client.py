@@ -74,14 +74,14 @@ class AsyncHTTPClient(BaseHTTPClient):
         """
         try:
             r = await self._client.get(url, params=params)
-        except httpx.TimeoutException:
+        except httpx.TimeoutException as err:
             from ..exceptions import WikiHttpTimeoutError
 
-            raise WikiHttpTimeoutError(url)
-        except httpx.ConnectError:
+            raise WikiHttpTimeoutError(url) from err
+        except httpx.ConnectError as err:
             from ..exceptions import WikiConnectionError
 
-            raise WikiConnectionError(url)
+            raise WikiConnectionError(url) from err
         return self._process_response(r, url)
 
     async def _get(self, language: str, params: dict[str, Any]) -> dict[str, Any]:
@@ -119,7 +119,7 @@ class AsyncHTTPClient(BaseHTTPClient):
         )
         try:
             return await retryer(self._do_get, url, params)  # type: ignore[return-value]
-        except httpx.RequestError:
+        except httpx.RequestError as err:
             from ..exceptions import WikiConnectionError
 
-            raise WikiConnectionError(url)
+            raise WikiConnectionError(url) from err

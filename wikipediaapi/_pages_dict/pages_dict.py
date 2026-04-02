@@ -7,8 +7,11 @@ single API call per chunk of 50 pages.
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
-from typing import Any, cast, TYPE_CHECKING
+from collections.abc import Iterable
+from collections.abc import Mapping
+from typing import TYPE_CHECKING
+from typing import Any
+from typing import cast
 
 from .._base_wikipedia_page import BaseWikipediaPage
 from .._enums import CoordinatesProp

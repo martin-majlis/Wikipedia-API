@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Validate that all properties in WikipediaPage and AsyncWikipediaPage are properly defined and tracked.
+Validate that WikipediaPage and AsyncWikipediaPage properties are properly defined and tracked.
 
 This script systematically tests property access patterns to ensure internal tracking
 
@@ -57,9 +57,9 @@ The script provides:
 
 import argparse
 import asyncio
-from collections.abc import Callable
 import json
 import sys
+from collections.abc import Callable
 from typing import Any
 
 import wikipediaapi
@@ -217,11 +217,11 @@ def patch_http_clients() -> tuple[Callable, Callable]:
     """
     # Patch sync client
     original_sync_do_get = SyncHTTPClient._do_get
-    setattr(SyncHTTPClient, "_do_get", cached_sync_do_get(original_sync_do_get))
+    SyncHTTPClient._do_get = cached_sync_do_get(original_sync_do_get)
 
     # Patch async client
     original_async_do_get = AsyncHTTPClient._do_get
-    setattr(AsyncHTTPClient, "_do_get", cached_async_do_get(original_async_do_get))
+    AsyncHTTPClient._do_get = cached_async_do_get(original_async_do_get)
 
     return original_sync_do_get, original_async_do_get
 
@@ -241,8 +241,8 @@ def restore_http_clients(original_sync_do_get: Callable, original_async_do_get: 
         - No cached data is preserved during restoration
         - Both clients are restored to their initial state
     """
-    setattr(SyncHTTPClient, "_do_get", original_sync_do_get)
-    setattr(AsyncHTTPClient, "_do_get", original_async_do_get)
+    SyncHTTPClient._do_get = original_sync_do_get
+    AsyncHTTPClient._do_get = original_async_do_get
 
 
 def get_wiki(language: str, is_async: bool = False) -> Any:
@@ -656,9 +656,7 @@ async def main() -> int:
                 all_sync_results[f"{language}:{page_name}"] = results  # type: ignore[assignment]
             except Exception as e:
                 print(f"Error testing {language}:{page_name}: {e}")
-                all_sync_results[f"{language}:{page_name}"] = {
-                    "error": str(e)
-                }  # type: ignore[dict-item]
+                all_sync_results[f"{language}:{page_name}"] = {"error": str(e)}  # type: ignore[dict-item]
 
         # Test async pages
         print("\n=== Testing Async Pages ===")
@@ -669,9 +667,7 @@ async def main() -> int:
                 all_async_results[f"{language}:{page_name}"] = results  # type: ignore[assignment]
             except Exception as e:
                 print(f"Error testing {language}:{page_name}: {e}")
-                all_async_results[f"{language}:{page_name}"] = {
-                    "error": str(e)
-                }  # type: ignore[dict-item]
+                all_async_results[f"{language}:{page_name}"] = {"error": str(e)}  # type: ignore[dict-item]
 
         # Compare results with reference
         print("\n=== Comparing with Reference ===")

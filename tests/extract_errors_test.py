@@ -1,6 +1,6 @@
+import wikipediaapi
 from tests.mock_data import user_agent
 from tests.mock_data import wikipedia_api_request
-import wikipediaapi
 
 
 class TestErrorsExtracts:

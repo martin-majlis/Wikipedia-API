@@ -2,8 +2,8 @@
 
 from unittest.mock import MagicMock
 
-from tests.mock_data import create_mock_wikipedia
 import wikipediaapi
+from tests.mock_data import create_mock_wikipedia
 
 
 class TestWikipediaPageSection:

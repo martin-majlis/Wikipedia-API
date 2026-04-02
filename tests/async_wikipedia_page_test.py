@@ -1,8 +1,8 @@
 import asyncio
 
+import wikipediaapi
 from tests.mock_data import async_wikipedia_api_request
 from tests.mock_data import user_agent
-import wikipediaapi
 from wikipediaapi._enums import Namespace
 from wikipediaapi.async_wikipedia_page import AsyncWikipediaPage
 
@@ -79,7 +79,8 @@ class TestAsyncWikipediaPageInit:
         sections_prop = getattr(type(page), "sections", None)
         assert sections_prop is not None, "sections property should exist"
 
-        # Verify that accessing it returns a coroutine (this will create a coroutine that we don't await)
+        # Verify that accessing it returns a coroutine
+        # (this will create a coroutine that we don't await)
         import asyncio
 
         sections = page.sections

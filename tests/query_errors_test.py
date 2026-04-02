@@ -2,8 +2,8 @@ import httpx
 import pytest
 import respx
 
-from tests.mock_data import user_agent
 import wikipediaapi
+from tests.mock_data import user_agent
 
 API_URL = "https://en.wikipedia.org/w/api.php"
 

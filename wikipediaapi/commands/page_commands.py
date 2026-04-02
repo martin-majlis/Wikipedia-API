@@ -6,6 +6,10 @@ import click
 
 import wikipediaapi
 
+from .base import PageInfo
+from .base import PageNotFoundError
+from .base import SectionInfo
+from .base import SectionNotFoundError
 from .base import _common_options
 from .base import _json_option
 from .base import add_options
@@ -13,10 +17,6 @@ from .base import create_wikipedia_instance
 from .base import fetch_page
 from .base import format_page_info
 from .base import format_sections
-from .base import PageInfo
-from .base import PageNotFoundError
-from .base import SectionInfo
-from .base import SectionNotFoundError
 
 
 def get_page_summary(wiki: wikipediaapi.Wikipedia, title: str, namespace: int = 0) -> str:

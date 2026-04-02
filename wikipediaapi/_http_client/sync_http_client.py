@@ -10,8 +10,8 @@ import logging
 from typing import Any
 
 import httpx
-from tenacity import retry_if_exception
 from tenacity import Retrying
+from tenacity import retry_if_exception
 from tenacity import stop_after_attempt
 
 from .base_http_client import BaseHTTPClient
@@ -72,14 +72,14 @@ class SyncHTTPClient(BaseHTTPClient):
         """
         try:
             r = self._client.get(url, params=params)
-        except httpx.TimeoutException:
+        except httpx.TimeoutException as err:
             from ..exceptions import WikiHttpTimeoutError
 
-            raise WikiHttpTimeoutError(url)
-        except httpx.ConnectError:
+            raise WikiHttpTimeoutError(url) from err
+        except httpx.ConnectError as err:
             from ..exceptions import WikiConnectionError
 
-            raise WikiConnectionError(url)
+            raise WikiConnectionError(url) from err
         return self._process_response(r, url)
 
     def _get(self, language: str, params: dict[str, Any]) -> dict[str, Any]:
@@ -117,7 +117,7 @@ class SyncHTTPClient(BaseHTTPClient):
         )
         try:
             return retryer(self._do_get, url, params)  # type: ignore[no-any-return]
-        except httpx.RequestError:
+        except httpx.RequestError as err:
             from ..exceptions import WikiConnectionError
 
-            raise WikiConnectionError(url)
+            raise WikiConnectionError(url) from err

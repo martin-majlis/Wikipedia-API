@@ -5,9 +5,9 @@ construction, configuration storage) and stateless helpers used by
 both SyncHTTPClient and AsyncHTTPClient.
 """
 
+import logging
 from abc import ABC
 from abc import abstractmethod
-import logging
 from typing import Any
 
 import httpx  # noqa: F401
@@ -197,8 +197,8 @@ class BaseHTTPClient(ABC):
             raise WikiHttpError(r.status_code, url)
         try:
             return r.json()  # type: ignore[no-any-return]
-        except ValueError:
-            raise WikiInvalidJsonError(url)
+        except ValueError as err:
+            raise WikiInvalidJsonError(url) from err
 
     @staticmethod
     def _check_and_correct_params(

@@ -3,11 +3,11 @@ from unittest.mock import Mock
 import pytest
 
 from wikipediaapi._enums import CoordinateType
-from wikipediaapi._params import _BaseParams
 from wikipediaapi._params import CoordinatesParams
 from wikipediaapi._params import GeoSearchParams
 from wikipediaapi._params import RandomParams
 from wikipediaapi._params import SearchParams
+from wikipediaapi._params import _BaseParams
 from wikipediaapi._types import GeoPoint
 
 

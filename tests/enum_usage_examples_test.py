@@ -7,24 +7,24 @@ with both enum members (type-safe) and string values (backward compatibility).
 
 import pytest
 
+import wikipediaapi
 from tests.mock_data import user_agent
 from tests.mock_data import wikipedia_api_request
-import wikipediaapi
-from wikipediaapi._enums import coordinate_type2str
 from wikipediaapi._enums import CoordinateType
-from wikipediaapi._enums import geosearch_sort2str
 from wikipediaapi._enums import GeoSearchSort
 from wikipediaapi._enums import Globe
-from wikipediaapi._enums import globe2str
-from wikipediaapi._enums import redirect_filter2str
 from wikipediaapi._enums import RedirectFilter
-from wikipediaapi._enums import search_sort2str
 from wikipediaapi._enums import SearchSort
 from wikipediaapi._enums import WikiCoordinateType
 from wikipediaapi._enums import WikiGeoSearchSort
 from wikipediaapi._enums import WikiGlobe
 from wikipediaapi._enums import WikiRedirectFilter
 from wikipediaapi._enums import WikiSearchSort
+from wikipediaapi._enums import coordinate_type2str
+from wikipediaapi._enums import geosearch_sort2str
+from wikipediaapi._enums import globe2str
+from wikipediaapi._enums import redirect_filter2str
+from wikipediaapi._enums import search_sort2str
 from wikipediaapi._types import GeoPoint
 
 
@@ -198,7 +198,8 @@ class TestEnumUsageExamples:
         assert params_str.globe == "earth"
 
         print(
-            "  [PASS] GeoSearchParams handles page-based search with enum and string values correctly"
+            "  [PASS] GeoSearchParams handles page-based search"
+            " with enum and string values correctly"
         )
 
         # Test coordinate-based geosearch as alternative

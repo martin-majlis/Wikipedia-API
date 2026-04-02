@@ -39,13 +39,8 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "black==26.3.1",
     "coverage==7.13.5",
-    "flake8==7.3.0",
-    "flake8-bugbear==25.11.29",
-    "flake8-comprehensions==3.17.0",
-    "flake8-docstrings==1.7.0",
-    "isort==8.0.1",
+    "ruff>=0.11.0",
     "ty==0.0.27",
     "pre-commit==4.5.1",
     "pygments==2.20.0",
@@ -57,7 +52,6 @@ dev = [
     "anyio[trio]==4.13.0",
     "respx==0.22.0",
     "types-setuptools==82.0.0.20260210",
-    "flake8-async>=25.7.1",
     "pytest-recording>=0.13.2",
     "vcrpy>=6.0.0",
     "ty>=0.0.27",
@@ -133,20 +127,20 @@ exclude = [
 [tool.hatch.build.targets.wheel]
 packages = ["wikipediaapi"]
 
-[tool.black]
+[tool.ruff]
 line-length = 100
-target-version = ['py310']
+target-version = "py310"
 
-[tool.isort]
-profile = "google"
-line_length = 100
-multi_line_output = 3
-include_trailing_comma = true
+[tool.ruff.lint]
+select = ["E", "W", "F", "B", "C4", "ASYNC", "I"]
+ignore = ["E203"]
 
+[tool.ruff.lint.isort]
+split-on-trailing-comma = true
+force-single-line = true
 
-[tool.flake8]
-max-line-length = 100
-extend-ignore = ["E203", "W503"]
+[tool.ruff.format]
+# Black-compatible formatting (default)
 
 [tool.coverage.run]
 source = ["wikipediaapi"]

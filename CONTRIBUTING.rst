@@ -25,7 +25,7 @@ Getting Started
    Or install individual dependency groups:
 
    * **Runtime dependencies:** ``make requirements`` (installs core dependencies)
-   * **Dev dependencies:** ``make requirements-dev`` (installs black, coverage, flake8, isort, mypy, pre-commit, tox, etc.)
+   * **Dev dependencies:** ``make requirements-dev`` (installs ruff, coverage, ty, pre-commit, tox, etc.)
    * **Doc dependencies:** ``make requirements-doc`` (installs sphinx)
    * **Build dependencies:** ``make requirements-build`` (installs rst2html, setuptools, wheel)
 
@@ -98,7 +98,7 @@ Linting & Type Checking
 Run All Pre-commit Hooks
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This runs isort, black, flake8, ty, pyupgrade, and other checks (trailing whitespace, YAML validation, etc.).::
+This runs ruff (lint + format), ty, pyupgrade, and other checks (trailing whitespace, YAML validation, etc.).::
 
     make run-pre-commit
 
@@ -106,7 +106,7 @@ Individual Checks
 ~~~~~~~~~~~~~~~~~
 
 * **Type checking:** ``make run-type-check`` (runs ``uv run ty check wikipediaapi/``)
-* **Linting:** ``make run-flake8`` (runs ``flake8 --max-line-length=100 wikipediaapi tests``)
+* **Linting & formatting:** ``make run-ruff`` (runs ``ruff check`` and ``ruff format --check``)
 
 Building
 --------
@@ -126,7 +126,7 @@ Generate Sphinx HTML documentation::
 Pre-release Check
 -----------------
 
-Run the full validation suite (pre-commit, type check, flake8, coverage, pypi-html, tox, example)::
+Run the full validation suite (pre-commit, type check, ruff, coverage, pypi-html, tox, example)::
 
     make pre-release-check
 

@@ -2,8 +2,8 @@ import httpx
 import pytest
 import respx
 
-from tests.mock_data import user_agent
 import wikipediaapi
+from tests.mock_data import user_agent
 from wikipediaapi._http_client import SyncHTTPClient
 
 API_URL = "https://en.wikipedia.org/w/api.php"

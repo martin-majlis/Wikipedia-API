@@ -13,8 +13,8 @@ from dataclasses import dataclass
 from typing import ClassVar
 
 from .._enums import Direction
-from .._enums import direction2str
 from .._enums import WikiDirection
+from .._enums import direction2str
 from .base_params import _BaseParams
 
 

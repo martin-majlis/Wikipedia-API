@@ -1,5 +1,7 @@
 from collections.abc import Iterable
-from typing import Any, cast, TYPE_CHECKING
+from typing import TYPE_CHECKING
+from typing import Any
+from typing import cast
 
 from .._enums import CoordinatesProp
 from .._enums import CoordinateType

@@ -8,12 +8,12 @@ including edge cases and integration with coordinate methods.
 
 import pytest
 
+import wikipediaapi
 from tests.mock_data import user_agent
 from tests.mock_data import wikipedia_api_request
-import wikipediaapi
-from wikipediaapi import coordinates_prop2str
 from wikipediaapi import CoordinatesProp
 from wikipediaapi import WikiCoordinatesProp
+from wikipediaapi import coordinates_prop2str
 
 
 class TestCoordinatesPropEnum:
@@ -189,7 +189,7 @@ class TestCoordinatesPropIntegration:
         # Should have results for both pages (including empty result for NonExistent)
         assert len(batch_coords) >= 1
 
-        for page, coord_list in batch_coords.items():
+        for _, coord_list in batch_coords.items():
             assert isinstance(coord_list, list)
 
     def test_backward_compatibility_strings_still_work(self):

@@ -5,10 +5,11 @@ file page in a synchronous context.  It is a lighter variant of
 WikipediaPage focused on file metadata rather than article text.
 """
 
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING
+from typing import Any
 
-from ._base_wikipedia_page import BaseWikipediaPage
 from ._base_wikipedia_page import NOT_CACHED
+from ._base_wikipedia_page import BaseWikipediaPage
 from ._enums import WikiNamespace
 from ._params.imageinfo_params import ImageInfoParams
 from ._types import ImageInfo
@@ -195,14 +196,18 @@ class WikipediaImage(BaseWikipediaPage["WikipediaImage"]):
             raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
         try:
             attrs = object.__getattribute__(self, "_attributes")
-        except AttributeError:
-            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        except AttributeError as err:
+            raise AttributeError(
+                f"'{type(self).__name__}' object has no attribute '{name}'"
+            ) from err
         if name in attrs:
             return attrs[name]
         try:
             called = object.__getattribute__(self, "_called")
-        except AttributeError:
-            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        except AttributeError as err:
+            raise AttributeError(
+                f"'{type(self).__name__}' object has no attribute '{name}'"
+            ) from err
         if not called.get("info", False):
             object.__getattribute__(self, "_fetch")("info")
             if name in attrs:
