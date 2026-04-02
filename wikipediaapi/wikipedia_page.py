@@ -7,15 +7,11 @@ for accessing page content, metadata, and related information.
 
 from typing import Any, cast
 
-from ._base_wikipedia_page import BaseWikipediaPage
-from ._base_wikipedia_page import NOT_CACHED
-from ._pages_dict import ImagesDict
-from ._pages_dict import PagesDict
+from ._base_wikipedia_page import NOT_CACHED, BaseWikipediaPage
+from ._pages_dict import ImagesDict, PagesDict
 from ._params.coordinates_params import CoordinatesParams
 from ._params.images_params import ImagesParams
-from ._types import Coordinate
-from ._types import GeoSearchMeta
-from ._types import SearchMeta
+from ._types import Coordinate, GeoSearchMeta, SearchMeta
 from .wikipedia_page_section import WikipediaPageSection
 
 
@@ -445,14 +441,18 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
             raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
         try:
             attrs = object.__getattribute__(self, "_attributes")
-        except AttributeError:
-            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        except AttributeError as err:
+            raise AttributeError(
+                f"'{type(self).__name__}' object has no attribute '{name}'"
+            ) from err
         if name in attrs:
             return attrs[name]
         try:
             called = object.__getattribute__(self, "_called")
-        except AttributeError:
-            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        except AttributeError as err:
+            raise AttributeError(
+                f"'{type(self).__name__}' object has no attribute '{name}'"
+            ) from err
         if not called.get("info", False):
             object.__getattribute__(self, "_fetch")("info")
             if name in attrs:

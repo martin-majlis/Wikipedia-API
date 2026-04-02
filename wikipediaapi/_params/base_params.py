@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from dataclasses import fields
 from enum import Enum
-from typing import Any, cast, ClassVar
+from typing import Any, ClassVar, cast
 
 
 class _BaseParams:

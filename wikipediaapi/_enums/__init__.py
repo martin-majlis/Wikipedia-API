@@ -23,7 +23,8 @@ and string usage while maintaining backward compatibility.
 - **Geographic Enums**:
   - :class:`Globe` - Celestial bodies (``EARTH``, ``MARS``, ``MOON``, ``VENUS``)
   - :class:`CoordinateType` - Coordinate filtering (``ALL``, ``PRIMARY``, ``SECONDARY``)
-  - :class:`CoordinatesProp` - Coordinate properties (``COUNTRY``, ``DIM``, ``GLOBE``, ``NAME``, ``REGION``, ``TYPE``)
+  - :class:`CoordinatesProp` - Coordinate properties
+    (``COUNTRY``, ``DIM``, ``GLOBE``, ``NAME``, ``REGION``, ``TYPE``)
   - :class:`GeoSearchSort` - Geographic sort options (``DISTANCE``, ``RELEVANCE``)
 
 - **Utility Enums**:
@@ -72,7 +73,12 @@ and string usage while maintaining backward compatibility.
         return wiki.search(query, prop=prop, info=info, what=what, qi_profile=qi_profile)
 
     # Coordinate enum usage
-    from wikipediaapi import CoordinatesProp, CoordinateType, WikiCoordinatesProp, WikiCoordinateType
+    from wikipediaapi import (
+        CoordinatesProp,
+        CoordinateType,
+        WikiCoordinatesProp,
+        WikiCoordinateType,
+    )
 
     # Type-safe coordinate usage
     coords = wiki.coordinates(
@@ -110,42 +116,18 @@ seamless backward compatibility while providing type safety for new code.
 """
 
 # Import all enum classes and converters
-from .coordinate_type import coordinate_type2str
-from .coordinate_type import CoordinateType
-from .coordinate_type import WikiCoordinateType
-from .coordinates_prop import coordinates_prop2str
-from .coordinates_prop import CoordinatesProp
-from .coordinates_prop import WikiCoordinatesProp
-from .direction import Direction
-from .direction import direction2str
-from .direction import WikiDirection
-from .geosearch_sort import geosearch_sort2str
-from .geosearch_sort import GeoSearchSort
-from .geosearch_sort import WikiGeoSearchSort
-from .globe import Globe
-from .globe import globe2str
-from .globe import WikiGlobe
-from .namespace import Namespace
-from .namespace import namespace2int
-from .namespace import WikiNamespace
-from .redirect_filter import redirect_filter2str
-from .redirect_filter import RedirectFilter
-from .redirect_filter import WikiRedirectFilter
-from .search_info import search_info2str
-from .search_info import SearchInfo
-from .search_info import WikiSearchInfo
-from .search_prop import search_prop2str
-from .search_prop import SearchProp
-from .search_prop import WikiSearchProp
-from .search_qi_profile import search_qi_profile2str
-from .search_qi_profile import SearchQiProfile
-from .search_qi_profile import WikiSearchQiProfile
-from .search_sort import search_sort2str
-from .search_sort import SearchSort
-from .search_sort import WikiSearchSort
-from .search_what import search_what2str
-from .search_what import SearchWhat
-from .search_what import WikiSearchWhat
+from .coordinate_type import CoordinateType, WikiCoordinateType, coordinate_type2str
+from .coordinates_prop import CoordinatesProp, WikiCoordinatesProp, coordinates_prop2str
+from .direction import Direction, WikiDirection, direction2str
+from .geosearch_sort import GeoSearchSort, WikiGeoSearchSort, geosearch_sort2str
+from .globe import Globe, WikiGlobe, globe2str
+from .namespace import Namespace, WikiNamespace, namespace2int
+from .redirect_filter import RedirectFilter, WikiRedirectFilter, redirect_filter2str
+from .search_info import SearchInfo, WikiSearchInfo, search_info2str
+from .search_prop import SearchProp, WikiSearchProp, search_prop2str
+from .search_qi_profile import SearchQiProfile, WikiSearchQiProfile, search_qi_profile2str
+from .search_sort import SearchSort, WikiSearchSort, search_sort2str
+from .search_what import SearchWhat, WikiSearchWhat, search_what2str
 
 # Export all public symbols
 __all__ = [

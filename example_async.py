@@ -22,8 +22,7 @@ import asyncio
 import logging
 
 import wikipediaapi
-from wikipediaapi import coordinates_prop2str
-from wikipediaapi import CoordinatesProp
+from wikipediaapi import CoordinatesProp, coordinates_prop2str
 
 # Set to INFO to see the actual API request URLs being made
 logging.basicConfig(level=logging.WARNING)
@@ -380,9 +379,9 @@ async def main():
     )
     print(f"London with GLOBE+NAME+TYPE properties: {len(coords_enum_multi)} coordinates")
     for c in coords_enum_multi:
-        print(
-            f"  lat={c.lat}, lon={c.lon}, name={getattr(c, 'name', 'N/A')}, type={getattr(c, 'type', 'N/A')}"
-        )
+        name = getattr(c, "name", "N/A")
+        ctype = getattr(c, "type", "N/A")
+        print(f"  lat={c.lat}, lon={c.lon}, name={name}, type={ctype}")
 
     # Mixed enum and string values (backward compatible)
     coords_mixed = await wiki.coordinates(london, prop=[CoordinatesProp.GLOBE, "name", "type"])
@@ -390,9 +389,8 @@ async def main():
 
     # Using the converter function directly
     print("\n--- Converter Function Examples ---")
-    print(
-        f"coordinates_prop2str(CoordinatesProp.GLOBE) = {coordinates_prop2str(CoordinatesProp.GLOBE)}"
-    )
+    globe_str = coordinates_prop2str(CoordinatesProp.GLOBE)
+    print(f"coordinates_prop2str(CoordinatesProp.GLOBE) = {globe_str}")
     print(f"coordinates_prop2str('globe') = {coordinates_prop2str('globe')}")
     print(f"coordinates_prop2str('custom') = {coordinates_prop2str('custom')}")
 
@@ -410,9 +408,9 @@ async def main():
     for page, coord_list in batch_coords_enum.items():
         print(f"  {page.title}: {len(coord_list)} coordinate(s) with GLOBE+NAME+DIM")
         for c in coord_list[:2]:  # Show first 2 coordinates
-            print(
-                f"    lat={c.lat}, lon={c.lon}, name={getattr(c, 'name', 'N/A')}, dim={getattr(c, 'dim', 'N/A')}"
-            )
+            name = getattr(c, "name", "N/A")
+            dim = getattr(c, "dim", "N/A")
+            print(f"    lat={c.lat}, lon={c.lon}, name={name}, dim={dim}")
 
     # Backward-compatible string usage still works
     batch_coords_strings = await pages.coordinates(prop=["globe", "name", "dim"])

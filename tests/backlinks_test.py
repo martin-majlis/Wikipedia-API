@@ -1,6 +1,5 @@
-from tests.mock_data import user_agent
-from tests.mock_data import wikipedia_api_request
 import wikipediaapi
+from tests.mock_data import user_agent, wikipedia_api_request
 
 
 class TestBackLinks:
@@ -18,7 +17,7 @@ class TestBackLinks:
 
     def test_backlinks_single_page_titles(self):
         page = self.wiki.page("Test_1")
-        assert list(sorted(map(lambda s: s.title, page.backlinks.values()))) == [
+        assert sorted(s.title for s in page.backlinks.values()) == [
             "Title - " + str(i + 1) for i in range(3)
         ]
 
@@ -28,6 +27,6 @@ class TestBackLinks:
 
     def test_backlinks_multi_page_titles(self):
         page = self.wiki.page("Test_2")
-        assert list(sorted(map(lambda s: s.title, page.backlinks.values()))) == [
+        assert sorted(s.title for s in page.backlinks.values()) == [
             "Title - " + str(i + 1) for i in range(5)
         ]

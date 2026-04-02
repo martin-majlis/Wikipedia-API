@@ -1,10 +1,7 @@
-from abc import ABC
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 from typing import Any, Generic, TypeVar
 
-from ._enums import Namespace
-from ._enums import namespace2int
-from ._enums import WikiNamespace
+from ._enums import Namespace, WikiNamespace, namespace2int
 from .wikipedia_page_section import WikipediaPageSection
 
 PageT = TypeVar("PageT", bound="BaseWikipediaPage[Any]")
@@ -327,8 +324,10 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
             raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
         try:
             attrs = object.__getattribute__(self, "_attributes")
-        except AttributeError:
-            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        except AttributeError as err:
+            raise AttributeError(
+                f"'{type(self).__name__}' object has no attribute '{name}'"
+            ) from err
         if name in attrs:
             return attrs[name]
         raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")

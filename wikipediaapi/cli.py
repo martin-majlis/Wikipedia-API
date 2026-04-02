@@ -3,12 +3,14 @@ r"""Command line interface for Wikipedia-API."""
 import click
 
 import wikipediaapi
-from wikipediaapi.commands import category_commands
-from wikipediaapi.commands import geo_commands
-from wikipediaapi.commands import image_commands
-from wikipediaapi.commands import link_commands
-from wikipediaapi.commands import page_commands
-from wikipediaapi.commands import search_commands
+from wikipediaapi.commands import (
+    category_commands,
+    geo_commands,
+    image_commands,
+    link_commands,
+    page_commands,
+    search_commands,
+)
 
 
 @click.group(context_settings={"help_option_names": ["-h", "--help"]})

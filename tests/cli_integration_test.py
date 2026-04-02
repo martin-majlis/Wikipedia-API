@@ -1,12 +1,11 @@
 """Integration tests for CLI commands using Click's testing utilities."""
 
-from unittest.mock import MagicMock
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from click.testing import CliRunner
 
-from tests.mock_data import create_mock_wikipedia
 import wikipediaapi.cli
+from tests.mock_data import create_mock_wikipedia
 
 
 class TestCLICommands:
@@ -182,7 +181,10 @@ class TestCLICommands:
         mock_page._attributes = {"fullurl": "https://en.wikipedia.org/wiki/Link_1"}
 
         mock_get_links.return_value = {"Link 1": mock_page}
-        mock_format.return_value = '{\n  "Link 1": {\n    "title": "Link 1",\n    "language": "en",\n    "ns": 0,\n    "url": "https://en.wikipedia.org/wiki/Link_1"\n  }\n}'
+        mock_format.return_value = (
+            '{\n  "Link 1": {\n    "title": "Link 1",\n    "language": "en",'
+            '\n    "ns": 0,\n    "url": "https://en.wikipedia.org/wiki/Link_1"\n  }\n}'
+        )
 
         result = self.runner.invoke(wikipediaapi.cli.cli, ["links", "Test_Page", "--json"])
 
@@ -499,7 +501,10 @@ class TestCLICommands:
         """Test images command with imageinfo flag and JSON output."""
         mock_create_wiki.return_value = self.mock_wiki
         mock_get_images.return_value = {"Image 1": MagicMock()}
-        mock_format.return_value = '{\n  "Image 1": {\n    "title": "Image 1",\n    "imageinfo_url": "https://example.com/Image1.jpg"\n  }\n}'
+        mock_format.return_value = (
+            '{\n  "Image 1": {\n    "title": "Image 1",'
+            '\n    "imageinfo_url": "https://example.com/Image1.jpg"\n  }\n}'
+        )
 
         result = self.runner.invoke(
             wikipediaapi.cli.cli, ["images", "Test_Page", "--imageinfo", "--json"]

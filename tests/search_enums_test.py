@@ -7,8 +7,8 @@ along with their corresponding type aliases and converter functions.
 
 import pytest
 
-from tests.mock_data import wikipedia_api_request
 import wikipediaapi
+from tests.mock_data import wikipedia_api_request
 
 
 class TestSearchEnums:
@@ -97,8 +97,7 @@ class TestSearchEnums:
 
     def test_search_prop_converter(self):
         """Test search_prop2str converter function."""
-        from wikipediaapi import search_prop2str
-        from wikipediaapi import SearchProp
+        from wikipediaapi import SearchProp, search_prop2str
 
         # Test enum to string conversion
         assert search_prop2str(SearchProp.SIZE) == "size"
@@ -116,8 +115,7 @@ class TestSearchEnums:
 
     def test_search_info_converter(self):
         """Test search_info2str converter function."""
-        from wikipediaapi import search_info2str
-        from wikipediaapi import SearchInfo
+        from wikipediaapi import SearchInfo, search_info2str
 
         # Test enum to string conversion
         assert search_info2str(SearchInfo.TOTAL_HITS) == "totalhits"
@@ -131,8 +129,7 @@ class TestSearchEnums:
 
     def test_search_what_converter(self):
         """Test search_what2str converter function."""
-        from wikipediaapi import search_what2str
-        from wikipediaapi import SearchWhat
+        from wikipediaapi import SearchWhat, search_what2str
 
         # Test enum to string conversion
         assert search_what2str(SearchWhat.TEXT) == "text"
@@ -146,8 +143,7 @@ class TestSearchEnums:
 
     def test_search_qi_profile_converter(self):
         """Test search_qi_profile2str converter function."""
-        from wikipediaapi import search_qi_profile2str
-        from wikipediaapi import SearchQiProfile
+        from wikipediaapi import SearchQiProfile, search_qi_profile2str
 
         # Test enum to string conversion
         assert search_qi_profile2str(SearchQiProfile.ENGINE_AUTO_SELECT) == "engine_autoselect"
@@ -161,14 +157,16 @@ class TestSearchEnums:
 
     def test_type_aliases_accept_enums(self):
         """Test Wiki* type aliases accept enum members."""
-        from wikipediaapi import SearchInfo
-        from wikipediaapi import SearchProp
-        from wikipediaapi import SearchQiProfile
-        from wikipediaapi import SearchWhat
-        from wikipediaapi import WikiSearchInfo
-        from wikipediaapi import WikiSearchProp
-        from wikipediaapi import WikiSearchQiProfile
-        from wikipediaapi import WikiSearchWhat
+        from wikipediaapi import (
+            SearchInfo,
+            SearchProp,
+            SearchQiProfile,
+            SearchWhat,
+            WikiSearchInfo,
+            WikiSearchProp,
+            WikiSearchQiProfile,
+            WikiSearchWhat,
+        )
 
         # These should all be valid assignments
         prop: WikiSearchProp = SearchProp.SIZE
@@ -183,10 +181,7 @@ class TestSearchEnums:
 
     def test_type_aliases_accept_strings(self):
         """Test Wiki* type aliases accept strings."""
-        from wikipediaapi import WikiSearchInfo
-        from wikipediaapi import WikiSearchProp
-        from wikipediaapi import WikiSearchQiProfile
-        from wikipediaapi import WikiSearchWhat
+        from wikipediaapi import WikiSearchInfo, WikiSearchProp, WikiSearchQiProfile, WikiSearchWhat
 
         # These should all be valid assignments
         prop: WikiSearchProp = "size"
@@ -201,11 +196,7 @@ class TestSearchEnums:
 
     def test_search_with_enum_parameters(self):
         """Test search method accepts enum parameters."""
-        from wikipediaapi import SearchInfo
-        from wikipediaapi import SearchProp
-        from wikipediaapi import SearchQiProfile
-        from wikipediaapi import SearchSort
-        from wikipediaapi import SearchWhat
+        from wikipediaapi import SearchInfo, SearchProp, SearchQiProfile, SearchSort, SearchWhat
 
         # This should work without errors
         results = self.wiki.search(
@@ -239,9 +230,7 @@ class TestSearchEnums:
 
     def test_search_with_mixed_parameters(self):
         """Test search method accepts mixed enum and string parameters."""
-        from wikipediaapi import SearchInfo
-        from wikipediaapi import SearchProp
-        from wikipediaapi import SearchWhat
+        from wikipediaapi import SearchInfo, SearchProp, SearchWhat
 
         # This should work without errors
         results = self.wiki.search(
@@ -259,10 +248,7 @@ class TestSearchEnums:
 
     def test_enum_immutability(self):
         """Test enum values are immutable."""
-        from wikipediaapi import SearchInfo
-        from wikipediaapi import SearchProp
-        from wikipediaapi import SearchQiProfile
-        from wikipediaapi import SearchWhat
+        from wikipediaapi import SearchInfo, SearchProp, SearchQiProfile, SearchWhat
 
         # Enums should be immutable
         with pytest.raises(AttributeError):
@@ -279,10 +265,7 @@ class TestSearchEnums:
 
     def test_enum_completeness(self):
         """Test all expected enum values are present."""
-        from wikipediaapi import SearchInfo
-        from wikipediaapi import SearchProp
-        from wikipediaapi import SearchQiProfile
-        from wikipediaapi import SearchWhat
+        from wikipediaapi import SearchInfo, SearchProp, SearchQiProfile, SearchWhat
 
         # SearchProp should have 14 values
         assert len(SearchProp) == 14

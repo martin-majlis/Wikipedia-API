@@ -1,6 +1,5 @@
-from tests.mock_data import user_agent
-from tests.mock_data import wikipedia_api_request
 import wikipediaapi
+from tests.mock_data import user_agent, wikipedia_api_request
 
 
 class TestHtmlFormatExtracts:
@@ -33,9 +32,7 @@ class TestHtmlFormatExtracts:
 
     def test_top_level_section_titles(self):
         page = self.wiki.page("Test_1")
-        assert list(map(lambda s: s.title, page.sections)) == [
-            "Section " + str(i + 1) for i in range(5)
-        ]
+        assert [s.title for s in page.sections] == ["Section " + str(i + 1) for i in range(5)]
 
     def test_subsection_by_title(self):
         page = self.wiki.page("Test_1")

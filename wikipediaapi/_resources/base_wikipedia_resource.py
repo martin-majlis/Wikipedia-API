@@ -1,12 +1,11 @@
+import re
 from abc import ABC
 from collections import defaultdict
 from collections.abc import Callable
-import re
-from typing import Any, TYPE_CHECKING, TypeVar
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from .._base_wikipedia_page import BaseWikipediaPage
-from .._enums import Namespace
-from .._enums import WikiNamespace
+from .._enums import Namespace, WikiNamespace
 from .._pages_dict import PagesDict
 from .._params.coordinates_params import CoordinatesParams
 from .._params.geo_search_params import GeoSearchParams
@@ -14,11 +13,7 @@ from .._params.imageinfo_params import ImageInfoParams
 from .._params.images_params import ImagesParams
 from .._params.random_params import RandomParams
 from .._params.search_params import SearchParams
-from .._types import Coordinate
-from .._types import GeoSearchMeta
-from .._types import ImageInfo
-from .._types import SearchMeta
-from .._types import SearchResults
+from .._types import Coordinate, GeoSearchMeta, ImageInfo, SearchMeta, SearchResults
 from ..extract_format import ExtractFormat
 from ..wikipedia_page import WikipediaPage
 from ..wikipedia_page_section import WikipediaPageSection
@@ -265,7 +260,8 @@ class BaseWikipediaResource(ABC):
         prev_pos = 0
 
         for match in re.finditer(
-            RE_SECTION[self.extract_format], extract["extract"]  # type: ignore[attr-defined]
+            RE_SECTION[self.extract_format],
+            extract["extract"],  # type: ignore[attr-defined]
         ):
             if len(page._section_mapping) == 0:
                 page._summary = extract["extract"][0 : match.start()].strip()

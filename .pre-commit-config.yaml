@@ -26,24 +26,17 @@ repos:
     hooks:
       - id: prettier
 
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: "v0.15.9"
+    hooks:
+      - id: ruff
+        args: [--fix]
+        types: [file, python]
+      - id: ruff-format
+        types: [file, python]
+
   - repo: local
     hooks:
-      - id: isort
-        name: Run isort
-        entry: uv run isort
-        language: system
-        args: ["--profile", "google", "--filter-files"]
-        types: [file, python]
-      - id: black
-        name: Run black
-        entry: uv run black
-        language: system
-        types: [file, python]
-      - id: flake8
-        name: Run flake8
-        entry: uv run flake8
-        language: system
-        types: [file, python]
       - id: ty
         name: Run ty
         entry: uv run ty check wikipediaapi/ tests/

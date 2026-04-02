@@ -8,7 +8,7 @@ call per chunk of 50 images.
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any, cast, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, cast
 
 from .._base_wikipedia_page import BaseWikipediaPage
 from .._params.imageinfo_params import _DEFAULT_PROP

@@ -5,19 +5,20 @@ construction, configuration storage) and stateless helpers used by
 both SyncHTTPClient and AsyncHTTPClient.
 """
 
-from abc import ABC
-from abc import abstractmethod
 import logging
+from abc import ABC, abstractmethod
 from typing import Any
 
 import httpx  # noqa: F401
 
 from .._version import __version_str__
-from ..exceptions import WikiConnectionError  # noqa: F401
-from ..exceptions import WikiHttpError
-from ..exceptions import WikiHttpTimeoutError  # noqa: F401
-from ..exceptions import WikiInvalidJsonError
-from ..exceptions import WikiRateLimitError
+from ..exceptions import (
+    WikiConnectionError,  # noqa: F401
+    WikiHttpError,
+    WikiHttpTimeoutError,  # noqa: F401
+    WikiInvalidJsonError,
+    WikiRateLimitError,
+)
 from ..extract_format import ExtractFormat
 from .retry_after_wait import _RetryAfterWait  # noqa: F401
 from .retry_utils import _is_retryable  # noqa: F401
@@ -197,8 +198,8 @@ class BaseHTTPClient(ABC):
             raise WikiHttpError(r.status_code, url)
         try:
             return r.json()  # type: ignore[no-any-return]
-        except ValueError:
-            raise WikiInvalidJsonError(url)
+        except ValueError as err:
+            raise WikiInvalidJsonError(url) from err
 
     @staticmethod
     def _check_and_correct_params(

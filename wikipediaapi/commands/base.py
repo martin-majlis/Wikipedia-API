@@ -6,21 +6,23 @@ from typing import TypedDict
 import click
 
 import wikipediaapi
-from wikipediaapi._enums import coordinate_type2str  # noqa: F401
-from wikipediaapi._enums import CoordinateType  # noqa: F401
-from wikipediaapi._enums import geosearch_sort2str  # noqa: F401
-from wikipediaapi._enums import GeoSearchSort  # noqa: F401
-from wikipediaapi._enums import Globe  # noqa: F401
-from wikipediaapi._enums import globe2str  # noqa: F401
-from wikipediaapi._enums import redirect_filter2str  # noqa: F401
-from wikipediaapi._enums import RedirectFilter  # noqa: F401
-from wikipediaapi._enums import search_sort2str  # noqa: F401
-from wikipediaapi._enums import SearchSort  # noqa: F401
-from wikipediaapi._enums import WikiCoordinateType
-from wikipediaapi._enums import WikiGeoSearchSort
-from wikipediaapi._enums import WikiGlobe
-from wikipediaapi._enums import WikiRedirectFilter
-from wikipediaapi._enums import WikiSearchSort
+from wikipediaapi._enums import (
+    CoordinateType,  # noqa: F401
+    GeoSearchSort,  # noqa: F401
+    Globe,  # noqa: F401
+    RedirectFilter,  # noqa: F401
+    SearchSort,  # noqa: F401
+    WikiCoordinateType,
+    WikiGeoSearchSort,
+    WikiGlobe,
+    WikiRedirectFilter,
+    WikiSearchSort,
+    coordinate_type2str,  # noqa: F401
+    geosearch_sort2str,  # noqa: F401
+    globe2str,  # noqa: F401
+    redirect_filter2str,  # noqa: F401
+    search_sort2str,  # noqa: F401
+)
 
 
 # TypedDict classes for type-safe kwargs

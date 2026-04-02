@@ -7,23 +7,25 @@ import click
 
 import wikipediaapi
 
-from .base import _common_options
-from .base import _json_option
-from .base import add_options
-from .base import coordinate_type2str
-from .base import CoordinateInfo
-from .base import CoordinateType
-from .base import create_wikipedia_instance
-from .base import fetch_page
-from .base import geosearch_sort2str
-from .base import GeoSearchKwargs
-from .base import GeoSearchResult
-from .base import GeoSearchSort
-from .base import Globe
-from .base import globe2str
-from .base import PageNotFoundError
-from .base import parse_bbox_string
-from .base import validate_enum_value
+from .base import (
+    CoordinateInfo,
+    CoordinateType,
+    GeoSearchKwargs,
+    GeoSearchResult,
+    GeoSearchSort,
+    Globe,
+    PageNotFoundError,
+    _common_options,
+    _json_option,
+    add_options,
+    coordinate_type2str,
+    create_wikipedia_instance,
+    fetch_page,
+    geosearch_sort2str,
+    globe2str,
+    parse_bbox_string,
+    validate_enum_value,
+)
 
 
 def get_page_coordinates(

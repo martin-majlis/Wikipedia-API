@@ -22,21 +22,22 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 from typing import ClassVar
 
-from .._enums import coordinate_type2str
-from .._enums import coordinates_prop2str
-from .._enums import CoordinateType
-from .._enums import geosearch_sort2str
-from .._enums import GeoSearchSort
-from .._enums import Globe
-from .._enums import globe2str
-from .._enums import Namespace
-from .._enums import WikiCoordinatesProp
-from .._enums import WikiCoordinateType
-from .._enums import WikiGeoSearchSort
-from .._enums import WikiGlobe
-from .._enums import WikiNamespace
-from .._types import GeoBox
-from .._types import GeoPoint
+from .._enums import (
+    CoordinateType,
+    GeoSearchSort,
+    Globe,
+    Namespace,
+    WikiCoordinatesProp,
+    WikiCoordinateType,
+    WikiGeoSearchSort,
+    WikiGlobe,
+    WikiNamespace,
+    coordinate_type2str,
+    coordinates_prop2str,
+    geosearch_sort2str,
+    globe2str,
+)
+from .._types import GeoBox, GeoPoint
 from .base_params import _BaseParams
 from .protocols import _HasTitle
 

@@ -1,9 +1,7 @@
 import pytest
 
-from tests.mock_data import async_wikipedia_api_request
-from tests.mock_data import user_agent
-from tests.mock_data import wikipedia_api_request
 import wikipediaapi
+from tests.mock_data import async_wikipedia_api_request, user_agent, wikipedia_api_request
 
 
 class TestSyncAsyncPropertySymmetry:
@@ -91,9 +89,9 @@ class TestSyncAsyncPropertySymmetry:
                 + methods
             )
             missing_props = all_expected_props - public_attrs
-            assert (
-                len(missing_props) == 0
-            ), f"Expected properties not found on pages: {missing_props}"
+            assert len(missing_props) == 0, (
+                f"Expected properties not found on pages: {missing_props}"
+            )
 
             # Find any unexpected public attributes (excluding class-level constants)
             class_constants = {"ATTRIBUTES_MAPPING"}  # Class-level constants we don't need to test
@@ -150,9 +148,9 @@ class TestSyncAsyncPropertySymmetry:
                     async_collection = await getattr(async_page, prop)
 
                     # Compare keys
-                    assert set(sync_collection.keys()) == set(
-                        async_collection.keys()
-                    ), f"Keys differ for {prop} on page '{title}'"
+                    assert set(sync_collection.keys()) == set(async_collection.keys()), (
+                        f"Keys differ for {prop} on page '{title}'"
+                    )
 
                     # Compare basic attributes of page objects (not their types)
                     for key in sync_collection.keys():
@@ -167,7 +165,7 @@ class TestSyncAsyncPropertySymmetry:
                                     sync_attr_val = getattr(sync_item, attr)
                                     async_attr_val = getattr(async_item, attr)
                                     assert sync_attr_val == async_attr_val, (
-                                        f"Mismatch for {prop}[{key}].{attr} " f"on page '{title}'"
+                                        f"Mismatch for {prop}[{key}].{attr} on page '{title}'"
                                     )
 
             # Test categorymembers on a category page
@@ -182,9 +180,9 @@ class TestSyncAsyncPropertySymmetry:
                     async_collection = await getattr(async_category_page, prop)
 
                     # Compare keys
-                    assert set(sync_collection.keys()) == set(
-                        async_collection.keys()
-                    ), f"Keys differ for {prop} on page '{category_title}'"
+                    assert set(sync_collection.keys()) == set(async_collection.keys()), (
+                        f"Keys differ for {prop} on page '{category_title}'"
+                    )
 
                     # Compare basic attributes of page objects (not their types)
                     for key in sync_collection.keys():
@@ -235,8 +233,8 @@ class TestSyncAsyncPropertySymmetry:
                                 )
                         else:
                             assert len(sync_result) == len(async_result)
-                            for i, (sync_sec, async_sec) in enumerate(
-                                zip(sync_result, async_result)
+                            for _, (sync_sec, async_sec) in enumerate(
+                                zip(sync_result, async_result, strict=False)
                             ):
                                 assert sync_sec.title == async_sec.title
                                 assert sync_sec.level == async_sec.level
@@ -252,20 +250,20 @@ class TestSyncAsyncPropertySymmetry:
 
     def _compare_sections_structure(self, sync_sections, async_sections, title):
         """Compare section structure rather than exact string equality."""
-        assert len(sync_sections) == len(
-            async_sections
-        ), f"Section count differs for page '{title}'"
+        assert len(sync_sections) == len(async_sections), (
+            f"Section count differs for page '{title}'"
+        )
 
-        for i, (sync_sec, async_sec) in enumerate(zip(sync_sections, async_sections)):
-            assert (
-                sync_sec.title == async_sec.title
-            ), f"Section {i} title differs for page '{title}'"
-            assert (
-                sync_sec.level == async_sec.level
-            ), f"Section {i} level differs for page '{title}'"
-            assert (
-                sync_sec.text.strip() == async_sec.text.strip()
-            ), f"Section {i} text differs for page '{title}'"
+        for i, (sync_sec, async_sec) in enumerate(zip(sync_sections, async_sections, strict=False)):
+            assert sync_sec.title == async_sec.title, (
+                f"Section {i} title differs for page '{title}'"
+            )
+            assert sync_sec.level == async_sec.level, (
+                f"Section {i} level differs for page '{title}'"
+            )
+            assert sync_sec.text.strip() == async_sec.text.strip(), (
+                f"Section {i} text differs for page '{title}'"
+            )
 
             # Recursively compare subsections
             self._compare_sections_structure(
@@ -321,7 +319,7 @@ class TestSyncAsyncPropertySymmetry:
         async_sections = async_page.sections_by_title(test_title)
 
         assert len(sync_sections) == len(async_sections)
-        for i, (sync_sec, async_sec) in enumerate(zip(sync_sections, async_sections)):
+        for _, (sync_sec, async_sec) in enumerate(zip(sync_sections, async_sections, strict=False)):
             assert sync_sec.title == async_sec.title
             assert sync_sec.level == async_sec.level
             assert sync_sec.text.strip() == async_sec.text.strip()

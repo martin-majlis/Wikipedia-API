@@ -5,16 +5,18 @@ These tests complement comprehensive usage examples by focusing on
 edge cases, error conditions, and boundary testing for converter functions.
 """
 
-from wikipediaapi._enums import coordinate_type2str
-from wikipediaapi._enums import CoordinateType
-from wikipediaapi._enums import geosearch_sort2str
-from wikipediaapi._enums import GeoSearchSort
-from wikipediaapi._enums import Globe
-from wikipediaapi._enums import globe2str
-from wikipediaapi._enums import redirect_filter2str
-from wikipediaapi._enums import RedirectFilter
-from wikipediaapi._enums import search_sort2str
-from wikipediaapi._enums import SearchSort
+from wikipediaapi._enums import (
+    CoordinateType,
+    GeoSearchSort,
+    Globe,
+    RedirectFilter,
+    SearchSort,
+    coordinate_type2str,
+    geosearch_sort2str,
+    globe2str,
+    redirect_filter2str,
+    search_sort2str,
+)
 
 
 class TestEnumConvertersEdgeCases:
@@ -260,9 +262,8 @@ class TestEnumConvertersEdgeCases:
         total_time = end_time - start_time
 
         # Should complete in reasonable time (less than 1 second for 10,000 operations)
-        assert (
-            total_time < 1.0
-        ), f"Converters too slow: {total_time:.3f}s for {iterations * len(converters) * 2} operations"
+        op_count = iterations * len(converters) * 2
+        assert total_time < 1.0, f"Converters too slow: {total_time:.3f}s for {op_count} operations"
 
     def test_enum_value_immutability(self):
         """Test that enum values remain immutable after conversion."""
@@ -323,6 +324,7 @@ class TestEnumConvertersEdgeCases:
         for converter in converters:
             for special_string in special_strings:
                 result = converter(special_string)
-                assert (
-                    result == special_string
-                ), f"Converter {converter.__name__} should pass through special characters unchanged"
+                assert result == special_string, (
+                    f"Converter {converter.__name__} should pass through"
+                    " special characters unchanged"
+                )
