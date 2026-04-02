@@ -124,8 +124,10 @@ class SearchResult(TypedDict, total=False):
 
     title: str
     pageid: int | None
+    size: int | None
     wordcount: int | None
     timestamp: str | None
+    snippet: str | None
 
 
 class SearchResults(TypedDict, total=False):

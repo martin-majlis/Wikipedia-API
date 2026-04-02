@@ -1,65 +1,85 @@
 {
-"totalhits": 6045,
+"totalhits": 6046,
 "pages": [
 {
-"title": "Mlpack",
-"pageid": 41585002,
-"wordcount": 1464,
-"timestamp": "2026-02-12T18:17:50Z"
+"title": "Comparison of data-serialization formats",
+"pageid": 23881009,
+"size": 43211,
+"wordcount": 705,
+"timestamp": "2026-04-02T14:31:53Z",
+"snippet": "newlines, and quote characters; it does not directly deal with serializing <span class=\"searchmatch\">programming</span> data structures. ^ The netstrings specification only deals with nested"
 },
 {
-"title": "Featherdale Wildlife Park",
-"pageid": 35117123,
-"wordcount": 3271,
-"timestamp": "2025-11-04T19:27:00Z"
+"title": "List of zoo escapes",
+"pageid": 78318308,
+"size": 213636,
+"wordcount": 8489,
+"timestamp": "2026-03-25T22:49:18Z",
+"snippet": "motorist. 2019 Albay Park &amp; Wildlife Legazpi, Albay <span class=\"searchmatch\">Python</span> Several days The 15 ft (4.5 m) long <span class=\"searchmatch\">python</span> called Sawa ventured into a farm and ate poultry."
 },
 {
-"title": "List of Deadly 60 episodes",
-"pageid": 63198433,
-"wordcount": 119,
-"timestamp": "2026-03-31T12:44:45Z"
+"title": "Marker interface pattern",
+"pageid": 471373,
+"size": 4246,
+"wordcount": 454,
+"timestamp": "2025-09-03T18:14:21Z",
+"snippet": "using reflection. C++26 adds similar support for annotations to C++. In <span class=\"searchmatch\">Python</span>, the term &quot;marker interface&quot; is common in Zope and Plone. Interfaces are"
 },
 {
-"title": "Saturday Night Live season 22",
-"pageid": 12751534,
-"wordcount": 699,
-"timestamp": "2026-03-17T04:14:31Z"
+"title": "Lubuntu",
+"pageid": 22894063,
+"size": 118273,
+"wordcount": 12391,
+"timestamp": "2026-03-23T14:31:28Z",
+"snippet": "default installation. This version of Lubuntu uses the Linux kernel 3.5.5, <span class=\"searchmatch\">Python</span> 3.2 and OpenJDK7 as the default Java implementation. The installation requires"
 },
 {
-"title": "Recursion",
-"pageid": 25407,
-"wordcount": 4021,
-"timestamp": "2026-03-26T15:25:49Z"
+"title": "Ping-pong scheme",
+"pageid": 12242679,
+"size": 5193,
+"wordcount": 633,
+"timestamp": "2025-09-25T05:31:00Z",
+"snippet": "were to get the next path from a function call, it would look like this in <span class=\"searchmatch\">Python</span>: def get_next_path(): &quot;&quot;&quot; This function is a generator that infinitely yields"
 },
 {
-"title": "Psychtoolbox for MATLAB",
-"pageid": 42977486,
-"wordcount": 172,
-"timestamp": "2025-06-25T22:23:40Z"
+"title": "Thomas Kaplan",
+"pageid": 25372440,
+"size": 51438,
+"wordcount": 5053,
+"timestamp": "2026-02-05T22:53:49Z",
+"snippet": "conference in which he compared Iran&#039;s activities in Iraq to a reticulated <span class=\"searchmatch\">python</span> devouring a goat as well as saying that the Iranian government because of"
 },
 {
-"title": "Timekeeping on Mars",
-"pageid": 1784050,
-"wordcount": 6310,
-"timestamp": "2026-03-29T13:25:13Z"
+"title": "GNOWSYS",
+"pageid": 450307,
+"size": 5706,
+"wordcount": 654,
+"timestamp": "2024-11-22T22:49:19Z",
+"snippet": "application for developing and maintaining semantic web content. It is written in <span class=\"searchmatch\">Python</span>. It is implemented as a Django app. The GNOWSYS project was launched by"
 },
 {
-"title": "Rafael Advanced Defense Systems",
-"pageid": 740727,
-"wordcount": 1878,
-"timestamp": "2026-02-09T14:32:42Z"
+"title": "Fooocus",
+"pageid": 77321320,
+"size": 7433,
+"wordcount": 594,
+"timestamp": "2025-12-23T11:11:31Z",
+"snippet": "software portal Fooocus is an open source generative artificial intelligence <span class=\"searchmatch\">program</span> that allows users to generate images from a text prompt. It uses Stable"
 },
 {
-"title": "LGBTQ themes in Western animation",
-"pageid": 73196284,
-"wordcount": 29611,
-"timestamp": "2026-03-10T13:35:49Z"
+"title": "Salt (software)",
+"pageid": 33960422,
+"size": 8179,
+"wordcount": 787,
+"timestamp": "2025-05-10T14:07:09Z",
+"snippet": "infrastructure as code software tool for configuration management. It is written in <span class=\"searchmatch\">Python</span> and published under the Apache License 2.0. Salt originated from the need"
 },
 {
-"title": "Destructor (computer programming)",
-"pageid": 2253076,
-"wordcount": 3087,
-"timestamp": "2026-02-25T22:02:55Z"
+"title": "Comparison of free off-line satellite navigation software",
+"pageid": 42481286,
+"size": 34344,
+"wordcount": 1535,
+"timestamp": "2026-04-02T12:56:18Z",
+"snippet": "(no geocoding). However, in many cases, it is also that which makes the <span class=\"searchmatch\">program</span> free (and sometimes open source), avoid the need of an Internet connection"
 }
 ]
 }

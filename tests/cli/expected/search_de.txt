@@ -3,8 +3,8 @@ Suggestion: python unterstützte meurer programmierparadigmen
 
 Python (Programmiersprache)
 R (Programmiersprache)
-JavaScript
 Hybridsprache
+JavaScript
 Ruby (Programmiersprache)
 Rust (Programmiersprache)
 Wolfram Language

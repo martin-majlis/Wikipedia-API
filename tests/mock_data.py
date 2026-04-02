@@ -869,6 +869,31 @@ _MOCK_DATA = {
             ]
         },
     },
+    "en:action=query&format=json&gscoord=51.5074|-0.1278&gsglobe=earth&gslimit=10&gsnamespace=0&gsradius=1000&gssort=distance&list=geosearch&redirects=1&": {
+        "batchcomplete": "",
+        "query": {
+            "geosearch": [
+                {
+                    "pageid": 100,
+                    "ns": 0,
+                    "title": "Nearby Page 1",
+                    "lat": 51.508,
+                    "lon": -0.128,
+                    "dist": 50.3,
+                    "primary": "",
+                },
+                {
+                    "pageid": 101,
+                    "ns": 0,
+                    "title": "Nearby Page 2",
+                    "lat": 51.510,
+                    "lon": -0.130,
+                    "dist": 200.7,
+                    "primary": "",
+                },
+            ]
+        },
+    },
     # ── geosearch with page (list=geosearch) ────────────────────────────────────────
     "en:action=query&format=json&gsglobe=earth&gslimit=10&gsnamespace=0&gspage=Test_1&gsradius=500&gssort=distance&list=geosearch&redirects=1&": {
         "batchcomplete": "",

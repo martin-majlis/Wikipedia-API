@@ -107,8 +107,14 @@ def get_search_results(
         if "pageid" in p._attributes:
             entry["pageid"] = p._attributes["pageid"]
         if p.search_meta is not None:
-            entry["wordcount"] = p.search_meta.wordcount
-            entry["timestamp"] = p.search_meta.timestamp
+            if p.search_meta.size > 0:
+                entry["size"] = p.search_meta.size
+            if p.search_meta.wordcount > 0:
+                entry["wordcount"] = p.search_meta.wordcount
+            if p.search_meta.timestamp:
+                entry["timestamp"] = p.search_meta.timestamp
+            if p.search_meta.snippet:
+                entry["snippet"] = p.search_meta.snippet
         pages_list.append(entry)
     result: SearchResults = {
         "totalhits": sr.totalhits,

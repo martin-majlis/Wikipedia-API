@@ -5084,8 +5084,8 @@
 "language": "en",
 "ns": 0
 },
-"List of ocean worlds": {
-"title": "List of ocean worlds",
+"List of ocean worlds in solar system": {
+"title": "List of ocean worlds in solar system",
 "language": "en",
 "ns": 0
 },
@@ -7504,6 +7504,11 @@
 "language": "en",
 "ns": 100
 },
+"Portal:Physics/Featured articles": {
+"title": "Portal:Physics/Featured articles",
+"language": "en",
+"ns": 100
+},
 "Portal:Physics/News/Archive": {
 "title": "Portal:Physics/News/Archive",
 "language": "en",
@@ -9639,8 +9644,8 @@
 "language": "en",
 "ns": 1
 },
-"Talk:Space probe": {
-"title": "Talk:Space probe",
+"Talk:Space probe (spacecraft)": {
+"title": "Talk:Space probe (spacecraft)",
 "language": "en",
 "ns": 1
 },
@@ -13676,6 +13681,11 @@
 },
 "User:Combatcoffee": {
 "title": "User:Combatcoffee",
+"language": "en",
+"ns": 2
+},
+"User:CometNebulaLuna/sandbox": {
+"title": "User:CometNebulaLuna/sandbox",
 "language": "en",
 "ns": 2
 },

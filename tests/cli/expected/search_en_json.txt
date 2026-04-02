@@ -1,65 +1,85 @@
 {
-"totalhits": 6045,
+"totalhits": 6046,
 "pages": [
 {
 "title": "Python (programming language)",
 "pageid": 23862,
+"size": 140424,
 "wordcount": 11448,
-"timestamp": "2026-03-30T16:24:18Z"
+"timestamp": "2026-03-30T16:24:18Z",
+"snippet": "<span class=\"searchmatch\">Python</span> is a high-level, general-purpose <span class=\"searchmatch\">programming</span> language. Its design philosophy emphasizes code readability with the use of significant indentation"
 },
 {
 "title": "History of Python",
 "pageid": 21356332,
-"wordcount": 4262,
-"timestamp": "2026-03-17T08:37:45Z"
+"size": 57339,
+"wordcount": 4266,
+"timestamp": "2026-04-02T00:00:21Z",
+"snippet": "The <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> was conceived in the late 1980s, and its implementation was started in December 1989 by Guido van Rossum at CWI in the"
 },
 {
 "title": "Outline of the Python programming language",
 "pageid": 81118035,
+"size": 12097,
 "wordcount": 837,
-"timestamp": "2026-02-18T06:39:30Z"
+"timestamp": "2026-02-18T06:39:30Z",
+"snippet": "functional <span class=\"searchmatch\">programming</span>. ABC (<span class=\"searchmatch\">programming</span> language) – precursor to <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Python</span> was started by Guido van Rossum in 1989 and first released in 1991. <span class=\"searchmatch\">Python</span> 2 —"
 },
 {
 "title": "Python syntax and semantics",
 "pageid": 5250192,
+"size": 68515,
 "wordcount": 7865,
-"timestamp": "2026-01-19T22:21:34Z"
+"timestamp": "2026-01-19T22:21:34Z",
+"snippet": "The syntax of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is the set of rules that defines how a <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">program</span> will be written and interpreted (by both the runtime"
 },
 {
 "title": "Mojo (programming language)",
 "pageid": 73729965,
+"size": 18574,
 "wordcount": 1480,
-"timestamp": "2026-03-15T08:21:22Z"
+"timestamp": "2026-03-15T08:21:22Z",
+"snippet": "proprietary <span class=\"searchmatch\">programming</span> language based on <span class=\"searchmatch\">Python</span> available for Linux and macOS. Mojo aims to combine the usability of a high-level <span class=\"searchmatch\">programming</span> language,"
 },
 {
 "title": "Zen of Python",
 "pageid": 46448252,
+"size": 11211,
 "wordcount": 1130,
-"timestamp": "2026-03-11T00:04:23Z"
-},
-{
-"title": "Python",
-"pageid": 46332325,
-"wordcount": 317,
-"timestamp": "2026-03-10T10:36:25Z"
-},
-{
-"title": "List of Python software",
-"pageid": 3673376,
-"wordcount": 3675,
-"timestamp": "2026-03-27T01:44:00Z"
+"timestamp": "2026-03-11T00:04:23Z",
+"snippet": "<span class=\"searchmatch\">Python</span> is a collection of 19 &quot;guiding principles&quot; for writing computer <span class=\"searchmatch\">programs</span> that influence the design of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. <span class=\"searchmatch\">Python</span> code"
 },
 {
 "title": "Glob (programming)",
 "pageid": 484117,
+"size": 27549,
 "wordcount": 2499,
-"timestamp": "2026-03-01T01:55:39Z"
+"timestamp": "2026-03-01T01:55:39Z",
+"snippet": "on these same wildcard patterns. Guido van Rossum, author of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, wrote and contributed a glob routine to BSD Unix in 1986"
 },
 {
-"title": "Stackless Python",
-"pageid": 2009536,
-"wordcount": 556,
-"timestamp": "2025-09-08T05:44:49Z"
+"title": "Python",
+"pageid": 46332325,
+"size": 2240,
+"wordcount": 317,
+"timestamp": "2026-03-10T10:36:25Z",
+"snippet": "and Australia <span class=\"searchmatch\">Python</span> (genus), a genus of Pythonidae found in Africa and Asia <span class=\"searchmatch\">Python</span> (mythology), a mythical serpent <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language), a widely"
+},
+{
+"title": "List of Python software",
+"pageid": 3673376,
+"size": 35231,
+"wordcount": 3675,
+"timestamp": "2026-03-27T01:44:00Z",
+"snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform"
+},
+{
+"title": "Guido van Rossum",
+"pageid": 226402,
+"size": 24218,
+"wordcount": 1915,
+"timestamp": "2026-03-06T04:17:10Z",
+"snippet": "31 January 1956) is a Dutch programmer. He is the creator of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, for which he was the &quot;benevolent dictator for life&quot; (BDFL)"
 }
 ]
 }
