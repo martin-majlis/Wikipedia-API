@@ -121,7 +121,7 @@ def register_commands(cli_group):
         """
         try:
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-            links_data = get_page_links(wiki, title, namespace)
+            links_data = get_page_links(wiki, title, namespace=namespace)
             result = format_page_dict(links_data, output_format)
             click.echo(result)
         except PageNotFoundError as e:
@@ -144,7 +144,7 @@ def register_commands(cli_group):
         """
         try:
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-            backlinks_data = get_page_backlinks(wiki, title, namespace)
+            backlinks_data = get_page_backlinks(wiki, title, namespace=namespace)
             result = format_page_dict(backlinks_data, output_format)
             click.echo(result)
         except PageNotFoundError as e:
@@ -169,7 +169,7 @@ def register_commands(cli_group):
         """
         try:
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-            langlinks_data = get_langlinks(wiki, title, namespace)
+            langlinks_data = get_langlinks(wiki, title, namespace=namespace)
             result = format_langlinks(langlinks_data, output_format)
             click.echo(result)
         except PageNotFoundError as e:

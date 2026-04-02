@@ -162,7 +162,7 @@ def register_commands(cli_group):
         """
         try:
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-            images_data = get_page_images(wiki, title, namespace, limit)
+            images_data = get_page_images(wiki, title, namespace=namespace, limit=limit)
             result = format_images(images_data, output_format, imageinfo)
             click.echo(result)
         except PageNotFoundError as e:
