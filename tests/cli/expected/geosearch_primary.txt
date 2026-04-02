@@ -1,0 +1,65 @@
+[
+{
+"title": "Equestrian statue of Charles I, Charing Cross",
+"dist": 10.7,
+"lat": 51.50734,
+"lon": -0.12768,
+"primary": true
+},
+{
+"title": "Grade I listed buildings in the City of Westminster",
+"dist": 10.9,
+"lat": 51.507334,
+"lon": -0.127684,
+"primary": true
+},
+{
+"title": "List of statues of English and British royalty in London",
+"dist": 11.3,
+"lat": 51.50732,
+"lon": -0.1277,
+"primary": true
+},
+{
+"title": "List of public art in Trafalgar Square and the vicinity",
+"dist": 13.1,
+"lat": 51.5073,
+"lon": -0.1277,
+"primary": true
+},
+{
+"title": "Greater London Built-up Area",
+"dist": 23.6,
+"lat": 51.5075,
+"lon": -0.1275,
+"primary": true
+},
+{
+"title": "Central London",
+"dist": 23.6,
+"lat": 51.5075,
+"lon": -0.1275,
+"primary": true
+},
+{
+"title": "Charing Cross",
+"dist": 23.6,
+"lat": 51.5075,
+"lon": -0.1275,
+"primary": true
+},
+{
+"title": "1717–1718 Acts of Grace",
+"dist": 28.7,
+"lat": 51.507222222222225,
+"lon": -0.1275,
+"primary": true
+},
+{
+"title": "Eurovision Song Contest 1998",
+"dist": 28.7,
+"lat": 51.507222222222225,
+"lon": -0.1275,
+"primary": true
+}
+]

@@ -104,7 +104,7 @@ def register_commands(cli_group):
         """
         try:
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-            categories_data = get_page_categories(wiki, title, namespace)
+            categories_data = get_page_categories(wiki, title, namespace=namespace)
             result = format_page_dict(categories_data, output_format)
             click.echo(result)
         except PageNotFoundError as e:
@@ -146,7 +146,9 @@ def register_commands(cli_group):
         """
         try:
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-            members_data = get_category_members(wiki, title, max_level, namespace)
+            members_data = get_category_members(
+                wiki, title, max_level=max_level, namespace=namespace
+            )
             result = format_category_members(members_data, output_format)
             click.echo(result)
         except PageNotFoundError as e:

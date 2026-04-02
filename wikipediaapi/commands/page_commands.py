@@ -166,7 +166,7 @@ def register_commands(cli_group):
         """
         try:
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-            result = get_page_summary(wiki, title, namespace)
+            result = get_page_summary(wiki, title, namespace=namespace)
             click.echo(result)
         except PageNotFoundError as e:
             click.echo(str(e), err=True)
@@ -187,7 +187,7 @@ def register_commands(cli_group):
         """
         try:
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-            result = get_page_text(wiki, title, namespace)
+            result = get_page_text(wiki, title, namespace=namespace)
             click.echo(result)
         except PageNotFoundError as e:
             click.echo(str(e), err=True)
@@ -209,7 +209,7 @@ def register_commands(cli_group):
         """
         try:
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-            sections_data = get_page_sections(wiki, title, namespace)
+            sections_data = get_page_sections(wiki, title, namespace=namespace)
             result = format_sections(sections_data, output_format)
             click.echo(result)
         except PageNotFoundError as e:
@@ -232,7 +232,7 @@ def register_commands(cli_group):
         """
         try:
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-            result = get_section_text(wiki, title, section_title, namespace)
+            result = get_section_text(wiki, title, section_title, namespace=namespace)
             click.echo(result)
         except PageNotFoundError as e:
             click.echo(str(e), err=True)
@@ -256,6 +256,6 @@ def register_commands(cli_group):
             wikipedia-api page "Python (programming language)" --json
         """
         wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-        info = get_page_info(wiki, title, namespace)
+        info = get_page_info(wiki, title, namespace=namespace)
         result = format_page_info(info, output_format)
         click.echo(result)

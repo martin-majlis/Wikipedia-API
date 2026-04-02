@@ -199,6 +199,8 @@ def format_geosearch(results: list[GeoSearchResult], output_format: str) -> str:
     if output_format == "json":
         return json.dumps(results, ensure_ascii=False, indent=2)
     else:
+        if not results:
+            return "No results found"
         lines = []
         for r in results:
             parts = [r["title"]]
@@ -259,7 +261,9 @@ def register_commands(cli_group):
         """
         try:
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-            coords_data = get_page_coordinates(wiki, title, namespace, limit, primary)
+            coords_data = get_page_coordinates(
+                wiki, title, namespace=namespace, limit=limit, primary=primary
+            )
             result = format_coordinates(coords_data, output_format)
             click.echo(result)
         except PageNotFoundError as e:
@@ -357,16 +361,16 @@ def register_commands(cli_group):
             wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
             results_data = get_geosearch_results(
                 wiki,
-                coord,
-                page_title,
-                bbox,
-                radius,
-                max_dim,
-                sort,
-                limit,
-                globe,
-                namespace,
-                primary,
+                coord=coord,
+                page_title=page_title,
+                bbox=bbox,
+                radius=radius,
+                max_dim=max_dim,
+                sort=sort,
+                limit=limit,
+                globe=globe,
+                ns=namespace,
+                primary=primary,
             )
             result = format_geosearch(results_data, output_format)
             click.echo(result)

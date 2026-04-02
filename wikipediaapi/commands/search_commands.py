@@ -195,7 +195,14 @@ def register_commands(cli_group):
             wikipedia-api random --language de
         """
         wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-        results_data = get_random_pages(wiki, limit, namespace, filter_redirect, min_size, max_size)
+        results_data = get_random_pages(
+            wiki,
+            limit=limit,
+            ns=namespace,
+            filter_redirect=filter_redirect,
+            min_size=min_size,
+            max_size=max_size,
+        )
         result = format_random(results_data, output_format)
         click.echo(result)
 
@@ -257,6 +264,6 @@ def register_commands(cli_group):
             wikipedia-api search "машинное обучение" --language ru --json
         """
         wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
-        results_data = get_search_results(wiki, query, limit, namespace, sort)
+        results_data = get_search_results(wiki, query, limit=limit, ns=namespace, sort=sort)
         result = format_search(results_data, output_format)
         click.echo(result)
