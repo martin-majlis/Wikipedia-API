@@ -12,7 +12,7 @@ BUILDDIR      = _build
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help Makefile
+.PHONY: help Makefile verify-skills verify-skills-sh run-type-check run-tests
 
 process-readme:
 	awk '/^.. PYPI-BEGIN$$/,/^.. PYPI-END$$/ {next} {print}' README.rst > README_processed.rst
@@ -41,8 +41,15 @@ run-test-cli-record:
 run-tests-cli-unit:
 	uv run pytest tests/cli_test.py -v
 
+verify-skills:
+	@echo "Verifying all SKILLS code samples..."
+	uv run verify_skills.py
+
+verify-skills-sh:
+	@echo "Verifying all SKILLS code samples..."
+	./verify-skills.sh
+
 run-type-check: run-type-check-library run-type-check-tests
-	date
 
 run-type-check-library:
 	uv run ty check wikipediaapi/
@@ -95,7 +102,7 @@ update-pre-commit:
 		uv run pre-commit autoupdate --repo "$${repo}"; \
 	done;
 
-pre-release-check: run-pre-commit run-type-check run-ruff run-coverage run-tox run-example-sync run-example-async run-validate-attributes-mappping
+pre-release-check: run-pre-commit run-type-check run-ruff run-coverage run-tox run-example-sync run-example-async run-validate-attributes-mappping verify-skills
 	echo "Pre-release check was successful"
 
 release: requirements-build process-readme pre-release-check
