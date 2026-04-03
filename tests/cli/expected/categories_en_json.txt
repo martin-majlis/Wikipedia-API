@@ -104,6 +104,11 @@
 "language": "en",
 "ns": 14
 },
+"Category:Pages using multiple image with auto scaled images": {
+"title": "Category:Pages using multiple image with auto scaled images",
+"language": "en",
+"ns": 14
+},
 "Category:Pages with Ancient Greek (to 1453) IPA": {
 "title": "Category:Pages with Ancient Greek (to 1453) IPA",
 "language": "en",

@@ -334,6 +334,11 @@
 "language": "en",
 "ns": 0
 },
+"Artemis II": {
+"title": "Artemis II",
+"language": "en",
+"ns": 0
+},
 "Artificial satellite": {
 "title": "Artificial satellite",
 "language": "en",
@@ -1419,6 +1424,11 @@
 "language": "en",
 "ns": 0
 },
+"Earthrise": {
+"title": "Earthrise",
+"language": "en",
+"ns": 0
+},
 "Eastern Hemisphere": {
 "title": "Eastern Hemisphere",
 "language": "en",
@@ -2231,6 +2241,11 @@
 },
 "Helium": {
 "title": "Helium",
+"language": "en",
+"ns": 0
+},
+"Hello, World (NASA)": {
+"title": "Hello, World (NASA)",
 "language": "en",
 "ns": 0
 },

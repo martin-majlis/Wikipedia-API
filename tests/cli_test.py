@@ -52,6 +52,9 @@ class TestCLIFactoryFunctions:
         assert wiki.extract_format == wikipediaapi.ExtractFormat.WIKI
         # User agent is stored in session headers
         assert "test-agent" in wiki._client.headers["User-Agent"]
+        # Test default retry parameters
+        assert wiki._max_retries == 3
+        assert wiki._retry_wait == 1.0
 
     def test_create_wikipedia_instance_html_format(self):
         """Test creating Wikipedia instance with HTML format."""
@@ -70,6 +73,34 @@ class TestCLIFactoryFunctions:
         assert wiki.language == "zh"
         assert wiki.variant == "zh-cn"
         assert "test-agent" in wiki._client.headers["User-Agent"]
+
+    def test_create_wikipedia_instance_with_retry_params(self):
+        """Test creating Wikipedia instance with custom retry parameters."""
+        wiki = create_wikipedia_instance(
+            user_agent="test-agent",
+            language="en",
+            variant=None,
+            extract_format="wiki",
+            max_retries=5,
+            retry_wait=2.0,
+        )
+
+        assert wiki._max_retries == 5
+        assert wiki._retry_wait == 2.0
+
+    def test_create_wikipedia_instance_zero_retries(self):
+        """Test creating Wikipedia instance with retries disabled."""
+        wiki = create_wikipedia_instance(
+            user_agent="test-agent",
+            language="en",
+            variant=None,
+            extract_format="wiki",
+            max_retries=0,
+            retry_wait=1.0,
+        )
+
+        assert wiki._max_retries == 0
+        assert wiki._retry_wait == 1.0
 
     def test_fetch_page_success(self):
         """Test fetching a page successfully."""

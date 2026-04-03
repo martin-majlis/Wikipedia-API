@@ -1,5 +1,5 @@
 {
-"totalhits": 6046,
+"totalhits": 6045,
 "pages": [
 {
 "title": "Python (programming language)",
@@ -58,14 +58,6 @@
 "snippet": "on these same wildcard patterns. Guido van Rossum, author of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, wrote and contributed a glob routine to BSD Unix in 1986"
 },
 {
-"title": "Python",
-"pageid": 46332325,
-"size": 2240,
-"wordcount": 317,
-"timestamp": "2026-03-10T10:36:25Z",
-"snippet": "and Australia <span class=\"searchmatch\">Python</span> (genus), a genus of Pythonidae found in Africa and Asia <span class=\"searchmatch\">Python</span> (mythology), a mythical serpent <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language), a widely"
-},
-{
 "title": "List of Python software",
 "pageid": 3673376,
 "size": 35231,
@@ -74,12 +66,20 @@
 "snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform"
 },
 {
-"title": "Guido van Rossum",
-"pageid": 226402,
-"size": 24218,
-"wordcount": 1915,
-"timestamp": "2026-03-06T04:17:10Z",
-"snippet": "31 January 1956) is a Dutch programmer. He is the creator of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, for which he was the &quot;benevolent dictator for life&quot; (BDFL)"
+"title": "Python",
+"pageid": 46332325,
+"size": 2240,
+"wordcount": 317,
+"timestamp": "2026-03-10T10:36:25Z",
+"snippet": "and Australia <span class=\"searchmatch\">Python</span> (genus), a genus of Pythonidae found in Africa and Asia <span class=\"searchmatch\">Python</span> (mythology), a mythical serpent <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language), a widely"
+},
+{
+"title": "Core Python Programming",
+"pageid": 25061839,
+"size": 3926,
+"wordcount": 316,
+"timestamp": "2026-01-31T19:07:48Z",
+"snippet": "Core <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> is a textbook on the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, written by Wesley J. Chun. The first edition of the book was released on December"
 }
 ]
 }

@@ -65,6 +65,7 @@ Argument of periapsis
 Arid
 Ariel (moon)
 Arizona State University
+Artemis II
 Artificial satellite
 Asia
 Associated Press
@@ -282,6 +283,7 @@ Earth's outer core
 Earth's rotation
 Earthquake
 Earthquakes
+Earthrise
 Eastern Hemisphere
 Ecliptic
 Ecological network
@@ -445,6 +447,7 @@ Heat flow
 Heat reservoir
 Heliocentrism
 Helium
+Hello, World (NASA)
 Help:Authority control
 Help:IPA/English
 Help:IPA/Greek

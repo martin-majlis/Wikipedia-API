@@ -26,5 +26,14 @@ Extraction format for page text.  [default:
 wiki]
 -n, --namespace INTEGER         Wikipedia namespace (0=Main, 14=Category,
 etc.).  [default: 0]
+--max-retries INTEGER           Maximum number of retry attempts for
+transient errors (HTTP 429, 5xx, timeouts,
+connection errors). Set to 0 to disable
+retries entirely.  [default: 3]
+--retry-wait FLOAT              Base wait time in seconds between retries;
+actual wait uses exponential backoff
+(retry_wait * 2^attempt). For HTTP 429 the
+Retry-After header value is used instead.
+[default: 1.0]
 --json                          Output results as JSON.
 -h, --help                      Show this message and exit.

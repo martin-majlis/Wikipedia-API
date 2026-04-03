@@ -19,6 +19,7 @@ Category:Nature
 Category:Pages using Sister project links with hidden wikidata
 Category:Pages using Sister project links with wikidata mismatch
 Category:Pages using Sister project links with wikidata namespace mismatch
+Category:Pages using multiple image with auto scaled images
 Category:Pages with Ancient Greek (to 1453) IPA
 Category:Pages with Greek IPA
 Category:Planets of the Solar System

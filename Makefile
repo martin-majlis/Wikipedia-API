@@ -51,8 +51,8 @@ run-type-check-tests:
 	uv run ty check tests/
 
 run-ruff:
-	uv run ruff check wikipediaapi/ tests/
 	uv run ruff format --check wikipediaapi/ tests/
+	uv run ruff check wikipediaapi/ tests/
 
 run-tox:
 	uv run tox --version
