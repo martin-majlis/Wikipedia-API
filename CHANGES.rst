@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.14.0
+------
+
+* Add WikipediaImage, ImagesDict, and imageinfo API - `PR 525`_
+
+.. _PR 525: https://github.com/martin-majlis/Wikipedia-API/pull/525
+
 0.13.0
 ------
 
