@@ -1015,7 +1015,7 @@ List of mutual planetary eclipses
 List of named minor planets: 100000–149999
 List of named minor planets: P
 List of natural satellites
-List of ocean worlds in solar system
+List of ocean worlds in the Solar System
 List of people from Boston
 List of people from Flagstaff, Arizona
 List of people from Illinois
@@ -2735,7 +2735,6 @@ User:ColdFire
 User:Colinmartin74/Books/Dwarf Planets Of The Solar System & Their Satellites
 User:ComaDivine
 User:Combatcoffee
-User:CometNebulaLuna/sandbox
 User:Cominion
 User:CommanderWiki35
 User:Commons is in a thing
@@ -3455,7 +3454,6 @@ User:MaxHarmony/Usrboxen
 User:Maxwell's Daemon
 User:Mbimmler/VandalismLog
 User:McMarcoP/About me
-User:Mcdavis941/mars
 User:Mckinlayr
 User:Me lkjhgfdsa
 User:MeatJustice
@@ -4414,7 +4412,6 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
-Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1

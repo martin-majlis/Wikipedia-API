@@ -139,7 +139,12 @@ class SearchResults(TypedDict, total=False):
 
 
 def create_wikipedia_instance(
-    user_agent: str, language: str, variant: str | None, extract_format: str
+    user_agent: str,
+    language: str,
+    variant: str | None,
+    extract_format: str,
+    max_retries: int = 3,
+    retry_wait: float = 1.0,
 ) -> wikipediaapi.Wikipedia:
     r"""Create a Wikipedia instance from common CLI options."""
     fmt = wikipediaapi.ExtractFormat.WIKI
@@ -151,6 +156,8 @@ def create_wikipedia_instance(
         language=language,
         variant=variant if variant else None,
         extract_format=fmt,
+        max_retries=max_retries,
+        retry_wait=retry_wait,
     )
 
 
@@ -299,6 +306,22 @@ _common_options = [
         default=0,
         show_default=True,
         help="Wikipedia namespace (0=Main, 14=Category, etc.).",
+    ),
+    click.option(
+        "--max-retries",
+        type=int,
+        default=3,
+        show_default=True,
+        help="Maximum number of retry attempts for transient errors "
+        "(HTTP 429, 5xx, timeouts, connection errors). Set to 0 to disable retries entirely.",
+    ),
+    click.option(
+        "--retry-wait",
+        type=float,
+        default=1.0,
+        show_default=True,
+        help="Base wait time in seconds between retries; actual wait uses exponential backoff "
+        "(retry_wait * 2^attempt). For HTTP 429 the Retry-After header value is used instead.",
     ),
 ]
 

@@ -62,6 +62,12 @@ else
     GREEN='' RED='' YELLOW='' CYAN='' NC=''
 fi
 
+# ── Common CLI parameters ─────────────────────────────────────────────────────
+# Define common parameters once for easier maintenance
+
+RETRY_PARAMS="--max-retries 10 --retry-wait 5"
+UV_CMD="uv run wikipedia-api"
+
 # ── Test definitions ────────────────────────────────────────────────────────
 # Format: "test_name|command args..."
 #
@@ -70,120 +76,119 @@ fi
 
 TESTS=(
     # ── page command ────────────────────────────────────────────────────────
-    "page_en|uv run wikipedia-api page Earth"
-    "page_en_json|uv run wikipedia-api page Earth --json"
-    "page_nonexistent|uv run wikipedia-api page 'NonexistentPage12345' || true"
+    "page_en|${UV_CMD} page Earth ${RETRY_PARAMS}"
+    "page_en_json|${UV_CMD} page Earth --json ${RETRY_PARAMS}"
+    "page_nonexistent|${UV_CMD} page 'NonexistentPage12345' ${RETRY_PARAMS} || true"
 
     # ── summary command ────────────────────────────────────────────────────
-    "summary_en|uv run wikipedia-api summary Earth"
-    "summary_cs|uv run wikipedia-api summary Earth --language cs"
-    "summary_de|uv run wikipedia-api summary Earth --language de"
-    "summary_fr|uv run wikipedia-api summary Earth --language fr"
-    "summary_es|uv run wikipedia-api summary Earth --language es"
-    "summary_ja|uv run wikipedia-api summary Earth --language ja"
-    "summary_zh_cn|uv run wikipedia-api summary Earth --language zh --variant zh-cn"
-    "summary_zh_tw|uv run wikipedia-api summary Earth --language zh --variant zh-tw"
-    "summary_ar|uv run wikipedia-api summary Earth --language ar"
-    "summary_ko|uv run wikipedia-api summary Earth --language ko"
-    "summary_html|uv run wikipedia-api summary Earth --extract-format html"
+    "summary_en|${UV_CMD} summary Earth ${RETRY_PARAMS}"
+    "summary_cs|${UV_CMD} summary Earth --language cs ${RETRY_PARAMS}"
+    "summary_de|${UV_CMD} summary Earth --language de ${RETRY_PARAMS}"
+    "summary_fr|${UV_CMD} summary Earth --language fr ${RETRY_PARAMS}"
+    "summary_es|${UV_CMD} summary Earth --language es ${RETRY_PARAMS}"
+    "summary_ja|${UV_CMD} summary Earth --language ja ${RETRY_PARAMS}"
+    "summary_zh_cn|${UV_CMD} summary Earth --language zh --variant zh-cn ${RETRY_PARAMS}"
+    "summary_zh_tw|${UV_CMD} summary Earth --language zh --variant zh-tw ${RETRY_PARAMS}"
+    "summary_ar|${UV_CMD} summary Earth --language ar ${RETRY_PARAMS}"
+    "summary_ko|${UV_CMD} summary Earth --language ko ${RETRY_PARAMS}"
+    "summary_html|${UV_CMD} summary Earth --extract-format html ${RETRY_PARAMS}"
 
     # ── text command ─────────────────────────────────────────────────────────
-    "text_en|uv run wikipedia-api text Earth"
-    "text_cs|uv run wikipedia-api text Earth --language cs"
+    "text_en|${UV_CMD} text Earth ${RETRY_PARAMS}"
+    "text_cs|${UV_CMD} text Earth --language cs ${RETRY_PARAMS}"
 
     # ── sections command ─────────────────────────────────────────────────────
-    "sections_en|uv run wikipedia-api sections Earth"
-    "sections_en_json|uv run wikipedia-api sections Earth --json"
-    "sections_de|uv run wikipedia-api sections Neue_Heimat --language de"
+    "sections_en|${UV_CMD} sections Earth ${RETRY_PARAMS}"
+    "sections_en_json|${UV_CMD} sections Earth --json ${RETRY_PARAMS}"
+    "sections_de|${UV_CMD} sections Neue_Heimat --language de ${RETRY_PARAMS}"
 
     # ── section command ──────────────────────────────────────────────────────
-    "section_en|uv run wikipedia-api section Earth 'Etymology'"
-    "section_cs|uv run wikipedia-api section Země 'Vznik Země' --language cs"
+    "section_en|${UV_CMD} section Earth 'Etymology' ${RETRY_PARAMS}"
+    "section_cs|${UV_CMD} section Země 'Vznik Země' --language cs ${RETRY_PARAMS}"
 
     # ── links command ────────────────────────────────────────────────────────
-    "links_en|uv run wikipedia-api links Earth"
-    "links_en_json|uv run wikipedia-api links Earth --json"
+    "links_en|${UV_CMD} links Earth ${RETRY_PARAMS}"
+    "links_en_json|${UV_CMD} links Earth --json ${RETRY_PARAMS}"
 
     # ── backlinks command ───────────────────────────────────────────────────
-    "backlinks_en|uv run wikipedia-api backlinks Pluto"
-    "backlinks_en_json|uv run wikipedia-api backlinks Pluto --json"
+    "backlinks_en|${UV_CMD} backlinks Pluto ${RETRY_PARAMS}"
+    "backlinks_en_json|${UV_CMD} backlinks Pluto --json ${RETRY_PARAMS}"
 
     # ── langlinks command ───────────────────────────────────────────────────
-    "langlinks_en|uv run wikipedia-api langlinks Earth"
-    "langlinks_en_json|uv run wikipedia-api langlinks Earth --json"
-    "langlinks_fr|uv run wikipedia-api langlinks Paris --language fr"
+    "langlinks_en|${UV_CMD} langlinks Earth ${RETRY_PARAMS}"
+    "langlinks_en_json|${UV_CMD} langlinks Earth --json ${RETRY_PARAMS}"
+    "langlinks_fr|${UV_CMD} langlinks Paris --language fr ${RETRY_PARAMS}"
 
     # ── categories command ──────────────────────────────────────────────────
-    "categories_en|uv run wikipedia-api categories Earth"
-    "categories_en_json|uv run wikipedia-api categories Earth --json"
-    "categories_de|uv run wikipedia-api categories Berlin --language de"
+    "categories_en|${UV_CMD} categories Earth ${RETRY_PARAMS}"
+    "categories_en_json|${UV_CMD} categories Earth --json ${RETRY_PARAMS}"
+    "categories_de|${UV_CMD} categories Berlin --language de ${RETRY_PARAMS}"
 
     # ── categorymembers command ─────────────────────────────────────────────
-    "categorymembers_en|uv run wikipedia-api categorymembers Category:Planets"
-    "categorymembers_en_json|uv run wikipedia-api categorymembers Category:Planets --json"
-    "categorymembers_depth|uv run wikipedia-api categorymembers Category:Planets --max-level 1"
+    "categorymembers_en|${UV_CMD} categorymembers Category:Planets ${RETRY_PARAMS}"
+    "categorymembers_en_json|${UV_CMD} categorymembers Category:Planets --json ${RETRY_PARAMS}"
+    "categorymembers_depth|${UV_CMD} categorymembers Category:Planets --max-level 1 ${RETRY_PARAMS}"
 
     # ── coordinates command ─────────────────────────────────────────────────
-    "coordinates_en|uv run wikipedia-api coordinates Prague"
-    "coordinates_en_json|uv run wikipedia-api coordinates Prague --json"
-    "coordinates_primary_all|uv run wikipedia-api coordinates Prague --primary all"
-    "coordinates_primary_secondary|uv run wikipedia-api coordinates Prague --primary secondary --json"
+    "coordinates_en|${UV_CMD} coordinates Prague ${RETRY_PARAMS}"
+    "coordinates_en_json|${UV_CMD} coordinates Prague --json ${RETRY_PARAMS}"
+    "coordinates_primary_all|${UV_CMD} coordinates Prague --primary all ${RETRY_PARAMS}"
+    "coordinates_primary_secondary|${UV_CMD} coordinates Prague --primary secondary --json ${RETRY_PARAMS}"
 
     # ── images command ───────────────────────────────────────────────────────
-    "images_en|uv run wikipedia-api images Prague"
-    "images_en_json|uv run wikipedia-api images Prague --json"
-    "images_en_imageinfo|uv run wikipedia-api images Prague --imageinfo"
-    "images_en_imageinfo_json|uv run wikipedia-api images Prague --imageinfo --json"
-    "images_en_limit|uv run wikipedia-api images Prague --limit 5"
-    "images_en_language|uv run wikipedia-api images Prague --language de"
-    "images_nonexistent|uv run wikipedia-api images 'NonexistentPage12345' || true"
+    "images_en|${UV_CMD} images Prague ${RETRY_PARAMS}"
+    "images_en_json|${UV_CMD} images Prague --json ${RETRY_PARAMS}"
+    "images_en_imageinfo|${UV_CMD} images Prague --imageinfo ${RETRY_PARAMS}"
+    "images_en_imageinfo_json|${UV_CMD} images Prague --imageinfo --json ${RETRY_PARAMS}"
+    "images_en_limit|${UV_CMD} images Prague --limit 5 ${RETRY_PARAMS}"
+    "images_en_language|${UV_CMD} images Prague --language de ${RETRY_PARAMS}"
 
     # ── geosearch command ────────────────────────────────────────────────────
-    "geosearch_coord|uv run wikipedia-api geosearch --coord \"51.5074|-0.1278\""
-    "geosearch_coord_json|uv run wikipedia-api geosearch --coord \"51.5074|-0.1278\" --json"
-    "geosearch_page|uv run wikipedia-api geosearch --page \"Big Ben\" --radius 1000"
-    "geosearch_bbox|uv run wikipedia-api geosearch --bbox \"51.7|-0.1|51.6|-0.05\" --sort relevance"
-    "geosearch_bbox_json|uv run wikipedia-api geosearch --bbox \"51.7|-0.1|51.6|-0.05\" --sort distance --json"
-    "geosearch_globe|uv run wikipedia-api geosearch --coord \"51.5074|-0.1278\" --globe mars --limit 5"
-    "geosearch_primary|uv run wikipedia-api geosearch --coord \"51.5074|-0.1278\" --primary all --json"
-    "geosearch_max_dim|uv run wikipedia-api geosearch --coord \"51.5074|-0.1278\" --max-dim 1000 --sort relevance"
+    "geosearch_coord|${UV_CMD} geosearch --coord \"51.5074|-0.1278\" ${RETRY_PARAMS}"
+    "geosearch_coord_json|${UV_CMD} geosearch --coord \"51.5074|-0.1278\" --json ${RETRY_PARAMS}"
+    "geosearch_page|${UV_CMD} geosearch --page \"Big Ben\" --radius 1000 ${RETRY_PARAMS}"
+    "geosearch_bbox|${UV_CMD} geosearch --bbox \"51.7|-0.1|51.6|-0.05\" --sort relevance ${RETRY_PARAMS}"
+    "geosearch_bbox_json|${UV_CMD} geosearch --bbox \"51.7|-0.1|51.6|-0.05\" --sort distance --json ${RETRY_PARAMS}"
+    "geosearch_globe|${UV_CMD} geosearch --coord \"51.5074|-0.1278\" --globe mars --limit 5 ${RETRY_PARAMS}"
+    "geosearch_primary|${UV_CMD} geosearch --coord \"51.5074|-0.1278\" --primary all --json ${RETRY_PARAMS}"
+    "geosearch_max_dim|${UV_CMD} geosearch --coord \"51.5074|-0.1278\" --max-dim 1000 --sort relevance ${RETRY_PARAMS}"
 
     # ── random command ───────────────────────────────────────────────────────
-    "random_default|uv run wikipedia-api random"
-    "random_limit|uv run wikipedia-api random --limit 5"
-    "random_json|uv run wikipedia-api random --limit 3 --json"
-    "random_filter_redirects|uv run wikipedia-api random --filter-redirect all --limit 3"
-    "random_filter_redirects_json|uv run wikipedia-api random --filter-redirect redirects --json"
-    "random_size_limits|uv run wikipedia-api random --min-size 1000 --max-size 10000 --limit 5"
-    "random_combined|uv run wikipedia-api random --filter-redirect nonredirects --min-size 500 --limit 2 --json"
+    "random_default|${UV_CMD} random ${RETRY_PARAMS}"
+    "random_limit|${UV_CMD} random --limit 5 ${RETRY_PARAMS}"
+    "random_json|${UV_CMD} random --limit 3 --json ${RETRY_PARAMS}"
+    "random_filter_redirects|${UV_CMD} random --filter-redirect all --limit 3 ${RETRY_PARAMS}"
+    "random_filter_redirects_json|${UV_CMD} random --filter-redirect redirects --json ${RETRY_PARAMS}"
+    "random_size_limits|${UV_CMD} random --min-size 1000 --max-size 10000 --limit 5 ${RETRY_PARAMS}"
+    "random_combined|${UV_CMD} random --filter-redirect nonredirects --min-size 500 --limit 2 --json ${RETRY_PARAMS}"
 
     # ── search command ───────────────────────────────────────────────────────
-    "search_en|uv run wikipedia-api search \"Python programming\""
-    "search_en_json|uv run wikipedia-api search \"Python programming\" --json"
-    "search_de|uv run wikipedia-api search \"Python unterstützt mehrere Programmierparadigmen\" --language de"
-    "search_sort_timestamp|uv run wikipedia-api search \"Python programming\" --search-sort create_timestamp_desc --limit 5"
-    "search_sort_random|uv run wikipedia-api search \"Python programming\" --search-sort random --json"
-    "search_sort_title|uv run wikipedia-api search \"Python programming\" --search-sort title_natural_asc --limit 3"
-    "search_sort_links|uv run wikipedia-api search \"Python programming\" --search-sort incoming_links_desc --json"
+    "search_en|${UV_CMD} search \"Python programming\" ${RETRY_PARAMS}"
+    "search_en_json|${UV_CMD} search \"Python programming\" --json ${RETRY_PARAMS}"
+    "search_de|${UV_CMD} search \"Python unterstützt mehrere Programmierparadigmen\" --language de ${RETRY_PARAMS}"
+    "search_sort_timestamp|${UV_CMD} search \"Python programming\" --search-sort create_timestamp_desc --limit 5 ${RETRY_PARAMS}"
+    "search_sort_random|${UV_CMD} search \"Python programming\" --search-sort random --json ${RETRY_PARAMS}"
+    "search_sort_title|${UV_CMD} search \"Python programming\" --search-sort title_natural_asc --limit 3 ${RETRY_PARAMS}"
+    "search_sort_links|${UV_CMD} search \"Python programming\" --search-sort incoming_links_desc --json ${RETRY_PARAMS}"
 
     # ── help & version ──────────────────────────────────────────────────────
-    "help_main|uv run wikipedia-api --help"
-    "help_summary|uv run wikipedia-api summary --help"
-    "help_text|uv run wikipedia-api text --help"
-    "help_sections|uv run wikipedia-api sections --help"
-    "help_section|uv run wikipedia-api section --help"
-    "help_links|uv run wikipedia-api links --help"
-    "help_backlinks|uv run wikipedia-api backlinks --help"
-    "help_langlinks|uv run wikipedia-api langlinks --help"
-    "help_categories|uv run wikipedia-api categories --help"
-    "help_categorymembers|uv run wikipedia-api categorymembers --help"
-    "help_coordinates|uv run wikipedia-api coordinates --help"
-    "help_images|uv run wikipedia-api images --help"
-    "help_geosearch|uv run wikipedia-api geosearch --help"
-    "help_random|uv run wikipedia-api random --help"
-    "help_search|uv run wikipedia-api search --help"
-    "help_page|uv run wikipedia-api page --help"
-    "version|uv run wikipedia-api --version"
+    "help_main|${UV_CMD} --help"
+    "help_summary|${UV_CMD} summary --help"
+    "help_text|${UV_CMD} text --help"
+    "help_sections|${UV_CMD} sections --help"
+    "help_section|${UV_CMD} section --help"
+    "help_links|${UV_CMD} links --help"
+    "help_backlinks|${UV_CMD} backlinks --help"
+    "help_langlinks|${UV_CMD} langlinks --help"
+    "help_categories|${UV_CMD} categories --help"
+    "help_categorymembers|${UV_CMD} categorymembers --help"
+    "help_coordinates|${UV_CMD} coordinates --help"
+    "help_images|${UV_CMD} images --help"
+    "help_geosearch|${UV_CMD} geosearch --help"
+    "help_random|${UV_CMD} random --help"
+    "help_search|${UV_CMD} search --help"
+    "help_page|${UV_CMD} page --help"
+    "version|${UV_CMD} --version"
 )
 
 # ── Non-deterministic tests ────────────────────────────────────────────────

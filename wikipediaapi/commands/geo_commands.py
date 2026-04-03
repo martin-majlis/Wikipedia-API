@@ -248,6 +248,8 @@ def register_commands(cli_group):
         extract_format,
         namespace,
         output_format,
+        max_retries,
+        retry_wait,
     ):
         r"""Show geographic coordinates for a Wikipedia page.
 
@@ -260,7 +262,9 @@ def register_commands(cli_group):
             wikipedia-api coordinates "Mount Everest" --json
         """
         try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+            wiki = create_wikipedia_instance(
+                user_agent, language, variant, extract_format, max_retries, retry_wait
+            )
             coords_data = get_page_coordinates(
                 wiki, title, namespace=namespace, limit=limit, primary=primary
             )
@@ -345,6 +349,8 @@ def register_commands(cli_group):
         extract_format,
         namespace,
         output_format,
+        max_retries,
+        retry_wait,
     ):
         r"""Search for Wikipedia pages near a geographic location.
 
@@ -358,7 +364,9 @@ def register_commands(cli_group):
             wikipedia-api geosearch --coord "48.8566|2.3522" --globe mars --json
         """
         try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+            wiki = create_wikipedia_instance(
+                user_agent, language, variant, extract_format, max_retries, retry_wait
+            )
             results_data = get_geosearch_results(
                 wiki,
                 coord=coord,

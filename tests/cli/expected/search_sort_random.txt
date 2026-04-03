@@ -1,85 +1,85 @@
 {
-"totalhits": 6046,
+"totalhits": 6045,
 "pages": [
 {
-"title": "Comparison of data-serialization formats",
-"pageid": 23881009,
-"size": 43211,
-"wordcount": 705,
-"timestamp": "2026-04-02T14:31:53Z",
-"snippet": "newlines, and quote characters; it does not directly deal with serializing <span class=\"searchmatch\">programming</span> data structures. ^ The netstrings specification only deals with nested"
+"title": "Zope Object Database",
+"pageid": 2920295,
+"size": 8834,
+"wordcount": 1057,
+"timestamp": "2026-01-06T04:26:28Z",
+"snippet": "re-implementing the entire ZODB 3 package using 100% <span class=\"searchmatch\">Python</span>. ZODB stores <span class=\"searchmatch\">Python</span> objects using an extended version of <span class=\"searchmatch\">Python&#039;s</span> built-in object persistence (pickle). A"
 },
 {
-"title": "List of zoo escapes",
-"pageid": 78318308,
-"size": 213636,
-"wordcount": 8489,
-"timestamp": "2026-03-25T22:49:18Z",
-"snippet": "motorist. 2019 Albay Park &amp; Wildlife Legazpi, Albay <span class=\"searchmatch\">Python</span> Several days The 15 ft (4.5 m) long <span class=\"searchmatch\">python</span> called Sawa ventured into a farm and ate poultry."
+"title": "Real Sex",
+"pageid": 623616,
+"size": 20461,
+"wordcount": 513,
+"timestamp": "2026-03-29T04:44:46Z",
+"snippet": "documentary is that &quot;there hasn&#039;t been a strong demand for this kind of adult <span class=\"searchmatch\">programming</span>, perhaps because it&#039;s easily available elsewhere.&quot; Sexcetera, a similar"
 },
 {
-"title": "Marker interface pattern",
-"pageid": 471373,
-"size": 4246,
-"wordcount": 454,
-"timestamp": "2025-09-03T18:14:21Z",
-"snippet": "using reflection. C++26 adds similar support for annotations to C++. In <span class=\"searchmatch\">Python</span>, the term &quot;marker interface&quot; is common in Zope and Plone. Interfaces are"
+"title": "Comparison of regular expression engines",
+"pageid": 10930422,
+"size": 35698,
+"wordcount": 641,
+"timestamp": "2026-01-16T07:08:53Z",
+"snippet": "Supported by <span class=\"searchmatch\">Python</span> v3.11 and later, and the optional regex library only. May only be available in the regex library when used with <span class=\"searchmatch\">Python</span> versions after"
 },
 {
-"title": "Lubuntu",
-"pageid": 22894063,
-"size": 118273,
-"wordcount": 12391,
-"timestamp": "2026-03-23T14:31:28Z",
-"snippet": "default installation. This version of Lubuntu uses the Linux kernel 3.5.5, <span class=\"searchmatch\">Python</span> 3.2 and OpenJDK7 as the default Java implementation. The installation requires"
+"title": "Rockefeller Archive Center",
+"pageid": 39388478,
+"size": 10630,
+"wordcount": 1094,
+"timestamp": "2025-05-20T00:30:27Z",
+"snippet": "Country. Retrieved 2019-01-05. Editors, bloggERS! (2018-10-30). &quot;Using <span class=\"searchmatch\">Python</span>, FFMPEG, and the ArchivesSpace API to Create a Lightweight Clip Library&quot;"
 },
 {
-"title": "Ping-pong scheme",
-"pageid": 12242679,
-"size": 5193,
-"wordcount": 633,
-"timestamp": "2025-09-25T05:31:00Z",
-"snippet": "were to get the next path from a function call, it would look like this in <span class=\"searchmatch\">Python</span>: def get_next_path(): &quot;&quot;&quot; This function is a generator that infinitely yields"
+"title": "Wilkinson's Grammar of Graphics",
+"pageid": 80435299,
+"size": 17760,
+"wordcount": 1773,
+"timestamp": "2026-03-28T10:46:59Z",
+"snippet": "in R and implementations in other <span class=\"searchmatch\">programming</span> languages have ensued. These include direct ports plotnine for <span class=\"searchmatch\">Python</span>, gramm for MATLAB, Lets-Plot for Kotlin"
 },
 {
-"title": "Thomas Kaplan",
-"pageid": 25372440,
-"size": 51438,
-"wordcount": 5053,
-"timestamp": "2026-02-05T22:53:49Z",
-"snippet": "conference in which he compared Iran&#039;s activities in Iraq to a reticulated <span class=\"searchmatch\">python</span> devouring a goat as well as saying that the Iranian government because of"
+"title": "University of Cambridge",
+"pageid": 25978572,
+"size": 194180,
+"wordcount": 17906,
+"timestamp": "2026-03-31T05:42:24Z",
+"snippet": "Abrahams (played by Ben Cross) was a student there. The 1983 film Monty <span class=\"searchmatch\">Python&#039;s</span> The Meaning of Life features Churchill College in the film&#039;s church scene"
 },
 {
-"title": "GNOWSYS",
-"pageid": 450307,
-"size": 5706,
-"wordcount": 654,
-"timestamp": "2024-11-22T22:49:19Z",
-"snippet": "application for developing and maintaining semantic web content. It is written in <span class=\"searchmatch\">Python</span>. It is implemented as a Django app. The GNOWSYS project was launched by"
+"title": "Master of Financial Economics",
+"pageid": 21575033,
+"size": 16283,
+"wordcount": 1331,
+"timestamp": "2026-01-24T14:38:18Z",
+"snippet": "model using statistical packages such as SAS and EViews - and increasingly <span class=\"searchmatch\">Python</span> and R. The applications are reinforced through the computer based implementation"
 },
 {
-"title": "Fooocus",
-"pageid": 77321320,
-"size": 7433,
-"wordcount": 594,
-"timestamp": "2025-12-23T11:11:31Z",
-"snippet": "software portal Fooocus is an open source generative artificial intelligence <span class=\"searchmatch\">program</span> that allows users to generate images from a text prompt. It uses Stable"
+"title": "Google Data Protocol",
+"pageid": 4992340,
+"size": 2794,
+"wordcount": 180,
+"timestamp": "2024-08-27T21:54:24Z",
+"snippet": "Google provides GData client libraries for Java, JavaScript, .NET, PHP, <span class=\"searchmatch\">Python</span>, and Objective-C. An implementation called libgdata written in C is available"
 },
 {
-"title": "Salt (software)",
-"pageid": 33960422,
-"size": 8179,
-"wordcount": 787,
-"timestamp": "2025-05-10T14:07:09Z",
-"snippet": "infrastructure as code software tool for configuration management. It is written in <span class=\"searchmatch\">Python</span> and published under the Apache License 2.0. Salt originated from the need"
+"title": "2014 in British television",
+"pageid": 41142883,
+"size": 278594,
+"wordcount": 9922,
+"timestamp": "2026-04-01T16:40:31Z",
+"snippet": "July 2014. &quot;Monty <span class=\"searchmatch\">Python</span> to disband after 10 London reunion shows&quot;. BBC News. 4 April 2014. Retrieved 6 April 2014. &quot;Monty <span class=\"searchmatch\">Python</span> reunion to be broadcast"
 },
 {
-"title": "Comparison of free off-line satellite navigation software",
-"pageid": 42481286,
-"size": 34344,
-"wordcount": 1535,
-"timestamp": "2026-04-02T12:56:18Z",
-"snippet": "(no geocoding). However, in many cases, it is also that which makes the <span class=\"searchmatch\">program</span> free (and sometimes open source), avoid the need of an Internet connection"
+"title": "Galahad and the Holy Grail",
+"pageid": 442310,
+"size": 6072,
+"wordcount": 582,
+"timestamp": "2025-08-09T13:11:37Z",
+"snippet": "as well as other popular games of the day. With a nod to the film Monty <span class=\"searchmatch\">Python</span> and the Holy Grail, one of the objects found in the game is a holy hand"
 }
 ]
 }

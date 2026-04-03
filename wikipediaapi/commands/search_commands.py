@@ -183,6 +183,8 @@ def register_commands(cli_group):
         extract_format,
         namespace,
         output_format,
+        max_retries,
+        retry_wait,
     ):
         r"""Get random Wikipedia pages.
 
@@ -194,7 +196,9 @@ def register_commands(cli_group):
             wikipedia-api random --min-size 1000 --max-size 10000
             wikipedia-api random --language de
         """
-        wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+        wiki = create_wikipedia_instance(
+            user_agent, language, variant, extract_format, max_retries, retry_wait
+        )
         results_data = get_random_pages(
             wiki,
             limit=limit,
@@ -252,6 +256,8 @@ def register_commands(cli_group):
         extract_format,
         namespace,
         output_format,
+        max_retries,
+        retry_wait,
     ):
         r"""Search Wikipedia for pages matching a query.
 
@@ -263,7 +269,9 @@ def register_commands(cli_group):
             wikipedia-api search "Python programming" --search-sort create_timestamp_desc
             wikipedia-api search "машинное обучение" --language ru --json
         """
-        wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+        wiki = create_wikipedia_instance(
+            user_agent, language, variant, extract_format, max_retries, retry_wait
+        )
         results_data = get_search_results(wiki, query, limit=limit, ns=namespace, sort=sort)
         result = format_search(results_data, output_format)
         click.echo(result)

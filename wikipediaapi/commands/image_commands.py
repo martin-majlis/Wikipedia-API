@@ -144,6 +144,8 @@ def register_commands(cli_group):
         extract_format,
         namespace,
         output_format,
+        max_retries,
+        retry_wait,
     ):
         r"""List images (files) used on a Wikipedia page.
 
@@ -161,7 +163,9 @@ def register_commands(cli_group):
             wikipedia-api images "Earth" --limit 50
         """
         try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+            wiki = create_wikipedia_instance(
+                user_agent, language, variant, extract_format, max_retries, retry_wait
+            )
             images_data = get_page_images(wiki, title, namespace=namespace, limit=limit)
             result = format_images(images_data, output_format, imageinfo)
             click.echo(result)

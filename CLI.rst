@@ -15,11 +15,34 @@ Every command supports the following options:
 * ``-v, --variant`` — Language variant (e.g. ``zh-cn``, ``zh-tw``)
 * ``-f, --extract-format`` — Extraction format: ``wiki`` or ``html`` (default: ``wiki``)
 * ``-n, --namespace`` — Wikipedia namespace number (default: ``0`` = Main)
+* ``--max-retries`` — Maximum number of retry attempts for transient errors (HTTP 429, 5xx, timeouts, connection errors). Set to ``0`` to disable retries entirely (default: ``3``)
+* ``--retry-wait`` — Base wait time in seconds between retries; actual wait uses exponential backoff (``retry_wait * 2^attempt``). For HTTP 429 the ``Retry-After`` header value is used instead (default: ``1.0``)
 * ``-h, --help`` — Show help for any command
 
 Commands that return lists also support:
 
 * ``--json`` — Output results as JSON
+
+Retry Configuration
+-------------------
+
+Control retry behavior for network issues and rate limiting:
+
+Use custom retry settings::
+
+    wikipedia-api summary "Python (programming language)" --max-retries 5 --retry-wait 2.0
+
+Disable retries entirely (fail fast on first error)::
+
+    wikipedia-api search "Python" --max-retries 0
+
+Use aggressive retrying for unreliable connections::
+
+    wikipedia-api geosearch --coord "51.5074|-0.1278" --max-retries 10 --retry-wait 3.0
+
+Combine with other options::
+
+    wikipedia-api random --limit 5 --max-retries 1 --retry-wait 0.5 --language de
 
 Getting Help
 ------------
@@ -240,8 +263,8 @@ Complete Workflow Example
 
 Fetch a page summary, then explore its sections and links::
 
-    # Get summary
-    wikipedia-api summary "Python (programming language)"
+    # Get summary with custom retry settings
+    wikipedia-api summary "Python (programming language)" --max-retries 5 --retry-wait 2.0
 
     # List sections
     wikipedia-api sections "Python (programming language)"
@@ -261,11 +284,11 @@ Fetch a page summary, then explore its sections and links::
     # Show coordinates for a geographic page
     wikipedia-api coordinates "Mount Everest"
 
-    # Search for pages near a location
-    wikipedia-api geosearch --coord "27.9881|86.9250"
+    # Search for pages near a location with aggressive retrying
+    wikipedia-api geosearch --coord "27.9881|86.9250" --max-retries 10 --retry-wait 3.0
 
-    # Search Wikipedia
-    wikipedia-api search "Mount Everest"
+    # Search Wikipedia with retries disabled
+    wikipedia-api search "Mount Everest" --max-retries 0
 
     # Get random pages
     wikipedia-api random --limit 3

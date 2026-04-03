@@ -109,7 +109,17 @@ def register_commands(cli_group):
     @click.argument("title")
     @add_options(_common_options)
     @_json_option
-    def links(title, language, user_agent, variant, extract_format, namespace, output_format):
+    def links(
+        title,
+        language,
+        user_agent,
+        variant,
+        extract_format,
+        namespace,
+        output_format,
+        max_retries,
+        retry_wait,
+    ):
         r"""List pages linked from a Wikipedia page.
 
         TITLE is the Wikipedia page title.
@@ -120,7 +130,9 @@ def register_commands(cli_group):
             wikipedia-api links "Python (programming language)" --json
         """
         try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+            wiki = create_wikipedia_instance(
+                user_agent, language, variant, extract_format, max_retries, retry_wait
+            )
             links_data = get_page_links(wiki, title, namespace=namespace)
             result = format_page_dict(links_data, output_format)
             click.echo(result)
@@ -132,7 +144,17 @@ def register_commands(cli_group):
     @click.argument("title")
     @add_options(_common_options)
     @_json_option
-    def backlinks(title, language, user_agent, variant, extract_format, namespace, output_format):
+    def backlinks(
+        title,
+        language,
+        user_agent,
+        variant,
+        extract_format,
+        namespace,
+        output_format,
+        max_retries,
+        retry_wait,
+    ):
         r"""List pages that link to a Wikipedia page.
 
         TITLE is the Wikipedia page title.
@@ -143,7 +165,9 @@ def register_commands(cli_group):
             wikipedia-api backlinks "Python (programming language)" --json
         """
         try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+            wiki = create_wikipedia_instance(
+                user_agent, language, variant, extract_format, max_retries, retry_wait
+            )
             backlinks_data = get_page_backlinks(wiki, title, namespace=namespace)
             result = format_page_dict(backlinks_data, output_format)
             click.echo(result)
@@ -155,7 +179,17 @@ def register_commands(cli_group):
     @click.argument("title")
     @add_options(_common_options)
     @_json_option
-    def langlinks(title, language, user_agent, variant, extract_format, namespace, output_format):
+    def langlinks(
+        title,
+        language,
+        user_agent,
+        variant,
+        extract_format,
+        namespace,
+        output_format,
+        max_retries,
+        retry_wait,
+    ):
         r"""List language links for a Wikipedia page.
 
         Shows the page title in other language editions of Wikipedia.
@@ -168,7 +202,9 @@ def register_commands(cli_group):
             wikipedia-api langlinks "Python (programming language)" --json
         """
         try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+            wiki = create_wikipedia_instance(
+                user_agent, language, variant, extract_format, max_retries, retry_wait
+            )
             langlinks_data = get_langlinks(wiki, title, namespace=namespace)
             result = format_langlinks(langlinks_data, output_format)
             click.echo(result)

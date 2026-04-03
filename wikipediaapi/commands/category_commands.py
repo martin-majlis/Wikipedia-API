@@ -92,7 +92,17 @@ def register_commands(cli_group):
     @click.argument("title")
     @add_options(_common_options)
     @_json_option
-    def categories(title, language, user_agent, variant, extract_format, namespace, output_format):
+    def categories(
+        title,
+        language,
+        user_agent,
+        variant,
+        extract_format,
+        namespace,
+        output_format,
+        max_retries,
+        retry_wait,
+    ):
         r"""List categories for a Wikipedia page.
 
         TITLE is the Wikipedia page title.
@@ -103,7 +113,9 @@ def register_commands(cli_group):
             wikipedia-api categories "Python (programming language)" --json
         """
         try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+            wiki = create_wikipedia_instance(
+                user_agent, language, variant, extract_format, max_retries, retry_wait
+            )
             categories_data = get_page_categories(wiki, title, namespace=namespace)
             result = format_page_dict(categories_data, output_format)
             click.echo(result)
@@ -131,6 +143,8 @@ def register_commands(cli_group):
         extract_format,
         namespace,
         output_format,
+        max_retries,
+        retry_wait,
     ):
         r"""List pages in a Wikipedia category.
 
@@ -145,7 +159,9 @@ def register_commands(cli_group):
             wikipedia-api categorymembers "Category:Physics" --json
         """
         try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+            wiki = create_wikipedia_instance(
+                user_agent, language, variant, extract_format, max_retries, retry_wait
+            )
             members_data = get_category_members(
                 wiki, title, max_level=max_level, namespace=namespace
             )

@@ -153,7 +153,9 @@ def register_commands(cli_group):
     @cli_group.command()
     @click.argument("title")
     @add_options(_common_options)
-    def summary(title, language, user_agent, variant, extract_format, namespace):
+    def summary(
+        title, language, user_agent, variant, extract_format, namespace, max_retries, retry_wait
+    ):
         r"""Print the summary of a Wikipedia page.
 
         TITLE is the Wikipedia page title (e.g. "Python_(programming_language)").
@@ -165,7 +167,9 @@ def register_commands(cli_group):
             wikipedia-api summary "Python" -l zh -v zh-cn
         """
         try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+            wiki = create_wikipedia_instance(
+                user_agent, language, variant, extract_format, max_retries, retry_wait
+            )
             result = get_page_summary(wiki, title, namespace=namespace)
             click.echo(result)
         except PageNotFoundError as e:
@@ -175,7 +179,9 @@ def register_commands(cli_group):
     @cli_group.command()
     @click.argument("title")
     @add_options(_common_options)
-    def text(title, language, user_agent, variant, extract_format, namespace):
+    def text(
+        title, language, user_agent, variant, extract_format, namespace, max_retries, retry_wait
+    ):
         r"""Print the full text of a Wikipedia page.
 
         TITLE is the Wikipedia page title.
@@ -186,7 +192,9 @@ def register_commands(cli_group):
             wikipedia-api text "Ostrava" -l cs -f html
         """
         try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+            wiki = create_wikipedia_instance(
+                user_agent, language, variant, extract_format, max_retries, retry_wait
+            )
             result = get_page_text(wiki, title, namespace=namespace)
             click.echo(result)
         except PageNotFoundError as e:
@@ -197,7 +205,17 @@ def register_commands(cli_group):
     @click.argument("title")
     @add_options(_common_options)
     @_json_option
-    def sections(title, language, user_agent, variant, extract_format, namespace, output_format):
+    def sections(
+        title,
+        language,
+        user_agent,
+        variant,
+        extract_format,
+        namespace,
+        output_format,
+        max_retries,
+        retry_wait,
+    ):
         r"""List sections of a Wikipedia page.
 
         TITLE is the Wikipedia page title.
@@ -208,7 +226,9 @@ def register_commands(cli_group):
             wikipedia-api sections "Python (programming language)" --json
         """
         try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+            wiki = create_wikipedia_instance(
+                user_agent, language, variant, extract_format, max_retries, retry_wait
+            )
             sections_data = get_page_sections(wiki, title, namespace=namespace)
             result = format_sections(sections_data, output_format)
             click.echo(result)
@@ -220,7 +240,17 @@ def register_commands(cli_group):
     @click.argument("title")
     @click.argument("section_title")
     @add_options(_common_options)
-    def section(title, section_title, language, user_agent, variant, extract_format, namespace):
+    def section(
+        title,
+        section_title,
+        language,
+        user_agent,
+        variant,
+        extract_format,
+        namespace,
+        max_retries,
+        retry_wait,
+    ):
         r"""Print the text of a specific section.
 
         TITLE is the Wikipedia page title.
@@ -231,7 +261,9 @@ def register_commands(cli_group):
             wikipedia-api section "Python (programming language)" "Features and philosophy"
         """
         try:
-            wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+            wiki = create_wikipedia_instance(
+                user_agent, language, variant, extract_format, max_retries, retry_wait
+            )
             result = get_section_text(wiki, title, section_title, namespace=namespace)
             click.echo(result)
         except PageNotFoundError as e:
@@ -245,7 +277,17 @@ def register_commands(cli_group):
     @click.argument("title")
     @add_options(_common_options)
     @_json_option
-    def page(title, language, user_agent, variant, extract_format, namespace, output_format):
+    def page(
+        title,
+        language,
+        user_agent,
+        variant,
+        extract_format,
+        namespace,
+        output_format,
+        max_retries,
+        retry_wait,
+    ):
         r"""Show metadata and existence info for a Wikipedia page.
 
         TITLE is the Wikipedia page title.
@@ -255,7 +297,9 @@ def register_commands(cli_group):
             wikipedia-api page "Python (programming language)"
             wikipedia-api page "Python (programming language)" --json
         """
-        wiki = create_wikipedia_instance(user_agent, language, variant, extract_format)
+        wiki = create_wikipedia_instance(
+            user_agent, language, variant, extract_format, max_retries, retry_wait
+        )
         info = get_page_info(wiki, title, namespace=namespace)
         result = format_page_info(info, output_format)
         click.echo(result)
