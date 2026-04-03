@@ -95,6 +95,9 @@ include = [
     "pyproject.toml",
     "example_sync.py",
     "example_async.py",
+    "SKILLS/**/*.py",
+    "SKILLS/**/*.sh",
+    "SKILLS/**/*.md",
 ]
 
 exclude = [
