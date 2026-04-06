@@ -1,0 +1,196 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "normalized": [
+      {
+        "from": "Python_(programming_language)",
+        "to": "Python (programming language)"
+      }
+    ],
+    "pages": {
+      "23862": {
+        "pageid": 23862,
+        "ns": 0,
+        "title": "Python (programming language)",
+        "categories": [
+          {
+            "ns": 14,
+            "title": "Category:All Wikipedia articles written in American English"
+          },
+          {
+            "ns": 14,
+            "title": "Category:All articles containing potentially dated statements"
+          },
+          {
+            "ns": 14,
+            "title": "Category:All articles with failed verification"
+          },
+          {
+            "ns": 14,
+            "title": "Category:All articles with specifically marked weasel-worded phrases"
+          },
+          {
+            "ns": 14,
+            "title": "Category:All articles with unsourced statements"
+          },
+          {
+            "ns": 14,
+            "title": "Category:All pages needing cleanup"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Articles containing potentially dated statements from 2026"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Articles containing potentially dated statements from January 2026"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Articles containing potentially dated statements from March 2025"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Articles needing cleanup from October 2025"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Articles with example Python (programming language) code"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Articles with failed verification from August 2025"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Articles with short description"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Articles with specifically marked weasel-worded phrases from August 2025"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Articles with unsourced statements from August 2025"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Class-based programming languages"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Computer science in the Netherlands"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Concurrent programming languages"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Cross-platform free software"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Cross-platform software"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Dutch inventions"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Dynamically typed programming languages"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Educational programming languages"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Free software programmed in Python"
+          },
+          {
+            "ns": 14,
+            "title": "Category:High-level programming languages"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Information technology in the Netherlands"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Monty Python references"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Multi-paradigm programming languages"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Notebook interface"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Object-oriented programming languages"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Pages using Sister project links with hidden wikidata"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Pages using Sister project links with wikidata namespace mismatch"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Pattern matching programming languages"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Programming languages"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Programming languages created in 1991"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Programming tools"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Python (programming language)"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Scripting languages"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Short description matches Wikidata"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Text-oriented programming languages"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Use American English from December 2024"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Use dmy dates from November 2021"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Web frameworks"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Wikipedia list cleanup from October 2025"
+          }
+        ]
+      }
+    }
+  }
+}

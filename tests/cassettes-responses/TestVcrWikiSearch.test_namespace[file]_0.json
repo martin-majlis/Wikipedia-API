@@ -1,0 +1,104 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "sroffset": 10,
+    "continue": "-||"
+  },
+  "query": {
+    "searchinfo": {
+      "totalhits": 2664
+    },
+    "search": [
+      {
+        "ns": 6,
+        "title": "File:Python Programming.pdf",
+        "pageid": 0,
+        "size": 1011,
+        "wordcount": 64,
+        "snippet": "The djinn 1275×1650× (531226 bytes) 2006-07-16 05:31 Hagindaz 1239×1754× (715907 bytes) A PDF version of the [[<span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span>]] Wikibook. English",
+        "timestamp": "2022-05-21T12:13:20Z"
+      },
+      {
+        "ns": 6,
+        "title": "File:Think Python.pdf",
+        "pageid": 0,
+        "size": 918,
+        "wordcount": 63,
+        "snippet": "lifeguard 1275×1650× (1091514 bytes) {{Information |Description=&#039;&#039;Think <span class=\"searchmatch\">Python</span>: An introduction to software design&#039;&#039; |Source=http://www.greenteapress",
+        "timestamp": "2020-09-28T03:40:05Z"
+      },
+      {
+        "ns": 6,
+        "title": "File:Python Programming eBook Reader.pdf",
+        "pageid": 0,
+        "size": 386,
+        "wordcount": 157,
+        "snippet": "Description<span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> eBook Reader.pdf English: eBook Reader optimized version of the <span class=\"searchmatch\">Python</span> Wikibook Source Own work Author Dirk Hünniger",
+        "timestamp": "2020-10-30T00:06:53Z"
+      },
+      {
+        "ns": 6,
+        "title": "File:Python Basics - With Illustrations from the Financial Markets.pdf",
+        "pageid": 0,
+        "size": 1021,
+        "wordcount": 189,
+        "snippet": "Attribution-Share Alike 4.0 truetrue English The book is a condensed introduction to <span class=\"searchmatch\">Python</span> and its data science related libraries such as NumPy, Pandas, and Matplotlib",
+        "timestamp": "2023-07-03T18:12:19Z"
+      },
+      {
+        "ns": 6,
+        "title": "File:Python logo 01.svg",
+        "pageid": 0,
+        "size": 302,
+        "wordcount": 38,
+        "snippet": "with Inkscape by v . English Logo of <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. Spanish Logo del lenguaje de programación <span class=\"searchmatch\">Python</span>. Wikimedia username: Dnu72 URL: https://commons",
+        "timestamp": "2023-10-28T19:40:26Z"
+      },
+      {
+        "ns": 6,
+        "title": "File:How to create high-quality offline video transcriptions and subtitles using Whisper and Python - 6 November 2024.pdf",
+        "pageid": 0,
+        "size": 2745,
+        "wordcount": 157,
+        "snippet": "high-quality video transcriptions and subtitles using OpenAI&#039;s Whisper model with <span class=\"searchmatch\">Python</span>, emphasizing privacy, accuracy, and accessibility without needing cloud-based",
+        "timestamp": "2024-11-21T09:13:34Z"
+      },
+      {
+        "ns": 6,
+        "title": "File:Non-Programmer's Tutorial for Python 2.6.pdf",
+        "pageid": 0,
+        "size": 969,
+        "wordcount": 68,
+        "snippet": "(206711 bytes) [[WB:PDF|PDF version]] of [[Non-Programmer&#039;s Tutorial for <span class=\"searchmatch\">Python</span>]], created by [[User:Jrincayc|Josh Cogliati]] as part of [http://www.geocities",
+        "timestamp": "2022-05-21T12:17:20Z"
+      },
+      {
+        "ns": 6,
+        "title": "File:Python 3. The standard type hierarchy.png",
+        "pageid": 0,
+        "size": 791,
+        "wordcount": 205,
+        "snippet": "address) Data types in the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language Polish Przykładowe struktury danych i ich hierarchia w języku <span class=\"searchmatch\">Python</span> 3 Russian Пайтон 3 Стандартный",
+        "timestamp": "2025-11-30T11:57:19Z"
+      },
+      {
+        "ns": 6,
+        "title": "File:Python New Program Button.png",
+        "pageid": 0,
+        "size": 335,
+        "wordcount": 16,
+        "snippet": "English <span class=\"searchmatch\">Python</span> New <span class=\"searchmatch\">Program</span> Button applies to jurisdiction: United States determination method or standard: SHA-1",
+        "timestamp": "2025-05-28T08:44:06Z"
+      },
+      {
+        "ns": 6,
+        "title": "File:Python Code.png",
+        "pageid": 0,
+        "size": 576,
+        "wordcount": 195,
+        "snippet": "This is a <span class=\"searchmatch\">python</span> code, used for anything :) French Ceci est un code <span class=\"searchmatch\">python</span>, utilisé pour n&#039;importe quoi :) Spanish Este es un código de <span class=\"searchmatch\">Python</span>, se puede",
+        "timestamp": "2025-04-30T09:10:01Z"
+      }
+    ]
+  }
+}

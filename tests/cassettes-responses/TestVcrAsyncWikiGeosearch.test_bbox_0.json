@@ -1,0 +1,52 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "geosearch": [
+      {
+        "pageid": 76269797,
+        "ns": 0,
+        "title": "Charing Cross Police Station",
+        "lat": 51.5097,
+        "lon": -0.125,
+        "dist": 33.4,
+        "primary": ""
+      },
+      {
+        "pageid": 56118560,
+        "ns": 0,
+        "title": "Brydges Place",
+        "lat": 51.50980555555556,
+        "lon": -0.12613888888888888,
+        "dist": 81.7,
+        "primary": ""
+      },
+      {
+        "pageid": 3560636,
+        "ns": 0,
+        "title": "Embassy of Zimbabwe, London",
+        "lat": 51.5096,
+        "lon": -0.124,
+        "dist": 82.3,
+        "primary": ""
+      },
+      {
+        "pageid": 44004672,
+        "ns": 0,
+        "title": "The Harp",
+        "lat": 51.509638,
+        "lon": -0.126062,
+        "dist": 83.8,
+        "primary": ""
+      },
+      {
+        "pageid": 44596613,
+        "ns": 0,
+        "title": "Civil Service Supply Association",
+        "lat": 51.5097,
+        "lon": -0.1237,
+        "dist": 96,
+        "primary": ""
+      }
+    ]
+  }
+}

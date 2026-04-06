@@ -1,0 +1,53 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "geosearch": [
+      {
+        "pageid": 33109245,
+        "ns": 0,
+        "title": "Equestrian statue of Charles I, Charing Cross",
+        "lat": 51.50734,
+        "lon": -0.12768,
+        "dist": 10.7,
+        "primary": "",
+        "country": "GB"
+      },
+      {
+        "pageid": 40198049,
+        "ns": 0,
+        "title": "Grade I listed buildings in the City of Westminster",
+        "lat": 51.507334,
+        "lon": -0.127684,
+        "dist": 10.9,
+        "country": "GB"
+      },
+      {
+        "pageid": 25007982,
+        "ns": 0,
+        "title": "List of statues of English and British royalty in London",
+        "lat": 51.50732,
+        "lon": -0.1277,
+        "dist": 11.3,
+        "country": "GB"
+      },
+      {
+        "pageid": 57848161,
+        "ns": 0,
+        "title": "List of public art in Trafalgar Square and the vicinity",
+        "lat": 51.5073,
+        "lon": -0.1277,
+        "dist": 13.1,
+        "country": "GB"
+      },
+      {
+        "pageid": 57848161,
+        "ns": 0,
+        "title": "List of public art in Trafalgar Square and the vicinity",
+        "lat": 51.5073,
+        "lon": -0.1277,
+        "dist": 13.1,
+        "country": "GB"
+      }
+    ]
+  }
+}

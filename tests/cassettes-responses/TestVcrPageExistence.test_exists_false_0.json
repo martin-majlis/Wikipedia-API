@@ -1,0 +1,39 @@
+{
+  "batchcomplete": "",
+  "warnings": {
+    "main": {
+      "*": "Subscribe to the mediawiki-api-announce mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/> for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]] to see usage of deprecated features by your application."
+    },
+    "info": {
+      "*": "The value \"readable\" to parameter \"inprop\" has been deprecated.\nThe value \"preload\" to parameter \"inprop\" has been deprecated."
+    }
+  },
+  "query": {
+    "normalized": [
+      {
+        "from": "NonExistentPage_WikiAPI_Test_12345",
+        "to": "NonExistentPage WikiAPI Test 12345"
+      }
+    ],
+    "pages": {
+      "-1": {
+        "ns": 0,
+        "title": "NonExistentPage WikiAPI Test 12345",
+        "missing": "",
+        "contentmodel": "wikitext",
+        "pagelanguage": "en",
+        "pagelanguagehtmlcode": "en",
+        "pagelanguagedir": "ltr",
+        "protection": [],
+        "restrictiontypes": ["create"],
+        "notificationtimestamp": "",
+        "fullurl": "https://en.wikipedia.org/wiki/NonExistentPage_WikiAPI_Test_12345",
+        "editurl": "https://en.wikipedia.org/w/index.php?title=NonExistentPage_WikiAPI_Test_12345&action=edit",
+        "canonicalurl": "https://en.wikipedia.org/wiki/NonExistentPage_WikiAPI_Test_12345",
+        "readable": "",
+        "preload": null,
+        "displaytitle": "NonExistentPage WikiAPI Test 12345"
+      }
+    }
+  }
+}

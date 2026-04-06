@@ -1,0 +1,32 @@
+{
+  "continue": {
+    "iistart": "2022-08-21T15:50:29Z",
+    "continue": "||"
+  },
+  "query": {
+    "pages": {
+      "-1": {
+        "ns": 6,
+        "title": "File:Python-logo-notext.svg",
+        "missing": "",
+        "known": "",
+        "imagerepository": "shared",
+        "imageinfo": [
+          {
+            "timestamp": "2025-07-01T09:04:10Z",
+            "user": "Summer92",
+            "size": 2247,
+            "width": 110,
+            "height": 110,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Python-logo-notext.svg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=34991651",
+            "sha1": "632893ce081473c66de7649073fd5f3e91469953",
+            "mime": "image/svg+xml",
+            "mediatype": "DRAWING"
+          }
+        ]
+      }
+    }
+  }
+}

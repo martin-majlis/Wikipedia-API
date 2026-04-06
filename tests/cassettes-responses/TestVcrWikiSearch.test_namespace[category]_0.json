@@ -1,0 +1,104 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "sroffset": 10,
+    "continue": "-||"
+  },
+  "query": {
+    "searchinfo": {
+      "totalhits": 23
+    },
+    "search": [
+      {
+        "ns": 14,
+        "title": "Category:Python (programming language) people",
+        "pageid": 54209951,
+        "size": 263,
+        "wordcount": 16,
+        "snippet": "This category lists developers of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language and important members of the <span class=\"searchmatch\">Python</span> community.",
+        "timestamp": "2020-09-21T21:19:45Z"
+      },
+      {
+        "ns": 14,
+        "title": "Category:Python (programming language)",
+        "pageid": 32158745,
+        "size": 235,
+        "wordcount": 9,
+        "snippet": "Wikimedia Commons has media related to <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language).",
+        "timestamp": "2020-08-01T09:08:05Z"
+      },
+      {
+        "ns": 14,
+        "title": "Category:User python-3",
+        "pageid": 3568557,
+        "size": 208,
+        "wordcount": 39,
+        "snippet": "The main article for this category is <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language). Top 0–9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
+        "timestamp": "2021-10-27T00:57:34Z"
+      },
+      {
+        "ns": 14,
+        "title": "Category:User python-2",
+        "pageid": 3568408,
+        "size": 212,
+        "wordcount": 39,
+        "snippet": "The main article for this category is <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language). Top 0–9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
+        "timestamp": "2021-10-27T00:52:33Z"
+      },
+      {
+        "ns": 14,
+        "title": "Category:User python-1",
+        "pageid": 3568547,
+        "size": 209,
+        "wordcount": 39,
+        "snippet": "The main article for this category is <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language). Top 0–9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
+        "timestamp": "2021-10-27T00:52:10Z"
+      },
+      {
+        "ns": 14,
+        "title": "Category:User python-4",
+        "pageid": 3817566,
+        "size": 206,
+        "wordcount": 39,
+        "snippet": "The main article for this category is <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language). Top 0–9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
+        "timestamp": "2021-10-27T00:51:20Z"
+      },
+      {
+        "ns": 14,
+        "title": "Category:User python-5",
+        "pageid": 34514875,
+        "size": 212,
+        "wordcount": 39,
+        "snippet": "The main article for this category is <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language). Top 0–9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
+        "timestamp": "2021-10-27T00:51:30Z"
+      },
+      {
+        "ns": 14,
+        "title": "Category:Python (programming language) web frameworks",
+        "pageid": 12101442,
+        "size": 817,
+        "wordcount": 85,
+        "snippet": "development of dynamic websites they are also applicable to static websites. This category lists web frameworks written in and/or designed for use with <span class=\"searchmatch\">Python</span>.",
+        "timestamp": "2020-09-21T21:14:29Z"
+      },
+      {
+        "ns": 14,
+        "title": "Category:Python",
+        "pageid": 64472399,
+        "size": 140,
+        "wordcount": 58,
+        "snippet": "Category:Pythonidae. For the genus, see Category:<span class=\"searchmatch\">Python</span> (genus). For the <span class=\"searchmatch\">programming</span> language, see Category:<span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language). Note: This category page",
+        "timestamp": "2020-07-05T22:12:44Z"
+      },
+      {
+        "ns": 14,
+        "title": "Category:Python (programming language) libraries",
+        "pageid": 8962239,
+        "size": 195,
+        "wordcount": 4,
+        "snippet": "Contains reusable <span class=\"searchmatch\">Python</span> modules.",
+        "timestamp": "2026-01-06T04:26:32Z"
+      }
+    ]
+  }
+}

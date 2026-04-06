@@ -1,0 +1,34 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "geosearch": [
+      {
+        "pageid": 33109245,
+        "ns": 0,
+        "title": "Equestrian statue of Charles I, Charing Cross",
+        "lat": 51.50734,
+        "lon": -0.12768,
+        "dist": 10.7,
+        "primary": ""
+      },
+      {
+        "pageid": 4347521,
+        "ns": 0,
+        "title": "Greater London Built-up Area",
+        "lat": 51.5075,
+        "lon": -0.1275,
+        "dist": 23.6,
+        "primary": ""
+      },
+      {
+        "pageid": 424305,
+        "ns": 0,
+        "title": "Central London",
+        "lat": 51.5075,
+        "lon": -0.1275,
+        "dist": 23.6,
+        "primary": ""
+      }
+    ]
+  }
+}

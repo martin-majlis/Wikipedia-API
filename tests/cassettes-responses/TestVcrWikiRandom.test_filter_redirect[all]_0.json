@@ -1,0 +1,28 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "rncontinue": "0.263078108874|0.263078347136|12651137|0",
+    "continue": "-||"
+  },
+  "query": {
+    "random": [
+      {
+        "id": 2800302,
+        "ns": 0,
+        "title": "Llŷn",
+        "redirect": ""
+      },
+      {
+        "id": 58444798,
+        "ns": 0,
+        "title": "Aleksandar Kostić"
+      },
+      {
+        "id": 79692989,
+        "ns": 0,
+        "title": "Lietuvos krepšinio A lyga",
+        "redirect": ""
+      }
+    ]
+  }
+}

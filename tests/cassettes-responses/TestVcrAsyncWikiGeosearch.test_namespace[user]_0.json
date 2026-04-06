@@ -1,0 +1,52 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "geosearch": [
+      {
+        "pageid": 69915111,
+        "ns": 2,
+        "title": "User:GalaxyCB/sandbox",
+        "lat": 51.507222222222225,
+        "lon": -0.1275,
+        "dist": 28.7,
+        "primary": ""
+      },
+      {
+        "pageid": 56730589,
+        "ns": 2,
+        "title": "User:GalaxyCB",
+        "lat": 51.507222222222225,
+        "lon": -0.1275,
+        "dist": 28.7,
+        "primary": ""
+      },
+      {
+        "pageid": 73775992,
+        "ns": 2,
+        "title": "User:Galobtter/examples/London",
+        "lat": 51.507222222222225,
+        "lon": -0.1275,
+        "dist": 28.7,
+        "primary": ""
+      },
+      {
+        "pageid": 46487415,
+        "ns": 2,
+        "title": "User:Irenefdezperalta/sandbox/Infobox/Place",
+        "lat": 51.507222222222225,
+        "lon": -0.1275,
+        "dist": 28.7,
+        "primary": ""
+      },
+      {
+        "pageid": 46506143,
+        "ns": 2,
+        "title": "User:Sheila García Moral/sandbox/Infobox/Place",
+        "lat": 51.507222222222225,
+        "lon": -0.1275,
+        "dist": 28.7,
+        "primary": ""
+      }
+    ]
+  }
+}

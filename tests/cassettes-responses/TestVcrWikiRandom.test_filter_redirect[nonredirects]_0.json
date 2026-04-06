@@ -1,0 +1,26 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "rncontinue": "0.966611029627|0.966611868728|77977926|0",
+    "continue": "-||"
+  },
+  "query": {
+    "random": [
+      {
+        "id": 127172,
+        "ns": 0,
+        "title": "Romulus, New York"
+      },
+      {
+        "id": 28638062,
+        "ns": 0,
+        "title": "Kupinec"
+      },
+      {
+        "id": 53710064,
+        "ns": 0,
+        "title": "McCairns"
+      }
+    ]
+  }
+}

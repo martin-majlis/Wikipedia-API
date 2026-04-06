@@ -1,0 +1,21 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "17867": {
+        "pageid": 17867,
+        "ns": 0,
+        "title": "London",
+        "coordinates": [
+          {
+            "lat": 51.50722222,
+            "lon": -0.1275,
+            "primary": "",
+            "globe": "earth",
+            "dist": 28.7
+          }
+        ]
+      }
+    }
+  }
+}

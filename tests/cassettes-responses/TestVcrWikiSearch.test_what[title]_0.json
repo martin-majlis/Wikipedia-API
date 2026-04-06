@@ -1,0 +1,8 @@
+{
+  "error": {
+    "code": "search-title-disabled",
+    "info": "\"title\" search is disabled.",
+    "*": "See https://en.wikipedia.org/w/api.php for API usage. Subscribe to the mediawiki-api-announce mailing list at &lt;https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/&gt; for notice of API deprecations and breaking changes."
+  },
+  "servedby": "mw-api-ext.eqiad.main-74665cb76d-g54zp"
+}

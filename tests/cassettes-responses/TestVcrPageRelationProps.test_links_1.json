@@ -1,0 +1,1012 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "normalized": [
+      {
+        "from": "Python_(programming_language)",
+        "to": "Python (programming language)"
+      }
+    ],
+    "pages": {
+      "23862": {
+        "pageid": 23862,
+        "ns": 0,
+        "title": "Python (programming language)",
+        "links": [
+          {
+            "ns": 0,
+            "title": "Pyrex (programming language)"
+          },
+          {
+            "ns": 0,
+            "title": "Python-Ogre"
+          },
+          {
+            "ns": 0,
+            "title": "PythonAnywhere"
+          },
+          {
+            "ns": 0,
+            "title": "Python (programming language)"
+          },
+          {
+            "ns": 0,
+            "title": "Python Conference"
+          },
+          {
+            "ns": 0,
+            "title": "Python Imaging Library"
+          },
+          {
+            "ns": 0,
+            "title": "Python License"
+          },
+          {
+            "ns": 0,
+            "title": "Python Package Index"
+          },
+          {
+            "ns": 0,
+            "title": "Python Paste"
+          },
+          {
+            "ns": 0,
+            "title": "Python Robotics"
+          },
+          {
+            "ns": 0,
+            "title": "Python Software Foundation"
+          },
+          {
+            "ns": 0,
+            "title": "Python Software Foundation License"
+          },
+          {
+            "ns": 0,
+            "title": "Python Tools for Visual Studio"
+          },
+          {
+            "ns": 0,
+            "title": "Python for S60"
+          },
+          {
+            "ns": 0,
+            "title": "Python syntax and semantics"
+          },
+          {
+            "ns": 0,
+            "title": "QLattice"
+          },
+          {
+            "ns": 0,
+            "title": "Qiskit"
+          },
+          {
+            "ns": 0,
+            "title": "Queueing theory"
+          },
+          {
+            "ns": 0,
+            "title": "Quixote (web framework)"
+          },
+          {
+            "ns": 0,
+            "title": "RATS (software)"
+          },
+          {
+            "ns": 0,
+            "title": "RDFLib"
+          },
+          {
+            "ns": 0,
+            "title": "RDKit"
+          },
+          {
+            "ns": 0,
+            "title": "RExcel"
+          },
+          {
+            "ns": 0,
+            "title": "RISC-V"
+          },
+          {
+            "ns": 0,
+            "title": "RPyC"
+          },
+          {
+            "ns": 0,
+            "title": "RPython"
+          },
+          {
+            "ns": 0,
+            "title": "RStudio"
+          },
+          {
+            "ns": 0,
+            "title": "R (programming language)"
+          },
+          {
+            "ns": 0,
+            "title": "Raku (programming language)"
+          },
+          {
+            "ns": 0,
+            "title": "RapidSMS"
+          },
+          {
+            "ns": 0,
+            "title": "Raspberry Pi OS"
+          },
+          {
+            "ns": 0,
+            "title": "Rational number"
+          },
+          {
+            "ns": 0,
+            "title": "Raw string"
+          },
+          {
+            "ns": 0,
+            "title": "Read–eval–print loop"
+          },
+          {
+            "ns": 0,
+            "title": "Reference counting"
+          },
+          {
+            "ns": 0,
+            "title": "Reference implementation"
+          },
+          {
+            "ns": 0,
+            "title": "Reflective programming"
+          },
+          {
+            "ns": 0,
+            "title": "Regular expression"
+          },
+          {
+            "ns": 0,
+            "title": "Relational database"
+          },
+          {
+            "ns": 0,
+            "title": "Ren'Py"
+          },
+          {
+            "ns": 0,
+            "title": "Replit"
+          },
+          {
+            "ns": 0,
+            "title": "Resource acquisition is initialization"
+          },
+          {
+            "ns": 0,
+            "title": "Revolution Analytics"
+          },
+          {
+            "ns": 0,
+            "title": "Revolution OS"
+          },
+          {
+            "ns": 0,
+            "title": "Ricci calculus"
+          },
+          {
+            "ns": 0,
+            "title": "Robot Framework"
+          },
+          {
+            "ns": 0,
+            "title": "Rounding"
+          },
+          {
+            "ns": 0,
+            "title": "Roundup (issue tracker)"
+          },
+          {
+            "ns": 0,
+            "title": "Ruby (programming language)"
+          },
+          {
+            "ns": 0,
+            "title": "Run-time algorithm specialization"
+          },
+          {
+            "ns": 0,
+            "title": "Rust (programming language)"
+          },
+          {
+            "ns": 0,
+            "title": "S-PLUS"
+          },
+          {
+            "ns": 0,
+            "title": "SAS (software)"
+          },
+          {
+            "ns": 0,
+            "title": "SAS Viya"
+          },
+          {
+            "ns": 0,
+            "title": "SAS language"
+          },
+          {
+            "ns": 0,
+            "title": "SCO–Linux disputes"
+          },
+          {
+            "ns": 0,
+            "title": "SETL"
+          },
+          {
+            "ns": 0,
+            "title": "SOFA Statistics"
+          },
+          {
+            "ns": 0,
+            "title": "SPSS"
+          },
+          {
+            "ns": 0,
+            "title": "SPSS Modeler"
+          },
+          {
+            "ns": 0,
+            "title": "SQL"
+          },
+          {
+            "ns": 0,
+            "title": "SQLAlchemy"
+          },
+          {
+            "ns": 0,
+            "title": "SQLObject"
+          },
+          {
+            "ns": 0,
+            "title": "SUDAAN"
+          },
+          {
+            "ns": 0,
+            "title": "SYSTAT (statistics package)"
+          },
+          {
+            "ns": 0,
+            "title": "SageMath"
+          },
+          {
+            "ns": 0,
+            "title": "Sage Manifolds"
+          },
+          {
+            "ns": 0,
+            "title": "Salome (software)"
+          },
+          {
+            "ns": 0,
+            "title": "Scheme (programming language)"
+          },
+          {
+            "ns": 0,
+            "title": "SciPy"
+          },
+          {
+            "ns": 0,
+            "title": "ScicosLab"
+          },
+          {
+            "ns": 0,
+            "title": "ScientificPython"
+          },
+          {
+            "ns": 0,
+            "title": "Scientific computing"
+          },
+          {
+            "ns": 0,
+            "title": "Scikit-learn"
+          },
+          {
+            "ns": 0,
+            "title": "Scikit-multiflow"
+          },
+          {
+            "ns": 0,
+            "title": "Scilab"
+          },
+          {
+            "ns": 0,
+            "title": "Scratch (programming language)"
+          },
+          {
+            "ns": 0,
+            "title": "Self-hosting (web services)"
+          },
+          {
+            "ns": 0,
+            "title": "Series 60"
+          },
+          {
+            "ns": 0,
+            "title": "Set (computer science)"
+          },
+          {
+            "ns": 0,
+            "title": "Set (mathematics)"
+          },
+          {
+            "ns": 0,
+            "title": "Shallow copy"
+          },
+          {
+            "ns": 0,
+            "title": "Shared Source Initiative"
+          },
+          {
+            "ns": 0,
+            "title": "Shazam (econometrics software)"
+          },
+          {
+            "ns": 0,
+            "title": "Shed Skin"
+          },
+          {
+            "ns": 0,
+            "title": "Shell script"
+          },
+          {
+            "ns": 0,
+            "title": "SigmaStat"
+          },
+          {
+            "ns": 0,
+            "title": "Significant indentation"
+          },
+          {
+            "ns": 0,
+            "title": "SimFiT"
+          },
+          {
+            "ns": 0,
+            "title": "SimpleITK"
+          },
+          {
+            "ns": 0,
+            "title": "Simula"
+          },
+          {
+            "ns": 0,
+            "title": "Single-precision"
+          },
+          {
+            "ns": 0,
+            "title": "Sleepycat License"
+          },
+          {
+            "ns": 0,
+            "title": "Smalltalk"
+          },
+          {
+            "ns": 0,
+            "title": "SmartPLS"
+          },
+          {
+            "ns": 0,
+            "title": "Software design"
+          },
+          {
+            "ns": 0,
+            "title": "Software developer"
+          },
+          {
+            "ns": 0,
+            "title": "Software development"
+          },
+          {
+            "ns": 0,
+            "title": "Software license"
+          },
+          {
+            "ns": 0,
+            "title": "Software patents and free software"
+          },
+          {
+            "ns": 0,
+            "title": "Software release life cycle"
+          },
+          {
+            "ns": 0,
+            "title": "Solaris (operating system)"
+          },
+          {
+            "ns": 0,
+            "title": "Source-available software"
+          },
+          {
+            "ns": 0,
+            "title": "SpaCy"
+          },
+          {
+            "ns": 0,
+            "title": "Spam (Monty Python)"
+          },
+          {
+            "ns": 0,
+            "title": "Speakeasy (computational environment)"
+          },
+          {
+            "ns": 0,
+            "title": "Sphinx (documentation generator)"
+          },
+          {
+            "ns": 0,
+            "title": "SpiNNaker"
+          },
+          {
+            "ns": 0,
+            "title": "Spyce (software)"
+          },
+          {
+            "ns": 0,
+            "title": "Spyder (software)"
+          },
+          {
+            "ns": 0,
+            "title": "Stack Overflow"
+          },
+          {
+            "ns": 0,
+            "title": "Stackless Python"
+          },
+          {
+            "ns": 0,
+            "title": "Stan (software)"
+          },
+          {
+            "ns": 0,
+            "title": "Standard ML"
+          },
+          {
+            "ns": 0,
+            "title": "Starlark"
+          },
+          {
+            "ns": 0,
+            "title": "StatView"
+          },
+          {
+            "ns": 0,
+            "title": "StatXact"
+          },
+          {
+            "ns": 0,
+            "title": "Stata"
+          },
+          {
+            "ns": 0,
+            "title": "Statement (computer science)"
+          },
+          {
+            "ns": 0,
+            "title": "Static typing"
+          },
+          {
+            "ns": 0,
+            "title": "Statically-typed"
+          },
+          {
+            "ns": 0,
+            "title": "Statistica"
+          },
+          {
+            "ns": 0,
+            "title": "Statistical manifold"
+          },
+          {
+            "ns": 0,
+            "title": "StatsDirect"
+          },
+          {
+            "ns": 0,
+            "title": "Storm (software)"
+          },
+          {
+            "ns": 0,
+            "title": "String interpolation"
+          },
+          {
+            "ns": 0,
+            "title": "String literal"
+          },
+          {
+            "ns": 0,
+            "title": "Strong and weak typing"
+          },
+          {
+            "ns": 0,
+            "title": "Strongly typed"
+          },
+          {
+            "ns": 0,
+            "title": "Structured programming"
+          },
+          {
+            "ns": 0,
+            "title": "Stuart J. Russell"
+          },
+          {
+            "ns": 0,
+            "title": "Swift (programming language)"
+          },
+          {
+            "ns": 0,
+            "title": "Switch statement"
+          },
+          {
+            "ns": 0,
+            "title": "SymPy"
+          },
+          {
+            "ns": 0,
+            "title": "Symbian"
+          },
+          {
+            "ns": 0,
+            "title": "Syntax (programming languages)"
+          },
+          {
+            "ns": 0,
+            "title": "Syntax highlighting"
+          },
+          {
+            "ns": 0,
+            "title": "TIOBE Programming Community Index"
+          },
+          {
+            "ns": 0,
+            "title": "TSP (econometrics software)"
+          },
+          {
+            "ns": 0,
+            "title": "Tail call"
+          },
+          {
+            "ns": 0,
+            "title": "TensorFlow"
+          },
+          {
+            "ns": 0,
+            "title": "Tensor Processing Unit"
+          },
+          {
+            "ns": 0,
+            "title": "Test suite"
+          },
+          {
+            "ns": 0,
+            "title": "The C Programming Language"
+          },
+          {
+            "ns": 0,
+            "title": "The Cathedral and the Bazaar"
+          },
+          {
+            "ns": 0,
+            "title": "The Computer Language Benchmarks Game"
+          },
+          {
+            "ns": 0,
+            "title": "The Free Software Definition"
+          },
+          {
+            "ns": 0,
+            "title": "The Open Source Definition"
+          },
+          {
+            "ns": 0,
+            "title": "The Unscrambler"
+          },
+          {
+            "ns": 0,
+            "title": "Theano (software)"
+          },
+          {
+            "ns": 0,
+            "title": "There is more than one way to do it"
+          },
+          {
+            "ns": 0,
+            "title": "Thonny"
+          },
+          {
+            "ns": 0,
+            "title": "Tim Peters (software engineer)"
+          },
+          {
+            "ns": 0,
+            "title": "Timeline of free and open-source software"
+          },
+          {
+            "ns": 0,
+            "title": "Timeline of programming languages"
+          },
+          {
+            "ns": 0,
+            "title": "Tivoization"
+          },
+          {
+            "ns": 0,
+            "title": "Tkinter"
+          },
+          {
+            "ns": 0,
+            "title": "TomoPy"
+          },
+          {
+            "ns": 0,
+            "title": "Tornado (web server)"
+          },
+          {
+            "ns": 0,
+            "title": "Transpile"
+          },
+          {
+            "ns": 0,
+            "title": "Transpiler"
+          },
+          {
+            "ns": 0,
+            "title": "Trusted Computing"
+          },
+          {
+            "ns": 0,
+            "title": "Tuple"
+          },
+          {
+            "ns": 0,
+            "title": "TurboGears"
+          },
+          {
+            "ns": 0,
+            "title": "Twisted (software)"
+          },
+          {
+            "ns": 0,
+            "title": "Type system"
+          },
+          {
+            "ns": 0,
+            "title": "Unary operation"
+          },
+          {
+            "ns": 0,
+            "title": "Unicode"
+          },
+          {
+            "ns": 0,
+            "title": "Unit test"
+          },
+          {
+            "ns": 0,
+            "title": "Unit testing"
+          },
+          {
+            "ns": 0,
+            "title": "Unix-like"
+          },
+          {
+            "ns": 0,
+            "title": "Unix shell"
+          },
+          {
+            "ns": 0,
+            "title": "Unladen Swallow"
+          },
+          {
+            "ns": 0,
+            "title": "Unlicense"
+          },
+          {
+            "ns": 0,
+            "title": "Upstream (software development)"
+          },
+          {
+            "ns": 0,
+            "title": "VHDL"
+          },
+          {
+            "ns": 0,
+            "title": "VPython"
+          },
+          {
+            "ns": 0,
+            "title": "V (programming language)"
+          },
+          {
+            "ns": 0,
+            "title": "Verilog"
+          },
+          {
+            "ns": 0,
+            "title": "Veusz"
+          },
+          {
+            "ns": 0,
+            "title": "Vim (text editor)"
+          },
+          {
+            "ns": 0,
+            "title": "Virtual machine"
+          },
+          {
+            "ns": 0,
+            "title": "VisSim"
+          },
+          {
+            "ns": 0,
+            "title": "Vision processing unit"
+          },
+          {
+            "ns": 0,
+            "title": "Visual Basic"
+          },
+          {
+            "ns": 0,
+            "title": "Visual Basic (.NET)"
+          },
+          {
+            "ns": 0,
+            "title": "Visual Basic (classic)"
+          },
+          {
+            "ns": 0,
+            "title": "Visual Studio Code"
+          },
+          {
+            "ns": 0,
+            "title": "WTFPL"
+          },
+          {
+            "ns": 0,
+            "title": "Web2py"
+          },
+          {
+            "ns": 0,
+            "title": "WebAssembly"
+          },
+          {
+            "ns": 0,
+            "title": "Web Server Gateway Interface"
+          },
+          {
+            "ns": 0,
+            "title": "Web browser"
+          },
+          {
+            "ns": 0,
+            "title": "Web framework"
+          },
+          {
+            "ns": 0,
+            "title": "Weka (software)"
+          },
+          {
+            "ns": 0,
+            "title": "Western Kentucky University"
+          },
+          {
+            "ns": 0,
+            "title": "While loop"
+          },
+          {
+            "ns": 0,
+            "title": "Whitespace character"
+          },
+          {
+            "ns": 0,
+            "title": "WinBUGS"
+          },
+          {
+            "ns": 0,
+            "title": "Windows"
+          },
+          {
+            "ns": 0,
+            "title": "Windows 7"
+          },
+          {
+            "ns": 0,
+            "title": "Windows XP"
+          },
+          {
+            "ns": 0,
+            "title": "Wing IDE"
+          },
+          {
+            "ns": 0,
+            "title": "Wolfram Mathematica"
+          },
+          {
+            "ns": 0,
+            "title": "World Programming System"
+          },
+          {
+            "ns": 0,
+            "title": "WxPython"
+          },
+          {
+            "ns": 0,
+            "title": "X-12-ARIMA"
+          },
+          {
+            "ns": 0,
+            "title": "X10 (programming language)"
+          },
+          {
+            "ns": 0,
+            "title": "XDMF"
+          },
+          {
+            "ns": 0,
+            "title": "XLfit"
+          },
+          {
+            "ns": 0,
+            "title": "XLispStat"
+          },
+          {
+            "ns": 0,
+            "title": "XploRe"
+          },
+          {
+            "ns": 0,
+            "title": "Zen of Python"
+          },
+          {
+            "ns": 0,
+            "title": "Zero-based numbering"
+          },
+          {
+            "ns": 0,
+            "title": "Zlib License"
+          },
+          {
+            "ns": 0,
+            "title": "Zope"
+          },
+          {
+            "ns": 0,
+            "title": "Zope 2"
+          },
+          {
+            "ns": 4,
+            "title": "Wikipedia:Avoid weasel words"
+          },
+          {
+            "ns": 4,
+            "title": "Wikipedia:Citation needed"
+          },
+          {
+            "ns": 4,
+            "title": "Wikipedia:Manual of Style/Embedded lists"
+          },
+          {
+            "ns": 4,
+            "title": "Wikipedia:Verifiability"
+          },
+          {
+            "ns": 4,
+            "title": "Wikipedia:What Wikipedia is not"
+          },
+          {
+            "ns": 4,
+            "title": "Wikipedia:Wikimedia sister projects"
+          },
+          {
+            "ns": 10,
+            "title": "Template:Differentiable computing"
+          },
+          {
+            "ns": 10,
+            "title": "Template:FOSS"
+          },
+          {
+            "ns": 10,
+            "title": "Template:Numerical analysis software"
+          },
+          {
+            "ns": 10,
+            "title": "Template:Programming languages"
+          },
+          {
+            "ns": 10,
+            "title": "Template:Python (programming language)"
+          },
+          {
+            "ns": 10,
+            "title": "Template:Python sidebar"
+          },
+          {
+            "ns": 10,
+            "title": "Template:Python web frameworks"
+          },
+          {
+            "ns": 10,
+            "title": "Template:Statistical software"
+          },
+          {
+            "ns": 11,
+            "title": "Template talk:Differentiable computing"
+          },
+          {
+            "ns": 11,
+            "title": "Template talk:FOSS"
+          },
+          {
+            "ns": 11,
+            "title": "Template talk:Numerical analysis software"
+          },
+          {
+            "ns": 11,
+            "title": "Template talk:Programming languages"
+          },
+          {
+            "ns": 11,
+            "title": "Template talk:Python (programming language)"
+          },
+          {
+            "ns": 11,
+            "title": "Template talk:Python sidebar"
+          },
+          {
+            "ns": 11,
+            "title": "Template talk:Python web frameworks"
+          },
+          {
+            "ns": 11,
+            "title": "Template talk:Statistical software"
+          },
+          {
+            "ns": 12,
+            "title": "Help:Authority control"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Free software"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Programming languages"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Python (programming language)"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Python (programming language) web frameworks"
+          },
+          {
+            "ns": 14,
+            "title": "Category:Statistical software"
+          },
+          {
+            "ns": 100,
+            "title": "Portal:Computer programming"
+          },
+          {
+            "ns": 100,
+            "title": "Portal:Free and open-source software"
+          },
+          {
+            "ns": 100,
+            "title": "Portal:Technology"
+          }
+        ]
+      }
+    }
+  }
+}

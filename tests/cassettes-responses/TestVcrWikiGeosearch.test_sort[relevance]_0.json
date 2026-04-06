@@ -1,0 +1,52 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "geosearch": [
+      {
+        "pageid": 17867,
+        "ns": 0,
+        "title": "London",
+        "lat": 51.507222222222225,
+        "lon": -0.1275,
+        "dist": 28.7,
+        "primary": ""
+      },
+      {
+        "pageid": 496064,
+        "ns": 0,
+        "title": "Royal Society",
+        "lat": 51.505833333333335,
+        "lon": -0.1322222222222222,
+        "dist": 352.2,
+        "primary": ""
+      },
+      {
+        "pageid": 62107,
+        "ns": 0,
+        "title": "Trafalgar Square",
+        "lat": 51.50805555555556,
+        "lon": -0.12805555555555556,
+        "dist": 75,
+        "primary": ""
+      },
+      {
+        "pageid": 226294,
+        "ns": 0,
+        "title": "10 Downing Street",
+        "lat": 51.5033,
+        "lon": -0.1275,
+        "dist": 456.4,
+        "primary": ""
+      },
+      {
+        "pageid": 98616,
+        "ns": 0,
+        "title": "National Gallery",
+        "lat": 51.5089,
+        "lon": -0.1283,
+        "dist": 170.3,
+        "primary": ""
+      }
+    ]
+  }
+}

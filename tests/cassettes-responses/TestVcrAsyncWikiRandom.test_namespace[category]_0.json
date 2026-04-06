@@ -1,0 +1,26 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "rncontinue": "0.879490820129|0.879491479333|54098168|0",
+    "continue": "-||"
+  },
+  "query": {
+    "random": [
+      {
+        "id": 48792231,
+        "ns": 14,
+        "title": "Category:1830s establishments in Rhode Island"
+      },
+      {
+        "id": 55521232,
+        "ns": 14,
+        "title": "Category:1952 disestablishments in Wales"
+      },
+      {
+        "id": 51016753,
+        "ns": 14,
+        "title": "Category:Olt basin"
+      }
+    ]
+  }
+}

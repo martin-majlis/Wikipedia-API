@@ -1,0 +1,104 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "sroffset": 10,
+    "continue": "-||"
+  },
+  "query": {
+    "searchinfo": {
+      "totalhits": 6045
+    },
+    "search": [
+      {
+        "ns": 0,
+        "title": "Python (programming language)",
+        "pageid": 23862,
+        "size": 140415,
+        "wordcount": 11448,
+        "snippet": "<span class=\"searchmatch\">Python</span> is a high-level, general-purpose <span class=\"searchmatch\">programming</span> language. Its design philosophy emphasizes code readability with the use of significant indentation",
+        "timestamp": "2026-03-25T15:46:00Z"
+      },
+      {
+        "ns": 0,
+        "title": "History of Python",
+        "pageid": 21356332,
+        "size": 57307,
+        "wordcount": 4262,
+        "snippet": "The <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> was conceived in the late 1980s, and its implementation was started in December 1989 by Guido van Rossum at CWI in the",
+        "timestamp": "2026-03-17T08:37:45Z"
+      },
+      {
+        "ns": 0,
+        "title": "Outline of the Python programming language",
+        "pageid": 81118035,
+        "size": 12097,
+        "wordcount": 837,
+        "snippet": "functional <span class=\"searchmatch\">programming</span>. ABC (<span class=\"searchmatch\">programming</span> language) – precursor to <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Python</span> was started by Guido van Rossum in 1989 and first released in 1991. <span class=\"searchmatch\">Python</span> 2 —",
+        "timestamp": "2026-02-18T06:39:30Z"
+      },
+      {
+        "ns": 0,
+        "title": "Python syntax and semantics",
+        "pageid": 5250192,
+        "size": 68515,
+        "wordcount": 7865,
+        "snippet": "The syntax of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is the set of rules that defines how a <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">program</span> will be written and interpreted (by both the runtime",
+        "timestamp": "2026-01-19T22:21:34Z"
+      },
+      {
+        "ns": 0,
+        "title": "Mojo (programming language)",
+        "pageid": 73729965,
+        "size": 18574,
+        "wordcount": 1480,
+        "snippet": "proprietary <span class=\"searchmatch\">programming</span> language based on <span class=\"searchmatch\">Python</span> available for Linux and macOS. Mojo aims to combine the usability of a high-level <span class=\"searchmatch\">programming</span> language,",
+        "timestamp": "2026-03-15T08:21:22Z"
+      },
+      {
+        "ns": 0,
+        "title": "Zen of Python",
+        "pageid": 46448252,
+        "size": 11211,
+        "wordcount": 1130,
+        "snippet": "<span class=\"searchmatch\">Python</span> is a collection of 19 &quot;guiding principles&quot; for writing computer <span class=\"searchmatch\">programs</span> that influence the design of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. <span class=\"searchmatch\">Python</span> code",
+        "timestamp": "2026-03-11T00:04:23Z"
+      },
+      {
+        "ns": 0,
+        "title": "Core Python Programming",
+        "pageid": 25061839,
+        "size": 3926,
+        "wordcount": 316,
+        "snippet": "Core <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> is a textbook on the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, written by Wesley J. Chun. The first edition of the book was released on December",
+        "timestamp": "2026-01-31T19:07:48Z"
+      },
+      {
+        "ns": 0,
+        "title": "Flask (web framework)",
+        "pageid": 29040606,
+        "size": 10240,
+        "wordcount": 831,
+        "snippet": "framework and supports <span class=\"searchmatch\">Python</span> 2.7 and 3.5 and later. Jinja, also by Ronacher, is a template engine for the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. Similar to the",
+        "timestamp": "2026-01-05T17:44:23Z"
+      },
+      {
+        "ns": 0,
+        "title": "Glob (programming)",
+        "pageid": 484117,
+        "size": 27549,
+        "wordcount": 2499,
+        "snippet": "on these same wildcard patterns. Guido van Rossum, author of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, wrote and contributed a glob routine to BSD Unix in 1986",
+        "timestamp": "2026-03-01T01:55:39Z"
+      },
+      {
+        "ns": 0,
+        "title": "Python",
+        "pageid": 46332325,
+        "size": 2240,
+        "wordcount": 317,
+        "snippet": "and Australia <span class=\"searchmatch\">Python</span> (genus), a genus of Pythonidae found in Africa and Asia <span class=\"searchmatch\">Python</span> (mythology), a mythical serpent <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language), a widely",
+        "timestamp": "2026-03-10T10:36:25Z"
+      }
+    ]
+  }
+}

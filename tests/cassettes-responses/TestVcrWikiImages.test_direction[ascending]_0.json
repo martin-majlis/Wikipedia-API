@@ -1,0 +1,63 @@
+{
+  "continue": {
+    "imcontinue": "23862|Symbol_portal_class.svg",
+    "continue": "||"
+  },
+  "query": {
+    "normalized": [
+      {
+        "from": "Python_(programming_language)",
+        "to": "Python (programming language)"
+      }
+    ],
+    "pages": {
+      "23862": {
+        "pageid": 23862,
+        "ns": 0,
+        "title": "Python (programming language)",
+        "images": [
+          {
+            "ns": 6,
+            "title": "File:Commons-logo.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Edit-clear.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Free and open-source software logo (2009).svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Guido van Rossum in PyConUS24.jpg"
+          },
+          {
+            "ns": 6,
+            "title": "File:OOjs UI icon edit-ltr-progressive.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Octicons-terminal.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Python-logo-notext.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Python 3.13 Standrd Type Hierarchy-en.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Symbol category class.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Symbol list class.svg"
+          }
+        ]
+      }
+    }
+  }
+}

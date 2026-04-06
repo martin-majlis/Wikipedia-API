@@ -1,0 +1,28 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "rncontinue": "0.990260644367|0.990261014244|12795574|0",
+    "continue": "-||"
+  },
+  "query": {
+    "random": [
+      {
+        "id": 59551664,
+        "ns": 0,
+        "title": "2019–20 Premier League"
+      },
+      {
+        "id": 70627755,
+        "ns": 0,
+        "title": "County Road 143 (Florida)",
+        "redirect": ""
+      },
+      {
+        "id": 57470338,
+        "ns": 0,
+        "title": "Pīhopa o Aotearoa",
+        "redirect": ""
+      }
+    ]
+  }
+}

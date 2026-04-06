@@ -1,0 +1,13 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "-1": {
+        "ns": 6,
+        "title": "File:ThisFileDoesNotExist12345.png",
+        "missing": "",
+        "imagerepository": ""
+      }
+    }
+  }
+}

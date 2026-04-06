@@ -1,0 +1,26 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "rncontinue": "0.413588556976|0.413589376453|28274467|0",
+    "continue": "-||"
+  },
+  "query": {
+    "random": [
+      {
+        "id": 14815592,
+        "ns": 0,
+        "title": "Chwaliszów"
+      },
+      {
+        "id": 70387416,
+        "ns": 0,
+        "title": "Zhanjiang Wuchuan International Airport"
+      },
+      {
+        "id": 5043672,
+        "ns": 0,
+        "title": "Mechanical Dream"
+      }
+    ]
+  }
+}

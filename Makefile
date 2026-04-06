@@ -12,7 +12,7 @@ BUILDDIR      = _build
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help Makefile verify-skills verify-skills-sh run-type-check run-tests
+.PHONY: help Makefile verify-skills verify-skills-sh run-type-check run-tests extract-vcr-json
 
 process-readme:
 	awk '/^.. PYPI-BEGIN$$/,/^.. PYPI-END$$/ {next} {print}' README.rst > README_processed.rst
@@ -48,6 +48,10 @@ verify-skills:
 verify-skills-sh:
 	@echo "Verifying all SKILLS code samples..."
 	./verify-skills.sh
+
+extract-vcr-json:
+	@echo "Extracting JSON responses from VCR cassettes..."
+	uv run python extract_vcr_json.py --overwrite
 
 run-type-check: run-type-check-library run-type-check-tests
 
