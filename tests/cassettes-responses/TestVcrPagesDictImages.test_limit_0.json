@@ -1,0 +1,40 @@
+{
+  "continue": {
+    "imcontinue": "9228|Axial_tilt_vs_tropical_and_polar_circles.svg",
+    "continue": "||"
+  },
+  "query": {
+    "normalized": [
+      {
+        "from": "Python_(programming_language)",
+        "to": "Python (programming language)"
+      }
+    ],
+    "pages": {
+      "9228": {
+        "pageid": 9228,
+        "ns": 0,
+        "title": "Earth",
+        "images": [
+          {
+            "ns": 6,
+            "title": "File:AYool topography 15min.png"
+          },
+          {
+            "ns": 6,
+            "title": "File:Antarctic aurora ESA313457.jpg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Archean.png"
+          }
+        ]
+      },
+      "23862": {
+        "pageid": 23862,
+        "ns": 0,
+        "title": "Python (programming language)"
+      }
+    }
+  }
+}

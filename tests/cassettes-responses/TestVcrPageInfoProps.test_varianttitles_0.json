@@ -1,0 +1,48 @@
+{
+  "batchcomplete": "",
+  "warnings": {
+    "main": {
+      "*": "Subscribe to the mediawiki-api-announce mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/> for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]] to see usage of deprecated features by your application."
+    },
+    "info": {
+      "*": "The value \"readable\" to parameter \"inprop\" has been deprecated.\nThe value \"preload\" to parameter \"inprop\" has been deprecated."
+    }
+  },
+  "query": {
+    "normalized": [
+      {
+        "from": "Python_(programming_language)",
+        "to": "Python (programming language)"
+      }
+    ],
+    "pages": {
+      "23862": {
+        "pageid": 23862,
+        "ns": 0,
+        "title": "Python (programming language)",
+        "contentmodel": "wikitext",
+        "pagelanguage": "en",
+        "pagelanguagehtmlcode": "en",
+        "pagelanguagedir": "ltr",
+        "touched": "2026-03-27T09:26:22Z",
+        "lastrevid": 1345336232,
+        "length": 140415,
+        "protection": [],
+        "restrictiontypes": ["edit", "move"],
+        "watchers": 1816,
+        "visitingwatchers": 33,
+        "notificationtimestamp": "",
+        "talkid": 24235,
+        "fullurl": "https://en.wikipedia.org/wiki/Python_(programming_language)",
+        "editurl": "https://en.wikipedia.org/w/index.php?title=Python_(programming_language)&action=edit",
+        "canonicalurl": "https://en.wikipedia.org/wiki/Python_(programming_language)",
+        "readable": "",
+        "preload": "",
+        "displaytitle": "Python (programming language)",
+        "varianttitles": {
+          "en": "Python (programming language)"
+        }
+      }
+    }
+  }
+}

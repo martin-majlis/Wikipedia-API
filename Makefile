@@ -12,7 +12,7 @@ BUILDDIR      = _build
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help Makefile verify-skills verify-skills-sh run-type-check run-tests
+.PHONY: help Makefile verify-skills verify-skills-sh run-type-check run-tests extract-vcr-json
 
 process-readme:
 	awk '/^.. PYPI-BEGIN$$/,/^.. PYPI-END$$/ {next} {print}' README.rst > README_processed.rst
@@ -31,6 +31,7 @@ run-tests-unit:
 
 run-tests-integration:
 	uv run pytest tests/vcr_page_sync_test.py tests/vcr_page_async_test.py tests/vcr_wiki_client_sync_test.py tests/vcr_wiki_client_async_test.py tests/vcr_pages_dict_sync_test.py tests/vcr_pages_dict_async_test.py --record-mode=none -v
+	$(MAKE) extract-vcr-json
 
 run-test-cli-verify:
 	uv run ./tests/cli/test_cli.sh verify
@@ -48,6 +49,10 @@ verify-skills:
 verify-skills-sh:
 	@echo "Verifying all SKILLS code samples..."
 	./verify-skills.sh
+
+extract-vcr-json:
+	@echo "Extracting JSON responses from VCR cassettes..."
+	uv run python extract_vcr_json.py --overwrite
 
 run-type-check: run-type-check-library run-type-check-tests
 

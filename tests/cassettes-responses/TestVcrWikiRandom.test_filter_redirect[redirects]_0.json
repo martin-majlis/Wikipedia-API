@@ -1,0 +1,26 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "rncontinue": "0.119665944278|0.119666270102|43890058|0",
+    "continue": "-||"
+  },
+  "query": {
+    "random": [
+      {
+        "id": 49454042,
+        "ns": 0,
+        "title": "Adams, John Bertram"
+      },
+      {
+        "id": 28143479,
+        "ns": 0,
+        "title": "Gestricland"
+      },
+      {
+        "id": 49219089,
+        "ns": 0,
+        "title": "Qaraite-Turk"
+      }
+    ]
+  }
+}

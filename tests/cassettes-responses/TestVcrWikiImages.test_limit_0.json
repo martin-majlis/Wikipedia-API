@@ -1,0 +1,35 @@
+{
+  "continue": {
+    "imcontinue": "23862|Guido_van_Rossum_in_PyConUS24.jpg",
+    "continue": "||"
+  },
+  "query": {
+    "normalized": [
+      {
+        "from": "Python_(programming_language)",
+        "to": "Python (programming language)"
+      }
+    ],
+    "pages": {
+      "23862": {
+        "pageid": 23862,
+        "ns": 0,
+        "title": "Python (programming language)",
+        "images": [
+          {
+            "ns": 6,
+            "title": "File:Commons-logo.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Edit-clear.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Free and open-source software logo (2009).svg"
+          }
+        ]
+      }
+    }
+  }
+}

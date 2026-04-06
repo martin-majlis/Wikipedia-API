@@ -1,0 +1,35 @@
+{
+  "continue": {
+    "imcontinue": "23862|Wikiversity_logo_2017.svg",
+    "continue": "||"
+  },
+  "query": {
+    "normalized": [
+      {
+        "from": "Python_(programming_language)",
+        "to": "Python (programming language)"
+      }
+    ],
+    "pages": {
+      "23862": {
+        "pageid": 23862,
+        "ns": 0,
+        "title": "Python (programming language)",
+        "images": [
+          {
+            "ns": 6,
+            "title": "File:Wikibooks-logo.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Wikidata-logo.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Wikiquote-logo.svg"
+          }
+        ]
+      }
+    }
+  }
+}

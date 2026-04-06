@@ -1,0 +1,104 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "sroffset": 10,
+    "continue": "-||"
+  },
+  "query": {
+    "searchinfo": {
+      "totalhits": 5794
+    },
+    "search": [
+      {
+        "ns": 2,
+        "title": "User:PARitto/Books/Python",
+        "pageid": 40908813,
+        "size": 359,
+        "wordcount": 27,
+        "snippet": "operations CPython Guido van Rossum History of <span class=\"searchmatch\">Python</span> List of <span class=\"searchmatch\">Python</span> software <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language) <span class=\"searchmatch\">Python</span> Software Foundation Scientific<span class=\"searchmatch\">Python</span> SciPy",
+        "timestamp": "2019-07-29T19:13:03Z"
+      },
+      {
+        "ns": 2,
+        "title": "User:Phoe6/Books/python",
+        "pageid": 25373083,
+        "size": 932,
+        "wordcount": 55,
+        "snippet": "Microthread Parallel <span class=\"searchmatch\">programming</span> model Implicit parallelism Explicit parallelism Concurrency Scheduling <span class=\"searchmatch\">Python</span> Implementation <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> Language CPython",
+        "timestamp": "2011-07-04T17:49:30Z"
+      },
+      {
+        "ns": 2,
+        "title": "User:PARitto/Books/Programming Languages",
+        "pageid": 40908856,
+        "size": 229,
+        "wordcount": 12,
+        "snippet": "GNU Octave Fortran LabVIEW MATLAB MediaWiki <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language) R (<span class=\"searchmatch\">programming</span> language)",
+        "timestamp": "2019-07-29T19:13:03Z"
+      },
+      {
+        "ns": 2,
+        "title": "User:Python Drink",
+        "pageid": 70884407,
+        "size": 6954,
+        "wordcount": 511,
+        "snippet": "the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language and the snake. At the time I chose this nickname, I had the mistaken belief that <span class=\"searchmatch\">pythons</span> are venomous. So, <span class=\"searchmatch\">Python</span> Drink",
+        "timestamp": "2026-03-26T04:38:56Z"
+      },
+      {
+        "ns": 2,
+        "title": "User:Jetsetjohnny/Books/Programming, Vol. 1",
+        "pageid": 58559026,
+        "size": 707,
+        "wordcount": 57,
+        "snippet": "Name resolution (<span class=\"searchmatch\">programming</span> languages) Environment variable <span class=\"searchmatch\">Python</span> Zen of <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language) History of <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Python</span> syntax and semantics",
+        "timestamp": "2018-09-23T18:25:45Z"
+      },
+      {
+        "ns": 2,
+        "title": "User:Block-Te/sandbox",
+        "pageid": 69728750,
+        "size": 1692,
+        "wordcount": 155,
+        "snippet": "<span class=\"searchmatch\">Python</span> is a free and open source <span class=\"searchmatch\">programming</span> Language. It is widely used now a days. It is easy to learn. It is a basic language to learn Object Oriented",
+        "timestamp": "2022-01-11T08:28:44Z"
+      },
+      {
+        "ns": 2,
+        "title": "User:XndrK/Books/Python",
+        "pageid": 40383202,
+        "size": 196,
+        "wordcount": 10,
+        "snippet": "<span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language) History of <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Python</span> syntax and semantics",
+        "timestamp": "2013-08-28T22:06:37Z"
+      },
+      {
+        "ns": 2,
+        "title": "User:Sridharinfinity/Programming Contests/Sphere Source",
+        "pageid": 1350736,
+        "size": 304,
+        "wordcount": 11,
+        "snippet": "Mostly I use <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. 1 4 24 42 54",
+        "timestamp": "2005-01-01T14:31:32Z"
+      },
+      {
+        "ns": 2,
+        "title": "User:Prahlad1981/Books/Python",
+        "pageid": 47445132,
+        "size": 603,
+        "wordcount": 41,
+        "snippet": "<span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language) History of <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Python</span> syntax and semantics List comprehension Duck typing Tuple List of <span class=\"searchmatch\">Python</span> software Django (web framework)",
+        "timestamp": "2016-03-08T09:51:33Z"
+      },
+      {
+        "ns": 2,
+        "title": "User:Skully21jk/Books/Python MGNQEP",
+        "pageid": 47075888,
+        "size": 1943,
+        "wordcount": 176,
+        "snippet": "Concepts General-purpose <span class=\"searchmatch\">programming</span> language Functional <span class=\"searchmatch\">programming</span> High-level <span class=\"searchmatch\">programming</span> language Object-oriented <span class=\"searchmatch\">programming</span> Floating point Not So Pre-requsite",
+        "timestamp": "2024-10-09T09:09:17Z"
+      }
+    ]
+  }
+}

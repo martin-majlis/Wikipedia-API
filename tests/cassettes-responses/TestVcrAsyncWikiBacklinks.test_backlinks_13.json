@@ -1,0 +1,2515 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "blcontinue": "0|54294875",
+    "continue": "-||"
+  },
+  "query": {
+    "backlinks": [
+      {
+        "pageid": 49097345,
+        "ns": 2,
+        "title": "User:Sifhufhigundo"
+      },
+      {
+        "pageid": 49098939,
+        "ns": 0,
+        "title": "Grand Tour (data visualisation)"
+      },
+      {
+        "pageid": 49099383,
+        "ns": 3,
+        "title": "User talk:Shinivangelion"
+      },
+      {
+        "pageid": 49107154,
+        "ns": 3,
+        "title": "User talk:Tcp-ip/Archive 3"
+      },
+      {
+        "pageid": 49119569,
+        "ns": 0,
+        "title": "Comparison of deep learning software"
+      },
+      {
+        "pageid": 49123193,
+        "ns": 2,
+        "title": "User:Honyczek"
+      },
+      {
+        "pageid": 49158253,
+        "ns": 0,
+        "title": "Thonny"
+      },
+      {
+        "pageid": 49175769,
+        "ns": 0,
+        "title": "SourceClear"
+      },
+      {
+        "pageid": 49180306,
+        "ns": 2,
+        "title": "User:Kopiersperre/Loklak"
+      },
+      {
+        "pageid": 49187615,
+        "ns": 3,
+        "title": "User talk:Kawayashu"
+      },
+      {
+        "pageid": 49192110,
+        "ns": 2,
+        "title": "User:NellaJS"
+      },
+      {
+        "pageid": 49214050,
+        "ns": 2,
+        "title": "User:Duncanc/sandbox"
+      },
+      {
+        "pageid": 49214251,
+        "ns": 3,
+        "title": "User talk:Hydriz/Archive 25"
+      },
+      {
+        "pageid": 49220965,
+        "ns": 0,
+        "title": "Webpack"
+      },
+      {
+        "pageid": 49248203,
+        "ns": 0,
+        "title": "Munki (software)"
+      },
+      {
+        "pageid": 49261773,
+        "ns": 2,
+        "title": "User:Akshay nayak24/sandbox"
+      },
+      {
+        "pageid": 49263222,
+        "ns": 2,
+        "title": "User:JJMC89 bot"
+      },
+      {
+        "pageid": 49263763,
+        "ns": 0,
+        "title": "Infrastructure as code"
+      },
+      {
+        "pageid": 49267692,
+        "ns": 3,
+        "title": "User talk:JPJEFC"
+      },
+      {
+        "pageid": 49271581,
+        "ns": 0,
+        "title": "Discord"
+      },
+      {
+        "pageid": 49274627,
+        "ns": 2,
+        "title": "User:HKraemer73"
+      },
+      {
+        "pageid": 49277534,
+        "ns": 2,
+        "title": "User:Steve k koech/Books/PHP LANGUAGES"
+      },
+      {
+        "pageid": 49278535,
+        "ns": 2,
+        "title": "User:RolW"
+      },
+      {
+        "pageid": 49284238,
+        "ns": 2,
+        "title": "User:Sbobba3/sandbox"
+      },
+      {
+        "pageid": 49338078,
+        "ns": 2,
+        "title": "User:Jonderon/sandbox"
+      },
+      {
+        "pageid": 49338480,
+        "ns": 0,
+        "title": "Apache SystemDS"
+      },
+      {
+        "pageid": 49347154,
+        "ns": 2,
+        "title": "User:Ms. Anthropic/sandbox"
+      },
+      {
+        "pageid": 49373665,
+        "ns": 0,
+        "title": "Firewalld"
+      },
+      {
+        "pageid": 49374578,
+        "ns": 2,
+        "title": "User:Infactoid"
+      },
+      {
+        "pageid": 49378468,
+        "ns": 2,
+        "title": "User:Alopatindev"
+      },
+      {
+        "pageid": 49384220,
+        "ns": 2,
+        "title": "User:Lmangiat"
+      },
+      {
+        "pageid": 49390848,
+        "ns": 3,
+        "title": "User talk:Frimelle"
+      },
+      {
+        "pageid": 49438471,
+        "ns": 2,
+        "title": "User:Arrow2017/sandbox"
+      },
+      {
+        "pageid": 49440349,
+        "ns": 2,
+        "title": "User:Tom29739/babel"
+      },
+      {
+        "pageid": 49447550,
+        "ns": 3,
+        "title": "User talk:AndrewShipman"
+      },
+      {
+        "pageid": 49462968,
+        "ns": 2,
+        "title": "User:LittleWhole"
+      },
+      {
+        "pageid": 49474181,
+        "ns": 0,
+        "title": "Zephyr (operating system)"
+      },
+      {
+        "pageid": 49477707,
+        "ns": 0,
+        "title": "RocksDB"
+      },
+      {
+        "pageid": 49522615,
+        "ns": 2,
+        "title": "User:DubitoErgoCogito"
+      },
+      {
+        "pageid": 49528985,
+        "ns": 3,
+        "title": "User talk:14.1.193.223"
+      },
+      {
+        "pageid": 49539957,
+        "ns": 2,
+        "title": "User:Iphoneseven/sandbox"
+      },
+      {
+        "pageid": 49541331,
+        "ns": 0,
+        "title": "XGBoost"
+      },
+      {
+        "pageid": 49543913,
+        "ns": 2,
+        "title": "User:Markonator"
+      },
+      {
+        "pageid": 49604866,
+        "ns": 3,
+        "title": "User talk:Timdwilliamson/technews"
+      },
+      {
+        "pageid": 49607374,
+        "ns": 0,
+        "title": "Zulip"
+      },
+      {
+        "pageid": 49629857,
+        "ns": 0,
+        "title": "Belle II experiment"
+      },
+      {
+        "pageid": 49638348,
+        "ns": 0,
+        "title": "Perfect (server framework)"
+      },
+      {
+        "pageid": 49648492,
+        "ns": 2,
+        "title": "User:F4d3d123"
+      },
+      {
+        "pageid": 49656568,
+        "ns": 2,
+        "title": "User:Draychev/programming languages"
+      },
+      {
+        "pageid": 49656900,
+        "ns": 2,
+        "title": "User:Einartrausti25/Books/Vefhönnun og gagnagrunnar"
+      },
+      {
+        "pageid": 49700533,
+        "ns": 2,
+        "title": "User:Aniruddh88"
+      },
+      {
+        "pageid": 49734459,
+        "ns": 2,
+        "title": "User:RobbieIanMorrison"
+      },
+      {
+        "pageid": 49746918,
+        "ns": 2,
+        "title": "User:Rushikeshjogdand1/sandbox"
+      },
+      {
+        "pageid": 49761181,
+        "ns": 2,
+        "title": "User:D6194c-1cc"
+      },
+      {
+        "pageid": 49785337,
+        "ns": 0,
+        "title": "Code page 932 (Microsoft Windows)"
+      },
+      {
+        "pageid": 49785516,
+        "ns": 0,
+        "title": "Code page 949 (IBM)"
+      },
+      {
+        "pageid": 49787845,
+        "ns": 3,
+        "title": "User talk:Humble Contribution"
+      },
+      {
+        "pageid": 49788532,
+        "ns": 0,
+        "title": "Wercker"
+      },
+      {
+        "pageid": 49797020,
+        "ns": 2,
+        "title": "User:Lsloan/ReStructuredText"
+      },
+      {
+        "pageid": 49813250,
+        "ns": 0,
+        "title": "Project Chrono"
+      },
+      {
+        "pageid": 49819358,
+        "ns": 2,
+        "title": "User:Lachie armstrong/Books/python"
+      },
+      {
+        "pageid": 49825639,
+        "ns": 0,
+        "title": "PukiWiki"
+      },
+      {
+        "pageid": 49839557,
+        "ns": 0,
+        "title": "List of Lisp-family programming languages"
+      },
+      {
+        "pageid": 49841873,
+        "ns": 2,
+        "title": "User:Tom29739/sidebar"
+      },
+      {
+        "pageid": 49844477,
+        "ns": 2,
+        "title": "User:Cincotta1"
+      },
+      {
+        "pageid": 49848409,
+        "ns": 2,
+        "title": "User:Erick Shepherd/Infobox"
+      },
+      {
+        "pageid": 49859667,
+        "ns": 0,
+        "title": "Zorin OS"
+      },
+      {
+        "pageid": 49863282,
+        "ns": 0,
+        "title": "Diversity in computing"
+      },
+      {
+        "pageid": 49876345,
+        "ns": 0,
+        "title": "NativeScript"
+      },
+      {
+        "pageid": 49876931,
+        "ns": 4,
+        "title": "Wikipedia:Articles for deletion/Log/2016 March 25"
+      },
+      {
+        "pageid": 49905349,
+        "ns": 2,
+        "title": "User:Stokito"
+      },
+      {
+        "pageid": 49916571,
+        "ns": 2,
+        "title": "User:Estamel Tharchon"
+      },
+      {
+        "pageid": 49917156,
+        "ns": 3,
+        "title": "User talk:Jakethesnake11"
+      },
+      {
+        "pageid": 49928472,
+        "ns": 0,
+        "title": "Stacki"
+      },
+      {
+        "pageid": 49931275,
+        "ns": 2,
+        "title": "User:Sheepythemouse"
+      },
+      {
+        "pageid": 49933091,
+        "ns": 2,
+        "title": "User:Pythoncoder"
+      },
+      {
+        "pageid": 49937473,
+        "ns": 2,
+        "title": "User:QEDK/Stuff"
+      },
+      {
+        "pageid": 49938694,
+        "ns": 4,
+        "title": "Wikipedia:Articles for deletion/Beatnik (programming language)"
+      },
+      {
+        "pageid": 49990818,
+        "ns": 0,
+        "title": "Showcase Workshop"
+      },
+      {
+        "pageid": 49998667,
+        "ns": 0,
+        "title": "Windows Subsystem for Linux"
+      },
+      {
+        "pageid": 49999465,
+        "ns": 3,
+        "title": "User talk:JMatazzoni (WMF)"
+      },
+      {
+        "pageid": 50005059,
+        "ns": 2,
+        "title": "User:Bronze2018"
+      },
+      {
+        "pageid": 50013287,
+        "ns": 2,
+        "title": "User:Xjcl"
+      },
+      {
+        "pageid": 50020765,
+        "ns": 0,
+        "title": "Tox (Python testing wrapper)"
+      },
+      {
+        "pageid": 50022256,
+        "ns": 0,
+        "title": "Wagtail (software)"
+      },
+      {
+        "pageid": 50024536,
+        "ns": 3,
+        "title": "User talk:92.241.76.10"
+      },
+      {
+        "pageid": 50032570,
+        "ns": 3,
+        "title": "User talk:ChristianKl"
+      },
+      {
+        "pageid": 50034768,
+        "ns": 0,
+        "title": "PascalABC.NET"
+      },
+      {
+        "pageid": 50049814,
+        "ns": 2,
+        "title": "User:Asmallteapot"
+      },
+      {
+        "pageid": 50061994,
+        "ns": 3,
+        "title": "User talk:Blancos khim"
+      },
+      {
+        "pageid": 50077379,
+        "ns": 2,
+        "title": "User:SirFredTheDead"
+      },
+      {
+        "pageid": 50079905,
+        "ns": 2,
+        "title": "User:Barzamin"
+      },
+      {
+        "pageid": 50084908,
+        "ns": 3,
+        "title": "User talk:OpenFuture/Archive3"
+      },
+      {
+        "pageid": 50087102,
+        "ns": 0,
+        "title": "SolverStudio"
+      },
+      {
+        "pageid": 50114279,
+        "ns": 2,
+        "title": "User:Yusheec"
+      },
+      {
+        "pageid": 50129389,
+        "ns": 0,
+        "title": "Buck (software)"
+      },
+      {
+        "pageid": 50160571,
+        "ns": 0,
+        "title": "Meson (software)"
+      },
+      {
+        "pageid": 50185827,
+        "ns": 0,
+        "title": "Backdrop CMS"
+      },
+      {
+        "pageid": 50186433,
+        "ns": 2,
+        "title": "User:Omkay256"
+      },
+      {
+        "pageid": 50192415,
+        "ns": 0,
+        "title": "Aristotle Metadata Registry"
+      },
+      {
+        "pageid": 50221460,
+        "ns": 0,
+        "title": "CodeCombat"
+      },
+      {
+        "pageid": 50237461,
+        "ns": 0,
+        "title": "Gyroscope (software)"
+      },
+      {
+        "pageid": 50259021,
+        "ns": 0,
+        "title": "Eclipse Che"
+      },
+      {
+        "pageid": 50278739,
+        "ns": 0,
+        "title": "MicroPython"
+      },
+      {
+        "pageid": 50289844,
+        "ns": 2,
+        "title": "User:ShanksofWessex"
+      },
+      {
+        "pageid": 50299354,
+        "ns": 2,
+        "title": "User:BotFeminista"
+      },
+      {
+        "pageid": 50327291,
+        "ns": 2,
+        "title": "User:EEEHassel/Books/API"
+      },
+      {
+        "pageid": 50336055,
+        "ns": 0,
+        "title": "Glossary of artificial intelligence"
+      },
+      {
+        "pageid": 50346330,
+        "ns": 0,
+        "title": "Data USA"
+      },
+      {
+        "pageid": 50346383,
+        "ns": 2,
+        "title": "User:Mattrdini/sandbox"
+      },
+      {
+        "pageid": 50401638,
+        "ns": 3,
+        "title": "User talk:Santosarasantiago"
+      },
+      {
+        "pageid": 50401639,
+        "ns": 3,
+        "title": "User talk:မိုးကောင်း"
+      },
+      {
+        "pageid": 50405894,
+        "ns": 2,
+        "title": "User:冷雾"
+      },
+      {
+        "pageid": 50409863,
+        "ns": 0,
+        "title": "Coala (software)"
+      },
+      {
+        "pageid": 50412906,
+        "ns": 2,
+        "title": "User:RaphaelQS/boxes"
+      },
+      {
+        "pageid": 50413747,
+        "ns": 0,
+        "title": "Energy modeling"
+      },
+      {
+        "pageid": 50415673,
+        "ns": 2,
+        "title": "User:AndymwBot"
+      },
+      {
+        "pageid": 50415818,
+        "ns": 2,
+        "title": "User:Andy M. Wang/AndymwBot"
+      },
+      {
+        "pageid": 50424960,
+        "ns": 2,
+        "title": "User:IOrange"
+      },
+      {
+        "pageid": 50480835,
+        "ns": 0,
+        "title": "List of technology terms"
+      },
+      {
+        "pageid": 50483646,
+        "ns": 0,
+        "title": "List of visual novel engines"
+      },
+      {
+        "pageid": 50494463,
+        "ns": 3,
+        "title": "User talk:Milankumar123"
+      },
+      {
+        "pageid": 50512186,
+        "ns": 0,
+        "title": "Continuous configuration automation"
+      },
+      {
+        "pageid": 50520969,
+        "ns": 2,
+        "title": "User:TavixVi/sandbox"
+      },
+      {
+        "pageid": 50523503,
+        "ns": 2,
+        "title": "User:Lucascho"
+      },
+      {
+        "pageid": 50524585,
+        "ns": 3,
+        "title": "User talk:Hellmaster abc"
+      },
+      {
+        "pageid": 50525037,
+        "ns": 2,
+        "title": "User:EranBot/Copyright/rc/34"
+      },
+      {
+        "pageid": 50558501,
+        "ns": 2,
+        "title": "User:Serafart"
+      },
+      {
+        "pageid": 50561040,
+        "ns": 3,
+        "title": "User talk:36.255.115.35"
+      },
+      {
+        "pageid": 50564329,
+        "ns": 2,
+        "title": "User:FlamencoGuitar"
+      },
+      {
+        "pageid": 50578464,
+        "ns": 2,
+        "title": "User:Camcookie2"
+      },
+      {
+        "pageid": 50587228,
+        "ns": 2,
+        "title": "User:Blackdiamand"
+      },
+      {
+        "pageid": 50590676,
+        "ns": 0,
+        "title": "Gregorio (software)"
+      },
+      {
+        "pageid": 50605244,
+        "ns": 0,
+        "title": "Comparison of programming languages by type system"
+      },
+      {
+        "pageid": 50608241,
+        "ns": 2,
+        "title": "User:Ushkin N/Comparison of programming languages"
+      },
+      {
+        "pageid": 50616131,
+        "ns": 2,
+        "title": "User:Ushkin N/Comparison of programming languages/Functional/Map"
+      },
+      {
+        "pageid": 50616148,
+        "ns": 2,
+        "title": "User:Ushkin N/Comparison of programming languages/Functional/Fold"
+      },
+      {
+        "pageid": 50616159,
+        "ns": 2,
+        "title": "User:Ushkin N/Comparison of programming languages/Functional/Filter"
+      },
+      {
+        "pageid": 50616302,
+        "ns": 2,
+        "title": "User:Ushkin N/Comparison of programming languages/Types/Type system"
+      },
+      {
+        "pageid": 50616313,
+        "ns": 2,
+        "title": "User:Ushkin N/Comparison of programming languages/Types/Duck typing"
+      },
+      {
+        "pageid": 50616345,
+        "ns": 2,
+        "title": "User:Ushkin N/Comparison of programming languages/Operators/Ternary operator"
+      },
+      {
+        "pageid": 50621438,
+        "ns": 2,
+        "title": "User:AntiCompositeNumber"
+      },
+      {
+        "pageid": 50635760,
+        "ns": 2,
+        "title": "User:Irina L Preda"
+      },
+      {
+        "pageid": 50638095,
+        "ns": 2,
+        "title": "User:Ebacas"
+      },
+      {
+        "pageid": 50662296,
+        "ns": 2,
+        "title": "User:Kunalsuri"
+      },
+      {
+        "pageid": 50670667,
+        "ns": 0,
+        "title": "USBKill"
+      },
+      {
+        "pageid": 50673241,
+        "ns": 0,
+        "title": "Tensor Processing Unit"
+      },
+      {
+        "pageid": 50676619,
+        "ns": 100,
+        "title": "Portal:Free and open-source software/Wikipedia featured articles"
+      },
+      {
+        "pageid": 50708483,
+        "ns": 2,
+        "title": "User:Target360YT"
+      },
+      {
+        "pageid": 50712293,
+        "ns": 2,
+        "title": "User:Theerapak/sandbox"
+      },
+      {
+        "pageid": 50712302,
+        "ns": 2,
+        "title": "User:Theerapak"
+      },
+      {
+        "pageid": 50728550,
+        "ns": 2,
+        "title": "User:Pasclaris"
+      },
+      {
+        "pageid": 50751871,
+        "ns": 2,
+        "title": "User:FoxFreeman369/Books/Artificial Intelligence"
+      },
+      {
+        "pageid": 50751936,
+        "ns": 2,
+        "title": "User:FoxFreeman369/Books/Encyclopedia of Artificial Intelligence"
+      },
+      {
+        "pageid": 50752046,
+        "ns": 2,
+        "title": "User:FoxFreeman369/Books/Fox Freeman's Encyclopedia of Artificial Intelligence"
+      },
+      {
+        "pageid": 50761156,
+        "ns": 0,
+        "title": "Kdb+"
+      },
+      {
+        "pageid": 50761717,
+        "ns": 0,
+        "title": "AoS and SoA"
+      },
+      {
+        "pageid": 50768015,
+        "ns": 2,
+        "title": "User:Your psycho madre/sandbox"
+      },
+      {
+        "pageid": 50768301,
+        "ns": 0,
+        "title": "Shadowsocks"
+      },
+      {
+        "pageid": 50773868,
+        "ns": 2,
+        "title": "User:Comp.arch/Mersenne Twister"
+      },
+      {
+        "pageid": 50824847,
+        "ns": 2,
+        "title": "User:Happypig375/sandbox/1"
+      },
+      {
+        "pageid": 50888790,
+        "ns": 2,
+        "title": "User:RobbieIanMorrison/sandbox/table"
+      },
+      {
+        "pageid": 50918393,
+        "ns": 0,
+        "title": "Bazel (software)"
+      },
+      {
+        "pageid": 50936887,
+        "ns": 3,
+        "title": "User talk:Dattanidhyey"
+      },
+      {
+        "pageid": 50937447,
+        "ns": 0,
+        "title": "Comparison of computer-assisted translation tools"
+      },
+      {
+        "pageid": 50941027,
+        "ns": 3,
+        "title": "User talk:Stwalkerster/Archive June 2016"
+      },
+      {
+        "pageid": 50949431,
+        "ns": 2,
+        "title": "User:Miftarifitim"
+      },
+      {
+        "pageid": 50958412,
+        "ns": 5,
+        "title": "Wikipedia talk:Harassment/Archive 8"
+      },
+      {
+        "pageid": 50974964,
+        "ns": 3,
+        "title": "User talk:Yobot/Archive 10"
+      },
+      {
+        "pageid": 50978621,
+        "ns": 0,
+        "title": "Vue.js"
+      },
+      {
+        "pageid": 50993914,
+        "ns": 2,
+        "title": "User:Andyeshegovich"
+      },
+      {
+        "pageid": 50995124,
+        "ns": 2,
+        "title": "User:Carnufex/Books/3D Design and Printing"
+      },
+      {
+        "pageid": 50999276,
+        "ns": 0,
+        "title": "TEA (text editor)"
+      },
+      {
+        "pageid": 51001404,
+        "ns": 2,
+        "title": "User:EnronEvolved"
+      },
+      {
+        "pageid": 51020841,
+        "ns": 2,
+        "title": "User:Mindi Crayon"
+      },
+      {
+        "pageid": 51026323,
+        "ns": 0,
+        "title": "Proximal operator"
+      },
+      {
+        "pageid": 51030447,
+        "ns": 2,
+        "title": "User:Slkth87/Books/Input and Output (bits and bytes)"
+      },
+      {
+        "pageid": 51082686,
+        "ns": 2,
+        "title": "User:Mjh2016"
+      },
+      {
+        "pageid": 51090810,
+        "ns": 4,
+        "title": "Wikipedia:Reference desk/Archives/Computing/2016 July 11"
+      },
+      {
+        "pageid": 51139084,
+        "ns": 0,
+        "title": "PrivacyIDEA"
+      },
+      {
+        "pageid": 51146501,
+        "ns": 2,
+        "title": "User:Funzrey/Playscii"
+      },
+      {
+        "pageid": 51151405,
+        "ns": 2,
+        "title": "User:Benjiman750/sandbox"
+      },
+      {
+        "pageid": 51159152,
+        "ns": 0,
+        "title": "Ethereum Classic"
+      },
+      {
+        "pageid": 51212438,
+        "ns": 2,
+        "title": "User:AnBuKu/DebOps"
+      },
+      {
+        "pageid": 51216920,
+        "ns": 2,
+        "title": "User:AbdealiJK/Drafts/Xgboost"
+      },
+      {
+        "pageid": 51218917,
+        "ns": 0,
+        "title": "Armin Ronacher"
+      },
+      {
+        "pageid": 51220728,
+        "ns": 0,
+        "title": "GRPC"
+      },
+      {
+        "pageid": 51224802,
+        "ns": 3,
+        "title": "User talk:-andreas/Archive 2"
+      },
+      {
+        "pageid": 51229820,
+        "ns": 0,
+        "title": "TouchDesigner"
+      },
+      {
+        "pageid": 51237252,
+        "ns": 0,
+        "title": "Apache Beam"
+      },
+      {
+        "pageid": 51238380,
+        "ns": 0,
+        "title": "Code For Life"
+      },
+      {
+        "pageid": 51242962,
+        "ns": 2,
+        "title": "User:Pola14225/Books/Locopilot Book"
+      },
+      {
+        "pageid": 51268429,
+        "ns": 3,
+        "title": "User talk:JoeMcArthur"
+      },
+      {
+        "pageid": 51283600,
+        "ns": 3,
+        "title": "User talk:Surphysnail"
+      },
+      {
+        "pageid": 51291503,
+        "ns": 2,
+        "title": "User:CedarMint/test/test02"
+      },
+      {
+        "pageid": 51306161,
+        "ns": 0,
+        "title": "PyX (vector graphics language)"
+      },
+      {
+        "pageid": 51310021,
+        "ns": 2,
+        "title": "User:Fredwordsplat"
+      },
+      {
+        "pageid": 51317819,
+        "ns": 3,
+        "title": "User talk:Valvular"
+      },
+      {
+        "pageid": 51327390,
+        "ns": 2,
+        "title": "User:Iljabek"
+      },
+      {
+        "pageid": 51328172,
+        "ns": 0,
+        "title": "Fuchsia (operating system)"
+      },
+      {
+        "pageid": 51348390,
+        "ns": 0,
+        "title": "Patchwork (software)"
+      },
+      {
+        "pageid": 51352292,
+        "ns": 3,
+        "title": "User talk:Sauravwez"
+      },
+      {
+        "pageid": 51354111,
+        "ns": 4,
+        "title": "Wikipedia:Reference desk/Archives/Computing/2016 August 12"
+      },
+      {
+        "pageid": 51354708,
+        "ns": 2,
+        "title": "User:GhostxRecon685"
+      },
+      {
+        "pageid": 51355167,
+        "ns": 2,
+        "title": "User:Williamfuzhou2000"
+      },
+      {
+        "pageid": 51357698,
+        "ns": 2,
+        "title": "User:Mohamed Belgazem/sandbox"
+      },
+      {
+        "pageid": 51364939,
+        "ns": 3,
+        "title": "User talk:Amos26"
+      },
+      {
+        "pageid": 51373422,
+        "ns": 2,
+        "title": "User:Pigrocket"
+      },
+      {
+        "pageid": 51376229,
+        "ns": 828,
+        "title": "Module:Wd"
+      },
+      {
+        "pageid": 51376329,
+        "ns": 828,
+        "title": "Module:WD",
+        "redirect": ""
+      },
+      {
+        "pageid": 51376482,
+        "ns": 10,
+        "title": "Template:Wikidata/doc"
+      },
+      {
+        "pageid": 51386422,
+        "ns": 2,
+        "title": "User:Lowercase sigmabot III/Archive HowTo"
+      },
+      {
+        "pageid": 51394849,
+        "ns": 2,
+        "title": "User:Double Plus Ungood"
+      },
+      {
+        "pageid": 51413732,
+        "ns": 2,
+        "title": "User:Pcgeek86"
+      },
+      {
+        "pageid": 51415553,
+        "ns": 4,
+        "title": "Wikipedia:WikiProject WikiFundi Content/MediaWiki"
+      },
+      {
+        "pageid": 51417387,
+        "ns": 3,
+        "title": "User talk:Eperoton/Archive 2"
+      },
+      {
+        "pageid": 51425706,
+        "ns": 2,
+        "title": "User:Dhoomil"
+      },
+      {
+        "pageid": 51448819,
+        "ns": 2,
+        "title": "User:Bereiche Nichiren Vergeichen/Books/Software Architecture Statistics"
+      },
+      {
+        "pageid": 51458133,
+        "ns": 3,
+        "title": "User talk:Vishwanathpandey895"
+      },
+      {
+        "pageid": 51493343,
+        "ns": 0,
+        "title": "Python program",
+        "redirect": ""
+      },
+      {
+        "pageid": 51493392,
+        "ns": 3,
+        "title": "User talk:Prashant valavate"
+      },
+      {
+        "pageid": 51493404,
+        "ns": 3,
+        "title": "User talk:Krishna naralkar"
+      },
+      {
+        "pageid": 51493634,
+        "ns": 3,
+        "title": "User talk:Prashantkadam"
+      },
+      {
+        "pageid": 51496379,
+        "ns": 2,
+        "title": "User:Pchheda/sandbox"
+      },
+      {
+        "pageid": 51497159,
+        "ns": 2,
+        "title": "User:GamerMan7799"
+      },
+      {
+        "pageid": 51497364,
+        "ns": 2,
+        "title": "User:DatBot"
+      },
+      {
+        "pageid": 51500247,
+        "ns": 2,
+        "title": "User:Vchitto/sandbox"
+      },
+      {
+        "pageid": 51504763,
+        "ns": 2,
+        "title": "User:Vivekbhat/sandbox"
+      },
+      {
+        "pageid": 51505979,
+        "ns": 0,
+        "title": "Master of Science in Business Analytics"
+      },
+      {
+        "pageid": 51511683,
+        "ns": 2,
+        "title": "User:VonHaarberg/sandbox"
+      },
+      {
+        "pageid": 51517832,
+        "ns": 2,
+        "title": "User:Sky Astro"
+      },
+      {
+        "pageid": 51518302,
+        "ns": 2,
+        "title": "User:Jayprakash12345"
+      },
+      {
+        "pageid": 51522948,
+        "ns": 2,
+        "title": "User:AswinAk/sandbox"
+      },
+      {
+        "pageid": 51541538,
+        "ns": 2,
+        "title": "User:Tinoe Foward/Books/Programming languages"
+      },
+      {
+        "pageid": 51542361,
+        "ns": 0,
+        "title": "Justin Cappos"
+      },
+      {
+        "pageid": 51545339,
+        "ns": 0,
+        "title": "Apache SINGA"
+      },
+      {
+        "pageid": 51554316,
+        "ns": 2,
+        "title": "User:Asingh2626/sandbox"
+      },
+      {
+        "pageid": 51574459,
+        "ns": 0,
+        "title": "Time Warp Edit Distance"
+      },
+      {
+        "pageid": 51579024,
+        "ns": 0,
+        "title": "Apache Parquet"
+      },
+      {
+        "pageid": 51596854,
+        "ns": 0,
+        "title": "LiSiCA"
+      },
+      {
+        "pageid": 51605244,
+        "ns": 2,
+        "title": "User:Philculmer"
+      },
+      {
+        "pageid": 51610946,
+        "ns": 10,
+        "title": "Template:Wikidata"
+      },
+      {
+        "pageid": 51616274,
+        "ns": 0,
+        "title": "Collective Knowledge (software)"
+      },
+      {
+        "pageid": 51619368,
+        "ns": 2,
+        "title": "User:Cskorm/sandbox"
+      },
+      {
+        "pageid": 51636986,
+        "ns": 0,
+        "title": "Algoid (programming language)"
+      },
+      {
+        "pageid": 51650259,
+        "ns": 0,
+        "title": "Keras"
+      },
+      {
+        "pageid": 51657713,
+        "ns": 0,
+        "title": "Engset formula"
+      },
+      {
+        "pageid": 51659272,
+        "ns": 1,
+        "title": "Talk:Swift (programming language)/Archive 1"
+      },
+      {
+        "pageid": 51661669,
+        "ns": 2,
+        "title": "User:Target360YT/MyUBX"
+      },
+      {
+        "pageid": 51662083,
+        "ns": 3,
+        "title": "User talk:Abdi123589"
+      },
+      {
+        "pageid": 51666423,
+        "ns": 3,
+        "title": "User talk:Bossayman123"
+      },
+      {
+        "pageid": 51686860,
+        "ns": 2,
+        "title": "User:Ayushmishra89"
+      },
+      {
+        "pageid": 51686861,
+        "ns": 2,
+        "title": "User:Ayushmishra89/sandbox"
+      },
+      {
+        "pageid": 51692376,
+        "ns": 0,
+        "title": "HFST"
+      },
+      {
+        "pageid": 51717248,
+        "ns": 2,
+        "title": "User:EWaverley"
+      },
+      {
+        "pageid": 51719573,
+        "ns": 2,
+        "title": "User:Target360YT/MyPage"
+      },
+      {
+        "pageid": 51722405,
+        "ns": 1,
+        "title": "Talk:Ethereum/Archive 2"
+      },
+      {
+        "pageid": 51732926,
+        "ns": 3,
+        "title": "User talk:Sizeofint/Archive 1"
+      },
+      {
+        "pageid": 51760313,
+        "ns": 3,
+        "title": "User talk:Indefensible/Archive/1"
+      },
+      {
+        "pageid": 51766388,
+        "ns": 3,
+        "title": "User talk:Mudasir18"
+      },
+      {
+        "pageid": 51769388,
+        "ns": 3,
+        "title": "User talk:108.179.38.243"
+      },
+      {
+        "pageid": 51773906,
+        "ns": 0,
+        "title": "TowIt"
+      },
+      {
+        "pageid": 51775142,
+        "ns": 1,
+        "title": "Talk:R (programming language)/Archive 2"
+      },
+      {
+        "pageid": 51789882,
+        "ns": 3,
+        "title": "User talk:Wetitpig0/Archive 1",
+        "redirect": ""
+      },
+      {
+        "pageid": 51797637,
+        "ns": 0,
+        "title": "Cuneiform (programming language)"
+      },
+      {
+        "pageid": 51802330,
+        "ns": 2,
+        "title": "User:Rancho007/Books/SomeTechnicalConcepts"
+      },
+      {
+        "pageid": 51804217,
+        "ns": 3,
+        "title": "User talk:Margoob Shaikh"
+      },
+      {
+        "pageid": 51808997,
+        "ns": 2,
+        "title": "User:Numberguy6"
+      },
+      {
+        "pageid": 51809313,
+        "ns": 2,
+        "title": "User:Ivanvector/LTA sandbox"
+      },
+      {
+        "pageid": 51837213,
+        "ns": 2,
+        "title": "User:Qtaa"
+      },
+      {
+        "pageid": 51849458,
+        "ns": 0,
+        "title": "Zcash"
+      },
+      {
+        "pageid": 51866888,
+        "ns": 0,
+        "title": "Flowblade"
+      },
+      {
+        "pageid": 51885254,
+        "ns": 2,
+        "title": "User:YavanaValar/Books/Zenobia Website Design"
+      },
+      {
+        "pageid": 51895829,
+        "ns": 3,
+        "title": "User talk:Ansari Akram"
+      },
+      {
+        "pageid": 51895880,
+        "ns": 2,
+        "title": "User:RobbieIanMorrison/sandbox/work in progress 5"
+      },
+      {
+        "pageid": 51897213,
+        "ns": 0,
+        "title": ".pyd",
+        "redirect": ""
+      },
+      {
+        "pageid": 51897229,
+        "ns": 2,
+        "title": "User:Milotheshort"
+      },
+      {
+        "pageid": 51924657,
+        "ns": 0,
+        "title": "Prince (cipher)"
+      },
+      {
+        "pageid": 51925856,
+        "ns": 2,
+        "title": "User:NinuKinuski"
+      },
+      {
+        "pageid": 51974752,
+        "ns": 3,
+        "title": "User talk:31.52.28.151"
+      },
+      {
+        "pageid": 51981912,
+        "ns": 2,
+        "title": "User:AlexEng"
+      },
+      {
+        "pageid": 51984952,
+        "ns": 2,
+        "title": "User:Sdougy/Books/Computer Programming"
+      },
+      {
+        "pageid": 51994816,
+        "ns": 3,
+        "title": "User talk:Pardhi"
+      },
+      {
+        "pageid": 51996849,
+        "ns": 2,
+        "title": "User:Zarzuelazen/Books/Reality Theory: Programming"
+      },
+      {
+        "pageid": 51999334,
+        "ns": 2,
+        "title": "User:RunasSudo"
+      },
+      {
+        "pageid": 52006658,
+        "ns": 2,
+        "title": "User:BandW2011/Books/List of Wikipedia Pages That BandW2011 Likes to Read"
+      },
+      {
+        "pageid": 52010433,
+        "ns": 2,
+        "title": "User:G.C.E. Galotta"
+      },
+      {
+        "pageid": 52026384,
+        "ns": 2,
+        "title": "User:Nog642"
+      },
+      {
+        "pageid": 52032585,
+        "ns": 0,
+        "title": "CodinGame"
+      },
+      {
+        "pageid": 52044257,
+        "ns": 3,
+        "title": "User talk:Maratha786"
+      },
+      {
+        "pageid": 52102738,
+        "ns": 2,
+        "title": "User:Hàlian"
+      },
+      {
+        "pageid": 52109120,
+        "ns": 5,
+        "title": "Wikipedia talk:WikiProject Computer science/Archive 11"
+      },
+      {
+        "pageid": 52124121,
+        "ns": 2,
+        "title": "User:Dxrsam"
+      },
+      {
+        "pageid": 52132305,
+        "ns": 2,
+        "title": "User:Corentin.moiny/sandbox/Eff"
+      },
+      {
+        "pageid": 52142285,
+        "ns": 2,
+        "title": "User:WikiMaster111"
+      },
+      {
+        "pageid": 52153170,
+        "ns": 2,
+        "title": "User:Wise.master"
+      },
+      {
+        "pageid": 52156102,
+        "ns": 2,
+        "title": "User:RavingRavenpaw"
+      },
+      {
+        "pageid": 52176543,
+        "ns": 2,
+        "title": "User:Psneog/sandbox"
+      },
+      {
+        "pageid": 52179288,
+        "ns": 4,
+        "title": "Wikipedia:WikiProject Spam/LinkReports/mindmajix.com"
+      },
+      {
+        "pageid": 52183352,
+        "ns": 2,
+        "title": "User:Tpmusielak"
+      },
+      {
+        "pageid": 52197659,
+        "ns": 0,
+        "title": "Permutational analysis of variance"
+      },
+      {
+        "pageid": 52218453,
+        "ns": 0,
+        "title": "Gradient-enhanced kriging"
+      },
+      {
+        "pageid": 52222071,
+        "ns": 0,
+        "title": "Haggis (programming language)"
+      },
+      {
+        "pageid": 52226949,
+        "ns": 0,
+        "title": "Firo (cryptocurrency)"
+      },
+      {
+        "pageid": 52234718,
+        "ns": 2,
+        "title": "User:Yejianfei/Userboxes"
+      },
+      {
+        "pageid": 52237243,
+        "ns": 0,
+        "title": "Andela"
+      },
+      {
+        "pageid": 52238537,
+        "ns": 2,
+        "title": "User:はるかっか"
+      },
+      {
+        "pageid": 52244550,
+        "ns": 0,
+        "title": "ClickHouse"
+      },
+      {
+        "pageid": 52245421,
+        "ns": 3,
+        "title": "User talk:Jamesring1178"
+      },
+      {
+        "pageid": 52247991,
+        "ns": 2,
+        "title": "User:ScotXW/GNOME braindamage"
+      },
+      {
+        "pageid": 52250745,
+        "ns": 0,
+        "title": "GlTF"
+      },
+      {
+        "pageid": 52265000,
+        "ns": 2,
+        "title": "User:DennisDallas/Sandbox/Boxee"
+      },
+      {
+        "pageid": 52282388,
+        "ns": 2,
+        "title": "User:Sinister Monster"
+      },
+      {
+        "pageid": 52298453,
+        "ns": 1,
+        "title": "Talk:21st-century classical music/Archive 1"
+      },
+      {
+        "pageid": 52299051,
+        "ns": 0,
+        "title": "Mathics"
+      },
+      {
+        "pageid": 52302171,
+        "ns": 4,
+        "title": "Wikipedia:Teahouse/Questions/Archive 543"
+      },
+      {
+        "pageid": 52316708,
+        "ns": 3,
+        "title": "User talk:YULdigitalpreservation"
+      },
+      {
+        "pageid": 52318966,
+        "ns": 2,
+        "title": "User:Slkth87/Books/Computer Science"
+      },
+      {
+        "pageid": 52327577,
+        "ns": 2,
+        "title": "User:Shivam828/Books/Computer in overal 1"
+      },
+      {
+        "pageid": 52327913,
+        "ns": 4,
+        "title": "Wikipedia:Reference desk/Archives/Computing/2016 November 14"
+      },
+      {
+        "pageid": 52337325,
+        "ns": 3,
+        "title": "User talk:Acerjp0514"
+      },
+      {
+        "pageid": 52362459,
+        "ns": 0,
+        "title": "Notebook interface"
+      },
+      {
+        "pageid": 52378923,
+        "ns": 4,
+        "title": "Wikipedia:Articles for deletion/Learning Python"
+      },
+      {
+        "pageid": 52379104,
+        "ns": 2,
+        "title": "User:Gennadiyev"
+      },
+      {
+        "pageid": 52383831,
+        "ns": 0,
+        "title": "Qutebrowser"
+      },
+      {
+        "pageid": 52403977,
+        "ns": 2,
+        "title": "User:Mike Tsunami"
+      },
+      {
+        "pageid": 52429190,
+        "ns": 3,
+        "title": "User talk:Neelakshee"
+      },
+      {
+        "pageid": 52446056,
+        "ns": 2,
+        "title": "User:Terrariola"
+      },
+      {
+        "pageid": 52463850,
+        "ns": 2,
+        "title": "User:Joanaz"
+      },
+      {
+        "pageid": 52486693,
+        "ns": 4,
+        "title": "Wikipedia:Articles for deletion/Log/2016 December 10"
+      },
+      {
+        "pageid": 52486713,
+        "ns": 3,
+        "title": "User talk:Jamawesomeness"
+      },
+      {
+        "pageid": 52491281,
+        "ns": 2,
+        "title": "User:Chiefmanzzz/sandbox2"
+      },
+      {
+        "pageid": 52508950,
+        "ns": 2,
+        "title": "User:Canine828"
+      },
+      {
+        "pageid": 52513310,
+        "ns": 0,
+        "title": "Apache MXNet"
+      },
+      {
+        "pageid": 52529493,
+        "ns": 0,
+        "title": "OpenProcurement"
+      },
+      {
+        "pageid": 52541224,
+        "ns": 2,
+        "title": "User:Petergstrom"
+      },
+      {
+        "pageid": 52564229,
+        "ns": 2,
+        "title": "User:Pingpongball722"
+      },
+      {
+        "pageid": 52569178,
+        "ns": 0,
+        "title": "AMD Instinct"
+      },
+      {
+        "pageid": 52576722,
+        "ns": 0,
+        "title": "LibreELEC"
+      },
+      {
+        "pageid": 52579317,
+        "ns": 0,
+        "title": "EarSketch"
+      },
+      {
+        "pageid": 52597218,
+        "ns": 0,
+        "title": "Sider (Automated Code Review)"
+      },
+      {
+        "pageid": 52600744,
+        "ns": 3,
+        "title": "User talk:Tejaswiniul"
+      },
+      {
+        "pageid": 52605737,
+        "ns": 0,
+        "title": "TOML"
+      },
+      {
+        "pageid": 52629759,
+        "ns": 2,
+        "title": "User:Robert Towers/sandbox 1"
+      },
+      {
+        "pageid": 52630840,
+        "ns": 0,
+        "title": "SpaCy"
+      },
+      {
+        "pageid": 52631703,
+        "ns": 4,
+        "title": "Wikipedia:Village pump (technical)/Archive 152"
+      },
+      {
+        "pageid": 52632028,
+        "ns": 2,
+        "title": "User:Robert Towers/sandbox 2"
+      },
+      {
+        "pageid": 52636932,
+        "ns": 2,
+        "title": "User:Tardis4500/sandbox"
+      },
+      {
+        "pageid": 52639942,
+        "ns": 2,
+        "title": "User:PiGuy3"
+      },
+      {
+        "pageid": 52660479,
+        "ns": 0,
+        "title": "Open energy system databases"
+      },
+      {
+        "pageid": 52669021,
+        "ns": 2,
+        "title": "User:Mdbrown1427/Books/Open Source Software 2017 Overview"
+      },
+      {
+        "pageid": 52684573,
+        "ns": 0,
+        "title": "OMNeT++"
+      },
+      {
+        "pageid": 52690041,
+        "ns": 3,
+        "title": "User talk:Kazinaved18"
+      },
+      {
+        "pageid": 52698024,
+        "ns": 2,
+        "title": "User:Paulopath/Books/Programming"
+      },
+      {
+        "pageid": 52716334,
+        "ns": 2,
+        "title": "User:Eddard 20"
+      },
+      {
+        "pageid": 52737878,
+        "ns": 0,
+        "title": "Cura (software)"
+      },
+      {
+        "pageid": 52738215,
+        "ns": 2,
+        "title": "User:West.andrew.g/2016 Popular pages"
+      },
+      {
+        "pageid": 52746512,
+        "ns": 2,
+        "title": "User:Nerd1a4i"
+      },
+      {
+        "pageid": 52752826,
+        "ns": 2,
+        "title": "User:Citruspenguin"
+      },
+      {
+        "pageid": 52756947,
+        "ns": 0,
+        "title": "PSeInt"
+      },
+      {
+        "pageid": 52759748,
+        "ns": 0,
+        "title": "Stochastic dynamic programming"
+      },
+      {
+        "pageid": 52771957,
+        "ns": 3,
+        "title": "User talk:115.110.118.134"
+      },
+      {
+        "pageid": 52774721,
+        "ns": 2,
+        "title": "User:RedLionSit"
+      },
+      {
+        "pageid": 52778395,
+        "ns": 2,
+        "title": "User:Thyag.js/Books/Python - Wikipedia"
+      },
+      {
+        "pageid": 52796478,
+        "ns": 0,
+        "title": "Sage Manifolds"
+      },
+      {
+        "pageid": 52804358,
+        "ns": 4,
+        "title": "Wikipedia:Help desk/Archives/2017 January 4"
+      },
+      {
+        "pageid": 52807523,
+        "ns": 0,
+        "title": "Re2c"
+      },
+      {
+        "pageid": 52809488,
+        "ns": 0,
+        "title": "FreeCodeCamp"
+      },
+      {
+        "pageid": 52856337,
+        "ns": 2,
+        "title": "User:Phit s/sandbox"
+      },
+      {
+        "pageid": 52856854,
+        "ns": 2,
+        "title": "User:Mdbrown1427/Books/Open Source Software 2017 Overview Vol 1 of 2"
+      },
+      {
+        "pageid": 52856866,
+        "ns": 2,
+        "title": "User:Mdbrown1427/Books/Open Source Software 2017 Overview Vol 2 of 2"
+      },
+      {
+        "pageid": 52856871,
+        "ns": 2,
+        "title": "User:Mdbrown1427/Books/Open Source Software 2017 Overview Vol 2"
+      },
+      {
+        "pageid": 52887435,
+        "ns": 2,
+        "title": "User:Shuddle13/Books/Computer Programming"
+      },
+      {
+        "pageid": 52895492,
+        "ns": 3,
+        "title": "User talk:Gartamar27"
+      },
+      {
+        "pageid": 52896313,
+        "ns": 2,
+        "title": "User:Apandey6/sandbox"
+      },
+      {
+        "pageid": 52896810,
+        "ns": 2,
+        "title": "User:Mohammedhhassan/sandbox"
+      },
+      {
+        "pageid": 52898276,
+        "ns": 2,
+        "title": "User:FinnishOverlord"
+      },
+      {
+        "pageid": 52900185,
+        "ns": 2,
+        "title": "User:DifferentialGeometry"
+      },
+      {
+        "pageid": 52908108,
+        "ns": 2,
+        "title": "User:CodeTriangle"
+      },
+      {
+        "pageid": 52909743,
+        "ns": 2,
+        "title": "User:Sgt gh"
+      },
+      {
+        "pageid": 52929648,
+        "ns": 3,
+        "title": "User talk:Memelordjosh"
+      },
+      {
+        "pageid": 53006124,
+        "ns": 2,
+        "title": "User:Jepster4515/sandbox"
+      },
+      {
+        "pageid": 53006168,
+        "ns": 2,
+        "title": "User:Kkorb/sandbox"
+      },
+      {
+        "pageid": 53009299,
+        "ns": 0,
+        "title": "Wiki.js"
+      },
+      {
+        "pageid": 53020422,
+        "ns": 0,
+        "title": "JCMsuite"
+      },
+      {
+        "pageid": 53032714,
+        "ns": 2,
+        "title": "User:Egaudrain"
+      },
+      {
+        "pageid": 53035030,
+        "ns": 2,
+        "title": "User:West.andrew.g/2013-2016 Popular pages"
+      },
+      {
+        "pageid": 53038559,
+        "ns": 0,
+        "title": "CircleCI"
+      },
+      {
+        "pageid": 53046543,
+        "ns": 2,
+        "title": "User:Erkinalp9035"
+      },
+      {
+        "pageid": 53064436,
+        "ns": 2,
+        "title": "User:JJMC89 bot II"
+      },
+      {
+        "pageid": 53073307,
+        "ns": 2,
+        "title": "User:DashWood"
+      },
+      {
+        "pageid": 53082368,
+        "ns": 2,
+        "title": "User:Hervegirod/sandbox"
+      },
+      {
+        "pageid": 53084576,
+        "ns": 2,
+        "title": "User:OdieDogPinkiePie"
+      },
+      {
+        "pageid": 53088297,
+        "ns": 2,
+        "title": "User:Mkai91/sandbox/Deep Learning Studio"
+      },
+      {
+        "pageid": 53108315,
+        "ns": 3,
+        "title": "User talk:Seanchen"
+      },
+      {
+        "pageid": 53108790,
+        "ns": 2,
+        "title": "User:Wicked Amazing 786"
+      },
+      {
+        "pageid": 53134973,
+        "ns": 0,
+        "title": "WebGPU"
+      },
+      {
+        "pageid": 53135201,
+        "ns": 0,
+        "title": "Open edX"
+      },
+      {
+        "pageid": 53140092,
+        "ns": 2,
+        "title": "User:TheSandDoctor"
+      },
+      {
+        "pageid": 53163248,
+        "ns": 0,
+        "title": "P (programming language)"
+      },
+      {
+        "pageid": 53176840,
+        "ns": 2,
+        "title": "User:The Impossible Girl"
+      },
+      {
+        "pageid": 53191560,
+        "ns": 2,
+        "title": "User:Kbalaji1993/sandbox"
+      },
+      {
+        "pageid": 53194499,
+        "ns": 0,
+        "title": "Chainer"
+      },
+      {
+        "pageid": 53198252,
+        "ns": 2,
+        "title": "User:Mca12/Books/MC Encyclopedia CS"
+      },
+      {
+        "pageid": 53208715,
+        "ns": 2,
+        "title": "User:JSHuisman"
+      },
+      {
+        "pageid": 53220151,
+        "ns": 0,
+        "title": "GNOME SoundConverter"
+      },
+      {
+        "pageid": 53225002,
+        "ns": 2,
+        "title": "User:Sallymwalr/Books/Science Research"
+      },
+      {
+        "pageid": 53226481,
+        "ns": 3,
+        "title": "User talk:SuggestBot/Archive 5"
+      },
+      {
+        "pageid": 53242993,
+        "ns": 0,
+        "title": "PyMC"
+      },
+      {
+        "pageid": 53285617,
+        "ns": 3,
+        "title": "User talk:Archergirl28"
+      },
+      {
+        "pageid": 53297174,
+        "ns": 2,
+        "title": "User:Leo Skywalker"
+      },
+      {
+        "pageid": 53337345,
+        "ns": 2,
+        "title": "User:Livecoder"
+      },
+      {
+        "pageid": 53342573,
+        "ns": 3,
+        "title": "User talk:Jsamwrites"
+      },
+      {
+        "pageid": 53343992,
+        "ns": 0,
+        "title": "IPOP"
+      },
+      {
+        "pageid": 53346369,
+        "ns": 2,
+        "title": "User:Lena08041993"
+      },
+      {
+        "pageid": 53347151,
+        "ns": 2,
+        "title": "User:AManNamedEdwan"
+      },
+      {
+        "pageid": 53364218,
+        "ns": 2,
+        "title": "User:RonBot"
+      },
+      {
+        "pageid": 53382035,
+        "ns": 2,
+        "title": "User:Tymewalk"
+      },
+      {
+        "pageid": 53384944,
+        "ns": 10,
+        "title": "Template:WikidataOI"
+      },
+      {
+        "pageid": 53384976,
+        "ns": 10,
+        "title": "Template:WikidataOI/doc"
+      },
+      {
+        "pageid": 53385622,
+        "ns": 0,
+        "title": "Angular (web framework)"
+      },
+      {
+        "pageid": 53413655,
+        "ns": 2,
+        "title": "User:Thunder Storm"
+      },
+      {
+        "pageid": 53417049,
+        "ns": 1,
+        "title": "Talk:Python (programming language)/Archive 9"
+      },
+      {
+        "pageid": 53429284,
+        "ns": 2,
+        "title": "User:Ben78404/Userboxes"
+      },
+      {
+        "pageid": 53435575,
+        "ns": 2,
+        "title": "User:Sheldor 2000"
+      },
+      {
+        "pageid": 53438750,
+        "ns": 2,
+        "title": "User:Luke Kern Choi 5"
+      },
+      {
+        "pageid": 53445329,
+        "ns": 2,
+        "title": "User:Usikyle/sandbox"
+      },
+      {
+        "pageid": 53468615,
+        "ns": 0,
+        "title": "General regression neural network"
+      },
+      {
+        "pageid": 53472629,
+        "ns": 0,
+        "title": "R Tools for Visual Studio"
+      },
+      {
+        "pageid": 53479461,
+        "ns": 0,
+        "title": "Australian Geoscience Data Cube"
+      },
+      {
+        "pageid": 53506088,
+        "ns": 2,
+        "title": "User:NinuKinuski/infobox"
+      },
+      {
+        "pageid": 53513403,
+        "ns": 4,
+        "title": "Wikipedia:WikiProject Software/Free and open-source software task force/Popular pages"
+      },
+      {
+        "pageid": 53534781,
+        "ns": 2,
+        "title": "User:Samb96/sandbox"
+      },
+      {
+        "pageid": 53573516,
+        "ns": 0,
+        "title": "FEATool Multiphysics"
+      },
+      {
+        "pageid": 53574246,
+        "ns": 0,
+        "title": "Fast Artificial Neural Network"
+      },
+      {
+        "pageid": 53595206,
+        "ns": 3,
+        "title": "User talk:Evan03Davis"
+      },
+      {
+        "pageid": 53596516,
+        "ns": 0,
+        "title": "The Computer Language Benchmarks Game"
+      },
+      {
+        "pageid": 53619626,
+        "ns": 2,
+        "title": "User:LordSavage1997"
+      },
+      {
+        "pageid": 53624126,
+        "ns": 3,
+        "title": "User talk:85.255.237.147"
+      },
+      {
+        "pageid": 53625656,
+        "ns": 0,
+        "title": "SHACL"
+      },
+      {
+        "pageid": 53631046,
+        "ns": 0,
+        "title": "Caffe (software)"
+      },
+      {
+        "pageid": 53635826,
+        "ns": 2,
+        "title": "User:Nathanberryhill"
+      },
+      {
+        "pageid": 53663408,
+        "ns": 0,
+        "title": "Search engine scraping"
+      },
+      {
+        "pageid": 53688776,
+        "ns": 2,
+        "title": "User:ZiurkiuValdovas/Books/Progrmming stuff"
+      },
+      {
+        "pageid": 53702505,
+        "ns": 2,
+        "title": "User:Minima2014"
+      },
+      {
+        "pageid": 53706396,
+        "ns": 0,
+        "title": "AppJar"
+      },
+      {
+        "pageid": 53713224,
+        "ns": 0,
+        "title": "Computational thermodynamics"
+      },
+      {
+        "pageid": 53728030,
+        "ns": 2,
+        "title": "User:Keeferrourke"
+      },
+      {
+        "pageid": 53760173,
+        "ns": 2,
+        "title": "User:Jamaso"
+      },
+      {
+        "pageid": 53782786,
+        "ns": 2,
+        "title": "User:Rhinos17/userboxes"
+      },
+      {
+        "pageid": 53799108,
+        "ns": 3,
+        "title": "User talk:Aneas001"
+      },
+      {
+        "pageid": 53816478,
+        "ns": 2,
+        "title": "User:Jessica729"
+      },
+      {
+        "pageid": 53849570,
+        "ns": 0,
+        "title": "List of applications using Lua"
+      },
+      {
+        "pageid": 53852331,
+        "ns": 2,
+        "title": "User:JackMacWindows"
+      },
+      {
+        "pageid": 53852346,
+        "ns": 3,
+        "title": "User talk:JackMacWindows"
+      },
+      {
+        "pageid": 53857504,
+        "ns": 2,
+        "title": "User:RobbieIanMorrison/sandbox/work in progress 11"
+      },
+      {
+        "pageid": 53859396,
+        "ns": 2,
+        "title": "User:Renamed user teb47ka92h"
+      },
+      {
+        "pageid": 53863520,
+        "ns": 2,
+        "title": "User:Shine Nelson/In many languages"
+      },
+      {
+        "pageid": 53865181,
+        "ns": 0,
+        "title": "Cloud-based quantum computing"
+      },
+      {
+        "pageid": 53871142,
+        "ns": 2,
+        "title": "User:Kavehrs"
+      },
+      {
+        "pageid": 53873481,
+        "ns": 2,
+        "title": "User:Davidnedved"
+      },
+      {
+        "pageid": 53887225,
+        "ns": 1,
+        "title": "Talk:Muon g-2"
+      },
+      {
+        "pageid": 53894373,
+        "ns": 2,
+        "title": "User:Moesafadieh"
+      },
+      {
+        "pageid": 53895456,
+        "ns": 0,
+        "title": "Cell-based models"
+      },
+      {
+        "pageid": 53896591,
+        "ns": 2,
+        "title": "User:Thatguycalumb"
+      },
+      {
+        "pageid": 53902604,
+        "ns": 2,
+        "title": "User:Daybeers"
+      },
+      {
+        "pageid": 53912784,
+        "ns": 4,
+        "title": "Wikipedia:WikiProject Spam/LinkReports/tekslate.com"
+      },
+      {
+        "pageid": 53934620,
+        "ns": 1,
+        "title": "Talk:Lead/Archive 3"
+      },
+      {
+        "pageid": 53948607,
+        "ns": 3,
+        "title": "User talk:BamLifa"
+      },
+      {
+        "pageid": 53951160,
+        "ns": 3,
+        "title": "User talk:Gmuthu753"
+      },
+      {
+        "pageid": 53978232,
+        "ns": 2,
+        "title": "User:Ganbou/Userboxes"
+      },
+      {
+        "pageid": 53989100,
+        "ns": 3,
+        "title": "User talk:163.232.200.97"
+      },
+      {
+        "pageid": 53990333,
+        "ns": 0,
+        "title": "MB-Lab"
+      },
+      {
+        "pageid": 54007133,
+        "ns": 2,
+        "title": "User:Abdullahazri87/Books/ComputingProgramming"
+      },
+      {
+        "pageid": 54016646,
+        "ns": 0,
+        "title": "Makeblock"
+      },
+      {
+        "pageid": 54022970,
+        "ns": 0,
+        "title": "PyTorch"
+      },
+      {
+        "pageid": 54046940,
+        "ns": 2,
+        "title": "User:Jet86au/sandbox"
+      },
+      {
+        "pageid": 54047811,
+        "ns": 13,
+        "title": "Help talk:CS1 errors/Archive 3"
+      },
+      {
+        "pageid": 54050025,
+        "ns": 3,
+        "title": "User talk:62.255.128.67"
+      },
+      {
+        "pageid": 54056086,
+        "ns": 2,
+        "title": "User:Scala Cats"
+      },
+      {
+        "pageid": 54061339,
+        "ns": 3,
+        "title": "User talk:LucyCrompton-Reid (WMUK)"
+      },
+      {
+        "pageid": 54073289,
+        "ns": 2,
+        "title": "User:Sonata Green"
+      },
+      {
+        "pageid": 54091785,
+        "ns": 2,
+        "title": "User:LittleArticles"
+      },
+      {
+        "pageid": 54104483,
+        "ns": 2,
+        "title": "User:Antondimak"
+      },
+      {
+        "pageid": 54105318,
+        "ns": 2,
+        "title": "User:Magic links bot"
+      },
+      {
+        "pageid": 54112635,
+        "ns": 4,
+        "title": "Wikipedia:Reference desk/Archives/Computing/2017 May 17"
+      },
+      {
+        "pageid": 54134975,
+        "ns": 0,
+        "title": "David M. Beazley"
+      },
+      {
+        "pageid": 54175007,
+        "ns": 2,
+        "title": "User:Solness"
+      },
+      {
+        "pageid": 54194480,
+        "ns": 2,
+        "title": "User:Jpaxonreyes/Books/Things to Learn"
+      },
+      {
+        "pageid": 54208201,
+        "ns": 0,
+        "title": "Read the Docs"
+      },
+      {
+        "pageid": 54209951,
+        "ns": 14,
+        "title": "Category:Python (programming language) people"
+      },
+      {
+        "pageid": 54225961,
+        "ns": 3,
+        "title": "User talk:Cubeidle3"
+      },
+      {
+        "pageid": 54253065,
+        "ns": 0,
+        "title": "NOC (software)"
+      },
+      {
+        "pageid": 54253294,
+        "ns": 0,
+        "title": "Warren Hoburg"
+      },
+      {
+        "pageid": 54258819,
+        "ns": 2,
+        "title": "User:Cryptofu/Books/Important Math and Programming Topics, Volume One"
+      },
+      {
+        "pageid": 54262404,
+        "ns": 0,
+        "title": "Printer tracking dots"
+      },
+      {
+        "pageid": 54267845,
+        "ns": 0,
+        "title": "TurtleBot"
+      },
+      {
+        "pageid": 54285336,
+        "ns": 1,
+        "title": "Talk:SQL/Archive 3"
+      },
+      {
+        "pageid": 54292230,
+        "ns": 2,
+        "title": "User:KrmezljavKuza"
+      },
+      {
+        "pageid": 54294221,
+        "ns": 2,
+        "title": "User:Warnerjon12"
+      }
+    ]
+  }
+}

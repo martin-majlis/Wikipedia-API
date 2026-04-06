@@ -1,0 +1,52 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "geosearch": [
+      {
+        "pageid": 81928659,
+        "ns": 0,
+        "title": "1973 UCI Cyclo-cross World Championships",
+        "lat": 51.507222222222225,
+        "lon": -0.1275,
+        "dist": 0,
+        "primary": ""
+      },
+      {
+        "pageid": 33109245,
+        "ns": 0,
+        "title": "Equestrian statue of Charles I, Charing Cross",
+        "lat": 51.50734,
+        "lon": -0.12768,
+        "dist": 18.1,
+        "primary": ""
+      },
+      {
+        "pageid": 20915928,
+        "ns": 0,
+        "title": "Farmers Club",
+        "lat": 51.507083333333334,
+        "lon": -0.12719444444444444,
+        "dist": 26.2,
+        "primary": ""
+      },
+      {
+        "pageid": 4347521,
+        "ns": 0,
+        "title": "Greater London Built-up Area",
+        "lat": 51.5075,
+        "lon": -0.1275,
+        "dist": 30.9,
+        "primary": ""
+      },
+      {
+        "pageid": 424305,
+        "ns": 0,
+        "title": "Central London",
+        "lat": 51.5075,
+        "lon": -0.1275,
+        "dist": 30.9,
+        "primary": ""
+      }
+    ]
+  }
+}

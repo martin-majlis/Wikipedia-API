@@ -1,0 +1,35 @@
+{
+  "continue": {
+    "imcontinue": "23862|Python-logo-notext.svg",
+    "continue": "||"
+  },
+  "query": {
+    "normalized": [
+      {
+        "from": "Python_(programming_language)",
+        "to": "Python (programming language)"
+      }
+    ],
+    "pages": {
+      "23862": {
+        "pageid": 23862,
+        "ns": 0,
+        "title": "Python (programming language)",
+        "images": [
+          {
+            "ns": 6,
+            "title": "File:Guido van Rossum in PyConUS24.jpg"
+          },
+          {
+            "ns": 6,
+            "title": "File:OOjs UI icon edit-ltr-progressive.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Octicons-terminal.svg"
+          }
+        ]
+      }
+    }
+  }
+}

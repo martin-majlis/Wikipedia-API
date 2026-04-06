@@ -1,0 +1,26 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "rncontinue": "0.086904318631|0.086904456045|47331650|0",
+    "continue": "-||"
+  },
+  "query": {
+    "random": [
+      {
+        "id": 20033396,
+        "ns": 0,
+        "title": "Centrifugal Bumble-Puppy"
+      },
+      {
+        "id": 82817878,
+        "ns": 0,
+        "title": "Occitan-language"
+      },
+      {
+        "id": 1120315,
+        "ns": 0,
+        "title": "Antony Beck"
+      }
+    ]
+  }
+}

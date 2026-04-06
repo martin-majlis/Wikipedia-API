@@ -1,0 +1,35 @@
+{
+  "continue": {
+    "imcontinue": "23862|Symbol_list_class.svg",
+    "continue": "||"
+  },
+  "query": {
+    "normalized": [
+      {
+        "from": "Python_(programming_language)",
+        "to": "Python (programming language)"
+      }
+    ],
+    "pages": {
+      "23862": {
+        "pageid": 23862,
+        "ns": 0,
+        "title": "Python (programming language)",
+        "images": [
+          {
+            "ns": 6,
+            "title": "File:Python-logo-notext.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Python 3.13 Standrd Type Hierarchy-en.svg"
+          },
+          {
+            "ns": 6,
+            "title": "File:Symbol category class.svg"
+          }
+        ]
+      }
+    }
+  }
+}

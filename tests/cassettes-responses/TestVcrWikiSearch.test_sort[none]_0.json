@@ -1,0 +1,104 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "sroffset": 10,
+    "continue": "-||"
+  },
+  "query": {
+    "searchinfo": {
+      "totalhits": 6045
+    },
+    "search": [
+      {
+        "ns": 0,
+        "title": "Open reading frame",
+        "pageid": 1174560,
+        "size": 17791,
+        "wordcount": 1997,
+        "snippet": "sequencing technologies for justification of ORFs. orfipy is a tool written in <span class=\"searchmatch\">Python</span> / Cython to extract ORFs in an extremely and fast and flexible manner. orfipy",
+        "timestamp": "2025-12-14T09:37:46Z"
+      },
+      {
+        "ns": 0,
+        "title": "Datalog",
+        "pageid": 968357,
+        "size": 60099,
+        "wordcount": 4904,
+        "snippet": "Datalog, answer set <span class=\"searchmatch\">programming</span>, DatalogZ, and constraint logic <span class=\"searchmatch\">programming</span>. When evaluated as an answer set <span class=\"searchmatch\">program</span>, a Datalog <span class=\"searchmatch\">program</span> yields a single answer",
+        "timestamp": "2026-01-26T04:46:05Z"
+      },
+      {
+        "ns": 0,
+        "title": "Operator-precedence parser",
+        "pageid": 1301946,
+        "size": 16557,
+        "wordcount": 1852,
+        "snippet": "Parsing Technique&quot; (2024) by William Rågstad Tutorial using <span class=\"searchmatch\">Python</span>: &quot;Simple Top-Down Parsing in <span class=\"searchmatch\">Python</span>&quot; (2008) by Fredrik Lundh Archived 2015-02-28 at the Wayback",
+        "timestamp": "2025-11-14T00:24:42Z"
+      },
+      {
+        "ns": 0,
+        "title": "Windows Management Instrumentation",
+        "pageid": 439355,
+        "size": 21165,
+        "wordcount": 2294,
+        "snippet": "not installed by default. A Linux port of WMIC, wmi-client, is written in <span class=\"searchmatch\">Python</span> and is based on Samba4. WBEMDump.exe: This command-line tool is a component",
+        "timestamp": "2025-12-03T14:10:13Z"
+      },
+      {
+        "ns": 0,
+        "title": "Cast recording",
+        "pageid": 743480,
+        "size": 34633,
+        "wordcount": 4832,
+        "snippet": "Decca Broadway has also recorded recent hits including: Wicked, Monty <span class=\"searchmatch\">Python&#039;s</span> Spamalot, Seussical, and Spring Awakening. It has not, however, released",
+        "timestamp": "2026-03-04T02:40:24Z"
+      },
+      {
+        "ns": 0,
+        "title": "Transactional memory",
+        "pageid": 4006429,
+        "size": 23073,
+        "wordcount": 2481,
+        "snippet": "and engineering, transactional memory attempts to simplify concurrent <span class=\"searchmatch\">programming</span> by allowing a group of load and store instructions to execute in an atomic",
+        "timestamp": "2025-11-16T23:35:54Z"
+      },
+      {
+        "ns": 0,
+        "title": "Windows Subsystem for Linux",
+        "pageid": 49998667,
+        "size": 38435,
+        "wordcount": 3520,
+        "snippet": "with native GNU command-line tools (sed, awk, etc.), <span class=\"searchmatch\">programming</span>-language interpreters (Ruby, <span class=\"searchmatch\">Python</span>, etc.), and even graphical applications (using an X11",
+        "timestamp": "2026-03-04T17:14:28Z"
+      },
+      {
+        "ns": 0,
+        "title": "Richard Shine",
+        "pageid": 31097370,
+        "size": 20163,
+        "wordcount": 2350,
+        "snippet": "and Emydocephalus annulatus in the Pacific islands, and reticulated <span class=\"searchmatch\">pythons</span> <span class=\"searchmatch\">Python</span> reticulatus in Indonesia. He also dissected thousands of preserved snakes",
+        "timestamp": "2026-02-11T02:10:03Z"
+      },
+      {
+        "ns": 0,
+        "title": "Pyglet",
+        "pageid": 39680910,
+        "size": 4010,
+        "wordcount": 395,
+        "snippet": "Pyglet is a library for the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language that provides an object-oriented application <span class=\"searchmatch\">programming</span> interface for the creation of games and",
+        "timestamp": "2024-07-09T14:18:14Z"
+      },
+      {
+        "ns": 0,
+        "title": "Cue sheet (computing)",
+        "pageid": 2340211,
+        "size": 13746,
+        "wordcount": 1761,
+        "snippet": "(EAC) – a proprietary CD ripping <span class=\"searchmatch\">program</span> MusicBrainz Picard – a cross-platform MusicBrainz tag editor written in <span class=\"searchmatch\">Python</span> XSPF – an XML-based playlist format",
+        "timestamp": "2026-03-17T22:08:37Z"
+      }
+    ]
+  }
+}

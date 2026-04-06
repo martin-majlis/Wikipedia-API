@@ -1,0 +1,30 @@
+{
+  "continue": {
+    "iistart": "2008-06-06T22:27:45Z",
+    "continue": "||"
+  },
+  "query": {
+    "normalized": [
+      {
+        "from": "File:Albert_Einstein_Head.jpg",
+        "to": "File:Albert Einstein Head.jpg"
+      }
+    ],
+    "pages": {
+      "-1": {
+        "ns": 6,
+        "title": "File:Albert Einstein Head.jpg",
+        "missing": "",
+        "known": "",
+        "imagerepository": "shared",
+        "imageinfo": [
+          {
+            "size": 2309396,
+            "width": 3250,
+            "height": 4333
+          }
+        ]
+      }
+    }
+  }
+}

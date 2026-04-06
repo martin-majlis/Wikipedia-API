@@ -1,0 +1,26 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "rncontinue": "0.267311667298|0.267312253128|62396516|0",
+    "continue": "-||"
+  },
+  "query": {
+    "random": [
+      {
+        "id": 35573288,
+        "ns": 0,
+        "title": "Gabriel-Ernest"
+      },
+      {
+        "id": 66690427,
+        "ns": 0,
+        "title": "Kelleci, Babadağ"
+      },
+      {
+        "id": 18681773,
+        "ns": 0,
+        "title": "1979 NCAA Men's Basketball All-Americans"
+      }
+    ]
+  }
+}

@@ -1,0 +1,2513 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "blcontinue": "2|1176948",
+    "continue": "-||"
+  },
+  "query": {
+    "backlinks": [
+      {
+        "pageid": 309389,
+        "ns": 3,
+        "title": "User talk:Spinster"
+      },
+      {
+        "pageid": 310015,
+        "ns": 0,
+        "title": "Parsing"
+      },
+      {
+        "pageid": 311632,
+        "ns": 0,
+        "title": "Video game programmer"
+      },
+      {
+        "pageid": 312089,
+        "ns": 2,
+        "title": "User:Dbabbitt"
+      },
+      {
+        "pageid": 312656,
+        "ns": 1,
+        "title": "Talk:XSLT"
+      },
+      {
+        "pageid": 313216,
+        "ns": 0,
+        "title": "Autodesk 3ds Max"
+      },
+      {
+        "pageid": 313667,
+        "ns": 0,
+        "title": "Block (data storage)"
+      },
+      {
+        "pageid": 313737,
+        "ns": 0,
+        "title": "Anti-spam techniques"
+      },
+      {
+        "pageid": 314709,
+        "ns": 0,
+        "title": "Synthetic division"
+      },
+      {
+        "pageid": 314905,
+        "ns": 0,
+        "title": "Reflective programming"
+      },
+      {
+        "pageid": 317400,
+        "ns": 0,
+        "title": "WebObjects"
+      },
+      {
+        "pageid": 318413,
+        "ns": 0,
+        "title": "French Institute for Research in Computer Science and Automation"
+      },
+      {
+        "pageid": 318690,
+        "ns": 2,
+        "title": "User:Kev"
+      },
+      {
+        "pageid": 319289,
+        "ns": 0,
+        "title": "Strict programming language"
+      },
+      {
+        "pageid": 319453,
+        "ns": 0,
+        "title": "Zero-configuration networking"
+      },
+      {
+        "pageid": 319736,
+        "ns": 0,
+        "title": "Calculix"
+      },
+      {
+        "pageid": 323340,
+        "ns": 0,
+        "title": "Io (programming language)"
+      },
+      {
+        "pageid": 323710,
+        "ns": 0,
+        "title": "MediaWiki"
+      },
+      {
+        "pageid": 324375,
+        "ns": 0,
+        "title": "Parameter (computer programming)"
+      },
+      {
+        "pageid": 324378,
+        "ns": 0,
+        "title": "C standard library"
+      },
+      {
+        "pageid": 325813,
+        "ns": 0,
+        "title": "Graph drawing"
+      },
+      {
+        "pageid": 326530,
+        "ns": 0,
+        "title": "YAML"
+      },
+      {
+        "pageid": 330297,
+        "ns": 0,
+        "title": "Default argument"
+      },
+      {
+        "pageid": 333491,
+        "ns": 0,
+        "title": "Primitive data type"
+      },
+      {
+        "pageid": 333676,
+        "ns": 0,
+        "title": "List of content management systems"
+      },
+      {
+        "pageid": 335605,
+        "ns": 0,
+        "title": "Audacity (audio editor)"
+      },
+      {
+        "pageid": 337339,
+        "ns": 2,
+        "title": "User:Akx"
+      },
+      {
+        "pageid": 338744,
+        "ns": 2,
+        "title": "User:Ke4roh"
+      },
+      {
+        "pageid": 339109,
+        "ns": 0,
+        "title": "Robotfindskitten"
+      },
+      {
+        "pageid": 339417,
+        "ns": 0,
+        "title": "Symbolic artificial intelligence"
+      },
+      {
+        "pageid": 340476,
+        "ns": 0,
+        "title": "Serial Peripheral Interface"
+      },
+      {
+        "pageid": 341288,
+        "ns": 2,
+        "title": "User:Adam Faanes"
+      },
+      {
+        "pageid": 344807,
+        "ns": 0,
+        "title": "Assignment (computer science)"
+      },
+      {
+        "pageid": 344922,
+        "ns": 0,
+        "title": "Neuroevolution of augmenting topologies"
+      },
+      {
+        "pageid": 349208,
+        "ns": 0,
+        "title": "Delphi (software)"
+      },
+      {
+        "pageid": 350164,
+        "ns": 0,
+        "title": "Farey sequence"
+      },
+      {
+        "pageid": 350323,
+        "ns": 0,
+        "title": "Programming Language for Business"
+      },
+      {
+        "pageid": 351628,
+        "ns": 4,
+        "title": "Wikipedia:WikiProject Computing"
+      },
+      {
+        "pageid": 353555,
+        "ns": 0,
+        "title": "Uuencoding"
+      },
+      {
+        "pageid": 356878,
+        "ns": 0,
+        "title": "Xcode"
+      },
+      {
+        "pageid": 357323,
+        "ns": 1,
+        "title": "Talk:Ontology (information science)"
+      },
+      {
+        "pageid": 357616,
+        "ns": 0,
+        "title": "Outline of software engineering"
+      },
+      {
+        "pageid": 359135,
+        "ns": 0,
+        "title": "Chemical kinetics"
+      },
+      {
+        "pageid": 359380,
+        "ns": 0,
+        "title": "LZMA"
+      },
+      {
+        "pageid": 363900,
+        "ns": 0,
+        "title": "Canonical correlation"
+      },
+      {
+        "pageid": 364494,
+        "ns": 0,
+        "title": "OpenMSX"
+      },
+      {
+        "pageid": 365497,
+        "ns": 0,
+        "title": "Non-English-based programming languages"
+      },
+      {
+        "pageid": 366243,
+        "ns": 0,
+        "title": "Poser (software)"
+      },
+      {
+        "pageid": 367107,
+        "ns": 0,
+        "title": "List of CAx companies"
+      },
+      {
+        "pageid": 367958,
+        "ns": 2,
+        "title": "User:Noldoaran"
+      },
+      {
+        "pageid": 371700,
+        "ns": 0,
+        "title": "Locale (computer software)"
+      },
+      {
+        "pageid": 372913,
+        "ns": 2,
+        "title": "User:Pingveno"
+      },
+      {
+        "pageid": 373216,
+        "ns": 0,
+        "title": "Kahan summation algorithm"
+      },
+      {
+        "pageid": 373986,
+        "ns": 0,
+        "title": "Gibbs phenomenon"
+      },
+      {
+        "pageid": 374220,
+        "ns": 0,
+        "title": "Inverse trigonometric functions"
+      },
+      {
+        "pageid": 374664,
+        "ns": 0,
+        "title": "Virtual function"
+      },
+      {
+        "pageid": 374669,
+        "ns": 0,
+        "title": "Standard library"
+      },
+      {
+        "pageid": 376516,
+        "ns": 0,
+        "title": "Midgard (software)"
+      },
+      {
+        "pageid": 376707,
+        "ns": 0,
+        "title": "R (programming language)"
+      },
+      {
+        "pageid": 379067,
+        "ns": 2,
+        "title": "User:Kenny Moens"
+      },
+      {
+        "pageid": 380586,
+        "ns": 0,
+        "title": "Punycode"
+      },
+      {
+        "pageid": 381782,
+        "ns": 0,
+        "title": "NumPy"
+      },
+      {
+        "pageid": 381944,
+        "ns": 0,
+        "title": "Block (programming)"
+      },
+      {
+        "pageid": 382749,
+        "ns": 0,
+        "title": "Polydivisible number"
+      },
+      {
+        "pageid": 384927,
+        "ns": 0,
+        "title": "Free-form language"
+      },
+      {
+        "pageid": 385978,
+        "ns": 2,
+        "title": "User:Wlievens"
+      },
+      {
+        "pageid": 390263,
+        "ns": 0,
+        "title": "Jython"
+      },
+      {
+        "pageid": 390335,
+        "ns": 0,
+        "title": "List of computer term etymologies"
+      },
+      {
+        "pageid": 390415,
+        "ns": 0,
+        "title": "Type introspection"
+      },
+      {
+        "pageid": 390580,
+        "ns": 0,
+        "title": "NOP (code)"
+      },
+      {
+        "pageid": 393460,
+        "ns": 0,
+        "title": "Metaprogramming"
+      },
+      {
+        "pageid": 393509,
+        "ns": 0,
+        "title": "FIGlet"
+      },
+      {
+        "pageid": 395538,
+        "ns": 0,
+        "title": "Sinclair BASIC"
+      },
+      {
+        "pageid": 397074,
+        "ns": 2,
+        "title": "User:Barce"
+      },
+      {
+        "pageid": 399759,
+        "ns": 0,
+        "title": "Cinema 4D"
+      },
+      {
+        "pageid": 401135,
+        "ns": 0,
+        "title": "Nmap"
+      },
+      {
+        "pageid": 403307,
+        "ns": 0,
+        "title": "Eve Online"
+      },
+      {
+        "pageid": 403357,
+        "ns": 0,
+        "title": "Path (computing)"
+      },
+      {
+        "pageid": 404840,
+        "ns": 0,
+        "title": "FreeTDS"
+      },
+      {
+        "pageid": 405061,
+        "ns": 0,
+        "title": "Irrlicht Engine"
+      },
+      {
+        "pageid": 406624,
+        "ns": 0,
+        "title": "Time series"
+      },
+      {
+        "pageid": 412916,
+        "ns": 0,
+        "title": "Inkscape"
+      },
+      {
+        "pageid": 416589,
+        "ns": 0,
+        "title": "Exploratory data analysis"
+      },
+      {
+        "pageid": 416765,
+        "ns": 0,
+        "title": "Application checkpointing"
+      },
+      {
+        "pageid": 417896,
+        "ns": 0,
+        "title": "SystemRescue"
+      },
+      {
+        "pageid": 418206,
+        "ns": 0,
+        "title": "Execution (computing)"
+      },
+      {
+        "pageid": 418411,
+        "ns": 0,
+        "title": "Object Windows Library"
+      },
+      {
+        "pageid": 418572,
+        "ns": 0,
+        "title": "Function overloading"
+      },
+      {
+        "pageid": 420159,
+        "ns": 0,
+        "title": "Item response theory"
+      },
+      {
+        "pageid": 421579,
+        "ns": 0,
+        "title": "Tiki Wiki CMS Groupware"
+      },
+      {
+        "pageid": 422564,
+        "ns": 0,
+        "title": "Jakarta Faces"
+      },
+      {
+        "pageid": 426660,
+        "ns": 0,
+        "title": "List of educational programming languages"
+      },
+      {
+        "pageid": 428247,
+        "ns": 2,
+        "title": "User:Clementi"
+      },
+      {
+        "pageid": 428625,
+        "ns": 0,
+        "title": "Front end and back end"
+      },
+      {
+        "pageid": 429836,
+        "ns": 0,
+        "title": "Message-oriented middleware"
+      },
+      {
+        "pageid": 430005,
+        "ns": 0,
+        "title": "Universal Network Objects"
+      },
+      {
+        "pageid": 431195,
+        "ns": 0,
+        "title": "Trac"
+      },
+      {
+        "pageid": 431985,
+        "ns": 0,
+        "title": "Control Language"
+      },
+      {
+        "pageid": 432256,
+        "ns": 2,
+        "title": "User:Brouhaha"
+      },
+      {
+        "pageid": 433164,
+        "ns": 0,
+        "title": "Mann–Whitney U test"
+      },
+      {
+        "pageid": 434897,
+        "ns": 0,
+        "title": "Hough transform"
+      },
+      {
+        "pageid": 436265,
+        "ns": 3,
+        "title": "User talk:Fnielsen"
+      },
+      {
+        "pageid": 436903,
+        "ns": 3,
+        "title": "User talk:Edward"
+      },
+      {
+        "pageid": 439355,
+        "ns": 0,
+        "title": "Windows Management Instrumentation"
+      },
+      {
+        "pageid": 440018,
+        "ns": 0,
+        "title": "Duck typing"
+      },
+      {
+        "pageid": 440784,
+        "ns": 0,
+        "title": "Amoeba (operating system)"
+      },
+      {
+        "pageid": 449019,
+        "ns": 0,
+        "title": "Oberon-2"
+      },
+      {
+        "pageid": 449736,
+        "ns": 0,
+        "title": "Fixed-point arithmetic"
+      },
+      {
+        "pageid": 450307,
+        "ns": 0,
+        "title": "GNOWSYS"
+      },
+      {
+        "pageid": 450714,
+        "ns": 0,
+        "title": "Affine cipher"
+      },
+      {
+        "pageid": 453331,
+        "ns": 0,
+        "title": "Apache Struts 1"
+      },
+      {
+        "pageid": 454402,
+        "ns": 0,
+        "title": "Likert scale"
+      },
+      {
+        "pageid": 455220,
+        "ns": 0,
+        "title": "Data engineering"
+      },
+      {
+        "pageid": 455693,
+        "ns": 1,
+        "title": "Talk:Pitch class"
+      },
+      {
+        "pageid": 456050,
+        "ns": 0,
+        "title": "Incomplete gamma function"
+      },
+      {
+        "pageid": 457906,
+        "ns": 0,
+        "title": "Deb (file format)"
+      },
+      {
+        "pageid": 459413,
+        "ns": 0,
+        "title": "Ternary operation"
+      },
+      {
+        "pageid": 459474,
+        "ns": 0,
+        "title": "Operator associativity"
+      },
+      {
+        "pageid": 459552,
+        "ns": 0,
+        "title": "List of Mac software"
+      },
+      {
+        "pageid": 462839,
+        "ns": 0,
+        "title": "Conditional (computer programming)"
+      },
+      {
+        "pageid": 466804,
+        "ns": 0,
+        "title": "METAR"
+      },
+      {
+        "pageid": 468205,
+        "ns": 0,
+        "title": "Standard Widget Toolkit"
+      },
+      {
+        "pageid": 469081,
+        "ns": 0,
+        "title": "Synaptic (software)"
+      },
+      {
+        "pageid": 471015,
+        "ns": 0,
+        "title": "Doxygen"
+      },
+      {
+        "pageid": 471174,
+        "ns": 0,
+        "title": "Moderate Resolution Imaging Spectroradiometer"
+      },
+      {
+        "pageid": 471373,
+        "ns": 0,
+        "title": "Marker interface pattern"
+      },
+      {
+        "pageid": 472805,
+        "ns": 0,
+        "title": "System programming language"
+      },
+      {
+        "pageid": 472902,
+        "ns": 1,
+        "title": "Talk:Error function"
+      },
+      {
+        "pageid": 473394,
+        "ns": 0,
+        "title": "Printf"
+      },
+      {
+        "pageid": 474652,
+        "ns": 0,
+        "title": "LightWave 3D"
+      },
+      {
+        "pageid": 475294,
+        "ns": 0,
+        "title": "Symbol table"
+      },
+      {
+        "pageid": 475385,
+        "ns": 0,
+        "title": "De Boor's algorithm"
+      },
+      {
+        "pageid": 477081,
+        "ns": 0,
+        "title": "Underscore"
+      },
+      {
+        "pageid": 478065,
+        "ns": 0,
+        "title": "Pancake sorting"
+      },
+      {
+        "pageid": 479761,
+        "ns": 0,
+        "title": "MUSIC-N"
+      },
+      {
+        "pageid": 479897,
+        "ns": 0,
+        "title": "MINC"
+      },
+      {
+        "pageid": 480378,
+        "ns": 0,
+        "title": "Pure Data"
+      },
+      {
+        "pageid": 481515,
+        "ns": 0,
+        "title": "List of Nokia products"
+      },
+      {
+        "pageid": 483126,
+        "ns": 0,
+        "title": "GNU Multiple Precision Arithmetic Library"
+      },
+      {
+        "pageid": 483997,
+        "ns": 0,
+        "title": "Calligra Sheets"
+      },
+      {
+        "pageid": 484117,
+        "ns": 0,
+        "title": "Glob (programming)"
+      },
+      {
+        "pageid": 485251,
+        "ns": 0,
+        "title": "Keith number"
+      },
+      {
+        "pageid": 486527,
+        "ns": 0,
+        "title": "Astrophysics Data System"
+      },
+      {
+        "pageid": 486833,
+        "ns": 0,
+        "title": "Bounds checking"
+      },
+      {
+        "pageid": 487103,
+        "ns": 0,
+        "title": "Up2date"
+      },
+      {
+        "pageid": 487926,
+        "ns": 0,
+        "title": "List of wiki software"
+      },
+      {
+        "pageid": 490528,
+        "ns": 0,
+        "title": "VLC media player"
+      },
+      {
+        "pageid": 490764,
+        "ns": 0,
+        "title": "99 Bottles of Beer"
+      },
+      {
+        "pageid": 491903,
+        "ns": 0,
+        "title": "Thue–Morse sequence"
+      },
+      {
+        "pageid": 492001,
+        "ns": 0,
+        "title": "Psion Series 5"
+      },
+      {
+        "pageid": 492295,
+        "ns": 0,
+        "title": "Record (computer science)"
+      },
+      {
+        "pageid": 493590,
+        "ns": 0,
+        "title": "ISO/IEC 2022"
+      },
+      {
+        "pageid": 495104,
+        "ns": 0,
+        "title": "Named parameter"
+      },
+      {
+        "pageid": 499237,
+        "ns": 0,
+        "title": "Skencil"
+      },
+      {
+        "pageid": 499644,
+        "ns": 2,
+        "title": "User:Marcus-e"
+      },
+      {
+        "pageid": 501828,
+        "ns": 0,
+        "title": "Equals sign"
+      },
+      {
+        "pageid": 502897,
+        "ns": 0,
+        "title": "Remainder"
+      },
+      {
+        "pageid": 503009,
+        "ns": 0,
+        "title": "PubMed"
+      },
+      {
+        "pageid": 503961,
+        "ns": 0,
+        "title": "Bloomberg Terminal"
+      },
+      {
+        "pageid": 505189,
+        "ns": 0,
+        "title": "Continuation"
+      },
+      {
+        "pageid": 506063,
+        "ns": 0,
+        "title": "Centrum Wiskunde & Informatica"
+      },
+      {
+        "pageid": 507221,
+        "ns": 0,
+        "title": "PL/0"
+      },
+      {
+        "pageid": 508207,
+        "ns": 2,
+        "title": "User:Zzyzx"
+      },
+      {
+        "pageid": 508401,
+        "ns": 0,
+        "title": "Apache Groovy"
+      },
+      {
+        "pageid": 509709,
+        "ns": 0,
+        "title": "Gibbs sampling"
+      },
+      {
+        "pageid": 509999,
+        "ns": 0,
+        "title": "Function object"
+      },
+      {
+        "pageid": 511196,
+        "ns": 0,
+        "title": "CorbaScript"
+      },
+      {
+        "pageid": 512587,
+        "ns": 0,
+        "title": "IDL (programming language)"
+      },
+      {
+        "pageid": 514293,
+        "ns": 2,
+        "title": "User:Albany45"
+      },
+      {
+        "pageid": 516393,
+        "ns": 0,
+        "title": "Low-density parity-check code"
+      },
+      {
+        "pageid": 517856,
+        "ns": 1,
+        "title": "Talk:Earley parser"
+      },
+      {
+        "pageid": 519239,
+        "ns": 0,
+        "title": "Domain-specific language"
+      },
+      {
+        "pageid": 519497,
+        "ns": 0,
+        "title": "CURL"
+      },
+      {
+        "pageid": 520050,
+        "ns": 0,
+        "title": "IRAF"
+      },
+      {
+        "pageid": 520121,
+        "ns": 0,
+        "title": "International Collegiate Programming Contest"
+      },
+      {
+        "pageid": 522718,
+        "ns": 2,
+        "title": "User:Angelo.romano"
+      },
+      {
+        "pageid": 522923,
+        "ns": 0,
+        "title": "Apache Lucene"
+      },
+      {
+        "pageid": 524247,
+        "ns": 0,
+        "title": "Lasso (programming language)"
+      },
+      {
+        "pageid": 524336,
+        "ns": 3,
+        "title": "User talk:Tagishsimon"
+      },
+      {
+        "pageid": 531490,
+        "ns": 0,
+        "title": "SWIG"
+      },
+      {
+        "pageid": 532303,
+        "ns": 0,
+        "title": "Topcoder"
+      },
+      {
+        "pageid": 533192,
+        "ns": 0,
+        "title": "TrueSpace"
+      },
+      {
+        "pageid": 536080,
+        "ns": 0,
+        "title": "Student's t-test"
+      },
+      {
+        "pageid": 537539,
+        "ns": 0,
+        "title": "Income inequality metrics"
+      },
+      {
+        "pageid": 542994,
+        "ns": 0,
+        "title": "Happy number"
+      },
+      {
+        "pageid": 544733,
+        "ns": 0,
+        "title": "LabVIEW"
+      },
+      {
+        "pageid": 546341,
+        "ns": 0,
+        "title": "Extended Unix Code"
+      },
+      {
+        "pageid": 549892,
+        "ns": 0,
+        "title": "GRASS GIS"
+      },
+      {
+        "pageid": 550154,
+        "ns": 0,
+        "title": "Mike Cowlishaw"
+      },
+      {
+        "pageid": 550366,
+        "ns": 2,
+        "title": "User:Simplex~enwiki"
+      },
+      {
+        "pageid": 552786,
+        "ns": 0,
+        "title": "Selection algorithm"
+      },
+      {
+        "pageid": 555782,
+        "ns": 0,
+        "title": "Versine"
+      },
+      {
+        "pageid": 556228,
+        "ns": 0,
+        "title": "ArsDigita Community System"
+      },
+      {
+        "pageid": 558359,
+        "ns": 0,
+        "title": "Metaclass"
+      },
+      {
+        "pageid": 558914,
+        "ns": 2,
+        "title": "User:PuzzletChung"
+      },
+      {
+        "pageid": 559838,
+        "ns": 0,
+        "title": "Backtick"
+      },
+      {
+        "pageid": 559868,
+        "ns": 0,
+        "title": "Biopython"
+      },
+      {
+        "pageid": 564527,
+        "ns": 0,
+        "title": "Density matrix renormalization group"
+      },
+      {
+        "pageid": 566191,
+        "ns": 0,
+        "title": "Distcc"
+      },
+      {
+        "pageid": 566680,
+        "ns": 0,
+        "title": "Artificial Intelligence: A Modern Approach"
+      },
+      {
+        "pageid": 567548,
+        "ns": 0,
+        "title": "One-key MAC"
+      },
+      {
+        "pageid": 571341,
+        "ns": 0,
+        "title": "DOT (graph description language)"
+      },
+      {
+        "pageid": 572686,
+        "ns": 0,
+        "title": "Base32"
+      },
+      {
+        "pageid": 572997,
+        "ns": 0,
+        "title": "Generator (computer programming)"
+      },
+      {
+        "pageid": 574633,
+        "ns": 0,
+        "title": "GConf"
+      },
+      {
+        "pageid": 577003,
+        "ns": 0,
+        "title": "Decision tree learning"
+      },
+      {
+        "pageid": 577098,
+        "ns": 0,
+        "title": "FSF Free Software Awards"
+      },
+      {
+        "pageid": 579061,
+        "ns": 0,
+        "title": "Monad (functional programming)"
+      },
+      {
+        "pageid": 580067,
+        "ns": 0,
+        "title": "Ecoinformatics"
+      },
+      {
+        "pageid": 580167,
+        "ns": 0,
+        "title": "Link grammar"
+      },
+      {
+        "pageid": 582861,
+        "ns": 0,
+        "title": "OpenLP"
+      },
+      {
+        "pageid": 584024,
+        "ns": 0,
+        "title": "GStreamer"
+      },
+      {
+        "pageid": 589175,
+        "ns": 2,
+        "title": "User:WhiteDragon"
+      },
+      {
+        "pageid": 589192,
+        "ns": 0,
+        "title": "Second Life"
+      },
+      {
+        "pageid": 591531,
+        "ns": 2,
+        "title": "User:Joseph Spiros"
+      },
+      {
+        "pageid": 592001,
+        "ns": 0,
+        "title": "Code folding"
+      },
+      {
+        "pageid": 593757,
+        "ns": 0,
+        "title": "NetLogo"
+      },
+      {
+        "pageid": 595635,
+        "ns": 0,
+        "title": "CodeWarrior"
+      },
+      {
+        "pageid": 600892,
+        "ns": 0,
+        "title": "Arbitrary-precision arithmetic"
+      },
+      {
+        "pageid": 603528,
+        "ns": 2,
+        "title": "User:Khamsin"
+      },
+      {
+        "pageid": 605595,
+        "ns": 0,
+        "title": "Off-side rule"
+      },
+      {
+        "pageid": 605600,
+        "ns": 0,
+        "title": "Indentation (typesetting)"
+      },
+      {
+        "pageid": 605856,
+        "ns": 0,
+        "title": "WordPress"
+      },
+      {
+        "pageid": 606813,
+        "ns": 0,
+        "title": "Federal Register"
+      },
+      {
+        "pageid": 608239,
+        "ns": 2,
+        "title": "User:Unmadindu"
+      },
+      {
+        "pageid": 609125,
+        "ns": 0,
+        "title": "Expression (mathematics)"
+      },
+      {
+        "pageid": 609197,
+        "ns": 0,
+        "title": "Studentized residual"
+      },
+      {
+        "pageid": 611456,
+        "ns": 0,
+        "title": "Mambo (software)"
+      },
+      {
+        "pageid": 612334,
+        "ns": 0,
+        "title": "GNU Parted"
+      },
+      {
+        "pageid": 613351,
+        "ns": 0,
+        "title": "List of computing people"
+      },
+      {
+        "pageid": 620855,
+        "ns": 2,
+        "title": "User:HorsePunchKid"
+      },
+      {
+        "pageid": 622434,
+        "ns": 2,
+        "title": "User:Reagle"
+      },
+      {
+        "pageid": 622754,
+        "ns": 0,
+        "title": "GD Graphics Library"
+      },
+      {
+        "pageid": 622756,
+        "ns": 0,
+        "title": "Temporary file"
+      },
+      {
+        "pageid": 623062,
+        "ns": 2,
+        "title": "User:Esnible"
+      },
+      {
+        "pageid": 623831,
+        "ns": 0,
+        "title": "Eval"
+      },
+      {
+        "pageid": 625125,
+        "ns": 0,
+        "title": "Letter case"
+      },
+      {
+        "pageid": 625983,
+        "ns": 0,
+        "title": "Python (language)",
+        "redirect": ""
+      },
+      {
+        "pageid": 626631,
+        "ns": 0,
+        "title": "Extensible Application Markup Language"
+      },
+      {
+        "pageid": 631188,
+        "ns": 0,
+        "title": "Halton sequence"
+      },
+      {
+        "pageid": 632241,
+        "ns": 0,
+        "title": "IBM RPG"
+      },
+      {
+        "pageid": 633423,
+        "ns": 0,
+        "title": "Visual Molecular Dynamics"
+      },
+      {
+        "pageid": 638447,
+        "ns": 0,
+        "title": "Embedded software"
+      },
+      {
+        "pageid": 640580,
+        "ns": 0,
+        "title": "Romberg's method"
+      },
+      {
+        "pageid": 640746,
+        "ns": 0,
+        "title": "Secant method"
+      },
+      {
+        "pageid": 645246,
+        "ns": 0,
+        "title": "Callback (computer programming)"
+      },
+      {
+        "pageid": 646209,
+        "ns": 2,
+        "title": "User:Euphoria"
+      },
+      {
+        "pageid": 646233,
+        "ns": 0,
+        "title": "Secure multi-party computation"
+      },
+      {
+        "pageid": 646489,
+        "ns": 0,
+        "title": "Gettext"
+      },
+      {
+        "pageid": 648096,
+        "ns": 0,
+        "title": "Dangling else"
+      },
+      {
+        "pageid": 649194,
+        "ns": 2,
+        "title": "User:Raylu"
+      },
+      {
+        "pageid": 649474,
+        "ns": 0,
+        "title": "Dev-C++"
+      },
+      {
+        "pageid": 651328,
+        "ns": 0,
+        "title": "Canadian Computing Competition"
+      },
+      {
+        "pageid": 651996,
+        "ns": 0,
+        "title": "ASP.NET"
+      },
+      {
+        "pageid": 656099,
+        "ns": 0,
+        "title": "De Casteljau's algorithm"
+      },
+      {
+        "pageid": 656411,
+        "ns": 0,
+        "title": "Stack trace"
+      },
+      {
+        "pageid": 657071,
+        "ns": 0,
+        "title": "FLTK"
+      },
+      {
+        "pageid": 658501,
+        "ns": 0,
+        "title": "Savitch's theorem"
+      },
+      {
+        "pageid": 661085,
+        "ns": 0,
+        "title": "Peter Landin"
+      },
+      {
+        "pageid": 662251,
+        "ns": 2,
+        "title": "User:Arunkv"
+      },
+      {
+        "pageid": 662844,
+        "ns": 0,
+        "title": "First-class citizen"
+      },
+      {
+        "pageid": 664928,
+        "ns": 2,
+        "title": "User:Highwind"
+      },
+      {
+        "pageid": 665260,
+        "ns": 2,
+        "title": "User:Fintor"
+      },
+      {
+        "pageid": 667170,
+        "ns": 0,
+        "title": "Code completion"
+      },
+      {
+        "pageid": 667443,
+        "ns": 0,
+        "title": "Ternary conditional operator"
+      },
+      {
+        "pageid": 667479,
+        "ns": 0,
+        "title": "Buffon's needle problem"
+      },
+      {
+        "pageid": 668652,
+        "ns": 2,
+        "title": "User:Boism"
+      },
+      {
+        "pageid": 670279,
+        "ns": 0,
+        "title": "Cycle detection"
+      },
+      {
+        "pageid": 670384,
+        "ns": 1,
+        "title": "Talk:OCaml"
+      },
+      {
+        "pageid": 676905,
+        "ns": 0,
+        "title": "IRC bot"
+      },
+      {
+        "pageid": 679773,
+        "ns": 2,
+        "title": "User:Vsb"
+      },
+      {
+        "pageid": 683334,
+        "ns": 0,
+        "title": "Array slicing"
+      },
+      {
+        "pageid": 685521,
+        "ns": 0,
+        "title": "Rhythmbox"
+      },
+      {
+        "pageid": 685736,
+        "ns": 2,
+        "title": "User:Kmote"
+      },
+      {
+        "pageid": 690314,
+        "ns": 2,
+        "title": "User:Ashmodai"
+      },
+      {
+        "pageid": 692880,
+        "ns": 0,
+        "title": "ALGOL 68"
+      },
+      {
+        "pageid": 693532,
+        "ns": 0,
+        "title": "Resource acquisition is initialization"
+      },
+      {
+        "pageid": 695696,
+        "ns": 0,
+        "title": "Braille music"
+      },
+      {
+        "pageid": 696317,
+        "ns": 0,
+        "title": "Buchberger's algorithm"
+      },
+      {
+        "pageid": 696712,
+        "ns": 0,
+        "title": "Python Software Foundation"
+      },
+      {
+        "pageid": 698207,
+        "ns": 2,
+        "title": "User:Justinwhite"
+      },
+      {
+        "pageid": 699158,
+        "ns": 0,
+        "title": "Technical director"
+      },
+      {
+        "pageid": 704018,
+        "ns": 0,
+        "title": "Short-circuit evaluation"
+      },
+      {
+        "pageid": 706831,
+        "ns": 2,
+        "title": "User:Supadawg"
+      },
+      {
+        "pageid": 707588,
+        "ns": 2,
+        "title": "User:Zakgreant"
+      },
+      {
+        "pageid": 710197,
+        "ns": 0,
+        "title": "At sign"
+      },
+      {
+        "pageid": 711485,
+        "ns": 0,
+        "title": "Numerical tower"
+      },
+      {
+        "pageid": 713315,
+        "ns": 0,
+        "title": "Noctis (video game)"
+      },
+      {
+        "pageid": 713925,
+        "ns": 2,
+        "title": "User:Requiem18th"
+      },
+      {
+        "pageid": 716570,
+        "ns": 0,
+        "title": "RRDtool"
+      },
+      {
+        "pageid": 718959,
+        "ns": 0,
+        "title": "CLiki"
+      },
+      {
+        "pageid": 723031,
+        "ns": 0,
+        "title": "Orbital decay"
+      },
+      {
+        "pageid": 723483,
+        "ns": 0,
+        "title": "Memoization"
+      },
+      {
+        "pageid": 725569,
+        "ns": 0,
+        "title": "Anjuta"
+      },
+      {
+        "pageid": 725961,
+        "ns": 0,
+        "title": "Name mangling"
+      },
+      {
+        "pageid": 727476,
+        "ns": 0,
+        "title": "Page replacement algorithm"
+      },
+      {
+        "pageid": 728721,
+        "ns": 0,
+        "title": "Ming library"
+      },
+      {
+        "pageid": 730808,
+        "ns": 2,
+        "title": "User:Renamed user txodirjlwke92"
+      },
+      {
+        "pageid": 730903,
+        "ns": 0,
+        "title": "ReStructuredText"
+      },
+      {
+        "pageid": 732716,
+        "ns": 0,
+        "title": "List of open-source video games"
+      },
+      {
+        "pageid": 732966,
+        "ns": 2,
+        "title": "User:MichaelMcGuffin"
+      },
+      {
+        "pageid": 742262,
+        "ns": 0,
+        "title": "CDex"
+      },
+      {
+        "pageid": 742526,
+        "ns": 0,
+        "title": "DataFlex"
+      },
+      {
+        "pageid": 750633,
+        "ns": 0,
+        "title": "Quixote (web framework)"
+      },
+      {
+        "pageid": 752266,
+        "ns": 2,
+        "title": "User:Curtisf14"
+      },
+      {
+        "pageid": 756502,
+        "ns": 0,
+        "title": "Kate (text editor)"
+      },
+      {
+        "pageid": 758895,
+        "ns": 0,
+        "title": "History of software engineering"
+      },
+      {
+        "pageid": 762950,
+        "ns": 0,
+        "title": "VisualAge"
+      },
+      {
+        "pageid": 765588,
+        "ns": 0,
+        "title": "ANTLR"
+      },
+      {
+        "pageid": 767613,
+        "ns": 0,
+        "title": "Anaconda (installer)"
+      },
+      {
+        "pageid": 773125,
+        "ns": 2,
+        "title": "User:Jherico"
+      },
+      {
+        "pageid": 773853,
+        "ns": 0,
+        "title": "Video game programming"
+      },
+      {
+        "pageid": 780817,
+        "ns": 0,
+        "title": "Lightweight markup language"
+      },
+      {
+        "pageid": 794677,
+        "ns": 0,
+        "title": "Mod python"
+      },
+      {
+        "pageid": 795882,
+        "ns": 0,
+        "title": "Apache Cocoon"
+      },
+      {
+        "pageid": 799760,
+        "ns": 0,
+        "title": "Mahalanobis distance"
+      },
+      {
+        "pageid": 803733,
+        "ns": 2,
+        "title": "User:Peak Freak"
+      },
+      {
+        "pageid": 805802,
+        "ns": 0,
+        "title": "Breakpoint"
+      },
+      {
+        "pageid": 806169,
+        "ns": 0,
+        "title": "DokuWiki"
+      },
+      {
+        "pageid": 812348,
+        "ns": 0,
+        "title": "Music engraving"
+      },
+      {
+        "pageid": 813317,
+        "ns": 0,
+        "title": "Glade Interface Designer"
+      },
+      {
+        "pageid": 817694,
+        "ns": 2,
+        "title": "User:DiSSo"
+      },
+      {
+        "pageid": 817919,
+        "ns": 0,
+        "title": "PyQt"
+      },
+      {
+        "pageid": 819376,
+        "ns": 1,
+        "title": "Talk:Foreach loop"
+      },
+      {
+        "pageid": 821071,
+        "ns": 0,
+        "title": "ACT-R"
+      },
+      {
+        "pageid": 822778,
+        "ns": 0,
+        "title": "Baum–Welch algorithm"
+      },
+      {
+        "pageid": 824629,
+        "ns": 2,
+        "title": "User:Francis Davey"
+      },
+      {
+        "pageid": 826669,
+        "ns": 0,
+        "title": "Quantitative structure–activity relationship"
+      },
+      {
+        "pageid": 826727,
+        "ns": 0,
+        "title": "Windows Forms"
+      },
+      {
+        "pageid": 828614,
+        "ns": 0,
+        "title": "CPL (programming language)"
+      },
+      {
+        "pageid": 832032,
+        "ns": 0,
+        "title": "Open Programming Language"
+      },
+      {
+        "pageid": 835827,
+        "ns": 0,
+        "title": "Empty string"
+      },
+      {
+        "pageid": 838798,
+        "ns": 0,
+        "title": "Kodi (software)"
+      },
+      {
+        "pageid": 847810,
+        "ns": 0,
+        "title": "Dynamic dispatch"
+      },
+      {
+        "pageid": 848018,
+        "ns": 1,
+        "title": "Talk:Visual Studio"
+      },
+      {
+        "pageid": 852187,
+        "ns": 0,
+        "title": "Expat (software)"
+      },
+      {
+        "pageid": 852322,
+        "ns": 0,
+        "title": "Interactive Disassembler"
+      },
+      {
+        "pageid": 852570,
+        "ns": 0,
+        "title": "PEAR"
+      },
+      {
+        "pageid": 856601,
+        "ns": 2,
+        "title": "User:ZoeB"
+      },
+      {
+        "pageid": 860913,
+        "ns": 2,
+        "title": "User:Bitplane"
+      },
+      {
+        "pageid": 861398,
+        "ns": 0,
+        "title": "Macintosh Toolbox"
+      },
+      {
+        "pageid": 862629,
+        "ns": 2,
+        "title": "User:Klykken"
+      },
+      {
+        "pageid": 862658,
+        "ns": 0,
+        "title": "Coco/R"
+      },
+      {
+        "pageid": 865128,
+        "ns": 2,
+        "title": "User:Izogi"
+      },
+      {
+        "pageid": 866019,
+        "ns": 2,
+        "title": "User:Ilikeverin"
+      },
+      {
+        "pageid": 866065,
+        "ns": 0,
+        "title": "UEFI"
+      },
+      {
+        "pageid": 866285,
+        "ns": 2,
+        "title": "User:Jonathanischoice"
+      },
+      {
+        "pageid": 866847,
+        "ns": 2,
+        "title": "User:Wild Bill"
+      },
+      {
+        "pageid": 867757,
+        "ns": 2,
+        "title": "User:Ignignot"
+      },
+      {
+        "pageid": 871235,
+        "ns": 2,
+        "title": "User:Polypompholyx"
+      },
+      {
+        "pageid": 871300,
+        "ns": 2,
+        "title": "User:Omnifarious"
+      },
+      {
+        "pageid": 877905,
+        "ns": 4,
+        "title": "Wikipedia:WikiProject C/C++/Organization"
+      },
+      {
+        "pageid": 878228,
+        "ns": 0,
+        "title": "XOOPS"
+      },
+      {
+        "pageid": 880535,
+        "ns": 0,
+        "title": "Greyworld"
+      },
+      {
+        "pageid": 884877,
+        "ns": 2,
+        "title": "User:Nybbles"
+      },
+      {
+        "pageid": 890353,
+        "ns": 0,
+        "title": "PyGTK"
+      },
+      {
+        "pageid": 890887,
+        "ns": 0,
+        "title": "Array programming"
+      },
+      {
+        "pageid": 891926,
+        "ns": 0,
+        "title": "General-purpose programming language"
+      },
+      {
+        "pageid": 892899,
+        "ns": 0,
+        "title": "Parsing expression grammar"
+      },
+      {
+        "pageid": 893441,
+        "ns": 2,
+        "title": "User:ZeroOne"
+      },
+      {
+        "pageid": 894876,
+        "ns": 2,
+        "title": "User:Jenf"
+      },
+      {
+        "pageid": 896080,
+        "ns": 2,
+        "title": "User:Danakil/Programming language (reformatted)"
+      },
+      {
+        "pageid": 896120,
+        "ns": 0,
+        "title": "History of programming languages"
+      },
+      {
+        "pageid": 897554,
+        "ns": 0,
+        "title": "Packrat parser"
+      },
+      {
+        "pageid": 898866,
+        "ns": 0,
+        "title": "Microsoft Visual Studio Express"
+      },
+      {
+        "pageid": 898917,
+        "ns": 0,
+        "title": "One-liner program"
+      },
+      {
+        "pageid": 899060,
+        "ns": 2,
+        "title": "User:Beland"
+      },
+      {
+        "pageid": 901724,
+        "ns": 0,
+        "title": "PHPEdit"
+      },
+      {
+        "pageid": 903032,
+        "ns": 0,
+        "title": "Modular exponentiation"
+      },
+      {
+        "pageid": 903236,
+        "ns": 2,
+        "title": "User:Asiananimal"
+      },
+      {
+        "pageid": 908235,
+        "ns": 2,
+        "title": "User:Benc/About me"
+      },
+      {
+        "pageid": 908238,
+        "ns": 0,
+        "title": "Python computer language",
+        "redirect": ""
+      },
+      {
+        "pageid": 908456,
+        "ns": 0,
+        "title": "Houdini (software)"
+      },
+      {
+        "pageid": 908593,
+        "ns": 0,
+        "title": "GDSII"
+      },
+      {
+        "pageid": 914820,
+        "ns": 0,
+        "title": "G-test"
+      },
+      {
+        "pageid": 916492,
+        "ns": 0,
+        "title": "Borland Kylix"
+      },
+      {
+        "pageid": 916963,
+        "ns": 0,
+        "title": "SETL"
+      },
+      {
+        "pageid": 922475,
+        "ns": 1,
+        "title": "Talk:Aspect-oriented programming"
+      },
+      {
+        "pageid": 923805,
+        "ns": 0,
+        "title": "Fle3"
+      },
+      {
+        "pageid": 929535,
+        "ns": 0,
+        "title": "BlitzMail"
+      },
+      {
+        "pageid": 930080,
+        "ns": 0,
+        "title": "Virtual method table"
+      },
+      {
+        "pageid": 930128,
+        "ns": 0,
+        "title": "Directive (programming)"
+      },
+      {
+        "pageid": 930792,
+        "ns": 2,
+        "title": "User:ReiVaX"
+      },
+      {
+        "pageid": 933831,
+        "ns": 0,
+        "title": "Return statement"
+      },
+      {
+        "pageid": 935655,
+        "ns": 0,
+        "title": "Binomial test"
+      },
+      {
+        "pageid": 936181,
+        "ns": 0,
+        "title": "Summer Science Program"
+      },
+      {
+        "pageid": 938381,
+        "ns": 2,
+        "title": "User:Potatosalad"
+      },
+      {
+        "pageid": 939133,
+        "ns": 0,
+        "title": "Modular programming"
+      },
+      {
+        "pageid": 939453,
+        "ns": 0,
+        "title": "Constructor (object-oriented programming)"
+      },
+      {
+        "pageid": 939985,
+        "ns": 0,
+        "title": "XOR cipher"
+      },
+      {
+        "pageid": 943685,
+        "ns": 0,
+        "title": "Expression-oriented programming language"
+      },
+      {
+        "pageid": 943886,
+        "ns": 1,
+        "title": "Talk:Gopher (protocol)"
+      },
+      {
+        "pageid": 944494,
+        "ns": 0,
+        "title": "Pkgsrc"
+      },
+      {
+        "pageid": 944906,
+        "ns": 0,
+        "title": "Image server"
+      },
+      {
+        "pageid": 946304,
+        "ns": 0,
+        "title": "OpenAccess"
+      },
+      {
+        "pageid": 946495,
+        "ns": 0,
+        "title": "EZ Publish"
+      },
+      {
+        "pageid": 948551,
+        "ns": 0,
+        "title": "Aldor"
+      },
+      {
+        "pageid": 951595,
+        "ns": 0,
+        "title": "Morphic (software)"
+      },
+      {
+        "pageid": 954216,
+        "ns": 0,
+        "title": "Skeleton (computer programming)"
+      },
+      {
+        "pageid": 957598,
+        "ns": 0,
+        "title": "Linda (coordination language)"
+      },
+      {
+        "pageid": 961616,
+        "ns": 0,
+        "title": "PSI (computational chemistry)"
+      },
+      {
+        "pageid": 962730,
+        "ns": 0,
+        "title": "Oracle Application Express"
+      },
+      {
+        "pageid": 965628,
+        "ns": 0,
+        "title": "IntelliJ IDEA"
+      },
+      {
+        "pageid": 966596,
+        "ns": 2,
+        "title": "User:Dreish"
+      },
+      {
+        "pageid": 968357,
+        "ns": 0,
+        "title": "Datalog"
+      },
+      {
+        "pageid": 969655,
+        "ns": 0,
+        "title": "CMU Common Lisp"
+      },
+      {
+        "pageid": 970431,
+        "ns": 2,
+        "title": "User:Whirl"
+      },
+      {
+        "pageid": 970582,
+        "ns": 2,
+        "title": "User:Astronouth7303"
+      },
+      {
+        "pageid": 976505,
+        "ns": 2,
+        "title": "User:AllyUnion"
+      },
+      {
+        "pageid": 979793,
+        "ns": 4,
+        "title": "Wikipedia:Articles for deletion/Agile programming language"
+      },
+      {
+        "pageid": 980951,
+        "ns": 0,
+        "title": "BBEdit"
+      },
+      {
+        "pageid": 981655,
+        "ns": 0,
+        "title": "Integer square root"
+      },
+      {
+        "pageid": 981659,
+        "ns": 1,
+        "title": "Talk:Integer square root"
+      },
+      {
+        "pageid": 982936,
+        "ns": 1,
+        "title": "Talk:ASN.1"
+      },
+      {
+        "pageid": 983674,
+        "ns": 2,
+        "title": "User:Pluggo"
+      },
+      {
+        "pageid": 984840,
+        "ns": 2,
+        "title": "User:Sena"
+      },
+      {
+        "pageid": 990224,
+        "ns": 0,
+        "title": "Guestbook"
+      },
+      {
+        "pageid": 990407,
+        "ns": 3,
+        "title": "User talk:Mahjongg"
+      },
+      {
+        "pageid": 990677,
+        "ns": 0,
+        "title": "SAS (software)"
+      },
+      {
+        "pageid": 991259,
+        "ns": 0,
+        "title": "TELCOMP"
+      },
+      {
+        "pageid": 992674,
+        "ns": 0,
+        "title": "Apple event"
+      },
+      {
+        "pageid": 994284,
+        "ns": 0,
+        "title": "COMEFROM"
+      },
+      {
+        "pageid": 997698,
+        "ns": 0,
+        "title": "JDeveloper"
+      },
+      {
+        "pageid": 997721,
+        "ns": 0,
+        "title": "Rye (disambiguation)"
+      },
+      {
+        "pageid": 998941,
+        "ns": 0,
+        "title": "BlueJ"
+      },
+      {
+        "pageid": 1006035,
+        "ns": 0,
+        "title": "Unix time"
+      },
+      {
+        "pageid": 1008912,
+        "ns": 2,
+        "title": "User:Nwerneck"
+      },
+      {
+        "pageid": 1010628,
+        "ns": 0,
+        "title": "Method overriding"
+      },
+      {
+        "pageid": 1013768,
+        "ns": 0,
+        "title": "LAPACK"
+      },
+      {
+        "pageid": 1017293,
+        "ns": 0,
+        "title": "NASA WorldWind"
+      },
+      {
+        "pageid": 1018203,
+        "ns": 0,
+        "title": "Casio FX-850P"
+      },
+      {
+        "pageid": 1021186,
+        "ns": 2,
+        "title": "User:Zetawoof"
+      },
+      {
+        "pageid": 1022322,
+        "ns": 0,
+        "title": "Fox toolkit"
+      },
+      {
+        "pageid": 1023479,
+        "ns": 0,
+        "title": "WDDX"
+      },
+      {
+        "pageid": 1031161,
+        "ns": 2,
+        "title": "User:Evolauxia"
+      },
+      {
+        "pageid": 1033125,
+        "ns": 0,
+        "title": "IBM MQ"
+      },
+      {
+        "pageid": 1034715,
+        "ns": 2,
+        "title": "User:Jonsafari"
+      },
+      {
+        "pageid": 1036044,
+        "ns": 1,
+        "title": "Talk:Rabin cryptosystem"
+      },
+      {
+        "pageid": 1039739,
+        "ns": 0,
+        "title": "Move-to-front transform"
+      },
+      {
+        "pageid": 1045456,
+        "ns": 2,
+        "title": "User:Ire and curses"
+      },
+      {
+        "pageid": 1045768,
+        "ns": 1,
+        "title": "Talk:Video game programming"
+      },
+      {
+        "pageid": 1046014,
+        "ns": 0,
+        "title": "The Battle for Wesnoth"
+      },
+      {
+        "pageid": 1048909,
+        "ns": 0,
+        "title": "ROOT"
+      },
+      {
+        "pageid": 1049256,
+        "ns": 0,
+        "title": "Apollonian gasket"
+      },
+      {
+        "pageid": 1050074,
+        "ns": 2,
+        "title": "User:Flammifer"
+      },
+      {
+        "pageid": 1054333,
+        "ns": 0,
+        "title": "Growl (software)"
+      },
+      {
+        "pageid": 1060236,
+        "ns": 0,
+        "title": "Simplicial homology"
+      },
+      {
+        "pageid": 1062161,
+        "ns": 0,
+        "title": "Cairo (graphics)"
+      },
+      {
+        "pageid": 1062838,
+        "ns": 2,
+        "title": "User:Abyssinia H"
+      },
+      {
+        "pageid": 1063614,
+        "ns": 0,
+        "title": "Wide character"
+      },
+      {
+        "pageid": 1064120,
+        "ns": 0,
+        "title": "ObjVlisp"
+      },
+      {
+        "pageid": 1064169,
+        "ns": 0,
+        "title": "PROMAL"
+      },
+      {
+        "pageid": 1065470,
+        "ns": 0,
+        "title": "Code injection"
+      },
+      {
+        "pageid": 1065885,
+        "ns": 0,
+        "title": "APT-RPM"
+      },
+      {
+        "pageid": 1068223,
+        "ns": 2,
+        "title": "User:Demitsu"
+      },
+      {
+        "pageid": 1075076,
+        "ns": 0,
+        "title": "WxPython"
+      },
+      {
+        "pageid": 1076270,
+        "ns": 0,
+        "title": "AMPL"
+      },
+      {
+        "pageid": 1081721,
+        "ns": 2,
+        "title": "User:Qwe"
+      },
+      {
+        "pageid": 1082056,
+        "ns": 2,
+        "title": "User:Jda"
+      },
+      {
+        "pageid": 1082438,
+        "ns": 2,
+        "title": "User:Jhertel"
+      },
+      {
+        "pageid": 1083844,
+        "ns": 0,
+        "title": "FLUID"
+      },
+      {
+        "pageid": 1085663,
+        "ns": 0,
+        "title": "Turkix"
+      },
+      {
+        "pageid": 1089178,
+        "ns": 0,
+        "title": "GNU Radio"
+      },
+      {
+        "pageid": 1097414,
+        "ns": 0,
+        "title": "Canonical (company)"
+      },
+      {
+        "pageid": 1098014,
+        "ns": 2,
+        "title": "User:Joshk"
+      },
+      {
+        "pageid": 1098818,
+        "ns": 0,
+        "title": "Gene expression programming"
+      },
+      {
+        "pageid": 1104704,
+        "ns": 0,
+        "title": "Type variance"
+      },
+      {
+        "pageid": 1108891,
+        "ns": 0,
+        "title": "Lempel–Ziv–Oberhumer"
+      },
+      {
+        "pageid": 1110903,
+        "ns": 0,
+        "title": "Tail call"
+      },
+      {
+        "pageid": 1112813,
+        "ns": 0,
+        "title": "SUDAAN"
+      },
+      {
+        "pageid": 1112960,
+        "ns": 0,
+        "title": "Monte Carlo integration"
+      },
+      {
+        "pageid": 1113067,
+        "ns": 0,
+        "title": "GNU Scientific Library"
+      },
+      {
+        "pageid": 1113874,
+        "ns": 2,
+        "title": "User:A.M.~enwiki"
+      },
+      {
+        "pageid": 1117869,
+        "ns": 0,
+        "title": "Stable distribution"
+      },
+      {
+        "pageid": 1120666,
+        "ns": 0,
+        "title": "MaxDB"
+      },
+      {
+        "pageid": 1127884,
+        "ns": 0,
+        "title": "Hamming weight"
+      },
+      {
+        "pageid": 1131371,
+        "ns": 0,
+        "title": "Tuxedo (software)"
+      },
+      {
+        "pageid": 1133059,
+        "ns": 0,
+        "title": "ClamWin Free Antivirus"
+      },
+      {
+        "pageid": 1133219,
+        "ns": 1,
+        "title": "Talk:List of American Civil War battles"
+      },
+      {
+        "pageid": 1134191,
+        "ns": 0,
+        "title": "Social web"
+      },
+      {
+        "pageid": 1134574,
+        "ns": 2,
+        "title": "User:Krischik"
+      },
+      {
+        "pageid": 1134614,
+        "ns": 0,
+        "title": "Arnoldi iteration"
+      },
+      {
+        "pageid": 1137903,
+        "ns": 0,
+        "title": "Uninitialized variable"
+      },
+      {
+        "pageid": 1146638,
+        "ns": 0,
+        "title": "Raku (programming language)"
+      },
+      {
+        "pageid": 1147624,
+        "ns": 0,
+        "title": "Boo (programming language)"
+      },
+      {
+        "pageid": 1149596,
+        "ns": 0,
+        "title": "TPK algorithm"
+      },
+      {
+        "pageid": 1150012,
+        "ns": 0,
+        "title": "Automator (macOS)"
+      },
+      {
+        "pageid": 1158145,
+        "ns": 0,
+        "title": "Transport Neutral Encapsulation Format"
+      },
+      {
+        "pageid": 1161030,
+        "ns": 0,
+        "title": "Expect"
+      },
+      {
+        "pageid": 1162065,
+        "ns": 0,
+        "title": "Boolean data type"
+      },
+      {
+        "pageid": 1163024,
+        "ns": 0,
+        "title": "First-class function"
+      },
+      {
+        "pageid": 1164175,
+        "ns": 0,
+        "title": "Hex editor"
+      },
+      {
+        "pageid": 1164933,
+        "ns": 0,
+        "title": "Windows Registry"
+      },
+      {
+        "pageid": 1166251,
+        "ns": 0,
+        "title": "Gretl"
+      },
+      {
+        "pageid": 1169364,
+        "ns": 3,
+        "title": "User talk:Lugevas"
+      },
+      {
+        "pageid": 1169621,
+        "ns": 0,
+        "title": "Advice (programming)"
+      },
+      {
+        "pageid": 1173289,
+        "ns": 11,
+        "title": "Template talk:Programming languages"
+      },
+      {
+        "pageid": 1174560,
+        "ns": 0,
+        "title": "Open reading frame"
+      },
+      {
+        "pageid": 1175381,
+        "ns": 0,
+        "title": "SCons"
+      },
+      {
+        "pageid": 1176875,
+        "ns": 0,
+        "title": "Autovivification"
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "rncontinue": "0.426313372736|0.42631377675|56689175|0",
+    "continue": "-||"
+  },
+  "query": {
+    "random": [
+      {
+        "id": 39361036,
+        "ns": 0,
+        "title": "V-class submarine"
+      },
+      {
+        "id": 35953068,
+        "ns": 0,
+        "title": "Alex Parsons (footballer, born 1992)"
+      },
+      {
+        "id": 82788482,
+        "ns": 0,
+        "title": "Johann Bernhard Brinkmann"
+      },
+      {
+        "id": 71945312,
+        "ns": 0,
+        "title": "Hananoiwaya Shrine"
+      },
+      {
+        "id": 9165305,
+        "ns": 0,
+        "title": "Waseda Station"
+      }
+    ]
+  }
+}

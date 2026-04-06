@@ -1,0 +1,74 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "sroffset": 10,
+    "continue": "-||"
+  },
+  "query": {
+    "searchinfo": {
+      "totalhits": 6045
+    },
+    "search": [
+      {
+        "ns": 0,
+        "title": "Python (programming language)",
+        "pageid": 23862,
+        "timestamp": "2026-03-25T15:46:00Z"
+      },
+      {
+        "ns": 0,
+        "title": "History of Python",
+        "pageid": 21356332,
+        "timestamp": "2026-03-17T08:37:45Z"
+      },
+      {
+        "ns": 0,
+        "title": "Outline of the Python programming language",
+        "pageid": 81118035,
+        "timestamp": "2026-02-18T06:39:30Z"
+      },
+      {
+        "ns": 0,
+        "title": "Python syntax and semantics",
+        "pageid": 5250192,
+        "timestamp": "2026-01-19T22:21:34Z"
+      },
+      {
+        "ns": 0,
+        "title": "Mojo (programming language)",
+        "pageid": 73729965,
+        "timestamp": "2026-03-15T08:21:22Z"
+      },
+      {
+        "ns": 0,
+        "title": "Core Python Programming",
+        "pageid": 25061839,
+        "timestamp": "2026-01-31T19:07:48Z"
+      },
+      {
+        "ns": 0,
+        "title": "Zen of Python",
+        "pageid": 46448252,
+        "timestamp": "2026-03-11T00:04:23Z"
+      },
+      {
+        "ns": 0,
+        "title": "Flask (web framework)",
+        "pageid": 29040606,
+        "timestamp": "2026-01-05T17:44:23Z"
+      },
+      {
+        "ns": 0,
+        "title": "Glob (programming)",
+        "pageid": 484117,
+        "timestamp": "2026-03-01T01:55:39Z"
+      },
+      {
+        "ns": 0,
+        "title": "List of Python software",
+        "pageid": 3673376,
+        "timestamp": "2026-03-27T01:44:00Z"
+      }
+    ]
+  }
+}

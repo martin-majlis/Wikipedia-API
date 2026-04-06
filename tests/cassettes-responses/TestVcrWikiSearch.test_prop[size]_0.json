@@ -1,0 +1,74 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "sroffset": 10,
+    "continue": "-||"
+  },
+  "query": {
+    "searchinfo": {
+      "totalhits": 6045
+    },
+    "search": [
+      {
+        "ns": 0,
+        "title": "Python (programming language)",
+        "pageid": 23862,
+        "size": 140415
+      },
+      {
+        "ns": 0,
+        "title": "History of Python",
+        "pageid": 21356332,
+        "size": 57307
+      },
+      {
+        "ns": 0,
+        "title": "Outline of the Python programming language",
+        "pageid": 81118035,
+        "size": 12097
+      },
+      {
+        "ns": 0,
+        "title": "Python syntax and semantics",
+        "pageid": 5250192,
+        "size": 68515
+      },
+      {
+        "ns": 0,
+        "title": "Mojo (programming language)",
+        "pageid": 73729965,
+        "size": 18574
+      },
+      {
+        "ns": 0,
+        "title": "Core Python Programming",
+        "pageid": 25061839,
+        "size": 3926
+      },
+      {
+        "ns": 0,
+        "title": "Flask (web framework)",
+        "pageid": 29040606,
+        "size": 10240
+      },
+      {
+        "ns": 0,
+        "title": "Zen of Python",
+        "pageid": 46448252,
+        "size": 11211
+      },
+      {
+        "ns": 0,
+        "title": "Glob (programming)",
+        "pageid": 484117,
+        "size": 27549
+      },
+      {
+        "ns": 0,
+        "title": "Python",
+        "pageid": 46332325,
+        "size": 2240
+      }
+    ]
+  }
+}

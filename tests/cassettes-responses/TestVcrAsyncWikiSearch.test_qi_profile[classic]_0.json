@@ -1,0 +1,104 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "sroffset": 10,
+    "continue": "-||"
+  },
+  "query": {
+    "searchinfo": {
+      "totalhits": 6045
+    },
+    "search": [
+      {
+        "ns": 0,
+        "title": "Python (programming language)",
+        "pageid": 23862,
+        "size": 140415,
+        "wordcount": 11448,
+        "snippet": "<span class=\"searchmatch\">Python</span> is a high-level, general-purpose <span class=\"searchmatch\">programming</span> language. Its design philosophy emphasizes code readability with the use of significant indentation",
+        "timestamp": "2026-03-25T15:46:00Z"
+      },
+      {
+        "ns": 0,
+        "title": "Monty Python",
+        "pageid": 18942,
+        "size": 190934,
+        "wordcount": 19312,
+        "snippet": "Monty <span class=\"searchmatch\">Python</span>, also known as the <span class=\"searchmatch\">Pythons</span>, were a British comedy troupe formed in 1969 consisting of Graham Chapman, John Cleese, Terry Gilliam, Eric Idle",
+        "timestamp": "2026-03-25T15:29:11Z"
+      },
+      {
+        "ns": 0,
+        "title": "History of Python",
+        "pageid": 21356332,
+        "size": 57307,
+        "wordcount": 4262,
+        "snippet": "The <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> was conceived in the late 1980s, and its implementation was started in December 1989 by Guido van Rossum at CWI in the",
+        "timestamp": "2026-03-17T08:37:45Z"
+      },
+      {
+        "ns": 0,
+        "title": "Python License",
+        "pageid": 5087621,
+        "size": 3189,
+        "wordcount": 292,
+        "snippet": "was used for versions 1.6 and 2.0 of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, both released in the year 2000. The <span class=\"searchmatch\">Python</span> License is similar to the BSD License and",
+        "timestamp": "2022-04-16T00:18:08Z"
+      },
+      {
+        "ns": 0,
+        "title": "IronPython",
+        "pageid": 1179348,
+        "size": 20567,
+        "wordcount": 2005,
+        "snippet": "Iron<span class=\"searchmatch\">Python</span> is an implementation of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language targeting the .NET and Mono frameworks. The project is currently maintained by a group",
+        "timestamp": "2026-02-14T07:01:02Z"
+      },
+      {
+        "ns": 0,
+        "title": "Python syntax and semantics",
+        "pageid": 5250192,
+        "size": 68515,
+        "wordcount": 7865,
+        "snippet": "The syntax of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is the set of rules that defines how a <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">program</span> will be written and interpreted (by both the runtime",
+        "timestamp": "2026-01-19T22:21:34Z"
+      },
+      {
+        "ns": 0,
+        "title": "IDLE",
+        "pageid": 10849171,
+        "size": 5709,
+        "wordcount": 446,
+        "snippet": "for <span class=\"searchmatch\">Python</span>, which has been bundled with the default implementation of the language since 1.5.2b1. It is packaged as an optional part of the <span class=\"searchmatch\">Python</span> packaging",
+        "timestamp": "2026-03-06T07:54:49Z"
+      },
+      {
+        "ns": 0,
+        "title": "Flask (web framework)",
+        "pageid": 29040606,
+        "size": 10240,
+        "wordcount": 831,
+        "snippet": "framework and supports <span class=\"searchmatch\">Python</span> 2.7 and 3.5 and later. Jinja, also by Ronacher, is a template engine for the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. Similar to the",
+        "timestamp": "2026-01-05T17:44:23Z"
+      },
+      {
+        "ns": 0,
+        "title": "Programming language",
+        "pageid": 23015,
+        "size": 66362,
+        "wordcount": 7435,
+        "snippet": "A <span class=\"searchmatch\">programming</span> language is an engineered language for expressing computer <span class=\"searchmatch\">programs</span>. <span class=\"searchmatch\">Programming</span> languages typically allow software to be written in a human",
+        "timestamp": "2026-03-13T10:45:46Z"
+      },
+      {
+        "ns": 0,
+        "title": "Ruby (programming language)",
+        "pageid": 25768,
+        "size": 59241,
+        "wordcount": 5446,
+        "snippet": "Ruby is a general-purpose <span class=\"searchmatch\">programming</span> language. Its design puts an emphasis on <span class=\"searchmatch\">programming</span> productivity and simplicity. In Ruby, everything is an object",
+        "timestamp": "2026-02-25T16:53:53Z"
+      }
+    ]
+  }
+}

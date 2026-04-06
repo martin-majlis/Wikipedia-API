@@ -1,0 +1,104 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "sroffset": 10,
+    "continue": "-||"
+  },
+  "query": {
+    "searchinfo": {
+      "totalhits": 6045
+    },
+    "search": [
+      {
+        "ns": 0,
+        "title": "Reddit",
+        "pageid": 3829005,
+        "size": 243288,
+        "wordcount": 20288,
+        "snippet": "Swartz&#039;s blog post &quot;Rewriting Reddit&quot; reveals that the switch from Lisp to <span class=\"searchmatch\">Python</span>, specifically using the web.py framework developed by Swartz, was driven",
+        "timestamp": "2026-03-29T20:29:35Z"
+      },
+      {
+        "ns": 0,
+        "title": "David Attenborough",
+        "pageid": 78468,
+        "size": 189710,
+        "wordcount": 15194,
+        "snippet": "manager at the BBC, working as controller of BBC Two and director of <span class=\"searchmatch\">programming</span> for BBC Television in the 1960s and 1970s. While his earlier work focused",
+        "timestamp": "2026-03-29T20:29:06Z"
+      },
+      {
+        "ns": 0,
+        "title": "List of unusual deaths in the 21st century",
+        "pageid": 78404650,
+        "size": 202476,
+        "wordcount": 14560,
+        "snippet": "strangling deaths &quot;very unusual&quot; but said African rock <span class=\"searchmatch\">pythons</span> tend to be a little more high-strung. &quot;<span class=\"searchmatch\">Python</span> enclosure in N.B. boys&#039; deaths had &#039;flaw&#039;&quot;. CBC",
+        "timestamp": "2026-03-29T20:24:55Z"
+      },
+      {
+        "ns": 0,
+        "title": "Bonnie Garcia (coach)",
+        "pageid": 77535677,
+        "size": 5781,
+        "wordcount": 352,
+        "snippet": "<span class=\"searchmatch\">Pythons</span> varsity basketball team. Later, he served as head coach of AMA University and won a championship with them in 2006. While he was at <span class=\"searchmatch\">Pythons</span> and",
+        "timestamp": "2026-03-29T20:13:03Z"
+      },
+      {
+        "ns": 0,
+        "title": "Large language model",
+        "pageid": 73248112,
+        "size": 165098,
+        "wordcount": 16764,
+        "snippet": "into other <span class=\"searchmatch\">programming</span> languages. They were originally used as a code completion tool, but advances have moved them towards automatic <span class=\"searchmatch\">programming</span>. Services",
+        "timestamp": "2026-03-29T20:06:12Z"
+      },
+      {
+        "ns": 0,
+        "title": "Battlefield 2",
+        "pageid": 840351,
+        "size": 46261,
+        "wordcount": 4445,
+        "snippet": "Battlefield 2 is a 2005 first-person shooter game developed by Digital Illusions CE and published by Electronic Arts for Microsoft Windows. It is the third",
+        "timestamp": "2026-03-29T19:59:04Z"
+      },
+      {
+        "ns": 0,
+        "title": "Sergey Brin",
+        "pageid": 60904,
+        "size": 43716,
+        "wordcount": 3800,
+        "snippet": "content downloaded: 207.022 gigabytes ... BackRub is written in Java and <span class=\"searchmatch\">Python</span> and runs on several Sun Ultras and Intel Pentiums running Linux. The primary",
+        "timestamp": "2026-03-29T19:58:03Z"
+      },
+      {
+        "ns": 0,
+        "title": "Israel",
+        "pageid": 9282173,
+        "size": 433065,
+        "wordcount": 40509,
+        "snippet": "one of the world&#039;s few operational anti-ballistic missile systems. The <span class=\"searchmatch\">Python</span> air-to-air missile series is often considered one of the most crucial weapons",
+        "timestamp": "2026-03-29T19:56:14Z"
+      },
+      {
+        "ns": 0,
+        "title": "Canal 9 (Danish TV channel)",
+        "pageid": 22173654,
+        "size": 35600,
+        "wordcount": 3852,
+        "snippet": "Intent Law &amp; Order: Special Victims Unit Major Crimes Medium Monk Monty <span class=\"searchmatch\">Python&#039;s</span> Flying Circus The Practice The Ricky Gervais Show The Shield Six Feet Under",
+        "timestamp": "2026-03-29T19:52:46Z"
+      },
+      {
+        "ns": 0,
+        "title": "Haskell",
+        "pageid": 27404990,
+        "size": 52200,
+        "wordcount": 4610,
+        "snippet": "typed, purely functional <span class=\"searchmatch\">programming</span> language with type inference and lazy evaluation. Haskell pioneered several <span class=\"searchmatch\">programming</span> language features including",
+        "timestamp": "2026-03-29T19:34:05Z"
+      }
+    ]
+  }
+}

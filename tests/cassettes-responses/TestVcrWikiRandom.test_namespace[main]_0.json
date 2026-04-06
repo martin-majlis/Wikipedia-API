@@ -1,0 +1,26 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "rncontinue": "0.014873269849|0.014873658997|56843647|0",
+    "continue": "-||"
+  },
+  "query": {
+    "random": [
+      {
+        "id": 43015642,
+        "ns": 0,
+        "title": "Karolis Chvedukas"
+      },
+      {
+        "id": 32179296,
+        "ns": 0,
+        "title": "Footpads"
+      },
+      {
+        "id": 35302549,
+        "ns": 0,
+        "title": "Qarkhun, Qazvin"
+      }
+    ]
+  }
+}

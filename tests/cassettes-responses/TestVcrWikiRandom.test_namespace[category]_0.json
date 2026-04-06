@@ -1,0 +1,26 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "rncontinue": "0.351830861543|0.351832657983|64130337|0",
+    "continue": "-||"
+  },
+  "query": {
+    "random": [
+      {
+        "id": 26173981,
+        "ns": 14,
+        "title": "Category:Sammarinese alpine skiers"
+      },
+      {
+        "id": 66739877,
+        "ns": 14,
+        "title": "Category:Songs written by Mickey Guyton"
+      },
+      {
+        "id": 18416439,
+        "ns": 14,
+        "title": "Category:Prisoners sentenced to death by Lithuania"
+      }
+    ]
+  }
+}

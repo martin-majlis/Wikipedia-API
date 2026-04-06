@@ -1,0 +1,36 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "rncontinue": "0.350549106900|0.350549754793|21745462|0",
+    "continue": "-||"
+  },
+  "query": {
+    "random": [
+      {
+        "id": 1190971,
+        "ns": 0,
+        "title": "Wirral Railway"
+      },
+      {
+        "id": 24680089,
+        "ns": 0,
+        "title": "Pierre Bourgeois"
+      },
+      {
+        "id": 19589080,
+        "ns": 0,
+        "title": "Slee"
+      },
+      {
+        "id": 56557261,
+        "ns": 0,
+        "title": "Anton Smolski"
+      },
+      {
+        "id": 25865572,
+        "ns": 0,
+        "title": "Minuscule 553"
+      }
+    ]
+  }
+}
