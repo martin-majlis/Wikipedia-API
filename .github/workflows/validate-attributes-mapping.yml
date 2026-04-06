@@ -45,4 +45,4 @@ jobs:
 
       - name: Validate Attributes Mapping
         run: |
-          uv run python validate_attributes_mapping.py
+          uv run python scripts/validate_attributes_mapping.py

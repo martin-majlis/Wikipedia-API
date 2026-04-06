@@ -44,15 +44,15 @@ run-tests-cli-unit:
 
 verify-skills:
 	@echo "Verifying all SKILLS code samples..."
-	uv run verify_skills.py
+	uv run scripts/verify_skills.py
 
 verify-skills-sh:
 	@echo "Verifying all SKILLS code samples..."
-	./verify-skills.sh
+	./scripts/verify-skills.sh
 
 extract-vcr-json:
 	@echo "Extracting JSON responses from VCR cassettes..."
-	uv run python extract_vcr_json.py --overwrite
+	uv run python scripts/extract_vcr_json.py --overwrite
 
 run-type-check: run-type-check-library run-type-check-tests
 
@@ -78,13 +78,13 @@ run-coverage:
 	uv run pytest --cov=wikipediaapi --cov-report=term-missing --cov-report=xml tests/
 
 run-validate-attributes-mappping:
-	uv run python ./validate_attributes_mapping.py
+	uv run python scripts/validate_attributes_mapping.py
 
 run-example-sync:
-	uv run python ./example_sync.py
+	uv run python examples/example_sync.py
 
 run-example-async:
-	uv run python ./example_async.py
+	uv run python examples/example_async.py
 
 requirements-all: process-readme
 	uv sync -v --group dev --group build --group doc
