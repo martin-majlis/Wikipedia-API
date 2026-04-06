@@ -31,6 +31,7 @@ run-tests-unit:
 
 run-tests-integration:
 	uv run pytest tests/vcr_page_sync_test.py tests/vcr_page_async_test.py tests/vcr_wiki_client_sync_test.py tests/vcr_wiki_client_async_test.py tests/vcr_pages_dict_sync_test.py tests/vcr_pages_dict_async_test.py --record-mode=none -v
+	$(MAKE) extract-vcr-json
 
 run-test-cli-verify:
 	uv run ./tests/cli/test_cli.sh verify
