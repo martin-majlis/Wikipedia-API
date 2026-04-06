@@ -18,6 +18,13 @@ eggs/
 lib/
 lib64/
 parts/
+
+# IDE and editor files
+.DS_Store
+.claude/
+CLAUDE.md
+PR_DESCRIPTION.md
+wikipedia-api-specification
 sdist/
 var/
 *.egg-info/

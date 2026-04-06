@@ -751,10 +751,10 @@ After implementing, update these files:
 2. **`DESIGN.rst`** — Update class diagram, dispatch helpers mapping,
    invariants section.
 
-3. **`example_sync.py`** — Add a usage example section (numbered, with
+3. **`examples/example_sync.py`** — Add a usage example section (numbered, with
    comments).
 
-4. **`example_async.py`** — Mirror the sync example with `await`.
+4. **`examples/example_async.py`** — Mirror the sync example with `await`.
 
 5. **`index.rst`** — Add a "How To" section with sync and async code blocks.
 
@@ -794,8 +794,8 @@ Fix any issues and re-run until everything passes.
 | `tests/query_submodules_test.py`       | Sync + async tests                                         |
 | `API.rst`                              | Public API reference                                       |
 | `DESIGN.rst`                           | Architecture docs                                          |
-| `example_sync.py`                      | Sync usage example                                         |
-| `example_async.py`                     | Async usage example                                        |
+| `examples/example_sync.py`             | Sync usage example                                         |
+| `examples/example_async.py`            | Async usage example                                        |
 | `index.rst`                            | User-facing docs                                           |
 
 ---

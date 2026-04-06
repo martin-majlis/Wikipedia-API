@@ -12,16 +12,16 @@ VCR cassettes store HTTP responses as escaped JSON strings in `interactions[].re
 
 ```bash
 # Use default directories (tests/cassettes -> tests/cassettes-json)
-python extract_vcr_json.py
+python scripts/extract_vcr_json.py
 
 # Custom directories
-python extract_vcr_json.py --input-dir my-cassettes --output-dir json-output
+python scripts/extract_vcr_json.py --input-dir my-cassettes --output-dir json-output
 
 # Verbose output
-python extract_vcr_json.py --verbose
+python scripts/extract_vcr_json.py --verbose
 
 # Overwrite existing files
-python extract_vcr_json.py --overwrite
+python scripts/extract_vcr_json.py --overwrite
 ```
 
 ### Makefile Target

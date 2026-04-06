@@ -9,10 +9,10 @@ This directory contains example code samples demonstrating various Wikipedia-API
 make verify-skills-sh
 
 # Or run directly
-./verify-skills.sh
+./scripts/verify-skills.sh
 
 # Or run Python script directly
-uv run verify_skills.py
+uv run scripts/verify_skills.py
 ```
 
 ## What Gets Verified
