@@ -83,6 +83,33 @@ class AsyncWikipediaImage(BaseWikipediaPage["AsyncWikipediaImage"]):
             await self._fetch("imageinfo")
         return int(self._attributes.get("pageid", -1)) > 0 or "known" in self._attributes
 
+    def _compute_base_pageid(self) -> int:
+        """Compute deterministic base page ID from image title.
+
+        :return: absolute hash of title for consistent page ID generation
+        """
+        return abs(hash(self.title))
+
+    @property
+    def pageid(self) -> Coroutine[Any, Any, int]:
+        """Awaitable: MediaWiki numeric page ID (positive for existing, negative for missing).
+
+        Returns a deterministic page ID based on image title hash
+        when image exists either locally (pageid > 0) or on Wikimedia
+        Commons (known attribute present). Returns a negative value when
+        image does not exist.
+        Triggers an ``imageinfo`` fetch on first access if the cache has not yet been populated.
+
+        :return: coroutine resolving to positive integer if image exists, negative integer otherwise
+        """
+
+        async def _get() -> int:
+            if not self._called["imageinfo"]:
+                await self._fetch("imageinfo")
+            return await self._get_pageid()
+
+        return _get()
+
     @property
     def imageinfo(self) -> Coroutine[Any, Any, list[ImageInfo]]:
         """Awaitable: list of :class:`~wikipediaapi.ImageInfo` objects.

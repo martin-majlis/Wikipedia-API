@@ -159,6 +159,9 @@ The subclasses are responsible for the fundamentally different parts:
   ``await page.summary`` first.
 * ``exists()`` — sync auto-fetches via ``self.pageid``; async is a
   coroutine method that lazily fetches ``pageid`` via ``info``.
+  **Invariant**: When ``exists()`` returns ``True``, ``pageid`` returns a
+  positive integer; when ``exists()`` returns ``False``, ``pageid`` returns a
+  negative integer. Both values are deterministic based on ``abs(hash(title))``.
 * All data-fetching surface (``summary``, ``langlinks``, ``pageid``, …)
   — explicit ``@property`` in both; async properties return coroutines
   (``await page.summary``, ``await page.pageid``, etc.).

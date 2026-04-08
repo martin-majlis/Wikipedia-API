@@ -1,5 +1,4 @@
 """Synchronous Wikipedia image (file) representation.
-
 This module defines the WikipediaImage class which represents a single
 file page in a synchronous context.  It is a lighter variant of
 WikipediaPage focused on file metadata rather than article text.
@@ -21,21 +20,16 @@ if TYPE_CHECKING:
 
 class WikipediaImage(BaseWikipediaPage["WikipediaImage"]):
     """Lazy representation of a Wikipedia/Commons file page.
-
     A ``WikipediaImage`` is created by internal resource methods when
     building image lists.  It requires no network call at construction
     time; accessing ``imageinfo`` (or any convenience property derived
     from it) triggers the minimum API call needed to populate the cache.
-
     **Named properties** (always available without a network call):
-
     :attr language: two-letter language code this image belongs to
     :attr variant: language variant used for auto-conversion, or ``None``
     :attr title: file title including the ``File:`` prefix
     :attr ns: integer namespace number (6 for files)
-
     **Dynamically fetched** (trigger an ``imageinfo`` call on first access):
-
     * ``imageinfo`` — list of :class:`~wikipediaapi.ImageInfo` objects
     * ``url``, ``descriptionurl``, ``descriptionshorturl`` — URLs
     * ``width``, ``height``, ``size`` — dimensions and file size
@@ -52,10 +46,8 @@ class WikipediaImage(BaseWikipediaPage["WikipediaImage"]):
         url: str | None = None,
     ) -> None:
         """Initialise a lazy file-page stub.
-
         No network call is made here.  All cache attributes are
         initialised to empty values.
-
         :param wiki: the client (``Wikipedia`` or ``AsyncWikipedia``)
         :param title: file title (e.g. ``"File:Albert Einstein Head.jpg"``)
         :param ns: namespace (defaults to 6 = File)
@@ -77,12 +69,10 @@ class WikipediaImage(BaseWikipediaPage["WikipediaImage"]):
 
     def exists(self) -> bool:
         """Return ``True`` if this file exists (local or on Commons).
-
         A file is considered to exist when it has a positive pageid
         *or* when the API returned a ``known=""`` key (indicating the file
         is hosted on Wikimedia Commons).  Triggers an ``imageinfo`` fetch
         on first call if the cache has not yet been populated.
-
         :return: ``True`` if the file is available, ``False`` otherwise
         """
         if self._called["imageinfo"]:
@@ -90,13 +80,51 @@ class WikipediaImage(BaseWikipediaPage["WikipediaImage"]):
         self._fetch("imageinfo")
         return int(self._attributes.get("pageid", -1)) > 0 or "known" in self._attributes
 
+    def _compute_base_pageid(self) -> int:
+        """Compute deterministic base page ID from image title.
+
+        :return: absolute hash of title for consistent page ID generation
+        """
+        return abs(hash(self.title))
+
+    def _get_pageid(self) -> int:
+        """Return page ID based on imageinfo cache.
+
+        Returns a deterministic page ID based on image title hash
+        when image exists either locally (pageid > 0) or on Wikimedia
+        Commons (known attribute present). Returns a negative value when
+        image does not exist.
+
+        :return: positive integer if image exists, negative integer otherwise
+        """
+        if self._info_attr("pageid") > 0 or self._info_attr("known"):
+            return self._compute_base_pageid()  # Positive: deterministic based on title
+        else:
+            return -1 * self._compute_base_pageid()  # Negative: deterministic based on title
+
+    @property
+    def pageid(self) -> int:
+        """MediaWiki numeric page ID (positive for existing images, negative for missing).
+
+        Returns a deterministic page ID based on image title hash
+        when image exists either locally (pageid > 0) or on Wikimedia
+        Commons (known attribute present). Returns a negative value when
+        image does not exist.
+        Triggers an ``imageinfo`` fetch on first access if the cache has not yet been populated.
+
+        :return: positive integer if image exists, negative integer otherwise
+        """
+        if self._called["imageinfo"]:
+            return self._get_pageid()
+        else:
+            self._fetch("imageinfo")
+            return self._get_pageid()
+
     @property
     def imageinfo(self) -> list[ImageInfo]:
         """List of :class:`~wikipediaapi.ImageInfo` objects for this file.
-
         Triggers an ``imageinfo`` API call on first access using default
         parameters.  Subsequent accesses return the cached value.
-
         Returns:
             List of :class:`ImageInfo` objects; empty list if the file
             does not exist or has no metadata.
@@ -183,11 +211,9 @@ class WikipediaImage(BaseWikipediaPage["WikipediaImage"]):
 
     def __getattr__(self, name: str) -> Any:
         """Return a cached attribute, triggering an ``info`` fetch if needed.
-
         Overrides :meth:`BaseWikipediaPage.__getattr__` to add lazy fetching:
         if *name* is not yet in ``_attributes`` and the ``info`` call has not
         been made, it is dispatched automatically before re-checking the cache.
-
         :param name: attribute name to look up
         :return: the cached value
         :raises AttributeError: if *name* is absent even after fetching info
@@ -216,7 +242,6 @@ class WikipediaImage(BaseWikipediaPage["WikipediaImage"]):
 
     def _fetch(self, call: str) -> "WikipediaImage":
         """Invoke a named API method on ``self.wiki`` and mark it as called.
-
         :param call: name of the API method to invoke (e.g. ``"imageinfo"``)
         :return: ``self`` (for optional chaining)
         """
@@ -226,10 +251,8 @@ class WikipediaImage(BaseWikipediaPage["WikipediaImage"]):
 
     def __repr__(self) -> str:
         """Return a compact human-readable representation of this image.
-
         Shows title, language, namespace, and page ID (if the image has
         already been fetched; otherwise ``??``).
-
         :return: string of the form
             ``"<title> (lang: <lang>, id: <id>, ns: <ns>)"``
         """

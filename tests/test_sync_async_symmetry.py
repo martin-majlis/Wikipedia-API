@@ -416,6 +416,7 @@ class TestWikipediaImageSymmetry:
 
     IMAGE_PROPERTIES = [
         "imageinfo",
+        "pageid",
         "url",
         "width",
         "height",
