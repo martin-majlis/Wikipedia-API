@@ -73,9 +73,9 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
     ATTRIBUTES_MAPPING: dict[str, list[str]] = {
         "language": [],
         "variant": [],
-        "ns": [],
-        "namespace": [],
         "title": [],
+        "ns": ["info", "extracts", "langlinks"],
+        "namespace": ["info", "extracts", "langlinks"],
         "pageid": ["info", "extracts", "langlinks"],
         "contentmodel": ["info"],
         "pagelanguage": ["info"],
@@ -202,28 +202,6 @@ class BaseWikipediaPage(ABC, Generic[PageT]):
         :return: page title string
         """
         return str(self._attributes["title"])
-
-    @property
-    def ns(self) -> int:
-        """
-        Integer namespace number of this page.
-
-        Set at construction time from the ``ns`` argument.
-
-        :return: namespace integer (e.g. ``0`` for main articles,
-            ``14`` for categories)
-        """
-        return int(self._attributes["ns"])
-
-    @property
-    def namespace(self) -> int:
-        """
-        Integer namespace number of this page (alias for :attr:`ns`).
-
-        :return: namespace integer (e.g. ``0`` for main articles,
-            ``14`` for categories)
-        """
-        return int(self._attributes["ns"])
 
     def __eq__(self, other: object) -> bool:
         """Compare pages by logical identity tuple.

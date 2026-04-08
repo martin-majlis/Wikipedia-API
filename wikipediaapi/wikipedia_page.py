@@ -65,6 +65,25 @@ class WikipediaPage(BaseWikipediaPage["WikipediaPage"]):
         return self._attributes.get(name)
 
     @property
+    def ns(self) -> Any:
+        """Integer namespace number of this page (fetched from API)."""
+        # For stub pages (created with specific ns from API or with url), return direct value
+        # Heuristic: if has fullurl OR has non-zero namespace and no API calls made, likely a stub page
+        if "fullurl" in self._attributes or (
+            self._attributes.get("ns", 0) != 0 and not self._called["info"]
+        ):
+            return self._attributes.get("ns")
+        if self._called["info"]:
+            return self._attributes.get("ns")
+        self._fetch("info")
+        return self._attributes.get("ns")
+
+    @property
+    def namespace(self) -> Any:
+        """Integer namespace number of this page (alias for :attr:`ns`)."""
+        return self.ns
+
+    @property
     def pageid(self) -> Any:
         """MediaWiki numeric page ID (negative for missing pages)."""
         return self._info_attr("pageid")

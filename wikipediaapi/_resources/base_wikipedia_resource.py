@@ -187,7 +187,10 @@ class BaseWikipediaResource(ABC):
             A negative integer derived from page identity and stable within
             current Python process.
         """
-        pageid = hash((page.language, page.title, page.ns))
+        # Access ns directly from _attributes to avoid recursion
+        # when ns property triggers API call
+        ns = page._attributes.get("ns", 0)
+        pageid = hash((page.language, page.title, ns))
         if pageid >= 0:
             pageid = -(pageid + 1)
         if pageid == -1:
