@@ -51,7 +51,7 @@ dev = [
     "tox==4.52.0",
     "anyio[trio]==4.13.0",
     "respx==0.23.1",
-    "types-setuptools==82.0.0.20260210",
+    "types-setuptools==82.0.0.20260408",
     "pytest-recording>=0.13.2",
     "vcrpy>=6.0.0",
     "ty>=0.0.27",
