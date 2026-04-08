@@ -1,85 +1,85 @@
 {
-"totalhits": 6045,
+"totalhits": 6044,
 "pages": [
 {
-"title": "Zope Object Database",
-"pageid": 2920295,
-"size": 8834,
-"wordcount": 1057,
-"timestamp": "2026-01-06T04:26:28Z",
-"snippet": "re-implementing the entire ZODB 3 package using 100% <span class=\"searchmatch\">Python</span>. ZODB stores <span class=\"searchmatch\">Python</span> objects using an extended version of <span class=\"searchmatch\">Python&#039;s</span> built-in object persistence (pickle). A"
+"title": "IDS Center",
+"pageid": 544250,
+"size": 26083,
+"wordcount": 2476,
+"timestamp": "2026-03-21T23:27:13Z",
+"snippet": "of a store on the Skyway Level of the Crystal Court. In the movie Monty <span class=\"searchmatch\">Python&#039;s</span> The Meaning of Life and the short film The Crimson Permanent Assurance"
 },
 {
-"title": "Real Sex",
-"pageid": 623616,
-"size": 20461,
-"wordcount": 513,
-"timestamp": "2026-03-29T04:44:46Z",
-"snippet": "documentary is that &quot;there hasn&#039;t been a strong demand for this kind of adult <span class=\"searchmatch\">programming</span>, perhaps because it&#039;s easily available elsewhere.&quot; Sexcetera, a similar"
+"title": "Aardvark",
+"pageid": 680,
+"size": 40339,
+"wordcount": 4729,
+"timestamp": "2026-04-08T13:40:24Z",
+"snippet": "cheetahs, African wild dogs, spotted hyenas, and Southern African rock <span class=\"searchmatch\">pythons</span>. Some humans also hunt aardvarks for meat. Aardvarks can dig fast or run"
 },
 {
-"title": "Comparison of regular expression engines",
-"pageid": 10930422,
-"size": 35698,
-"wordcount": 641,
-"timestamp": "2026-01-16T07:08:53Z",
-"snippet": "Supported by <span class=\"searchmatch\">Python</span> v3.11 and later, and the optional regex library only. May only be available in the regex library when used with <span class=\"searchmatch\">Python</span> versions after"
+"title": "Mnozil Brass",
+"pageid": 7001309,
+"size": 6493,
+"wordcount": 464,
+"timestamp": "2026-03-26T07:59:42Z",
+"snippet": "virtuosic brass playing. They are often popularly referred to as &quot;The Monty <span class=\"searchmatch\">Python</span> of the musical world&quot;. Austrian and German schlager songs of the 20th century"
 },
 {
-"title": "Rockefeller Archive Center",
-"pageid": 39388478,
-"size": 10630,
-"wordcount": 1094,
-"timestamp": "2025-05-20T00:30:27Z",
-"snippet": "Country. Retrieved 2019-01-05. Editors, bloggERS! (2018-10-30). &quot;Using <span class=\"searchmatch\">Python</span>, FFMPEG, and the ArchivesSpace API to Create a Lightweight Clip Library&quot;"
+"title": "Alice Springs Desert Park",
+"pageid": 14308898,
+"size": 13799,
+"wordcount": 987,
+"timestamp": "2026-02-19T09:35:16Z",
+"snippet": "Slater&#039;s skink Spinifex legless lizard Stimson&#039;s banded rock <span class=\"searchmatch\">python</span> Thorny devil Woma <span class=\"searchmatch\">python</span> &quot;Alice Springs Desert Park&quot;. anbg.gov.au. Australian National"
 },
 {
-"title": "Wilkinson's Grammar of Graphics",
-"pageid": 80435299,
-"size": 17760,
-"wordcount": 1773,
-"timestamp": "2026-03-28T10:46:59Z",
-"snippet": "in R and implementations in other <span class=\"searchmatch\">programming</span> languages have ensued. These include direct ports plotnine for <span class=\"searchmatch\">Python</span>, gramm for MATLAB, Lets-Plot for Kotlin"
+"title": "HiGHS optimization solver",
+"pageid": 71356449,
+"size": 16714,
+"wordcount": 1240,
+"timestamp": "2026-03-30T17:06:36Z",
+"snippet": "in C++ and published under an MIT license, HiGHS provides <span class=\"searchmatch\">programming</span> interfaces to C, <span class=\"searchmatch\">Python</span>, Julia, Rust, R, JavaScript, Fortran, and C#. It has no external"
 },
 {
-"title": "University of Cambridge",
-"pageid": 25978572,
-"size": 194180,
-"wordcount": 17906,
-"timestamp": "2026-03-31T05:42:24Z",
-"snippet": "Abrahams (played by Ben Cross) was a student there. The 1983 film Monty <span class=\"searchmatch\">Python&#039;s</span> The Meaning of Life features Churchill College in the film&#039;s church scene"
+"title": "Batteries Not Included (TV series)",
+"pageid": 20184489,
+"size": 1601,
+"wordcount": 88,
+"timestamp": "2023-09-11T22:31:39Z",
+"snippet": "favourite gadgets to discuss. Shepherd, Robert (17 September 2008). &quot;Monty <span class=\"searchmatch\">Python</span> star returns to TV&quot;. Retrieved 8 February 2011. Batteries Not Included at"
 },
 {
-"title": "Master of Financial Economics",
-"pageid": 21575033,
-"size": 16283,
-"wordcount": 1331,
-"timestamp": "2026-01-24T14:38:18Z",
-"snippet": "model using statistical packages such as SAS and EViews - and increasingly <span class=\"searchmatch\">Python</span> and R. The applications are reinforced through the computer based implementation"
+"title": "Watershed delineation",
+"pageid": 72796039,
+"size": 30943,
+"wordcount": 3168,
+"timestamp": "2026-03-16T04:54:26Z",
+"snippet": "information system software like ArcGIS or QGIS, or with <span class=\"searchmatch\">programming</span> languages like <span class=\"searchmatch\">Python</span> or R. Watersheds are a fundamental geographic unit in hydrology"
 },
 {
-"title": "Google Data Protocol",
-"pageid": 4992340,
-"size": 2794,
-"wordcount": 180,
-"timestamp": "2024-08-27T21:54:24Z",
-"snippet": "Google provides GData client libraries for Java, JavaScript, .NET, PHP, <span class=\"searchmatch\">Python</span>, and Objective-C. An implementation called libgdata written in C is available"
+"title": "List of ZX Spectrum games",
+"pageid": 3673118,
+"size": 261231,
+"wordcount": 156,
+"timestamp": "2026-03-26T22:15:59Z",
+"snippet": "1990 Quarterback Virgin Games Binary Design Leland Corporation 1990 Monty <span class=\"searchmatch\">Python&#039;s</span> Flying Circus Virgin Games CORE Design (Ben Daglish) 1990 New York Warriors"
 },
 {
-"title": "2014 in British television",
-"pageid": 41142883,
-"size": 278594,
-"wordcount": 9922,
-"timestamp": "2026-04-01T16:40:31Z",
-"snippet": "July 2014. &quot;Monty <span class=\"searchmatch\">Python</span> to disband after 10 London reunion shows&quot;. BBC News. 4 April 2014. Retrieved 6 April 2014. &quot;Monty <span class=\"searchmatch\">Python</span> reunion to be broadcast"
+"title": "Array (data type)",
+"pageid": 22817874,
+"size": 22091,
+"wordcount": 2811,
+"timestamp": "2026-03-10T16:00:10Z",
+"snippet": "extension libraries for other general purpose <span class=\"searchmatch\">programming</span> languages (such as the widely used NumPy library for <span class=\"searchmatch\">Python</span>). Many languages provide a built-in string"
 },
 {
-"title": "Galahad and the Holy Grail",
-"pageid": 442310,
-"size": 6072,
-"wordcount": 582,
-"timestamp": "2025-08-09T13:11:37Z",
-"snippet": "as well as other popular games of the day. With a nod to the film Monty <span class=\"searchmatch\">Python</span> and the Holy Grail, one of the objects found in the game is a holy hand"
+"title": "S-PLUS",
+"pageid": 3830007,
+"size": 6705,
+"wordcount": 679,
+"timestamp": "2025-11-21T11:53:25Z",
+"snippet": "commercial implementation of the S <span class=\"searchmatch\">programming</span> language sold by TIBCO Software Inc. It features object-oriented <span class=\"searchmatch\">programming</span> capabilities and advanced analytical"
 }
 ]
 }

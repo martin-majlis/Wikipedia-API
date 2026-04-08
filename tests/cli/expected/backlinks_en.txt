@@ -44,7 +44,6 @@
 (26308) 1998 SM165
 (26375) 1999 DE9
 (275809) 2001 QY297
-(278361) 2007 JJ43
 (303775) 2005 QU182
 (307463) 2002 VU130
 (308193) 2005 CB79
@@ -1499,7 +1498,6 @@ Portal:Outer space/Selected article/34
 Portal:Outer space/Selected article/39
 Portal:Outer space/Selected article/7
 Portal:Physics/2012 Selected pictures
-Portal:Physics/Featured articles
 Portal:Physics/News/Archive
 Portal:Physics/Selected images
 Portal:Physics/Selected images/14
@@ -1927,7 +1925,7 @@ Talk:Solar System/Archive 2
 Talk:Solar System/Archive 3
 Talk:Solid nitrogen
 Talk:Somerset Space Walk
-Talk:Space probe (spacecraft)
+Talk:Space probe
 Talk:Sport bike
 Talk:Sun/German translation
 Talk:Tahquitz
@@ -4412,6 +4410,7 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
+Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1

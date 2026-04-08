@@ -229,11 +229,6 @@
 "language": "en",
 "ns": 0
 },
-"(278361) 2007 JJ43": {
-"title": "(278361) 2007 JJ43",
-"language": "en",
-"ns": 0
-},
 "(303775) 2005 QU182": {
 "title": "(303775) 2005 QU182",
 "language": "en",
@@ -7504,11 +7499,6 @@
 "language": "en",
 "ns": 100
 },
-"Portal:Physics/Featured articles": {
-"title": "Portal:Physics/Featured articles",
-"language": "en",
-"ns": 100
-},
 "Portal:Physics/News/Archive": {
 "title": "Portal:Physics/News/Archive",
 "language": "en",
@@ -9644,8 +9634,8 @@
 "language": "en",
 "ns": 1
 },
-"Talk:Space probe (spacecraft)": {
-"title": "Talk:Space probe (spacecraft)",
+"Talk:Space probe": {
+"title": "Talk:Space probe",
 "language": "en",
 "ns": 1
 },
@@ -22066,6 +22056,11 @@
 },
 "Wikipedia talk:WikiProject Medicine/Archive 152": {
 "title": "Wikipedia talk:WikiProject Medicine/Archive 152",
+"language": "en",
+"ns": 5
+},
+"Wikipedia talk:WikiProject Portals/Design/Archive 3": {
+"title": "Wikipedia talk:WikiProject Portals/Design/Archive 3",
 "language": "en",
 "ns": 5
 },

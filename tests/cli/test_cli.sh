@@ -200,6 +200,8 @@ TESTS=(
 #   - for text tests: the line count is within ±50 % of the recorded fixture
 
 NONDETERMINISTIC_TESTS=(
+    "images_en_json"
+    "images_en_imageinfo_json"
     "random_default"
     "random_limit"
     "random_json"
