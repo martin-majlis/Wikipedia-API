@@ -9,13 +9,13 @@
 "language": "en",
 "ns": 0
 },
-"2 Pallas": {
-"title": "2 Pallas",
+"174567 Varda": {
+"title": "174567 Varda",
 "language": "en",
 "ns": 0
 },
-"20000 Varuna": {
-"title": "20000 Varuna",
+"2 Pallas": {
+"title": "2 Pallas",
 "language": "en",
 "ns": 0
 },
@@ -44,8 +44,18 @@
 "language": "en",
 "ns": 0
 },
+"208996 Achlys": {
+"title": "208996 Achlys",
+"language": "en",
+"ns": 0
+},
 "28978 Ixion": {
 "title": "28978 Ixion",
+"language": "en",
+"ns": 0
+},
+"307261 Máni": {
+"title": "307261 Máni",
 "language": "en",
 "ns": 0
 },
@@ -56,6 +66,16 @@
 },
 "469219 Kamoʻoalewa": {
 "title": "469219 Kamoʻoalewa",
+"language": "en",
+"ns": 0
+},
+"532037 Chiminigagua": {
+"title": "532037 Chiminigagua",
+"language": "en",
+"ns": 0
+},
+"55565 Aya": {
+"title": "55565 Aya",
 "language": "en",
 "ns": 0
 },

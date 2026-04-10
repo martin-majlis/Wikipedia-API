@@ -1,5 +1,5 @@
 {
-"totalhits": 6044,
+"totalhits": 6045,
 "pages": [
 {
 "title": "Tilde",
@@ -52,10 +52,10 @@
 {
 "title": "YouTube",
 "pageid": 3524766,
-"size": 215714,
-"wordcount": 19544,
-"timestamp": "2026-04-07T12:57:45Z",
-"snippet": "15, 2023. Claburn, Thomas (January 5, 2017). &quot;Google&#039;s Grumpy code makes <span class=\"searchmatch\">Python</span> Go&quot;. The Register. Archived from the original on December 14, 2019. Retrieved"
+"size": 215690,
+"wordcount": 19542,
+"timestamp": "2026-04-10T07:12:40Z",
+"snippet": "advertisements alone to paid offerings such as movies and exclusive <span class=\"searchmatch\">programming</span> explicitly produced for YouTube. It also offers YouTube Premium, a paid"
 },
 {
 "title": "BBC",
