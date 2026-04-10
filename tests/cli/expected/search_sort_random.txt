@@ -1,85 +1,85 @@
 {
-"totalhits": 6044,
+"totalhits": 6045,
 "pages": [
 {
-"title": "Google App Engine",
-"pageid": 16822361,
-"size": 18274,
-"wordcount": 1573,
-"timestamp": "2026-02-11T18:20:18Z",
-"snippet": "&quot;<span class=\"searchmatch\">Python</span> Runtime Environment - Google App Engine - Google Code&quot;. February 22, 1999. Retrieved February 14, 2012. Sanderson, Dan (2009). <span class=\"searchmatch\">Programming</span> Google"
+"title": "Fortran",
+"pageid": 11168,
+"size": 115086,
+"wordcount": 12119,
+"timestamp": "2026-04-04T15:38:38Z",
+"snippet": "Computer <span class=\"searchmatch\">programming</span> portal f2c F2PY – <span class=\"searchmatch\">Python</span> library for numerical <span class=\"searchmatch\">programming</span> FORMAC – Computer algebra system based on FORTRAN Fortran <span class=\"searchmatch\">programming</span> language"
 },
 {
-"title": "Parsing expression grammar",
-"pageid": 892899,
-"size": 48933,
-"wordcount": 6626,
-"timestamp": "2026-03-13T16:57:08Z",
-"snippet": "arXiv:1902.08272 [cs.FL]. &quot;PEP 617 – New PEG parser for CPython | peps.<span class=\"searchmatch\">python</span>.org&quot;. peps.<span class=\"searchmatch\">python</span>.org. Retrieved 2023-01-16. Ierusalimschy, Roberto (10 March 2009)"
+"title": "Pseudospectral optimal control",
+"pageid": 15983837,
+"size": 16067,
+"wordcount": 1663,
+"timestamp": "2025-12-01T02:22:27Z",
+"snippet": "Machine SPARTAN: Simple Pseudospectral Algorithm for Rapid Trajectory ANalysis OpenGoddard – <span class=\"searchmatch\">Python</span> Open Source Pseudospectral Optimal Control Software"
 },
 {
-"title": "The Restaurant at the End of the Universe",
-"pageid": 202349,
-"size": 14642,
-"wordcount": 1806,
-"timestamp": "2026-03-26T06:07:03Z",
-"snippet": "material sourced from the Pan Books archives shows quotes from the Monty <span class=\"searchmatch\">Python</span> team and other reviews choosing Mr. Adams&#039; books as Book of The Year. Review"
+"title": "Enterprise Architect (software)",
+"pageid": 43204340,
+"size": 26476,
+"wordcount": 2143,
+"timestamp": "2025-11-03T23:15:37Z",
+"snippet": "Languages supported include ActionScript, C, C# and C++, Delphi, Java, PHP, <span class=\"searchmatch\">Python</span>, Visual Basic and Visual Basic .NET In accordance with model-driven development"
 },
 {
-"title": "Stropping (syntax)",
-"pageid": 3631345,
-"size": 24548,
-"wordcount": 2700,
-"timestamp": "2025-12-30T02:03:42Z",
-"snippet": "the semantic analysis phase, not the tokenization phase. For example, in <span class=\"searchmatch\">Python</span>, a single leading underscore is a weak private indicator, and affects which"
+"title": "List of command-line interpreters",
+"pageid": 71915,
+"size": 6472,
+"wordcount": 642,
+"timestamp": "2026-01-16T06:51:27Z",
+"snippet": "general <span class=\"searchmatch\">programming</span> section since an operating system shell supports <span class=\"searchmatch\">programming</span>, and the line between operating system access and general <span class=\"searchmatch\">programming</span> is sometimes"
 },
 {
-"title": "Gateway (telecommunications)",
-"pageid": 1338556,
-"size": 11493,
-"wordcount": 1067,
-"timestamp": "2026-03-20T17:02:07Z",
-"snippet": "lightweight protocols that don&#039;t require extensive CPU resources. C, Java, <span class=\"searchmatch\">Python</span> and some scripting languages are the preferred choices of IoT application"
+"title": "CodeProject",
+"pageid": 44634994,
+"size": 8264,
+"wordcount": 781,
+"timestamp": "2026-03-31T17:42:58Z",
+"snippet": "Delphi Java JavaScript Perl <span class=\"searchmatch\">Python</span> SQL VB.NET CodeProject contains articles pertaining to the following topics: Android <span class=\"searchmatch\">Programming</span> Graphics Internet of Things"
 },
 {
-"title": "IClone",
-"pageid": 27169354,
-"size": 16013,
-"wordcount": 2003,
-"timestamp": "2025-12-04T07:14:47Z",
-"snippet": "file types including FBX; a timeline for editing and merging motions; a <span class=\"searchmatch\">Python</span> API and a scripting language (Lua) for character interaction; application"
+"title": "Anonymous recursion",
+"pageid": 3062599,
+"size": 11978,
+"wordcount": 1514,
+"timestamp": "2025-11-26T14:31:58Z",
+"snippet": "<span class=\"searchmatch\">programming</span> practice, anonymous recursion is notably used in JavaScript, which provides reflection facilities to support it. In general <span class=\"searchmatch\">programming</span> practice"
 },
 {
-"title": "Changes: You Got a Prom Wit Dat?",
-"pageid": 4290660,
-"size": 22477,
-"wordcount": 2448,
-"timestamp": "2025-10-13T04:11:10Z",
-"snippet": "drama parody version of the cops coming in to break up a Monty <span class=\"searchmatch\">Python</span> sketch [in Monty <span class=\"searchmatch\">Python</span> and the Holy Grail…] the most cliffhangery cliffhanger, where"
+"title": "Distcc",
+"pageid": 566191,
+"size": 5415,
+"wordcount": 507,
+"timestamp": "2025-08-13T06:41:18Z",
+"snippet": "reduce a project&#039;s compilation time. It is designed to work with the C <span class=\"searchmatch\">programming</span> language (and its derivatives like C++ and Objective-C) and to use GCC"
 },
 {
-"title": "Java version history",
-"pageid": 7771171,
-"size": 217003,
-"wordcount": 11957,
-"timestamp": "2026-03-26T08:38:18Z",
-"snippet": "the Java language&#039;s reach to alternative <span class=\"searchmatch\">programming</span> models with an enhancement to its reflective <span class=\"searchmatch\">programming</span> abilities, called code reflection (i.e.,"
+"title": "EmEditor",
+"pageid": 4233835,
+"size": 7167,
+"wordcount": 621,
+"timestamp": "2026-03-28T17:30:10Z",
+"snippet": "The <span class=\"searchmatch\">program</span> continued to evolve, and on the way introduced many more <span class=\"searchmatch\">programming</span> languages, such as C++, Java, HTML, Markdown, Perl, and <span class=\"searchmatch\">Python</span>. On February"
 },
 {
-"title": "List of missiles by country",
-"pageid": 2002565,
-"size": 102216,
-"wordcount": 6836,
-"timestamp": "2026-03-29T23:03:59Z",
-"snippet": "larger derivatives exist as well, including a submarine-launched variant) <span class=\"searchmatch\">Python</span> 5 (air-to-air, with also a ground-to-air version for the SPYDER system)"
+"title": "Delay-tolerant networking",
+"pageid": 2710684,
+"size": 22604,
+"wordcount": 2372,
+"timestamp": "2026-02-11T17:50:50Z",
+"snippet": "space-tested DTN protocol implementation initially based on μPCN. PyDTN—<span class=\"searchmatch\">Python</span>; developed by X-works and during the IETF 101 Hackathon. Terra—Java; developed"
 },
 {
-"title": "Geometric constraint solving",
-"pageid": 55690563,
-"size": 12280,
-"wordcount": 1313,
-"timestamp": "2026-03-23T04:26:08Z",
-"snippet": "Toolkit, integrated into KOMPAS-3D; GeoSolver, a GNU General Public License <span class=\"searchmatch\">Python</span> package for geometric constraint solving; SolveSpace, open-source CAD that"
+"title": "Apache SINGA",
+"pageid": 51545339,
+"size": 14786,
+"wordcount": 1482,
+"timestamp": "2026-04-02T04:34:41Z",
+"snippet": "release 5.1.0 / April 2, 2026; 0 days ago (2026-04-02) Written in C++, <span class=\"searchmatch\">Python</span> Operating system Linux, macOS, Windows License Apache License 2.0 Website"
 }
 ]
 }

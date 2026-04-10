@@ -1,4 +1,4 @@
-Total hits: 6044
+Total hits: 6045
 
 Python (programming language)
 History of Python
@@ -9,4 +9,4 @@ Zen of Python
 List of Python software
 Glob (programming)
 Flask (web framework)
-Core Python Programming
+Python Software Foundation

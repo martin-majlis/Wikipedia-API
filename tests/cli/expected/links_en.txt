@@ -1,15 +1,19 @@
 10 Hygiea
 120347 Salacia
+174567 Varda
 2 Pallas
-20000 Varuna
 2006 RH120
 2010 TK7
 2013 ND15
 2019 UO14
 2060 Chiron
+208996 Achlys
 28978 Ixion
+307261 Máni
 4 Vesta
 469219 Kamoʻoalewa
+532037 Chiminigagua
+55565 Aya
 Abel Méndez
 Abiogenesis
 Absolute magnitude

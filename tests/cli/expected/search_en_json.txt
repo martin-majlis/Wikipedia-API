@@ -1,20 +1,20 @@
 {
-"totalhits": 6044,
+"totalhits": 6045,
 "pages": [
 {
 "title": "Python (programming language)",
 "pageid": 23862,
 "size": 140373,
 "wordcount": 11462,
-"timestamp": "2026-04-08T19:59:48Z",
+"timestamp": "2026-04-09T14:38:54Z",
 "snippet": " and garbage collection. <span class=\"searchmatch\">Python</span> supports multiple <span class=\"searchmatch\">programming</span> paradigms but with an emphasis on object-oriented <span class=\"searchmatch\">programming</span> and dynamic typing. Guido"
 },
 {
 "title": "History of Python",
 "pageid": 21356332,
-"size": 57339,
+"size": 57316,
 "wordcount": 4266,
-"timestamp": "2026-04-02T00:00:21Z",
+"timestamp": "2026-04-10T10:53:44Z",
 "snippet": "The <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> was conceived in the late 1980s, and its implementation was started in December 1989 by Guido van Rossum at CWI in the"
 },
 {
@@ -74,12 +74,12 @@
 "snippet": "framework and supports <span class=\"searchmatch\">Python</span> 2.7 and 3.5 and later. Jinja, also by Ronacher, is a template engine for the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. Similar to the"
 },
 {
-"title": "Core Python Programming",
-"pageid": 25061839,
-"size": 3926,
-"wordcount": 316,
-"timestamp": "2026-01-31T19:07:48Z",
-"snippet": "Core <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> is a textbook on the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, written by Wesley J. Chun. The first edition of the book was released on December"
+"title": "Python Software Foundation",
+"pageid": 696712,
+"size": 9682,
+"wordcount": 847,
+"timestamp": "2026-04-09T01:19:24Z",
+"snippet": "<span class=\"searchmatch\">Python</span> Software Foundation (named after the snake with the same name) (PSF) is an American nonprofit organization devoted to the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language"
 }
 ]
 }
