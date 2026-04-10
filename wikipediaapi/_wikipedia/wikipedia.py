@@ -6,9 +6,9 @@ with HTTP client functionality to enable straightforward Wikipedia API
 interactions.
 """
 
-from ._http_client import USER_AGENT  # noqa: F401
-from ._http_client import SyncHTTPClient
-from ._resources import WikipediaResource
+from .._http_client import USER_AGENT  # noqa: F401
+from .._http_client import SyncHTTPClient
+from .._resources import WikipediaResource
 
 
 class Wikipedia(WikipediaResource, SyncHTTPClient):

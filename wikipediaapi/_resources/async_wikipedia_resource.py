@@ -4,7 +4,6 @@ from typing import Any
 from typing import Union
 from typing import cast
 
-from .._base_wikipedia_page import NOT_CACHED
 from .._enums import CoordinatesProp
 from .._enums import CoordinateType
 from .._enums import Direction
@@ -25,6 +24,9 @@ from .._enums import WikiSearchProp
 from .._enums import WikiSearchQiProfile
 from .._enums import WikiSearchSort
 from .._enums import WikiSearchWhat
+from .._image.async_wikipedia_image import AsyncWikipediaImage
+from .._page._base_wikipedia_page import NOT_CACHED
+from .._page.async_wikipedia_page import AsyncWikipediaPage
 from .._pages_dict import AsyncImagesDict
 from .._pages_dict import AsyncPagesDict
 from .._params.coordinates_params import CoordinatesParams
@@ -39,8 +41,6 @@ from .._types import GeoBox
 from .._types import GeoPoint
 from .._types import ImageInfo
 from .._types import SearchResults
-from ..async_wikipedia_image import AsyncWikipediaImage
-from ..async_wikipedia_page import AsyncWikipediaPage
 from .base_wikipedia_resource import BaseWikipediaResource
 
 if TYPE_CHECKING:

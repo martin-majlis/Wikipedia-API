@@ -8,15 +8,15 @@ exposes all data-fetching as awaitables.
 from collections.abc import Coroutine
 from typing import Any
 
-from ._base_wikipedia_page import NOT_CACHED
-from ._base_wikipedia_page import BaseWikipediaPage
-from ._enums import WikiNamespace
-from ._params.imageinfo_params import ImageInfoParams
-from ._types import ImageInfo
-from .wikipedia_page_section import WikipediaPageSection
+from .._enums import WikiNamespace
+from .._page._base_wikipedia_page import NOT_CACHED
+from .._page.wikipedia_page_section import WikipediaPageSection
+from .._params.imageinfo_params import ImageInfoParams
+from .._types import ImageInfo
+from ._base_wikipedia_image import BaseWikipediaImage
 
 
-class AsyncWikipediaImage(BaseWikipediaPage["AsyncWikipediaImage"]):
+class AsyncWikipediaImage(BaseWikipediaImage):
     """Lazy async representation of a Wikipedia/Commons file page.
 
     Mirrors :class:`~wikipediaapi.WikipediaImage` but exposes all
@@ -82,6 +82,26 @@ class AsyncWikipediaImage(BaseWikipediaPage["AsyncWikipediaImage"]):
         if not self._called["imageinfo"]:
             await self._fetch("imageinfo")
         return int(self._attributes.get("pageid", -1)) > 0 or "known" in self._attributes
+
+    @property
+    def pageid(self) -> Coroutine[Any, Any, int]:
+        """Awaitable: MediaWiki numeric page ID (positive for existing, negative for missing).
+
+        Returns a deterministic page ID based on image title hash
+        when image exists either locally (pageid > 0) or on Wikimedia
+        Commons (known attribute present). Returns a negative value when
+        image does not exist.
+        Triggers an ``imageinfo`` fetch on first access if the cache has not yet been populated.
+
+        :return: coroutine resolving to positive integer if image exists, negative integer otherwise
+        """
+
+        async def _get() -> int:
+            if not self._called["imageinfo"]:
+                await self._fetch("imageinfo")
+            return self._get_pageid()
+
+        return _get()
 
     @property
     def imageinfo(self) -> Coroutine[Any, Any, list[ImageInfo]]:

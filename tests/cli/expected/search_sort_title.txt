@@ -1,4 +1,4 @@
-Total hits: 6045
+Total hits: 6044
 
 .py
 "Hello, World!" program

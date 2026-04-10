@@ -352,7 +352,7 @@ class TestSyncAsyncPropertySymmetry:
         """Test that all documented properties are available in both classes."""
         # Get all documented properties from ATTRIBUTES_MAPPING
         documented_props = set(
-            wikipediaapi._base_wikipedia_page.BaseWikipediaPage.ATTRIBUTES_MAPPING.keys()
+            wikipediaapi._page._base_wikipedia_page.BaseWikipediaPage.ATTRIBUTES_MAPPING.keys()
         )
 
         # Check sync page has all properties
@@ -416,6 +416,7 @@ class TestWikipediaImageSymmetry:
 
     IMAGE_PROPERTIES = [
         "imageinfo",
+        "pageid",
         "url",
         "width",
         "height",

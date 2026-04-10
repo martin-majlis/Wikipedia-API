@@ -3,7 +3,7 @@ import pytest
 import wikipediaapi
 from tests.mock_data import async_wikipedia_api_request
 from tests.mock_data import user_agent
-from wikipediaapi.async_wikipedia_page import AsyncWikipediaPage
+from wikipediaapi._page.async_wikipedia_page import AsyncWikipediaPage
 
 
 class TestAsyncWikipedia:

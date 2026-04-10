@@ -1395,9 +1395,9 @@
 "url": "https://tly.wikipedia.org/wiki/Z%C9%99min"
 },
 "tn": {
-"title": "Lefatshe (bolepadinaledi)",
+"title": "Lefatshe",
 "language": "tn",
-"url": "https://tn.wikipedia.org/wiki/Lefatshe_(bolepadinaledi)"
+"url": "https://tn.wikipedia.org/wiki/Lefatshe"
 },
 "to": {
 "title": "Māmani (palanite)",
@@ -1435,9 +1435,9 @@
 "url": "https://tum.wikipedia.org/wiki/Charu_cha_pasi_(Tera)"
 },
 "tw": {
-"title": "Asase",
+"title": "Asaase (planeti)",
 "language": "tw",
-"url": "https://tw.wikipedia.org/wiki/Asase"
+"url": "https://tw.wikipedia.org/wiki/Asaase_(planeti)"
 },
 "tyv": {
 "title": "Чер",
@@ -1530,9 +1530,9 @@
 "url": "https://xal.wikipedia.org/wiki/%D0%94%D0%B5%D0%BB%D0%BA%D3%99_%D2%BB%D0%B0%D1%80%D0%B8%D0%B3"
 },
 "xh": {
-"title": "Umhlaba (i-astronomy)",
+"title": "Ihlabathi",
 "language": "xh",
-"url": "https://xh.wikipedia.org/wiki/Umhlaba_(i-astronomy)"
+"url": "https://xh.wikipedia.org/wiki/Ihlabathi"
 },
 "xmf": {
 "title": "დიხაუჩა",

@@ -46,6 +46,11 @@ from ._http_client import USER_AGENT
 from ._http_client import AsyncHTTPClient
 from ._http_client import BaseHTTPClient
 from ._http_client import SyncHTTPClient
+from ._image.async_wikipedia_image import AsyncWikipediaImage
+from ._image.wikipedia_image import WikipediaImage
+from ._page.async_wikipedia_page import AsyncWikipediaPage
+from ._page.wikipedia_page import WikipediaPage
+from ._page.wikipedia_page_section import WikipediaPageSection
 from ._pages_dict import AsyncImagesDict
 from ._pages_dict import AsyncPagesDict
 from ._pages_dict import ImagesDict
@@ -61,9 +66,8 @@ from ._types import ImageInfo
 from ._types import SearchMeta
 from ._types import SearchResults
 from ._version import __version__ as __version
-from .async_wikipedia import AsyncWikipedia
-from .async_wikipedia_image import AsyncWikipediaImage
-from .async_wikipedia_page import AsyncWikipediaPage
+from ._wikipedia.async_wikipedia import AsyncWikipedia
+from ._wikipedia.wikipedia import Wikipedia
 from .exceptions import WikiConnectionError
 from .exceptions import WikiHttpError
 from .exceptions import WikiHttpTimeoutError
@@ -71,10 +75,6 @@ from .exceptions import WikiInvalidJsonError
 from .exceptions import WikipediaException
 from .exceptions import WikiRateLimitError
 from .extract_format import ExtractFormat
-from .wikipedia import Wikipedia
-from .wikipedia_image import WikipediaImage
-from .wikipedia_page import WikipediaPage
-from .wikipedia_page_section import WikipediaPageSection
 
 __version__ = __version
 

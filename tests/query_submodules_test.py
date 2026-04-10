@@ -5,8 +5,8 @@ from tests.mock_data import async_wikipedia_api_request
 from tests.mock_data import user_agent
 from tests.mock_data import wikipedia_api_request
 import wikipediaapi
-from wikipediaapi._base_wikipedia_page import _Sentinel
-from wikipediaapi._base_wikipedia_page import NOT_CACHED
+from wikipediaapi._page._base_wikipedia_page import _Sentinel
+from wikipediaapi._page._base_wikipedia_page import NOT_CACHED
 from wikipediaapi._enums import Direction
 from wikipediaapi._params import CoordinatesParams
 from wikipediaapi._params import GeoSearchParams

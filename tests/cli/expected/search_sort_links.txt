@@ -1,12 +1,12 @@
 {
-"totalhits": 6045,
+"totalhits": 6044,
 "pages": [
 {
 "title": "Tilde",
 "pageid": 212390,
-"size": 80632,
-"wordcount": 8429,
-"timestamp": "2026-03-29T21:17:37Z",
+"size": 81013,
+"wordcount": 8467,
+"timestamp": "2026-04-07T09:10:40Z",
 "snippet": "or influenced by C, such as C++, C#, D, Java, JavaScript, Perl, PHP, and <span class=\"searchmatch\">Python</span>. The MySQL database also use tilde as bitwise invert as does Microsoft&#039;s"
 },
 {
@@ -21,7 +21,7 @@
 "title": "IMDb",
 "pageid": 2855554,
 "size": 54493,
-"wordcount": 5090,
+"wordcount": 5091,
 "timestamp": "2026-04-01T21:44:00Z",
 "snippet": "but the movie related data are in English, as made available by IMDb. A <span class=\"searchmatch\">Python</span> package called IMDbPY (since renamed cinemagoer) can also be used to process"
 },
@@ -52,17 +52,17 @@
 {
 "title": "YouTube",
 "pageid": 3524766,
-"size": 215720,
+"size": 215714,
 "wordcount": 19544,
-"timestamp": "2026-03-29T14:01:02Z",
+"timestamp": "2026-04-07T12:57:45Z",
 "snippet": "15, 2023. Claburn, Thomas (January 5, 2017). &quot;Google&#039;s Grumpy code makes <span class=\"searchmatch\">Python</span> Go&quot;. The Register. Archived from the original on December 14, 2019. Retrieved"
 },
 {
 "title": "BBC",
 "pageid": 19344654,
-"size": 219735,
-"wordcount": 21291,
-"timestamp": "2026-04-03T12:09:36Z",
+"size": 219730,
+"wordcount": 21290,
+"timestamp": "2026-04-07T08:45:19Z",
 "snippet": "England, the larger regions also produce some <span class=\"searchmatch\">programming</span>. Previously the largest hub of BBC <span class=\"searchmatch\">programming</span> from the regions had been BBC North West. At present"
 },
 {
@@ -76,9 +76,9 @@
 {
 "title": "Florida",
 "pageid": 18933066,
-"size": 250979,
+"size": 250933,
 "wordcount": 20659,
-"timestamp": "2026-03-28T11:21:20Z",
+"timestamp": "2026-04-04T18:52:41Z",
 "snippet": "animal species. Some exotic species living in Florida include the Burmese <span class=\"searchmatch\">python</span>, green iguana, veiled chameleon, Argentine black and white tegu, peacock"
 }
 ]

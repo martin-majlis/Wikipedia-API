@@ -1,85 +1,85 @@
 {
-"totalhits": 6045,
+"totalhits": 6044,
 "pages": [
 {
-"title": "Zope Object Database",
-"pageid": 2920295,
-"size": 8834,
-"wordcount": 1057,
-"timestamp": "2026-01-06T04:26:28Z",
-"snippet": "re-implementing the entire ZODB 3 package using 100% <span class=\"searchmatch\">Python</span>. ZODB stores <span class=\"searchmatch\">Python</span> objects using an extended version of <span class=\"searchmatch\">Python&#039;s</span> built-in object persistence (pickle). A"
+"title": "Google App Engine",
+"pageid": 16822361,
+"size": 18274,
+"wordcount": 1573,
+"timestamp": "2026-02-11T18:20:18Z",
+"snippet": "&quot;<span class=\"searchmatch\">Python</span> Runtime Environment - Google App Engine - Google Code&quot;. February 22, 1999. Retrieved February 14, 2012. Sanderson, Dan (2009). <span class=\"searchmatch\">Programming</span> Google"
 },
 {
-"title": "Real Sex",
-"pageid": 623616,
-"size": 20461,
-"wordcount": 513,
-"timestamp": "2026-03-29T04:44:46Z",
-"snippet": "documentary is that &quot;there hasn&#039;t been a strong demand for this kind of adult <span class=\"searchmatch\">programming</span>, perhaps because it&#039;s easily available elsewhere.&quot; Sexcetera, a similar"
+"title": "Parsing expression grammar",
+"pageid": 892899,
+"size": 48933,
+"wordcount": 6626,
+"timestamp": "2026-03-13T16:57:08Z",
+"snippet": "arXiv:1902.08272 [cs.FL]. &quot;PEP 617 – New PEG parser for CPython | peps.<span class=\"searchmatch\">python</span>.org&quot;. peps.<span class=\"searchmatch\">python</span>.org. Retrieved 2023-01-16. Ierusalimschy, Roberto (10 March 2009)"
 },
 {
-"title": "Comparison of regular expression engines",
-"pageid": 10930422,
-"size": 35698,
-"wordcount": 641,
-"timestamp": "2026-01-16T07:08:53Z",
-"snippet": "Supported by <span class=\"searchmatch\">Python</span> v3.11 and later, and the optional regex library only. May only be available in the regex library when used with <span class=\"searchmatch\">Python</span> versions after"
+"title": "The Restaurant at the End of the Universe",
+"pageid": 202349,
+"size": 14642,
+"wordcount": 1806,
+"timestamp": "2026-03-26T06:07:03Z",
+"snippet": "material sourced from the Pan Books archives shows quotes from the Monty <span class=\"searchmatch\">Python</span> team and other reviews choosing Mr. Adams&#039; books as Book of The Year. Review"
 },
 {
-"title": "Rockefeller Archive Center",
-"pageid": 39388478,
-"size": 10630,
-"wordcount": 1094,
-"timestamp": "2025-05-20T00:30:27Z",
-"snippet": "Country. Retrieved 2019-01-05. Editors, bloggERS! (2018-10-30). &quot;Using <span class=\"searchmatch\">Python</span>, FFMPEG, and the ArchivesSpace API to Create a Lightweight Clip Library&quot;"
+"title": "Stropping (syntax)",
+"pageid": 3631345,
+"size": 24548,
+"wordcount": 2700,
+"timestamp": "2025-12-30T02:03:42Z",
+"snippet": "the semantic analysis phase, not the tokenization phase. For example, in <span class=\"searchmatch\">Python</span>, a single leading underscore is a weak private indicator, and affects which"
 },
 {
-"title": "Wilkinson's Grammar of Graphics",
-"pageid": 80435299,
-"size": 17760,
-"wordcount": 1773,
-"timestamp": "2026-03-28T10:46:59Z",
-"snippet": "in R and implementations in other <span class=\"searchmatch\">programming</span> languages have ensued. These include direct ports plotnine for <span class=\"searchmatch\">Python</span>, gramm for MATLAB, Lets-Plot for Kotlin"
+"title": "Gateway (telecommunications)",
+"pageid": 1338556,
+"size": 11493,
+"wordcount": 1067,
+"timestamp": "2026-03-20T17:02:07Z",
+"snippet": "lightweight protocols that don&#039;t require extensive CPU resources. C, Java, <span class=\"searchmatch\">Python</span> and some scripting languages are the preferred choices of IoT application"
 },
 {
-"title": "University of Cambridge",
-"pageid": 25978572,
-"size": 194180,
-"wordcount": 17906,
-"timestamp": "2026-03-31T05:42:24Z",
-"snippet": "Abrahams (played by Ben Cross) was a student there. The 1983 film Monty <span class=\"searchmatch\">Python&#039;s</span> The Meaning of Life features Churchill College in the film&#039;s church scene"
+"title": "IClone",
+"pageid": 27169354,
+"size": 16013,
+"wordcount": 2003,
+"timestamp": "2025-12-04T07:14:47Z",
+"snippet": "file types including FBX; a timeline for editing and merging motions; a <span class=\"searchmatch\">Python</span> API and a scripting language (Lua) for character interaction; application"
 },
 {
-"title": "Master of Financial Economics",
-"pageid": 21575033,
-"size": 16283,
-"wordcount": 1331,
-"timestamp": "2026-01-24T14:38:18Z",
-"snippet": "model using statistical packages such as SAS and EViews - and increasingly <span class=\"searchmatch\">Python</span> and R. The applications are reinforced through the computer based implementation"
+"title": "Changes: You Got a Prom Wit Dat?",
+"pageid": 4290660,
+"size": 22477,
+"wordcount": 2448,
+"timestamp": "2025-10-13T04:11:10Z",
+"snippet": "drama parody version of the cops coming in to break up a Monty <span class=\"searchmatch\">Python</span> sketch [in Monty <span class=\"searchmatch\">Python</span> and the Holy Grail…] the most cliffhangery cliffhanger, where"
 },
 {
-"title": "Google Data Protocol",
-"pageid": 4992340,
-"size": 2794,
-"wordcount": 180,
-"timestamp": "2024-08-27T21:54:24Z",
-"snippet": "Google provides GData client libraries for Java, JavaScript, .NET, PHP, <span class=\"searchmatch\">Python</span>, and Objective-C. An implementation called libgdata written in C is available"
+"title": "Java version history",
+"pageid": 7771171,
+"size": 217003,
+"wordcount": 11957,
+"timestamp": "2026-03-26T08:38:18Z",
+"snippet": "the Java language&#039;s reach to alternative <span class=\"searchmatch\">programming</span> models with an enhancement to its reflective <span class=\"searchmatch\">programming</span> abilities, called code reflection (i.e.,"
 },
 {
-"title": "2014 in British television",
-"pageid": 41142883,
-"size": 278594,
-"wordcount": 9922,
-"timestamp": "2026-04-01T16:40:31Z",
-"snippet": "July 2014. &quot;Monty <span class=\"searchmatch\">Python</span> to disband after 10 London reunion shows&quot;. BBC News. 4 April 2014. Retrieved 6 April 2014. &quot;Monty <span class=\"searchmatch\">Python</span> reunion to be broadcast"
+"title": "List of missiles by country",
+"pageid": 2002565,
+"size": 102216,
+"wordcount": 6836,
+"timestamp": "2026-03-29T23:03:59Z",
+"snippet": "larger derivatives exist as well, including a submarine-launched variant) <span class=\"searchmatch\">Python</span> 5 (air-to-air, with also a ground-to-air version for the SPYDER system)"
 },
 {
-"title": "Galahad and the Holy Grail",
-"pageid": 442310,
-"size": 6072,
-"wordcount": 582,
-"timestamp": "2025-08-09T13:11:37Z",
-"snippet": "as well as other popular games of the day. With a nod to the film Monty <span class=\"searchmatch\">Python</span> and the Holy Grail, one of the objects found in the game is a holy hand"
+"title": "Geometric constraint solving",
+"pageid": 55690563,
+"size": 12280,
+"wordcount": 1313,
+"timestamp": "2026-03-23T04:26:08Z",
+"snippet": "Toolkit, integrated into KOMPAS-3D; GeoSolver, a GNU General Public License <span class=\"searchmatch\">Python</span> package for geometric constraint solving; SolveSpace, open-source CAD that"
 }
 ]
 }

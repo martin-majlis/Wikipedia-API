@@ -454,7 +454,7 @@ results at the wiki client level.
 For `list=` modules that attach metadata to result pages (like `geosearch_meta`
 or `search_meta`), add a plain `@property` (no network call) on the page.
 
-### 7a. Sync property (`wikipedia_page.py`)
+### 7a. Sync property (`_page/wikipedia_page.py`)
 
 For a fetching property (like `coordinates`):
 
@@ -481,7 +481,7 @@ def search_meta(self) -> SearchMeta | None:
     return self._search_meta
 ```
 
-### 7b. Async property (`async_wikipedia_page.py`)
+### 7b. Async property (`_page/async_wikipedia_page.py`)
 
 For a fetching property — **returns a coroutine** so callers use
 `await page.coordinates`:
@@ -522,7 +522,7 @@ def search_meta(self) -> SearchMeta | None:
 
 ---
 
-## Step 8: Update Page Init (`_base_wikipedia_page.py`)
+## Step 8: Update Page Init (`_page/_base_wikipedia_page.py`)
 
 Add cache slots for your new data:
 
@@ -781,22 +781,22 @@ Fix any issues and re-run until everything passes.
 
 ## Quick Reference: Files to Touch
 
-| File                                   | What to add                                                |
-| -------------------------------------- | ---------------------------------------------------------- |
-| `wikipediaapi/_types.py`               | Frozen dataclass for response data                         |
-| `wikipediaapi/_params.py`              | Frozen dataclass for API parameters                        |
-| `wikipediaapi/_resources.py`           | `_*_api_params()`, `_build_*()`, sync method, async method |
-| `wikipediaapi/_base_wikipedia_page.py` | Cache slots (if needed) in `__init__`                      |
-| `wikipediaapi/wikipedia_page.py`       | Sync `@property`                                           |
-| `wikipediaapi/async_wikipedia_page.py` | Async `@property` (returns coroutine)                      |
-| `wikipediaapi/__init__.py`             | Export new types                                           |
-| `tests/mock_data.py`                   | Mock API responses                                         |
-| `tests/query_submodules_test.py`       | Sync + async tests                                         |
-| `API.rst`                              | Public API reference                                       |
-| `DESIGN.rst`                           | Architecture docs                                          |
-| `examples/example_sync.py`             | Sync usage example                                         |
-| `examples/example_async.py`            | Async usage example                                        |
-| `index.rst`                            | User-facing docs                                           |
+| File                                         | What to add                                                |
+| -------------------------------------------- | ---------------------------------------------------------- |
+| `wikipediaapi/_types/`                       | Frozen dataclass for response data                         |
+| `wikipediaapi/_params/`                      | Frozen dataclass for API parameters                        |
+| `wikipediaapi/_resources/`                   | `_*_api_params()`, `_build_*()`, sync method, async method |
+| `wikipediaapi/_page/_base_wikipedia_page.py` | Cache slots (if needed) in `__init__`                      |
+| `wikipediaapi/_page/wikipedia_page.py`       | Sync `@property`                                           |
+| `wikipediaapi/_page/async_wikipedia_page.py` | Async `@property` (returns coroutine)                      |
+| `wikipediaapi/__init__.py`                   | Export new types                                           |
+| `tests/mock_data.py`                         | Mock API responses                                         |
+| `tests/query_submodules_test.py`             | Sync + async tests                                         |
+| `API.rst`                                    | Public API reference                                       |
+| `DESIGN.rst`                                 | Architecture docs                                          |
+| `examples/example_sync.py`                   | Sync usage example                                         |
+| `examples/example_async.py`                  | Async usage example                                        |
+| `index.rst`                                  | User-facing docs                                           |
 
 ---
 

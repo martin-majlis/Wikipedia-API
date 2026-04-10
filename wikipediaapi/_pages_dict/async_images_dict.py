@@ -10,14 +10,14 @@ from typing import TYPE_CHECKING
 from typing import Any
 from typing import cast
 
-from .._base_wikipedia_page import BaseWikipediaPage
+from .._page._base_wikipedia_page import BaseWikipediaPage
 from .._params.imageinfo_params import _DEFAULT_PROP
 from .base_pages_dict import _AsyncImageWiki
 
 if TYPE_CHECKING:
+    from .._image.async_wikipedia_image import AsyncWikipediaImage
     from .._resources import BaseWikipediaResource
     from .._types import ImageInfo
-    from ..async_wikipedia_image import AsyncWikipediaImage
 
 
 class AsyncImagesDict(dict[str, BaseWikipediaPage[Any]]):
