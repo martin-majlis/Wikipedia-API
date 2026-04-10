@@ -2,84 +2,84 @@
 "totalhits": 6045,
 "pages": [
 {
-"title": "Fortran",
-"pageid": 11168,
-"size": 115086,
-"wordcount": 12119,
-"timestamp": "2026-04-04T15:38:38Z",
-"snippet": "Computer <span class=\"searchmatch\">programming</span> portal f2c F2PY – <span class=\"searchmatch\">Python</span> library for numerical <span class=\"searchmatch\">programming</span> FORMAC – Computer algebra system based on FORTRAN Fortran <span class=\"searchmatch\">programming</span> language"
+"title": "Alchemy (disambiguation)",
+"pageid": 2677322,
+"size": 2426,
+"wordcount": 282,
+"timestamp": "2025-09-05T13:42:03Z",
+"snippet": "used as shortcut for SQLAlchemy, an object-relational mapper for the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language AlchemyAPI, a company that uses machine learning to do natural"
 },
 {
-"title": "Pseudospectral optimal control",
-"pageid": 15983837,
-"size": 16067,
-"wordcount": 1663,
-"timestamp": "2025-12-01T02:22:27Z",
-"snippet": "Machine SPARTAN: Simple Pseudospectral Algorithm for Rapid Trajectory ANalysis OpenGoddard – <span class=\"searchmatch\">Python</span> Open Source Pseudospectral Optimal Control Software"
+"title": "Jim Corbett National Park",
+"pageid": 286604,
+"size": 29005,
+"wordcount": 3000,
+"timestamp": "2026-03-03T21:30:18Z",
+"snippet": "junglefowl, owls and nightjars. 33 reptiles species including the Indian <span class=\"searchmatch\">python</span>, 7 amphibians species, 7 fish species and 36 dragonflies species have also"
 },
 {
-"title": "Enterprise Architect (software)",
-"pageid": 43204340,
-"size": 26476,
-"wordcount": 2143,
-"timestamp": "2025-11-03T23:15:37Z",
-"snippet": "Languages supported include ActionScript, C, C# and C++, Delphi, Java, PHP, <span class=\"searchmatch\">Python</span>, Visual Basic and Visual Basic .NET In accordance with model-driven development"
+"title": "String interpolation",
+"pageid": 30925309,
+"size": 26025,
+"wordcount": 2601,
+"timestamp": "2026-03-31T09:40:06Z",
+"snippet": "in many <span class=\"searchmatch\">programming</span> languages which make heavy use of string representations of data, such as Apache Groovy, Julia, Kotlin, Perl, PHP, <span class=\"searchmatch\">Python</span>, Ruby, Scala"
 },
 {
-"title": "List of command-line interpreters",
-"pageid": 71915,
-"size": 6472,
-"wordcount": 642,
-"timestamp": "2026-01-16T06:51:27Z",
-"snippet": "general <span class=\"searchmatch\">programming</span> section since an operating system shell supports <span class=\"searchmatch\">programming</span>, and the line between operating system access and general <span class=\"searchmatch\">programming</span> is sometimes"
+"title": "Far Manager",
+"pageid": 887806,
+"size": 11677,
+"wordcount": 1065,
+"timestamp": "2025-12-03T09:42:28Z",
+"snippet": "As of January 2022, the project has moved to the beta stage, support for <span class=\"searchmatch\">python</span> and lua scripts has been added. far2l also supports &quot;terminal extensions&quot;"
 },
 {
-"title": "CodeProject",
-"pageid": 44634994,
-"size": 8264,
-"wordcount": 781,
-"timestamp": "2026-03-31T17:42:58Z",
-"snippet": "Delphi Java JavaScript Perl <span class=\"searchmatch\">Python</span> SQL VB.NET CodeProject contains articles pertaining to the following topics: Android <span class=\"searchmatch\">Programming</span> Graphics Internet of Things"
+"title": "Apache Beam",
+"pageid": 51237252,
+"size": 9014,
+"wordcount": 360,
+"timestamp": "2026-03-30T13:36:15Z",
+"snippet": "Apache Beam is an open source unified <span class=\"searchmatch\">programming</span> model to define and execute data processing pipelines, including ETL, batch and stream (continuous)"
 },
 {
-"title": "Anonymous recursion",
-"pageid": 3062599,
-"size": 11978,
-"wordcount": 1514,
-"timestamp": "2025-11-26T14:31:58Z",
-"snippet": "<span class=\"searchmatch\">programming</span> practice, anonymous recursion is notably used in JavaScript, which provides reflection facilities to support it. In general <span class=\"searchmatch\">programming</span> practice"
+"title": "XSLT",
+"pageid": 34211,
+"size": 30440,
+"wordcount": 3281,
+"timestamp": "2026-03-26T05:46:01Z",
+"snippet": "1.0 specification. XSLT 3.0 implementations support Java, .NET, C/C++, <span class=\"searchmatch\">Python</span>, PHP and NodeJS. An XSLT 3.0 JavaScript library can also be hosted within"
 },
 {
-"title": "Distcc",
-"pageid": 566191,
-"size": 5415,
-"wordcount": 507,
-"timestamp": "2025-08-13T06:41:18Z",
-"snippet": "reduce a project&#039;s compilation time. It is designed to work with the C <span class=\"searchmatch\">programming</span> language (and its derivatives like C++ and Objective-C) and to use GCC"
+"title": "Eugène Atget",
+"pageid": 854781,
+"size": 42340,
+"wordcount": 4743,
+"timestamp": "2026-03-25T18:41:49Z",
+"snippet": "<span class=\"searchmatch\">program</span> by many researchers of Atget&#039;s work. The research of Maria Morris Hamburg and John Szarkowski corrected the understanding of Atget&#039;s <span class=\"searchmatch\">program</span>."
 },
 {
-"title": "EmEditor",
-"pageid": 4233835,
-"size": 7167,
-"wordcount": 621,
-"timestamp": "2026-03-28T17:30:10Z",
-"snippet": "The <span class=\"searchmatch\">program</span> continued to evolve, and on the way introduced many more <span class=\"searchmatch\">programming</span> languages, such as C++, Java, HTML, Markdown, Perl, and <span class=\"searchmatch\">Python</span>. On February"
+"title": "SPC file format",
+"pageid": 10813212,
+"size": 3971,
+"wordcount": 337,
+"timestamp": "2026-03-19T12:37:34Z",
+"snippet": "Spectroscopy Software supported File Formats&quot;. &quot;spc <span class=\"searchmatch\">Python</span> library on Github&quot;. &quot;Updated fork of the spc <span class=\"searchmatch\">Python</span> library on Github&quot;. &quot;hyperSpec R package on Github&quot;"
 },
 {
-"title": "Delay-tolerant networking",
-"pageid": 2710684,
-"size": 22604,
-"wordcount": 2372,
-"timestamp": "2026-02-11T17:50:50Z",
-"snippet": "space-tested DTN protocol implementation initially based on μPCN. PyDTN—<span class=\"searchmatch\">Python</span>; developed by X-works and during the IETF 101 Hackathon. Terra—Java; developed"
+"title": "Isotonic regression",
+"pageid": 2836143,
+"size": 10679,
+"wordcount": 1449,
+"timestamp": "2025-12-30T02:04:39Z",
+"snippet": "computing isotone (monotonic) regression has been developed for R, Stata, and <span class=\"searchmatch\">Python</span>. Let ( x 1 , y 1 ) , … , ( x n , y n ) {\\displaystyle (x_{1},y_{1}),\\ldots"
 },
 {
-"title": "Apache SINGA",
-"pageid": 51545339,
-"size": 14786,
-"wordcount": 1482,
-"timestamp": "2026-04-02T04:34:41Z",
-"snippet": "release 5.1.0 / April 2, 2026; 0 days ago (2026-04-02) Written in C++, <span class=\"searchmatch\">Python</span> Operating system Linux, macOS, Windows License Apache License 2.0 Website"
+"title": "RocksDB",
+"pageid": 49477707,
+"size": 21334,
+"wordcount": 1510,
+"timestamp": "2025-12-08T05:03:48Z",
+"snippet": "it with structured bindings for several high-level languages, including <span class=\"searchmatch\">Python</span>, Java, and Go. The following database systems and applications have chosen"
 }
 ]
 }

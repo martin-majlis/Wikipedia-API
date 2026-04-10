@@ -7,6 +7,6 @@ Python syntax and semantics
 Mojo (programming language)
 Zen of Python
 List of Python software
-Glob (programming)
 Flask (web framework)
-Python Software Foundation
+Glob (programming)
+Anaconda (Python distribution)
