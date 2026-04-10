@@ -9,9 +9,9 @@ from typing import TYPE_CHECKING
 from typing import Optional
 
 if TYPE_CHECKING:
-    from ._resources.base_wikipedia_resource import BaseWikipediaResource
+    from .._resources.base_wikipedia_resource import BaseWikipediaResource
 
-from .extract_format import ExtractFormat
+from ..extract_format import ExtractFormat
 
 
 class WikipediaPageSection:

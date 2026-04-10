@@ -6,8 +6,8 @@ with async HTTP client functionality to enable high-performance Wikipedia API
 interactions.
 """
 
-from ._http_client import AsyncHTTPClient
-from ._resources import AsyncWikipediaResource
+from .._http_client import AsyncHTTPClient
+from .._resources import AsyncWikipediaResource
 
 
 class AsyncWikipedia(AsyncWikipediaResource, AsyncHTTPClient):

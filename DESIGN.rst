@@ -103,14 +103,21 @@ File Layout
     │   ├── wiki_http_timeout_error.py   # Timeout errors
     │   ├── wiki_invalid_json_error.py   # JSON parsing errors
     │   └── wiki_rate_limit_error.py     # Rate limiting errors
-    ├── wikipedia.py             # Wikipedia (sync concrete client)
-    ├── async_wikipedia.py       # AsyncWikipedia (async concrete client)
-    ├── _base_wikipedia_page.py  # BaseWikipediaPage (shared page state & methods)
-    ├── wikipedia_page.py        # WikipediaPage (lazy sync page object)
-    ├── async_wikipedia_page.py  # AsyncWikipediaPage (lazy async page object)
-    ├── wikipedia_image.py       # WikipediaImage (lazy sync file page object)
-    ├── async_wikipedia_image.py # AsyncWikipediaImage (lazy async file page object)
-    ├── wikipedia_page_section.py  # WikipediaPageSection
+    ├── _wikipedia/              # Concrete client package
+    │   ├── __init__.py
+    │   ├── wikipedia.py         # Wikipedia (sync concrete client)
+    │   └── async_wikipedia.py   # AsyncWikipedia (async concrete client)
+    ├── _page/                   # Page object package
+    │   ├── __init__.py
+    │   ├── _base_wikipedia_page.py   # BaseWikipediaPage (shared page state & methods)
+    │   ├── wikipedia_page.py         # WikipediaPage (lazy sync page object)
+    │   ├── async_wikipedia_page.py   # AsyncWikipediaPage (lazy async page object)
+    │   └── wikipedia_page_section.py # WikipediaPageSection
+    ├── _image/                  # Image/file page object package
+    │   ├── __init__.py
+    │   ├── _base_wikipedia_image.py  # BaseWikipediaImage (shared image state & methods)
+    │   ├── wikipedia_image.py        # WikipediaImage (lazy sync file page object)
+    │   └── async_wikipedia_image.py  # AsyncWikipediaImage (lazy async file page object)
     ├── extract_format.py        # ExtractFormat enum (WIKI / HTML)
     └── namespace.py             # Legacy namespace module (redirects to _enums.namespace)
 
@@ -131,8 +138,9 @@ The inheritance chains are::
     BaseWikipediaPage
     ├── WikipediaPage
     ├── AsyncWikipediaPage
-    ├── WikipediaImage
-    └── AsyncWikipediaImage
+    └── BaseWikipediaImage
+        ├── WikipediaImage
+        └── AsyncWikipediaImage
 
 Concrete clients compose one transport and one API mixin::
 
@@ -534,7 +542,7 @@ and stores results under ``raw["query"]["pages"][id]["templates"]``.
 Step 2 — Add a Return-Type Attribute to BaseWikipediaPage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In ``_base_wikipedia_page.py``, add a cache slot in
+In ``_page/_base_wikipedia_page.py``, add a cache slot in
 ``BaseWikipediaPage.__init__``::
 
     self._templates: dict[str, Any] = {}
@@ -640,7 +648,7 @@ Step 6 — Add the Async Method to AsyncWikipediaResource
 Step 7 — Add a Lazy Property to WikipediaPage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In ``wikipedia_page.py``::
+In ``_page/wikipedia_page.py``::
 
     @property
     def templates(self) -> PagesDict:
@@ -652,7 +660,7 @@ In ``wikipedia_page.py``::
 Step 8 — Add a Lazy Coroutine Property to AsyncWikipediaPage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In ``async_wikipedia_page.py``, the ``@property`` returns a coroutine
+In ``_page/async_wikipedia_page.py``, the ``@property`` returns a coroutine
 created by a nested ``async def``; callers do ``await page.templates``::
 
     @property

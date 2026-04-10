@@ -7,18 +7,18 @@ WikipediaPage focused on file metadata rather than article text.
 from typing import TYPE_CHECKING
 from typing import Any
 
-from ._base_wikipedia_page import NOT_CACHED
-from ._base_wikipedia_page import BaseWikipediaPage
-from ._enums import WikiNamespace
-from ._params.imageinfo_params import ImageInfoParams
-from ._types import ImageInfo
-from .wikipedia_page_section import WikipediaPageSection
+from .._enums import WikiNamespace
+from .._page._base_wikipedia_page import NOT_CACHED
+from .._page.wikipedia_page_section import WikipediaPageSection
+from .._params.imageinfo_params import ImageInfoParams
+from .._types import ImageInfo
+from ._base_wikipedia_image import BaseWikipediaImage
 
 if TYPE_CHECKING:
     pass
 
 
-class WikipediaImage(BaseWikipediaPage["WikipediaImage"]):
+class WikipediaImage(BaseWikipediaImage):
     """Lazy representation of a Wikipedia/Commons file page.
     A ``WikipediaImage`` is created by internal resource methods when
     building image lists.  It requires no network call at construction
@@ -79,30 +79,6 @@ class WikipediaImage(BaseWikipediaPage["WikipediaImage"]):
             return int(self._attributes.get("pageid", -1)) > 0 or "known" in self._attributes
         self._fetch("imageinfo")
         return int(self._attributes.get("pageid", -1)) > 0 or "known" in self._attributes
-
-    def _compute_base_pageid(self) -> int:
-        """Compute deterministic base page ID from image title.
-
-        :return: absolute hash of title for consistent page ID generation
-        """
-        # Use a stable hash function that produces consistent results across runs
-        import hashlib
-
-        return int(hashlib.sha256(self.title.encode("utf-8")).hexdigest(), 16) % (10**18)
-
-    def _get_pageid(self) -> int:
-        """Return page ID based on imageinfo cache.
-
-        Returns a deterministic page ID based on image title hash
-        when image exists either locally (pageid > 0) or on Wikimedia
-        Commons (known attribute present). Returns a negative value when
-        image does not exist.
-
-        :return: positive integer if image exists, negative integer otherwise
-        """
-        exists = int(self._attributes.get("pageid", -1)) > 0 or "known" in self._attributes
-        base = self._compute_base_pageid()
-        return base if exists else -base
 
     @property
     def pageid(self) -> int:

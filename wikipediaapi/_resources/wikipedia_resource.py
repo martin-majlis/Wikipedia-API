@@ -23,6 +23,7 @@ from .._enums import WikiSearchProp
 from .._enums import WikiSearchQiProfile
 from .._enums import WikiSearchSort
 from .._enums import WikiSearchWhat
+from .._page.wikipedia_page import WikipediaPage
 from .._pages_dict import ImagesDict
 from .._pages_dict import PagesDict
 from .._params.coordinates_params import CoordinatesParams
@@ -37,11 +38,10 @@ from .._types import GeoBox
 from .._types import GeoPoint
 from .._types import ImageInfo
 from .._types import SearchResults
-from ..wikipedia_page import WikipediaPage
 from .base_wikipedia_resource import BaseWikipediaResource
 
 if TYPE_CHECKING:
-    from ..wikipedia_image import WikipediaImage
+    from .._image.wikipedia_image import WikipediaImage
 
 
 class WikipediaResource(BaseWikipediaResource):
@@ -371,7 +371,7 @@ class WikipediaResource(BaseWikipediaResource):
             WikiHttpError: If the API returns a non-success HTTP status.
             WikiInvalidJsonError: If the response is not valid JSON.
         """
-        from .._base_wikipedia_page import NOT_CACHED
+        from .._page._base_wikipedia_page import NOT_CACHED
 
         params = CoordinatesParams(
             limit=limit,
@@ -493,7 +493,7 @@ class WikipediaResource(BaseWikipediaResource):
             WikiHttpError: If the API returns a non-success HTTP status.
             WikiInvalidJsonError: If the response is not valid JSON.
         """
-        from .._base_wikipedia_page import NOT_CACHED
+        from .._page._base_wikipedia_page import NOT_CACHED
 
         params = ImagesParams(limit=limit, images=images, direction=direction)
         cached = page._get_cached("images", params.cache_key())
@@ -605,7 +605,7 @@ class WikipediaResource(BaseWikipediaResource):
             WikiHttpError: If the API returns a non-success HTTP status.
             WikiInvalidJsonError: If the response is not valid JSON.
         """
-        from .._base_wikipedia_page import NOT_CACHED
+        from .._page._base_wikipedia_page import NOT_CACHED
 
         params = ImageInfoParams(prop=prop, limit=limit)
         cached = image._get_cached("imageinfo", params.cache_key())
@@ -645,7 +645,7 @@ class WikipediaResource(BaseWikipediaResource):
         Returns:
             ``{title: [ImageInfo, ...]}`` for every image.
         """
-        from .._base_wikipedia_page import NOT_CACHED
+        from .._page._base_wikipedia_page import NOT_CACHED
 
         params = ImageInfoParams(prop=prop, limit=limit)
         result: dict[str, list[ImageInfo]] = {}

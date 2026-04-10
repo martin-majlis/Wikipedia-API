@@ -20,15 +20,15 @@ if TYPE_CHECKING:
     from typing import Any  # noqa: F401
     from typing import cast  # noqa: F401
 
-    from .._base_wikipedia_page import BaseWikipediaPage  # noqa: F401
+    from .._image.async_wikipedia_image import AsyncWikipediaImage  # noqa: F401
+    from .._image.wikipedia_image import WikipediaImage  # noqa: F401
+    from .._page._base_wikipedia_page import BaseWikipediaPage  # noqa: F401
+    from .._page.async_wikipedia_page import AsyncWikipediaPage  # noqa: F401
+    from .._page.wikipedia_page import WikipediaPage  # noqa: F401
     from .._resources import BaseWikipediaResource  # noqa: F401
     from .._types import Coordinate  # noqa: F401
     from .._types import GeoPoint  # noqa: F401
     from .._types import ImageInfo  # noqa: F401
-    from ..async_wikipedia_image import AsyncWikipediaImage  # noqa: F401
-    from ..async_wikipedia_page import AsyncWikipediaPage  # noqa: F401
-    from ..wikipedia_image import WikipediaImage  # noqa: F401
-    from ..wikipedia_page import WikipediaPage  # noqa: F401
     from .async_pages_dict import AsyncPagesDict  # noqa: F401
     from .pages_dict import PagesDict  # noqa: F401
 

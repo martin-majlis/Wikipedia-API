@@ -6,9 +6,11 @@ from typing import TYPE_CHECKING
 from typing import Any
 from typing import TypeVar
 
-from .._base_wikipedia_page import BaseWikipediaPage
 from .._enums import Namespace
 from .._enums import WikiNamespace
+from .._page._base_wikipedia_page import BaseWikipediaPage
+from .._page.wikipedia_page import WikipediaPage
+from .._page.wikipedia_page_section import WikipediaPageSection
 from .._pages_dict import PagesDict
 from .._params.coordinates_params import CoordinatesParams
 from .._params.geo_search_params import GeoSearchParams
@@ -22,8 +24,6 @@ from .._types import ImageInfo
 from .._types import SearchMeta
 from .._types import SearchResults
 from ..extract_format import ExtractFormat
-from ..wikipedia_page import WikipediaPage
-from ..wikipedia_page_section import WikipediaPageSection
 
 if TYPE_CHECKING:
     from .._pages_dict import ImagesDict
@@ -147,7 +147,7 @@ class BaseWikipediaResource(ABC):
         :param variant: optional language variant; ``None`` for none
         :return: uninitialised :class:`WikipediaImage` instance
         """
-        from ..wikipedia_image import WikipediaImage  # avoid circular import
+        from .._image.wikipedia_image import WikipediaImage  # avoid circular import
 
         return WikipediaImage(
             wiki=self,  # type: ignore[arg-type]

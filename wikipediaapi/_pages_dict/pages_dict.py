@@ -13,20 +13,20 @@ from typing import TYPE_CHECKING
 from typing import Any
 from typing import cast
 
-from .._base_wikipedia_page import BaseWikipediaPage
 from .._enums import CoordinatesProp
 from .._enums import CoordinateType
 from .._enums import Direction
 from .._enums import WikiCoordinatesProp
 from .._enums import WikiCoordinateType
 from .._enums import WikiDirection
+from .._page._base_wikipedia_page import BaseWikipediaPage
 from .base_pages_dict import _SyncBatchWiki
 
 if TYPE_CHECKING:
+    from .._page.wikipedia_page import WikipediaPage
     from .._resources import BaseWikipediaResource
     from .._types import Coordinate
     from .._types import GeoPoint
-    from ..wikipedia_page import WikipediaPage
 
 
 class PagesDict(dict[str, BaseWikipediaPage[Any]]):
