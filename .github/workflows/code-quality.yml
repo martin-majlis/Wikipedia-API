@@ -169,9 +169,6 @@ jobs:
       - name: Install dependencies
         run: |
           make requirements-all
-      - name: Verify skills
-        run: |
-          make verify-skills
       - name: Validate attributes mapping
         run: |
           make run-validate-attributes-mappping

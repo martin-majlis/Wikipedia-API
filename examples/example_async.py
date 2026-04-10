@@ -441,8 +441,12 @@ async def main():
         print(f"  {title}:")
         print(f"    URL: {await img.url}")
         print(f"    Dimensions: {await img.width}x{await img.height}")
+        print(f"    Size: {await img.size} bytes")
         print(f"    MIME: {await img.mime}")
+        print(f"    Media type: {await img.mediatype}")
         print(f"    User: {await img.user}")
+        print(f"    Timestamp: {await img.timestamp}")
+        print(f"    Description URL: {await img.descriptionurl}")
 
     # Batch-fetch imageinfo for all images at once (more efficient):
     infos = await (await python_page.images).imageinfo()
@@ -450,7 +454,14 @@ async def main():
     for title, info_list in sorted(infos.items())[:3]:
         if info_list:
             info = info_list[0]
-            print(f"  {title}: {info.url}, {info.width}x{info.height}")
+            print(f"  {title}:")
+            print(f"    URL: {info.url}")
+            print(f"    Dimensions: {info.width}x{info.height}")
+            print(f"    Size: {info.size} bytes")
+            print(f"    MIME: {info.mime}")
+            print(f"    Media type: {info.mediatype}")
+            print(f"    User: {info.user}")
+            print(f"    Timestamp: {info.timestamp}")
 
     # ──────────────────────────────────────────────────────────────────────────
     # 14. Geosearch (list=geosearch)
@@ -464,7 +475,10 @@ async def main():
     for title, p in results.items():
         meta = p.geosearch_meta
         if meta:
-            print(f"  {title}: dist={meta.dist:.1f}m, lat={meta.lat}, lon={meta.lon}")
+            print(
+                f"  {title}: dist={meta.dist:.1f}m, lat={meta.lat},"
+                f" lon={meta.lon}, primary={meta.primary}"
+            )
 
     # ──────────────────────────────────────────────────────────────────────────
     # 15. Random pages (list=random)
@@ -485,7 +499,12 @@ async def main():
     for title, p in search_results.pages.items():
         meta = p.search_meta
         if meta:
-            print(f"  {title}: size={meta.size}, wordcount={meta.wordcount}")
+            print(
+                f"  {title}: size={meta.size}, wordcount={meta.wordcount},"
+                f" timestamp={meta.timestamp}"
+            )
+            if meta.snippet:
+                print(f"    snippet: {meta.snippet[:100]}")
 
     # ──────────────────────────────────────────────────────────────────────────
     # 17. Batch methods and PagesDict
@@ -497,13 +516,17 @@ async def main():
 
     # Batch-fetch coordinates for all pages at once (efficient multi-title request)
     batch_coords = await pd.coordinates()
-    for title, coord_list in batch_coords.items():
-        print(f"  {title}: {len(coord_list)} coordinate(s)")
+    for page, coord_list in batch_coords.items():
+        print(f"  {page.title}: {len(coord_list)} coordinate(s)")
+        for c in coord_list[:2]:
+            print(f"    lat={c.lat}, lon={c.lon}, primary={c.primary}, globe={c.globe}")
 
     # Batch-fetch images for all pages at once
     batch_imgs = await pd.images()
-    for title, img_dict in batch_imgs.items():
-        print(f"  {title}: {len(img_dict)} image(s)")
+    for page, img_dict in batch_imgs.items():
+        print(f"  {page.title}: {len(img_dict)} image(s)")
+        for img_title in sorted(img_dict)[:2]:
+            print(f"    {img_title}")
 
 
 asyncio.run(main())
