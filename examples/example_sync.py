@@ -433,8 +433,12 @@ for title, img in sorted(python_page.images.items())[:3]:
     print(f"  {title}:")
     print(f"    URL: {img.url}")
     print(f"    Dimensions: {img.width}x{img.height}")
+    print(f"    Size: {img.size} bytes")
     print(f"    MIME: {img.mime}")
+    print(f"    Media type: {img.mediatype}")
     print(f"    User: {img.user}")
+    print(f"    Timestamp: {img.timestamp}")
+    print(f"    Description URL: {img.descriptionurl}")
 
 # Batch-fetch imageinfo for all images at once (more efficient):
 infos = python_page.images.imageinfo()
@@ -442,7 +446,14 @@ print(f"Batch imageinfo: {len(infos)} images")
 for title, info_list in sorted(infos.items())[:3]:
     if info_list:
         info = info_list[0]
-        print(f"  {title}: {info.url}, {info.width}x{info.height}")
+        print(f"  {title}:")
+        print(f"    URL: {info.url}")
+        print(f"    Dimensions: {info.width}x{info.height}")
+        print(f"    Size: {info.size} bytes")
+        print(f"    MIME: {info.mime}")
+        print(f"    Media type: {info.mediatype}")
+        print(f"    User: {info.user}")
+        print(f"    Timestamp: {info.timestamp}")
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 14. Geosearch (list=geosearch)
@@ -454,7 +465,10 @@ print(f"Geosearch results ({len(results)}):")
 for title, p in results.items():
     meta = p.geosearch_meta
     if meta:
-        print(f"  {title}: dist={meta.dist:.1f}m, lat={meta.lat}, lon={meta.lon}")
+        print(
+            f"  {title}: dist={meta.dist:.1f}m, lat={meta.lat},"
+            f" lon={meta.lon}, primary={meta.primary}"
+        )
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 15. Random pages (list=random)
@@ -476,7 +490,11 @@ print(f"Search results ({len(search_results.pages)}):")
 for title, p in search_results.pages.items():
     meta = p.search_meta
     if meta:
-        print(f"  {title}: size={meta.size}, wordcount={meta.wordcount}")
+        print(
+            f"  {title}: size={meta.size}, wordcount={meta.wordcount}, timestamp={meta.timestamp}"
+        )
+        if meta.snippet:
+            print(f"    snippet: {meta.snippet[:100]}")
 
 # Type-safe search with comprehensive enum parameters
 enum_search_results = wiki.search(
@@ -531,8 +549,12 @@ print(f"PagesDict: {len(pd)} pages")
 batch_coords = pd.coordinates()
 for page, coord_list in batch_coords.items():
     print(f"  {page.title}: {len(coord_list)} coordinate(s)")
+    for c in coord_list[:2]:
+        print(f"    lat={c.lat}, lon={c.lon}, primary={c.primary}, globe={c.globe}")
 
 # Batch-fetch images for all pages at once
 batch_imgs = pd.images()
-for title, img_dict in batch_imgs.items():
-    print(f"  {title}: {len(img_dict)} image(s)")
+for page, img_dict in batch_imgs.items():
+    print(f"  {page.title}: {len(img_dict)} image(s)")
+    for img_title in sorted(img_dict)[:2]:
+        print(f"    {img_title}")
