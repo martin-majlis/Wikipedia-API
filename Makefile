@@ -150,15 +150,16 @@ prepare-release:
 		echo "There is no information about $(VERSION) in CHANGES.rst"; \
 		exit 3; \
 	fi; \
+	make pre-release-check; \
 	short_VERSION=`echo $(VERSION) | cut -f1-2 -d.`; \
 	commas_VERSION=`echo $(VERSION) | sed -E 's/\./, /g'`; \
 	echo "Short version: $$short_VERSION"; \
+	git checkout -b release/$(VERSION); \
 	sed -i.bak -E 's/^version =.*/version = "'$(VERSION)'"/' pyproject.toml && rm pyproject.toml.bak && \
 	sed -i.bak -E 's/^release = .*/release = "'$(VERSION)'"/' conf.py && rm conf.py.bak && \
 	sed -i.bak -E 's/^version = .*/version = "'$$short_VERSION'"/' conf.py && rm conf.py.bak && \
 	sed -i.bak -E 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/_version.py && rm wikipediaapi/_version.py.bak; \
-	git checkout -b release/$(VERSION); \
-	make pre-release-check && \
+	make build-package check-package && \
 	git commit CHANGES.rst pyproject.toml uv.lock conf.py wikipediaapi/_version.py -m "Update version to $(VERSION) for new release." && \
 	git push -u origin release/$(VERSION) && \
 	pr_body="Release $(VERSION)"; \
