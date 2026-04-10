@@ -88,7 +88,19 @@ class AsyncWikipediaImage(BaseWikipediaPage["AsyncWikipediaImage"]):
 
         :return: absolute hash of title for consistent page ID generation
         """
-        return abs(hash(self.title))
+        # Use a stable hash function that produces consistent results across runs
+        import hashlib
+
+        return int(hashlib.sha256(self.title.encode("utf-8")).hexdigest(), 16) % (10**18)
+
+    def _get_pageid(self) -> int:
+        """Return page ID based on imageinfo cache.
+
+        :return: positive integer if image exists, negative integer otherwise
+        """
+        exists = int(self._attributes.get("pageid", -1)) > 0 or "known" in self._attributes
+        base = self._compute_base_pageid()
+        return base if exists else -base
 
     @property
     def pageid(self) -> Coroutine[Any, Any, int]:
@@ -106,7 +118,7 @@ class AsyncWikipediaImage(BaseWikipediaPage["AsyncWikipediaImage"]):
         async def _get() -> int:
             if not self._called["imageinfo"]:
                 await self._fetch("imageinfo")
-            return await self._get_pageid()
+            return self._get_pageid()
 
         return _get()
 

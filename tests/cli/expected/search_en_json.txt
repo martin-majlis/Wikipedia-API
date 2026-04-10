@@ -4,10 +4,10 @@
 {
 "title": "Python (programming language)",
 "pageid": 23862,
-"size": 140385,
-"wordcount": 11450,
-"timestamp": "2026-04-08T18:48:57Z",
-"snippet": "<span class=\"searchmatch\">Python</span> is a high-level, general-purpose <span class=\"searchmatch\">programming</span> language. Its design philosophy emphasizes code readability with the use of significant indentation"
+"size": 140373,
+"wordcount": 11462,
+"timestamp": "2026-04-08T19:59:48Z",
+"snippet": " and garbage collection. <span class=\"searchmatch\">Python</span> supports multiple <span class=\"searchmatch\">programming</span> paradigms but with an emphasis on object-oriented <span class=\"searchmatch\">programming</span> and dynamic typing. Guido"
 },
 {
 "title": "History of Python",

@@ -2,84 +2,84 @@
 "totalhits": 6044,
 "pages": [
 {
-"title": "IDS Center",
-"pageid": 544250,
-"size": 26083,
-"wordcount": 2476,
-"timestamp": "2026-03-21T23:27:13Z",
-"snippet": "of a store on the Skyway Level of the Crystal Court. In the movie Monty <span class=\"searchmatch\">Python&#039;s</span> The Meaning of Life and the short film The Crimson Permanent Assurance"
+"title": "Google App Engine",
+"pageid": 16822361,
+"size": 18274,
+"wordcount": 1573,
+"timestamp": "2026-02-11T18:20:18Z",
+"snippet": "&quot;<span class=\"searchmatch\">Python</span> Runtime Environment - Google App Engine - Google Code&quot;. February 22, 1999. Retrieved February 14, 2012. Sanderson, Dan (2009). <span class=\"searchmatch\">Programming</span> Google"
 },
 {
-"title": "Aardvark",
-"pageid": 680,
-"size": 40339,
-"wordcount": 4729,
-"timestamp": "2026-04-08T13:40:24Z",
-"snippet": "cheetahs, African wild dogs, spotted hyenas, and Southern African rock <span class=\"searchmatch\">pythons</span>. Some humans also hunt aardvarks for meat. Aardvarks can dig fast or run"
+"title": "Parsing expression grammar",
+"pageid": 892899,
+"size": 48933,
+"wordcount": 6626,
+"timestamp": "2026-03-13T16:57:08Z",
+"snippet": "arXiv:1902.08272 [cs.FL]. &quot;PEP 617 – New PEG parser for CPython | peps.<span class=\"searchmatch\">python</span>.org&quot;. peps.<span class=\"searchmatch\">python</span>.org. Retrieved 2023-01-16. Ierusalimschy, Roberto (10 March 2009)"
 },
 {
-"title": "Mnozil Brass",
-"pageid": 7001309,
-"size": 6493,
-"wordcount": 464,
-"timestamp": "2026-03-26T07:59:42Z",
-"snippet": "virtuosic brass playing. They are often popularly referred to as &quot;The Monty <span class=\"searchmatch\">Python</span> of the musical world&quot;. Austrian and German schlager songs of the 20th century"
+"title": "The Restaurant at the End of the Universe",
+"pageid": 202349,
+"size": 14642,
+"wordcount": 1806,
+"timestamp": "2026-03-26T06:07:03Z",
+"snippet": "material sourced from the Pan Books archives shows quotes from the Monty <span class=\"searchmatch\">Python</span> team and other reviews choosing Mr. Adams&#039; books as Book of The Year. Review"
 },
 {
-"title": "Alice Springs Desert Park",
-"pageid": 14308898,
-"size": 13799,
-"wordcount": 987,
-"timestamp": "2026-02-19T09:35:16Z",
-"snippet": "Slater&#039;s skink Spinifex legless lizard Stimson&#039;s banded rock <span class=\"searchmatch\">python</span> Thorny devil Woma <span class=\"searchmatch\">python</span> &quot;Alice Springs Desert Park&quot;. anbg.gov.au. Australian National"
+"title": "Stropping (syntax)",
+"pageid": 3631345,
+"size": 24548,
+"wordcount": 2700,
+"timestamp": "2025-12-30T02:03:42Z",
+"snippet": "the semantic analysis phase, not the tokenization phase. For example, in <span class=\"searchmatch\">Python</span>, a single leading underscore is a weak private indicator, and affects which"
 },
 {
-"title": "HiGHS optimization solver",
-"pageid": 71356449,
-"size": 16714,
-"wordcount": 1240,
-"timestamp": "2026-03-30T17:06:36Z",
-"snippet": "in C++ and published under an MIT license, HiGHS provides <span class=\"searchmatch\">programming</span> interfaces to C, <span class=\"searchmatch\">Python</span>, Julia, Rust, R, JavaScript, Fortran, and C#. It has no external"
+"title": "Gateway (telecommunications)",
+"pageid": 1338556,
+"size": 11493,
+"wordcount": 1067,
+"timestamp": "2026-03-20T17:02:07Z",
+"snippet": "lightweight protocols that don&#039;t require extensive CPU resources. C, Java, <span class=\"searchmatch\">Python</span> and some scripting languages are the preferred choices of IoT application"
 },
 {
-"title": "Batteries Not Included (TV series)",
-"pageid": 20184489,
-"size": 1601,
-"wordcount": 88,
-"timestamp": "2023-09-11T22:31:39Z",
-"snippet": "favourite gadgets to discuss. Shepherd, Robert (17 September 2008). &quot;Monty <span class=\"searchmatch\">Python</span> star returns to TV&quot;. Retrieved 8 February 2011. Batteries Not Included at"
+"title": "IClone",
+"pageid": 27169354,
+"size": 16013,
+"wordcount": 2003,
+"timestamp": "2025-12-04T07:14:47Z",
+"snippet": "file types including FBX; a timeline for editing and merging motions; a <span class=\"searchmatch\">Python</span> API and a scripting language (Lua) for character interaction; application"
 },
 {
-"title": "Watershed delineation",
-"pageid": 72796039,
-"size": 30943,
-"wordcount": 3168,
-"timestamp": "2026-03-16T04:54:26Z",
-"snippet": "information system software like ArcGIS or QGIS, or with <span class=\"searchmatch\">programming</span> languages like <span class=\"searchmatch\">Python</span> or R. Watersheds are a fundamental geographic unit in hydrology"
+"title": "Changes: You Got a Prom Wit Dat?",
+"pageid": 4290660,
+"size": 22477,
+"wordcount": 2448,
+"timestamp": "2025-10-13T04:11:10Z",
+"snippet": "drama parody version of the cops coming in to break up a Monty <span class=\"searchmatch\">Python</span> sketch [in Monty <span class=\"searchmatch\">Python</span> and the Holy Grail…] the most cliffhangery cliffhanger, where"
 },
 {
-"title": "List of ZX Spectrum games",
-"pageid": 3673118,
-"size": 261231,
-"wordcount": 156,
-"timestamp": "2026-03-26T22:15:59Z",
-"snippet": "1990 Quarterback Virgin Games Binary Design Leland Corporation 1990 Monty <span class=\"searchmatch\">Python&#039;s</span> Flying Circus Virgin Games CORE Design (Ben Daglish) 1990 New York Warriors"
+"title": "Java version history",
+"pageid": 7771171,
+"size": 217003,
+"wordcount": 11957,
+"timestamp": "2026-03-26T08:38:18Z",
+"snippet": "the Java language&#039;s reach to alternative <span class=\"searchmatch\">programming</span> models with an enhancement to its reflective <span class=\"searchmatch\">programming</span> abilities, called code reflection (i.e.,"
 },
 {
-"title": "Array (data type)",
-"pageid": 22817874,
-"size": 22091,
-"wordcount": 2811,
-"timestamp": "2026-03-10T16:00:10Z",
-"snippet": "extension libraries for other general purpose <span class=\"searchmatch\">programming</span> languages (such as the widely used NumPy library for <span class=\"searchmatch\">Python</span>). Many languages provide a built-in string"
+"title": "List of missiles by country",
+"pageid": 2002565,
+"size": 102216,
+"wordcount": 6836,
+"timestamp": "2026-03-29T23:03:59Z",
+"snippet": "larger derivatives exist as well, including a submarine-launched variant) <span class=\"searchmatch\">Python</span> 5 (air-to-air, with also a ground-to-air version for the SPYDER system)"
 },
 {
-"title": "S-PLUS",
-"pageid": 3830007,
-"size": 6705,
-"wordcount": 679,
-"timestamp": "2025-11-21T11:53:25Z",
-"snippet": "commercial implementation of the S <span class=\"searchmatch\">programming</span> language sold by TIBCO Software Inc. It features object-oriented <span class=\"searchmatch\">programming</span> capabilities and advanced analytical"
+"title": "Geometric constraint solving",
+"pageid": 55690563,
+"size": 12280,
+"wordcount": 1313,
+"timestamp": "2026-03-23T04:26:08Z",
+"snippet": "Toolkit, integrated into KOMPAS-3D; GeoSolver, a GNU General Public License <span class=\"searchmatch\">Python</span> package for geometric constraint solving; SolveSpace, open-source CAD that"
 }
 ]
 }

@@ -85,7 +85,10 @@ class WikipediaImage(BaseWikipediaPage["WikipediaImage"]):
 
         :return: absolute hash of title for consistent page ID generation
         """
-        return abs(hash(self.title))
+        # Use a stable hash function that produces consistent results across runs
+        import hashlib
+
+        return int(hashlib.sha256(self.title.encode("utf-8")).hexdigest(), 16) % (10**18)
 
     def _get_pageid(self) -> int:
         """Return page ID based on imageinfo cache.
@@ -97,10 +100,9 @@ class WikipediaImage(BaseWikipediaPage["WikipediaImage"]):
 
         :return: positive integer if image exists, negative integer otherwise
         """
-        if self._info_attr("pageid") > 0 or self._info_attr("known"):
-            return self._compute_base_pageid()  # Positive: deterministic based on title
-        else:
-            return -1 * self._compute_base_pageid()  # Negative: deterministic based on title
+        exists = int(self._attributes.get("pageid", -1)) > 0 or "known" in self._attributes
+        base = self._compute_base_pageid()
+        return base if exists else -base
 
     @property
     def pageid(self) -> int:
