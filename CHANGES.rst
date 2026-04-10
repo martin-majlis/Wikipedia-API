@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.14.1
+------
+
+* pageid for images is deterministic - `PR 549`_
+
+.. _PR 549: https://github.com/martin-majlis/Wikipedia-API/pull/549
+
 0.14.0
 ------
 
