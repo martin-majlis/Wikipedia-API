@@ -21,7 +21,8 @@ parts/
 
 # IDE and editor files
 .DS_Store
-.claude/
+.claude/*
+!.claude/skills/
 CLAUDE.md
 PR_DESCRIPTION.md
 wikipedia-api-specification
