@@ -7609,11 +7609,6 @@
 "language": "en",
 "ns": 100
 },
-"Portal:Spaceflight": {
-"title": "Portal:Spaceflight",
-"language": "en",
-"ns": 100
-},
 "Portal:Spaceflight/Did you know": {
 "title": "Portal:Spaceflight/Did you know",
 "language": "en",
