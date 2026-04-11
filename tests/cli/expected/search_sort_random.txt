@@ -1,85 +1,85 @@
 {
-"totalhits": 6045,
+"totalhits": 6048,
 "pages": [
 {
-"title": "Alchemy (disambiguation)",
-"pageid": 2677322,
-"size": 2426,
-"wordcount": 282,
-"timestamp": "2025-09-05T13:42:03Z",
-"snippet": "used as shortcut for SQLAlchemy, an object-relational mapper for the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language AlchemyAPI, a company that uses machine learning to do natural"
+"title": "Path of Destruction (film)",
+"pageid": 8558285,
+"size": 3877,
+"wordcount": 293,
+"timestamp": "2026-02-03T00:30:47Z",
+"snippet": "(1999) <span class=\"searchmatch\">Python</span> (2000) Escape Under Pressure (2000) Deep Core (2000) Epoch (2001) Falcon Down (2001) New Alcatraz (2001) Lost Voyage (2001) <span class=\"searchmatch\">Pythons</span> 2 (2002)"
 },
 {
-"title": "Jim Corbett National Park",
-"pageid": 286604,
-"size": 29005,
-"wordcount": 3000,
-"timestamp": "2026-03-03T21:30:18Z",
-"snippet": "junglefowl, owls and nightjars. 33 reptiles species including the Indian <span class=\"searchmatch\">python</span>, 7 amphibians species, 7 fish species and 36 dragonflies species have also"
+"title": "Script (Unix)",
+"pageid": 20802481,
+"size": 3603,
+"wordcount": 420,
+"timestamp": "2025-11-23T00:59:48Z",
+"snippet": "log all output of the exec command. However, some interactive <span class=\"searchmatch\">programs</span> (such as <span class=\"searchmatch\">Python</span>) do not echo their standard input when run under the resulting"
 },
 {
-"title": "String interpolation",
-"pageid": 30925309,
-"size": 26025,
-"wordcount": 2601,
-"timestamp": "2026-03-31T09:40:06Z",
-"snippet": "in many <span class=\"searchmatch\">programming</span> languages which make heavy use of string representations of data, such as Apache Groovy, Julia, Kotlin, Perl, PHP, <span class=\"searchmatch\">Python</span>, Ruby, Scala"
+"title": "LuxCoreRender",
+"pageid": 18207711,
+"size": 19181,
+"wordcount": 1704,
+"timestamp": "2025-12-30T18:26:41Z",
+"snippet": "summer and one of the major components is a new engine based on the C++ and <span class=\"searchmatch\">Python</span> APIs. The old C API suffered from many limitations when it came to modern"
 },
 {
-"title": "Far Manager",
-"pageid": 887806,
-"size": 11677,
-"wordcount": 1065,
-"timestamp": "2025-12-03T09:42:28Z",
-"snippet": "As of January 2022, the project has moved to the beta stage, support for <span class=\"searchmatch\">python</span> and lua scripts has been added. far2l also supports &quot;terminal extensions&quot;"
+"title": "The Beatles in film",
+"pageid": 8780285,
+"size": 114218,
+"wordcount": 6557,
+"timestamp": "2026-03-27T00:51:51Z",
+"snippet": "their business ties with Klein. In 1978, in an effort to produce Monty <span class=\"searchmatch\">Python&#039;s</span> Life of Brian, he and Denis O&#039;Brien formed the production company HandMade"
 },
 {
-"title": "Apache Beam",
-"pageid": 51237252,
-"size": 9014,
-"wordcount": 360,
-"timestamp": "2026-03-30T13:36:15Z",
-"snippet": "Apache Beam is an open source unified <span class=\"searchmatch\">programming</span> model to define and execute data processing pipelines, including ETL, batch and stream (continuous)"
+"title": "WebSphere sMash",
+"pageid": 12212167,
+"size": 7839,
+"wordcount": 690,
+"timestamp": "2025-12-22T14:29:38Z",
+"snippet": "taken by other projects such as JRuby and Jython, which run the Ruby and <span class=\"searchmatch\">Python</span> languages, respectively, against the JVM. Running on the JVM allows direct"
 },
 {
-"title": "XSLT",
-"pageid": 34211,
-"size": 30440,
-"wordcount": 3281,
-"timestamp": "2026-03-26T05:46:01Z",
-"snippet": "1.0 specification. XSLT 3.0 implementations support Java, .NET, C/C++, <span class=\"searchmatch\">Python</span>, PHP and NodeJS. An XSLT 3.0 JavaScript library can also be hosted within"
+"title": "Untamed World",
+"pageid": 55284887,
+"size": 106384,
+"wordcount": 5486,
+"timestamp": "2026-03-29T12:14:58Z",
+"snippet": "Dragons. The world of the cold blooded reptile is explored – from deadly <span class=\"searchmatch\">pythons</span> to baby crocodiles which are born vicious; visit to a Japanese shop which"
 },
 {
-"title": "Eugène Atget",
-"pageid": 854781,
-"size": 42340,
-"wordcount": 4743,
-"timestamp": "2026-03-25T18:41:49Z",
-"snippet": "<span class=\"searchmatch\">program</span> by many researchers of Atget&#039;s work. The research of Maria Morris Hamburg and John Szarkowski corrected the understanding of Atget&#039;s <span class=\"searchmatch\">program</span>."
+"title": "Copycat (software)",
+"pageid": 1757239,
+"size": 5840,
+"wordcount": 621,
+"timestamp": "2025-04-25T22:24:06Z",
+"snippet": "now-outdated graphics libraries for Lucid Common Lisp); however, Java and <span class=\"searchmatch\">Python</span> ports exist. The latest versions are a 2023 JavaScript port by Paul-G2 and"
 },
 {
-"title": "SPC file format",
-"pageid": 10813212,
-"size": 3971,
-"wordcount": 337,
-"timestamp": "2026-03-19T12:37:34Z",
-"snippet": "Spectroscopy Software supported File Formats&quot;. &quot;spc <span class=\"searchmatch\">Python</span> library on Github&quot;. &quot;Updated fork of the spc <span class=\"searchmatch\">Python</span> library on Github&quot;. &quot;hyperSpec R package on Github&quot;"
+"title": "IntelliJ IDEA",
+"pageid": 965628,
+"size": 19908,
+"wordcount": 1173,
+"timestamp": "2026-03-27T01:49:12Z",
+"snippet": "September 2025, these included: IntelliJ IDEA: Java, Kotlin, Spring PyCharm: <span class=\"searchmatch\">Python</span>, Django, Jupyter PhpStorm: PHP, Laravel, Symfony GoLand: Go (Golang), JavaScript"
 },
 {
-"title": "Isotonic regression",
-"pageid": 2836143,
-"size": 10679,
-"wordcount": 1449,
-"timestamp": "2025-12-30T02:04:39Z",
-"snippet": "computing isotone (monotonic) regression has been developed for R, Stata, and <span class=\"searchmatch\">Python</span>. Let ( x 1 , y 1 ) , … , ( x n , y n ) {\\displaystyle (x_{1},y_{1}),\\ldots"
+"title": "KNIME",
+"pageid": 24960689,
+"size": 17474,
+"wordcount": 1666,
+"timestamp": "2026-04-03T21:28:41Z",
+"snippet": "platform supports integrating both visual <span class=\"searchmatch\">programming</span> (no-code) and script-based <span class=\"searchmatch\">programming</span> (e.g., <span class=\"searchmatch\">Python</span>, R, JavaScript) approaches to data analysis"
 },
 {
-"title": "RocksDB",
-"pageid": 49477707,
-"size": 21334,
-"wordcount": 1510,
-"timestamp": "2025-12-08T05:03:48Z",
-"snippet": "it with structured bindings for several high-level languages, including <span class=\"searchmatch\">Python</span>, Java, and Go. The following database systems and applications have chosen"
+"title": "Valenciennes",
+"pageid": 491026,
+"size": 28998,
+"wordcount": 2782,
+"timestamp": "2026-04-05T13:39:20Z",
+"snippet": "Florentius, Albert, and Peter took part in establishing a ratio studiorum or <span class=\"searchmatch\">program</span> of studies for the Dominican Order that featured the study of philosophy"
 }
 ]
 }
