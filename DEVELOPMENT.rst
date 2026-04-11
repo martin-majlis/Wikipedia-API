@@ -20,7 +20,46 @@ Makefile targets
 * ``make run-coverage`` - run code coverage (pytest-cov)
 * ``make pypi-html`` - generates single HTML documentation into ``pypi-doc.html``
 * ``make html`` - generates HTML documentation similar to RTFD into folder ``_build/html/``
-* ``make release`` - creates new release as well as git tag
+* ``make prepare-release VERSION='1.2.3'`` - bumps version files, runs full pre-release checks, and opens a PR from a ``release/1.2.3`` branch
+* ``make create-github-release VERSION='1.2.3'`` - after the PR is merged, creates a GitHub Release with auto-generated notes, triggering PyPI publish
+
+Releasing a New Version
+-----------------------
+
+**During development** — as each PR is merged, add a bullet point describing the
+change under the ``Unreleased`` section at the top of ``CHANGES.rst``::
+
+    Unreleased
+    ----------
+
+    * Add support for foo - `PR 123`_
+
+    .. _PR 123: https://github.com/martin-majlis/Wikipedia-API/pull/123
+
+**When ready to release:**
+
+1. From a clean ``master`` branch, run::
+
+    make prepare-release VERSION='1.2.3'
+
+   This will:
+
+   * Validate the version format and that it is greater than the current version
+   * Check that ``CHANGES.rst`` has an ``Unreleased`` section
+   * Run the full pre-release check suite (tests, type checks, linting, examples)
+   * Create a ``release/1.2.3`` branch
+   * Rename ``Unreleased`` → ``1.2.3`` in ``CHANGES.rst`` and bump all version files
+   * Commit, push the branch, and open a pull request
+
+2. Review and merge the pull request.
+
+3. After the PR is merged, create the GitHub Release::
+
+    make create-github-release VERSION='1.2.3'
+
+   This creates a ``v1.2.3`` tag and GitHub Release with auto-generated release
+   notes (based on merged PRs since the last release), which triggers the
+   ``release.yml`` workflow to publish the package to PyPI.
 
 Usage Statistics
 ----------------

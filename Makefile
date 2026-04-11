@@ -12,7 +12,7 @@ BUILDDIR      = _build
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help Makefile run-type-check run-tests extract-vcr-json
+.PHONY: help Makefile prepare-release create-github-release run-type-check run-tests extract-vcr-json
 
 process-readme:
 	awk '/^.. PYPI-BEGIN$$/,/^.. PYPI-END$$/ {next} {print}' README.rst > README_processed.rst
@@ -102,9 +102,18 @@ update-pre-commit:
 pre-release-check: run-pre-commit run-type-check run-ruff run-coverage run-tox run-example-sync run-example-async run-validate-attributes-mappping
 	echo "Pre-release check was successful"
 
-release: requirements-build process-readme pre-release-check
-	if [ "x$(MSG)" = "x" -o "x$(VERSION)" = "x" ]; then \
-		echo "Use make release MSG='some msg' VERSION='1.2.3'"; \
+prepare-release:
+	@if [ "x$(VERSION)" = "x" ]; then \
+		echo "Use make prepare-release VERSION='1.2.3' [MSG='optional PR context']"; \
+		exit 1; \
+	fi; \
+	current_branch=`git rev-parse --abbrev-ref HEAD`; \
+	if [ "x$$current_branch" != "xmaster" ]; then \
+		echo "prepare-release must be run from master (currently on $$current_branch)"; \
+		exit 1; \
+	fi; \
+	if [ -n "`git status --porcelain`" ]; then \
+		echo "Working tree is not clean. Commit or stash your changes first."; \
 		exit 1; \
 	fi; \
 	version=`grep '^__version__ = ' wikipediaapi/_version.py | sed -E 's/.*= \( *(.*), *(.*), *(.*)\)/\1.\2.\3/'`; \
@@ -136,23 +145,34 @@ release: requirements-build process-readme pre-release-check
 		echo "New version has to be greater"; \
 		exit 2; \
 	fi; \
-	has_documentation=`grep -c "^$(VERSION)\\$$" CHANGES.rst`; \
-	if [ $$has_documentation -eq 0 ]; then \
-		echo "There is no information about $(VERSION) in CHANGES.rst"; \
+	has_unreleased=`grep -c "^Unreleased\\$$" CHANGES.rst`; \
+	if [ $$has_unreleased -eq 0 ]; then \
+		echo "No 'Unreleased' section found in CHANGES.rst"; \
 		exit 3; \
 	fi; \
+	make pre-release-check; \
 	short_VERSION=`echo $(VERSION) | cut -f1-2 -d.`; \
 	commas_VERSION=`echo $(VERSION) | sed -E 's/\./, /g'`; \
 	echo "Short version: $$short_VERSION"; \
+	git checkout -b release/$(VERSION); \
+	sed -i.bak 's/^Unreleased$$/$(VERSION)/' CHANGES.rst && rm CHANGES.rst.bak && \
 	sed -i.bak -E 's/^version =.*/version = "'$(VERSION)'"/' pyproject.toml && rm pyproject.toml.bak && \
 	sed -i.bak -E 's/^release = .*/release = "'$(VERSION)'"/' conf.py && rm conf.py.bak && \
 	sed -i.bak -E 's/^version = .*/version = "'$$short_VERSION'"/' conf.py && rm conf.py.bak && \
 	sed -i.bak -E 's/^__version__ = .*/__version__ = ('"$$commas_VERSION"')/' wikipediaapi/_version.py && rm wikipediaapi/_version.py.bak; \
 	make build-package check-package && \
-	git commit .github CHANGES.rst pyproject.toml uv.lock conf.py wikipediaapi/_version.py -m "Update version to $(VERSION) for new release." && \
-	git push && \
-	git tag v$(VERSION) -m "$(MSG)" && \
-	git push --tags origin master
+	git commit CHANGES.rst pyproject.toml uv.lock conf.py wikipediaapi/_version.py -m "Update version to $(VERSION) for new release." && \
+	git push -u origin release/$(VERSION) && \
+	pr_body="Release $(VERSION)"; \
+	if [ -n "$(MSG)" ]; then pr_body="$$pr_body\n\n$(MSG)"; fi; \
+	gh pr create --title "Release $(VERSION)" --body "$$pr_body"
+
+create-github-release:
+	@if [ "x$(VERSION)" = "x" ]; then \
+		echo "Use make create-github-release VERSION='1.2.3'"; \
+		exit 1; \
+	fi
+	gh release create v$(VERSION) --title "v$(VERSION)" --generate-notes
 
 
 build-package: process-readme
