@@ -1,4 +1,4 @@
-Total hits: 6045
+Total hits: 6048
 
 Python (programming language)
 History of Python
@@ -7,6 +7,6 @@ Python syntax and semantics
 Mojo (programming language)
 Zen of Python
 List of Python software
-Flask (web framework)
 Glob (programming)
-Anaconda (Python distribution)
+Flask (web framework)
+Python Software Foundation

@@ -1,5 +1,5 @@
 {
-"totalhits": 6045,
+"totalhits": 6048,
 "pages": [
 {
 "title": "Tilde",
@@ -52,9 +52,9 @@
 {
 "title": "YouTube",
 "pageid": 3524766,
-"size": 215690,
+"size": 215694,
 "wordcount": 19542,
-"timestamp": "2026-04-10T07:12:40Z",
+"timestamp": "2026-04-11T04:37:09Z",
 "snippet": "advertisements alone to paid offerings such as movies and exclusive <span class=\"searchmatch\">programming</span> explicitly produced for YouTube. It also offers YouTube Premium, a paid"
 },
 {
