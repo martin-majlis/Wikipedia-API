@@ -26,19 +26,34 @@ Makefile targets
 Releasing a New Version
 -----------------------
 
-1. Add an entry for the new version to ``CHANGES.rst`` (a line with exactly ``X.Y.Z`` as a heading).
+**During development** — as each PR is merged, add a bullet point describing the
+change under the ``Unreleased`` section at the top of ``CHANGES.rst``::
 
-2. From a clean ``master`` branch, run::
+    Unreleased
+    ----------
+
+    * Add support for foo - `PR 123`_
+
+    .. _PR 123: https://github.com/martin-majlis/Wikipedia-API/pull/123
+
+**When ready to release:**
+
+1. From a clean ``master`` branch, run::
 
     make prepare-release VERSION='1.2.3'
 
-   This will validate the version, bump ``pyproject.toml``, ``conf.py``, and
-   ``wikipediaapi/_version.py``, run the full pre-release check suite, commit to
-   a ``release/1.2.3`` branch, push it, and open a pull request.
+   This will:
 
-3. Review and merge the pull request.
+   * Validate the version format and that it is greater than the current version
+   * Check that ``CHANGES.rst`` has an ``Unreleased`` section
+   * Run the full pre-release check suite (tests, type checks, linting, examples)
+   * Create a ``release/1.2.3`` branch
+   * Rename ``Unreleased`` → ``1.2.3`` in ``CHANGES.rst`` and bump all version files
+   * Commit, push the branch, and open a pull request
 
-4. After the PR is merged, create the GitHub Release::
+2. Review and merge the pull request.
+
+3. After the PR is merged, create the GitHub Release::
 
     make create-github-release VERSION='1.2.3'
 

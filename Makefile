@@ -145,9 +145,9 @@ prepare-release:
 		echo "New version has to be greater"; \
 		exit 2; \
 	fi; \
-	has_documentation=`grep -c "^$(VERSION)\\$$" CHANGES.rst`; \
-	if [ $$has_documentation -eq 0 ]; then \
-		echo "There is no information about $(VERSION) in CHANGES.rst"; \
+	has_unreleased=`grep -c "^Unreleased\\$$" CHANGES.rst`; \
+	if [ $$has_unreleased -eq 0 ]; then \
+		echo "No 'Unreleased' section found in CHANGES.rst"; \
 		exit 3; \
 	fi; \
 	make pre-release-check; \
@@ -155,6 +155,7 @@ prepare-release:
 	commas_VERSION=`echo $(VERSION) | sed -E 's/\./, /g'`; \
 	echo "Short version: $$short_VERSION"; \
 	git checkout -b release/$(VERSION); \
+	sed -i.bak 's/^Unreleased$$/$(VERSION)/' CHANGES.rst && rm CHANGES.rst.bak && \
 	sed -i.bak -E 's/^version =.*/version = "'$(VERSION)'"/' pyproject.toml && rm pyproject.toml.bak && \
 	sed -i.bak -E 's/^release = .*/release = "'$(VERSION)'"/' conf.py && rm conf.py.bak && \
 	sed -i.bak -E 's/^version = .*/version = "'$$short_VERSION'"/' conf.py && rm conf.py.bak && \
