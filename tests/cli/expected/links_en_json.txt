@@ -1549,11 +1549,6 @@
 "language": "en",
 "ns": 0
 },
-"Eoarchean": {
-"title": "Eoarchean",
-"language": "en",
-"ns": 0
-},
 "Epoch (astronomy)": {
 "title": "Epoch (astronomy)",
 "language": "en",
@@ -4966,11 +4961,6 @@
 },
 "Sedentism": {
 "title": "Sedentism",
-"language": "en",
-"ns": 0
-},
-"Sedimentary rock": {
-"title": "Sedimentary rock",
 "language": "en",
 "ns": 0
 },

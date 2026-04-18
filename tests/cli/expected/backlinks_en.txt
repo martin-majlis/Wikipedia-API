@@ -16,7 +16,6 @@
 (134340) Pluto-Charon system
 (134340) Pluto–Charon
 (134340) Pluto–Charon system
-(136108) Haumea
 (139775) 2001 QG298
 (144897) 2004 UX10
 (145453) 2005 RR43
@@ -583,6 +582,7 @@ Double Asteroid Redirection Test
 Double planet
 Draft:184314 Mbabamwanawaresa
 Draft:BBY-01 Yamato (fictional spacecraft)
+Draft:Brillante
 Dragonaut: The Resonance
 Drakon (novel)
 Duncan Lunan
@@ -2636,7 +2636,6 @@ User:Byrappa
 User:Byzantium Purple
 User:C4v3m4n/About Me
 User:CFCF/sandbox/32
-User:CGraphite
 User:CKnapp
 User:CL8
 User:CL8~enwiki/New
@@ -2901,10 +2900,8 @@ User:Elium2/Books/Solar System
 User:Eliyahu S/My Boxes
 User:Elle317K
 User:Emeraldminecart
-User:Emijrp/Citizendium/index/3
 User:Emijrp/Featured articles list
 User:Emijrp/FirstPages
-User:Emijrp/Systemic bias
 User:Emilia12345
 User:Emoraptor
 User:EncMstr/Coord
@@ -3524,6 +3521,7 @@ User:Murtaugh~enwiki
 User:MusicalScience
 User:Mustang6172
 User:Muthumaxk/Books/The Knowledge 2
+User:My planet is Homlos/sandbox
 User:N W
 User:NBardy34
 User:Nahallac Silverwinds/ZLiang user page
@@ -3768,6 +3766,7 @@ User:Rick7425
 User:Rico1234
 User:Rider80000
 User:Right Side 1342/sandbox
+User:Rishirulestheworld
 User:Rkeysone
 User:Rnelson
 User:Road2Ohio

@@ -1,85 +1,85 @@
 {
-"totalhits": 6048,
+"totalhits": 6053,
 "pages": [
 {
-"title": "Path of Destruction (film)",
-"pageid": 8558285,
-"size": 3877,
-"wordcount": 293,
-"timestamp": "2026-02-03T00:30:47Z",
-"snippet": "(1999) <span class=\"searchmatch\">Python</span> (2000) Escape Under Pressure (2000) Deep Core (2000) Epoch (2001) Falcon Down (2001) New Alcatraz (2001) Lost Voyage (2001) <span class=\"searchmatch\">Pythons</span> 2 (2002)"
+"title": "Jean-Georges Perrin",
+"pageid": 42971995,
+"size": 14087,
+"wordcount": 1109,
+"timestamp": "2026-02-28T18:42:07Z",
+"snippet": "in Action, second edition covering data engineering with Spark and Java, <span class=\"searchmatch\">Python</span>, and Scala through Manning, the foreword was written by IBM’s Rob D. Thomas"
 },
 {
-"title": "Script (Unix)",
-"pageid": 20802481,
-"size": 3603,
-"wordcount": 420,
-"timestamp": "2025-11-23T00:59:48Z",
-"snippet": "log all output of the exec command. However, some interactive <span class=\"searchmatch\">programs</span> (such as <span class=\"searchmatch\">Python</span>) do not echo their standard input when run under the resulting"
+"title": "Purple-crowned fairywren",
+"pageid": 12461630,
+"size": 37932,
+"wordcount": 4340,
+"timestamp": "2026-03-16T02:44:49Z",
+"snippet": "goanna, Gilbert&#039;s dragon, common tree snake, common brown tree snake, olive <span class=\"searchmatch\">python</span> and pheasant coucals. Many Malurids are major cuckoo hosts in Australia"
 },
 {
-"title": "LuxCoreRender",
-"pageid": 18207711,
-"size": 19181,
-"wordcount": 1704,
-"timestamp": "2025-12-30T18:26:41Z",
-"snippet": "summer and one of the major components is a new engine based on the C++ and <span class=\"searchmatch\">Python</span> APIs. The old C API suffered from many limitations when it came to modern"
+"title": "Cache poisoning",
+"pageid": 2428490,
+"size": 3180,
+"wordcount": 315,
+"timestamp": "2025-12-02T03:14:37Z",
+"snippet": "poisoning of web caches (which has led to security issues in <span class=\"searchmatch\">programming</span> languages, including all <span class=\"searchmatch\">Python</span> versions at the time in 2021, and expedited security"
 },
 {
-"title": "The Beatles in film",
-"pageid": 8780285,
-"size": 114218,
-"wordcount": 6557,
-"timestamp": "2026-03-27T00:51:51Z",
-"snippet": "their business ties with Klein. In 1978, in an effort to produce Monty <span class=\"searchmatch\">Python&#039;s</span> Life of Brian, he and Denis O&#039;Brien formed the production company HandMade"
+"title": "Holliston (TV series)",
+"pageid": 35898388,
+"size": 13121,
+"wordcount": 897,
+"timestamp": "2025-12-19T01:51:23Z",
+"snippet": "the show as &quot;The result is half Sabrina, The Teenage Witch, half Monty <span class=\"searchmatch\">Python</span>...Think of it as the show you hoped The Big Bang Theory would be.&quot; On the"
 },
 {
-"title": "WebSphere sMash",
-"pageid": 12212167,
-"size": 7839,
-"wordcount": 690,
-"timestamp": "2025-12-22T14:29:38Z",
-"snippet": "taken by other projects such as JRuby and Jython, which run the Ruby and <span class=\"searchmatch\">Python</span> languages, respectively, against the JVM. Running on the JVM allows direct"
+"title": "Time Warp Edit Distance",
+"pageid": 51574459,
+"size": 11546,
+"wordcount": 1816,
+"timestamp": "2024-05-17T00:46:08Z",
+"snippet": "TWED algorithm in C with a <span class=\"searchmatch\">Python</span> wrapper is available at TWED is also implemented into the Time Series Subsequence Search <span class=\"searchmatch\">Python</span> package (TSSEARCH for short)"
 },
 {
-"title": "Untamed World",
-"pageid": 55284887,
-"size": 106384,
-"wordcount": 5486,
-"timestamp": "2026-03-29T12:14:58Z",
-"snippet": "Dragons. The world of the cold blooded reptile is explored – from deadly <span class=\"searchmatch\">pythons</span> to baby crocodiles which are born vicious; visit to a Japanese shop which"
+"title": "Blockly",
+"pageid": 44494473,
+"size": 6958,
+"wordcount": 494,
+"timestamp": "2026-02-19T02:30:32Z",
+"snippet": "Computer <span class=\"searchmatch\">programming</span> portal Free and open-source software portal Blockly is a client-side library for the <span class=\"searchmatch\">programming</span> language JavaScript for creating"
 },
 {
-"title": "Copycat (software)",
-"pageid": 1757239,
-"size": 5840,
-"wordcount": 621,
-"timestamp": "2025-04-25T22:24:06Z",
-"snippet": "now-outdated graphics libraries for Lucid Common Lisp); however, Java and <span class=\"searchmatch\">Python</span> ports exist. The latest versions are a 2023 JavaScript port by Paul-G2 and"
+"title": "John Fiske (media scholar)",
+"pageid": 9855520,
+"size": 18073,
+"wordcount": 1985,
+"timestamp": "2026-02-26T23:15:17Z",
+"snippet": "Cambridge Footlights amateur dramatic club as a peer of several of Monty <span class=\"searchmatch\">Python&#039;s</span> founding members. After graduating from Cambridge University, Fiske taught"
 },
 {
-"title": "IntelliJ IDEA",
-"pageid": 965628,
-"size": 19908,
-"wordcount": 1173,
-"timestamp": "2026-03-27T01:49:12Z",
-"snippet": "September 2025, these included: IntelliJ IDEA: Java, Kotlin, Spring PyCharm: <span class=\"searchmatch\">Python</span>, Django, Jupyter PhpStorm: PHP, Laravel, Symfony GoLand: Go (Golang), JavaScript"
+"title": "Cyber-security regulation",
+"pageid": 3421940,
+"size": 67160,
+"wordcount": 7412,
+"timestamp": "2026-04-15T17:46:06Z",
+"snippet": "Law May Have Unintended Consequences for the <span class=\"searchmatch\">Python</span> Ecosystem&quot;. <span class=\"searchmatch\">Python</span> Software Foundation Blog. <span class=\"searchmatch\">Python</span> Software Foundation. Retrieved 11 April 2023."
 },
 {
-"title": "KNIME",
-"pageid": 24960689,
-"size": 17474,
-"wordcount": 1666,
-"timestamp": "2026-04-03T21:28:41Z",
-"snippet": "platform supports integrating both visual <span class=\"searchmatch\">programming</span> (no-code) and script-based <span class=\"searchmatch\">programming</span> (e.g., <span class=\"searchmatch\">Python</span>, R, JavaScript) approaches to data analysis"
+"title": "Bernini (fashion)",
+"pageid": 42403130,
+"size": 9420,
+"wordcount": 802,
+"timestamp": "2025-01-30T01:14:05Z",
+"snippet": "from exotic skins including alligator, crocodile, stingray, ostrich, and <span class=\"searchmatch\">python</span> ranging from $2000-100,000 USD. Curry, Mark (2009). Dancing with the Devil:"
 },
 {
-"title": "Valenciennes",
-"pageid": 491026,
-"size": 28998,
-"wordcount": 2782,
-"timestamp": "2026-04-05T13:39:20Z",
-"snippet": "Florentius, Albert, and Peter took part in establishing a ratio studiorum or <span class=\"searchmatch\">program</span> of studies for the Dominican Order that featured the study of philosophy"
+"title": "HashMicro",
+"pageid": 74029723,
+"size": 10662,
+"wordcount": 906,
+"timestamp": "2026-03-26T13:29:31Z",
+"snippet": "Development Authority (IMDA) through the Productivity Solutions Grant (PSG) <span class=\"searchmatch\">program</span>, which subsidizes ERP adoption among SMEs. In Indonesia, the company has"
 }
 ]
 }

@@ -3,11 +3,11 @@ Suggestion: python unterstützte meurer programmierparadigmen
 
 Python (Programmiersprache)
 R (Programmiersprache)
-JavaScript
 Ruby (Programmiersprache)
+JavaScript
 Hybridsprache
 Rust (Programmiersprache)
+Wolfram Language
 Scratch (Programmiersprache)
 Objektorientierte Programmierung
-Wolfram Language
 Tcl
