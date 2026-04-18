@@ -1,11 +1,4 @@
 {
-"File:20190816 Brama Prochowa w Pradze 1859 5460 DxO.jpg": {
-"title": "File:20190816 Brama Prochowa w Pradze 1859 5460 DxO.jpg",
-"language": "en",
-"namespace": 6,
-"pageid": 724877010333206673,
-"variant": null
-},
 "File:2022-10-15 Václavské náměstí 1.jpg": {
 "title": "File:2022-10-15 Václavské náměstí 1.jpg",
 "language": "en",
@@ -405,13 +398,6 @@
 "pageid": 413055642563729116,
 "variant": null
 },
-"File:La Casa Danzante de Praga 1.JPG": {
-"title": "File:La Casa Danzante de Praga 1.JPG",
-"language": "en",
-"namespace": 6,
-"pageid": 681902463182370573,
-"variant": null
-},
 "File:Logo Praha.svg": {
 "title": "File:Logo Praha.svg",
 "language": "en",
@@ -648,13 +634,6 @@
 "language": "en",
 "namespace": 6,
 "pageid": 63869053684445566,
-"variant": null
-},
-"File:Praha Astronomical Clock 02.jpg": {
-"title": "File:Praha Astronomical Clock 02.jpg",
-"language": "en",
-"namespace": 6,
-"pageid": 135401548950136723,
 "variant": null
 },
 "File:Praha CoA CZ small.svg": {
