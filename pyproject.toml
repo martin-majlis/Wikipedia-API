@@ -42,7 +42,7 @@ dev = [
     "coverage==7.13.5",
     "ruff>=0.11.0",
     "ty==0.0.27",
-    "pre-commit==4.5.1",
+    "pre-commit==4.6.0",
     "pygments==2.20.0",
     "pyupgrade==3.21.2",
     "pytest==9.0.3",
