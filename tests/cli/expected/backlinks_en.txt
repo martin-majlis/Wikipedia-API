@@ -272,7 +272,6 @@
 2018 in science
 2019 EU5
 2020 VN40
-2021 DR15
 2021 RR205
 2021 in Ireland
 2021 in science
@@ -1103,6 +1102,7 @@ Mars
 Mars Polaris
 Mars carbonate catastrophe
 Mars in culture
+Mars jar
 May 1
 May 18
 Meanings of minor-planet names
@@ -1223,6 +1223,7 @@ New Frontiers program
 New Horizons
 New Horizons 2
 New Mexico State University
+Next Generation Small-Body Sample Return
 Nexus: The Jupiter Incident
 Niantic, Inc.
 Nibiru cataclysm
@@ -1596,6 +1597,7 @@ Rose Center for Earth and Space
 Rosetta (spacecraft)
 Rotation
 Rotation period (astronomy)
+Rotunda Museum at Lowell Observatory
 Roughnecks: Starship Troopers Chronicles
 Russia
 S/2015 (136472) 1
@@ -3682,6 +3684,7 @@ User:Poomfang
 User:Porsche997SBS/Userboxes
 User:Porsche997SBS/Userboxes/User MissesPluto
 User:Praveen pillay
+User:Primium
 User:Princess Janay/Userboxes
 User:Professor Chaos
 User:Propaniac/bsc/Baby-sitters On Board!
@@ -4298,7 +4301,6 @@ User:とある白い猫/Gen
 User:とある白い猫/en
 User:永
 User:蛙莫格倫
-V774104
 VFTS 352
 Vader (crater)
 Vanth (moon)
@@ -4372,6 +4374,7 @@ Wikipedia talk:Reference desk/Guidelines/Archive 2
 Wikipedia talk:Requests for arbitration/Highways 2/Proposed decision
 Wikipedia talk:Selected anniversaries/August 20
 Wikipedia talk:Selected anniversaries/January 5
+Wikipedia talk:Selected anniversaries/June 15
 Wikipedia talk:Selected anniversaries/March 19
 Wikipedia talk:Special:MostRevisions
 Wikipedia talk:Spoiler warning/Guideline status2
@@ -4409,7 +4412,6 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
-Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1
@@ -4853,6 +4855,7 @@ Wikipedia:Today's featured article/July 2015
 Wikipedia:Today's featured article/July 2020
 Wikipedia:Today's featured article/July 29, 2020
 Wikipedia:Today's featured article/July 31, 2011
+Wikipedia:Today's featured article/June 15, 2026
 Wikipedia:Today's featured article/May 12, 2017
 Wikipedia:Today's featured article/May 2009
 Wikipedia:Today's featured article/May 2012

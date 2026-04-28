@@ -1,85 +1,85 @@
 {
-"totalhits": 6053,
+"totalhits": 6055,
 "pages": [
 {
-"title": "Jean-Georges Perrin",
-"pageid": 42971995,
-"size": 14087,
-"wordcount": 1109,
-"timestamp": "2026-02-28T18:42:07Z",
-"snippet": "in Action, second edition covering data engineering with Spark and Java, <span class=\"searchmatch\">Python</span>, and Scala through Manning, the foreword was written by IBM’s Rob D. Thomas"
+"title": "IS",
+"pageid": 19225237,
+"size": 4859,
+"wordcount": 618,
+"timestamp": "2026-03-24T23:07:00Z",
+"snippet": "local forecasts on The Weather Channel the relational operator is, used in <span class=\"searchmatch\">Python</span> the type comparison operator is, used in C# IS tank, a Soviet heavy tank"
 },
 {
-"title": "Purple-crowned fairywren",
-"pageid": 12461630,
-"size": 37932,
-"wordcount": 4340,
-"timestamp": "2026-03-16T02:44:49Z",
-"snippet": "goanna, Gilbert&#039;s dragon, common tree snake, common brown tree snake, olive <span class=\"searchmatch\">python</span> and pheasant coucals. Many Malurids are major cuckoo hosts in Australia"
+"title": "Cyclone (pinball)",
+"pageid": 47652628,
+"size": 7276,
+"wordcount": 618,
+"timestamp": "2026-03-20T16:04:15Z",
+"snippet": "&quot;Cocaine Cats &amp; Pinball Sex: Part II of The Unauthorized Hagiography of <span class=\"searchmatch\">Python</span> Anghelo&quot;. Nudge Magazine. Retrieved 2026-03-20. &quot;Pinball Archive Rule Sheet:"
 },
 {
-"title": "Cache poisoning",
-"pageid": 2428490,
-"size": 3180,
-"wordcount": 315,
-"timestamp": "2025-12-02T03:14:37Z",
-"snippet": "poisoning of web caches (which has led to security issues in <span class=\"searchmatch\">programming</span> languages, including all <span class=\"searchmatch\">Python</span> versions at the time in 2021, and expedited security"
+"title": "Magic Wormhole",
+"pageid": 79656366,
+"size": 4528,
+"wordcount": 417,
+"timestamp": "2026-04-08T15:51:37Z",
+"snippet": "&quot;Protocol/API/Library Introduction&quot;. readthedocs.io. Retrieved 8 April 2025. &quot;<span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language)&quot;, Wikipedia, 2026-04-07, retrieved 2026-04-08 &quot;Haskell&quot;"
 },
 {
-"title": "Holliston (TV series)",
-"pageid": 35898388,
-"size": 13121,
-"wordcount": 897,
-"timestamp": "2025-12-19T01:51:23Z",
-"snippet": "the show as &quot;The result is half Sabrina, The Teenage Witch, half Monty <span class=\"searchmatch\">Python</span>...Think of it as the show you hoped The Big Bang Theory would be.&quot; On the"
+"title": "Microsoft account",
+"pageid": 33661681,
+"size": 27982,
+"wordcount": 2443,
+"timestamp": "2026-04-21T06:33:31Z",
+"snippet": "range of web server platforms - including ASP.NET (C#), Java, Perl, PHP, <span class=\"searchmatch\">Python</span> and Ruby. On October 27, 2008, Microsoft announced that it was publicly"
 },
 {
-"title": "Time Warp Edit Distance",
-"pageid": 51574459,
-"size": 11546,
-"wordcount": 1816,
-"timestamp": "2024-05-17T00:46:08Z",
-"snippet": "TWED algorithm in C with a <span class=\"searchmatch\">Python</span> wrapper is available at TWED is also implemented into the Time Series Subsequence Search <span class=\"searchmatch\">Python</span> package (TSSEARCH for short)"
+"title": "General regression neural network",
+"pageid": 53468615,
+"size": 3686,
+"wordcount": 461,
+"timestamp": "2026-03-22T14:58:44Z",
+"snippet": "implemented in many computer languages including MATLAB, R- <span class=\"searchmatch\">programming</span> language, <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language) and Node.js. Neural networks (specifically Multi-layer"
 },
 {
-"title": "Blockly",
-"pageid": 44494473,
-"size": 6958,
-"wordcount": 494,
-"timestamp": "2026-02-19T02:30:32Z",
-"snippet": "Computer <span class=\"searchmatch\">programming</span> portal Free and open-source software portal Blockly is a client-side library for the <span class=\"searchmatch\">programming</span> language JavaScript for creating"
+"title": "LINDO",
+"pageid": 43628228,
+"size": 4269,
+"wordcount": 434,
+"timestamp": "2024-06-12T14:29:31Z",
+"snippet": "Optimizer) is a software package for linear <span class=\"searchmatch\">programming</span>, integer <span class=\"searchmatch\">programming</span>, nonlinear <span class=\"searchmatch\">programming</span>, stochastic <span class=\"searchmatch\">programming</span> and global optimization. LINGO is a"
 },
 {
-"title": "John Fiske (media scholar)",
-"pageid": 9855520,
-"size": 18073,
-"wordcount": 1985,
-"timestamp": "2026-02-26T23:15:17Z",
-"snippet": "Cambridge Footlights amateur dramatic club as a peer of several of Monty <span class=\"searchmatch\">Python&#039;s</span> founding members. After graduating from Cambridge University, Fiske taught"
+"title": "Randal Graham",
+"pageid": 71491304,
+"size": 9644,
+"wordcount": 865,
+"timestamp": "2026-03-12T02:29:44Z",
+"snippet": "The Next Chapter (radio <span class=\"searchmatch\">program</span>) as &quot;. . . a sprawling, intellectual yet humorous book - like if Life of Brian by Monty <span class=\"searchmatch\">Python</span> was 14-and-a-half hours"
 },
 {
-"title": "Cyber-security regulation",
-"pageid": 3421940,
-"size": 67160,
-"wordcount": 7412,
-"timestamp": "2026-04-15T17:46:06Z",
-"snippet": "Law May Have Unintended Consequences for the <span class=\"searchmatch\">Python</span> Ecosystem&quot;. <span class=\"searchmatch\">Python</span> Software Foundation Blog. <span class=\"searchmatch\">Python</span> Software Foundation. Retrieved 11 April 2023."
+"title": "EmEditor",
+"pageid": 4233835,
+"size": 7167,
+"wordcount": 621,
+"timestamp": "2026-03-28T17:30:10Z",
+"snippet": "The <span class=\"searchmatch\">program</span> continued to evolve, and on the way introduced many more <span class=\"searchmatch\">programming</span> languages, such as C++, Java, HTML, Markdown, Perl, and <span class=\"searchmatch\">Python</span>. On February"
 },
 {
-"title": "Bernini (fashion)",
-"pageid": 42403130,
-"size": 9420,
-"wordcount": 802,
-"timestamp": "2025-01-30T01:14:05Z",
-"snippet": "from exotic skins including alligator, crocodile, stingray, ostrich, and <span class=\"searchmatch\">python</span> ranging from $2000-100,000 USD. Curry, Mark (2009). Dancing with the Devil:"
+"title": "APOPT",
+"pageid": 39350099,
+"size": 5049,
+"wordcount": 383,
+"timestamp": "2025-11-04T22:48:31Z",
+"snippet": "<span class=\"searchmatch\">programming</span> (LP) Quadratic <span class=\"searchmatch\">programming</span> (QP) Quadratically constrained quadratic <span class=\"searchmatch\">program</span> (QCQP) Nonlinear <span class=\"searchmatch\">programming</span> (NLP) Mixed integer <span class=\"searchmatch\">programming</span> (MIP)"
 },
 {
-"title": "HashMicro",
-"pageid": 74029723,
-"size": 10662,
-"wordcount": 906,
-"timestamp": "2026-03-26T13:29:31Z",
-"snippet": "Development Authority (IMDA) through the Productivity Solutions Grant (PSG) <span class=\"searchmatch\">program</span>, which subsidizes ERP adoption among SMEs. In Indonesia, the company has"
+"title": "Kuranda, Queensland",
+"pageid": 2186533,
+"size": 29552,
+"wordcount": 2807,
+"timestamp": "2026-03-08T01:03:59Z",
+"snippet": "bandicoots, possums, gliders, frogmouth owls, freshwater crocodiles, lizards, <span class=\"searchmatch\">pythons</span>, turtles and frogs.[citation needed] Coondoo Street St. Saviour&#039;s Church"
 }
 ]
 }
