@@ -5199,6 +5199,11 @@
 "language": "en",
 "ns": 0
 },
+"Spaceship Earth": {
+"title": "Spaceship Earth",
+"language": "en",
+"ns": 0
+},
 "Sphere of influence (astrodynamics)": {
 "title": "Sphere of influence (astrodynamics)",
 "language": "en",

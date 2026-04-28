@@ -1038,6 +1038,7 @@ Space exploration
 Space probe
 Space station
 Space.com
+Spaceship Earth
 Sphere of influence (astrodynamics)
 Spherical Earth
 Spheroid

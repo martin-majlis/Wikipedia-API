@@ -1400,9 +1400,9 @@
 "url": "https://to.wikipedia.org/wiki/M%C4%81mani_(palanite)"
 },
 "tok": {
-"title": "ma",
+"title": "sike ma",
 "language": "tok",
-"url": "https://tok.wikipedia.org/wiki/ma"
+"url": "https://tok.wikipedia.org/wiki/sike_ma"
 },
 "tpi": {
 "title": "Giraun",
