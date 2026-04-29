@@ -28,7 +28,7 @@ from wikipediaapi import coordinates_prop2str
 # Set to INFO to see the actual API request URLs being made
 logging.basicConfig(level=logging.WARNING)
 
-user_agent = "MyCoolBot/1.0 (myemail@example.com)"
+user_agent = "Wikipedia-API Example (merlin@example.com)"
 
 
 def print_sections(sections, level=0):

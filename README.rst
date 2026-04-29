@@ -56,10 +56,10 @@ Getting single page is straightforward. You have to initialize ``Wikipedia`` (or
 object and ask for page by its name.
 To initialize it, you have to provide:
 
-* `user_agent` to identify your project. **Must include contact information** (email or website) and follow the Wikimedia Foundation `User-Agent policy`_.
+* `user_agent` to identify your project. Please follow the recommended `format`_.
 * `language` to specify language mutation. It has to be one of `supported languages`_.
 
-.. _User-Agent policy: https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy
+.. _format: https://meta.wikimedia.org/wiki/User-Agent_policy
 .. _supported languages: http://meta.wikimedia.org/wiki/List_of_Wikipedias
 
 **Synchronous**

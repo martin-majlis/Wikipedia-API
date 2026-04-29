@@ -116,7 +116,7 @@ class BaseHTTPClient(ABC):
             default_headers.get("User-Agent"),
         )
 
-        default_headers["User-Agent"] = used_user_agent + " " + USER_AGENT
+        default_headers["User-Agent"] = used_user_agent + " (" + USER_AGENT + ")"
 
         self.language = used_language
         self.variant = used_variant
@@ -224,8 +224,7 @@ class BaseHTTPClient(ABC):
         if not user_agent or len(user_agent) < MIN_USER_AGENT_LEN:
             raise AssertionError(
                 "Please, be nice to Wikipedia and specify user agent - "
-                + "https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_"
-                + "User-Agent_Policy. Current user_agent: '"
+                + "https://meta.wikimedia.org/wiki/User-Agent_policy. Current user_agent: '"
                 + str(user_agent)
                 + "' is not sufficient. "
                 + "Use Wikipedia(user_agent='your-user-agent', language='"

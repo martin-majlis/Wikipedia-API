@@ -13,8 +13,7 @@ class TestWikipedia:
         assert str(e.value) == str(
             AssertionError(
                 "Please, be nice to Wikipedia and specify user agent - "
-                + "https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_"
-                + "User-Agent_Policy. "
+                + "https://meta.wikimedia.org/wiki/User-Agent_policy. "
                 + "Current user_agent: 'en' is not sufficient. "
                 + "Use Wikipedia(user_agent='your-user-agent', language='en')"
             )
@@ -26,8 +25,7 @@ class TestWikipedia:
         assert str(e.value) == str(
             AssertionError(
                 "Please, be nice to Wikipedia and specify user agent - "
-                + "https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_"
-                + "User-Agent_Policy. "
+                + "https://meta.wikimedia.org/wiki/User-Agent_policy. "
                 + "Current user_agent: 'en' is not sufficient. "
                 + "Use Wikipedia(user_agent='your-user-agent', language='en')"
             )
@@ -39,8 +37,7 @@ class TestWikipedia:
         assert str(e.value) == str(
             AssertionError(
                 "Please, be nice to Wikipedia and specify user agent - "
-                + "https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_"
-                + "User-Agent_Policy. "
+                + "https://meta.wikimedia.org/wiki/User-Agent_policy. "
                 + "Current user_agent: '' is not sufficient. "
                 + "Use Wikipedia(user_agent='your-user-agent', language='your-language')"
             )
@@ -68,7 +65,7 @@ class TestWikipedia:
         )
         assert wiki is not None
         user_agent = wiki._client.headers.get("User-Agent")
-        assert user_agent == "param-user-agent " + wikipediaapi.USER_AGENT
+        assert user_agent == "param-user-agent (" + wikipediaapi.USER_AGENT + ")"
         assert wiki.language == "en"
 
     def test_user_agent_in_headers_is_fine(self):
@@ -78,7 +75,7 @@ class TestWikipedia:
         )
         assert wiki is not None
         user_agent = wiki._client.headers.get("User-Agent")
-        assert user_agent == "header-user-agent " + wikipediaapi.USER_AGENT
+        assert user_agent == "header-user-agent (" + wikipediaapi.USER_AGENT + ")"
 
     def test_user_agent_in_headers_win(self):
         wiki = wikipediaapi.Wikipedia(
@@ -87,7 +84,7 @@ class TestWikipedia:
         )
         assert wiki is not None
         user_agent = wiki._client.headers.get("User-Agent")
-        assert user_agent == "header-user-agent " + wikipediaapi.USER_AGENT
+        assert user_agent == "header-user-agent (" + wikipediaapi.USER_AGENT + ")"
 
     def test_extracts_nonexistent_page(self):
         """Test extracts method when page doesn't exist (pageid is negative)."""

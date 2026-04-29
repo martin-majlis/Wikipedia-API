@@ -8,7 +8,7 @@
 
 set -euo pipefail
 
-USER_AGENT="MyCoolBot/1.0 (myemail@example.com)"
+USER_AGENT="Wikipedia-API Example (merlin@example.com)"
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 1. Verify installation
