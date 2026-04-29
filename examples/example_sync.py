@@ -19,7 +19,7 @@ from wikipediaapi import coordinates_prop2str
 # Set to INFO to see the actual API request URLs being made
 logging.basicConfig(level=logging.WARNING)
 
-user_agent = "Wikipedia-API Example (merlin@example.com)"
+user_agent = "MyCoolBot/1.0 (myemail@example.com)"
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 1. Creating a Wikipedia client
