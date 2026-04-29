@@ -32,7 +32,7 @@ classifiers = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    "click==8.3.2",
+    "click==8.3.3",
     "httpx==0.28.1",
     "tenacity==9.1.4",
 ]
