@@ -1,85 +1,85 @@
 {
-"totalhits": 6055,
+"totalhits": 6056,
 "pages": [
 {
-"title": "IS",
-"pageid": 19225237,
-"size": 4859,
-"wordcount": 618,
-"timestamp": "2026-03-24T23:07:00Z",
-"snippet": "local forecasts on The Weather Channel the relational operator is, used in <span class=\"searchmatch\">Python</span> the type comparison operator is, used in C# IS tank, a Soviet heavy tank"
+"title": "CheShift",
+"pageid": 35585549,
+"size": 4459,
+"wordcount": 419,
+"timestamp": "2025-07-17T23:09:04Z",
+"snippet": "software operates as a web server and as a plugin for the molecular graphics <span class=\"searchmatch\">program</span> PyMOL. It is primarily used to assess the quality of experimentally determined"
 },
 {
-"title": "Cyclone (pinball)",
-"pageid": 47652628,
-"size": 7276,
-"wordcount": 618,
-"timestamp": "2026-03-20T16:04:15Z",
-"snippet": "&quot;Cocaine Cats &amp; Pinball Sex: Part II of The Unauthorized Hagiography of <span class=\"searchmatch\">Python</span> Anghelo&quot;. Nudge Magazine. Retrieved 2026-03-20. &quot;Pinball Archive Rule Sheet:"
+"title": "Code Club",
+"pageid": 36475843,
+"size": 6703,
+"wordcount": 512,
+"timestamp": "2026-04-14T02:31:25Z",
+"snippet": "learning how to use technology creatively. It has Scratch, HTML &amp; CSS, <span class=\"searchmatch\">Python</span> and a variety of other coding languages. The initiative also provide free"
 },
 {
-"title": "Magic Wormhole",
-"pageid": 79656366,
-"size": 4528,
-"wordcount": 417,
-"timestamp": "2026-04-08T15:51:37Z",
-"snippet": "&quot;Protocol/API/Library Introduction&quot;. readthedocs.io. Retrieved 8 April 2025. &quot;<span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language)&quot;, Wikipedia, 2026-04-07, retrieved 2026-04-08 &quot;Haskell&quot;"
+"title": "Cadabra (computer program)",
+"pageid": 37631921,
+"size": 4944,
+"wordcount": 435,
+"timestamp": "2025-07-31T21:08:49Z",
+"snippet": "A. (2011). &quot;The research seminar on computer algebra in 2009–2010&quot;. <span class=\"searchmatch\">Programming</span> and Computer Software. 37 (2): 57–61. doi:10.1134/S0361768811020010."
 },
 {
-"title": "Microsoft account",
-"pageid": 33661681,
-"size": 27982,
-"wordcount": 2443,
-"timestamp": "2026-04-21T06:33:31Z",
-"snippet": "range of web server platforms - including ASP.NET (C#), Java, Perl, PHP, <span class=\"searchmatch\">Python</span> and Ruby. On October 27, 2008, Microsoft announced that it was publicly"
+"title": "Bag-of-words model",
+"pageid": 14003441,
+"size": 7710,
+"wordcount": 904,
+"timestamp": "2026-04-19T17:32:29Z",
+"snippet": "The bag-of-words (BoW) model is a model of text which uses an unordered collection (a &quot;bag&quot;) of words. It is used in natural language processing and information"
 },
 {
-"title": "General regression neural network",
-"pageid": 53468615,
-"size": 3686,
-"wordcount": 461,
-"timestamp": "2026-03-22T14:58:44Z",
-"snippet": "implemented in many computer languages including MATLAB, R- <span class=\"searchmatch\">programming</span> language, <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language) and Node.js. Neural networks (specifically Multi-layer"
+"title": "Festa on Ice",
+"pageid": 22531124,
+"size": 10931,
+"wordcount": 946,
+"timestamp": "2025-11-28T14:21:44Z",
+"snippet": "McFerrin Tomáš Verner - &quot;Always Look on the Bright Side of Life&quot; by Monty <span class=\"searchmatch\">Python</span> Kwak Min-jeong - &quot;The Voice Within&quot; by Christina Aguilera Oksana Domnina"
 },
 {
-"title": "LINDO",
-"pageid": 43628228,
-"size": 4269,
-"wordcount": 434,
-"timestamp": "2024-06-12T14:29:31Z",
-"snippet": "Optimizer) is a software package for linear <span class=\"searchmatch\">programming</span>, integer <span class=\"searchmatch\">programming</span>, nonlinear <span class=\"searchmatch\">programming</span>, stochastic <span class=\"searchmatch\">programming</span> and global optimization. LINGO is a"
+"title": "List of zoo escapes",
+"pageid": 78318308,
+"size": 213636,
+"wordcount": 8489,
+"timestamp": "2026-03-25T22:49:18Z",
+"snippet": "motorist. 2019 Albay Park &amp; Wildlife Legazpi, Albay <span class=\"searchmatch\">Python</span> Several days The 15 ft (4.5 m) long <span class=\"searchmatch\">python</span> called Sawa ventured into a farm and ate poultry."
 },
 {
-"title": "Randal Graham",
-"pageid": 71491304,
-"size": 9644,
-"wordcount": 865,
-"timestamp": "2026-03-12T02:29:44Z",
-"snippet": "The Next Chapter (radio <span class=\"searchmatch\">program</span>) as &quot;. . . a sprawling, intellectual yet humorous book - like if Life of Brian by Monty <span class=\"searchmatch\">Python</span> was 14-and-a-half hours"
+"title": "Expression (mathematics)",
+"pageid": 609125,
+"size": 44204,
+"wordcount": 5359,
+"timestamp": "2025-10-14T12:08:50Z",
+"snippet": "statements. All statements characterised in modern <span class=\"searchmatch\">programming</span> languages are well-defined, including C++, <span class=\"searchmatch\">Python</span>, and Java. Common examples of computation are"
 },
 {
-"title": "EmEditor",
-"pageid": 4233835,
-"size": 7167,
-"wordcount": 621,
-"timestamp": "2026-03-28T17:30:10Z",
-"snippet": "The <span class=\"searchmatch\">program</span> continued to evolve, and on the way introduced many more <span class=\"searchmatch\">programming</span> languages, such as C++, Java, HTML, Markdown, Perl, and <span class=\"searchmatch\">Python</span>. On February"
+"title": "Outline of MySQL",
+"pageid": 46902017,
+"size": 17988,
+"wordcount": 2068,
+"timestamp": "2025-10-22T10:29:07Z",
+"snippet": "with API bindings for C++, C#, PHP, Java, Perl, <span class=\"searchmatch\">Python</span>, Ruby, Tcl, Smalltalk, and many other <span class=\"searchmatch\">programming</span> languages. Prior to v5.1, MySQL included a BDB"
 },
 {
-"title": "APOPT",
-"pageid": 39350099,
-"size": 5049,
-"wordcount": 383,
-"timestamp": "2025-11-04T22:48:31Z",
-"snippet": "<span class=\"searchmatch\">programming</span> (LP) Quadratic <span class=\"searchmatch\">programming</span> (QP) Quadratically constrained quadratic <span class=\"searchmatch\">program</span> (QCQP) Nonlinear <span class=\"searchmatch\">programming</span> (NLP) Mixed integer <span class=\"searchmatch\">programming</span> (MIP)"
+"title": "KOffice",
+"pageid": 29939659,
+"size": 22990,
+"wordcount": 1673,
+"timestamp": "2025-12-28T11:15:14Z",
+"snippet": "custom functionality can be done with D-Bus or with scripting languages like <span class=\"searchmatch\">Python</span>, Ruby, and JavaScript. Free and open-source software portal Comparison of"
 },
 {
-"title": "Kuranda, Queensland",
-"pageid": 2186533,
-"size": 29552,
-"wordcount": 2807,
-"timestamp": "2026-03-08T01:03:59Z",
-"snippet": "bandicoots, possums, gliders, frogmouth owls, freshwater crocodiles, lizards, <span class=\"searchmatch\">pythons</span>, turtles and frogs.[citation needed] Coondoo Street St. Saviour&#039;s Church"
+"title": "Double-ended queue",
+"pageid": 8904,
+"size": 49099,
+"wordcount": 5378,
+"timestamp": "2026-04-23T22:09:59Z",
+"snippet": "removing (shift and pop) and adding (unshift and push) elements on both ends. <span class=\"searchmatch\">Python</span> 2.4 introduced the collections module with support for deque objects. It"
 }
 ]
 }
