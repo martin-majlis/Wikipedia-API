@@ -1,5 +1,5 @@
 {
-"totalhits": 6055,
+"totalhits": 6056,
 "pages": [
 {
 "title": "Tilde",
@@ -12,9 +12,9 @@
 {
 "title": "Time zone",
 "pageid": 30890,
-"size": 94734,
-"wordcount": 5816,
-"timestamp": "2026-04-26T08:58:26Z",
+"size": 94194,
+"wordcount": 5785,
+"timestamp": "2026-04-28T23:49:16Z",
 "snippet": "implemented via the PECL timezonedb. The standard module datetime included with <span class=\"searchmatch\">Python</span> stores and operates on the time zone information class tzinfo. The third"
 },
 {
@@ -60,9 +60,9 @@
 {
 "title": "BBC",
 "pageid": 19344654,
-"size": 220866,
+"size": 220914,
 "wordcount": 21397,
-"timestamp": "2026-04-25T09:53:38Z",
+"timestamp": "2026-04-30T07:38:13Z",
 "snippet": "England, the larger regions also produce some <span class=\"searchmatch\">programming</span>. Previously the largest hub of BBC <span class=\"searchmatch\">programming</span> from the regions had been BBC North West. At present"
 },
 {
@@ -76,9 +76,9 @@
 {
 "title": "Florida",
 "pageid": 18933066,
-"size": 251626,
-"wordcount": 20695,
-"timestamp": "2026-04-27T18:20:57Z",
+"size": 252071,
+"wordcount": 20755,
+"timestamp": "2026-04-28T16:29:39Z",
 "snippet": "animal species. Some exotic species living in Florida include the Burmese <span class=\"searchmatch\">python</span>, green iguana, veiled chameleon, Argentine black and white tegu, peacock"
 }
 ]

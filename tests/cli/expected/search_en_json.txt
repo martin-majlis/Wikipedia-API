@@ -1,5 +1,5 @@
 {
-"totalhits": 6055,
+"totalhits": 6056,
 "pages": [
 {
 "title": "Python (programming language)",
@@ -10,20 +10,20 @@
 "snippet": " and garbage collection. <span class=\"searchmatch\">Python</span> supports multiple <span class=\"searchmatch\">programming</span> paradigms but with an emphasis on object-oriented <span class=\"searchmatch\">programming</span> and dynamic typing. Guido"
 },
 {
-"title": "History of Python",
-"pageid": 21356332,
-"size": 57181,
-"wordcount": 4266,
-"timestamp": "2026-04-15T03:44:10Z",
-"snippet": "The <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> was conceived in the late 1980s, and its implementation was started in December 1989 by Guido van Rossum at CWI in the"
-},
-{
 "title": "Outline of the Python programming language",
 "pageid": 81118035,
 "size": 12097,
 "wordcount": 837,
 "timestamp": "2026-02-18T06:39:30Z",
 "snippet": "functional <span class=\"searchmatch\">programming</span>. ABC (<span class=\"searchmatch\">programming</span> language) – precursor to <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Python</span> was started by Guido van Rossum in 1989 and first released in 1991. <span class=\"searchmatch\">Python</span> 2 —"
+},
+{
+"title": "History of Python",
+"pageid": 21356332,
+"size": 57181,
+"wordcount": 4266,
+"timestamp": "2026-04-15T03:44:10Z",
+"snippet": "The <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> was conceived in the late 1980s, and its implementation was started in December 1989 by Guido van Rossum at CWI in the"
 },
 {
 "title": "Python syntax and semantics",
@@ -60,9 +60,9 @@
 {
 "title": "List of Python software",
 "pageid": 3673376,
-"size": 37034,
-"wordcount": 3643,
-"timestamp": "2026-04-24T23:36:10Z",
+"size": 36961,
+"wordcount": 3636,
+"timestamp": "2026-04-29T06:10:21Z",
 "snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform"
 },
 {

@@ -7614,6 +7614,11 @@
 "language": "en",
 "ns": 100
 },
+"Portal:Spaceflight": {
+"title": "Portal:Spaceflight",
+"language": "en",
+"ns": 100
+},
 "Portal:Spaceflight/Did you know": {
 "title": "Portal:Spaceflight/Did you know",
 "language": "en",
@@ -10631,11 +10636,6 @@
 },
 "User talk:24.248.12.179": {
 "title": "User talk:24.248.12.179",
-"language": "en",
-"ns": 3
-},
-"User talk:24.89.95.149/userboxes": {
-"title": "User talk:24.89.95.149/userboxes",
 "language": "en",
 "ns": 3
 },
@@ -15679,6 +15679,11 @@
 "language": "en",
 "ns": 2
 },
+"User:Informing And Uniting": {
+"title": "User:Informing And Uniting",
+"language": "en",
+"ns": 2
+},
 "User:Inglewoodplz": {
 "title": "User:Inglewoodplz",
 "language": "en",
@@ -16586,11 +16591,6 @@
 },
 "User:Krowe": {
 "title": "User:Krowe",
-"language": "en",
-"ns": 2
-},
-"User:Ksaare2010/sandbox": {
-"title": "User:Ksaare2010/sandbox",
 "language": "en",
 "ns": 2
 },
@@ -22066,6 +22066,11 @@
 },
 "Wikipedia talk:WikiProject Medicine/Archive 152": {
 "title": "Wikipedia talk:WikiProject Medicine/Archive 152",
+"language": "en",
+"ns": 5
+},
+"Wikipedia talk:WikiProject Portals/Design/Archive 3": {
+"title": "Wikipedia talk:WikiProject Portals/Design/Archive 3",
 "language": "en",
 "ns": 5
 },

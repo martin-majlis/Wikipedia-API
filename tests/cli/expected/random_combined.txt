@@ -1,10 +1,10 @@
 [
 {
-"title": "Interior Schwarzschild metric",
-"pageid": 50407281
+"title": "John Plumptre (priest)",
+"pageid": 39009312
 },
 {
-"title": "Psychical inertia",
-"pageid": 53849196
+"title": "Jorge Daniel Florentín",
+"pageid": 34659917
 }
 ]
