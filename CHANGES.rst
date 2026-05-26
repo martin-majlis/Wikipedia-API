@@ -1,7 +1,7 @@
 Changelog
 =========
 
-Unreleased
+0.15.0
 ----------
 
 * Make user agent header compliant with Wikimedia Foundation User-Agent policy - `PR 590`_
