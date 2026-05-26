@@ -2,84 +2,84 @@
 "totalhits": 6073,
 "pages": [
 {
-"title": "XSLT",
-"pageid": 34211,
-"size": 30440,
-"wordcount": 3281,
-"timestamp": "2026-03-26T05:46:01Z",
-"snippet": "1.0 specification. XSLT 3.0 implementations support Java, .NET, C/C++, <span class=\"searchmatch\">Python</span>, PHP and NodeJS. An XSLT 3.0 JavaScript library can also be hosted within"
+"title": "Enigma Technologies",
+"pageid": 43336209,
+"size": 26908,
+"wordcount": 2225,
+"timestamp": "2026-01-19T03:29:15Z",
+"snippet": "released a <span class=\"searchmatch\">Python</span> SDK for Enigma Public, designed to make it easier to locate and import public data into a Jupyter notebook or any other <span class=\"searchmatch\">Python</span> project"
 },
 {
-"title": "User story",
-"pageid": 2656549,
-"size": 32562,
-"wordcount": 3228,
-"timestamp": "2026-02-19T03:19:23Z",
-"snippet": "published the first edition of the book Extreme <span class=\"searchmatch\">Programming</span> Explained, introducing Extreme <span class=\"searchmatch\">Programming</span> (XP), and the usage of user stories in the planning"
+"title": "Semgrep",
+"pageid": 66589695,
+"size": 8982,
+"wordcount": 730,
+"timestamp": "2025-12-23T18:51:17Z",
+"snippet": "open-source static code analysis tool semgrep, which supports over 30 <span class=\"searchmatch\">programming</span> languages. The name is a combination of semantic and grep, which refers"
 },
 {
-"title": "RPM Package Manager",
-"pageid": 21772272,
-"size": 26627,
-"wordcount": 2480,
-"timestamp": "2026-02-13T06:53:27Z",
-"snippet": "for other <span class=\"searchmatch\">programs</span> to use. They may also contain shell scripts or <span class=\"searchmatch\">programs</span> written in other interpreted <span class=\"searchmatch\">programming</span> languages such as <span class=\"searchmatch\">Python</span>. The RPM contents"
+"title": "CoffeeScript",
+"pageid": 27403236,
+"size": 16632,
+"wordcount": 1542,
+"timestamp": "2026-04-06T23:17:06Z",
+"snippet": "CoffeeScript is a <span class=\"searchmatch\">programming</span> language that compiles to JavaScript. It adds syntactic sugar inspired by Ruby, <span class=\"searchmatch\">Python</span>, and Haskell in an effort to enhance"
 },
 {
-"title": "Machine epsilon",
-"pageid": 3076863,
-"size": 24947,
-"wordcount": 2999,
-"timestamp": "2026-05-19T03:07:23Z",
-"snippet": "constants in Ada, C, C++, Fortran, MATLAB, Mathematica, Octave, Pascal, <span class=\"searchmatch\">Python</span> and Rust etc., and defined in textbooks like «Numerical Recipes» by Press"
+"title": "Ruby (programming language)",
+"pageid": 25768,
+"size": 59233,
+"wordcount": 5448,
+"timestamp": "2026-05-21T12:31:37Z",
+"snippet": "Ruby is a general-purpose <span class=\"searchmatch\">programming</span> language designed with an emphasis on <span class=\"searchmatch\">programming</span> productivity and simplicity. In Ruby, everything is an object"
 },
 {
-"title": "Mount Salak",
-"pageid": 8515406,
-"size": 9650,
-"wordcount": 973,
-"timestamp": "2026-05-24T16:54:47Z",
-"snippet": "Tangkai (Calamaria sp.), Ular Siput (Pareas carinatus), Ular Sanca Kembang (<span class=\"searchmatch\">Python</span> reticulatus), and many more. Mount Salak has become famous for its habitat"
+"title": "Make (software)",
+"pageid": 176194,
+"size": 43701,
+"wordcount": 4462,
+"timestamp": "2026-05-23T00:08:53Z",
+"snippet": "faster incremental builds (similar to the cmake metatool). Snakemake is a <span class=\"searchmatch\">Python</span>-driven implementation for compiling and running bioinformatics workflows"
 },
 {
-"title": "Managed DirectX",
-"pageid": 8198716,
-"size": 2844,
-"wordcount": 255,
-"timestamp": "2025-11-07T17:35:01Z",
-"snippet": "Managed DirectX (MDX) is Microsoft&#039;s deprecated API for DirectX <span class=\"searchmatch\">programming</span> on .NET Framework. MDX can be used from any language on .NET Framework (via"
+"title": "List of documentary programs formerly distributed by American Public Television",
+"pageid": 81310495,
+"size": 257913,
+"wordcount": 11168,
+"timestamp": "2026-05-22T18:53:22Z",
+"snippet": "unreleased <span class=\"searchmatch\">programming</span>. List of <span class=\"searchmatch\">programs</span> formerly distributed by American Public Television List of <span class=\"searchmatch\">programs</span> broadcast by PBS List of <span class=\"searchmatch\">programs</span> broadcast"
 },
 {
-"title": "CoCalc",
-"pageid": 42734157,
-"size": 6305,
-"wordcount": 461,
-"timestamp": "2026-05-25T06:31:09Z",
-"snippet": "and HTML for decoration, and R, Octave, Cython, Julia and others for <span class=\"searchmatch\">programming</span> in addition to Sage. CoCalc supports Jupyter notebooks, which are enhanced"
+"title": "Soundscape",
+"pageid": 648321,
+"size": 30191,
+"wordcount": 3654,
+"timestamp": "2026-02-26T02:17:57Z",
+"snippet": "Retrieved 18 November 2015. Boodler ambient soundscape generator written in <span class=\"searchmatch\">Python</span> fLOW ambient soundscape generator (Apple Macintosh) Levin, Theodore (2006)"
 },
 {
-"title": "Popularity of text encodings",
-"pageid": 67131807,
-"size": 13189,
-"wordcount": 1426,
-"timestamp": "2026-04-16T11:53:24Z",
-"snippet": "computer <span class=\"searchmatch\">program</span>, usage of UTF-16 is very common, particularly in Windows but also cross-platform languages and libraries such as JavaScript, <span class=\"searchmatch\">Python</span>, and"
+"title": "MB-Lab",
+"pageid": 53990333,
+"size": 14114,
+"wordcount": 1329,
+"timestamp": "2025-01-08T07:07:57Z",
+"snippet": "recognize the bones in motion capture skeletons. The software is written in <span class=\"searchmatch\">Python</span> and works on all the platforms supported by Blender: Windows, macOS and"
 },
 {
-"title": "List of celebrity judoka",
-"pageid": 14614858,
-"size": 28583,
-"wordcount": 3354,
-"timestamp": "2026-04-27T12:04:16Z",
-"snippet": "- Who We Are &quot;Labs - MozillaWiki&quot;. BayCHI Monthly <span class=\"searchmatch\">Program</span>, Tuesday, September 13, 1994 Euro<span class=\"searchmatch\">Python</span> Society - The Failure of Applications Archived 2008-03-09"
+"title": "Network science",
+"pageid": 16981683,
+"size": 72388,
+"wordcount": 10058,
+"timestamp": "2026-05-25T09:00:11Z",
+"snippet": "Elements of Network Science: Theory, Methods and Applications in Stata, R and <span class=\"searchmatch\">Python</span>. Springer. doi:10.1007/978-3-031-84712-7. ISBN 978-3-031-84712-7. Barabási"
 },
 {
-"title": "Data modeling",
-"pageid": 759422,
-"size": 25068,
-"wordcount": 2923,
-"timestamp": "2026-02-27T04:02:23Z",
-"snippet": "Electrical and electronics engineering Outlines Software development Computer <span class=\"searchmatch\">programming</span> <span class=\"searchmatch\">Programming</span> languages C C++ C# Java JavaScript Perl <span class=\"searchmatch\">Python</span> Rust v t e"
+"title": "Tarzan",
+"pageid": 21491685,
+"size": 59854,
+"wordcount": 6483,
+"timestamp": "2026-05-16T10:24:35Z",
+"snippet": "full-grown apes, including gorillas, but also lions, rhinos, crocodiles, <span class=\"searchmatch\">pythons</span>, leopards, sharks, tigers, giant seahorses, and even dinosaurs (when he"
 }
 ]
 }
