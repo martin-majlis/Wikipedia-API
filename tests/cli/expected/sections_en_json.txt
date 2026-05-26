@@ -35,7 +35,7 @@
 "indent": 1
 },
 {
-"title": "Bulk properties",
+"title": "Composition and structure",
 "level": 1,
 "indent": 0
 },
