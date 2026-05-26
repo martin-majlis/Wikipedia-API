@@ -88,7 +88,27 @@ If `make prepare-release` fails, read the error output carefully and explain
 what went wrong. Common causes: not on master, dirty working tree, a failing
 test, or a linting error.
 
-## Step 5 — Wait for the PR to merge
+## Step 5 — Re-record CLI test fixtures
+
+On the `release/<version>` branch, re-record all CLI snapshot fixtures so they
+reflect any output changes (e.g. version string, User-Agent, help text) in this
+release:
+
+```bash
+make run-test-cli-record
+make run-test-cli-verify
+make run-tests
+```
+
+If `run-test-cli-verify` passes, commit and push the updated fixtures:
+
+```bash
+git add tests/cli/expected/
+git commit -m "test(cli): update fixtures for v<version>"
+git push
+```
+
+## Step 6 — Wait for the PR to merge
 
 Tell the user:
 
@@ -99,7 +119,7 @@ and I'll create the GitHub Release.
 
 Wait for the user to confirm the PR has been merged before proceeding.
 
-## Step 6 — Create the GitHub Release
+## Step 7 — Create the GitHub Release
 
 Run:
 
