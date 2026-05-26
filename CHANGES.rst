@@ -4,6 +4,10 @@ Changelog
 Unreleased
 ----------
 
+* Make user agent header compliant with Wikimedia Foundation User-Agent policy - `PR 590`_
+
+.. _PR 590: https://github.com/martin-majlis/Wikipedia-API/pull/590
+
 0.14.1
 ------
 
