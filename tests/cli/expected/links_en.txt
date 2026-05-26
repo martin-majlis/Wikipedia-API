@@ -32,6 +32,7 @@ Afro-Eurasia
 Afterglow
 Age of Earth
 Airglow
+Al-Rayyan
 Albedo
 Alessandro Morbidelli (astronomer)
 Alpine glaciers
@@ -55,7 +56,6 @@ Antarctica
 Ape
 Aphelion
 Apoapsis
-Apollo 17
 Apsis
 ArXiv (identifier)
 Arabian Plate
@@ -95,12 +95,15 @@ Atmospheric escape
 Atmospheric pressure
 Atmospheric science
 Aurora
+Aurorae
 Australia (continent)
 Axial precession
 Axial tilt
+Axis mundi
 BBC
 BBC Bitesize
 Bacteria
+Bahamut
 Barycenter
 Basalt
 Bathymetric
@@ -146,7 +149,6 @@ Cartography
 Category:Earth
 Category:Earth sciences
 Category:Geology
-Category:Nature
 Category:Structure of the Earth
 Celestial Poles
 Celestial equator
@@ -352,6 +354,7 @@ Fifth Giant
 Figure of the Earth
 File:En-Earth-article.ogg
 Fiona Harvey
+First image of Earth
 Five-planet Nice model
 Fixed star
 Flag of Earth
@@ -450,7 +453,7 @@ Heat flow
 Heat reservoir
 Heliocentrism
 Helium
-Hello, World (NASA)
+Hello, World (photograph)
 Help:Authority control
 Help:IPA/English
 Help:IPA/Greek
@@ -538,6 +541,7 @@ Janne Blichert-Toft
 Jean Meeus
 Jerry X. Mitrovica
 Jet Propulsion Laboratory
+Jinn
 John Lloyd (producer)
 John Mitchinson (researcher)
 Jonathan Lunine
@@ -579,6 +583,7 @@ Latitudinal gradients in species diversity
 Law of the Sea
 Leaf Group
 Lehmann discontinuity
+Leviathan
 Lexico
 Libration
 Life
@@ -692,6 +697,7 @@ Microbial mat
 Microorganism
 Microsecond
 Mid-ocean ridge
+Middle Eastern
 Middle English
 Middle latitude
 Midnight sun
@@ -726,6 +732,7 @@ Moons of Saturn
 Moons of Uranus
 Mother goddess
 Mount Everest
+Mount Qaf
 NASA
 NASA Goddard Space Flight Center
 NSSDCA
@@ -780,7 +787,6 @@ Observations and explorations of Venus
 Ocean
 Ocean current
 Ocean depths
-Ocean floor
 Ocean heat content
 Ocean surface
 Ocean surface topography
@@ -885,6 +891,7 @@ Planetary science
 Planetary surface
 Planetary system
 Planetary-mass moon
+Planetary-mass object
 Planetesimal
 Planets beyond Neptune
 Plant
@@ -915,6 +922,7 @@ Portal:Space
 Portal:Volcanoes
 Portal:Weather
 Portal:World
+Post-classical age
 Potassium-40
 Potentially hazardous object
 Pound per square inch
@@ -950,6 +958,7 @@ Rhea (moon)
 Rheology
 Ring system
 Rings of Chariklo
+Rings of Earth
 Rings of Jupiter
 Rings of Neptune
 Rings of Rhea
@@ -959,6 +968,7 @@ Robert Hazen
 Robert Krulwich
 Robin Canup
 Roche limit
+Rocky planet
 Rocky planets
 Rodinia
 Roman Empire
@@ -978,6 +988,7 @@ Samuel Bowring
 Sandstone
 Sara Russell
 Satellite
+Satellite flare
 Satellite galaxies of the Milky Way
 Satellite system (astronomy)
 Saturn
@@ -1016,6 +1027,7 @@ Soil formation
 Soil science
 Solar System
 Solar System model
+Solar System object
 Solar day
 Solar eclipse
 Solar irradiance
@@ -1130,6 +1142,7 @@ Timeline of the far future
 Titan (moon)
 Titania (moon)
 To the Moon and Beyond
+Topographic relief
 Topography
 Topsoil
 Tornado
@@ -1192,6 +1205,7 @@ WMO
 Walter H. F. Smith
 Water cycle
 Water distribution on Earth
+Water hemisphere
 Water vapor
 Wayback Machine
 Weather
@@ -1202,6 +1216,7 @@ Western Australia
 Western Greenland
 Western Hemisphere
 Weywot
+Wikipedia:Citation needed
 Wikipedia:Citing sources
 Wikipedia:Contents/Portals
 Wikipedia:Featured articles*
@@ -1223,4 +1238,7 @@ World economy
 World population
 Xiangliu (moon)
 Yuk L. Yung
+Zakariya al-Qazwini
 Zircon
+Zodiacal light
+ʿAjā'ib al-makhlūqāt wa gharā'ib al-mawjūdāt

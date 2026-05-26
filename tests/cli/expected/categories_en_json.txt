@@ -9,6 +9,11 @@
 "language": "en",
 "ns": 14
 },
+"Category:All articles with unsourced statements": {
+"title": "Category:All articles with unsourced statements",
+"language": "en",
+"ns": 14
+},
 "Category:Articles containing Ancient Greek (to 1453)-language text": {
 "title": "Category:Articles containing Ancient Greek (to 1453)-language text",
 "language": "en",
@@ -54,6 +59,11 @@
 "language": "en",
 "ns": 14
 },
+"Category:Articles with unsourced statements from May 2026": {
+"title": "Category:Articles with unsourced statements from May 2026",
+"language": "en",
+"ns": 14
+},
 "Category:Astronomical objects known since antiquity": {
 "title": "Category:Astronomical objects known since antiquity",
 "language": "en",
@@ -84,11 +94,6 @@
 "language": "en",
 "ns": 14
 },
-"Category:Nature": {
-"title": "Category:Nature",
-"language": "en",
-"ns": 14
-},
 "Category:Pages using Sister project links with hidden wikidata": {
 "title": "Category:Pages using Sister project links with hidden wikidata",
 "language": "en",
@@ -101,11 +106,6 @@
 },
 "Category:Pages using Sister project links with wikidata namespace mismatch": {
 "title": "Category:Pages using Sister project links with wikidata namespace mismatch",
-"language": "en",
-"ns": 14
-},
-"Category:Pages using multiple image with auto scaled images": {
-"title": "Category:Pages using multiple image with auto scaled images",
 "language": "en",
 "ns": 14
 },

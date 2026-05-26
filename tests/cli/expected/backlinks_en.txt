@@ -172,14 +172,11 @@
 1979 in science
 1989 in science
 1992 in science
-1993 RP
 1994 in science
-1995 GJ
 1996 PW
 1997 in science
 1998 WW31
 1999
-1999 TR11
 1999 in science
 1I/ʻOumuamua
 1SWASP J093010.78+533859.5
@@ -189,16 +186,10 @@
 2000s in science and technology
 2001 QW322
 2002
-2002 RN109
-2003 LA7
-2003 SS422
-2005 RH52
 2005 VX3
 2005 in science
 2005 in the United States
 2006
-2006 LM1
-2006 QH181
 2006 in science
 2006 in spaceflight
 2006 in the United States
@@ -208,7 +199,6 @@
 2008 LC18
 2008 in science
 2009 in the United Kingdom
-2010 BK118
 2010 EU65
 2010 GB174
 2010 in science
@@ -227,29 +217,22 @@
 2013 FS28
 2013 FT28
 2013 RF98
-2013 SK100
 2013 UH15
 2013 in science
 2013 in the United States
-2014 FC69
 2014 FE72
 2014 FZ71
 2014 MT69
 2014 OS393
 2014 PN70
-2014 SS349
 2014 ST373
-2014 SV349
-2014 UE228
 2014 UZ224
-2014 YA50
 2014 in science
 2015
 2015 AZ43
 2015 BP513
 2015 FJ345
 2015 KG163
-2015 KH163
 2015 KQ174
 2015 Kerala meteoroid
 2015 RX245
@@ -268,9 +251,7 @@
 2017 OF201
 2018 AG37
 2018 VG18
-2018 VM35
 2018 in science
-2019 EU5
 2020 VN40
 2021 RR205
 2021 in Ireland
@@ -300,7 +281,7 @@
 3908 Nyx
 3rd millennium
 4 Vesta
-420356 Praamzius
+420356 Praamžius
 471143 Dziewanna
 471325 Taowu
 47171 Lempo
@@ -358,7 +339,6 @@ Antarctica
 Apparent magnitude
 Apparent retrograde motion
 Application of silicon-germanium thermoelectrics in space exploration
-Applied Physics Laboratory
 April 1976
 April 25
 April–June 2020 in science
@@ -496,6 +476,7 @@ Chemical cycling
 Chemical symbol
 Chicken Invaders
 Chimera (spacecraft)
+Christopher Glein
 Circle of latitude
 Claimed moons of Earth
 Classic Cartoon Favorites
@@ -511,7 +492,6 @@ Clyde Tombaugh
 Coatlicue (star)
 Coleta de Dados Colles
 Collis (planetary nomenclature)
-Collisional family
 Comet
 Comet Hopper
 Comet Interceptor
@@ -565,6 +545,7 @@ Delta-v budget
 Detached object
 Digital Access to a Sky Century @ Harvard
 Digital elevation model
+Dinsmore Alter
 Direct Fusion Drive
 Discovery and exploration of the Solar System
 Discovery image
@@ -597,6 +578,7 @@ Earth
 Earth mass
 Earth trojan
 Eclipse
+Ecliptic
 Edmund Hillary
 Effects of Planet Nine on trans-Neptunian objects
 Eight Worlds
@@ -724,7 +706,6 @@ HD 219134 d
 HD 219134 f
 HD 219134 g
 HD 219134 h
-HD 47186 c
 HD 63433
 HD 63433 d
 HIP 11915 b
@@ -824,6 +805,7 @@ Jesuit names on the Moon craters
 Jet Propulsion Laboratory Development Ephemeris
 Jewish astrology
 John Rose (socialist)
+Johns Hopkins University Applied Physics Laboratory
 Jonathan Lee Riches
 Jovian–Plutonian gravitational effect
 Julio Ángel Fernández
@@ -1055,6 +1037,7 @@ List of unnumbered trans-Neptunian objects: 2020
 List of unnumbered trans-Neptunian objects: 2021
 List of unnumbered trans-Neptunian objects: 2022
 List of unnumbered trans-Neptunian objects: 2023
+List of unnumbered trans-Neptunian objects: 2025
 List of works influenced by the Cthulhu Mythos
 Lists of geological features of the Solar System
 Lists of planets
@@ -1598,7 +1581,6 @@ Rose Center for Earth and Space
 Rosetta (spacecraft)
 Rotation
 Rotation period (astronomy)
-Rotunda Museum at Lowell Observatory
 Roughnecks: Starship Troopers Chronicles
 Russia
 S/2015 (136472) 1
@@ -1968,6 +1950,7 @@ Template talk:Did you know nominations/Wright Mons
 Template talk:Dwarf planet link
 Template talk:Dwarf planets
 Template talk:Geological range
+Template talk:Infobox planet
 Template talk:Infobox planet/Archive 1
 Template talk:Moons of dwarf planets
 Template talk:Sister project links/Archive 1
@@ -2141,7 +2124,6 @@ User talk:Ali mcmc
 User talk:Apaleutos25
 User talk:Apc123
 User talk:Archola/3
-User talk:ArkHyena
 User talk:Arsia Mons
 User talk:Asterion/Archive 9
 User talk:Awkwafaba/Archive 12
@@ -2194,6 +2176,7 @@ User talk:Drbogdan/Archive 5
 User talk:Dweller/Archive2010
 User talk:EdChem/Archive 9
 User talk:Egizm0
+User talk:Eric
 User talk:Erynnwasloved
 User talk:Eva Grossjean
 User talk:Evanh2008/Archive 4
@@ -2206,6 +2189,7 @@ User talk:Fotaun
 User talk:Freedom1234
 User talk:Frinkus
 User talk:Frog luva96
+User talk:Gazamp/Archive 2
 User talk:Gglee
 User talk:Glenncando
 User talk:GoldenTie
@@ -2298,6 +2282,7 @@ User talk:Ryulong/Archive 3
 User talk:Ryulong/Archive 4
 User talk:ST47/Archive1
 User talk:Sapphaline
+User talk:Scourgezoned
 User talk:Sds6065
 User talk:Serendipodous/Solar System
 User talk:Serendipodous/User talk:Serendipodous archive 10
@@ -2501,8 +2486,6 @@ User:Arctic Fox/UBX/User Page
 User:Arcyqwerty/userpage
 User:Arenafoot
 User:Ariothegreat
-User:ArkHyena/Drafts/Draftspace1
-User:ArkHyena/Drafts/Draftspace2
 User:Arkamesh/Books/Astronomy
 User:ArkianNWM
 User:Armbrust/Userboxes - Science
@@ -2531,6 +2514,7 @@ User:Audacitor/Userboxes/Science
 User:Aude/Sandbox17
 User:AustDan91
 User:Autopilot37
+User:AutumnHornet/Guestbook
 User:Avalik
 User:AvionArchon/sandbox
 User:Avsa/Books/Astronomy Book
@@ -2611,6 +2595,7 @@ User:Blurredandfaded/Books/cosmicHalmaFellowship
 User:Bmitchelf
 User:Bobby D. DS.
 User:Bobby D. DS./Userboxes
+User:Bobby43255/Vlogmations
 User:Bobbylon
 User:Bogdan u Gabriel
 User:Bolegash
@@ -2841,7 +2826,6 @@ User:DiscoLava
 User:DizzyITTech
 User:Dj0131dj/sandbox
 User:Djf2014
-User:Djgncl1983/sandbox
 User:Dkendr
 User:Dmbrown00
 User:Dmunkey
@@ -2869,7 +2853,6 @@ User:Drcombs/Books/SolarSystem
 User:Dream Focus/About me
 User:DremoraValkynaz
 User:Drinkingsoda
-User:Dronebogus
 User:Dronebogus/Userboxes/Dwarf planets
 User:Dudanotak/sandbox
 User:DukeOfDelTaco/sandbox/Wikidata
@@ -2977,6 +2960,7 @@ User:Francisco Smith
 User:Francisco Tevez/userboxes
 User:Franjo Josip
 User:Fraudulent Teabag
+User:Freakydentist411
 User:Freakytiki34/Templates/tiki userboxpage
 User:Freakytiki34/Userboxes
 User:FrederickII
@@ -3134,7 +3118,6 @@ User:Infinities
 User:Infinito
 User:Infomasjoner
 User:InforManiac/Navbox17
-User:Informing And Uniting
 User:Inglewoodplz
 User:Ingramsflight/Books/Space Travel
 User:Inoesomestuff
@@ -3156,6 +3139,7 @@ User:Itsabouttimebisnitch/Books/Ring Ring get Rekt
 User:Itsabouttimebisnitch/Books/Ring Ring get Rekt Volume 1
 User:Itsabouttimebisnitch/Books/Ring Ring get Rekt Volume 2
 User:Iva T
+User:IvarTheBoneless123/sandbox
 User:Ixfd64/predictions
 User:Izzy007
 User:Izzy007/Userboxes
@@ -3392,7 +3376,6 @@ User:Lucien504
 User:Lukas6283
 User:Lunakeet
 User:Luredreier
-User:Lusikeil/sandbox
 User:Lvlnglafoftneatsteak
 User:Lyinseeker/Books/Planets
 User:Lyinseeker/Books/The Planets
@@ -3447,6 +3430,7 @@ User:Mathmagic
 User:Mauremi
 User:Mausy
 User:Maviozan
+User:Max263/Challenges
 User:MaxHarmony/Usrboxen
 User:Maxwell's Daemon
 User:Mbimmler/VandalismLog
@@ -3770,6 +3754,7 @@ User:Rico1234
 User:Rider80000
 User:Right Side 1342/sandbox
 User:Rishirulestheworld
+User:Rjd0060/DAL
 User:Rkeysone
 User:Rnelson
 User:Road2Ohio
@@ -3858,6 +3843,8 @@ User:Scigirl543
 User:Scootercatter/sandMendos
 User:Scorpion451
 User:Scottandrewhutchins
+User:Scourgezoned/Drafts/Draftspace1
+User:Scourgezoned/Drafts/Draftspace2
 User:Scowlinghunchback
 User:Scriptor de Verum
 User:SeaOfEdits/Sample page
@@ -3944,8 +3931,6 @@ User:Somerandomd00d
 User:Sonachowdhary4
 User:SonicBoom95
 User:Sonu Jaglan/Books/The Solar System: Planets, Moons and Rings
-User:Sonya Diachenko/sandbox
-User:Sonya Diachenko/sandbox/Draft planets
 User:Sophiakorichi
 User:Sophie/Userboxs
 User:SoulCandy/Books/Solar System
@@ -4059,7 +4044,6 @@ User:TheD3xus
 User:TheInfinityZero
 User:TheLurkerMan
 User:TheMagikCow
-User:TheNuggeteer/Challenges
 User:Thealmightysponge
 User:Thecheesykid/Userboxen
 User:Thedeadmanandphenom/userboxes
@@ -4139,7 +4123,6 @@ User:UC'tCM!/'
 User:Uaxuctum~enwiki
 User:Uccaxap
 User:Ullpianissimo
-User:UlticraftMTT
 User:Ultimate Roadgeek
 User:Ultimaterasengan
 User:UnitTwo/sandbox
@@ -4251,6 +4234,7 @@ User:XuCho
 User:Xvxprophecyxvx/Books/The Book
 User:Xvxprophecyxvx/Books/The Bookv
 User:Xylophonw
+User:Xyqorophibian/sandbox/astronomy-collage-test
 User:Y-S.Ko/Wikipedia course/Astronomy
 User:YKgm
 User:Yabroq/sandbox/mythology
@@ -4394,6 +4378,7 @@ Wikipedia talk:WikiProject Astronomical objects/Archive 25
 Wikipedia talk:WikiProject Astronomical objects/Archive 3
 Wikipedia talk:WikiProject Astronomical objects/Archive 4
 Wikipedia talk:WikiProject Astronomical objects/Archive 6
+Wikipedia talk:WikiProject Astronomy
 Wikipedia talk:WikiProject Astronomy/Archive 15
 Wikipedia talk:WikiProject Astronomy/Archive 19
 Wikipedia talk:WikiProject Astronomy/Archive 21
@@ -4857,6 +4842,7 @@ Wikipedia:Today's featured article/July 2020
 Wikipedia:Today's featured article/July 29, 2020
 Wikipedia:Today's featured article/July 31, 2011
 Wikipedia:Today's featured article/June 15, 2026
+Wikipedia:Today's featured article/June 2026
 Wikipedia:Today's featured article/May 12, 2017
 Wikipedia:Today's featured article/May 2009
 Wikipedia:Today's featured article/May 2012
@@ -4905,8 +4891,8 @@ Wikipedia:Vital articles/List of all articles
 Wikipedia:Vital articles/List of all level 1–4 vital articles
 Wikipedia:Vital articles/Popular pages
 Wikipedia:WikiCup/Suggestions
-Wikipedia:WikiProject Academic Journals/Journals cited by Wikipedia/A45
-Wikipedia:WikiProject Academic Journals/Journals cited by Wikipedia/A47
+Wikipedia:WikiProject Academic Journals/Journals cited by Wikipedia/A46
+Wikipedia:WikiProject Academic Journals/Journals cited by Wikipedia/A48
 Wikipedia:WikiProject Academic Journals/Journals cited by Wikipedia/Maintenance/Invalid titles
 Wikipedia:WikiProject Academic Journals/Journals cited by Wikipedia/Maintenance/Patterns
 Wikipedia:WikiProject Astronomical objects/Did you know

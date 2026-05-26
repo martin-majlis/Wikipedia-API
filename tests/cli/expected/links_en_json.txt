@@ -169,6 +169,11 @@
 "language": "en",
 "ns": 0
 },
+"Al-Rayyan": {
+"title": "Al-Rayyan",
+"language": "en",
+"ns": 0
+},
 "Albedo": {
 "title": "Albedo",
 "language": "en",
@@ -281,11 +286,6 @@
 },
 "Apoapsis": {
 "title": "Apoapsis",
-"language": "en",
-"ns": 0
-},
-"Apollo 17": {
-"title": "Apollo 17",
 "language": "en",
 "ns": 0
 },
@@ -484,6 +484,11 @@
 "language": "en",
 "ns": 0
 },
+"Aurorae": {
+"title": "Aurorae",
+"language": "en",
+"ns": 0
+},
 "Australia (continent)": {
 "title": "Australia (continent)",
 "language": "en",
@@ -499,6 +504,11 @@
 "language": "en",
 "ns": 0
 },
+"Axis mundi": {
+"title": "Axis mundi",
+"language": "en",
+"ns": 0
+},
 "BBC": {
 "title": "BBC",
 "language": "en",
@@ -511,6 +521,11 @@
 },
 "Bacteria": {
 "title": "Bacteria",
+"language": "en",
+"ns": 0
+},
+"Bahamut": {
+"title": "Bahamut",
 "language": "en",
 "ns": 0
 },
@@ -736,11 +751,6 @@
 },
 "Category:Geology": {
 "title": "Category:Geology",
-"language": "en",
-"ns": 14
-},
-"Category:Nature": {
-"title": "Category:Nature",
 "language": "en",
 "ns": 14
 },
@@ -1769,6 +1779,11 @@
 "language": "en",
 "ns": 0
 },
+"First image of Earth": {
+"title": "First image of Earth",
+"language": "en",
+"ns": 0
+},
 "Five-planet Nice model": {
 "title": "Five-planet Nice model",
 "language": "en",
@@ -2259,8 +2274,8 @@
 "language": "en",
 "ns": 0
 },
-"Hello, World (NASA)": {
-"title": "Hello, World (NASA)",
+"Hello, World (photograph)": {
+"title": "Hello, World (photograph)",
 "language": "en",
 "ns": 0
 },
@@ -2699,6 +2714,11 @@
 "language": "en",
 "ns": 0
 },
+"Jinn": {
+"title": "Jinn",
+"language": "en",
+"ns": 0
+},
 "John Lloyd (producer)": {
 "title": "John Lloyd (producer)",
 "language": "en",
@@ -2901,6 +2921,11 @@
 },
 "Lehmann discontinuity": {
 "title": "Lehmann discontinuity",
+"language": "en",
+"ns": 0
+},
+"Leviathan": {
+"title": "Leviathan",
 "language": "en",
 "ns": 0
 },
@@ -3469,6 +3494,11 @@
 "language": "en",
 "ns": 0
 },
+"Middle Eastern": {
+"title": "Middle Eastern",
+"language": "en",
+"ns": 0
+},
 "Middle English": {
 "title": "Middle English",
 "language": "en",
@@ -3636,6 +3666,11 @@
 },
 "Mount Everest": {
 "title": "Mount Everest",
+"language": "en",
+"ns": 0
+},
+"Mount Qaf": {
+"title": "Mount Qaf",
 "language": "en",
 "ns": 0
 },
@@ -3906,11 +3941,6 @@
 },
 "Ocean depths": {
 "title": "Ocean depths",
-"language": "en",
-"ns": 0
-},
-"Ocean floor": {
-"title": "Ocean floor",
 "language": "en",
 "ns": 0
 },
@@ -4434,6 +4464,11 @@
 "language": "en",
 "ns": 0
 },
+"Planetary-mass object": {
+"title": "Planetary-mass object",
+"language": "en",
+"ns": 0
+},
 "Planetesimal": {
 "title": "Planetesimal",
 "language": "en",
@@ -4583,6 +4618,11 @@
 "title": "Portal:World",
 "language": "en",
 "ns": 100
+},
+"Post-classical age": {
+"title": "Post-classical age",
+"language": "en",
+"ns": 0
 },
 "Potassium-40": {
 "title": "Potassium-40",
@@ -4759,6 +4799,11 @@
 "language": "en",
 "ns": 0
 },
+"Rings of Earth": {
+"title": "Rings of Earth",
+"language": "en",
+"ns": 0
+},
 "Rings of Jupiter": {
 "title": "Rings of Jupiter",
 "language": "en",
@@ -4801,6 +4846,11 @@
 },
 "Roche limit": {
 "title": "Roche limit",
+"language": "en",
+"ns": 0
+},
+"Rocky planet": {
+"title": "Rocky planet",
 "language": "en",
 "ns": 0
 },
@@ -4896,6 +4946,11 @@
 },
 "Satellite": {
 "title": "Satellite",
+"language": "en",
+"ns": 0
+},
+"Satellite flare": {
+"title": "Satellite flare",
 "language": "en",
 "ns": 0
 },
@@ -5086,6 +5141,11 @@
 },
 "Solar System model": {
 "title": "Solar System model",
+"language": "en",
+"ns": 0
+},
+"Solar System object": {
+"title": "Solar System object",
 "language": "en",
 "ns": 0
 },
@@ -5659,6 +5719,11 @@
 "language": "en",
 "ns": 0
 },
+"Topographic relief": {
+"title": "Topographic relief",
+"language": "en",
+"ns": 0
+},
 "Topography": {
 "title": "Topography",
 "language": "en",
@@ -5969,6 +6034,11 @@
 "language": "en",
 "ns": 0
 },
+"Water hemisphere": {
+"title": "Water hemisphere",
+"language": "en",
+"ns": 0
+},
 "Water vapor": {
 "title": "Water vapor",
 "language": "en",
@@ -6018,6 +6088,11 @@
 "title": "Weywot",
 "language": "en",
 "ns": 0
+},
+"Wikipedia:Citation needed": {
+"title": "Wikipedia:Citation needed",
+"language": "en",
+"ns": 4
 },
 "Wikipedia:Citing sources": {
 "title": "Wikipedia:Citing sources",
@@ -6124,8 +6199,23 @@
 "language": "en",
 "ns": 0
 },
+"Zakariya al-Qazwini": {
+"title": "Zakariya al-Qazwini",
+"language": "en",
+"ns": 0
+},
 "Zircon": {
 "title": "Zircon",
+"language": "en",
+"ns": 0
+},
+"Zodiacal light": {
+"title": "Zodiacal light",
+"language": "en",
+"ns": 0
+},
+"ʿAjā'ib al-makhlūqāt wa gharā'ib al-mawjūdāt": {
+"title": "ʿAjā'ib al-makhlūqāt wa gharā'ib al-mawjūdāt",
 "language": "en",
 "ns": 0
 }

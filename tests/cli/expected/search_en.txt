@@ -1,12 +1,12 @@
-Total hits: 6056
+Total hits: 6073
 
 Python (programming language)
 Outline of the Python programming language
 History of Python
 Python syntax and semantics
 Mojo (programming language)
-Zen of Python
 Core Python Programming
-List of Python software
-Python
+Zen of Python
+Tacit programming
+Outline of the C programming language
 Glob (programming)

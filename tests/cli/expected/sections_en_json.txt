@@ -1,8 +1,13 @@
 [
 {
-"title": "Etymology",
+"title": "Etymology and symbol",
 "level": 1,
 "indent": 0
+},
+{
+"title": "Symbol",
+"level": 2,
+"indent": 1
 },
 {
 "title": "Natural history",
@@ -20,6 +25,11 @@
 "indent": 1
 },
 {
+"title": "Origin of life and evolution",
+"level": 2,
+"indent": 1
+},
+{
 "title": "Future",
 "level": 2,
 "indent": 1
@@ -30,7 +40,7 @@
 "indent": 0
 },
 {
-"title": "Size and shape",
+"title": "Chemical composition",
 "level": 2,
 "indent": 1
 },
@@ -40,24 +50,9 @@
 "indent": 1
 },
 {
-"title": "Chemical composition",
-"level": 2,
-"indent": 1
-},
-{
 "title": "Internal heat",
 "level": 2,
 "indent": 1
-},
-{
-"title": "Magnetic field",
-"level": 2,
-"indent": 1
-},
-{
-"title": "Surface environment",
-"level": 1,
-"indent": 0
 },
 {
 "title": "Tectonic plates",
@@ -65,22 +60,52 @@
 "indent": 1
 },
 {
-"title": "Hydrosphere",
+"title": "Crust",
 "level": 2,
 "indent": 1
 },
 {
-"title": "Atmosphere",
+"title": "Surface",
 "level": 2,
 "indent": 1
 },
 {
-"title": "Upper atmosphere",
-"level": 3,
-"indent": 2
+"title": "Surface topography",
+"level": 2,
+"indent": 1
 },
 {
-"title": "Weather and climate",
+"title": "Shape",
+"level": 2,
+"indent": 1
+},
+{
+"title": "Gravity and magnetic field",
+"level": 1,
+"indent": 0
+},
+{
+"title": "Magnetic field",
+"level": 2,
+"indent": 1
+},
+{
+"title": "Gravitational field",
+"level": 2,
+"indent": 1
+},
+{
+"title": "Moon and orbital space",
+"level": 1,
+"indent": 0
+},
+{
+"title": "Moon",
+"level": 2,
+"indent": 1
+},
+{
+"title": "Asteroids and artificial satellites",
 "level": 2,
 "indent": 1
 },
@@ -105,34 +130,39 @@
 "indent": 1
 },
 {
-"title": "Gravitational domain and influence",
+"title": "Atmosphere and climate",
 "level": 1,
 "indent": 0
 },
 {
-"title": "Gravitational field",
+"title": "Exosphere",
 "level": 2,
 "indent": 1
 },
 {
-"title": "Moon",
+"title": "Upper atmosphere",
 "level": 2,
 "indent": 1
 },
 {
-"title": "Asteroids and artificial satellites",
+"title": "Troposphere",
 "level": 2,
 "indent": 1
 },
 {
-"title": "Life on Earth",
+"title": "Weather and climate",
+"level": 2,
+"indent": 1
+},
+{
+"title": "Hydrosphere",
 "level": 1,
 "indent": 0
 },
 {
-"title": "Origin of life and evolution",
-"level": 2,
-"indent": 1
+"title": "Biosphere",
+"level": 1,
+"indent": 0
 },
 {
 "title": "Challenges for life on Earth",
@@ -140,14 +170,9 @@
 "indent": 1
 },
 {
-"title": "Earth and humans",
+"title": "Human geography",
 "level": 1,
 "indent": 0
-},
-{
-"title": "Human geography",
-"level": 2,
-"indent": 1
 },
 {
 "title": "Natural resources and land use",
@@ -160,9 +185,9 @@
 "indent": 1
 },
 {
-"title": "Cultural and historical viewpoint",
-"level": 2,
-"indent": 1
+"title": "In culture",
+"level": 1,
+"indent": 0
 },
 {
 "title": "See also",

@@ -103,7 +103,7 @@ TESTS=(
     "sections_de|${UV_CMD} sections Neue_Heimat --language de ${RETRY_PARAMS}"
 
     # ── section command ──────────────────────────────────────────────────────
-    "section_en|${UV_CMD} section Earth 'Etymology' ${RETRY_PARAMS}"
+    "section_en|${UV_CMD} section Earth 'Crust' ${RETRY_PARAMS}"
     "section_cs|${UV_CMD} section Země 'Vznik Země' --language cs ${RETRY_PARAMS}"
 
     # ── links command ────────────────────────────────────────────────────────
@@ -200,8 +200,24 @@ TESTS=(
 #   - for text tests: the line count is within ±50 % of the recorded fixture
 
 NONDETERMINISTIC_TESTS=(
-    "images_en_json"
+    # backlinks/categories/links — list membership changes continuously
+    "backlinks_en"
+    "backlinks_en_json"
+    "categories_en"
+    "categories_en_json"
+    "categorymembers_depth"
+    "links_en"
+    "links_en_json"
+    "langlinks_fr"
+    # images — uploads happen continuously; only JSON variants were listed before
+    "images_en"
+    "images_en_imageinfo"
     "images_en_imageinfo_json"
+    "images_en_json"
+    "images_en_limit"
+    # geosearch — nearby-article lists shift as articles are created/updated
+    "geosearch_max_dim"
+    # random — inherently random
     "random_default"
     "random_limit"
     "random_json"
@@ -209,8 +225,10 @@ NONDETERMINISTIC_TESTS=(
     "random_filter_redirects_json"
     "random_size_limits"
     "random_combined"
+    # search — result sets and metadata (size, wordcount, timestamp) change
     "search_de"
     "search_en"
+    "search_en_json"
     "search_sort_timestamp"
     "search_sort_random"
     "search_sort_title"
@@ -515,21 +533,26 @@ verify_mode() {
     echo -e "  Missing: ${YELLOW}${missing}${NC}"
     echo "───────────────────────────────────────"
 
-    if [ ${#failed_names[@]} -gt 0 ] || [ ${#mismatched_names[@]} -gt 0 ]; then
+    if [ ${#mismatched_names[@]} -gt 0 ]; then
         echo ""
-        if [ ${#failed_names[@]} -gt 0 ]; then
-            echo -e "${RED}Failed tests:${NC}"
-            for name in "${failed_names[@]}"; do
-                echo "  - $name"
-            done
+        echo -e "${YELLOW}Tests with small mismatches (<5% word diff):${NC}"
+        for name in "${mismatched_names[@]}"; do
+            echo "  - $name"
+        done
+        echo ""
+        if [ -n "$grep_pattern" ]; then
+            echo "To update expected output for filtered tests, run: $0 record $grep_pattern"
+        else
+            echo "To update expected output, run: $0 record"
         fi
-        if [ ${#mismatched_names[@]} -gt 0 ]; then
-            echo ""
-            echo -e "${YELLOW}Tests with small mismatches (<5% word diff):${NC}"
-            for name in "${mismatched_names[@]}"; do
-                echo "  - $name"
-            done
-        fi
+    fi
+
+    if [ ${#failed_names[@]} -gt 0 ]; then
+        echo ""
+        echo -e "${RED}Failed tests:${NC}"
+        for name in "${failed_names[@]}"; do
+            echo "  - $name"
+        done
         echo ""
         if [ -n "$grep_pattern" ]; then
             echo "To update expected output for filtered tests, run: $0 record $grep_pattern"
