@@ -5,8 +5,8 @@ Outline of the Python programming language
 History of Python
 Python syntax and semantics
 Mojo (programming language)
-Core Python Programming
 Zen of Python
-Tacit programming
 Outline of the C programming language
+Core Python Programming
+Python Conference
 Glob (programming)

@@ -22,6 +22,8 @@ Category:Pages using Sister project links with wikidata mismatch
 Category:Pages using Sister project links with wikidata namespace mismatch
 Category:Pages with Ancient Greek (to 1453) IPA
 Category:Pages with Greek IPA
+Category:Pages with incorrect ref formatting
+Category:Pages with reference errors
 Category:Planets of the Solar System
 Category:Short description is different from Wikidata
 Category:Solar System
