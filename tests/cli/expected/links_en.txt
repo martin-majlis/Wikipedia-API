@@ -32,7 +32,6 @@ Afro-Eurasia
 Afterglow
 Age of Earth
 Airglow
-Al-Rayyan
 Albedo
 Alessandro Morbidelli (astronomer)
 Alpine glaciers
@@ -107,6 +106,7 @@ Bahamut
 Barycenter
 Basalt
 Bathymetric
+Behemoth
 Bibcode (identifier)
 Billiard ball
 Billion years
@@ -209,6 +209,7 @@ Cosmic View
 Cosmic Voyage (1996 film)
 Cosmic Zoom
 Cosmic dust
+Cosmic ocean
 Cosmic radiation
 Cosmochemistry
 Counter-Earth
@@ -455,6 +456,8 @@ Heliocentrism
 Helium
 Hello, World (photograph)
 Help:Authority control
+Help:Cite errors/Cite error references missing key
+Help:Footnotes
 Help:IPA/English
 Help:IPA/Greek
 Help:Pronunciation respelling key
@@ -546,7 +549,6 @@ John Lloyd (producer)
 John Mitchinson (researcher)
 Jonathan Lunine
 Joseph Kirschvink
-Journal of African Earth Sciences
 Judith Lean
 Julian year (astronomy)
 Jupiter
@@ -561,6 +563,7 @@ Komatiite
 Krypton
 Kuiper belt
 Kuiper cliff
+Kujata
 Kármán line
 Köppen climate classification
 Lagrange point
@@ -1037,7 +1040,6 @@ Solar radiation
 Solar wind
 Solid angle
 Solstice
-Somali Plate
 South America
 South American Plate
 Southern Hemisphere

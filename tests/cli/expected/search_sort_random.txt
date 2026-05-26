@@ -2,84 +2,84 @@
 "totalhits": 6073,
 "pages": [
 {
-"title": "WIMP (software bundle)",
-"pageid": 18446185,
-"size": 1662,
-"wordcount": 143,
-"timestamp": "2024-06-17T17:17:11Z",
-"snippet": "system (or database server); PHP or others, e.g. the Perl, <span class=\"searchmatch\">Python</span>, PowerShell <span class=\"searchmatch\">programming</span> languages. The Microsoft Web Platform Installer is a tool to"
+"title": "XSLT",
+"pageid": 34211,
+"size": 30440,
+"wordcount": 3281,
+"timestamp": "2026-03-26T05:46:01Z",
+"snippet": "1.0 specification. XSLT 3.0 implementations support Java, .NET, C/C++, <span class=\"searchmatch\">Python</span>, PHP and NodeJS. An XSLT 3.0 JavaScript library can also be hosted within"
 },
 {
-"title": "Mac OS X Leopard",
-"pageid": 2001664,
-"size": 54453,
-"wordcount": 5090,
-"timestamp": "2026-05-07T15:27:37Z",
-"snippet": "applications that run on it. The new Scripting Bridge allows programmers to use <span class=\"searchmatch\">Python</span> 2.5 and Ruby 1.8.6 to interface with the Cocoa frameworks. Ruby on Rails"
+"title": "User story",
+"pageid": 2656549,
+"size": 32562,
+"wordcount": 3228,
+"timestamp": "2026-02-19T03:19:23Z",
+"snippet": "published the first edition of the book Extreme <span class=\"searchmatch\">Programming</span> Explained, introducing Extreme <span class=\"searchmatch\">Programming</span> (XP), and the usage of user stories in the planning"
 },
 {
-"title": "Restoration of the Everglades",
-"pageid": 17601646,
-"size": 69902,
-"wordcount": 8496,
-"timestamp": "2026-05-18T14:19:53Z",
-"snippet": "and domestic pets is the Burmese <span class=\"searchmatch\">python</span> (<span class=\"searchmatch\">Python</span> bivittatus), which has spread quickly throughout the area. The <span class=\"searchmatch\">python</span> can grow up to 20 feet (6.1 m) long"
+"title": "RPM Package Manager",
+"pageid": 21772272,
+"size": 26627,
+"wordcount": 2480,
+"timestamp": "2026-02-13T06:53:27Z",
+"snippet": "for other <span class=\"searchmatch\">programs</span> to use. They may also contain shell scripts or <span class=\"searchmatch\">programs</span> written in other interpreted <span class=\"searchmatch\">programming</span> languages such as <span class=\"searchmatch\">Python</span>. The RPM contents"
 },
 {
-"title": "Debugger",
-"pageid": 50485,
-"size": 10753,
-"wordcount": 1296,
-"timestamp": "2026-03-23T09:58:18Z",
-"snippet": "A debugger is software for executing a computer <span class=\"searchmatch\">program</span> in an environment that allows for <span class=\"searchmatch\">programming</span>-level inspection and control. A debugger is often"
+"title": "Machine epsilon",
+"pageid": 3076863,
+"size": 24947,
+"wordcount": 2999,
+"timestamp": "2026-05-19T03:07:23Z",
+"snippet": "constants in Ada, C, C++, Fortran, MATLAB, Mathematica, Octave, Pascal, <span class=\"searchmatch\">Python</span> and Rust etc., and defined in textbooks like «Numerical Recipes» by Press"
 },
 {
-"title": "Haskell Platform",
-"pageid": 26133908,
-"size": 7882,
-"wordcount": 554,
-"timestamp": "2026-02-18T17:19:46Z",
-"snippet": "developing applications in the <span class=\"searchmatch\">programming</span> language Haskell. With the Haskell Platform, Haskell follows the same principle as <span class=\"searchmatch\">Python</span>: &quot;Batteries included&quot;. Since"
+"title": "Mount Salak",
+"pageid": 8515406,
+"size": 9650,
+"wordcount": 973,
+"timestamp": "2026-05-24T16:54:47Z",
+"snippet": "Tangkai (Calamaria sp.), Ular Siput (Pareas carinatus), Ular Sanca Kembang (<span class=\"searchmatch\">Python</span> reticulatus), and many more. Mount Salak has become famous for its habitat"
 },
 {
-"title": "Your Love Is My Drug",
-"pageid": 26473639,
-"size": 47102,
-"wordcount": 3951,
-"timestamp": "2026-05-22T22:23:25Z",
-"snippet": "deal! — and, um, I dance around a cave with black-light body paint and a <span class=\"searchmatch\">python</span>. I was in a cave, in the desert, and it was really fun.&quot; When asked about"
+"title": "Managed DirectX",
+"pageid": 8198716,
+"size": 2844,
+"wordcount": 255,
+"timestamp": "2025-11-07T17:35:01Z",
+"snippet": "Managed DirectX (MDX) is Microsoft&#039;s deprecated API for DirectX <span class=\"searchmatch\">programming</span> on .NET Framework. MDX can be used from any language on .NET Framework (via"
 },
 {
-"title": "Hormel Historic Home",
-"pageid": 49052409,
-"size": 5572,
-"wordcount": 449,
-"timestamp": "2025-09-01T08:36:44Z",
-"snippet": "tours. The HHH also offers a variety of educational and arts-related <span class=\"searchmatch\">programming</span> including the History Happy Hour, Hearth &amp; Home series, the Harris Piano"
+"title": "CoCalc",
+"pageid": 42734157,
+"size": 6305,
+"wordcount": 461,
+"timestamp": "2026-05-25T06:31:09Z",
+"snippet": "and HTML for decoration, and R, Octave, Cython, Julia and others for <span class=\"searchmatch\">programming</span> in addition to Sage. CoCalc supports Jupyter notebooks, which are enhanced"
 },
 {
-"title": "Data wrangling",
-"pageid": 12487489,
-"size": 16276,
-"wordcount": 1950,
-"timestamp": "2026-04-21T04:30:49Z",
-"snippet": "spreadsheets such as Excel), tools like KNIME or via scripts in languages such as <span class=\"searchmatch\">Python</span> or SQL. R, a language often used in data mining and statistical data analysis"
+"title": "Popularity of text encodings",
+"pageid": 67131807,
+"size": 13189,
+"wordcount": 1426,
+"timestamp": "2026-04-16T11:53:24Z",
+"snippet": "computer <span class=\"searchmatch\">program</span>, usage of UTF-16 is very common, particularly in Windows but also cross-platform languages and libraries such as JavaScript, <span class=\"searchmatch\">Python</span>, and"
 },
 {
-"title": "MonsterQuest",
-"pageid": 14211310,
-"size": 39123,
-"wordcount": 892,
-"timestamp": "2026-05-23T12:07:47Z",
-"snippet": "the Lost Tiger 24. Curse Of The Monkey Man 25. Killer Crocs 26. Giant <span class=\"searchmatch\">Pythons</span> in America 27. Monster Sharks 28. Mothman 29. Lizard Monster 30. Hillbilly"
+"title": "List of celebrity judoka",
+"pageid": 14614858,
+"size": 28583,
+"wordcount": 3354,
+"timestamp": "2026-04-27T12:04:16Z",
+"snippet": "- Who We Are &quot;Labs - MozillaWiki&quot;. BayCHI Monthly <span class=\"searchmatch\">Program</span>, Tuesday, September 13, 1994 Euro<span class=\"searchmatch\">Python</span> Society - The Failure of Applications Archived 2008-03-09"
 },
 {
-"title": "Code property graph",
-"pageid": 71645948,
-"size": 13954,
-"wordcount": 1458,
-"timestamp": "2026-04-13T10:51:19Z",
-"snippet": "applicable to multiple <span class=\"searchmatch\">programming</span> languages. The project provides code property graph generators for C/C++, Java, Java bytecode, Kotlin, <span class=\"searchmatch\">Python</span>, JavaScript, TypeScript"
+"title": "Data modeling",
+"pageid": 759422,
+"size": 25068,
+"wordcount": 2923,
+"timestamp": "2026-02-27T04:02:23Z",
+"snippet": "Electrical and electronics engineering Outlines Software development Computer <span class=\"searchmatch\">programming</span> <span class=\"searchmatch\">Programming</span> languages C C++ C# Java JavaScript Perl <span class=\"searchmatch\">Python</span> Rust v t e"
 }
 ]
 }

@@ -50,14 +50,6 @@
 "snippet": "<span class=\"searchmatch\">Python</span> is a collection of 19 &quot;guiding principles&quot; for writing computer <span class=\"searchmatch\">programs</span> that influence the design of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. <span class=\"searchmatch\">Python</span> code"
 },
 {
-"title": "Core Python Programming",
-"pageid": 25061839,
-"size": 3874,
-"wordcount": 316,
-"timestamp": "2026-04-10T11:05:03Z",
-"snippet": "Core <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> is a textbook on the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, written by Wesley J. Chun. The first edition of the book was released on December"
-},
-{
 "title": "Outline of the C programming language",
 "pageid": 81074706,
 "size": 10825,
@@ -66,20 +58,28 @@
 "snippet": "language Outline of the Perl <span class=\"searchmatch\">programming</span> language Outline of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language Outline of the Rust <span class=\"searchmatch\">programming</span> language &quot;Introduction to C&quot;"
 },
 {
-"title": "Tacit programming",
-"pageid": 5158722,
-"size": 10019,
-"wordcount": 1157,
-"timestamp": "2026-05-12T21:03:26Z",
-"snippet": "Tacit <span class=\"searchmatch\">programming</span>, also called point-free style, is a <span class=\"searchmatch\">programming</span> paradigm in which function definitions do not identify the arguments (or &quot;points&quot;) on"
+"title": "Core Python Programming",
+"pageid": 25061839,
+"size": 3874,
+"wordcount": 316,
+"timestamp": "2026-04-10T11:05:03Z",
+"snippet": "Core <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> is a textbook on the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, written by Wesley J. Chun. The first edition of the book was released on December"
 },
 {
-"title": "Glob (programming)",
-"pageid": 484117,
-"size": 27549,
-"wordcount": 2499,
-"timestamp": "2026-03-01T01:55:39Z",
-"snippet": "on these same wildcard patterns. Guido van Rossum, author of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, wrote and contributed a glob routine to BSD Unix in 1986"
+"title": "Python Conference",
+"pageid": 36293816,
+"size": 8950,
+"wordcount": 551,
+"timestamp": "2026-05-18T00:14:35Z",
+"snippet": "The <span class=\"searchmatch\">Python</span> Conference (also called PyCon) is the largest annual convention for the discussion and promotion of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. It originated"
+},
+{
+"title": "Python Software Foundation",
+"pageid": 696712,
+"size": 9682,
+"wordcount": 847,
+"timestamp": "2026-04-18T00:56:13Z",
+"snippet": "<span class=\"searchmatch\">Python</span> Software Foundation (named after the snake with the same name) (PSF) is an American nonprofit organization devoted to the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language"
 }
 ]
 }

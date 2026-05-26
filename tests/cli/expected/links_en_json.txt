@@ -169,11 +169,6 @@
 "language": "en",
 "ns": 0
 },
-"Al-Rayyan": {
-"title": "Al-Rayyan",
-"language": "en",
-"ns": 0
-},
 "Albedo": {
 "title": "Albedo",
 "language": "en",
@@ -541,6 +536,11 @@
 },
 "Bathymetric": {
 "title": "Bathymetric",
+"language": "en",
+"ns": 0
+},
+"Behemoth": {
+"title": "Behemoth",
 "language": "en",
 "ns": 0
 },
@@ -1051,6 +1051,11 @@
 },
 "Cosmic dust": {
 "title": "Cosmic dust",
+"language": "en",
+"ns": 0
+},
+"Cosmic ocean": {
+"title": "Cosmic ocean",
 "language": "en",
 "ns": 0
 },
@@ -2284,6 +2289,16 @@
 "language": "en",
 "ns": 12
 },
+"Help:Cite errors/Cite error references missing key": {
+"title": "Help:Cite errors/Cite error references missing key",
+"language": "en",
+"ns": 12
+},
+"Help:Footnotes": {
+"title": "Help:Footnotes",
+"language": "en",
+"ns": 12
+},
 "Help:IPA/English": {
 "title": "Help:IPA/English",
 "language": "en",
@@ -2739,11 +2754,6 @@
 "language": "en",
 "ns": 0
 },
-"Journal of African Earth Sciences": {
-"title": "Journal of African Earth Sciences",
-"language": "en",
-"ns": 0
-},
 "Judith Lean": {
 "title": "Judith Lean",
 "language": "en",
@@ -2811,6 +2821,11 @@
 },
 "Kuiper cliff": {
 "title": "Kuiper cliff",
+"language": "en",
+"ns": 0
+},
+"Kujata": {
+"title": "Kujata",
 "language": "en",
 "ns": 0
 },
@@ -5191,11 +5206,6 @@
 },
 "Solstice": {
 "title": "Solstice",
-"language": "en",
-"ns": 0
-},
-"Somali Plate": {
-"title": "Somali Plate",
 "language": "en",
 "ns": 0
 },

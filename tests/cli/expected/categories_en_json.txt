@@ -119,6 +119,16 @@
 "language": "en",
 "ns": 14
 },
+"Category:Pages with incorrect ref formatting": {
+"title": "Category:Pages with incorrect ref formatting",
+"language": "en",
+"ns": 14
+},
+"Category:Pages with reference errors": {
+"title": "Category:Pages with reference errors",
+"language": "en",
+"ns": 14
+},
 "Category:Planets of the Solar System": {
 "title": "Category:Planets of the Solar System",
 "language": "en",
