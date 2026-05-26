@@ -1,20 +1,20 @@
 {
-"totalhits": 6056,
+"totalhits": 6073,
 "pages": [
 {
 "title": "Python (programming language)",
 "pageid": 23862,
-"size": 140474,
-"wordcount": 11469,
-"timestamp": "2026-04-22T16:50:32Z",
+"size": 143031,
+"wordcount": 11705,
+"timestamp": "2026-05-25T20:36:25Z",
 "snippet": " and garbage collection. <span class=\"searchmatch\">Python</span> supports multiple <span class=\"searchmatch\">programming</span> paradigms but with an emphasis on object-oriented <span class=\"searchmatch\">programming</span> and dynamic typing. Guido"
 },
 {
 "title": "Outline of the Python programming language",
 "pageid": 81118035,
-"size": 12097,
-"wordcount": 837,
-"timestamp": "2026-02-18T06:39:30Z",
+"size": 12148,
+"wordcount": 838,
+"timestamp": "2026-05-10T04:33:00Z",
 "snippet": "functional <span class=\"searchmatch\">programming</span>. ABC (<span class=\"searchmatch\">programming</span> language) – precursor to <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Python</span> was started by Guido van Rossum in 1989 and first released in 1991. <span class=\"searchmatch\">Python</span> 2 —"
 },
 {
@@ -28,17 +28,17 @@
 {
 "title": "Python syntax and semantics",
 "pageid": 5250192,
-"size": 68506,
-"wordcount": 7865,
-"timestamp": "2026-04-22T14:28:31Z",
+"size": 68907,
+"wordcount": 7901,
+"timestamp": "2026-05-07T20:53:47Z",
 "snippet": "The syntax of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is the set of rules that defines how a <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">program</span> will be written and interpreted (by both the runtime"
 },
 {
 "title": "Mojo (programming language)",
 "pageid": 73729965,
-"size": 18519,
-"wordcount": 1480,
-"timestamp": "2026-04-06T07:57:50Z",
+"size": 18783,
+"wordcount": 1477,
+"timestamp": "2026-05-21T23:35:23Z",
 "snippet": "proprietary <span class=\"searchmatch\">programming</span> language based on <span class=\"searchmatch\">Python</span> available for Linux and macOS. Mojo aims to combine the usability of a high-level <span class=\"searchmatch\">programming</span> language,"
 },
 {
@@ -58,20 +58,20 @@
 "snippet": "Core <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> is a textbook on the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, written by Wesley J. Chun. The first edition of the book was released on December"
 },
 {
-"title": "List of Python software",
-"pageid": 3673376,
-"size": 36961,
-"wordcount": 3636,
-"timestamp": "2026-04-29T06:10:21Z",
-"snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform"
+"title": "Outline of the C programming language",
+"pageid": 81074706,
+"size": 10825,
+"wordcount": 754,
+"timestamp": "2026-05-10T22:16:48Z",
+"snippet": "language Outline of the Perl <span class=\"searchmatch\">programming</span> language Outline of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language Outline of the Rust <span class=\"searchmatch\">programming</span> language &quot;Introduction to C&quot;"
 },
 {
-"title": "Python",
-"pageid": 46332325,
-"size": 2240,
-"wordcount": 317,
-"timestamp": "2026-03-10T10:36:25Z",
-"snippet": "and Australia <span class=\"searchmatch\">Python</span> (genus), a genus of Pythonidae found in Africa and Asia <span class=\"searchmatch\">Python</span> (mythology), a mythical serpent <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language), a widely"
+"title": "Tacit programming",
+"pageid": 5158722,
+"size": 10019,
+"wordcount": 1157,
+"timestamp": "2026-05-12T21:03:26Z",
+"snippet": "Tacit <span class=\"searchmatch\">programming</span>, also called point-free style, is a <span class=\"searchmatch\">programming</span> paradigm in which function definitions do not identify the arguments (or &quot;points&quot;) on"
 },
 {
 "title": "Glob (programming)",
