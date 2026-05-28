@@ -429,6 +429,11 @@
 "language": "ga",
 "url": "https://ga.wikipedia.org/wiki/Domhan"
 },
+"gag": {
+"title": "Er",
+"language": "gag",
+"url": "https://gag.wikipedia.org/wiki/Er"
+},
 "gan": {
 "title": "地球",
 "language": "gan",

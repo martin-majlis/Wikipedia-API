@@ -2414,11 +2414,6 @@
 "language": "en",
 "ns": 0
 },
-"Human": {
-"title": "Human",
-"language": "en",
-"ns": 0
-},
 "Human evolution": {
 "title": "Human evolution",
 "language": "en",
@@ -2976,11 +2971,6 @@
 },
 "Light-year": {
 "title": "Light-year",
-"language": "en",
-"ns": 0
-},
-"Liquid": {
-"title": "Liquid",
 "language": "en",
 "ns": 0
 },
@@ -5926,6 +5916,11 @@
 },
 "Urban area": {
 "title": "Urban area",
+"language": "en",
+"ns": 0
+},
+"Urban lighting": {
+"title": "Urban lighting",
 "language": "en",
 "ns": 0
 },

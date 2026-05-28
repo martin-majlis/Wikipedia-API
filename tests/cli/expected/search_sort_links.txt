@@ -1,12 +1,12 @@
 {
-"totalhits": 6073,
+"totalhits": 6072,
 "pages": [
 {
 "title": "Tilde",
 "pageid": 212390,
-"size": 84307,
+"size": 84355,
 "wordcount": 8893,
-"timestamp": "2026-05-15T16:18:22Z",
+"timestamp": "2026-05-26T11:08:52Z",
 "snippet": "or influenced by C, such as C++, C#, D, Java, JavaScript, Perl, PHP, and <span class=\"searchmatch\">Python</span>. The MySQL database also use tilde as bitwise invert as does Microsoft&#039;s"
 },
 {
@@ -28,9 +28,9 @@
 {
 "title": "England",
 "pageid": 9316,
-"size": 259077,
-"wordcount": 23194,
-"timestamp": "2026-05-24T01:57:26Z",
+"size": 258829,
+"wordcount": 23186,
+"timestamp": "2026-05-26T20:20:47Z",
 "snippet": "blood and guts in colour. The BFI Top 100 British films includes Monty <span class=\"searchmatch\">Python&#039;s</span> Life of Brian (1979), a film regularly voted the funniest of all time by"
 },
 {
@@ -60,17 +60,17 @@
 {
 "title": "BBC",
 "pageid": 19344654,
-"size": 220936,
+"size": 220934,
 "wordcount": 21410,
-"timestamp": "2026-05-24T05:29:53Z",
+"timestamp": "2026-05-28T07:56:35Z",
 "snippet": "England, the larger regions also produce some <span class=\"searchmatch\">programming</span>. Previously the largest hub of BBC <span class=\"searchmatch\">programming</span> from the regions had been BBC North West. At present"
 },
 {
 "title": "Bangladesh",
 "pageid": 3454,
-"size": 275624,
-"wordcount": 22682,
-"timestamp": "2026-05-25T14:21:17Z",
+"size": 275503,
+"wordcount": 22667,
+"timestamp": "2026-05-26T14:33:52Z",
 "snippet": "sambar deer, jungle cat, king cobra, wild boar, mongooses, pangolins, <span class=\"searchmatch\">pythons</span> and water monitors. Bangladesh has one of the largest populations of Irrawaddy"
 },
 {
