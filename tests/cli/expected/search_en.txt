@@ -1,4 +1,4 @@
-Total hits: 6073
+Total hits: 6072
 
 Python (programming language)
 Outline of the Python programming language
@@ -7,6 +7,6 @@ Python syntax and semantics
 Mojo (programming language)
 Zen of Python
 Core Python Programming
-Tacit programming
-Python Conference
 Outline of the C programming language
+Python Conference
+Glob (programming)

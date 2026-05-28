@@ -49,6 +49,11 @@
 "language": "en",
 "ns": 14
 },
+"Category:Articles containing video clips": {
+"title": "Category:Articles containing video clips",
+"language": "en",
+"ns": 14
+},
 "Category:Articles with hAudio microformats": {
 "title": "Category:Articles with hAudio microformats",
 "language": "en",
@@ -154,13 +159,13 @@
 "language": "en",
 "ns": 14
 },
-"Category:Use American English from February 2025": {
-"title": "Category:Use American English from February 2025",
+"Category:Use American English from May 2026": {
+"title": "Category:Use American English from May 2026",
 "language": "en",
 "ns": 14
 },
-"Category:Use dmy dates from July 2025": {
-"title": "Category:Use dmy dates from July 2025",
+"Category:Use dmy dates from May 2026": {
+"title": "Category:Use dmy dates from May 2026",
 "language": "en",
 "ns": 14
 },

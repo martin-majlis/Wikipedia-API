@@ -481,7 +481,6 @@ Holocene extinction
 Horseshoe orbit
 Hot desert
 Hotspot (geology)
-Human
 Human evolution
 Human geography
 Human history
@@ -594,7 +593,6 @@ Light minute
 Light pollution
 Light-minute
 Light-year
-Liquid
 List of Earth-crossing asteroids
 List of Jupiter trojans (Greek camp)
 List of Jupiter trojans (Trojan camp)
@@ -1184,6 +1182,7 @@ Uranium-238
 Uranus
 Uranus trojans
 Urban area
+Urban lighting
 Van Allen radiation belt
 Vanguard 1
 Vanth (moon)
