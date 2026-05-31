@@ -1000,6 +1000,7 @@ List of people from Boston
 List of people from Flagstaff, Arizona
 List of people from Illinois
 List of people from New Mexico
+List of planet types
 List of possible dwarf planets
 List of proposed missions to the outer planets
 List of slow rotators (minor planets)
@@ -2188,6 +2189,7 @@ User talk:Fotaun
 User talk:Freedom1234
 User talk:Frinkus
 User talk:Frog luva96
+User talk:Gazamp/Archive 2
 User talk:Gglee
 User talk:Glenncando
 User talk:GoldenTie
@@ -2514,7 +2516,6 @@ User:AustDan91
 User:Autopilot37
 User:AutumnHornet/Guestbook
 User:Avalik
-User:AvionArchon/sandbox
 User:Avsa/Books/Astronomy Book
 User:Awarasurya
 User:Axaj
@@ -4395,7 +4396,6 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
-Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1

@@ -1784,11 +1784,6 @@
 "language": "en",
 "ns": 0
 },
-"First image of Earth": {
-"title": "First image of Earth",
-"language": "en",
-"ns": 0
-},
 "Five-planet Nice model": {
 "title": "Five-planet Nice model",
 "language": "en",
