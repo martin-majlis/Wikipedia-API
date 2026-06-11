@@ -38,8 +38,6 @@
 (202421) 2005 UQ513
 (230965) 2004 XA192
 (24835) 1995 SM55
-(24952) 1997 QJ4
-(24978) 1998 HJ151
 (26308) 1998 SM165
 (26375) 1999 DE9
 (275809) 2001 QY297
@@ -479,7 +477,6 @@ Chimera (spacecraft)
 Christopher Glein
 Circle of latitude
 Claimed moons of Earth
-Classic Cartoon Favorites
 Classical Kuiper belt object
 Classical planet
 Classification of Pluto
@@ -853,6 +850,7 @@ Kerbal Space Program
 Kerberos (moon)
 KinetX
 Kirk (crater)
+Kitt Peak
 Kitt Peak National Observatory
 Knickerbocker Club
 Kozai mechanism
@@ -1087,7 +1085,6 @@ Mars Polaris
 Mars carbonate catastrophe
 Mars in culture
 Mars jar
-May 1
 May 18
 Meanings of minor-planet names
 Meanings of minor-planet names: 1001–2000
@@ -1482,6 +1479,7 @@ Portal:Outer space/Selected article/30
 Portal:Outer space/Selected article/34
 Portal:Outer space/Selected article/39
 Portal:Outer space/Selected article/7
+Portal:Physics
 Portal:Physics/2012 Selected pictures
 Portal:Physics/News/Archive
 Portal:Physics/Selected images
@@ -1944,7 +1942,7 @@ Tartarus (disambiguation)
 Taurus (astrology)
 Tease Me (Chaka Demus & Pliers song)
 Template talk:CentaurTNO-stub
-Template talk:Convert
+Template talk:Convert/Archive 3
 Template talk:Convert/Archive July 2015
 Template talk:Did you know nominations/Wright Mons
 Template talk:Dwarf planet link
@@ -2001,6 +1999,7 @@ Template:Surface features of space objects
 Template:Surface features of space objects/sandbox
 Template:Surface features of space objects/testcases
 Template:Synodic periods
+Template:TFA archive
 Template:TNO imagemap
 Template:Trans-Neptunian objects navbox
 Template:Trans-Neptunian objects navbox/sandbox
@@ -2189,7 +2188,6 @@ User talk:Fotaun
 User talk:Freedom1234
 User talk:Frinkus
 User talk:Frog luva96
-User talk:Gazamp/Archive 2
 User talk:Gglee
 User talk:Glenncando
 User talk:GoldenTie
@@ -2530,7 +2528,6 @@ User:Bahamut0013/userboxes
 User:Bahaumaunt
 User:Bakasuprman/Archive3
 User:Banette
-User:Baqotun0023
 User:Barbarossa359
 User:Bardbom
 User:Bardic Gnome
@@ -2594,7 +2591,7 @@ User:Blurredandfaded/Books/cosmicHalmaFellowship
 User:Bmitchelf
 User:Bobby D. DS.
 User:Bobby D. DS./Userboxes
-User:Bobby43255/Vlogmations
+User:Bobby43255/List of Vlogmations episodes
 User:Bobbylon
 User:Bogdan u Gabriel
 User:Bolegash
@@ -2711,6 +2708,7 @@ User:Cmglee/drawing
 User:Coal On Toast
 User:Cobaltbluetony/userboxes
 User:Coffeeandcrumbs/Selected anniversaries/April 25
+User:Coffeeandcrumbs/sandbox/Main Page 5
 User:Cogito ergo cogitati sunt
 User:Coinmanj
 User:Cold Phront
@@ -3052,6 +3050,7 @@ User:HerbHG/Books/Basic Astronomy
 User:Herenthere
 User:Hergust
 User:Hhamdy283
+User:HiDrNick/TFA blurbs
 User:Hidayisfriday
 User:HigherBlakey
 User:Hippopotenuse72/New sandbox
@@ -4147,7 +4146,6 @@ User:Vazcayno
 User:VeblenBot/Version 0.7/FA-Class Version 0.7 articles
 User:VeblenBot/Version 0.7/Natural sciences
 User:Vedranf/LZMK-HOL/P5
-User:Veleyben
 User:Velojareal
 User:Venustas 12/December 16 2010
 User:Vfrn
@@ -4163,6 +4161,7 @@ User:Viper1265
 User:Vir/sandbox/core topic levels
 User:Vir/sandbox/core topic levels qaud
 User:VisLock/Books/The Solar System
+User:Voice of Clam/mainlinks
 User:Volker89
 User:Vreddy92
 User:W1k13rh3nry
@@ -4396,6 +4395,7 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
+Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1
@@ -4656,6 +4656,7 @@ Wikipedia:Main Page history/2024 April 18
 Wikipedia:Main Page history/2024 April 18b
 Wikipedia:Main Page history/2024 August 20
 Wikipedia:Main Page history/2024 August 20b
+Wikipedia:Main Page queue
 Wikipedia:Miscellany for deletion/User:TenPoundHammer (4th nomination)
 Wikipedia:Most read articles in 2008
 Wikipedia:Most read articles in 2009

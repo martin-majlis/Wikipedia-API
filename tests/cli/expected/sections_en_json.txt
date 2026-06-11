@@ -1,13 +1,8 @@
 [
 {
-"title": "Etymology and symbol",
+"title": "Etymology",
 "level": 1,
 "indent": 0
-},
-{
-"title": "Symbol",
-"level": 2,
-"indent": 1
 },
 {
 "title": "Natural history",

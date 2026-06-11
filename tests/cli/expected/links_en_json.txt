@@ -79,6 +79,11 @@
 "language": "en",
 "ns": 0
 },
+"ABC-CLIO": {
+"title": "ABC-CLIO",
+"language": "en",
+"ns": 0
+},
 "Abel Méndez": {
 "title": "Abel Méndez",
 "language": "en",
@@ -194,6 +199,16 @@
 "language": "en",
 "ns": 0
 },
+"American Geophysical Union": {
+"title": "American Geophysical Union",
+"language": "en",
+"ns": 0
+},
+"American Institute of Physics": {
+"title": "American Institute of Physics",
+"language": "en",
+"ns": 0
+},
 "American Museum of Natural History": {
 "title": "American Museum of Natural History",
 "language": "en",
@@ -254,16 +269,6 @@
 "language": "en",
 "ns": 0
 },
-"Antarctic ice sheet": {
-"title": "Antarctic ice sheet",
-"language": "en",
-"ns": 0
-},
-"Antarctic sea ice": {
-"title": "Antarctic sea ice",
-"language": "en",
-"ns": 0
-},
 "Antarctica": {
 "title": "Antarctica",
 "language": "en",
@@ -281,6 +286,11 @@
 },
 "Apoapsis": {
 "title": "Apoapsis",
+"language": "en",
+"ns": 0
+},
+"Apollo 17": {
+"title": "Apollo 17",
 "language": "en",
 "ns": 0
 },
@@ -419,11 +429,6 @@
 "language": "en",
 "ns": 0
 },
-"Astronomical symbols": {
-"title": "Astronomical symbols",
-"language": "en",
-"ns": 0
-},
 "Astronomical unit": {
 "title": "Astronomical unit",
 "language": "en",
@@ -436,6 +441,11 @@
 },
 "Astronomy (magazine)": {
 "title": "Astronomy (magazine)",
+"language": "en",
+"ns": 0
+},
+"Astronomy and Astrophysics": {
+"title": "Astronomy and Astrophysics",
 "language": "en",
 "ns": 0
 },
@@ -534,11 +544,6 @@
 "language": "en",
 "ns": 0
 },
-"Bathymetric": {
-"title": "Bathymetric",
-"language": "en",
-"ns": 0
-},
 "Behemoth": {
 "title": "Behemoth",
 "language": "en",
@@ -629,6 +634,11 @@
 "language": "en",
 "ns": 0
 },
+"Bob McDonald (science journalist)": {
+"title": "Bob McDonald (science journalist)",
+"language": "en",
+"ns": 0
+},
 "Bond albedo": {
 "title": "Bond albedo",
 "language": "en",
@@ -661,6 +671,11 @@
 },
 "C4 carbon fixation": {
 "title": "C4 carbon fixation",
+"language": "en",
+"ns": 0
+},
+"CRC Press": {
+"title": "CRC Press",
 "language": "en",
 "ns": 0
 },
@@ -976,11 +991,6 @@
 },
 "Comet": {
 "title": "Comet",
-"language": "en",
-"ns": 0
-},
-"Compositing": {
-"title": "Compositing",
 "language": "en",
 "ns": 0
 },
@@ -1859,11 +1869,6 @@
 "language": "en",
 "ns": 0
 },
-"Four corners of the world": {
-"title": "Four corners of the world",
-"language": "en",
-"ns": 0
-},
 "Francis Albarède": {
 "title": "Francis Albarède",
 "language": "en",
@@ -2064,6 +2069,11 @@
 "language": "en",
 "ns": 0
 },
+"Gerald Schubert": {
+"title": "Gerald Schubert",
+"language": "en",
+"ns": 0
+},
 "Germanic language": {
 "title": "Germanic language",
 "language": "en",
@@ -2121,11 +2131,6 @@
 },
 "Globe": {
 "title": "Globe",
-"language": "en",
-"ns": 0
-},
-"Globus cruciger": {
-"title": "Globus cruciger",
 "language": "en",
 "ns": 0
 },
@@ -2284,16 +2289,6 @@
 "language": "en",
 "ns": 12
 },
-"Help:Cite errors/Cite error references missing key": {
-"title": "Help:Cite errors/Cite error references missing key",
-"language": "en",
-"ns": 12
-},
-"Help:Footnotes": {
-"title": "Help:Footnotes",
-"language": "en",
-"ns": 12
-},
 "Help:IPA/English": {
 "title": "Help:IPA/English",
 "language": "en",
@@ -2409,6 +2404,11 @@
 "language": "en",
 "ns": 0
 },
+"Human": {
+"title": "Human",
+"language": "en",
+"ns": 0
+},
 "Human evolution": {
 "title": "Human evolution",
 "language": "en",
@@ -2501,6 +2501,11 @@
 },
 "Hypsometry": {
 "title": "Hypsometry",
+"language": "en",
+"ns": 0
+},
+"I.B. Tauris": {
+"title": "I.B. Tauris",
 "language": "en",
 "ns": 0
 },
@@ -3376,11 +3381,6 @@
 },
 "Mean radius (astronomy)": {
 "title": "Mean radius (astronomy)",
-"language": "en",
-"ns": 0
-},
-"Mean sea level": {
-"title": "Mean sea level",
 "language": "en",
 "ns": 0
 },
@@ -4699,11 +4699,6 @@
 "language": "en",
 "ns": 0
 },
-"Proto-Germanic": {
-"title": "Proto-Germanic",
-"language": "en",
-"ns": 0
-},
 "Protoplanet": {
 "title": "Protoplanet",
 "language": "en",
@@ -4761,6 +4756,11 @@
 },
 "Redox": {
 "title": "Redox",
+"language": "en",
+"ns": 0
+},
+"Reid Wiseman": {
+"title": "Reid Wiseman",
 "language": "en",
 "ns": 0
 },
@@ -5271,6 +5271,11 @@
 },
 "Spheroid": {
 "title": "Spheroid",
+"language": "en",
+"ns": 0
+},
+"Springer Science + Business Media": {
+"title": "Springer Science + Business Media",
 "language": "en",
 "ns": 0
 },

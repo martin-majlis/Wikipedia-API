@@ -14,6 +14,7 @@
 469219 Kamoʻoalewa
 532037 Chiminigagua
 55565 Aya
+ABC-CLIO
 Abel Méndez
 Abiogenesis
 Absolute magnitude
@@ -37,6 +38,8 @@ Alessandro Morbidelli (astronomer)
 Alpine glaciers
 Alpine tundra
 Aluminium
+American Geophysical Union
+American Institute of Physics
 American Museum of Natural History
 Americas
 Ancient Greece
@@ -49,12 +52,11 @@ Anny Cazenave
 Antarctic Circle
 Antarctic Plate
 Antarctic Treaty System
-Antarctic ice sheet
-Antarctic sea ice
 Antarctica
 Ape
 Aphelion
 Apoapsis
+Apollo 17
 Apsis
 ArXiv (identifier)
 Arabian Plate
@@ -82,10 +84,10 @@ Astrobiology (journal)
 Astronomical Unit
 Astronomical nutation
 Astronomical object
-Astronomical symbols
 Astronomical unit
 Astronomy
 Astronomy (magazine)
+Astronomy and Astrophysics
 Atlantic Ocean
 Atmosphere of Earth
 Atmospheric chemistry
@@ -105,7 +107,6 @@ Bacteria
 Bahamut
 Barycenter
 Basalt
-Bathymetric
 Behemoth
 Bibcode (identifier)
 Billiard ball
@@ -124,6 +125,7 @@ Biome
 Biosphere
 Biotic material
 Blizzard
+Bob McDonald (science journalist)
 Bond albedo
 Border
 Boris Worm
@@ -131,6 +133,7 @@ Bow shock
 Brent Dalrymple
 Building material
 C4 carbon fixation
+CRC Press
 Calcium
 Calculus
 Caleb Scharf
@@ -194,7 +197,6 @@ Coatlicue (star)
 Cocos Plate
 Colony (biology)
 Comet
-Compositing
 Computer cartography
 Conrad discontinuity
 Continent
@@ -370,7 +372,6 @@ Forensic geophysics
 Formation and evolution of the Solar System
 Fossil
 Fossil fuel
-Four corners of the world
 Francis Albarède
 Fred Espenak
 Frequency
@@ -411,6 +412,7 @@ Geophysical survey
 Geophysics
 Geopositioning
 Geosynchronous orbit
+Gerald Schubert
 Germanic language
 Germanic paganism
 Giant impact hypothesis
@@ -423,7 +425,6 @@ Global catastrophic risk
 Global ocean
 Global warming
 Globe
-Globus cruciger
 Glossary of geology
 Gonggong (dwarf planet)
 Gordon Orians
@@ -455,8 +456,6 @@ Heliocentrism
 Helium
 Hello, World (photograph)
 Help:Authority control
-Help:Cite errors/Cite error references missing key
-Help:Footnotes
 Help:IPA/English
 Help:IPA/Greek
 Help:Pronunciation respelling key
@@ -480,6 +479,7 @@ Holocene extinction
 Horseshoe orbit
 Hot desert
 Hotspot (geology)
+Human
 Human evolution
 Human geography
 Human history
@@ -499,6 +499,7 @@ Hyperion (hypothetical planet)
 Hyperion (moon)
 Hypothetical moon of Mercury
 Hypsometry
+I.B. Tauris
 IPCC
 IPCC Sixth Assessment Report
 ISBN (identifier)
@@ -674,7 +675,6 @@ Matter
 Max Roser
 Mean anomaly
 Mean radius (astronomy)
-Mean sea level
 Meanings of minor-planet names
 Meenakshi Wadhwa
 Megaannum
@@ -938,7 +938,6 @@ Proceedings of the National Academy of Sciences of the United States of America
 Prokaryote
 Proteus (moon)
 Protist
-Proto-Germanic
 Protoplanet
 Protoplanetary disk
 Provisional designation in astronomy
@@ -951,6 +950,7 @@ Radiometric dating
 Rain
 Red giant
 Redox
+Reid Wiseman
 Remote Sensing
 Remote sensing
 Retreat of glaciers since 1850
@@ -1053,6 +1053,7 @@ Spaceship Earth
 Sphere of influence (astrodynamics)
 Spherical Earth
 Spheroid
+Springer Science + Business Media
 Standard gravity
 Star formation
 Stefan Rahmstorf
