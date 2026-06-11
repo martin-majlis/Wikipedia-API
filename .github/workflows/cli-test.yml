@@ -27,6 +27,7 @@ permissions:
 jobs:
   cli-verify:
     name: CLI integration tests (verify)
+    if: "!(github.event_name == 'workflow_dispatch' && inputs.mode == 'record')"
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -80,8 +81,11 @@ jobs:
     name: CLI integration tests (record)
     needs: cli-verify
     if: >
-      (github.event_name == 'workflow_dispatch' && inputs.mode == 'record') ||
-      (needs.cli-verify.outputs.small_mismatches > 1 && github.event_name != 'pull_request')
+      always() &&
+      (
+        (github.event_name == 'workflow_dispatch' && inputs.mode == 'record') ||
+        (needs.cli-verify.result == 'success' && needs.cli-verify.outputs.small_mismatches > 1 && github.event_name != 'pull_request')
+      )
     runs-on: ubuntu-latest
     permissions:
       contents: write
