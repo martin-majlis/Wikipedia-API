@@ -39,6 +39,11 @@
 "language": "en",
 "ns": 14
 },
+"Category:Articles containing Proto-Germanic-language text": {
+"title": "Category:Articles containing Proto-Germanic-language text",
+"language": "en",
+"ns": 14
+},
 "Category:Articles containing Spanish-language text": {
 "title": "Category:Articles containing Spanish-language text",
 "language": "en",
@@ -121,16 +126,6 @@
 },
 "Category:Pages with Greek IPA": {
 "title": "Category:Pages with Greek IPA",
-"language": "en",
-"ns": 14
-},
-"Category:Pages with incorrect ref formatting": {
-"title": "Category:Pages with incorrect ref formatting",
-"language": "en",
-"ns": 14
-},
-"Category:Pages with reference errors": {
-"title": "Category:Pages with reference errors",
 "language": "en",
 "ns": 14
 },

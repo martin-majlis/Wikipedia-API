@@ -712,12 +712,12 @@
 "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=343752",
 "width": 900,
 "height": 600,
-"size": 588,
+"size": 589,
 "mime": "image/svg+xml",
 "mediatype": "DRAWING",
-"sha1": "871855e203b61ca04b746503e5db39681342db81",
-"timestamp": "2024-07-21T19:02:16Z",
-"user": "Great Brightstar"
+"sha1": "c2586af8d4b164b684d206037e4278af3c8d53c2",
+"timestamp": "2026-06-06T05:12:29Z",
+"user": "NeoSyria"
 },
 "File:Flag of Spain.svg": {
 "title": "File:Flag of Spain.svg",
@@ -970,6 +970,24 @@
 "sha1": "e4904ade2c7a9ec9436227b54a2b5c4a1faaa5f4",
 "timestamp": "2006-11-17T20:21:15Z",
 "user": "Diligent"
+},
+"File:Great Strahov Stadium 9th Prague Slet in 1932.jpg": {
+"title": "File:Great Strahov Stadium 9th Prague Slet in 1932.jpg",
+"language": "en",
+"namespace": 6,
+"pageid": 291350494740259109,
+"variant": null,
+"url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Great_Strahov_Stadium_9th_Prague_Slet_in_1932.jpg",
+"descriptionurl": "https://commons.wikimedia.org/wiki/File:Great_Strahov_Stadium_9th_Prague_Slet_in_1932.jpg",
+"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=193420601",
+"width": 21827,
+"height": 5004,
+"size": 69390526,
+"mime": "image/jpeg",
+"mediatype": "BITMAP",
+"sha1": "5e5ed0caee11eb2cc6970ba286a3f6a40ed2564d",
+"timestamp": "2026-06-05T18:46:05Z",
+"user": "QuakerIlK"
 },
 "File:Havla 1989.jpg": {
 "title": "File:Havla 1989.jpg",

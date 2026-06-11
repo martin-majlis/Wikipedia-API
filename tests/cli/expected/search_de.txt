@@ -9,5 +9,5 @@ Rust (Programmiersprache)
 Hybridsprache
 Wolfram Language
 Scratch (Programmiersprache)
-Objektorientierte Programmierung
 Tcl
+Objektorientierte Programmierung

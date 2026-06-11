@@ -6,6 +6,7 @@ Category:Articles containing French-language text
 Category:Articles containing Latin-language text
 Category:Articles containing Old English (ca. 450-1100)-language text
 Category:Articles containing Old Norse-language text
+Category:Articles containing Proto-Germanic-language text
 Category:Articles containing Spanish-language text
 Category:Articles containing potentially dated statements from September 2021
 Category:Articles containing video clips
@@ -23,8 +24,6 @@ Category:Pages using Sister project links with wikidata mismatch
 Category:Pages using Sister project links with wikidata namespace mismatch
 Category:Pages with Ancient Greek (to 1453) IPA
 Category:Pages with Greek IPA
-Category:Pages with incorrect ref formatting
-Category:Pages with reference errors
 Category:Planets of the Solar System
 Category:Short description is different from Wikidata
 Category:Solar System

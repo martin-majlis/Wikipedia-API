@@ -1,12 +1,12 @@
 {
-"totalhits": 6077,
+"totalhits": 6087,
 "pages": [
 {
 "title": "Python (programming language)",
 "pageid": 23862,
-"size": 143035,
-"wordcount": 11705,
-"timestamp": "2026-05-31T06:21:11Z",
+"size": 145567,
+"wordcount": 11797,
+"timestamp": "2026-06-10T19:22:48Z",
 "snippet": " and garbage collection. <span class=\"searchmatch\">Python</span> supports multiple <span class=\"searchmatch\">programming</span> paradigms but with an emphasis on object-oriented <span class=\"searchmatch\">programming</span> and dynamic typing. Guido"
 },
 {
@@ -21,7 +21,7 @@
 "title": "History of Python",
 "pageid": 21356332,
 "size": 57181,
-"wordcount": 4266,
+"wordcount": 4268,
 "timestamp": "2026-04-15T03:44:10Z",
 "snippet": "The <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> was conceived in the late 1980s, and its implementation was started in December 1989 by Guido van Rossum at CWI in the"
 },
@@ -42,12 +42,12 @@
 "snippet": "proprietary <span class=\"searchmatch\">programming</span> language based on <span class=\"searchmatch\">Python</span> available for Linux and macOS. Mojo aims to combine the usability of a high-level <span class=\"searchmatch\">programming</span> language,"
 },
 {
-"title": "Core Python Programming",
-"pageid": 25061839,
-"size": 3874,
-"wordcount": 316,
-"timestamp": "2026-04-10T11:05:03Z",
-"snippet": "Core <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> is a textbook on the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, written by Wesley J. Chun. The first edition of the book was released on December"
+"title": "Zen of Python",
+"pageid": 46448252,
+"size": 11211,
+"wordcount": 1130,
+"timestamp": "2026-03-11T00:04:23Z",
+"snippet": "<span class=\"searchmatch\">Python</span> is a collection of 19 &quot;guiding principles&quot; for writing computer <span class=\"searchmatch\">programs</span> that influence the design of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. <span class=\"searchmatch\">Python</span> code"
 },
 {
 "title": "Outline of the C programming language",
@@ -58,14 +58,6 @@
 "snippet": "language Outline of the Perl <span class=\"searchmatch\">programming</span> language Outline of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language Outline of the Rust <span class=\"searchmatch\">programming</span> language &quot;Introduction to C&quot;"
 },
 {
-"title": "Zen of Python",
-"pageid": 46448252,
-"size": 11211,
-"wordcount": 1130,
-"timestamp": "2026-03-11T00:04:23Z",
-"snippet": "<span class=\"searchmatch\">Python</span> is a collection of 19 &quot;guiding principles&quot; for writing computer <span class=\"searchmatch\">programs</span> that influence the design of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. <span class=\"searchmatch\">Python</span> code"
-},
-{
 "title": "Glob (programming)",
 "pageid": 484117,
 "size": 27549,
@@ -74,12 +66,20 @@
 "snippet": "on these same wildcard patterns. Guido van Rossum, author of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, wrote and contributed a glob routine to BSD Unix in 1986"
 },
 {
-"title": "Flask (web framework)",
-"pageid": 29040606,
-"size": 9965,
-"wordcount": 819,
-"timestamp": "2026-05-29T23:34:45Z",
-"snippet": "framework and supports <span class=\"searchmatch\">Python</span> 2.7 and 3.5 and later. Jinja, also by Ronacher, is a template engine for the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. Similar to the"
+"title": "Core Python Programming",
+"pageid": 25061839,
+"size": 3874,
+"wordcount": 316,
+"timestamp": "2026-04-10T11:05:03Z",
+"snippet": "Core <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Programming</span> is a textbook on the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, written by Wesley J. Chun. The first edition of the book was released on December"
+},
+{
+"title": "List of Python software",
+"pageid": 3673376,
+"size": 36913,
+"wordcount": 3628,
+"timestamp": "2026-05-21T16:25:06Z",
+"snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform"
 }
 ]
 }

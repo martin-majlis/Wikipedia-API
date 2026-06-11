@@ -377,6 +377,13 @@
 "pageid": 42683957454724672,
 "variant": null
 },
+"File:Great Strahov Stadium 9th Prague Slet in 1932.jpg": {
+"title": "File:Great Strahov Stadium 9th Prague Slet in 1932.jpg",
+"language": "en",
+"namespace": 6,
+"pageid": 291350494740259109,
+"variant": null
+},
 "File:Havla 1989.jpg": {
 "title": "File:Havla 1989.jpg",
 "language": "en",
