@@ -45,7 +45,7 @@ dev = [
     "pre-commit==4.6.0",
     "pygments==2.20.0",
     "pyupgrade==3.21.2",
-    "pytest==9.0.3",
+    "pytest==9.1.0",
     "pytest-asyncio==1.4.0",
     "pytest-cov==7.1.0",
     "tox==4.55.1",
