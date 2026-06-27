@@ -52,6 +52,8 @@ Anny Cazenave
 Antarctic Circle
 Antarctic Plate
 Antarctic Treaty System
+Antarctic ice sheet
+Antarctic sea ice
 Antarctica
 Ape
 Aphelion
@@ -197,6 +199,7 @@ Coatlicue (star)
 Cocos Plate
 Colony (biology)
 Comet
+Compositing
 Computer cartography
 Conrad discontinuity
 Continent
@@ -1041,6 +1044,7 @@ South America
 South American Plate
 Southern Hemisphere
 Southern Ocean
+Southern Pacific
 Sovereign state
 Space
 Space colonization
@@ -1187,6 +1191,7 @@ Van Allen radiation belt
 Vanguard 1
 Vanth (moon)
 Vector Map
+Vegetation
 Venus
 Vertical datum
 Vincent Courtillot

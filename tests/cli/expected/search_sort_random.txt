@@ -1,85 +1,85 @@
 {
-"totalhits": 6087,
+"totalhits": 6090,
 "pages": [
 {
-"title": "David Broncano",
-"pageid": 56573512,
-"size": 22405,
-"wordcount": 1951,
-"timestamp": "2026-04-12T07:14:05Z",
-"snippet": "radio and television. His main comedic influences include the series Monty <span class=\"searchmatch\">Python&#039;s</span> Flying Circus and La hora chanante. He was an amateur football player in"
+"title": "List of free-software events",
+"pageid": 3981713,
+"size": 8537,
+"wordcount": 995,
+"timestamp": "2026-05-13T11:36:25Z",
+"snippet": "since 2004 in Ottawa, Canada, North America PyCon – conference for the <span class=\"searchmatch\">Python</span> language, held several times yearly in various locations since 2003 RubyConf"
 },
 {
-"title": "Typeof",
-"pageid": 18529481,
-"size": 11024,
-"wordcount": 1130,
-"timestamp": "2026-05-10T14:39:49Z",
-"snippet": "operator provided by several <span class=\"searchmatch\">programming</span> languages to determine the data type of a variable. This is useful when constructing <span class=\"searchmatch\">programs</span> that must accept multiple"
+"title": "2016 in American television",
+"pageid": 46687025,
+"size": 405731,
+"wordcount": 15516,
+"timestamp": "2026-06-12T23:19:39Z",
+"snippet": "Broadcasting &amp; Cable, 2/1/2016 &quot;How to re-scan your TV for HD quality <span class=\"searchmatch\">programming</span>&quot;. ktsf.com. Archived from the original on February 3, 2016. Retrieved"
 },
 {
-"title": "Knitr",
-"pageid": 38393230,
-"size": 5040,
-"wordcount": 445,
-"timestamp": "2025-01-08T06:56:11Z",
-"snippet": "on RPubs), caching, TikZ graphics and support to other languages such as <span class=\"searchmatch\">Python</span>, Perl, C++, Shell scripts and CoffeeScript, and so on. knitr is officially"
+"title": "NoSQL",
+"pageid": 23968131,
+"size": 30423,
+"wordcount": 2434,
+"timestamp": "2026-06-03T15:59:29Z",
+"snippet": "of primitive of the <span class=\"searchmatch\">programming</span> language (a string, an integer, or an array) or an object that is being marshaled by the <span class=\"searchmatch\">programming</span> language&#039;s bindings"
 },
 {
-"title": "MeVisLab",
-"pageid": 29560230,
-"size": 28613,
-"wordcount": 2850,
-"timestamp": "2026-05-31T01:14:07Z",
-"snippet": "to Qt is implemented via <span class=\"searchmatch\">Python</span>Qt. For image processing via <span class=\"searchmatch\">Python</span>, NumPy is available. Object-oriented <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> in MeVisLab is possible. Integrated"
+"title": "Meaning of life",
+"pageid": 20347,
+"size": 162772,
+"wordcount": 18812,
+"timestamp": "2026-06-09T11:16:14Z",
+"snippet": "Beacon Press, 2006, ISBN 978-0-8070-1426-4. &quot;Monty <span class=\"searchmatch\">Python&#039;s</span> Completely Useless Web Site: Monty <span class=\"searchmatch\">Python&#039;s</span> The Meaning of Life: Complete Script&quot;. intriguing"
 },
 {
-"title": "REN TV",
-"pageid": 4984439,
-"size": 250721,
-"wordcount": 20254,
-"timestamp": "2026-05-06T18:46:21Z",
-"snippet": "Секретные материалы) Jetix, children&#039;s adventure <span class=\"searchmatch\">programming</span> from Disney Later purchased/licensed <span class=\"searchmatch\">programming</span>: Persons Unknown (as Неизвестные лица) since"
+"title": "GNSS software-defined receiver",
+"pageid": 30560888,
+"size": 14632,
+"wordcount": 1671,
+"timestamp": "2026-06-01T06:33:37Z",
+"snippet": "results stored in binary .mat files readable from MATLAB and Octave, and from <span class=\"searchmatch\">Python</span> via h5py. GRID, Generalized Radionavigation Interfusion Device General information:"
 },
 {
-"title": "List of bands named after other performers' songs",
-"pageid": 10933571,
-"size": 37098,
-"wordcount": 3905,
-"timestamp": "2026-05-30T04:07:34Z",
-"snippet": "Toad the Wet Sprocket, after a fictional band in a comedy sketch by Monty <span class=\"searchmatch\">Python</span> (which originally appeared on Rutland Weekend Television. Toys Went Berserk"
+"title": "Canadian Computing Competition",
+"pageid": 651328,
+"size": 7017,
+"wordcount": 722,
+"timestamp": "2026-03-11T01:11:23Z",
+"snippet": "Grader in the 2010s, supported <span class=\"searchmatch\">programming</span> languages have been limited to C, C++, Java, Pascal, Perl, PHP, and <span class=\"searchmatch\">Python</span> (2.x and 3.x). The CCC Online Grader"
 },
 {
-"title": "Storm Water Management Model",
-"pageid": 3429879,
-"size": 57840,
-"wordcount": 7235,
-"timestamp": "2026-05-31T06:46:03Z",
-"snippet": "Tryby, Michael; Wu, Jason J. X.; Mullapudi, Anirudh (2020). &quot;PySWMM: The <span class=\"searchmatch\">Python</span> Interface to the Stormwater Management Model (SWMM)&quot;. Journal of Open Source"
+"title": "Yellow-cheeked gibbon",
+"pageid": 9126720,
+"size": 6617,
+"wordcount": 629,
+"timestamp": "2026-05-30T19:54:28Z",
+"snippet": "the lower stories of the forest include leopards, clouded leopards, and <span class=\"searchmatch\">pythons</span>. Rawson, B.M.; Hoang, M.D.; Roos, C.; Van, N.T.; Nguyen, M.H. (2020). &quot;Nomascus"
 },
 {
-"title": "Scribes (software)",
-"pageid": 75177,
-"size": 4418,
-"wordcount": 343,
-"timestamp": "2025-11-18T05:13:26Z",
-"snippet": "0-or-later license. It was created by Lateef Alabi-Oki and <span class=\"searchmatch\">programmed</span> in <span class=\"searchmatch\">Python</span>. Scribes supports <span class=\"searchmatch\">Python</span> plugins, remote editing with FTP, SFTP, SSH, Samba,"
+"title": "Model Context Protocol",
+"pageid": 79706999,
+"size": 14013,
+"wordcount": 1230,
+"timestamp": "2026-06-26T08:43:10Z",
+"snippet": "protocol was released with software development kits (SDKs) in <span class=\"searchmatch\">programming</span> languages including <span class=\"searchmatch\">Python</span>, TypeScript, C# and Java and examples of MCP server implementations"
 },
 {
-"title": "List of Mikoyan-Gurevich MiG-21 variants",
-"pageid": 30688904,
-"size": 55926,
-"wordcount": 6031,
-"timestamp": "2026-05-04T03:54:59Z",
-"snippet": "guided munitions of eastern and western origin as well as R-60, R-73 and <span class=\"searchmatch\">Python</span> 3 air-to-air missiles. The LanceR B version is the trainer version, and"
+"title": "Scratch (programming language)",
+"pageid": 9236158,
+"size": 54343,
+"wordcount": 4990,
+"timestamp": "2026-06-26T15:47:23Z",
+"snippet": "creation of interesting <span class=\"searchmatch\">programs</span> is relatively easy, and skills learned can be applied to other <span class=\"searchmatch\">programming</span> languages such as <span class=\"searchmatch\">Python</span> and Java. Scratch is"
 },
 {
-"title": "Apache Thrift",
-"pageid": 10438451,
-"size": 10038,
-"wordcount": 773,
-"timestamp": "2026-05-06T22:08:32Z",
-"snippet": " Erlang, Go, Haskell, Java, JavaScript, Objective-C, OCaml, Perl, PHP, <span class=\"searchmatch\">Python</span>, Ruby, Elixir, Rust, Scala, Smalltalk, and Swift. The implementation was"
+"title": "Flowgorithm",
+"pageid": 43667043,
+"size": 7165,
+"wordcount": 510,
+"timestamp": "2026-04-26T06:25:00Z",
+"snippet": "and execute <span class=\"searchmatch\">programs</span> using flowcharts. The approach is designed to emphasize the algorithm rather than the syntax of a specific <span class=\"searchmatch\">programming</span> language. The"
 }
 ]
 }
