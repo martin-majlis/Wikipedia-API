@@ -269,6 +269,16 @@
 "language": "en",
 "ns": 0
 },
+"Antarctic ice sheet": {
+"title": "Antarctic ice sheet",
+"language": "en",
+"ns": 0
+},
+"Antarctic sea ice": {
+"title": "Antarctic sea ice",
+"language": "en",
+"ns": 0
+},
 "Antarctica": {
 "title": "Antarctica",
 "language": "en",
@@ -446,6 +456,11 @@
 },
 "Astronomy and Astrophysics": {
 "title": "Astronomy and Astrophysics",
+"language": "en",
+"ns": 0
+},
+"Asymptotic giant branch": {
+"title": "Asymptotic giant branch",
 "language": "en",
 "ns": 0
 },
@@ -991,6 +1006,11 @@
 },
 "Comet": {
 "title": "Comet",
+"language": "en",
+"ns": 0
+},
+"Compositing": {
+"title": "Compositing",
 "language": "en",
 "ns": 0
 },
@@ -5214,6 +5234,11 @@
 "language": "en",
 "ns": 0
 },
+"Southern Pacific": {
+"title": "Southern Pacific",
+"language": "en",
+"ns": 0
+},
 "Sovereign state": {
 "title": "Sovereign state",
 "language": "en",
@@ -5941,6 +5966,11 @@
 },
 "Vector Map": {
 "title": "Vector Map",
+"language": "en",
+"ns": 0
+},
+"Vegetation": {
+"title": "Vegetation",
 "language": "en",
 "ns": 0
 },
