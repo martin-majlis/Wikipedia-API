@@ -5,9 +5,9 @@ Python (Programmiersprache)
 R (Programmiersprache)
 JavaScript
 Ruby (Programmiersprache)
-Rust (Programmiersprache)
 Hybridsprache
-Wolfram Language
+Rust (Programmiersprache)
 Scratch (Programmiersprache)
-Tcl
+Wolfram Language
 Objektorientierte Programmierung
+Tcl

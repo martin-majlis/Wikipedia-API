@@ -331,6 +331,7 @@ Ancient astronauts
 Anderson Mesa Station
 Andrew Hollis
 Angioletta Coradini
+Angrite
 Angular diameter
 Antarctic sea ice
 Antarctica
@@ -454,6 +455,7 @@ Category:Solar System
 Category:Solar System dynamic theories
 Category:Triple trans-Neptunian objects
 Category:Uranus
+Category:Wikipedia semi-protected edit requests
 Cathy Olkin
 Centaur (small Solar System body)
 Centaurus (spacecraft)
@@ -615,6 +617,7 @@ Faint Object Camera
 Falconer Madan
 Falsion
 Family Portrait (Voyager)
+Fantasy Studios
 Faulkner Performing Arts Center
 Favorite Palace
 February 11
@@ -639,7 +642,6 @@ Flyby (spaceflight)
 Flywrench
 Focus (geometry)
 Formation and evolution of the Solar System
-Fran Bagenal
 Francesca E. DeMeo
 Frank K. Edmondson
 Fred Lawrence Whipple
@@ -853,6 +855,7 @@ Kirk (crater)
 Kitt Peak
 Kitt Peak National Observatory
 Knickerbocker Club
+Ko Arimatsu
 Kozai mechanism
 Krafft Arnold Ehricke
 Kraken Catena
@@ -1479,7 +1482,6 @@ Portal:Outer space/Selected article/30
 Portal:Outer space/Selected article/34
 Portal:Outer space/Selected article/39
 Portal:Outer space/Selected article/7
-Portal:Physics
 Portal:Physics/2012 Selected pictures
 Portal:Physics/News/Archive
 Portal:Physics/Selected images
@@ -1521,7 +1523,10 @@ Portal:Spaceflight/Spaceflight news/2014 archive
 Portal:Spaceflight/Spaceflight news/2015 archive
 Portal:Systems science/Article
 Portal:Systems science/Article/1
+Portal:United States/Anniversaries/All
 Portal:United States/Anniversaries/April/April 25
+Portal:United States/Anniversaries/February
+Portal:United States/Anniversaries/February/February 18
 Portal:United States/Anniversaries/February/February 28
 Portal:United States/Anniversaries/January/January 19
 Portal:United States/Anniversaries/March/March 13
@@ -1670,7 +1675,7 @@ TARDIS
 TAU (spacecraft)
 TON 618
 TRAPPIST
-Talk:(84522) 2002 TC302
+Talk:(84522) 2002 TC302/Archive 1
 Talk:134340 Pluto.
 Talk:1900 Atlantic hurricane season
 Talk:1900 Atlantic hurricane season/GA1
@@ -1965,6 +1970,8 @@ Template:Coord
 Template:Coord/doc
 Template:Coord/sandbox
 Template:Coord/testcases
+Template:Dashboard
+Template:Dashboard/sandbox
 Template:Did you know nominations/Alice Bowman
 Template:Did you know nominations/Climate zones on Pluto
 Template:Did you know nominations/History of Flagstaff, Arizona
@@ -2012,7 +2019,6 @@ Terrestrial planet
 Tethys (moon)
 The Amazing Race en Discovery Channel 1
 The Birdbot of Ice-Catraz
-The Borderland of Sol
 The Day After Tomorrow (TV special)
 The Exaggerated Death of Ultra Boy
 The Fairly OddParents season 4
@@ -2039,7 +2045,6 @@ The Stars: A New Way to See Them
 The Strange Encounter
 The Sun Makers
 The Superman/Aquaman Hour of Adventure
-The Tenth Planet
 The Underground Railroad (novel)
 The Unexplained (magazine)
 The Universe (TV series)
@@ -2129,6 +2134,7 @@ User talk:Awkwafaba/Archive 12
 User talk:BIL
 User talk:Bathrobe
 User talk:Beeblebrox/Archive 7
+User talk:Benison
 User talk:Bensci54/Archives/2010
 User talk:Bethy12
 User talk:Billiamkarr
@@ -2349,6 +2355,7 @@ User talk:Wonton
 User talk:Yann/archive 3
 User talk:YearsBeyondtheOceans
 User talk:Zereshk/Archive4
+User talk:Zpeopleheart/edge/147
 User talk:~2026-13727-05
 User talk:Švitrigaila
 User:- LeLo -
@@ -2359,6 +2366,7 @@ User:15lsoucy/Userboxes!!
 User:19jp87
 User:1c33y37
 User:22pandrew
+User:2NumForIce/Dashboard
 User:2wheelspecial/Books/Milky Way Galaxy and Beyond
 User:31Gallium
 User:3loodlust
@@ -2372,6 +2380,7 @@ User:94knux
 User:A. Emraan
 User:A. Emraan/sandbox
 User:A2569875/Fast Page/Astron..
+User:A2soup
 User:ADMcDonald
 User:AMP'd
 User:ANNAfoxlover/My Userboxes
@@ -2412,6 +2421,7 @@ User:Agmartin/sandbox
 User:Ahjwiki
 User:Ainlina/vandalist
 User:Akwdb
+User:Al83tito/Dashboard
 User:Alan.comek
 User:Alboluser
 User:Alcene
@@ -2438,6 +2448,7 @@ User:Alodnamra
 User:Alofferman
 User:Amadeus1928/Templates
 User:Amage9/sandbox
+User:Amakuru/sandbox
 User:AmandaWins
 User:AmberSalome
 User:Ambi Valent
@@ -2446,6 +2457,8 @@ User:Amechania/List of objects for a size comparison
 User:American2
 User:Amirber/Dwarf moons
 User:Ammonight423
+User:Amortias
+User:Amorymeltzer/dash
 User:Amzi
 User:Anaisfirewalkwithme
 User:Andante1980
@@ -2454,6 +2467,7 @@ User:Anderson
 User:Andieness
 User:Andreas Karsten
 User:Andrew Davidson/Challenges
+User:Andrew Davidson/Projects and Periodicals
 User:Andrewaskew/Books/Articles every Wikipedia should have
 User:Andrewaskew/Books/Articles every Wikipedia should have/Science
 User:Andreyyshore
@@ -2464,6 +2478,9 @@ User:AngelLeVyette/Books/ObjectsBeyondPluto
 User:Animllover11
 User:Annatto/Sandbox/Tuesday
 User:Anne Arden
+User:Anne drew
+User:AnomieBOT/Edit requests table
+User:AnomieBOT/SPERTable
 User:Anonymous Jules Fan
 User:Ansariibrahim/Books/solar
 User:Aocom teh spritar
@@ -2492,6 +2509,7 @@ User:Arrogant Oriole
 User:Arthur Water
 User:Artsygeek/Books/Solar system
 User:AryKun/Challenges
+User:Ascendingrisingharmonising
 User:Ascraeus~enwiki
 User:Ashwanialok26/Books/Solar System
 User:Ashwinlr
@@ -2514,6 +2532,7 @@ User:AustDan91
 User:Autopilot37
 User:AutumnHornet/Guestbook
 User:Avalik
+User:Avicennasis/todo/cleanup
 User:Avsa/Books/Astronomy Book
 User:Awarasurya
 User:Axaj
@@ -2521,6 +2540,7 @@ User:Ayrton Prost/userboxes
 User:Azizkayihan/Clearing The Neighbourhood
 User:Azizkayihan/Trans-Neptunian Object
 User:B33k33per
+User:B33net/Sandbox2
 User:BM6
 User:Badgerfan17
 User:Bagpipeturtle
@@ -2528,10 +2548,12 @@ User:Bahamut0013/userboxes
 User:Bahaumaunt
 User:Bakasuprman/Archive3
 User:Banette
+User:Baqotun0023
 User:Barbarossa359
 User:Bardbom
 User:Bardic Gnome
 User:Bardoleg/sandbox/Bardoleg
+User:Barek/tools
 User:Barkly St End
 User:Barnards.tar.gz
 User:BartOlley
@@ -2556,6 +2578,7 @@ User:Benjamin Mako Hill/List of mnemonics I have trouble remembering
 User:Benjamin112
 User:Beodizia/Gemini Home Entertainment
 User:Bern7001/Books/Cosmic Key
+User:BerryForPerpetuity/Dashboard
 User:Bertou
 User:BetelMayet
 User:Betsi-HaP
@@ -2585,6 +2608,7 @@ User:Blagden
 User:Blubtheclio
 User:BlueSquadronRaven/Userboxes
 User:BlueSquadronRaven/Userboxes/PlanetPluto
+User:BlueStaticHorse/sandbox
 User:Blurredandfaded/Books/COSMIC HALMA FELLOWSHIP
 User:Blurredandfaded/Books/CosmicHalmaFellowship
 User:Blurredandfaded/Books/cosmicHalmaFellowship
@@ -2608,8 +2632,10 @@ User:Brainist/MeSH articles
 User:Brambleberry of RiverClan/The Odd Editor
 User:Brandonwamsley1
 User:Brandonwamsley1/sandbox
+User:Breawycker/sandbox
 User:BretonLim/sandbox
 User:Brianshapiro/Drafts/History of medicinal creosote
+User:Bsoyka/Dashboard
 User:Bubba73
 User:Bubbles02
 User:Buffs/Hydric Acid
@@ -2635,12 +2661,15 @@ User:CallMeVbuck/sandbox
 User:CalumetCitation
 User:Cambalachero/Watchlist
 User:CamelotRoses Backup 3.0
+User:Can I Log In
+User:Can I Log In/Dashboard
 User:Canadian/Profile
 User:CanadianCaesar/Articles for deletion/Pluto
 User:Candy-Panda
 User:Canned Frootloops
 User:CanonLawJunkie/Userboxes
 User:CanonLawJunkie/Userboxes/Archive
+User:CanonNi/To do
 User:Captain Almighty Nutz
 User:Captain Almighty Nutz/About me
 User:Captain Almighty Nutz/Archive 3
@@ -2705,10 +2734,10 @@ User:ClumsyOwlet
 User:Cmglee/2011
 User:Cmglee/HTML
 User:Cmglee/drawing
+User:Cnzx/editrequests
 User:Coal On Toast
 User:Cobaltbluetony/userboxes
 User:Coffeeandcrumbs/Selected anniversaries/April 25
-User:Coffeeandcrumbs/sandbox/Main Page 5
 User:Cogito ergo cogitati sunt
 User:Coinmanj
 User:Cold Phront
@@ -2741,8 +2770,10 @@ User:Craigboy/sandbox
 User:Crash Underride/userboxes
 User:Crawling
 User:Crazy Murdoc
+User:Crazymonkey1123/Edit Requests Charts
 User:Crazynas/verifiability rfc
 User:Crunchydillpickle/List of unusual anniversaries
+User:Crylophosaurus
 User:Cs007
 User:Csbisbee
 User:Cubbi
@@ -2789,6 +2820,7 @@ User:Darkavatar
 User:Darkelfpoet
 User:Darkfluxay
 User:DarklitShadow/Userboxes
+User:DarthFlappy
 User:DaryaB2003
 User:Dattebayo321/Userboxen..es?
 User:David Kernow/Known moons of the Solar System
@@ -2817,6 +2849,7 @@ User:Digdag88
 User:DigitalNinja
 User:Dingruogu/FA
 User:Dinnypaul
+User:Dinoguy1000/Cheatsheet
 User:Diriector Doc/sandbox/Archives/9.16.2019-2.11.2020
 User:DirkvdM
 User:DiscoLava
@@ -2922,6 +2955,7 @@ User:Faizking321/Infobox
 User:Falcon8765
 User:Farhan Tanvir 628/Books/Our Solar System
 User:Fastidipedia
+User:Fathoms Below/Dashboard
 User:FblthpTheLost/Gerard Kuiper
 User:Fbs. 13
 User:Fcs
@@ -2967,6 +3001,7 @@ User:Frijole
 User:Frijole/Userboxes
 User:Fruit Boy
 User:Funderburg
+User:Fuwa/Todo
 User:G.A.S
 User:GDubuc (WMF)/sandbox/leadsection-4
 User:GPFREEMAN/Books/Facts from Space
@@ -2988,6 +3023,7 @@ User:Georgeryall
 User:GetPossessed
 User:Ghostwar666/sandbox2
 User:Gidi70
+User:Gilderien
 User:Gilderien/Userpage
 User:Girla PurpleHeart
 User:Gisvlasta/Books/The Solar System
@@ -3004,6 +3040,7 @@ User:Goldione
 User:Gordon Ecker
 User:Graeme Bartlett/DYK hooks
 User:Gravelz
+User:Greedycell
 User:Gregbard
 User:Guanlongwucaii/Userboxes
 User:Guasti
@@ -3042,6 +3079,7 @@ User:Hatewind/userboxes
 User:Hawkeyegirl
 User:Haydenowensrulz
 User:Hayleyet
+User:Hazard-SJ/Wikipedia
 User:HeartbeatSoldier
 User:Heila Al-Mogren
 User:Heila Al-Mogren/userboxes
@@ -3050,7 +3088,6 @@ User:HerbHG/Books/Basic Astronomy
 User:Herenthere
 User:Hergust
 User:Hhamdy283
-User:HiDrNick/TFA blurbs
 User:Hidayisfriday
 User:HigherBlakey
 User:Hippopotenuse72/New sandbox
@@ -3066,6 +3103,7 @@ User:Hosseiniran
 User:HoustonDakota177
 User:Howard352
 User:Huda sa3eed
+User:HueSatLum/Resources
 User:Human3015
 User:HumanInterfaceDisorder/Books/Exoplanet Research
 User:HumanInterfaceDisorder/Books/Exoplanets
@@ -3074,6 +3112,7 @@ User:Hunterrepublicans
 User:Hurricane Devon/news
 User:Husond/Userboxes
 User:Hyakurei
+User:Hydriz
 User:HyperionGod/sandbox/Revised ASTRO
 User:Hz.tiang
 User:I am a Wikipedian
@@ -3123,6 +3162,7 @@ User:InonSharony
 User:Intelligent9876522
 User:Interstellar Tomas/sandbox
 User:InvaderXan/trash
+User:Invisible Guy/Request
 User:Io Wiki2007/Workshop
 User:Iona Anders
 User:Iph/Testboxes
@@ -3156,6 +3196,7 @@ User:JTtheOG/Challenges
 User:JWut89LA
 User:Ja 62
 User:JaGa
+User:Jack Frost/Dashboard
 User:JackFloridian
 User:JackPercival
 User:JackRoofman
@@ -3220,6 +3261,7 @@ User:Johnbeene/Books/The Solar System
 User:Johnmyster
 User:Johnny Pez/Early Foundation Timeline
 User:JohnnyBGood/Pluto
+User:JokerXtreme
 User:Jonaboff/UBX
 User:Jonathan Chone
 User:Jonathan321/Userboxes
@@ -3248,6 +3290,7 @@ User:Juzekxx02/sandbox
 User:Jvbishop
 User:Jxtor
 User:K50 Dude/Userboxes
+User:K6ka/Dashboard
 User:KC109
 User:KF87827
 User:KKH 09
@@ -3271,6 +3314,7 @@ User:KeroseneLover100/sandbox/sandbox
 User:Kevin co
 User:Kh93
 User:Khanassassin/sandbox/Articles to read
+User:Kharkiv07/Dashboard
 User:Kheider
 User:Kier07
 User:Killertu
@@ -3282,6 +3326,7 @@ User:Kinglou135
 User:Kingoftheworld134
 User:Kirakiwibug
 User:Kiraroshi1976
+User:Kirbanzo/dashboard
 User:Kirkmona
 User:Kirrydragons/Books/Astronomy Sweg
 User:Kithburd/Userboxes
@@ -3292,6 +3337,7 @@ User:Klipatov/subpage/NASA environmental record
 User:Kniye
 User:KnowledgeLord
 User:Knowledgeum
+User:Kodning/Dashboard
 User:Kolindigo
 User:Koolrock
 User:Koruyo
@@ -3310,6 +3356,8 @@ User:Kyu!
 User:L&Superfoo
 User:L3th4l/Userboxes
 User:LFCnicholas
+User:LIUCryu7/sandbox
+User:LJF2019/panel
 User:LJG81292
 User:LOLgoats
 User:LaPado
@@ -3349,6 +3397,8 @@ User:Lilhilya/Books/Astrologtrenty
 User:Lilhilya/Books/Astrology trent
 User:Lin Xiaopei/Userboxes
 User:Linus M./Userboxen
+User:Little Mountain 5
+User:Little Mountain 5/Miscellaneous
 User:Littleghostboo/Story
 User:Littleghostboo/Userboxes
 User:Livingdeaddolls/Userboxes
@@ -3373,6 +3423,7 @@ User:Lucho cl
 User:Lucien504
 User:Lukas6283
 User:Lunakeet
+User:LuniZunie/dashboard
 User:Luredreier
 User:Lvlnglafoftneatsteak
 User:Lyinseeker/Books/Planets
@@ -3386,11 +3437,13 @@ User:M79 specialist/userboxes
 User:MEWheatley
 User:MKV2
 User:MLatham
+User:MRD2014/Dashboard
 User:MSprotte62/Books/Pluto and its moons
 User:MSprotte62/Books/The Solar System
 User:MTG1989
 User:Maahmaah
 User:Mac41798
+User:MacCreator/Miscellaneous
 User:MacGyverMagic/Userboxes
 User:MacYoshary
 User:Machoilam2007
@@ -3442,6 +3495,7 @@ User:Meinsla/userboxes/pluto
 User:Mekmtl
 User:Melecie
 User:Melecie/April Fools/2024
+User:Melecie/sandbox
 User:Mendors
 User:Meow77
 User:Mercury543210
@@ -3465,7 +3519,9 @@ User:Miguelandres
 User:Mike s/Trans-Neptunian objects
 User:Miko3k
 User:Miniwikiuser
+User:Mint Keyphase/Dashboard
 User:Miraculousrandomness
+User:Mirek12
 User:MishaChan/userboxes
 User:Misscutie27
 User:Misscutie27/userboxen
@@ -3488,6 +3544,7 @@ User:Morwen elfling
 User:MostRecentUser
 User:Motomooda
 User:Mpprogram6771
+User:Mr. Guye/Dashboard
 User:Mr. UnderhiIl
 User:MrAstronomy101/Sandbox
 User:MrAstronomy101/Solar system Imaged objects
@@ -3508,6 +3565,8 @@ User:Muthumaxk/Books/The Knowledge 2
 User:My planet is Homlos/sandbox
 User:N W
 User:NBardy34
+User:NV1982/Discussions
+User:NV1982/userpagetab1
 User:Nahallac Silverwinds/ZLiang user page
 User:Nahallac Silverwinds/ZLiang user page/userbox misc
 User:Nahallac Silverwinds/phenom user boxes 2
@@ -3525,10 +3584,12 @@ User:NefariousPhD
 User:Nerd587
 User:NewbornCircle/TWA/Earth/2
 User:Newty23125
+User:NgocAnMaster/Dashboard
 User:Nhinds
 User:Nickrulercreator
 User:Nicktfx
 User:Nightmaj
+User:Nihlus/Toolbox
 User:Nikki4982
 User:Nimrodor
 User:Nincubus99x
@@ -3675,6 +3736,7 @@ User:Prototyperspective/sandbox
 User:Pryaltonian
 User:Pseudolus42
 User:Psilo9
+User:Psiĥedelisto/dashboard
 User:Ptparatroopa
 User:Puissant001
 User:Pulsar.co.nr/Userboxes
@@ -3689,6 +3751,7 @@ User:QN/tamrin
 User:Qrstw
 User:RP88/Images
 User:RSSTRATFORD
+User:RacoonyRE/Dashboard
 User:Radioheadhst
 User:Radman622
 User:Radstyke
@@ -3752,7 +3815,6 @@ User:Rico1234
 User:Rider80000
 User:Right Side 1342/sandbox
 User:Rishirulestheworld
-User:Rjd0060/DAL
 User:Rkeysone
 User:Rnelson
 User:Road2Ohio
@@ -3790,6 +3852,7 @@ User:SDZeroBot/Featured articles
 User:SDZeroBot/Featured articles: maindate2
 User:SEJAMc
 User:SKTH
+User:SOF03EE/sandbox
 User:SQL/FA-Ores
 User:Saber girl08/userboxen
 User:SadanYagci/Main:Userboxes
@@ -3814,7 +3877,6 @@ User:Sandmouse/userboxes
 User:Sanja Simat
 User:Santhosh06udaya/Books/Universe
 User:Sapienyia
-User:Sapphaline/sandbox
 User:Sapphaline/ub
 User:Sarah chocoholic93/Userboxen
 User:Saraid
@@ -3825,6 +3887,7 @@ User:Sarindam7
 User:Sarregouset
 User:Saukkomies/My userboxes
 User:Savie Kumara
+User:Sayoxime
 User:Sbvn
 User:Sceadwefax
 User:Scheet vin/Books/sktencyclopedia
@@ -3866,7 +3929,6 @@ User:SethAllen623/Vital articles/Science
 User:Sf46
 User:Sgarza
 User:Shanejez/sandbox1
-User:Shaw Street/sandbox
 User:SherlockHolmesFerghana
 User:Shermoo
 User:Shiftchange/My favourite templates
@@ -3905,6 +3967,7 @@ User:Sldempster/Books/Solar System
 User:Sleddog116/Positions
 User:SlimJim/VandalismLog
 User:SlyEcho
+User:Sm8900/Discussions
 User:Smaha.mark/Books/The Sky
 User:SmallCheez
 User:Smart30
@@ -3927,6 +3990,7 @@ User:Somebody500/MyUserboxes
 User:Someguy1221
 User:Somerandomd00d
 User:Sonachowdhary4
+User:Sonia/dashboard
 User:SonicBoom95
 User:Sonu Jaglan/Books/The Solar System: Planets, Moons and Rings
 User:Sophiakorichi
@@ -3993,6 +4057,7 @@ User:TParis/Featured Article By Length
 User:Tailsic/Sandbox
 User:Talk2chun
 User:TangoWhiskeyDelta
+User:Taroaldo
 User:Tarrows
 User:Taskforce 58
 User:Tatello/Books/Journey through the Solar System
@@ -4007,6 +4072,7 @@ User:Telecineguy/sandbox
 User:Tenchi Muyo
 User:Teomat~enwiki
 User:Terathe
+User:TerraCodes/dashboard
 User:Textangel/Userboxes
 User:Thaimodz
 User:Thanover5
@@ -4069,6 +4135,7 @@ User:Timclare/mySandbox
 User:Timelordlilytennant
 User:Tirethminet/userboxes
 User:Todeskaefer
+User:Tollens/Dashboard
 User:Tom.Reding
 User:Tom.Reding/Articles in Category:Astronomy (2/2)
 User:Tom.Reding/Pages in Category:Astronomy (2/2)
@@ -4093,6 +4160,7 @@ User:Toothless99
 User:Torojima~enwiki
 User:Torris
 User:Toughpigs/Draft:Mickey Mouse watch
+User:Tow/Dashboard
 User:Towerc
 User:Traal
 User:Transcendency
@@ -4102,11 +4170,13 @@ User:Travis Jaico R/Sample page
 User:Travisezell/Books/PlanetsAndSpace
 User:Trdsf/Userbox
 User:Trdsf/Userbox/PlutoNoIAUNo
+User:Trevor MacInnis/admin
 User:Triboi/draft1
 User:Triscuitster/Books/Astronomy
 User:Trisweb
 User:Truncatedcone
 User:Tuddy600/Books/Tudor's book about the Universe
+User:Tumbuka Arch/Resources
 User:TungstenWolfram
 User:Turfel
 User:Tuvas
@@ -4133,12 +4203,13 @@ User:Urion8/userboxes
 User:UsagiEriko
 User:Useight/Userboxes
 User:User226
-User:Valjean/Planets orbital speed
 User:Valleybox
+User:Valorrr/Dashboard
 User:Van Nooz
 User:Vancemiller
 User:Vanillian/sandbox/Vanillian
 User:Vanished user 674827203/Books/Solar System
+User:VarunFEB2003/Dashboard
 User:Vastly Lynn
 User:Vastly Lynn/sandbox
 User:Vastly Lynn/userboxes
@@ -4161,7 +4232,6 @@ User:Viper1265
 User:Vir/sandbox/core topic levels
 User:Vir/sandbox/core topic levels qaud
 User:VisLock/Books/The Solar System
-User:Voice of Clam/mainlinks
 User:Volker89
 User:Vreddy92
 User:W1k13rh3nry
@@ -4185,6 +4255,7 @@ User:Wavylips/Books/waunk
 User:Wavylips/Books/wuzzlen
 User:Waylesange/Books/Featured Articles
 User:Wbm1058/Redirects from Wikipedia to mainspace
+User:Web-julio
 User:Wee Curry Monster/elephant
 User:Weebiloobil/Userboxes
 User:Wer900
@@ -4220,7 +4291,6 @@ User:Xasviper2k8
 User:XatuNatu
 User:Xavierdreyman/Books/Astronomy Reference
 User:Xavierdreyman/Books/Investigation Readings
-User:XbruhingX
 User:Xenon54/Sandbox
 User:XeroxKleenex
 User:Xession/Draft3
@@ -4265,6 +4335,8 @@ User:ZelconWillowmen
 User:Zelink546
 User:Zemant
 User:Zemant from Supernova
+User:Zerbu/Dashboard
+User:ZfJames/dashboard
 User:Zimbabwe is Mine/Userboxes/Pluto
 User:Zotel/Books/KindleWiki 10.10
 User:Zotel/Books/KindleWiki 10.10 a
@@ -4275,6 +4347,7 @@ User:Zytron
 User:~NIC
 User:~NIC/Userboxes
 User:Éireann/archive/userboxes
+User:Δπ
 User:Ζεύς
 User:ԱշոտՏՆՂ/sandbox1
 User:موسا/Books/SolarSystem
@@ -4370,6 +4443,7 @@ Wikipedia talk:Vital articles/Archive 1
 Wikipedia talk:Vital articles/Archive 14
 Wikipedia talk:Vital articles/Archive 2
 Wikipedia talk:Vital articles/Level 4/Archive 51
+Wikipedia talk:Vital articles/Level 5/Science and mathematics
 Wikipedia talk:WikiProject Astronomical objects/Archive 10
 Wikipedia talk:WikiProject Astronomical objects/Archive 20
 Wikipedia talk:WikiProject Astronomical objects/Archive 25
@@ -4395,7 +4469,6 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
-Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1
@@ -4480,6 +4553,8 @@ Wikipedia:Categories for discussion/Log/2017 November 14
 Wikipedia:Categories for discussion/Log/2018 August 27
 Wikipedia:Categories for discussion/Log/2018 December 27
 Wikipedia:Core math, science and technology topics
+Wikipedia:Dashboard
+Wikipedia:Dashboard/Requested edits
 Wikipedia:Database reports/Atypical deletion log actions/4
 Wikipedia:Database reports/Featured articles by size
 Wikipedia:Database reports/Indefinitely semi-protected articles/3
@@ -4656,7 +4731,8 @@ Wikipedia:Main Page history/2024 April 18
 Wikipedia:Main Page history/2024 April 18b
 Wikipedia:Main Page history/2024 August 20
 Wikipedia:Main Page history/2024 August 20b
-Wikipedia:Main Page queue
+Wikipedia:Main Page history/2026 June 15
+Wikipedia:Main Page history/2026 June 15b
 Wikipedia:Miscellany for deletion/User:TenPoundHammer (4th nomination)
 Wikipedia:Most read articles in 2008
 Wikipedia:Most read articles in 2009
@@ -4816,6 +4892,7 @@ Wikipedia:Selected anniversaries/August 20
 Wikipedia:Selected anniversaries/August 24
 Wikipedia:Selected anniversaries/July 14
 Wikipedia:Selected anniversaries/June 22
+Wikipedia:Teahouse/Questions/Archive 1297
 Wikipedia:Templates for deletion/Log/2007 April 9
 Wikipedia:Templates for deletion/Log/2008 September 16
 Wikipedia:Templates for discussion/Log/2022 February 7
