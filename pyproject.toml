@@ -61,7 +61,7 @@ doc = [
 ]
 build = [
     "rst2html==2020.7.4",
-    "setuptools==82.0.1",
+    "setuptools==83.0.0",
     "twine>=6.2.0",
     "wheel==0.47.0",
 ]
