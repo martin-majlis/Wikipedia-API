@@ -614,6 +614,11 @@
 "language": "is",
 "url": "https://is.wikipedia.org/wiki/J%C3%B6r%C3%B0in"
 },
+"isv": {
+"title": "Zemja",
+"language": "isv",
+"url": "https://isv.wikipedia.org/wiki/Zemja"
+},
 "it": {
 "title": "Terra",
 "language": "it",
@@ -1405,9 +1410,9 @@
 "url": "https://to.wikipedia.org/wiki/M%C4%81mani_(palanite)"
 },
 "tok": {
-"title": "sike ma",
+"title": "mun Tеla",
 "language": "tok",
-"url": "https://tok.wikipedia.org/wiki/sike_ma"
+"url": "https://tok.wikipedia.org/wiki/mun_T%D0%B5la"
 },
 "tpi": {
 "title": "Giraun",

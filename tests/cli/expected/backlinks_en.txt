@@ -7,8 +7,6 @@
 (120178) 2003 OP32
 (120216) 2004 EW95
 (120348) 2004 TY364
-(126154) 2001 YH140
-(126155) 2001 YJ140
 (134340)
 (134340) 1930 BM
 (134340) Pluto
@@ -30,7 +28,6 @@
 (15875) 1996 TP66
 (163348) 2002 NN4
 (181708) 1993 FW
-(181902) 1999 RD215
 (182294) 2001 KU76
 (19255) 1994 VK8
 (19308) 1996 TO66
@@ -310,6 +307,7 @@
 A Glastonbury Romance
 AIDA (international space cooperation)
 ASTER (spacecraft)
+Achelous (crater)
 Active asteroid
 Adlivun Cavus
 Adriana Ocampo
@@ -331,6 +329,7 @@ Ancient astronauts
 Anderson Mesa Station
 Andrew Hollis
 Angioletta Coradini
+Angrite
 Angular diameter
 Antarctic sea ice
 Antarctica
@@ -445,6 +444,7 @@ Category:Moons of Saturn
 Category:Moons of Uranus
 Category:Named minor planets
 Category:Neptune
+Category:Neptune-crossing asteroids
 Category:Planetary rings
 Category:Planets of the Solar System
 Category:Pluto
@@ -557,9 +557,11 @@ Doppler spectroscopy
 Dorothy (Charonian crater)
 Double Asteroid Redirection Test
 Double planet
+Draft:174567 Varda
 Draft:184314 Mbabamwanawaresa
-Draft:BBY-01 Yamato (fictional spacecraft)
 Draft:Brillante
+Draft:Minnie's Midnight Massacre (2026 horror film)
+Draft:William M. Grundy
 Dragonaut: The Resonance
 Drakon (novel)
 Duncan Lunan
@@ -615,6 +617,7 @@ Faint Object Camera
 Falconer Madan
 Falsion
 Family Portrait (Voyager)
+Fantasy Studios
 Faulkner Performing Arts Center
 Favorite Palace
 February 11
@@ -639,7 +642,6 @@ Flyby (spaceflight)
 Flywrench
 Focus (geometry)
 Formation and evolution of the Solar System
-Fran Bagenal
 Francesca E. DeMeo
 Frank K. Edmondson
 Fred Lawrence Whipple
@@ -853,6 +855,7 @@ Kirk (crater)
 Kitt Peak
 Kitt Peak National Observatory
 Knickerbocker Club
+Ko Arimatsu
 Kozai mechanism
 Krafft Arnold Ehricke
 Kraken Catena
@@ -981,7 +984,6 @@ List of largest lakes and seas in the Solar System
 List of largest rifts, canyons and valleys in the Solar System
 List of long-period comets
 List of lunar features
-List of minor planets
 List of minor planets and comets visited by spacecraft
 List of minor planets named after people
 List of minor-planet groups
@@ -1039,6 +1041,7 @@ List of unnumbered trans-Neptunian objects: 2023
 List of unnumbered trans-Neptunian objects: 2025
 List of works influenced by the Cthulhu Mythos
 Lists of geological features of the Solar System
+Lists of minor planets
 Lists of planets
 Local Bubble
 Local Interstellar Cloud
@@ -1275,6 +1278,7 @@ Philae (spacecraft)
 Phobos (moon)
 Phobos monolith
 Phoebe (moon)
+Phoenix Cluster
 Photographic plate
 Physical characteristics of Pluto
 Pi Herculis
@@ -1323,7 +1327,7 @@ Pluto (TNO)
 Pluto (astronomy)
 Pluto (disambiguation)
 Pluto (dwarf planet)
-Pluto (mythology)
+Pluto (god)
 Pluto (not a planet)
 Pluto (planet)
 Pluto (planetoid)
@@ -1479,7 +1483,6 @@ Portal:Outer space/Selected article/30
 Portal:Outer space/Selected article/34
 Portal:Outer space/Selected article/39
 Portal:Outer space/Selected article/7
-Portal:Physics
 Portal:Physics/2012 Selected pictures
 Portal:Physics/News/Archive
 Portal:Physics/Selected images
@@ -1500,9 +1503,11 @@ Portal:Solar System/Selected article/27
 Portal:Solar System/Selected picture
 Portal:Solar System/Solar System topics
 Portal:Solar System/Solar System topics/imagebox
+Portal:Somerset
 Portal:Somerset/Did you know
 Portal:Somerset/Did you know/2
 Portal:Somerset/Nominate/Did you know
+Portal:Spaceflight
 Portal:Spaceflight/Did you know
 Portal:Spaceflight/Did you know/2008 Fortnight 1
 Portal:Spaceflight/Did you know/2008 Fortnight 2
@@ -1521,7 +1526,10 @@ Portal:Spaceflight/Spaceflight news/2014 archive
 Portal:Spaceflight/Spaceflight news/2015 archive
 Portal:Systems science/Article
 Portal:Systems science/Article/1
+Portal:United States/Anniversaries/All
 Portal:United States/Anniversaries/April/April 25
+Portal:United States/Anniversaries/February
+Portal:United States/Anniversaries/February/February 18
 Portal:United States/Anniversaries/February/February 28
 Portal:United States/Anniversaries/January/January 19
 Portal:United States/Anniversaries/March/March 13
@@ -1603,6 +1611,7 @@ Seth Barnes Nicholson
 Seven rays
 Sharaf Regio
 Shensuo
+Shu (crater)
 Shut Up! Cartoons
 Sidney Sheinberg
 Sino-Vietnamese vocabulary
@@ -1670,7 +1679,7 @@ TARDIS
 TAU (spacecraft)
 TON 618
 TRAPPIST
-Talk:(84522) 2002 TC302
+Talk:(84522) 2002 TC302/Archive 1
 Talk:134340 Pluto.
 Talk:1900 Atlantic hurricane season
 Talk:1900 Atlantic hurricane season/GA1
@@ -1863,7 +1872,7 @@ Talk:Planets in astrology
 Talk:Pluto
 Talk:Pluto (Disney)/Archive 1
 Talk:Pluto (disambiguation)
-Talk:Pluto (mythology)/Archive 1
+Talk:Pluto (god)/Archive 1
 Talk:Pluto in fiction
 Talk:Pluto/Archive 1
 Talk:Pluto/Archive 2
@@ -1873,7 +1882,6 @@ Talk:Pluto/Archive 5
 Talk:Pluto/Archive 6
 Talk:Pluto/Archive 7
 Talk:Pluto/Archive 8
-Talk:Pluto/Archive 9
 Talk:Plutonium/Archive 2
 Talk:Plutonium/Archive 3
 Talk:Plymouth/Archive 2
@@ -1999,7 +2007,6 @@ Template:Surface features of space objects
 Template:Surface features of space objects/sandbox
 Template:Surface features of space objects/testcases
 Template:Synodic periods
-Template:TFA archive
 Template:TNO imagemap
 Template:Trans-Neptunian objects navbox
 Template:Trans-Neptunian objects navbox/sandbox
@@ -2012,7 +2019,6 @@ Terrestrial planet
 Tethys (moon)
 The Amazing Race en Discovery Channel 1
 The Birdbot of Ice-Catraz
-The Borderland of Sol
 The Day After Tomorrow (TV special)
 The Exaggerated Death of Ultra Boy
 The Fairly OddParents season 4
@@ -2039,7 +2045,6 @@ The Stars: A New Way to See Them
 The Strange Encounter
 The Sun Makers
 The Superman/Aquaman Hour of Adventure
-The Tenth Planet
 The Underground Railroad (novel)
 The Unexplained (magazine)
 The Universe (TV series)
@@ -2362,6 +2367,7 @@ User:22pandrew
 User:2wheelspecial/Books/Milky Way Galaxy and Beyond
 User:31Gallium
 User:3loodlust
+User:4bs7r4c73d
 User:4me689/collage gallery with descriptions
 User:4myself4/UB
 User:595Greece/sandbox
@@ -2521,6 +2527,7 @@ User:Ayrton Prost/userboxes
 User:Azizkayihan/Clearing The Neighbourhood
 User:Azizkayihan/Trans-Neptunian Object
 User:B33k33per
+User:B33net/Sandbox2
 User:BM6
 User:Badgerfan17
 User:Bagpipeturtle
@@ -2528,6 +2535,7 @@ User:Bahamut0013/userboxes
 User:Bahaumaunt
 User:Bakasuprman/Archive3
 User:Banette
+User:Baqotun0023
 User:Barbarossa359
 User:Bardbom
 User:Bardic Gnome
@@ -2708,7 +2716,6 @@ User:Cmglee/drawing
 User:Coal On Toast
 User:Cobaltbluetony/userboxes
 User:Coffeeandcrumbs/Selected anniversaries/April 25
-User:Coffeeandcrumbs/sandbox/Main Page 5
 User:Cogito ergo cogitati sunt
 User:Coinmanj
 User:Cold Phront
@@ -2716,6 +2723,7 @@ User:ColdFire
 User:Colinmartin74/Books/Dwarf Planets Of The Solar System & Their Satellites
 User:ComaDivine
 User:Combatcoffee
+User:CometNebulaLuna/sandbox
 User:Cominion
 User:CommanderWiki35
 User:Commons is in a thing
@@ -2743,6 +2751,7 @@ User:Crawling
 User:Crazy Murdoc
 User:Crazynas/verifiability rfc
 User:Crunchydillpickle/List of unusual anniversaries
+User:Crylophosaurus
 User:Cs007
 User:Csbisbee
 User:Cubbi
@@ -2950,7 +2959,6 @@ User:Forestfufighting/userbox/pluto
 User:Fortunia
 User:Fotaun
 User:Fox/generatestats
-User:Fox/sandbox
 User:Foxtrot620
 User:Foysal02/Books/Research
 User:Francisco Smith
@@ -2988,6 +2996,7 @@ User:Georgeryall
 User:GetPossessed
 User:Ghostwar666/sandbox2
 User:Gidi70
+User:Gilderien
 User:Gilderien/Userpage
 User:Girla PurpleHeart
 User:Gisvlasta/Books/The Solar System
@@ -3050,7 +3059,6 @@ User:HerbHG/Books/Basic Astronomy
 User:Herenthere
 User:Hergust
 User:Hhamdy283
-User:HiDrNick/TFA blurbs
 User:Hidayisfriday
 User:HigherBlakey
 User:Hippopotenuse72/New sandbox
@@ -3105,7 +3113,6 @@ User:Imagine Wizard
 User:Imasleepviking/Userboxes
 User:Imperator3733/Userboxes/Other
 User:Imthewinner
-User:In Transit
 User:InMooseWeTrust/Reading lists/Solar system
 User:InaVegt
 User:InchOz
@@ -3298,6 +3305,7 @@ User:Koruyo
 User:Kotepho/sand
 User:Koustav Chatterjee
 User:Koyuki267
+User:Kristos
 User:Krowe
 User:Kudret abi/Sandbox/Sandbox7
 User:Kuitang
@@ -3489,6 +3497,7 @@ User:MostRecentUser
 User:Motomooda
 User:Mpprogram6771
 User:Mr. UnderhiIl
+User:Mr.Oliverrr
 User:MrAstronomy101/Sandbox
 User:MrAstronomy101/Solar system Imaged objects
 User:MrRogersLovesYou
@@ -3712,6 +3721,7 @@ User:Raya 85
 User:Raybob95/Books/solar system
 User:Rbatts2000
 User:Rdfox 76
+User:Realmik
 User:RedAndr
 User:Redacted II/userboxes
 User:Redmarkviolinist/Userboxes
@@ -3752,7 +3762,6 @@ User:Rico1234
 User:Rider80000
 User:Right Side 1342/sandbox
 User:Rishirulestheworld
-User:Rjd0060/DAL
 User:Rkeysone
 User:Rnelson
 User:Road2Ohio
@@ -3786,10 +3795,12 @@ User:Ryanho0001
 User:S MD AMJAD/Books/solar system
 User:S-man/Userboxes
 User:SANTABABES
+User:SDZeroBot/AfD grid
 User:SDZeroBot/Featured articles
 User:SDZeroBot/Featured articles: maindate2
 User:SEJAMc
 User:SKTH
+User:SOF03EE/sandbox
 User:SQL/FA-Ores
 User:Saber girl08/userboxen
 User:SadanYagci/Main:Userboxes
@@ -3814,7 +3825,6 @@ User:Sandmouse/userboxes
 User:Sanja Simat
 User:Santhosh06udaya/Books/Universe
 User:Sapienyia
-User:Sapphaline/sandbox
 User:Sapphaline/ub
 User:Sarah chocoholic93/Userboxen
 User:Saraid
@@ -3825,6 +3835,7 @@ User:Sarindam7
 User:Sarregouset
 User:Saukkomies/My userboxes
 User:Savie Kumara
+User:Sayoxime
 User:Sbvn
 User:Sceadwefax
 User:Scheet vin/Books/sktencyclopedia
@@ -3866,7 +3877,6 @@ User:SethAllen623/Vital articles/Science
 User:Sf46
 User:Sgarza
 User:Shanejez/sandbox1
-User:Shaw Street/sandbox
 User:SherlockHolmesFerghana
 User:Shermoo
 User:Shiftchange/My favourite templates
@@ -4133,7 +4143,6 @@ User:Urion8/userboxes
 User:UsagiEriko
 User:Useight/Userboxes
 User:User226
-User:Valjean/Planets orbital speed
 User:Valleybox
 User:Van Nooz
 User:Vancemiller
@@ -4161,7 +4170,6 @@ User:Viper1265
 User:Vir/sandbox/core topic levels
 User:Vir/sandbox/core topic levels qaud
 User:VisLock/Books/The Solar System
-User:Voice of Clam/mainlinks
 User:Volker89
 User:Vreddy92
 User:W1k13rh3nry
@@ -4220,7 +4228,6 @@ User:Xasviper2k8
 User:XatuNatu
 User:Xavierdreyman/Books/Astronomy Reference
 User:Xavierdreyman/Books/Investigation Readings
-User:XbruhingX
 User:Xenon54/Sandbox
 User:XeroxKleenex
 User:Xession/Draft3
@@ -4351,12 +4358,12 @@ Wikipedia talk:Naming conventions (astronomical objects)/Archive 1
 Wikipedia talk:Naming conventions (astronomical objects)/Archive 2
 Wikipedia talk:Naming conventions (common names)/Archive 3
 Wikipedia talk:Neutral point of view/Archive 52
+Wikipedia talk:No original research
 Wikipedia talk:No original research/Archive 51
 Wikipedia talk:Reference desk/Guidelines/Archive 2
 Wikipedia talk:Requests for arbitration/Highways 2/Proposed decision
 Wikipedia talk:Selected anniversaries/August 20
 Wikipedia talk:Selected anniversaries/January 5
-Wikipedia talk:Selected anniversaries/June 15
 Wikipedia talk:Selected anniversaries/March 19
 Wikipedia talk:Special:MostRevisions
 Wikipedia talk:Spoiler warning/Guideline status2
@@ -4370,6 +4377,7 @@ Wikipedia talk:Vital articles/Archive 1
 Wikipedia talk:Vital articles/Archive 14
 Wikipedia talk:Vital articles/Archive 2
 Wikipedia talk:Vital articles/Level 4/Archive 51
+Wikipedia talk:Vital articles/Level 5/Science and mathematics
 Wikipedia talk:WikiProject Astronomical objects/Archive 10
 Wikipedia talk:WikiProject Astronomical objects/Archive 20
 Wikipedia talk:WikiProject Astronomical objects/Archive 25
@@ -4468,7 +4476,6 @@ Wikipedia:Articles for deletion/Super Galaxy
 Wikipedia:Articles for deletion/Uranian
 Wikipedia:Bilorv's Challenges
 Wikipedia:Bots/Requests for approval/OAbot
-Wikipedia:CHECKWIKI/WPC 085 dump
 Wikipedia:Categories for deletion/Log/2006 August 24
 Wikipedia:Categories for discussion/Log/2010 August 24
 Wikipedia:Categories for discussion/Log/2010 February 1
@@ -4656,7 +4663,8 @@ Wikipedia:Main Page history/2024 April 18
 Wikipedia:Main Page history/2024 April 18b
 Wikipedia:Main Page history/2024 August 20
 Wikipedia:Main Page history/2024 August 20b
-Wikipedia:Main Page queue
+Wikipedia:Main Page history/2026 June 15
+Wikipedia:Main Page history/2026 June 15b
 Wikipedia:Miscellany for deletion/User:TenPoundHammer (4th nomination)
 Wikipedia:Most read articles in 2008
 Wikipedia:Most read articles in 2009
@@ -4816,6 +4824,7 @@ Wikipedia:Selected anniversaries/August 20
 Wikipedia:Selected anniversaries/August 24
 Wikipedia:Selected anniversaries/July 14
 Wikipedia:Selected anniversaries/June 22
+Wikipedia:Teahouse/Questions/Archive 1297
 Wikipedia:Templates for deletion/Log/2007 April 9
 Wikipedia:Templates for deletion/Log/2008 September 16
 Wikipedia:Templates for discussion/Log/2022 February 7
