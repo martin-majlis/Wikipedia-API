@@ -1,85 +1,85 @@
 {
-"totalhits": 6087,
+"totalhits": 6114,
 "pages": [
 {
-"title": "David Broncano",
-"pageid": 56573512,
-"size": 22405,
-"wordcount": 1951,
-"timestamp": "2026-04-12T07:14:05Z",
-"snippet": "radio and television. His main comedic influences include the series Monty <span class=\"searchmatch\">Python&#039;s</span> Flying Circus and La hora chanante. He was an amateur football player in"
+"title": "Centre for Applied Nonviolent Action and Strategies",
+"pageid": 39700144,
+"size": 39890,
+"wordcount": 3780,
+"timestamp": "2026-06-17T11:06:40Z",
+"snippet": "an array of tactics, from slogans and chants to rock concerts and Monty <span class=\"searchmatch\">Python</span> street humour, to galvanise the Serbian population against Milosevic. Otpor"
 },
 {
-"title": "Typeof",
-"pageid": 18529481,
-"size": 11024,
-"wordcount": 1130,
-"timestamp": "2026-05-10T14:39:49Z",
-"snippet": "operator provided by several <span class=\"searchmatch\">programming</span> languages to determine the data type of a variable. This is useful when constructing <span class=\"searchmatch\">programs</span> that must accept multiple"
+"title": "Marburg virus disease",
+"pageid": 58743,
+"size": 89903,
+"wordcount": 7603,
+"timestamp": "2026-06-27T19:38:36Z",
+"snippet": "the Environment reported that a 41-year-old Dutch woman, who had visited <span class=\"searchmatch\">Python</span> Cave in Maramagambo Forest during her holiday in Uganda, had MVD due to"
 },
 {
-"title": "Knitr",
-"pageid": 38393230,
-"size": 5040,
-"wordcount": 445,
-"timestamp": "2025-01-08T06:56:11Z",
-"snippet": "on RPubs), caching, TikZ graphics and support to other languages such as <span class=\"searchmatch\">Python</span>, Perl, C++, Shell scripts and CoffeeScript, and so on. knitr is officially"
+"title": "Bundaberg",
+"pageid": 72817,
+"size": 97113,
+"wordcount": 8662,
+"timestamp": "2026-07-16T00:58:19Z",
+"snippet": "competition. Teams are:[citation needed] Waves Falcons Wests Barbarians East <span class=\"searchmatch\">Pythons</span> Brothers Turtles Hervey Bay Mariners The Bundaberg Soccer Football Association"
 },
 {
-"title": "MeVisLab",
-"pageid": 29560230,
-"size": 28613,
-"wordcount": 2850,
-"timestamp": "2026-05-31T01:14:07Z",
-"snippet": "to Qt is implemented via <span class=\"searchmatch\">Python</span>Qt. For image processing via <span class=\"searchmatch\">Python</span>, NumPy is available. Object-oriented <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> in MeVisLab is possible. Integrated"
+"title": "GNUmed",
+"pageid": 5418830,
+"size": 5767,
+"wordcount": 537,
+"timestamp": "2025-12-28T12:29:57Z",
+"snippet": "Gnu as a reference to the GNU project accompanied by a <span class=\"searchmatch\">Python</span> as a reference to the <span class=\"searchmatch\">programming</span> language as well as to the medical profession. At the time"
 },
 {
-"title": "REN TV",
-"pageid": 4984439,
-"size": 250721,
-"wordcount": 20254,
-"timestamp": "2026-05-06T18:46:21Z",
-"snippet": "Секретные материалы) Jetix, children&#039;s adventure <span class=\"searchmatch\">programming</span> from Disney Later purchased/licensed <span class=\"searchmatch\">programming</span>: Persons Unknown (as Неизвестные лица) since"
+"title": "69 Squadron (Israel)",
+"pageid": 2728345,
+"size": 47440,
+"wordcount": 6165,
+"timestamp": "2026-04-05T00:01:37Z",
+"snippet": "Fighting Falcon. The squadron was the first IAF squadron to introduce Rafael&#039;s <span class=\"searchmatch\">Python</span> 3 into service in March 1977. Air-to-air training continued and on December"
 },
 {
-"title": "List of bands named after other performers' songs",
-"pageid": 10933571,
-"size": 37098,
-"wordcount": 3905,
-"timestamp": "2026-05-30T04:07:34Z",
-"snippet": "Toad the Wet Sprocket, after a fictional band in a comedy sketch by Monty <span class=\"searchmatch\">Python</span> (which originally appeared on Rutland Weekend Television. Toys Went Berserk"
+"title": "Comparison of Texas Instruments graphing calculators",
+"pageid": 11703336,
+"size": 15450,
+"wordcount": 258,
+"timestamp": "2026-07-13T23:47:03Z",
+"snippet": " Retrieved 2020-02-08. &quot;Ti-Planet-Micropython&quot;. tiplanet.org. Retrieved 2023-03-02. &quot;<span class=\"searchmatch\">Programming</span>-in-<span class=\"searchmatch\">Python</span>&quot;. education.ti.com. Retrieved 2020-08-30."
 },
 {
-"title": "Storm Water Management Model",
-"pageid": 3429879,
-"size": 57840,
-"wordcount": 7235,
-"timestamp": "2026-05-31T06:46:03Z",
-"snippet": "Tryby, Michael; Wu, Jason J. X.; Mullapudi, Anirudh (2020). &quot;PySWMM: The <span class=\"searchmatch\">Python</span> Interface to the Stormwater Management Model (SWMM)&quot;. Journal of Open Source"
+"title": "MATE (desktop environment)",
+"pageid": 33965757,
+"size": 19322,
+"wordcount": 1354,
+"timestamp": "2026-07-17T01:43:06Z",
+"snippet": "got increased to 3.22. The MATE 1.22 release migrated many <span class=\"searchmatch\">programs</span> from <span class=\"searchmatch\">Python</span> 2 to <span class=\"searchmatch\">Python</span> 3 and from dbus-glib to GDBus. In an upcoming version, support"
 },
 {
-"title": "Scribes (software)",
-"pageid": 75177,
-"size": 4418,
-"wordcount": 343,
-"timestamp": "2025-11-18T05:13:26Z",
-"snippet": "0-or-later license. It was created by Lateef Alabi-Oki and <span class=\"searchmatch\">programmed</span> in <span class=\"searchmatch\">Python</span>. Scribes supports <span class=\"searchmatch\">Python</span> plugins, remote editing with FTP, SFTP, SSH, Samba,"
+"title": "Mehran Sahami",
+"pageid": 24967857,
+"size": 6727,
+"wordcount": 536,
+"timestamp": "2026-01-29T18:12:58Z",
+"snippet": "Jennifer (2022), &quot;Should the AP Computer Science A Exam Switch to Using <span class=\"searchmatch\">Python</span>?&quot;, Proceedings of the 53rd ACM Technical Symposium on Computer Science Education"
 },
 {
-"title": "List of Mikoyan-Gurevich MiG-21 variants",
-"pageid": 30688904,
-"size": 55926,
-"wordcount": 6031,
-"timestamp": "2026-05-04T03:54:59Z",
-"snippet": "guided munitions of eastern and western origin as well as R-60, R-73 and <span class=\"searchmatch\">Python</span> 3 air-to-air missiles. The LanceR B version is the trainer version, and"
+"title": "FastAPI",
+"pageid": 65756731,
+"size": 9604,
+"wordcount": 921,
+"timestamp": "2026-02-05T09:39:26Z",
+"snippet": "Tornado (web server) Comparison of server-side web frameworks § <span class=\"searchmatch\">Python</span> REST <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language) Official website fastapi on GitHub &quot;fastapi repo&quot;"
 },
 {
-"title": "Apache Thrift",
-"pageid": 10438451,
-"size": 10038,
-"wordcount": 773,
-"timestamp": "2026-05-06T22:08:32Z",
-"snippet": " Erlang, Go, Haskell, Java, JavaScript, Objective-C, OCaml, Perl, PHP, <span class=\"searchmatch\">Python</span>, Ruby, Elixir, Rust, Scala, Smalltalk, and Swift. The implementation was"
+"title": "Changes: You Got a Prom Wit Dat?",
+"pageid": 4290660,
+"size": 22104,
+"wordcount": 2426,
+"timestamp": "2026-07-21T17:46:59Z",
+"snippet": "drama parody version of the cops coming in to break up a Monty <span class=\"searchmatch\">Python</span> sketch [in Monty <span class=\"searchmatch\">Python</span> and the Holy Grail…] the most cliffhangery cliffhanger, where"
 }
 ]
 }
