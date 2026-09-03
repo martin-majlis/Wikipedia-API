@@ -1588,14 +1588,14 @@ dev = [
     { name = "pytest", specifier = "==9.1.1" },
     { name = "pytest-asyncio", specifier = "==1.4.0" },
     { name = "pytest-cov", specifier = "==7.1.0" },
-    { name = "pytest-recording", specifier = ">=0.13.2" },
+    { name = "pytest-recording", specifier = "==0.13.4" },
     { name = "pyupgrade", specifier = "==3.21.2" },
     { name = "respx", specifier = "==0.23.1" },
-    { name = "ruff", specifier = ">=0.11.0" },
+    { name = "ruff", specifier = "==0.15.20" },
     { name = "tox", specifier = "==4.56.1" },
     { name = "ty", specifier = "==0.0.27" },
     { name = "types-setuptools", specifier = "==82.0.0.20260518" },
-    { name = "vcrpy", specifier = ">=6.0.0" },
+    { name = "vcrpy", specifier = "==8.2.1" },
 ]
 doc = [{ name = "sphinx", marker = "python_full_version >= '3.12'", specifier = "==9.1.0" }]
 testing = [
