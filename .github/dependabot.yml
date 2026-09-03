@@ -13,3 +13,9 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    groups:
+      # Keep the codeql-action sub-actions (init/autobuild/analyze) on the
+      # same version so they never drift apart and break the Analyze job.
+      codeql-action:
+        patterns:
+          - "github/codeql-action*"
