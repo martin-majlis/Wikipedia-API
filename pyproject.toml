@@ -54,7 +54,6 @@ dev = [
     "types-setuptools==82.0.0.20260518",
     "pytest-recording>=0.13.2",
     "vcrpy>=6.0.0",
-    "ty>=0.0.27",
 ]
 doc = [
     "sphinx==9.1.0; python_version >= '3.12'",
@@ -62,7 +61,7 @@ doc = [
 build = [
     "rst2html==2020.7.4",
     "setuptools==82.0.1",
-    "twine>=6.2.0",
+    "twine==7.0.0",
     "wheel==0.47.0",
 ]
 testing = [
