@@ -62,7 +62,7 @@ build = [
     "rst2html==2020.7.4",
     "setuptools==82.0.1",
     "twine==7.0.0",
-    "wheel==0.47.0",
+    "wheel==0.48.0",
 ]
 testing = [
     "anyio[trio]==4.14.2",
