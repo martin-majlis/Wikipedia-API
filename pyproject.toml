@@ -43,7 +43,7 @@ dev = [
     "ruff==0.15.20",
     "ty==0.0.27",
     "pre-commit==4.6.0",
-    "pygments==2.20.0",
+    "pygments==2.21.0",
     "pyupgrade==3.21.2",
     "pytest==9.1.1",
     "pytest-asyncio==1.4.0",
