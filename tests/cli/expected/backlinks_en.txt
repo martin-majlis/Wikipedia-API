@@ -7,8 +7,6 @@
 (120178) 2003 OP32
 (120216) 2004 EW95
 (120348) 2004 TY364
-(126154) 2001 YH140
-(126155) 2001 YJ140
 (134340)
 (134340) 1930 BM
 (134340) Pluto
@@ -25,12 +23,10 @@
 (15788) 1993 SB
 (15789) 1993 SC
 (15807) 1994 GV9
-(15820) 1994 TB
 (15874) 1996 TL66
 (15875) 1996 TP66
 (163348) 2002 NN4
 (181708) 1993 FW
-(181902) 1999 RD215
 (182294) 2001 KU76
 (19255) 1994 VK8
 (19308) 1996 TO66
@@ -214,6 +210,7 @@
 2013 FQ28
 2013 FS28
 2013 FT28
+2013 ND15
 2013 RF98
 2013 UH15
 2013 in science
@@ -250,6 +247,7 @@
 2018 AG37
 2018 VG18
 2018 in science
+2019 UO14
 2020 VN40
 2021 RR205
 2021 in Ireland
@@ -310,6 +308,9 @@
 A Glastonbury Romance
 AIDA (international space cooperation)
 ASTER (spacecraft)
+Accretion (astrophysics)
+Accretion disk
+Achelous (crater)
 Active asteroid
 Adlivun Cavus
 Adriana Ocampo
@@ -323,17 +324,21 @@ Alice (spacecraft instrument)
 Alice Bowman
 Alien Legacy
 Alpha Centauri
+Alternative versions of Batman
 American Ephemeris and Nautical Almanac
 American Gothic
 American Name Society
 Ammonia
+Amor asteroid
 Ancient astronauts
 Anderson Mesa Station
 Andrew Hollis
 Angioletta Coradini
+Angrite
 Angular diameter
 Antarctic sea ice
 Antarctica
+Apollo asteroid
 Apparent magnitude
 Apparent retrograde motion
 Application of silicon-germanium thermoelectrics in space exploration
@@ -354,7 +359,9 @@ Asteroid 134340
 Asteroid Pluto
 Asteroid Redirect Mission
 Asteroid belt
+Asteroid family
 Asteroid mining
+Asteroid spectral types
 Asteroids in fiction
 AstroSat
 Astrograph
@@ -371,7 +378,9 @@ Astronomical symbols
 Astronomy
 Astronomy on Mercury
 Atec
+Aten asteroid
 Athena (asteroid spacecraft)
+Atira asteroid
 Atlas V
 Atmosphere
 Atmosphere of Pluto
@@ -445,6 +454,7 @@ Category:Moons of Saturn
 Category:Moons of Uranus
 Category:Named minor planets
 Category:Neptune
+Category:Neptune-crossing asteroids
 Category:Planetary rings
 Category:Planets of the Solar System
 Category:Pluto
@@ -474,8 +484,13 @@ Chemical cycling
 Chemical symbol
 Chicken Invaders
 Chimera (spacecraft)
+Chiron (hypothetical moon)
 Christopher Glein
+Chrysalis (hypothetical moon)
 Circle of latitude
+Circumplanetary disk
+Circumstellar disc
+Circumstellar envelope
 Claimed moons of Earth
 Classical Kuiper belt object
 Classical planet
@@ -486,6 +501,7 @@ Clementine (spacecraft)
 Clementine 2
 Climate of Pluto
 Clyde Tombaugh
+Co-orbital configuration
 Coatlicue (star)
 Coleta de Dados Colles
 Collis (planetary nomenclature)
@@ -506,9 +522,11 @@ Conjunction (astronomy)
 Contronym
 Controversy over the discovery of Haumea
 Coronal mass ejection
+Cosmic dust
 Cosmos (serial novel)
 Cosmos 1
 Cosmos and Psyche
+Counter-Earth
 Cowboy Bebop (2021 TV series)
 Craig Chester (astronomer)
 Cristina Dalle Ore
@@ -520,10 +538,12 @@ Cultural influence of Holst's The Planets
 Current sheet
 DC League of Super-Pets
 DESTINY+
+Damocloid
 Damon Simonelli
 Dance Dance Revolution SuperNova
 Daniel Sarokon
 Daniel Vovak
+Dark comet
 David C. Jewitt
 David H. Levy
 David L. Rabinowitz
@@ -531,6 +551,7 @@ David Morrison (astrophysicist)
 Dawn (spacecraft)
 Day
 Deaths in April 2009
+Debris disk
 Deep Impact (spacecraft)
 Deep Space 1
 Deep space exploration
@@ -543,6 +564,7 @@ Detached object
 Digital Access to a Sky Century @ Harvard
 Digital elevation model
 Dinsmore Alter
+Dione (moon)
 Direct Fusion Drive
 Discovery and exploration of the Solar System
 Discovery image
@@ -550,6 +572,8 @@ Discovery of (134340) Pluto
 Discovery of 134340 Pluto
 Discovery of Neptune
 Disney comics
+Disrupted planet
+Distant minor planet
 Djang'kawu
 Domicile (astrology)
 Don Quijote (spacecraft)
@@ -557,9 +581,12 @@ Doppler spectroscopy
 Dorothy (Charonian crater)
 Double Asteroid Redirection Test
 Double planet
+Draft:174567 Varda
 Draft:184314 Mbabamwanawaresa
-Draft:BBY-01 Yamato (fictional spacecraft)
 Draft:Brillante
+Draft:Hangorer Kanna
+Draft:Minnie's Midnight Massacre (2026 horror film)
+Draft:William M. Grundy
 Dragonaut: The Resonance
 Drakon (novel)
 Duncan Lunan
@@ -583,6 +610,7 @@ Elara (moon)
 Elizabeth Langdon Williams
 Elon Musk's Tesla Roadster
 Elongation (astronomy)
+Enceladus
 Energetic neutral atom
 Enterprise (NX-01)
 Eris (dwarf planet)
@@ -595,6 +623,7 @@ European Southern Observatory
 Evaporative cooler
 Exo-Pluto
 Exoasteroid
+Exozodiacal dust
 Exploration of Io
 Exploration of Jupiter
 Exploration of Mars
@@ -605,9 +634,12 @@ Exploration of Saturn
 Exploration of Uranus
 Exploration of dwarf planets
 Exploration of the Moon
+Extinct comet
 Extraterrestrial atmosphere
 Extraterrestrial life
 Extraterrestrial liquid water
+Extraterrestrial materials
+Extraterrestrial sample curation
 Extraterrestrial sky
 Extreme trans-Neptunian object
 Fade to Black (video game)
@@ -615,6 +647,7 @@ Faint Object Camera
 Falconer Madan
 Falsion
 Family Portrait (Voyager)
+Fantasy Studios
 Faulkner Performing Arts Center
 Favorite Palace
 February 11
@@ -639,12 +672,12 @@ Flyby (spaceflight)
 Flywrench
 Focus (geometry)
 Formation and evolution of the Solar System
-Fran Bagenal
 Francesca E. DeMeo
 Frank K. Edmondson
 Fred Lawrence Whipple
 Frederick C. Leonard
 Frost
+Frost line (astrophysics)
 Full Circle (Doctor Who)
 G-force
 GJ 1132
@@ -673,6 +706,7 @@ Geophysical definition of planet
 George Forbes (scientist)
 Gerard Kuiper
 Giant planet
+Giant-impact hypothesis
 Giants (series)
 Giotto (spacecraft)
 Glacier
@@ -684,8 +718,11 @@ Godzilla: Monster of Monsters!
 Gonggong (dwarf planet)
 Gonzalo Tancredi
 Grand Tour program
+Grand tack hypothesis
 Gravitational acceleration
+Gravitational collapse
 Gravity assist
+Great comet
 Guardians of the Galaxy (1969 team)
 Gundam Build Divers Re:Rise
 Gyruss
@@ -725,6 +762,8 @@ Hayabusa
 Hayabusa Mk2
 Hayabusa Terra
 Hayabusa2
+Heart symbol
+Heliosphere
 Help talk:Citation Style 1/Archive 4
 Help talk:Citation Style 1/Archive 7
 Henry Throop
@@ -748,6 +787,7 @@ History of Solar System formation and evolution hypotheses
 History of Wikipedia
 History of the United States (1991–2016)
 History of the University of Kansas
+Hiʻiaka (moon)
 Hohmann transfer orbit
 Hong Kong Space Museum
 Horizons: Exploring the Universe
@@ -760,12 +800,14 @@ Human spaceflight
 Human spaceflight programs
 Hun-Came Macula
 Hydra (moon)
+Hyperion (moon)
 Hypothetical moon of Mercury
 Hōei Nojiri
 I've Got a Secret
 IAU definition of planet
 IRS targeting controversy
 Ian P. Griffin
+Iapetus (moon)
 Ice giant
 Ice planet
 Icehenge
@@ -774,8 +816,12 @@ Idaho National Laboratory
 Ilmarë
 Inferior and superior planets
 International Cometary Explorer
+Interplanetary dust cloud
+Interplanetary medium
 Interplanetary spaceflight
 Interstellar Probe (spacecraft)
+Interstellar cloud
+Interstellar medium
 Invariable plane
 Io (moon)
 Ionosphere
@@ -850,9 +896,10 @@ Kerbal Space Program
 Kerberos (moon)
 KinetX
 Kirk (crater)
-Kitt Peak
+Kirkwood gap
 Kitt Peak National Observatory
 Knickerbocker Club
+Ko Arimatsu
 Kozai mechanism
 Krafft Arnold Ehricke
 Kraken Catena
@@ -865,8 +912,10 @@ LISA Pathfinder
 La Silla Observatory
 LaSalle County, Illinois
 Laboratory for Atmospheric and Space Physics
+Lagrange point
 Laniakea Supercluster
 Las Cruces, New Mexico
+Late Heavy Bombardment
 Lego Rock Raiders
 Leif Erland Andersson
 Leuschner Observatory
@@ -885,27 +934,34 @@ List of Bionic Six episodes
 List of Charlie and the Chocolate Factory characters
 List of Codename: Kids Next Door episodes
 List of Cornell University faculty
+List of Earth-crossing asteroids
 List of German Americans
 List of Google Easter eggs
 List of Greek place names
 List of Guardians of the Galaxy members
 List of Hard Quiz episodes
 List of Hugo video games
+List of Jupiter trojans (Greek camp)
+List of Jupiter trojans (Trojan camp)
+List of Jupiter-crossing minor planets
 List of Launch Services Program launches
+List of Mars-crossing minor planets
 List of MeSH codes (H01)
+List of Mercury-crossing minor planets
 List of NASA missions
 List of Naked Science episodes
 List of National Geographic cover stories (2010s)
-List of Neptune-crossing minor planets
 List of New Horizons topics
 List of New Mexico State University people
 List of Northern Arizona University alumni
 List of Ready Jet Go! episodes
+List of Rick and Morty characters
 List of Robotech characters
 List of Sabrina the Teenage Witch episodes
 List of Schoolhouse Rock! episodes
 List of Solar System extremes
 List of Solar System objects
+List of Solar System objects by greatest aphelion
 List of Solar System objects by size
 List of Solar System objects most distant from the Sun
 List of Solar System probes
@@ -914,6 +970,7 @@ List of The Colbert Report episodes (2005–06)
 List of Ultraman Tiga characters
 List of Unitarians, Universalists, and Unitarian Universalists
 List of University of Kansas people
+List of Venus-crossing minor planets
 List of active Solar System probes
 List of adjectivals and demonyms of astronomical bodies
 List of agnostics
@@ -938,6 +995,7 @@ List of craters on minor planets
 List of craters on the Moon
 List of crewed spacecraft
 List of dystopian TV programs
+List of exceptional asteroids
 List of extrasolar candidates for liquid water
 List of extraterrestrial dune fields
 List of extraterrestrial volcanoes
@@ -981,7 +1039,6 @@ List of largest lakes and seas in the Solar System
 List of largest rifts, canyons and valleys in the Solar System
 List of long-period comets
 List of lunar features
-List of minor planets
 List of minor planets and comets visited by spacecraft
 List of minor planets named after people
 List of minor-planet groups
@@ -1039,6 +1096,7 @@ List of unnumbered trans-Neptunian objects: 2023
 List of unnumbered trans-Neptunian objects: 2025
 List of works influenced by the Cthulhu Mythos
 Lists of geological features of the Solar System
+Lists of minor planets
 Lists of planets
 Local Bubble
 Local Interstellar Cloud
@@ -1056,6 +1114,7 @@ Lucy Lawless
 Luna Linea
 Lunar IceCube
 Lunar and Planetary Institute
+Lunar resources
 Lyapunov time
 M-Argo
 MANTIS (spacecraft)
@@ -1085,6 +1144,7 @@ Mars Polaris
 Mars carbonate catastrophe
 Mars in culture
 Mars jar
+Mars trojan
 May 18
 Meanings of minor-planet names
 Meanings of minor-planet names: 1001–2000
@@ -1148,6 +1208,7 @@ Mickey Mouse Clubhouse+
 Micrometeorite
 Mills Observatory
 Milton L. Humason
+Mimas
 Minden
 Minerva (disambiguation)
 Miniature inertial measurement unit
@@ -1159,12 +1220,15 @@ Minor-planet designation
 Minor-planet moon
 Minute and second of arc
 Miracle's Are Real
+Miranda (moon)
 Miscellaneous Symbols
+Molecular cloud
 Mongolian cosmogony
 Mongoose-V
 Montshire Museum of Science
 Moon
 Moon craters with Japanese names
+Moonlet
 Moons of Haumea
 Moons of Jupiter
 Moons of Mars
@@ -1186,6 +1250,7 @@ NASA Deep Space Network
 NASA Solar Technology Application Readiness
 NEAR Shoemaker
 NGC 2423-3
+Namaka (moon)
 Name conflicts in astronomy
 Naming of chemical elements
 Naming of moons
@@ -1193,12 +1258,15 @@ Nasreddin (crater)
 Natural satellite
 Near-Earth Asteroid Scout
 Near-Earth object
+Nebular hypothesis
 Neil deGrasse Tyson
+Neith (hypothetical moon)
 Nemesis (hypothetical star)
 Neptune
 Neptune All Night
 Neptune Odyssey
 Neptune trojan
+Nereid (moon)
 Neverland Regio
 New Frontiers program
 New Horizons
@@ -1209,6 +1277,7 @@ Nexus: The Jupiter Incident
 Niantic, Inc.
 Nibiru cataclysm
 Nice 2 model
+Nice model
 Nicholas U. Mayall
 Nicholas U. Mayall Telescope
 Nine Views
@@ -1219,6 +1288,7 @@ Noah Brosch
 OGLE-2005-BLG-390L
 OKEANOS
 OSIRIS-REx
+Oberon (moon)
 Observational astronomy
 Observations and explorations of Venus
 Occultation
@@ -1247,7 +1317,9 @@ Organa (crater)
 Orion Nebula
 Orrery
 Oscar's Orchestra
+Outer space
 Outline of astronomy
+Outline of space exploration
 Outline of the Solar System
 Owen Gingerich
 P
@@ -1308,8 +1380,10 @@ Planetary science
 Planetary series
 Planetary surface
 Planetary symbols
+Planetary system
 Planetary-mass moon
 Planetary-mass object
+Planetesimal
 Planets beyond Neptune
 Planets in astrology
 Planetshine
@@ -1323,7 +1397,7 @@ Pluto (TNO)
 Pluto (astronomy)
 Pluto (disambiguation)
 Pluto (dwarf planet)
-Pluto (mythology)
+Pluto (god)
 Pluto (not a planet)
 Pluto (planet)
 Pluto (planetoid)
@@ -1479,7 +1553,6 @@ Portal:Outer space/Selected article/30
 Portal:Outer space/Selected article/34
 Portal:Outer space/Selected article/39
 Portal:Outer space/Selected article/7
-Portal:Physics
 Portal:Physics/2012 Selected pictures
 Portal:Physics/News/Archive
 Portal:Physics/Selected images
@@ -1521,7 +1594,10 @@ Portal:Spaceflight/Spaceflight news/2014 archive
 Portal:Spaceflight/Spaceflight news/2015 archive
 Portal:Systems science/Article
 Portal:Systems science/Article/1
+Portal:United States/Anniversaries/All
 Portal:United States/Anniversaries/April/April 25
+Portal:United States/Anniversaries/February
+Portal:United States/Anniversaries/February/February 18
 Portal:United States/Anniversaries/February/February 28
 Portal:United States/Anniversaries/January/January 19
 Portal:United States/Anniversaries/March/March 13
@@ -1537,7 +1613,9 @@ Primary body
 Prime meridian
 Princeton field-reversed configuration
 Project Vanguard
+Proteus (moon)
 Protoplanet
+Protoplanetary disk
 Provisional designation in astronomy
 Psyche (spacecraft)
 Q & A (novel)
@@ -1559,12 +1637,16 @@ Resonance
 Resonant trans-Neptunian object
 Resplendent
 Retrograde and prograde motion
+Rhea (moon)
 Richard P. Binzel
 Rick and Morty season 1
 Ring system
 Rings of Chariklo
 Rings of Earth
+Rings of Jupiter
+Rings of Neptune
 Rings of Rhea
+Rings of Saturn
 Rings of Uranus
 Robert Sutton Harrington
 Robin (character)
@@ -1580,6 +1662,7 @@ Rosetta (spacecraft)
 Rotation
 Rotation period (astronomy)
 Roughnecks: Starship Troopers Chronicles
+Rubble pile
 Russia
 S/2015 (136472) 1
 S5 0014+81
@@ -1588,6 +1671,7 @@ SWAP (New Horizons)
 Safe mode in spacecraft
 Safronov Regio
 Sakigake
+Sample-return mission
 Satellite system (astronomy)
 Satis (spacecraft)
 Saturn
@@ -1603,6 +1687,7 @@ Seth Barnes Nicholson
 Seven rays
 Sharaf Regio
 Shensuo
+Shu (crater)
 Shut Up! Cartoons
 Sidney Sheinberg
 Sino-Vietnamese vocabulary
@@ -1631,6 +1716,7 @@ Space burial
 Space colonization
 Space elevator
 Space exploration
+Space probe
 Space research
 Space station
 Space's Deepest Secrets
@@ -1646,6 +1732,7 @@ Stanley Kubrick
 Star (rocket stage)
 Star 48
 Star Blazers: Space Battleship Yamato 2199
+Star formation
 Stardome Observatory
 Stardust (spacecraft)
 Stargazing Live
@@ -1660,17 +1747,19 @@ Strip the Cosmos
 Styx (moon)
 Sub-Earth
 Submillimeter Array
+Subsatellite
 Suisei (spacecraft)
 Sun
 Sunlight
 Surface gravity
 Sweden Solar System
 Synchronous orbit
+Syzygy (astronomy)
 TARDIS
 TAU (spacecraft)
 TON 618
 TRAPPIST
-Talk:(84522) 2002 TC302
+Talk:(84522) 2002 TC302/Archive 1
 Talk:134340 Pluto.
 Talk:1900 Atlantic hurricane season
 Talk:1900 Atlantic hurricane season/GA1
@@ -1801,7 +1890,6 @@ Talk:Kosovo/Archive 15
 Talk:Kuiper belt/Archive 1
 Talk:Kuiper belt/Archive 2
 Talk:Lensman series
-Talk:List of Neptune-crossing minor planets
 Talk:List of Solar System objects by mass
 Talk:List of Solar System objects by size/Archive 1
 Talk:List of Tamil flags
@@ -1823,7 +1911,7 @@ Talk:Mercury (planet)/Archive 2
 Talk:Mesoplanet
 Talk:Milky Way/Archive 3
 Talk:Minor-planet designation
-Talk:Minor-planet moon
+Talk:Minor-planet moon/Archive 1
 Talk:Moldovan language/Archive 11
 Talk:Moon/Archive 10
 Talk:Moon/Archive 16
@@ -1863,7 +1951,7 @@ Talk:Planets in astrology
 Talk:Pluto
 Talk:Pluto (Disney)/Archive 1
 Talk:Pluto (disambiguation)
-Talk:Pluto (mythology)/Archive 1
+Talk:Pluto (god)/Archive 1
 Talk:Pluto in fiction
 Talk:Pluto/Archive 1
 Talk:Pluto/Archive 2
@@ -1873,7 +1961,6 @@ Talk:Pluto/Archive 5
 Talk:Pluto/Archive 6
 Talk:Pluto/Archive 7
 Talk:Pluto/Archive 8
-Talk:Pluto/Archive 9
 Talk:Plutonium/Archive 2
 Talk:Plutonium/Archive 3
 Talk:Plymouth/Archive 2
@@ -1908,6 +1995,7 @@ Talk:Solar System/Archive 2
 Talk:Solar System/Archive 3
 Talk:Solid nitrogen
 Talk:Somerset Space Walk
+Talk:Southwest Research Institute
 Talk:Space probe
 Talk:Sport bike
 Talk:Sun/German translation
@@ -1948,8 +2036,8 @@ Template talk:Did you know nominations/Wright Mons
 Template talk:Dwarf planet link
 Template talk:Dwarf planets
 Template talk:Geological range
-Template talk:Infobox planet
 Template talk:Infobox planet/Archive 1
+Template talk:Infobox planet/Archive 12
 Template talk:Moons of dwarf planets
 Template talk:Sister project links/Archive 1
 Template talk:Solar System
@@ -1984,10 +2072,14 @@ Template:Infobox planetary system/testcases
 Template:Infobox plutonium
 Template:List of chemical elements
 Template:New Horizons
+Template:POTD part doc
+Template:POTD protected/2026-09-02
+Template:POTD random
 Template:POTD/2007-06-11
 Template:POTD/2014-12-12
 Template:POTD/2018-07-14
 Template:POTD/2023-10-27
+Template:POTD/2026-09-02
 Template:Plain navboxes/testcases
 Template:Planets orbital eccentricities
 Template:Pluto
@@ -1999,7 +2091,6 @@ Template:Surface features of space objects
 Template:Surface features of space objects/sandbox
 Template:Surface features of space objects/testcases
 Template:Synodic periods
-Template:TFA archive
 Template:TNO imagemap
 Template:Trans-Neptunian objects navbox
 Template:Trans-Neptunian objects navbox/sandbox
@@ -2012,7 +2103,6 @@ Terrestrial planet
 Tethys (moon)
 The Amazing Race en Discovery Channel 1
 The Birdbot of Ice-Catraz
-The Borderland of Sol
 The Day After Tomorrow (TV special)
 The Exaggerated Death of Ultra Boy
 The Fairly OddParents season 4
@@ -2039,7 +2129,6 @@ The Stars: A New Way to See Them
 The Strange Encounter
 The Sun Makers
 The Superman/Aquaman Hour of Adventure
-The Tenth Planet
 The Underground Railroad (novel)
 The Unexplained (magazine)
 The Universe (TV series)
@@ -2052,6 +2141,7 @@ The Whisperer in Darkness
 The Whisperer in Darkness (film)
 The planet Pluto
 Theia (hypothetical planet)
+Themis (hypothetical moon)
 Theoxenia (festival)
 Tholin
 Thongalen
@@ -2090,6 +2180,7 @@ Tyche (hypothetical planet)
 U.S. Route 66 in Arizona
 US 708
 Ulysses (spacecraft)
+Umbriel
 Uncertainty parameter
 Uncle John's Bathroom Reader
 Uncrewed spacecraft
@@ -2101,6 +2192,7 @@ Universe: The Definitive Visual Guide
 Upsilon Andromedae
 Upsilon Andromedae c
 Uranus
+Uranus trojan
 Uruguay names in space
 User talk:138.163.0.41
 User talk:168.10.192.5/archive1
@@ -2120,15 +2212,19 @@ User talk:A2soup
 User talk:Aaron Schulz/Archive6
 User talk:Alex Bakharev/Archive9
 User talk:Ali mcmc
+User talk:AniMate
+User talk:Antonioatrylia
 User talk:Apaleutos25
 User talk:Apc123
 User talk:Archola/3
 User talk:Arsia Mons
 User talk:Asterion/Archive 9
+User talk:Awilley
 User talk:Awkwafaba/Archive 12
 User talk:BIL
 User talk:Bathrobe
 User talk:Beeblebrox/Archive 7
+User talk:BenAveling
 User talk:Bensci54/Archives/2010
 User talk:Bethy12
 User talk:Billiamkarr
@@ -2175,6 +2271,7 @@ User talk:Drbogdan/Archive 5
 User talk:Dweller/Archive2010
 User talk:EdChem/Archive 9
 User talk:Egizm0
+User talk:Ellin Beltz
 User talk:Eric
 User talk:Erynnwasloved
 User talk:Eva Grossjean
@@ -2185,6 +2282,7 @@ User talk:Firsfron/Archive 8
 User talk:FlightTime/Archive 15
 User talk:Fortuna imperatrix mundi/Archive 8
 User talk:Fotaun
+User talk:Fred Bauder
 User talk:Freedom1234
 User talk:Frinkus
 User talk:Frog luva96
@@ -2214,6 +2312,7 @@ User talk:Jcpag2010
 User talk:Jcpag2012
 User talk:Jellyman1129
 User talk:Jimbo Wales/Archive 160
+User talk:JoJan
 User talk:John of Reading/Archive 15
 User talk:Johnnyboi89
 User talk:JorisvS/Archive5
@@ -2243,6 +2342,7 @@ User talk:Mspear
 User talk:Nabs2597
 User talk:Nealmcb
 User talk:Nergaal/Archive 5
+User talk:Netsnipe
 User talk:Ninjanich
 User talk:Nishanigreen
 User talk:Nitrobutane
@@ -2306,6 +2406,7 @@ User talk:Stephan Schulz/Archive 1
 User talk:Steve erwIN
 User talk:Stewader
 User talk:StuRat/archive5
+User talk:Sunborn
 User talk:Supercool Dude
 User talk:Tarret/Archive 1
 User talk:TestPilot
@@ -2313,6 +2414,7 @@ User talk:The Dancing Badger/archive3
 User talk:The Uncyclopedian/archive2
 User talk:The rakish fellow
 User talk:TheAustinMan/November 2011–October 2013
+User talk:TheEagle107
 User talk:TheXuitts
 User talk:Theindigowombat
 User talk:Theyoyoyo
@@ -2323,6 +2425,7 @@ User talk:Titch46
 User talk:Tom.Reding/Archive 1
 User talk:Tom.Reding/Archive 2
 User talk:TomPhil/archive3
+User talk:TomStar81/sandbox
 User talk:TransNique
 User talk:Tryagain711
 User talk:TupacisGod
@@ -2358,10 +2461,13 @@ User:07 Matthew
 User:15lsoucy/Userboxes!!
 User:19jp87
 User:1c33y37
+User:2086j
 User:22pandrew
+User:23W/SGA
 User:2wheelspecial/Books/Milky Way Galaxy and Beyond
 User:31Gallium
 User:3loodlust
+User:4bs7r4c73d
 User:4me689/collage gallery with descriptions
 User:4myself4/UB
 User:595Greece/sandbox
@@ -2376,6 +2482,7 @@ User:ADMcDonald
 User:AMP'd
 User:ANNAfoxlover/My Userboxes
 User:ARSNL
+User:ARandomSaxton
 User:ATR-100
 User:Aang-kai
 User:Aarmiccan/Books/ACC Encyclopedia
@@ -2411,6 +2518,7 @@ User:Aghaene
 User:Agmartin/sandbox
 User:Ahjwiki
 User:Ainlina/vandalist
+User:Akaza/Challenges
 User:Akwdb
 User:Alan.comek
 User:Alboluser
@@ -2436,6 +2544,7 @@ User:Allixpeeke/places
 User:Allmightyduck (usurped)
 User:Alodnamra
 User:Alofferman
+User:Alokprasad84
 User:Amadeus1928/Templates
 User:Amage9/sandbox
 User:AmandaWins
@@ -2484,6 +2593,7 @@ User:Arctic Fox/UBX/User Page
 User:Arcyqwerty/userpage
 User:Arenafoot
 User:Ariothegreat
+User:Arjuno3
 User:Arkamesh/Books/Astronomy
 User:ArkianNWM
 User:Armbrust/Userboxes - Science
@@ -2491,6 +2601,7 @@ User:ArnoldJudasRimmer
 User:Arrogant Oriole
 User:Arthur Water
 User:Artsygeek/Books/Solar system
+User:Arunram/Billboard
 User:AryKun/Challenges
 User:Ascraeus~enwiki
 User:Ashwanialok26/Books/Solar System
@@ -2527,7 +2638,9 @@ User:Bagpipeturtle
 User:Bahamut0013/userboxes
 User:Bahaumaunt
 User:Bakasuprman/Archive3
+User:Baked
 User:Banette
+User:Baqotun0023
 User:Barbarossa359
 User:Bardbom
 User:Bardic Gnome
@@ -2539,6 +2652,11 @@ User:Bass fishing physicist
 User:Bass fishing physicist/Userboxes
 User:BassxForte
 User:Batchelor
+User:Bawolff/Edit COI Summary/10 per page (newest first)/29
+User:Bawolff/Edit COI Summary/15 per page/34
+User:Bawolff/Edit COI Summary/20 per page/25
+User:Bawolff/Edit COI Summary/25 per page/20
+User:Bawolff/Edit COI Summary/50
 User:Bayerischermann
 User:Bduke
 User:BeFriendlyGoodSir
@@ -2554,6 +2672,7 @@ User:Bellagio99
 User:Bellahdoll
 User:Benjamin Mako Hill/List of mnemonics I have trouble remembering
 User:Benjamin112
+User:Bentogoa
 User:Beodizia/Gemini Home Entertainment
 User:Bern7001/Books/Cosmic Key
 User:Bertou
@@ -2564,6 +2683,7 @@ User:Bhree
 User:BigBrotherIsWatchingYou/Userboxes
 User:Billiot
 User:Bismuthdistrict
+User:Biteof57
 User:BitterMan/Blast pit
 User:Bizcayen
 User:Bka9/Books/A
@@ -2608,12 +2728,15 @@ User:Brainist/MeSH articles
 User:Brambleberry of RiverClan/The Odd Editor
 User:Brandonwamsley1
 User:Brandonwamsley1/sandbox
+User:Braunold
 User:BretonLim/sandbox
 User:Brianshapiro/Drafts/History of medicinal creosote
 User:Bubba73
 User:Bubbles02
 User:Buffs/Hydric Acid
+User:Bunty Pathak/footer
 User:Burmiester
+User:Bushfullofcats/sandbox
 User:Buurma
 User:Byrappa
 User:Byzantium Purple
@@ -2632,13 +2755,13 @@ User:Cadwaladr/Userboxes/Pluto
 User:Cainram/Books/Our Solar System
 User:Calcifercat
 User:CallMeVbuck/sandbox
+User:Callinus
 User:CalumetCitation
 User:Cambalachero/Watchlist
 User:CamelotRoses Backup 3.0
 User:Canadian/Profile
 User:CanadianCaesar/Articles for deletion/Pluto
 User:Candy-Panda
-User:Canned Frootloops
 User:CanonLawJunkie/Userboxes
 User:CanonLawJunkie/Userboxes/Archive
 User:Captain Almighty Nutz
@@ -2659,7 +2782,9 @@ User:Catalyst2007
 User:Catcassidy
 User:Catfurball
 User:Catmoongirl
+User:Cats & dogs forever
 User:Cats-in-space
+User:Cauliflowerblackhole
 User:Ccai2053
 User:Cedelmwood/Userboxes
 User:CeeWhy2
@@ -2670,6 +2795,7 @@ User:Ceosad
 User:Cerebralshrike
 User:Cevlakohn
 User:Chaffers
+User:Chandanmm
 User:Charles01
 User:CheChe/Spoken Script
 User:Cherrychipmunk
@@ -2708,7 +2834,7 @@ User:Cmglee/drawing
 User:Coal On Toast
 User:Cobaltbluetony/userboxes
 User:Coffeeandcrumbs/Selected anniversaries/April 25
-User:Coffeeandcrumbs/sandbox/Main Page 5
+User:Coffeeandcrumbs/sandbox/Main Page demo
 User:Cogito ergo cogitati sunt
 User:Coinmanj
 User:Cold Phront
@@ -2716,6 +2842,8 @@ User:ColdFire
 User:Colinmartin74/Books/Dwarf Planets Of The Solar System & Their Satellites
 User:ComaDivine
 User:Combatcoffee
+User:CometNebulaLuna/sandbox
+User:Cometstyles/Page
 User:Cominion
 User:CommanderWiki35
 User:Commons is in a thing
@@ -2741,11 +2869,14 @@ User:Craigboy/sandbox
 User:Crash Underride/userboxes
 User:Crawling
 User:Crazy Murdoc
+User:Crazy Sussex Lad/random
 User:Crazynas/verifiability rfc
 User:Crunchydillpickle/List of unusual anniversaries
+User:Crylophosaurus
 User:Cs007
 User:Csbisbee
 User:Cubbi
+User:Cullen328
 User:Curiouskitten11
 User:Curlyq101
 User:CxOxVxIxSxIxOxN
@@ -2757,6 +2888,7 @@ User:Czechers
 User:DATALAND
 User:DBZROCKS
 User:DJRaveN4x
+User:DKqwerty
 User:DN-boards1/Dwarf planets
 User:DaGrob
 User:DacodaNelson/Userboxes
@@ -2793,6 +2925,7 @@ User:DaryaB2003
 User:Dattebayo321/Userboxen..es?
 User:David Kernow/Known moons of the Solar System
 User:David Kernow/Template:Known moons of the Solar system
+User:David Levy/ITN death proposal
 User:David4286/Notes/userboxes
 User:DavidHitt
 User:DavidPickett/Sandbox1
@@ -2807,6 +2940,7 @@ User:Deidre36
 User:Deku-Scrub
 User:Deletion Quality
 User:Democratics/Minor planets list index
+User:Denis.arnaud
 User:Derekjoel
 User:Derg999
 User:Desdinova
@@ -2820,6 +2954,7 @@ User:Dinnypaul
 User:Diriector Doc/sandbox/Archives/9.16.2019-2.11.2020
 User:DirkvdM
 User:DiscoLava
+User:Divad27182/Main Page
 User:DizzyITTech
 User:Dj0131dj/sandbox
 User:Djf2014
@@ -2849,6 +2984,7 @@ User:Drbogdan/sandbox-images
 User:Drcombs/Books/SolarSystem
 User:Dream Focus/About me
 User:DremoraValkynaz
+User:DrinkEnemy
 User:Drinkingsoda
 User:Dronebogus/Userboxes/Dwarf planets
 User:Dudanotak/sandbox
@@ -2948,9 +3084,7 @@ User:Footy2000/sandbox7
 User:Forai/Userboxes
 User:Forestfufighting/userbox/pluto
 User:Fortunia
-User:Fotaun
 User:Fox/generatestats
-User:Fox/sandbox
 User:Foxtrot620
 User:Foysal02/Books/Research
 User:Francisco Smith
@@ -2985,9 +3119,12 @@ User:Gautham Pillai
 User:GenghisTheHun
 User:George.eliza
 User:Georgeryall
+User:Gerdel/About Me
+User:Gerixau
 User:GetPossessed
 User:Ghostwar666/sandbox2
 User:Gidi70
+User:Gilderien
 User:Gilderien/Userpage
 User:Girla PurpleHeart
 User:Gisvlasta/Books/The Solar System
@@ -3033,6 +3170,7 @@ User:Hamzyboo
 User:Hanaichi/more userboxes
 User:Hank von Helvete
 User:Happy Animals12345/Books/Solar System
+User:HappyApple
 User:Harbingerdawn
 User:Harfarhs
 User:HarryAlffa/Solar System synopsis
@@ -3050,7 +3188,6 @@ User:HerbHG/Books/Basic Astronomy
 User:Herenthere
 User:Hergust
 User:Hhamdy283
-User:HiDrNick/TFA blurbs
 User:Hidayisfriday
 User:HigherBlakey
 User:Hippopotenuse72/New sandbox
@@ -3059,6 +3196,7 @@ User:Hmrox
 User:Hmrox/Userboxes
 User:Hog Farm/'06-'07
 User:Homo Cosmosicus
+User:Honeycombing
 User:Hooth
 User:HorrorLover555
 User:Horselover90909
@@ -3105,7 +3243,6 @@ User:Imagine Wizard
 User:Imasleepviking/Userboxes
 User:Imperator3733/Userboxes/Other
 User:Imthewinner
-User:In Transit
 User:InMooseWeTrust/Reading lists/Solar system
 User:InaVegt
 User:InchOz
@@ -3128,6 +3265,7 @@ User:Iona Anders
 User:Iph/Testboxes
 User:IrfanFaiz
 User:Iridia/Sandbox
+User:IronChris/My Desk
 User:IsaacGS
 User:ItsWilliamGuy
 User:Itsabouttimebisnitch/Books/Final
@@ -3141,6 +3279,7 @@ User:IvarTheBoneless123/sandbox
 User:Ixfd64/predictions
 User:Izzy007
 User:Izzy007/Userboxes
+User:J. Finkelstein/Sandbox/FixUserpage
 User:J4m3sb0nd
 User:JCSeer
 User:JDontology/WPPhilosophyLevel5
@@ -3179,8 +3318,10 @@ User:Jasperleigh3/Books/planets
 User:Jastcaan
 User:Java7837/Userboxes
 User:Java7837/archive1
+User:JavierMC
 User:Jaxha/more userboxes
 User:Jay.S
+User:Jayant412
 User:Jazzyrhythms
 User:Jcpag2012/Planetary-mass Objects
 User:Jdaniels15
@@ -3206,6 +3347,7 @@ User:Jitterro
 User:Jkan997/sandbox
 User:Jmkprime
 User:Jnestorius/List of Elements
+User:Joaopais
 User:Jobetheren
 User:JoeCo0327/Beliefs
 User:JoeMc 65
@@ -3233,6 +3375,7 @@ User:Jpedro.john/sandbox
 User:Jpgr 1960
 User:Jrtman
 User:Jsc1973
+User:Jsdo1980/Main Page 1.1
 User:Jshflynn/All Expanded
 User:Jshflynn/The State/Astronomy
 User:Judas34/sandbox
@@ -3258,6 +3401,7 @@ User:Kat is amazing
 User:Katalysator
 User:Kaylon Sphere
 User:Kazkaskazkasako/Books/Physical sciences
+User:Kb755
 User:Kellyanne.tomlinson
 User:Kenjoshii
 User:Kepler-1229b/sandbox/PSR 1257+12 D
@@ -3266,6 +3410,7 @@ User:Kepler-1229b/sandbox/SDSS J1408
 User:Kepler-1229b/sandbox/pdpold
 User:Kepler-1229b/sandbox/potenhabmoon
 User:Keredartnorth/Books/Outer Planets and Moons for Science Fiction
+User:Kerina yin
 User:Kermitmorningstar
 User:KeroseneLover100/sandbox/sandbox
 User:Kevin co
@@ -3298,6 +3443,7 @@ User:Koruyo
 User:Kotepho/sand
 User:Koustav Chatterjee
 User:Koyuki267
+User:Kristos
 User:Krowe
 User:Kudret abi/Sandbox/Sandbox7
 User:Kuitang
@@ -3309,6 +3455,7 @@ User:Kylecarleton/Books/Solar System
 User:Kyu!
 User:L&Superfoo
 User:L3th4l/Userboxes
+User:LEC20/Daily Diversions
 User:LFCnicholas
 User:LJG81292
 User:LOLgoats
@@ -3334,6 +3481,7 @@ User:LeFaune
 User:Legoland12342
 User:Leobold1/Research Articles/Space
 User:Leobold111/userboxes
+User:Leonardolopezhernandez000
 User:Leonidaa
 User:Lethesl/Userboxes
 User:Letter 7
@@ -3361,10 +3509,14 @@ User:LohShiSan2004
 User:Lonely Man on Pluto
 User:LongLiveMusic
 User:Looie496/Analysis of FAC
+User:Loolylolly1997/gallery
+User:Lorax
 User:Lord Rubix
 User:Lord mortekai
 User:LordFire333
+User:LouriePieterse
 User:Lovablebeautyme
+User:LovesMacs/subpage3
 User:Lstanley1979
 User:Lt. penguin
 User:Ltiler/List of Pluto chapters
@@ -3378,11 +3530,14 @@ User:Lvlnglafoftneatsteak
 User:Lyinseeker/Books/Planets
 User:Lyinseeker/Books/The Planets
 User:Lylahearts
+User:Lynda90024
+User:Lynda90024/sandbox
 User:M alexey
 User:M miyama
 User:M. Allen Williamson
 User:M. Tewes
 User:M79 specialist/userboxes
+User:MDM
 User:MEWheatley
 User:MKV2
 User:MLatham
@@ -3437,6 +3592,8 @@ User:Mckinlayr
 User:Me lkjhgfdsa
 User:MeatJustice
 User:Medtech349
+User:Megtetg34
+User:Mehmet Karatay
 User:Meile
 User:Meinsla/userboxes/pluto
 User:Mekmtl
@@ -3470,6 +3627,7 @@ User:MishaChan/userboxes
 User:Misscutie27
 User:Misscutie27/userboxen
 User:MissionControl
+User:Miszatomic
 User:Mitsube
 User:Mitternacht90
 User:Mjsp rn
@@ -3489,6 +3647,9 @@ User:MostRecentUser
 User:Motomooda
 User:Mpprogram6771
 User:Mr. UnderhiIl
+User:Mr.Oliverrr
+User:Mr.Z-man/Did you know/Main Page
+User:Mr.joomm
 User:MrAstronomy101/Sandbox
 User:MrAstronomy101/Solar system Imaged objects
 User:MrRogersLovesYou
@@ -3541,6 +3702,7 @@ User:Niyet'/sandbox
 User:NoGoodScoundrel
 User:Node ue/German language
 User:Noideawhatiamdoing/sandbox/stardome
+User:Noisalt/MainPageProposal
 User:Northamerica1000/Notepad
 User:Nosh Losh Gosh Bosh/sandbox
 User:NotQuiteCrazy
@@ -3581,10 +3743,10 @@ User:One Salient Oversight/Userboxes
 User:OneSkyWalker
 User:Ongchenxi/Books/Solar System
 User:Onion1996
+User:Oniongas
 User:Onore Baka Sama
 User:Oobleckman
 User:Orangepilled
-User:OrdinaryGiraffe/Books/Vital/L2/A
 User:Oren neu dag
 User:Oren0
 User:Orinoco-w
@@ -3595,6 +3757,7 @@ User:Out of this World Adventure
 User:OutOfThisWiki
 User:Outofthedim
 User:Owlofthewillows/Books/Astronomy
+User:PC because
 User:PHENYLALANINE/Books/The Solar System
 User:Packerfan386
 User:Paine Ellsworth/Double planet
@@ -3615,6 +3778,8 @@ User:Peace237
 User:Pengo/Latin/species 3
 User:PenguinsMadagscar
 User:Perfectmiss
+User:Persian Poet Gal
+User:Persian Poet Gal/Page
 User:Personxz
 User:Peter Drake/RockRaidersDis
 User:Peter Ellis
@@ -3652,6 +3817,7 @@ User:PlanetUser/Books/Solar System
 User:PlatinumFire
 User:Playerse7en
 User:Pluma/userboxes
+User:Pluralmath
 User:Pluto2181930
 User:PoeticX
 User:Pogovina
@@ -3681,12 +3847,14 @@ User:Pulsar.co.nr/Userboxes
 User:Pulsar06
 User:Purple Is Pretty
 User:Purz12/Books/Pluto
+User:Putu Suhartawan
 User:PvtHudson IV
 User:Pwillows
 User:Pythagorean Theorem
 User:Python187
 User:QN/tamrin
 User:Qrstw
+User:RAJIVVASUDEV
 User:RP88/Images
 User:RSSTRATFORD
 User:Radioheadhst
@@ -3712,6 +3880,7 @@ User:Raya 85
 User:Raybob95/Books/solar system
 User:Rbatts2000
 User:Rdfox 76
+User:Realmik
 User:RedAndr
 User:Redacted II/userboxes
 User:Redmarkviolinist/Userboxes
@@ -3736,6 +3905,7 @@ User:Rfassbind/Minor planet list index
 User:Rfassbind/sandbox
 User:Rfassbind/sandbox/Leadimage compilations
 User:Rfbb/Text
+User:Rfl
 User:Rhiannoneva
 User:Rhymstat/Books/AERODYNAMICS V PHYSICS
 User:Riarle
@@ -3752,7 +3922,6 @@ User:Rico1234
 User:Rider80000
 User:Right Side 1342/sandbox
 User:Rishirulestheworld
-User:Rjd0060/DAL
 User:Rkeysone
 User:Rnelson
 User:Road2Ohio
@@ -3763,6 +3932,7 @@ User:Robomaeyhem
 User:Robomaeyhem/OUC
 User:Robotoctopus1234
 User:Roc0ast3r/Challenges
+User:Rock drum/Toolbox
 User:Rockwithvinit
 User:Rodiger
 User:Ron Ritzman/sandbox
@@ -3783,6 +3953,7 @@ User:Rwflammang
 User:Ryan Leonel
 User:Ryan Leonel/Userboxen
 User:Ryanho0001
+User:Ryanhokanson
 User:S MD AMJAD/Books/solar system
 User:S-man/Userboxes
 User:SANTABABES
@@ -3790,6 +3961,7 @@ User:SDZeroBot/Featured articles
 User:SDZeroBot/Featured articles: maindate2
 User:SEJAMc
 User:SKTH
+User:SOF03EE/sandbox
 User:SQL/FA-Ores
 User:Saber girl08/userboxen
 User:SadanYagci/Main:Userboxes
@@ -3814,7 +3986,6 @@ User:Sandmouse/userboxes
 User:Sanja Simat
 User:Santhosh06udaya/Books/Universe
 User:Sapienyia
-User:Sapphaline/sandbox
 User:Sapphaline/ub
 User:Sarah chocoholic93/Userboxen
 User:Saraid
@@ -3823,8 +3994,10 @@ User:Sardanaphalus/Template:Solar System (using Navbox with columns)
 User:SargeAbernathy
 User:Sarindam7
 User:Sarregouset
+User:Sateros
 User:Saukkomies/My userboxes
 User:Savie Kumara
+User:Sayoxime
 User:Sbvn
 User:Sceadwefax
 User:Scheet vin/Books/sktencyclopedia
@@ -3866,7 +4039,7 @@ User:SethAllen623/Vital articles/Science
 User:Sf46
 User:Sgarza
 User:Shanejez/sandbox1
-User:Shaw Street/sandbox
+User:Shearonink/test 3
 User:SherlockHolmesFerghana
 User:Shermoo
 User:Shiftchange/My favourite templates
@@ -3877,6 +4050,7 @@ User:Shindo9Hikaru/Userboxes
 User:ShornAssociates
 User:Shortmancancook/Books/astronomy
 User:Shsilver
+User:Shubinator/Sandbox/Test template
 User:Silence/V1
 User:Silence/VA3
 User:Silvensis
@@ -3886,6 +4060,8 @@ User:Sir Cumference
 User:Sir Drance
 User:Sir Jimmy 07
 User:SireneSpica
+User:Sirex98
+User:Sirex98/Body
 User:Siri C J/Books/Astronomy
 User:Sith Penguin Lord
 User:Sj/en-g1g1
@@ -3898,11 +4074,13 @@ User:Skier51907
 User:Skittleys/userboxes
 User:Skrapion
 User:Skrshawk/Userboxes
+User:Skyfall/sandbox
 User:Skywayman
 User:Sl1nk3
 User:Slapero/Books/Astronomy
 User:Sldempster/Books/Solar System
 User:Sleddog116/Positions
+User:Slgrandson
 User:SlimJim/VandalismLog
 User:SlyEcho
 User:Smaha.mark/Books/The Sky
@@ -3934,6 +4112,7 @@ User:Sophie/Userboxs
 User:SoulCandy/Books/Solar System
 User:Soulrevolution
 User:Sourav bhattacharyya
+User:Souravmohanty2005
 User:SoylentPurple/sandbox
 User:Spaceinvaderscrab
 User:Spacepotato/Unsorted
@@ -3957,6 +4136,7 @@ User:StallingScholar
 User:Stanthejeep
 User:Star Mississippi
 User:Starbuster
+User:Starom
 User:Starry.dreams/My Userboxes
 User:StarryWorld/Userboxes
 User:Steaphan Greene
@@ -3992,6 +4172,7 @@ User:TBicks
 User:TParis/Featured Article By Length
 User:Tailsic/Sandbox
 User:Talk2chun
+User:Tamer ih~enwiki
 User:TangoWhiskeyDelta
 User:Tarrows
 User:Taskforce 58
@@ -4022,6 +4203,7 @@ User:The Bushranger/Userboxes Created
 User:The Fading Light
 User:The Genealogy Guy
 User:The Gopher Dude
+User:The Helper S
 User:The High Fin Sperm Whale/Userboxes
 User:The High Fin Sperm Whale/Userboxes/Pluto
 User:The Machine UK
@@ -4039,9 +4221,12 @@ User:The0Quester/sandbox2
 User:The0Quester/sandbox3
 User:TheAlmightyOneOfAll/Kid Justice (Web series)
 User:TheD3xus
+User:TheEWDSDS
 User:TheInfinityZero
 User:TheLurkerMan
 User:TheMagikCow
+User:TheTito
+User:TheUltimateGrass
 User:Thealmightysponge
 User:Thecheesykid/Userboxen
 User:Thedeadmanandphenom/userboxes
@@ -4058,6 +4243,7 @@ User:Think777
 User:ThinkOutsideTheTesseract
 User:Thinking of England/Notes2
 User:Thinkpad
+User:Thomas27
 User:ThomasMTroxell
 User:Thor Dockweiler
 User:Throktar
@@ -4076,6 +4262,8 @@ User:Tom.Reding/Useful
 User:Tom.Reding/Userboxes
 User:Tom29739
 User:Tom29739/userboxes
+User:TomStar81
+User:Tomeasy
 User:Tompw
 User:Tompw/templates
 User:Tompw/userboxes
@@ -4114,10 +4302,10 @@ User:Tyklink
 User:Tyler336
 User:Tyrahcaz
 User:Tyw7/User box
+User:U-Two
 User:U003F/Best Books
 User:U003F/The 50 Best Non-Superhero Graphic Novels
 User:UBX/Pluto interest
-User:UC'tCM!/'
 User:Uaxuctum~enwiki
 User:Uccaxap
 User:Ullpianissimo
@@ -4128,17 +4316,18 @@ User:UniversalAlien
 User:Unknownlight
 User:Untoisaac
 User:UnusualGazelle
+User:Uriel8
 User:Urion8
 User:Urion8/userboxes
 User:UsagiEriko
 User:Useight/Userboxes
 User:User226
-User:Valjean/Planets orbital speed
 User:Valleybox
 User:Van Nooz
 User:Vancemiller
 User:Vanillian/sandbox/Vanillian
 User:Vanished user 674827203/Books/Solar System
+User:Vargmali
 User:Vastly Lynn
 User:Vastly Lynn/sandbox
 User:Vastly Lynn/userboxes
@@ -4161,6 +4350,7 @@ User:Viper1265
 User:Vir/sandbox/core topic levels
 User:Vir/sandbox/core topic levels qaud
 User:VisLock/Books/The Solar System
+User:Voice of Clam/MP HistGen
 User:Voice of Clam/mainlinks
 User:Volker89
 User:Vreddy92
@@ -4220,7 +4410,6 @@ User:Xasviper2k8
 User:XatuNatu
 User:Xavierdreyman/Books/Astronomy Reference
 User:Xavierdreyman/Books/Investigation Readings
-User:XbruhingX
 User:Xenon54/Sandbox
 User:XeroxKleenex
 User:Xession/Draft3
@@ -4242,6 +4431,7 @@ User:Yellowfeverlime
 User:Yofan Pratama P
 User:Yogeshpaliyal
 User:Yoliminina
+User:You Can't See Me!/'
 User:Youknowyouloveit
 User:YourAuntEggma
 User:YoureIronic
@@ -4266,12 +4456,15 @@ User:Zelink546
 User:Zemant
 User:Zemant from Supernova
 User:Zimbabwe is Mine/Userboxes/Pluto
+User:Zo3a
+User:Zoologist08
 User:Zotel/Books/KindleWiki 10.10
 User:Zotel/Books/KindleWiki 10.10 a
 User:Zotel/Books/KindleWiki 10.10 b
 User:Zozoulia
 User:Zrulli
 User:Zytron
+User:~K
 User:~NIC
 User:~NIC/Userboxes
 User:Éireann/archive/userboxes
@@ -4321,6 +4514,7 @@ Water on terrestrial planets of the Solar System
 Welcome to the Universe
 Western astrology
 Western culture
+Weywot
 Wide-field Infrared Survey Explorer
 Wikipedia talk:2015 main page redesign proposal/draft/Guy Macon
 Wikipedia talk:Article Creation and Improvement Drive/Archive 6
@@ -4351,12 +4545,12 @@ Wikipedia talk:Naming conventions (astronomical objects)/Archive 1
 Wikipedia talk:Naming conventions (astronomical objects)/Archive 2
 Wikipedia talk:Naming conventions (common names)/Archive 3
 Wikipedia talk:Neutral point of view/Archive 52
+Wikipedia talk:No original research
 Wikipedia talk:No original research/Archive 51
 Wikipedia talk:Reference desk/Guidelines/Archive 2
 Wikipedia talk:Requests for arbitration/Highways 2/Proposed decision
 Wikipedia talk:Selected anniversaries/August 20
 Wikipedia talk:Selected anniversaries/January 5
-Wikipedia talk:Selected anniversaries/June 15
 Wikipedia talk:Selected anniversaries/March 19
 Wikipedia talk:Special:MostRevisions
 Wikipedia talk:Spoiler warning/Guideline status2
@@ -4370,6 +4564,7 @@ Wikipedia talk:Vital articles/Archive 1
 Wikipedia talk:Vital articles/Archive 14
 Wikipedia talk:Vital articles/Archive 2
 Wikipedia talk:Vital articles/Level 4/Archive 51
+Wikipedia talk:Vital articles/Level 5/Science and mathematics
 Wikipedia talk:WikiProject Astronomical objects/Archive 10
 Wikipedia talk:WikiProject Astronomical objects/Archive 20
 Wikipedia talk:WikiProject Astronomical objects/Archive 25
@@ -4406,6 +4601,14 @@ Wikipedia:0.7/0.7alpha/P3
 Wikipedia:0.7/0.7index/Astronomy and outer space
 Wikipedia:0.8/Index/P4
 Wikipedia:1,000 core topics/with problems
+Wikipedia:2008 main page redesign proposal/Blackhole77
+Wikipedia:2008 main page redesign proposal/Deathgleaner
+Wikipedia:2008 main page redesign proposal/Dr. Blofeld
+Wikipedia:2008 main page redesign proposal/Jackl
+Wikipedia:2008 main page redesign proposal/Pretzels
+Wikipedia:2008 main page redesign proposal/Proposal Candidate 2
+Wikipedia:2008 main page redesign proposal/Proposal Candidate 2A
+Wikipedia:2008 main page redesign proposal/h2g2bob
 Wikipedia:Administrators against kitten abuse
 Wikipedia:Administrators' noticeboard/3RRArchive250
 Wikipedia:Administrators' noticeboard/3RRArchive26
@@ -4466,9 +4669,9 @@ Wikipedia:Articles for deletion/Pluto
 Wikipedia:Articles for deletion/Second planet (disambiguation)
 Wikipedia:Articles for deletion/Super Galaxy
 Wikipedia:Articles for deletion/Uranian
+Wikipedia:Articles for improvement/main page placement
 Wikipedia:Bilorv's Challenges
 Wikipedia:Bots/Requests for approval/OAbot
-Wikipedia:CHECKWIKI/WPC 085 dump
 Wikipedia:Categories for deletion/Log/2006 August 24
 Wikipedia:Categories for discussion/Log/2010 August 24
 Wikipedia:Categories for discussion/Log/2010 February 1
@@ -4656,7 +4859,11 @@ Wikipedia:Main Page history/2024 April 18
 Wikipedia:Main Page history/2024 April 18b
 Wikipedia:Main Page history/2024 August 20
 Wikipedia:Main Page history/2024 August 20b
-Wikipedia:Main Page queue
+Wikipedia:Main Page history/2026 June 15
+Wikipedia:Main Page history/2026 June 15b
+Wikipedia:Main Page history/2026 September 2
+Wikipedia:Main Page history/2026 September 2b
+Wikipedia:Main Page/Yesterday
 Wikipedia:Miscellany for deletion/User:TenPoundHammer (4th nomination)
 Wikipedia:Most read articles in 2008
 Wikipedia:Most read articles in 2009
@@ -4670,10 +4877,13 @@ Wikipedia:Peer review/Enceladus (moon)/archive1
 Wikipedia:Pending changes/Metrics/Anonymous edit quality
 Wikipedia:Pending changes/Metrics/Full table
 Wikipedia:Pending changes/Queue/Week 1
+Wikipedia:Picture of the day/Archive
 Wikipedia:Picture of the day/December 2014
 Wikipedia:Picture of the day/July 2018
 Wikipedia:Picture of the day/June 2007
 Wikipedia:Picture of the day/October 2023
+Wikipedia:Picture of the day/On the main pages
+Wikipedia:Picture of the day/September 2026
 Wikipedia:Popular pages
 Wikipedia:Press coverage 2006
 Wikipedia:Redirects for discussion/Log/2006 August 24
@@ -4816,6 +5026,7 @@ Wikipedia:Selected anniversaries/August 20
 Wikipedia:Selected anniversaries/August 24
 Wikipedia:Selected anniversaries/July 14
 Wikipedia:Selected anniversaries/June 22
+Wikipedia:Teahouse/Questions/Archive 1297
 Wikipedia:Templates for deletion/Log/2007 April 9
 Wikipedia:Templates for deletion/Log/2008 September 16
 Wikipedia:Templates for discussion/Log/2022 February 7
@@ -4973,6 +5184,7 @@ X band
 X-Bomber
 XEphem
 XZ Tauri
+Xiangliu (moon)
 Xibalba Sulcus
 YBP 1194
 Yama

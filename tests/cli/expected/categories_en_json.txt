@@ -9,11 +9,6 @@
 "language": "en",
 "ns": 14
 },
-"Category:All articles with unsourced statements": {
-"title": "Category:All articles with unsourced statements",
-"language": "en",
-"ns": 14
-},
 "Category:Articles containing Ancient Greek (to 1453)-language text": {
 "title": "Category:Articles containing Ancient Greek (to 1453)-language text",
 "language": "en",
@@ -49,8 +44,8 @@
 "language": "en",
 "ns": 14
 },
-"Category:Articles containing potentially dated statements from September 2021": {
-"title": "Category:Articles containing potentially dated statements from September 2021",
+"Category:Articles containing potentially dated statements from May 2023": {
+"title": "Category:Articles containing potentially dated statements from May 2023",
 "language": "en",
 "ns": 14
 },
@@ -66,11 +61,6 @@
 },
 "Category:Articles with short description": {
 "title": "Category:Articles with short description",
-"language": "en",
-"ns": 14
-},
-"Category:Articles with unsourced statements from May 2026": {
-"title": "Category:Articles with unsourced statements from May 2026",
 "language": "en",
 "ns": 14
 },
@@ -166,11 +156,6 @@
 },
 "Category:Webarchive template wayback links": {
 "title": "Category:Webarchive template wayback links",
-"language": "en",
-"ns": 14
-},
-"Category:Wikipedia articles needing page number citations from January 2026": {
-"title": "Category:Wikipedia articles needing page number citations from January 2026",
 "language": "en",
 "ns": 14
 },

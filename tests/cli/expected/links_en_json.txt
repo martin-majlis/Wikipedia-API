@@ -124,11 +124,6 @@
 "language": "en",
 "ns": 0
 },
-"Accretion disk": {
-"title": "Accretion disk",
-"language": "en",
-"ns": 0
-},
 "Acid rain": {
 "title": "Acid rain",
 "language": "en",
@@ -219,6 +214,11 @@
 "language": "en",
 "ns": 0
 },
+"Amor asteroid": {
+"title": "Amor asteroid",
+"language": "en",
+"ns": 0
+},
 "Ancient Greece": {
 "title": "Ancient Greece",
 "language": "en",
@@ -269,6 +269,16 @@
 "language": "en",
 "ns": 0
 },
+"Antarctic ice sheet": {
+"title": "Antarctic ice sheet",
+"language": "en",
+"ns": 0
+},
+"Antarctic sea ice": {
+"title": "Antarctic sea ice",
+"language": "en",
+"ns": 0
+},
 "Antarctica": {
 "title": "Antarctica",
 "language": "en",
@@ -291,6 +301,11 @@
 },
 "Apollo 17": {
 "title": "Apollo 17",
+"language": "en",
+"ns": 0
+},
+"Apollo asteroid": {
+"title": "Apollo asteroid",
 "language": "en",
 "ns": 0
 },
@@ -399,6 +414,11 @@
 "language": "en",
 "ns": 0
 },
+"Asteroid spectral types": {
+"title": "Asteroid spectral types",
+"language": "en",
+"ns": 0
+},
 "Asthenosphere": {
 "title": "Asthenosphere",
 "language": "en",
@@ -446,6 +466,21 @@
 },
 "Astronomy and Astrophysics": {
 "title": "Astronomy and Astrophysics",
+"language": "en",
+"ns": 0
+},
+"Asymptotic giant branch": {
+"title": "Asymptotic giant branch",
+"language": "en",
+"ns": 0
+},
+"Aten asteroid": {
+"title": "Aten asteroid",
+"language": "en",
+"ns": 0
+},
+"Atira asteroid": {
+"title": "Atira asteroid",
 "language": "en",
 "ns": 0
 },
@@ -889,23 +924,8 @@
 "language": "en",
 "ns": 0
 },
-"Circumstellar disc": {
-"title": "Circumstellar disc",
-"language": "en",
-"ns": 0
-},
 "Circumstellar disk": {
 "title": "Circumstellar disk",
-"language": "en",
-"ns": 0
-},
-"Circumstellar envelope": {
-"title": "Circumstellar envelope",
-"language": "en",
-"ns": 0
-},
-"CiteSeerX (identifier)": {
-"title": "CiteSeerX (identifier)",
 "language": "en",
 "ns": 0
 },
@@ -916,11 +936,6 @@
 },
 "Claimed moons of Earth": {
 "title": "Claimed moons of Earth",
-"language": "en",
-"ns": 0
-},
-"Classical Kuiper belt object": {
-"title": "Classical Kuiper belt object",
 "language": "en",
 "ns": 0
 },
@@ -991,6 +1006,11 @@
 },
 "Comet": {
 "title": "Comet",
+"language": "en",
+"ns": 0
+},
+"Compositing": {
+"title": "Compositing",
 "language": "en",
 "ns": 0
 },
@@ -1129,6 +1149,11 @@
 "language": "en",
 "ns": 0
 },
+"Dark comet": {
+"title": "Dark comet",
+"language": "en",
+"ns": 0
+},
 "David Catling": {
 "title": "David Catling",
 "language": "en",
@@ -1146,11 +1171,6 @@
 },
 "Death Valley National Park": {
 "title": "Death Valley National Park",
-"language": "en",
-"ns": 0
-},
-"Debris disk": {
-"title": "Debris disk",
 "language": "en",
 "ns": 0
 },
@@ -1231,6 +1251,11 @@
 },
 "Disrupted planet": {
 "title": "Disrupted planet",
+"language": "en",
+"ns": 0
+},
+"Distant minor planet": {
+"title": "Distant minor planet",
 "language": "en",
 "ns": 0
 },
@@ -1479,6 +1504,11 @@
 "language": "en",
 "ns": 0
 },
+"Eclipse": {
+"title": "Eclipse",
+"language": "en",
+"ns": 0
+},
 "Ecliptic": {
 "title": "Ecliptic",
 "language": "en",
@@ -1659,11 +1689,6 @@
 "language": "en",
 "ns": 0
 },
-"Exoplanetary Circumstellar Environments and Disk Explorer": {
-"title": "Exoplanetary Circumstellar Environments and Disk Explorer",
-"language": "en",
-"ns": 0
-},
 "Exosphere": {
 "title": "Exosphere",
 "language": "en",
@@ -1714,6 +1739,11 @@
 "language": "en",
 "ns": 0
 },
+"Extinct comet": {
+"title": "Extinct comet",
+"language": "en",
+"ns": 0
+},
 "Extinction": {
 "title": "Extinction",
 "language": "en",
@@ -1736,6 +1766,11 @@
 },
 "Extraterrestrial sample curation": {
 "title": "Extraterrestrial sample curation",
+"language": "en",
+"ns": 0
+},
+"Extreme trans-Neptunian object": {
+"title": "Extreme trans-Neptunian object",
 "language": "en",
 "ns": 0
 },
@@ -1766,6 +1801,11 @@
 },
 "Fertility deity": {
 "title": "Fertility deity",
+"language": "en",
+"ns": 0
+},
+"Fictional planets of the Solar System": {
+"title": "Fictional planets of the Solar System",
 "language": "en",
 "ns": 0
 },
@@ -2199,6 +2239,11 @@
 "language": "en",
 "ns": 0
 },
+"Great comet": {
+"title": "Great comet",
+"language": "en",
+"ns": 0
+},
 "Greeks": {
 "title": "Greeks",
 "language": "en",
@@ -2216,11 +2261,6 @@
 },
 "Greenland": {
 "title": "Greenland",
-"language": "en",
-"ns": 0
-},
-"Ground water": {
-"title": "Ground water",
 "language": "en",
 "ns": 0
 },
@@ -2271,6 +2311,11 @@
 },
 "Heliocentrism": {
 "title": "Heliocentrism",
+"language": "en",
+"ns": 0
+},
+"Heliosphere": {
+"title": "Heliosphere",
 "language": "en",
 "ns": 0
 },
@@ -2649,16 +2694,6 @@
 "language": "en",
 "ns": 0
 },
-"Interstellar cloud": {
-"title": "Interstellar cloud",
-"language": "en",
-"ns": 0
-},
-"Interstellar medium": {
-"title": "Interstellar medium",
-"language": "en",
-"ns": 0
-},
 "Invariable plane": {
 "title": "Invariable plane",
 "language": "en",
@@ -3004,16 +3039,6 @@
 "language": "en",
 "ns": 0
 },
-"List of Neptune-crossing minor planets": {
-"title": "List of Neptune-crossing minor planets",
-"language": "en",
-"ns": 0
-},
-"List of Saturn-crossing minor planets": {
-"title": "List of Saturn-crossing minor planets",
-"language": "en",
-"ns": 0
-},
 "List of Solar System extremes": {
 "title": "List of Solar System extremes",
 "language": "en",
@@ -3024,18 +3049,23 @@
 "language": "en",
 "ns": 0
 },
+"List of Solar System objects by greatest aphelion": {
+"title": "List of Solar System objects by greatest aphelion",
+"language": "en",
+"ns": 0
+},
 "List of Solar System objects by size": {
 "title": "List of Solar System objects by size",
 "language": "en",
 "ns": 0
 },
-"List of Solar System probes": {
-"title": "List of Solar System probes",
+"List of Solar System objects most distant from the Sun": {
+"title": "List of Solar System objects most distant from the Sun",
 "language": "en",
 "ns": 0
 },
-"List of Uranus-crossing minor planets": {
-"title": "List of Uranus-crossing minor planets",
+"List of Solar System probes": {
+"title": "List of Solar System probes",
 "language": "en",
 "ns": 0
 },
@@ -3051,6 +3081,11 @@
 },
 "List of ancient civilizations": {
 "title": "List of ancient civilizations",
+"language": "en",
+"ns": 0
+},
+"List of craters in the Solar System": {
+"title": "List of craters in the Solar System",
 "language": "en",
 "ns": 0
 },
@@ -3079,18 +3114,13 @@
 "language": "en",
 "ns": 0
 },
-"List of interstellar and circumstellar molecules": {
-"title": "List of interstellar and circumstellar molecules",
-"language": "en",
-"ns": 0
-},
 "List of largest lakes and seas in the Solar System": {
 "title": "List of largest lakes and seas in the Solar System",
 "language": "en",
 "ns": 0
 },
-"List of minor planets": {
-"title": "List of minor planets",
+"List of largest rifts, canyons and valleys in the Solar System": {
+"title": "List of largest rifts, canyons and valleys in the Solar System",
 "language": "en",
 "ns": 0
 },
@@ -3119,6 +3149,11 @@
 "language": "en",
 "ns": 0
 },
+"List of tallest mountains in the Solar System": {
+"title": "List of tallest mountains in the Solar System",
+"language": "en",
+"ns": 0
+},
 "List of tectonic plates": {
 "title": "List of tectonic plates",
 "language": "en",
@@ -3126,6 +3161,16 @@
 },
 "Lists of comets": {
 "title": "Lists of comets",
+"language": "en",
+"ns": 0
+},
+"Lists of geological features of the Solar System": {
+"title": "Lists of geological features of the Solar System",
+"language": "en",
+"ns": 0
+},
+"Lists of minor planets": {
+"title": "Lists of minor planets",
 "language": "en",
 "ns": 0
 },
@@ -3559,6 +3604,11 @@
 "language": "en",
 "ns": 0
 },
+"Minor-planet designation": {
+"title": "Minor-planet designation",
+"language": "en",
+"ns": 0
+},
 "Minor-planet moon": {
 "title": "Minor-planet moon",
 "language": "en",
@@ -3701,6 +3751,11 @@
 },
 "Naomi Oreskes": {
 "title": "Naomi Oreskes",
+"language": "en",
+"ns": 0
+},
+"National Aeronautics and Space Administration": {
+"title": "National Aeronautics and Space Administration",
 "language": "en",
 "ns": 0
 },
@@ -3929,6 +3984,11 @@
 "language": "en",
 "ns": 0
 },
+"Occultation": {
+"title": "Occultation",
+"language": "en",
+"ns": 0
+},
 "Ocean": {
 "title": "Ocean",
 "language": "en",
@@ -4014,6 +4074,11 @@
 "language": "en",
 "ns": 0
 },
+"Opposition (astronomy)": {
+"title": "Opposition (astronomy)",
+"language": "en",
+"ns": 0
+},
 "Orbit": {
 "title": "Orbit",
 "language": "en",
@@ -4091,6 +4156,11 @@
 },
 "Osculating orbit": {
 "title": "Osculating orbit",
+"language": "en",
+"ns": 0
+},
+"Outer Solar System": {
+"title": "Outer Solar System",
 "language": "en",
 "ns": 0
 },
@@ -4251,6 +4321,11 @@
 },
 "Parmenides": {
 "title": "Parmenides",
+"language": "en",
+"ns": 0
+},
+"Partial melting": {
+"title": "Partial melting",
 "language": "en",
 "ns": 0
 },
@@ -4774,6 +4849,11 @@
 "language": "en",
 "ns": 0
 },
+"Resonant trans-Neptunian object": {
+"title": "Resonant trans-Neptunian object",
+"language": "en",
+"ns": 0
+},
 "Retreat of glaciers since 1850": {
 "title": "Retreat of glaciers since 1850",
 "language": "en",
@@ -5139,6 +5219,11 @@
 "language": "en",
 "ns": 0
 },
+"Solar System in fiction": {
+"title": "Solar System in fiction",
+"language": "en",
+"ns": 0
+},
 "Solar System model": {
 "title": "Solar System model",
 "language": "en",
@@ -5179,6 +5264,11 @@
 "language": "en",
 "ns": 0
 },
+"Solar time": {
+"title": "Solar time",
+"language": "en",
+"ns": 0
+},
 "Solar wind": {
 "title": "Solar wind",
 "language": "en",
@@ -5211,6 +5301,11 @@
 },
 "Southern Ocean": {
 "title": "Southern Ocean",
+"language": "en",
+"ns": 0
+},
+"Southern Pacific": {
+"title": "Southern Pacific",
 "language": "en",
 "ns": 0
 },
@@ -5284,18 +5379,8 @@
 "language": "en",
 "ns": 0
 },
-"Star formation": {
-"title": "Star formation",
-"language": "en",
-"ns": 0
-},
 "Stefan Rahmstorf": {
 "title": "Stefan Rahmstorf",
-"language": "en",
-"ns": 0
-},
-"Stellar collision": {
-"title": "Stellar collision",
 "language": "en",
 "ns": 0
 },
@@ -5909,8 +5994,8 @@
 "language": "en",
 "ns": 0
 },
-"Uranus trojans": {
-"title": "Uranus trojans",
+"Uranus trojan": {
+"title": "Uranus trojan",
 "language": "en",
 "ns": 0
 },
@@ -5941,6 +6026,11 @@
 },
 "Vector Map": {
 "title": "Vector Map",
+"language": "en",
+"ns": 0
+},
+"Vegetation": {
+"title": "Vegetation",
 "language": "en",
 "ns": 0
 },
@@ -6093,16 +6183,6 @@
 "title": "Weywot",
 "language": "en",
 "ns": 0
-},
-"Wikipedia:Citation needed": {
-"title": "Wikipedia:Citation needed",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:Citing sources": {
-"title": "Wikipedia:Citing sources",
-"language": "en",
-"ns": 4
 },
 "Wikipedia:Contents/Portals": {
 "title": "Wikipedia:Contents/Portals",
