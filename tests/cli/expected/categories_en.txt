@@ -1,6 +1,5 @@
 Category:All Wikipedia articles written in American English
 Category:All articles containing potentially dated statements
-Category:All articles with unsourced statements
 Category:Articles containing Ancient Greek (to 1453)-language text
 Category:Articles containing French-language text
 Category:Articles containing Latin-language text
@@ -8,11 +7,10 @@ Category:Articles containing Old English (ca. 450-1100)-language text
 Category:Articles containing Old Norse-language text
 Category:Articles containing Proto-Germanic-language text
 Category:Articles containing Spanish-language text
-Category:Articles containing potentially dated statements from September 2021
+Category:Articles containing potentially dated statements from May 2023
 Category:Articles containing video clips
 Category:Articles with hAudio microformats
 Category:Articles with short description
-Category:Articles with unsourced statements from May 2026
 Category:Astronomical objects known since antiquity
 Category:CS1 German-language sources (de)
 Category:Earth
@@ -32,6 +30,5 @@ Category:Terrestrial planets
 Category:Use American English from May 2026
 Category:Use dmy dates from May 2026
 Category:Webarchive template wayback links
-Category:Wikipedia articles needing page number citations from January 2026
 Category:Wikipedia indefinitely move-protected pages
 Category:Wikipedia indefinitely semi-protected pages

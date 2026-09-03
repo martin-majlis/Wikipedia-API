@@ -614,6 +614,11 @@
 "language": "is",
 "url": "https://is.wikipedia.org/wiki/J%C3%B6r%C3%B0in"
 },
+"isv": {
+"title": "Zemja",
+"language": "isv",
+"url": "https://isv.wikipedia.org/wiki/Zemja"
+},
 "it": {
 "title": "Terra",
 "language": "it",
@@ -774,11 +779,6 @@
 "language": "lb",
 "url": "https://lb.wikipedia.org/wiki/%C3%84erd"
 },
-"lbe": {
-"title": "Дуниял",
-"language": "lbe",
-"url": "https://lbe.wikipedia.org/wiki/%D0%94%D1%83%D0%BD%D0%B8%D1%8F%D0%BB"
-},
 "lez": {
 "title": "Чил (планета)",
 "language": "lez",
@@ -848,6 +848,11 @@
 "title": "Bhumè",
 "language": "mad",
 "url": "https://mad.wikipedia.org/wiki/Bhum%C3%A8"
+},
+"mag": {
+"title": "पृथिवी",
+"language": "mag",
+"url": "https://mag.wikipedia.org/wiki/%E0%A4%AA%E0%A5%83%E0%A4%A5%E0%A4%BF%E0%A4%B5%E0%A5%80"
 },
 "mai": {
 "title": "पृथ्वी",
@@ -1405,9 +1410,9 @@
 "url": "https://to.wikipedia.org/wiki/M%C4%81mani_(palanite)"
 },
 "tok": {
-"title": "sike ma",
+"title": "mun Tеla",
 "language": "tok",
-"url": "https://tok.wikipedia.org/wiki/sike_ma"
+"url": "https://tok.wikipedia.org/wiki/mun_T%D0%B5la"
 },
 "tpi": {
 "title": "Giraun",

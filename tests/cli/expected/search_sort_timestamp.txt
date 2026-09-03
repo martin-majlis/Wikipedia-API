@@ -1,7 +1,7 @@
-Total hits: 6087
+Total hits: 6142
 
-Stochastic Texts
-List of quantum software
-The Art of the Bawdy Song
-Dynamic variable
-David A. McGrew
+LiveKit
+LM Studio
+Evo (AI)
+Hermes Agent
+Summation algorithm

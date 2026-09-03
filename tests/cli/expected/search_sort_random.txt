@@ -1,85 +1,85 @@
 {
-"totalhits": 6087,
+"totalhits": 6142,
 "pages": [
 {
-"title": "David Broncano",
-"pageid": 56573512,
-"size": 22405,
-"wordcount": 1951,
-"timestamp": "2026-04-12T07:14:05Z",
-"snippet": "radio and television. His main comedic influences include the series Monty <span class=\"searchmatch\">Python&#039;s</span> Flying Circus and La hora chanante. He was an amateur football player in"
+"title": "Anaconda (installer)",
+"pageid": 767613,
+"size": 5689,
+"wordcount": 530,
+"timestamp": "2025-05-21T21:46:55Z",
+"snippet": "satisfied does it start the installation process. It is mainly written in <span class=\"searchmatch\">Python</span> with some modules written in C. It has a graphical frontend that is based"
 },
 {
-"title": "Typeof",
-"pageid": 18529481,
-"size": 11024,
-"wordcount": 1130,
-"timestamp": "2026-05-10T14:39:49Z",
-"snippet": "operator provided by several <span class=\"searchmatch\">programming</span> languages to determine the data type of a variable. This is useful when constructing <span class=\"searchmatch\">programs</span> that must accept multiple"
+"title": "VIGRA",
+"pageid": 36472550,
+"size": 2904,
+"wordcount": 234,
+"timestamp": "2025-12-30T18:03:27Z",
+"snippet": "Windows, Mac OS X, Linux, and OpenBSD. Since version 1.7.1, VIGRA provides <span class=\"searchmatch\">Python</span> bindings based on numpy framework. VIGRA was originally designed and implemented"
 },
 {
-"title": "Knitr",
-"pageid": 38393230,
-"size": 5040,
-"wordcount": 445,
-"timestamp": "2025-01-08T06:56:11Z",
-"snippet": "on RPubs), caching, TikZ graphics and support to other languages such as <span class=\"searchmatch\">Python</span>, Perl, C++, Shell scripts and CoffeeScript, and so on. knitr is officially"
+"title": "Gauss–Newton algorithm",
+"pageid": 1164753,
+"size": 26473,
+"wordcount": 4177,
+"timestamp": "2025-06-11T23:00:00Z",
+"snippet": "Knitro is a non-linear solver with an implementation of the Gauss–Newton method. It is written in C and has interfaces to C++/C#/Java/<span class=\"searchmatch\">Python</span>/MATLAB/R."
 },
 {
-"title": "MeVisLab",
-"pageid": 29560230,
-"size": 28613,
-"wordcount": 2850,
-"timestamp": "2026-05-31T01:14:07Z",
-"snippet": "to Qt is implemented via <span class=\"searchmatch\">Python</span>Qt. For image processing via <span class=\"searchmatch\">Python</span>, NumPy is available. Object-oriented <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> in MeVisLab is possible. Integrated"
+"title": "Ternary search",
+"pageid": 4032583,
+"size": 4023,
+"wordcount": 639,
+"timestamp": "2025-02-13T19:21:47Z",
+"snippet": "A ternary search algorithm is a technique in computer science for finding the minimum or maximum of a unimodal function. Assume we are looking for a maximum"
 },
 {
-"title": "REN TV",
-"pageid": 4984439,
-"size": 250721,
-"wordcount": 20254,
-"timestamp": "2026-05-06T18:46:21Z",
-"snippet": "Секретные материалы) Jetix, children&#039;s adventure <span class=\"searchmatch\">programming</span> from Disney Later purchased/licensed <span class=\"searchmatch\">programming</span>: Persons Unknown (as Неизвестные лица) since"
+"title": "OpenBSD",
+"pageid": 18949571,
+"size": 138149,
+"wordcount": 8996,
+"timestamp": "2026-08-26T22:49:14Z",
+"snippet": "A. (3 March 2003). &quot;2.4. Is Open Source Good for Security?&quot;. Secure <span class=\"searchmatch\">Programming</span> for Linux and Unix HOWTO. Archived from the original on 8 December 2020"
 },
 {
-"title": "List of bands named after other performers' songs",
-"pageid": 10933571,
-"size": 37098,
-"wordcount": 3905,
-"timestamp": "2026-05-30T04:07:34Z",
-"snippet": "Toad the Wet Sprocket, after a fictional band in a comedy sketch by Monty <span class=\"searchmatch\">Python</span> (which originally appeared on Rutland Weekend Television. Toys Went Berserk"
+"title": "1970s",
+"pageid": 34555,
+"size": 173070,
+"wordcount": 19769,
+"timestamp": "2026-08-29T10:43:58Z",
+"snippet": "comedy troupe Monty <span class=\"searchmatch\">Python</span> started making films in the &#039;70s, following the wake of their groundbreaking sketch series Monty <span class=\"searchmatch\">Python&#039;s</span> Flying Circus. These"
 },
 {
-"title": "Storm Water Management Model",
-"pageid": 3429879,
-"size": 57840,
-"wordcount": 7235,
-"timestamp": "2026-05-31T06:46:03Z",
-"snippet": "Tryby, Michael; Wu, Jason J. X.; Mullapudi, Anirudh (2020). &quot;PySWMM: The <span class=\"searchmatch\">Python</span> Interface to the Stormwater Management Model (SWMM)&quot;. Journal of Open Source"
+"title": "Etherpad",
+"pageid": 20297788,
+"size": 15296,
+"wordcount": 1334,
+"timestamp": "2026-07-11T06:35:16Z",
+"snippet": "helps embedding the collaborative editor in other sites Clients for PHP, <span class=\"searchmatch\">Python</span>, Ruby, JavaScript, Java, Objective-C and Perl, which interface with the"
 },
 {
-"title": "Scribes (software)",
-"pageid": 75177,
-"size": 4418,
-"wordcount": 343,
-"timestamp": "2025-11-18T05:13:26Z",
-"snippet": "0-or-later license. It was created by Lateef Alabi-Oki and <span class=\"searchmatch\">programmed</span> in <span class=\"searchmatch\">Python</span>. Scribes supports <span class=\"searchmatch\">Python</span> plugins, remote editing with FTP, SFTP, SSH, Samba,"
+"title": "Chris Agajanian",
+"pageid": 83102973,
+"size": 18466,
+"wordcount": 2603,
+"timestamp": "2026-08-12T11:06:47Z",
+"snippet": "friendship to this day. Graham Chapman of the British comedy group, “Monty <span class=\"searchmatch\">Python</span>” invited Agajanian to join him and his partner for a “Life of Brian” dinner"
 },
 {
-"title": "List of Mikoyan-Gurevich MiG-21 variants",
-"pageid": 30688904,
-"size": 55926,
-"wordcount": 6031,
-"timestamp": "2026-05-04T03:54:59Z",
-"snippet": "guided munitions of eastern and western origin as well as R-60, R-73 and <span class=\"searchmatch\">Python</span> 3 air-to-air missiles. The LanceR B version is the trainer version, and"
+"title": "CPLEX",
+"pageid": 1249724,
+"size": 9714,
+"wordcount": 450,
+"timestamp": "2026-04-08T06:23:48Z",
+"snippet": "IBM. The IBM ILOG CPLEX Optimizer solves integer <span class=\"searchmatch\">programming</span> problems, very large linear <span class=\"searchmatch\">programming</span> problems using either primal or dual variants of"
 },
 {
-"title": "Apache Thrift",
-"pageid": 10438451,
-"size": 10038,
-"wordcount": 773,
-"timestamp": "2026-05-06T22:08:32Z",
-"snippet": " Erlang, Go, Haskell, Java, JavaScript, Objective-C, OCaml, Perl, PHP, <span class=\"searchmatch\">Python</span>, Ruby, Elixir, Rust, Scala, Smalltalk, and Swift. The implementation was"
+"title": "Tamarin (software)",
+"pageid": 7822219,
+"size": 13122,
+"wordcount": 953,
+"timestamp": "2025-12-28T12:20:33Z",
+"snippet": "West: IronMonkey and ScreamingMonkey. IronMonkey is a project to map Iron<span class=\"searchmatch\">Python</span> and IronRuby to Tamarin led by Seo Sanghyeon. ScreamingMonkey&#039;s goal is"
 }
 ]
 }

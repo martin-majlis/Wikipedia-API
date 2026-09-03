@@ -23,7 +23,6 @@ Abundance of the chemical elements
 Abyssal plain
 Acceleration
 Accretion (astrophysics)
-Accretion disk
 Acid rain
 Active asteroid
 Aerobic organisms
@@ -42,6 +41,7 @@ American Geophysical Union
 American Institute of Physics
 American Museum of Natural History
 Americas
+Amor asteroid
 Ancient Greece
 Andrew Goudie (geographer)
 Angular size
@@ -52,11 +52,14 @@ Anny Cazenave
 Antarctic Circle
 Antarctic Plate
 Antarctic Treaty System
+Antarctic ice sheet
+Antarctic sea ice
 Antarctica
 Ape
 Aphelion
 Apoapsis
 Apollo 17
+Apollo asteroid
 Apsis
 ArXiv (identifier)
 Arabian Plate
@@ -78,6 +81,7 @@ Asteroid
 Asteroid belt
 Asteroid family
 Asteroid mining
+Asteroid spectral types
 Asthenosphere
 Astrobiology
 Astrobiology (journal)
@@ -88,6 +92,9 @@ Astronomical unit
 Astronomy
 Astronomy (magazine)
 Astronomy and Astrophysics
+Asymptotic giant branch
+Aten asteroid
+Atira asteroid
 Atlantic Ocean
 Atmosphere of Earth
 Atmospheric chemistry
@@ -176,13 +183,9 @@ Christopher McKay
 Chrysalis (hypothetical moon)
 Circumference
 Circumplanetary disk
-Circumstellar disc
 Circumstellar disk
-Circumstellar envelope
-CiteSeerX (identifier)
 Clabon Allen
 Claimed moons of Earth
-Classical Kuiper belt object
 Claude Jaupart
 Climate
 Climate change
@@ -197,6 +200,7 @@ Coatlicue (star)
 Cocos Plate
 Colony (biology)
 Comet
+Compositing
 Computer cartography
 Conrad discontinuity
 Continent
@@ -224,11 +228,11 @@ Crystallography
 Culture
 D. S. Brewer
 Damocloid
+Dark comet
 David Catling
 David J. Asher
 Dead Sea
 Death Valley National Park
-Debris disk
 Deep space exploration
 Definite article
 Deforestation
@@ -245,6 +249,7 @@ Dione (moon)
 Dipole
 Discovery and exploration of the Solar System
 Disrupted planet
+Distant minor planet
 Divergent boundary
 Doi (identifier)
 Donal Bradley
@@ -294,6 +299,7 @@ Earthquake
 Earthquakes
 Earthrise
 Eastern Hemisphere
+Eclipse
 Ecliptic
 Ecological network
 Ecology
@@ -330,7 +336,6 @@ Europe
 European Environment Agency
 European Union
 Excite (web portal)
-Exoplanetary Circumstellar Environments and Disk Explorer
 Exosphere
 Exozodiacal dust
 Exploration of Jupiter
@@ -341,17 +346,20 @@ Exploration of Pluto
 Exploration of Saturn
 Exploration of Uranus
 Exploration of the Moon
+Extinct comet
 Extinction
 Extinction event
 Extraterrestrial liquid water
 Extraterrestrial materials
 Extraterrestrial sample curation
+Extreme trans-Neptunian object
 Extreme weather
 Extremes on Earth
 Faint young Sun paradox
 Fauna
 Felsic
 Fertility deity
+Fictional planets of the Solar System
 Field (physics)
 Fifth Giant
 Figure of the Earth
@@ -438,11 +446,11 @@ Gravity anomaly
 Gravity of Earth
 Great Oxidation Event
 Great Plains
+Great comet
 Greeks
 Greenhouse effect
 Greenhouse gas
 Greenland
-Ground water
 Groundwater
 Hadean
 Hadean zircon
@@ -453,6 +461,7 @@ Hdl (identifier)
 Heat flow
 Heat reservoir
 Heliocentrism
+Heliosphere
 Helium
 Hello, World (photograph)
 Help:Authority control
@@ -528,8 +537,6 @@ International Earth Rotation and Reference Systems Service
 International Space Station
 Interplanetary dust cloud
 Interplanetary medium
-Interstellar cloud
-Interstellar medium
 Invariable plane
 Io (moon)
 Ionosphere
@@ -599,31 +606,33 @@ List of Jupiter trojans (Trojan camp)
 List of Jupiter-crossing minor planets
 List of Mars-crossing minor planets
 List of Mercury-crossing minor planets
-List of Neptune-crossing minor planets
-List of Saturn-crossing minor planets
 List of Solar System extremes
 List of Solar System objects
+List of Solar System objects by greatest aphelion
 List of Solar System objects by size
+List of Solar System objects most distant from the Sun
 List of Solar System probes
-List of Uranus-crossing minor planets
 List of Venus-crossing minor planets
 List of adjectivals and demonyms of astronomical bodies
 List of ancient civilizations
+List of craters in the Solar System
 List of crewed spacecraft
 List of exceptional asteroids
 List of gravitationally rounded objects of the Solar System
 List of highest mountains on Earth
 List of hypothetical Solar System objects
-List of interstellar and circumstellar molecules
 List of largest lakes and seas in the Solar System
-List of minor planets
+List of largest rifts, canyons and valleys in the Solar System
 List of missions to comets
 List of natural satellites
 List of possible dwarf planets
 List of sovereign states
 List of space travellers by first flight
+List of tallest mountains in the Solar System
 List of tectonic plates
 Lists of comets
+Lists of geological features of the Solar System
+Lists of minor planets
 Lithosphere
 Lithosphere–asthenosphere boundary
 Lithospheric mantle
@@ -710,6 +719,7 @@ Mineral physics
 Mineralogy
 Mining geology
 Minor planet
+Minor-planet designation
 Minor-planet moon
 Miranda (moon)
 Modern English
@@ -739,6 +749,7 @@ NSSDCA
 Nadia Drake
 Namaka (moon)
 Naomi Oreskes
+National Aeronautics and Space Administration
 National Geographic
 National Geospatial-Intelligence Agency
 National Institute of Standards and Technology
@@ -784,6 +795,7 @@ OCLC (identifier)
 Oberon (moon)
 Observable universe
 Observations and explorations of Venus
+Occultation
 Ocean
 Ocean current
 Ocean depths
@@ -801,6 +813,7 @@ Old English
 Oort cloud
 Oort limit
 Ophiuchus Supercluster
+Opposition (astronomy)
 Orbit
 Orbit of the Moon
 Orbital eccentricity
@@ -817,6 +830,7 @@ Origin of water on Earth
 Orion Arm
 Orogeny
 Osculating orbit
+Outer Solar System
 Outer core
 Outer space
 Outgassing
@@ -849,6 +863,7 @@ Paleontology
 Pangaea
 Pannotia
 Parmenides
+Partial melting
 Particle
 Parts per million
 Pascal (unit)
@@ -953,6 +968,7 @@ Redox
 Reid Wiseman
 Remote Sensing
 Remote sensing
+Resonant trans-Neptunian object
 Retreat of glaciers since 1850
 Rhea (moon)
 Rheology
@@ -1026,6 +1042,7 @@ Soil depletion
 Soil formation
 Soil science
 Solar System
+Solar System in fiction
 Solar System model
 Solar System object
 Solar day
@@ -1034,6 +1051,7 @@ Solar irradiance
 Solar luminosity
 Solar nebula
 Solar radiation
+Solar time
 Solar wind
 Solid angle
 Solstice
@@ -1041,6 +1059,7 @@ South America
 South American Plate
 Southern Hemisphere
 Southern Ocean
+Southern Pacific
 Sovereign state
 Space
 Space colonization
@@ -1055,9 +1074,7 @@ Spherical Earth
 Spheroid
 Springer Science + Business Media
 Standard gravity
-Star formation
 Stefan Rahmstorf
-Stellar collision
 Stellar evolution
 Stephan Lewandowsky
 Steven M. Stanley
@@ -1180,13 +1197,14 @@ Upper mantle
 Upper mantle (Earth)
 Uranium-238
 Uranus
-Uranus trojans
+Uranus trojan
 Urban area
 Urban lighting
 Van Allen radiation belt
 Vanguard 1
 Vanth (moon)
 Vector Map
+Vegetation
 Venus
 Vertical datum
 Vincent Courtillot
@@ -1217,8 +1235,6 @@ Western Australia
 Western Greenland
 Western Hemisphere
 Weywot
-Wikipedia:Citation needed
-Wikipedia:Citing sources
 Wikipedia:Contents/Portals
 Wikipedia:Featured articles*
 Wikipedia:Geology

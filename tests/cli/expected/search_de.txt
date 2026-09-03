@@ -1,13 +1,13 @@
 Total hits: 10
-Suggestion: python unterstützte meurer programmierparadigmen
+Suggestion: python unterstützte mehnert programmierparadigmen
 
 Python (Programmiersprache)
 R (Programmiersprache)
 JavaScript
+Hybridsprache
 Ruby (Programmiersprache)
 Rust (Programmiersprache)
-Hybridsprache
 Wolfram Language
+Objektorientierte Programmierung
 Scratch (Programmiersprache)
 Tcl
-Objektorientierte Programmierung
