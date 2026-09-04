@@ -1,4 +1,4 @@
-Total hits: 6142
+Total hits: 6143
 
 Python (programming language)
 History of Python
@@ -8,5 +8,5 @@ Mojo (programming language)
 Zen of Python
 Guido van Rossum
 Flask (web framework)
-Python
 Core Python Programming
+List of Python software

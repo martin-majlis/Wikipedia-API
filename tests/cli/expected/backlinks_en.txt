@@ -2425,7 +2425,6 @@ User talk:Titch46
 User talk:Tom.Reding/Archive 1
 User talk:Tom.Reding/Archive 2
 User talk:TomPhil/archive3
-User talk:TomStar81/sandbox
 User talk:TransNique
 User talk:Tryagain711
 User talk:TupacisGod
@@ -2463,7 +2462,6 @@ User:19jp87
 User:1c33y37
 User:2086j
 User:22pandrew
-User:23W/SGA
 User:2wheelspecial/Books/Milky Way Galaxy and Beyond
 User:31Gallium
 User:3loodlust
@@ -2601,7 +2599,6 @@ User:ArnoldJudasRimmer
 User:Arrogant Oriole
 User:Arthur Water
 User:Artsygeek/Books/Solar system
-User:Arunram/Billboard
 User:AryKun/Challenges
 User:Ascraeus~enwiki
 User:Ashwanialok26/Books/Solar System
@@ -2638,7 +2635,6 @@ User:Bagpipeturtle
 User:Bahamut0013/userboxes
 User:Bahaumaunt
 User:Bakasuprman/Archive3
-User:Baked
 User:Banette
 User:Baqotun0023
 User:Barbarossa359
@@ -2728,7 +2724,6 @@ User:Brainist/MeSH articles
 User:Brambleberry of RiverClan/The Odd Editor
 User:Brandonwamsley1
 User:Brandonwamsley1/sandbox
-User:Braunold
 User:BretonLim/sandbox
 User:Brianshapiro/Drafts/History of medicinal creosote
 User:Bubba73
@@ -2795,7 +2790,6 @@ User:Ceosad
 User:Cerebralshrike
 User:Cevlakohn
 User:Chaffers
-User:Chandanmm
 User:Charles01
 User:CheChe/Spoken Script
 User:Cherrychipmunk
@@ -2834,7 +2828,6 @@ User:Cmglee/drawing
 User:Coal On Toast
 User:Cobaltbluetony/userboxes
 User:Coffeeandcrumbs/Selected anniversaries/April 25
-User:Coffeeandcrumbs/sandbox/Main Page demo
 User:Cogito ergo cogitati sunt
 User:Coinmanj
 User:Cold Phront
@@ -2843,7 +2836,6 @@ User:Colinmartin74/Books/Dwarf Planets Of The Solar System & Their Satellites
 User:ComaDivine
 User:Combatcoffee
 User:CometNebulaLuna/sandbox
-User:Cometstyles/Page
 User:Cominion
 User:CommanderWiki35
 User:Commons is in a thing
@@ -2869,7 +2861,6 @@ User:Craigboy/sandbox
 User:Crash Underride/userboxes
 User:Crawling
 User:Crazy Murdoc
-User:Crazy Sussex Lad/random
 User:Crazynas/verifiability rfc
 User:Crunchydillpickle/List of unusual anniversaries
 User:Crylophosaurus
@@ -2940,7 +2931,6 @@ User:Deidre36
 User:Deku-Scrub
 User:Deletion Quality
 User:Democratics/Minor planets list index
-User:Denis.arnaud
 User:Derekjoel
 User:Derg999
 User:Desdinova
@@ -2954,7 +2944,6 @@ User:Dinnypaul
 User:Diriector Doc/sandbox/Archives/9.16.2019-2.11.2020
 User:DirkvdM
 User:DiscoLava
-User:Divad27182/Main Page
 User:DizzyITTech
 User:Dj0131dj/sandbox
 User:Djf2014
@@ -2984,7 +2973,6 @@ User:Drbogdan/sandbox-images
 User:Drcombs/Books/SolarSystem
 User:Dream Focus/About me
 User:DremoraValkynaz
-User:DrinkEnemy
 User:Drinkingsoda
 User:Dronebogus/Userboxes/Dwarf planets
 User:Dudanotak/sandbox
@@ -3265,7 +3253,6 @@ User:Iona Anders
 User:Iph/Testboxes
 User:IrfanFaiz
 User:Iridia/Sandbox
-User:IronChris/My Desk
 User:IsaacGS
 User:ItsWilliamGuy
 User:Itsabouttimebisnitch/Books/Final
@@ -3279,7 +3266,6 @@ User:IvarTheBoneless123/sandbox
 User:Ixfd64/predictions
 User:Izzy007
 User:Izzy007/Userboxes
-User:J. Finkelstein/Sandbox/FixUserpage
 User:J4m3sb0nd
 User:JCSeer
 User:JDontology/WPPhilosophyLevel5
@@ -3318,7 +3304,6 @@ User:Jasperleigh3/Books/planets
 User:Jastcaan
 User:Java7837/Userboxes
 User:Java7837/archive1
-User:JavierMC
 User:Jaxha/more userboxes
 User:Jay.S
 User:Jayant412
@@ -3375,7 +3360,6 @@ User:Jpedro.john/sandbox
 User:Jpgr 1960
 User:Jrtman
 User:Jsc1973
-User:Jsdo1980/Main Page 1.1
 User:Jshflynn/All Expanded
 User:Jshflynn/The State/Astronomy
 User:Judas34/sandbox
@@ -3401,7 +3385,6 @@ User:Kat is amazing
 User:Katalysator
 User:Kaylon Sphere
 User:Kazkaskazkasako/Books/Physical sciences
-User:Kb755
 User:Kellyanne.tomlinson
 User:Kenjoshii
 User:Kepler-1229b/sandbox/PSR 1257+12 D
@@ -3455,7 +3438,6 @@ User:Kylecarleton/Books/Solar System
 User:Kyu!
 User:L&Superfoo
 User:L3th4l/Userboxes
-User:LEC20/Daily Diversions
 User:LFCnicholas
 User:LJG81292
 User:LOLgoats
@@ -3481,7 +3463,6 @@ User:LeFaune
 User:Legoland12342
 User:Leobold1/Research Articles/Space
 User:Leobold111/userboxes
-User:Leonardolopezhernandez000
 User:Leonidaa
 User:Lethesl/Userboxes
 User:Letter 7
@@ -3514,9 +3495,7 @@ User:Lorax
 User:Lord Rubix
 User:Lord mortekai
 User:LordFire333
-User:LouriePieterse
 User:Lovablebeautyme
-User:LovesMacs/subpage3
 User:Lstanley1979
 User:Lt. penguin
 User:Ltiler/List of Pluto chapters
@@ -3537,7 +3516,6 @@ User:M miyama
 User:M. Allen Williamson
 User:M. Tewes
 User:M79 specialist/userboxes
-User:MDM
 User:MEWheatley
 User:MKV2
 User:MLatham
@@ -3648,7 +3626,6 @@ User:Motomooda
 User:Mpprogram6771
 User:Mr. UnderhiIl
 User:Mr.Oliverrr
-User:Mr.Z-man/Did you know/Main Page
 User:Mr.joomm
 User:MrAstronomy101/Sandbox
 User:MrAstronomy101/Solar system Imaged objects
@@ -3702,7 +3679,6 @@ User:Niyet'/sandbox
 User:NoGoodScoundrel
 User:Node ue/German language
 User:Noideawhatiamdoing/sandbox/stardome
-User:Noisalt/MainPageProposal
 User:Northamerica1000/Notepad
 User:Nosh Losh Gosh Bosh/sandbox
 User:NotQuiteCrazy
@@ -3747,6 +3723,7 @@ User:Oniongas
 User:Onore Baka Sama
 User:Oobleckman
 User:Orangepilled
+User:OrdinaryGiraffe/Books/Vital/L2/A
 User:Oren neu dag
 User:Oren0
 User:Orinoco-w
@@ -3778,8 +3755,6 @@ User:Peace237
 User:Pengo/Latin/species 3
 User:PenguinsMadagscar
 User:Perfectmiss
-User:Persian Poet Gal
-User:Persian Poet Gal/Page
 User:Personxz
 User:Peter Drake/RockRaidersDis
 User:Peter Ellis
@@ -3905,7 +3880,6 @@ User:Rfassbind/Minor planet list index
 User:Rfassbind/sandbox
 User:Rfassbind/sandbox/Leadimage compilations
 User:Rfbb/Text
-User:Rfl
 User:Rhiannoneva
 User:Rhymstat/Books/AERODYNAMICS V PHYSICS
 User:Riarle
@@ -3953,7 +3927,6 @@ User:Rwflammang
 User:Ryan Leonel
 User:Ryan Leonel/Userboxen
 User:Ryanho0001
-User:Ryanhokanson
 User:S MD AMJAD/Books/solar system
 User:S-man/Userboxes
 User:SANTABABES
@@ -4039,7 +4012,6 @@ User:SethAllen623/Vital articles/Science
 User:Sf46
 User:Sgarza
 User:Shanejez/sandbox1
-User:Shearonink/test 3
 User:SherlockHolmesFerghana
 User:Shermoo
 User:Shiftchange/My favourite templates
@@ -4050,7 +4022,6 @@ User:Shindo9Hikaru/Userboxes
 User:ShornAssociates
 User:Shortmancancook/Books/astronomy
 User:Shsilver
-User:Shubinator/Sandbox/Test template
 User:Silence/V1
 User:Silence/VA3
 User:Silvensis
@@ -4060,8 +4031,6 @@ User:Sir Cumference
 User:Sir Drance
 User:Sir Jimmy 07
 User:SireneSpica
-User:Sirex98
-User:Sirex98/Body
 User:Siri C J/Books/Astronomy
 User:Sith Penguin Lord
 User:Sj/en-g1g1
@@ -4080,7 +4049,6 @@ User:Sl1nk3
 User:Slapero/Books/Astronomy
 User:Sldempster/Books/Solar System
 User:Sleddog116/Positions
-User:Slgrandson
 User:SlimJim/VandalismLog
 User:SlyEcho
 User:Smaha.mark/Books/The Sky
@@ -4136,7 +4104,6 @@ User:StallingScholar
 User:Stanthejeep
 User:Star Mississippi
 User:Starbuster
-User:Starom
 User:Starry.dreams/My Userboxes
 User:StarryWorld/Userboxes
 User:Steaphan Greene
@@ -4172,7 +4139,6 @@ User:TBicks
 User:TParis/Featured Article By Length
 User:Tailsic/Sandbox
 User:Talk2chun
-User:Tamer ih~enwiki
 User:TangoWhiskeyDelta
 User:Tarrows
 User:Taskforce 58
@@ -4243,7 +4209,6 @@ User:Think777
 User:ThinkOutsideTheTesseract
 User:Thinking of England/Notes2
 User:Thinkpad
-User:Thomas27
 User:ThomasMTroxell
 User:Thor Dockweiler
 User:Throktar
@@ -4262,7 +4227,6 @@ User:Tom.Reding/Useful
 User:Tom.Reding/Userboxes
 User:Tom29739
 User:Tom29739/userboxes
-User:TomStar81
 User:Tomeasy
 User:Tompw
 User:Tompw/templates
@@ -4302,7 +4266,6 @@ User:Tyklink
 User:Tyler336
 User:Tyrahcaz
 User:Tyw7/User box
-User:U-Two
 User:U003F/Best Books
 User:U003F/The 50 Best Non-Superhero Graphic Novels
 User:UBX/Pluto interest
@@ -4316,7 +4279,6 @@ User:UniversalAlien
 User:Unknownlight
 User:Untoisaac
 User:UnusualGazelle
-User:Uriel8
 User:Urion8
 User:Urion8/userboxes
 User:UsagiEriko
@@ -4327,7 +4289,6 @@ User:Van Nooz
 User:Vancemiller
 User:Vanillian/sandbox/Vanillian
 User:Vanished user 674827203/Books/Solar System
-User:Vargmali
 User:Vastly Lynn
 User:Vastly Lynn/sandbox
 User:Vastly Lynn/userboxes
@@ -4457,7 +4418,6 @@ User:Zemant
 User:Zemant from Supernova
 User:Zimbabwe is Mine/Userboxes/Pluto
 User:Zo3a
-User:Zoologist08
 User:Zotel/Books/KindleWiki 10.10
 User:Zotel/Books/KindleWiki 10.10 a
 User:Zotel/Books/KindleWiki 10.10 b
@@ -4601,14 +4561,10 @@ Wikipedia:0.7/0.7alpha/P3
 Wikipedia:0.7/0.7index/Astronomy and outer space
 Wikipedia:0.8/Index/P4
 Wikipedia:1,000 core topics/with problems
-Wikipedia:2008 main page redesign proposal/Blackhole77
-Wikipedia:2008 main page redesign proposal/Deathgleaner
 Wikipedia:2008 main page redesign proposal/Dr. Blofeld
-Wikipedia:2008 main page redesign proposal/Jackl
 Wikipedia:2008 main page redesign proposal/Pretzels
 Wikipedia:2008 main page redesign proposal/Proposal Candidate 2
 Wikipedia:2008 main page redesign proposal/Proposal Candidate 2A
-Wikipedia:2008 main page redesign proposal/h2g2bob
 Wikipedia:Administrators against kitten abuse
 Wikipedia:Administrators' noticeboard/3RRArchive250
 Wikipedia:Administrators' noticeboard/3RRArchive26
@@ -4863,7 +4819,7 @@ Wikipedia:Main Page history/2026 June 15
 Wikipedia:Main Page history/2026 June 15b
 Wikipedia:Main Page history/2026 September 2
 Wikipedia:Main Page history/2026 September 2b
-Wikipedia:Main Page/Yesterday
+Wikipedia:Main Page/Day before yesterday
 Wikipedia:Miscellany for deletion/User:TenPoundHammer (4th nomination)
 Wikipedia:Most read articles in 2008
 Wikipedia:Most read articles in 2009
@@ -4882,7 +4838,6 @@ Wikipedia:Picture of the day/December 2014
 Wikipedia:Picture of the day/July 2018
 Wikipedia:Picture of the day/June 2007
 Wikipedia:Picture of the day/October 2023
-Wikipedia:Picture of the day/On the main pages
 Wikipedia:Picture of the day/September 2026
 Wikipedia:Popular pages
 Wikipedia:Press coverage 2006

@@ -1,85 +1,85 @@
 {
-"totalhits": 6142,
+"totalhits": 6143,
 "pages": [
 {
-"title": "Anaconda (installer)",
-"pageid": 767613,
-"size": 5689,
-"wordcount": 530,
-"timestamp": "2025-05-21T21:46:55Z",
-"snippet": "satisfied does it start the installation process. It is mainly written in <span class=\"searchmatch\">Python</span> with some modules written in C. It has a graphical frontend that is based"
+"title": "340th Expeditionary Air Refueling Squadron",
+"pageid": 27558316,
+"size": 16967,
+"wordcount": 1705,
+"timestamp": "2025-11-22T09:37:34Z",
+"snippet": "Refueling: Highlights, 1923–1998 (PDF). Air Force History and Museums <span class=\"searchmatch\">Program</span>. Washington, DC: Government Printing Office. Archived from the original"
 },
 {
-"title": "VIGRA",
-"pageid": 36472550,
-"size": 2904,
-"wordcount": 234,
-"timestamp": "2025-12-30T18:03:27Z",
-"snippet": "Windows, Mac OS X, Linux, and OpenBSD. Since version 1.7.1, VIGRA provides <span class=\"searchmatch\">Python</span> bindings based on numpy framework. VIGRA was originally designed and implemented"
+"title": "Google Developers",
+"pageid": 5376796,
+"size": 15063,
+"wordcount": 1478,
+"timestamp": "2026-08-09T17:48:10Z",
+"snippet": "Engine also features a dedicated <span class=\"searchmatch\">Python</span> runtime environment, which includes a fast <span class=\"searchmatch\">Python</span> interpreter and the <span class=\"searchmatch\">Python</span> standard library. Google Plugin for"
 },
 {
-"title": "Gauss–Newton algorithm",
-"pageid": 1164753,
-"size": 26473,
-"wordcount": 4177,
-"timestamp": "2025-06-11T23:00:00Z",
-"snippet": "Knitro is a non-linear solver with an implementation of the Gauss–Newton method. It is written in C and has interfaces to C++/C#/Java/<span class=\"searchmatch\">Python</span>/MATLAB/R."
+"title": "Billy Cotton Band Show",
+"pageid": 1276897,
+"size": 1914,
+"wordcount": 176,
+"timestamp": "2026-05-03T00:04:23Z",
+"snippet": "began Terry Jones and Michael Palin, both later to become members of Monty <span class=\"searchmatch\">Python</span>, wrote jokes for the show. &quot;bbc.co.uk&quot;. bbc.co.uk. 14 August 2016. Retrieved"
 },
 {
-"title": "Ternary search",
-"pageid": 4032583,
-"size": 4023,
-"wordcount": 639,
-"timestamp": "2025-02-13T19:21:47Z",
-"snippet": "A ternary search algorithm is a technique in computer science for finding the minimum or maximum of a unimodal function. Assume we are looking for a maximum"
+"title": "Beeper (software)",
+"pageid": 75635279,
+"size": 15151,
+"wordcount": 1152,
+"timestamp": "2026-04-07T18:09:30Z",
+"snippet": "proof of concept called Pypush that reimplemented iMessage in the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language and released it on GitHub. After Gill contacted Migicovsky"
 },
 {
-"title": "OpenBSD",
-"pageid": 18949571,
-"size": 138149,
-"wordcount": 8996,
-"timestamp": "2026-08-26T22:49:14Z",
-"snippet": "A. (3 March 2003). &quot;2.4. Is Open Source Good for Security?&quot;. Secure <span class=\"searchmatch\">Programming</span> for Linux and Unix HOWTO. Archived from the original on 8 December 2020"
+"title": "Circus (Britney Spears song)",
+"pageid": 19996174,
+"size": 62091,
+"wordcount": 4919,
+"timestamp": "2026-03-27T01:32:46Z",
+"snippet": "drums, keyboards, <span class=\"searchmatch\">programming</span> Claude Kelly – writer, background vocals Benny Blanco – writer, producer, drums, keyboards, <span class=\"searchmatch\">programming</span> Serban Ghenea – mixing"
 },
 {
-"title": "1970s",
-"pageid": 34555,
-"size": 173070,
-"wordcount": 19769,
-"timestamp": "2026-08-29T10:43:58Z",
-"snippet": "comedy troupe Monty <span class=\"searchmatch\">Python</span> started making films in the &#039;70s, following the wake of their groundbreaking sketch series Monty <span class=\"searchmatch\">Python&#039;s</span> Flying Circus. These"
+"title": "Ray tracing (graphics)",
+"pageid": 26000,
+"size": 69263,
+"wordcount": 8052,
+"timestamp": "2026-08-26T18:28:31Z",
+"snippet": "pages are shown as a video in the accompanying image. Roth&#039;s computer <span class=\"searchmatch\">program</span> noted an edge point at a pixel location if the ray intersected a bounded"
 },
 {
-"title": "Etherpad",
-"pageid": 20297788,
-"size": 15296,
-"wordcount": 1334,
-"timestamp": "2026-07-11T06:35:16Z",
-"snippet": "helps embedding the collaborative editor in other sites Clients for PHP, <span class=\"searchmatch\">Python</span>, Ruby, JavaScript, Java, Objective-C and Perl, which interface with the"
+"title": "Inkscape",
+"pageid": 412916,
+"size": 45055,
+"wordcount": 3155,
+"timestamp": "2026-08-31T01:31:26Z",
+"snippet": "expense of SVG. Following the fork, Inkscape&#039;s developers changed the <span class=\"searchmatch\">programming</span> language from C to C++; adopted the GTK toolkit C++ bindings (gtkmm);"
 },
 {
-"title": "Chris Agajanian",
-"pageid": 83102973,
-"size": 18466,
-"wordcount": 2603,
-"timestamp": "2026-08-12T11:06:47Z",
-"snippet": "friendship to this day. Graham Chapman of the British comedy group, “Monty <span class=\"searchmatch\">Python</span>” invited Agajanian to join him and his partner for a “Life of Brian” dinner"
+"title": "HPX",
+"pageid": 15884125,
+"size": 9739,
+"wordcount": 843,
+"timestamp": "2025-10-09T00:17:22Z",
+"snippet": "&quot;Asynchronous Execution of <span class=\"searchmatch\">Python</span> Code on Task-Based Runtime Systems&quot;. 2018 IEEE/ACM 4th International Workshop on Extreme Scale <span class=\"searchmatch\">Programming</span> Models and Middleware"
 },
 {
-"title": "CPLEX",
-"pageid": 1249724,
-"size": 9714,
-"wordcount": 450,
-"timestamp": "2026-04-08T06:23:48Z",
-"snippet": "IBM. The IBM ILOG CPLEX Optimizer solves integer <span class=\"searchmatch\">programming</span> problems, very large linear <span class=\"searchmatch\">programming</span> problems using either primal or dual variants of"
+"title": "StackStorm",
+"pageid": 57505264,
+"size": 6911,
+"wordcount": 490,
+"timestamp": "2026-08-27T06:29:10Z",
+"snippet": "Give DevOps True Data Center Automation&quot;. 6 May 2014. Yegulalp, Serdar. &quot;<span class=\"searchmatch\">Python</span>-powered StackStorm sets scripts for event-triggered automation&quot;. Haranas"
 },
 {
-"title": "Tamarin (software)",
-"pageid": 7822219,
-"size": 13122,
-"wordcount": 953,
-"timestamp": "2025-12-28T12:20:33Z",
-"snippet": "West: IronMonkey and ScreamingMonkey. IronMonkey is a project to map Iron<span class=\"searchmatch\">Python</span> and IronRuby to Tamarin led by Seo Sanghyeon. ScreamingMonkey&#039;s goal is"
+"title": "Kanban (development)",
+"pageid": 28936955,
+"size": 15519,
+"wordcount": 1759,
+"timestamp": "2026-07-03T01:21:20Z",
+"snippet": "Electrical and electronics engineering Outlines Software development Computer <span class=\"searchmatch\">programming</span> <span class=\"searchmatch\">Programming</span> languages C C++ C# Java JavaScript Perl <span class=\"searchmatch\">Python</span> Rust v t e"
 }
 ]
 }
