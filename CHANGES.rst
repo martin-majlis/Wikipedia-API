@@ -4,9 +4,9 @@ Changelog
 Unreleased
 ----------
 
-* Allow passing a custom ``transport`` to the underlying ``httpx`` client (e.g. a caching transport such as Hishel) - `Issue 615`_
+* Allow passing a custom ``transport`` to the underlying ``httpx`` client (e.g. a caching transport such as Hishel) - `PR 659`_
 
-.. _Issue 615: https://github.com/martin-majlis/Wikipedia-API/issues/615
+.. _PR 659: https://github.com/martin-majlis/Wikipedia-API/pull/659
 
 0.15.0
 ----------
