@@ -1,7 +1,7 @@
 Changelog
 =========
 
-Unreleased
+0.16.0
 ----------
 
 * Allow passing a custom ``transport`` to the underlying ``httpx`` client (e.g. a caching transport such as Hishel) - `PR 659`_

@@ -12134,11 +12134,6 @@
 "language": "en",
 "ns": 3
 },
-"User talk:TomStar81/sandbox": {
-"title": "User talk:TomStar81/sandbox",
-"language": "en",
-"ns": 3
-},
 "User talk:TransNique": {
 "title": "User talk:TransNique",
 "language": "en",
@@ -12321,11 +12316,6 @@
 },
 "User:22pandrew": {
 "title": "User:22pandrew",
-"language": "en",
-"ns": 2
-},
-"User:23W/SGA": {
-"title": "User:23W/SGA",
 "language": "en",
 "ns": 2
 },
@@ -13014,11 +13004,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Arunram/Billboard": {
-"title": "User:Arunram/Billboard",
-"language": "en",
-"ns": 2
-},
 "User:AryKun/Challenges": {
 "title": "User:AryKun/Challenges",
 "language": "en",
@@ -13196,11 +13181,6 @@
 },
 "User:Bakasuprman/Archive3": {
 "title": "User:Bakasuprman/Archive3",
-"language": "en",
-"ns": 2
-},
-"User:Baked": {
-"title": "User:Baked",
 "language": "en",
 "ns": 2
 },
@@ -13649,11 +13629,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Braunold": {
-"title": "User:Braunold",
-"language": "en",
-"ns": 2
-},
 "User:BretonLim/sandbox": {
 "title": "User:BretonLim/sandbox",
 "language": "en",
@@ -13984,11 +13959,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Chandanmm": {
-"title": "User:Chandanmm",
-"language": "en",
-"ns": 2
-},
 "User:Charles01": {
 "title": "User:Charles01",
 "language": "en",
@@ -14179,11 +14149,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Coffeeandcrumbs/sandbox/Main Page demo": {
-"title": "User:Coffeeandcrumbs/sandbox/Main Page demo",
-"language": "en",
-"ns": 2
-},
 "User:Cogito ergo cogitati sunt": {
 "title": "User:Cogito ergo cogitati sunt",
 "language": "en",
@@ -14221,11 +14186,6 @@
 },
 "User:CometNebulaLuna/sandbox": {
 "title": "User:CometNebulaLuna/sandbox",
-"language": "en",
-"ns": 2
-},
-"User:Cometstyles/Page": {
-"title": "User:Cometstyles/Page",
 "language": "en",
 "ns": 2
 },
@@ -14351,11 +14311,6 @@
 },
 "User:Crazy Murdoc": {
 "title": "User:Crazy Murdoc",
-"language": "en",
-"ns": 2
-},
-"User:Crazy Sussex Lad/random": {
-"title": "User:Crazy Sussex Lad/random",
 "language": "en",
 "ns": 2
 },
@@ -14709,11 +14664,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Denis.arnaud": {
-"title": "User:Denis.arnaud",
-"language": "en",
-"ns": 2
-},
 "User:Derekjoel": {
 "title": "User:Derekjoel",
 "language": "en",
@@ -14776,11 +14726,6 @@
 },
 "User:DiscoLava": {
 "title": "User:DiscoLava",
-"language": "en",
-"ns": 2
-},
-"User:Divad27182/Main Page": {
-"title": "User:Divad27182/Main Page",
 "language": "en",
 "ns": 2
 },
@@ -14926,11 +14871,6 @@
 },
 "User:DremoraValkynaz": {
 "title": "User:DremoraValkynaz",
-"language": "en",
-"ns": 2
-},
-"User:DrinkEnemy": {
-"title": "User:DrinkEnemy",
 "language": "en",
 "ns": 2
 },
@@ -16334,11 +16274,6 @@
 "language": "en",
 "ns": 2
 },
-"User:IronChris/My Desk": {
-"title": "User:IronChris/My Desk",
-"language": "en",
-"ns": 2
-},
 "User:IsaacGS": {
 "title": "User:IsaacGS",
 "language": "en",
@@ -16401,11 +16336,6 @@
 },
 "User:Izzy007/Userboxes": {
 "title": "User:Izzy007/Userboxes",
-"language": "en",
-"ns": 2
-},
-"User:J. Finkelstein/Sandbox/FixUserpage": {
-"title": "User:J. Finkelstein/Sandbox/FixUserpage",
 "language": "en",
 "ns": 2
 },
@@ -16596,11 +16526,6 @@
 },
 "User:Java7837/archive1": {
 "title": "User:Java7837/archive1",
-"language": "en",
-"ns": 2
-},
-"User:JavierMC": {
-"title": "User:JavierMC",
 "language": "en",
 "ns": 2
 },
@@ -16884,11 +16809,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Jsdo1980/Main Page 1.1": {
-"title": "User:Jsdo1980/Main Page 1.1",
-"language": "en",
-"ns": 2
-},
 "User:Jshflynn/All Expanded": {
 "title": "User:Jshflynn/All Expanded",
 "language": "en",
@@ -17011,11 +16931,6 @@
 },
 "User:Kazkaskazkasako/Books/Physical sciences": {
 "title": "User:Kazkaskazkasako/Books/Physical sciences",
-"language": "en",
-"ns": 2
-},
-"User:Kb755": {
-"title": "User:Kb755",
 "language": "en",
 "ns": 2
 },
@@ -17284,11 +17199,6 @@
 "language": "en",
 "ns": 2
 },
-"User:LEC20/Daily Diversions": {
-"title": "User:LEC20/Daily Diversions",
-"language": "en",
-"ns": 2
-},
 "User:LFCnicholas": {
 "title": "User:LFCnicholas",
 "language": "en",
@@ -17411,11 +17321,6 @@
 },
 "User:Leobold111/userboxes": {
 "title": "User:Leobold111/userboxes",
-"language": "en",
-"ns": 2
-},
-"User:Leonardolopezhernandez000": {
-"title": "User:Leonardolopezhernandez000",
 "language": "en",
 "ns": 2
 },
@@ -17579,18 +17484,8 @@
 "language": "en",
 "ns": 2
 },
-"User:LouriePieterse": {
-"title": "User:LouriePieterse",
-"language": "en",
-"ns": 2
-},
 "User:Lovablebeautyme": {
 "title": "User:Lovablebeautyme",
-"language": "en",
-"ns": 2
-},
-"User:LovesMacs/subpage3": {
-"title": "User:LovesMacs/subpage3",
 "language": "en",
 "ns": 2
 },
@@ -17691,11 +17586,6 @@
 },
 "User:M79 specialist/userboxes": {
 "title": "User:M79 specialist/userboxes",
-"language": "en",
-"ns": 2
-},
-"User:MDM": {
-"title": "User:MDM",
 "language": "en",
 "ns": 2
 },
@@ -18249,11 +18139,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Mr.Z-man/Did you know/Main Page": {
-"title": "User:Mr.Z-man/Did you know/Main Page",
-"language": "en",
-"ns": 2
-},
 "User:Mr.joomm": {
 "title": "User:Mr.joomm",
 "language": "en",
@@ -18519,11 +18404,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Noisalt/MainPageProposal": {
-"title": "User:Noisalt/MainPageProposal",
-"language": "en",
-"ns": 2
-},
 "User:Northamerica1000/Notepad": {
 "title": "User:Northamerica1000/Notepad",
 "language": "en",
@@ -18744,6 +18624,11 @@
 "language": "en",
 "ns": 2
 },
+"User:OrdinaryGiraffe/Books/Vital/L2/A": {
+"title": "User:OrdinaryGiraffe/Books/Vital/L2/A",
+"language": "en",
+"ns": 2
+},
 "User:Oren neu dag": {
 "title": "User:Oren neu dag",
 "language": "en",
@@ -18896,16 +18781,6 @@
 },
 "User:Perfectmiss": {
 "title": "User:Perfectmiss",
-"language": "en",
-"ns": 2
-},
-"User:Persian Poet Gal": {
-"title": "User:Persian Poet Gal",
-"language": "en",
-"ns": 2
-},
-"User:Persian Poet Gal/Page": {
-"title": "User:Persian Poet Gal/Page",
 "language": "en",
 "ns": 2
 },
@@ -19534,11 +19409,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Rfl": {
-"title": "User:Rfl",
-"language": "en",
-"ns": 2
-},
 "User:Rhiannoneva": {
 "title": "User:Rhiannoneva",
 "language": "en",
@@ -19771,11 +19641,6 @@
 },
 "User:Ryanho0001": {
 "title": "User:Ryanho0001",
-"language": "en",
-"ns": 2
-},
-"User:Ryanhokanson": {
-"title": "User:Ryanhokanson",
 "language": "en",
 "ns": 2
 },
@@ -20204,11 +20069,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Shearonink/test 3": {
-"title": "User:Shearonink/test 3",
-"language": "en",
-"ns": 2
-},
 "User:SherlockHolmesFerghana": {
 "title": "User:SherlockHolmesFerghana",
 "language": "en",
@@ -20259,11 +20119,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Shubinator/Sandbox/Test template": {
-"title": "User:Shubinator/Sandbox/Test template",
-"language": "en",
-"ns": 2
-},
 "User:Silence/V1": {
 "title": "User:Silence/V1",
 "language": "en",
@@ -20306,16 +20161,6 @@
 },
 "User:SireneSpica": {
 "title": "User:SireneSpica",
-"language": "en",
-"ns": 2
-},
-"User:Sirex98": {
-"title": "User:Sirex98",
-"language": "en",
-"ns": 2
-},
-"User:Sirex98/Body": {
-"title": "User:Sirex98/Body",
 "language": "en",
 "ns": 2
 },
@@ -20406,11 +20251,6 @@
 },
 "User:Sleddog116/Positions": {
 "title": "User:Sleddog116/Positions",
-"language": "en",
-"ns": 2
-},
-"User:Slgrandson": {
-"title": "User:Slgrandson",
 "language": "en",
 "ns": 2
 },
@@ -20689,11 +20529,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Starom": {
-"title": "User:Starom",
-"language": "en",
-"ns": 2
-},
 "User:Starry.dreams/My Userboxes": {
 "title": "User:Starry.dreams/My Userboxes",
 "language": "en",
@@ -20866,11 +20701,6 @@
 },
 "User:Talk2chun": {
 "title": "User:Talk2chun",
-"language": "en",
-"ns": 2
-},
-"User:Tamer ih~enwiki": {
-"title": "User:Tamer ih~enwiki",
 "language": "en",
 "ns": 2
 },
@@ -21224,11 +21054,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Thomas27": {
-"title": "User:Thomas27",
-"language": "en",
-"ns": 2
-},
 "User:ThomasMTroxell": {
 "title": "User:ThomasMTroxell",
 "language": "en",
@@ -21316,11 +21141,6 @@
 },
 "User:Tom29739/userboxes": {
 "title": "User:Tom29739/userboxes",
-"language": "en",
-"ns": 2
-},
-"User:TomStar81": {
-"title": "User:TomStar81",
 "language": "en",
 "ns": 2
 },
@@ -21519,11 +21339,6 @@
 "language": "en",
 "ns": 2
 },
-"User:U-Two": {
-"title": "User:U-Two",
-"language": "en",
-"ns": 2
-},
 "User:U003F/Best Books": {
 "title": "User:U003F/Best Books",
 "language": "en",
@@ -21589,11 +21404,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Uriel8": {
-"title": "User:Uriel8",
-"language": "en",
-"ns": 2
-},
 "User:Urion8": {
 "title": "User:Urion8",
 "language": "en",
@@ -21641,11 +21451,6 @@
 },
 "User:Vanished user 674827203/Books/Solar System": {
 "title": "User:Vanished user 674827203/Books/Solar System",
-"language": "en",
-"ns": 2
-},
-"User:Vargmali": {
-"title": "User:Vargmali",
 "language": "en",
 "ns": 2
 },
@@ -22291,11 +22096,6 @@
 },
 "User:Zo3a": {
 "title": "User:Zo3a",
-"language": "en",
-"ns": 2
-},
-"User:Zoologist08": {
-"title": "User:Zoologist08",
 "language": "en",
 "ns": 2
 },
@@ -23014,23 +22814,8 @@
 "language": "en",
 "ns": 4
 },
-"Wikipedia:2008 main page redesign proposal/Blackhole77": {
-"title": "Wikipedia:2008 main page redesign proposal/Blackhole77",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:2008 main page redesign proposal/Deathgleaner": {
-"title": "Wikipedia:2008 main page redesign proposal/Deathgleaner",
-"language": "en",
-"ns": 4
-},
 "Wikipedia:2008 main page redesign proposal/Dr. Blofeld": {
 "title": "Wikipedia:2008 main page redesign proposal/Dr. Blofeld",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:2008 main page redesign proposal/Jackl": {
-"title": "Wikipedia:2008 main page redesign proposal/Jackl",
 "language": "en",
 "ns": 4
 },
@@ -23046,11 +22831,6 @@
 },
 "Wikipedia:2008 main page redesign proposal/Proposal Candidate 2A": {
 "title": "Wikipedia:2008 main page redesign proposal/Proposal Candidate 2A",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:2008 main page redesign proposal/h2g2bob": {
-"title": "Wikipedia:2008 main page redesign proposal/h2g2bob",
 "language": "en",
 "ns": 4
 },
@@ -24324,8 +24104,8 @@
 "language": "en",
 "ns": 4
 },
-"Wikipedia:Main Page/Yesterday": {
-"title": "Wikipedia:Main Page/Yesterday",
+"Wikipedia:Main Page/Day before yesterday": {
+"title": "Wikipedia:Main Page/Day before yesterday",
 "language": "en",
 "ns": 4
 },
@@ -24416,11 +24196,6 @@
 },
 "Wikipedia:Picture of the day/October 2023": {
 "title": "Wikipedia:Picture of the day/October 2023",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:Picture of the day/On the main pages": {
-"title": "Wikipedia:Picture of the day/On the main pages",
 "language": "en",
 "ns": 4
 },

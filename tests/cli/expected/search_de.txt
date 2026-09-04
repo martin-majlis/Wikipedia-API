@@ -4,10 +4,10 @@ Suggestion: python unterstützte mehnert programmierparadigmen
 Python (Programmiersprache)
 R (Programmiersprache)
 JavaScript
-Hybridsprache
 Ruby (Programmiersprache)
+Hybridsprache
 Rust (Programmiersprache)
 Wolfram Language
 Objektorientierte Programmierung
-Scratch (Programmiersprache)
 Tcl
+Scratch (Programmiersprache)
