@@ -48,10 +48,12 @@ class AsyncHTTPClient(BaseHTTPClient):
             :class:`BaseHTTPClient`
         """
         super().__init__(*args, **kwargs)
+        # Use a caller-supplied transport (e.g. a caching transport such as
+        # Hishel) if one was passed; otherwise fall back to the default.
+        self._client_kwargs.setdefault("transport", httpx.AsyncHTTPTransport())
         self._client = httpx.AsyncClient(
             headers=self._default_headers,
             **self._client_kwargs,
-            transport=httpx.AsyncHTTPTransport(),
         )
 
     async def _do_get(self, url: str, params: dict[str, Any]) -> dict[str, Any]:

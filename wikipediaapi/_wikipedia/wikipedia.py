@@ -58,7 +58,8 @@ class Wikipedia(WikipediaResource, SyncHTTPClient):
         ``1.0``.
     :param kwargs: additional keyword arguments forwarded to
         ``httpx.Client`` (e.g. ``timeout=30.0``, ``proxies={…}``,
-        ``verify=False``).  **Advanced Usage**: These provide direct
+        ``verify=False``, or a custom ``transport`` such as a caching
+        transport).  **Advanced Usage**: These provide direct
         access to httpx capabilities.  For most use cases, prefer the
         standard parameters above.  Use httpx parameters only for specific
         requirements like custom proxies, SSL configuration, or connection pooling.
