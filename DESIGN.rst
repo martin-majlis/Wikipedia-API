@@ -317,6 +317,8 @@ SyncHTTPClient
 Provides a blocking ``_get(language, params) -> dict`` method in ``sync_http_client.py`` backed by
 ``httpx.Client``.  Retry logic uses ``tenacity`` with exponential
 backoff; ``Retry-After`` headers are honoured for HTTP 429 responses.
+The client defaults to ``httpx.HTTPTransport`` but honours a caller-supplied
+``transport`` kwarg (e.g. a caching transport).
 
 AsyncHTTPClient
 ~~~~~~~~~~~~~~~
@@ -324,6 +326,8 @@ AsyncHTTPClient
 Provides an ``async def _get(language, params) -> dict`` coroutine in ``async_http_client.py``
 backed by ``httpx.AsyncClient``.  Retry logic mirrors
 ``SyncHTTPClient`` but uses ``tenacity``'s ``AsyncRetrying``.
+The client defaults to ``httpx.AsyncHTTPTransport`` but honours a caller-supplied
+``transport`` kwarg.
 
 Both clients construct the endpoint URL as::
 

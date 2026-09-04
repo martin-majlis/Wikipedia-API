@@ -1012,6 +1012,31 @@ The same options apply to both ``Wikipedia`` and ``AsyncWikipedia``.
         max_retries=0,
     )
 
+Custom HTTP Transport
+~~~~~~~~~~~~~~~~~~~~~~
+
+Any keyword argument that is not recognised by ``Wikipedia`` / ``AsyncWikipedia`` is
+forwarded to the underlying ``httpx`` client. This includes ``transport``, which lets you
+plug in a custom transport such as a caching transport
+(e.g. `Hishel <https://hishel.com/httpx.html>`_). When ``transport`` is omitted, the default
+``httpx.HTTPTransport`` (sync) / ``httpx.AsyncHTTPTransport`` (async) is used.
+
+.. code-block:: python
+
+    import hishel
+    import httpx
+    import wikipediaapi
+
+    # Cache responses so repeated lookups avoid hitting Wikipedia again
+    wiki_wiki = wikipediaapi.Wikipedia(
+        user_agent='MyProjectName (merlin@example.com)',
+        language='en',
+        transport=hishel.CacheTransport(transport=httpx.HTTPTransport()),
+    )
+
+For ``AsyncWikipedia`` use an async transport (e.g.
+``hishel.AsyncCacheTransport(transport=httpx.AsyncHTTPTransport())``).
+
 How To See Underlying API Call
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

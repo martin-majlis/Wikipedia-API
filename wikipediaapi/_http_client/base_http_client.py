@@ -96,6 +96,10 @@ class BaseHTTPClient(ABC):
         :param kwargs: forwarded to ``httpx`` client constructor
             (e.g. ``timeout=30.0``, ``proxy={'https://': 'http://proxy.example.com:8080'}``,
             ``verify=False``, ``http2=True``); ``timeout`` defaults to ``10.0``.
+            A custom ``transport`` may also be supplied (e.g. a caching
+            transport such as `Hishel <https://hishel.com/httpx.html>`_); when
+            omitted, the default ``httpx.HTTPTransport`` /
+            ``httpx.AsyncHTTPTransport`` is used.
             **Advanced Usage**: These parameters provide direct access to httpx
             capabilities.  For standard Wikipedia API usage, prefer the
             documented parameters above.  Use httpx parameters only for

@@ -153,6 +153,19 @@ class TestSyncHTTPClientKwargs:
         with pytest.raises(TypeError):
             create_mock_wikipedia(invalid_param="should_fail")
 
+    @respx.mock
+    def test_custom_transport_is_used(self):
+        """Test that a caller-supplied transport is forwarded to .Client."""
+        transport = httpx.HTTPTransport()
+        wiki = create_mock_wikipedia(transport=transport)
+        assert wiki._client._transport is transport
+
+    @respx.mock
+    def test_default_transport_when_not_supplied(self):
+        """Test that the default transport is used when none is supplied."""
+        wiki = create_mock_wikipedia()
+        assert isinstance(wiki._client._transport, httpx.HTTPTransport)
+
 
 class TestAsyncHTTPClientKwargs:
     """Test kwargs forwarding in AsyncHTTPClient."""
@@ -271,6 +284,19 @@ class TestAsyncHTTPClientKwargs:
         # httpx should raise an error for invalid parameters
         with pytest.raises(TypeError):
             create_mock_async_wikipedia(invalid_param="should_fail")
+
+    @respx.mock
+    async def test_custom_transport_is_used(self):
+        """Test that a caller-supplied transport is forwarded to .AsyncClient."""
+        transport = httpx.AsyncHTTPTransport()
+        wiki = create_mock_async_wikipedia(transport=transport)
+        assert wiki._client._transport is transport
+
+    @respx.mock
+    async def test_default_transport_when_not_supplied(self):
+        """Test that the default transport is used when none is supplied."""
+        wiki = create_mock_async_wikipedia()
+        assert isinstance(wiki._client._transport, httpx.AsyncHTTPTransport)
 
 
 class TestKwargsBackwardCompatibility:
