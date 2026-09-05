@@ -1,4 +1,4 @@
-Total hits: 6143
+Total hits: 6088
 
 .py
 "Weird Al" Yankovic

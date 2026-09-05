@@ -1,85 +1,85 @@
 {
-"totalhits": 6143,
+"totalhits": 6088,
 "pages": [
 {
-"title": "340th Expeditionary Air Refueling Squadron",
-"pageid": 27558316,
-"size": 16967,
-"wordcount": 1705,
-"timestamp": "2025-11-22T09:37:34Z",
-"snippet": "Refueling: Highlights, 1923–1998 (PDF). Air Force History and Museums <span class=\"searchmatch\">Program</span>. Washington, DC: Government Printing Office. Archived from the original"
+"title": "Oakland Zoo",
+"pageid": 701276,
+"size": 16229,
+"wordcount": 1654,
+"timestamp": "2026-08-18T21:58:15Z",
+"snippet": "pudu Sun bear Tiger African Savanna African lion African sacred ibis Ball <span class=\"searchmatch\">python</span> Black-throated monitor Blue-bellied roller Common warthog Dromedary camel"
 },
 {
-"title": "Google Developers",
-"pageid": 5376796,
-"size": 15063,
-"wordcount": 1478,
-"timestamp": "2026-08-09T17:48:10Z",
-"snippet": "Engine also features a dedicated <span class=\"searchmatch\">Python</span> runtime environment, which includes a fast <span class=\"searchmatch\">Python</span> interpreter and the <span class=\"searchmatch\">Python</span> standard library. Google Plugin for"
+"title": "Lego Mindstorms NXT",
+"pageid": 5994421,
+"size": 26287,
+"wordcount": 2629,
+"timestamp": "2026-07-03T01:22:33Z",
+"snippet": "their <span class=\"searchmatch\">program</span>. NXT NXT-G v2.0 is a graphical <span class=\"searchmatch\">programming</span> environment that comes bundled with the NXT and can be used for real-world <span class=\"searchmatch\">programming</span>. The software"
 },
 {
-"title": "Billy Cotton Band Show",
-"pageid": 1276897,
-"size": 1914,
-"wordcount": 176,
-"timestamp": "2026-05-03T00:04:23Z",
-"snippet": "began Terry Jones and Michael Palin, both later to become members of Monty <span class=\"searchmatch\">Python</span>, wrote jokes for the show. &quot;bbc.co.uk&quot;. bbc.co.uk. 14 August 2016. Retrieved"
+"title": "Television show",
+"pageid": 19508643,
+"size": 47581,
+"wordcount": 5491,
+"timestamp": "2026-08-30T17:06:43Z",
+"snippet": "began offering &quot;pay-per-view&quot; or on-demand <span class=\"searchmatch\">programming</span>, with viewers paying a one-time fee to watch a <span class=\"searchmatch\">program</span> at a time of their own choosing. Streaming"
 },
 {
-"title": "Beeper (software)",
-"pageid": 75635279,
-"size": 15151,
-"wordcount": 1152,
-"timestamp": "2026-04-07T18:09:30Z",
-"snippet": "proof of concept called Pypush that reimplemented iMessage in the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language and released it on GitHub. After Gill contacted Migicovsky"
+"title": "Project Nike",
+"pageid": 225739,
+"size": 51785,
+"wordcount": 5390,
+"timestamp": "2026-08-23T12:23:32Z",
+"snippet": "Nike Nike Orion Nike Recruit Nike T40 T55 Nike Tomahawk Nike Viper Nike-<span class=\"searchmatch\">Python</span> Nike-Yardbird Nike-Smoke The best preserved Nike installation is site SF88L"
 },
 {
-"title": "Circus (Britney Spears song)",
-"pageid": 19996174,
-"size": 62091,
-"wordcount": 4919,
-"timestamp": "2026-03-27T01:32:46Z",
-"snippet": "drums, keyboards, <span class=\"searchmatch\">programming</span> Claude Kelly – writer, background vocals Benny Blanco – writer, producer, drums, keyboards, <span class=\"searchmatch\">programming</span> Serban Ghenea – mixing"
+"title": "Continuous configuration automation",
+"pageid": 50512186,
+"size": 6770,
+"wordcount": 466,
+"timestamp": "2026-06-25T19:58:17Z",
+"snippet": "data center and application configuration management. CCA tools use a <span class=\"searchmatch\">programmable</span> framework for configuration and orchestration through coding, planning"
 },
 {
-"title": "Ray tracing (graphics)",
-"pageid": 26000,
-"size": 69263,
-"wordcount": 8052,
-"timestamp": "2026-08-26T18:28:31Z",
-"snippet": "pages are shown as a video in the accompanying image. Roth&#039;s computer <span class=\"searchmatch\">program</span> noted an edge point at a pixel location if the ray intersected a bounded"
+"title": "ASN.1",
+"pageid": 75625,
+"size": 39258,
+"wordcount": 3108,
+"timestamp": "2026-05-24T14:57:27Z",
+"snippet": "into an ASN.1 definition. Many <span class=\"searchmatch\">programming</span> languages define language-specific serialization formats. For instance, <span class=\"searchmatch\">Python&#039;s</span> &quot;pickle&quot; module and Ruby&#039;s &quot;Marshal&quot;"
 },
 {
-"title": "Inkscape",
-"pageid": 412916,
-"size": 45055,
-"wordcount": 3155,
-"timestamp": "2026-08-31T01:31:26Z",
-"snippet": "expense of SVG. Following the fork, Inkscape&#039;s developers changed the <span class=\"searchmatch\">programming</span> language from C to C++; adopted the GTK toolkit C++ bindings (gtkmm);"
+"title": "Opticks (software)",
+"pageid": 15322092,
+"size": 7898,
+"wordcount": 565,
+"timestamp": "2026-07-27T15:08:24Z",
+"snippet": "functionality using its plug-in architecture and public application <span class=\"searchmatch\">programming</span> interface (API). Opticks is open source, licensed under GNU Lesser General"
 },
 {
-"title": "HPX",
-"pageid": 15884125,
-"size": 9739,
-"wordcount": 843,
-"timestamp": "2025-10-09T00:17:22Z",
-"snippet": "&quot;Asynchronous Execution of <span class=\"searchmatch\">Python</span> Code on Task-Based Runtime Systems&quot;. 2018 IEEE/ACM 4th International Workshop on Extreme Scale <span class=\"searchmatch\">Programming</span> Models and Middleware"
+"title": "SimCity (1989 video game)",
+"pageid": 28760,
+"size": 62249,
+"wordcount": 5022,
+"timestamp": "2026-08-15T21:15:16Z",
+"snippet": "motivated by the One Laptop Per Child <span class=\"searchmatch\">program</span>. The Micropolis source code has been translated to C++, integrated with <span class=\"searchmatch\">Python</span> and interfaced with both GTK+ and"
 },
 {
-"title": "StackStorm",
-"pageid": 57505264,
-"size": 6911,
-"wordcount": 490,
-"timestamp": "2026-08-27T06:29:10Z",
-"snippet": "Give DevOps True Data Center Automation&quot;. 6 May 2014. Yegulalp, Serdar. &quot;<span class=\"searchmatch\">Python</span>-powered StackStorm sets scripts for event-triggered automation&quot;. Haranas"
+"title": "Expression-oriented programming language",
+"pageid": 943685,
+"size": 4533,
+"wordcount": 300,
+"timestamp": "2026-03-17T08:15:54Z",
+"snippet": "An expression-oriented <span class=\"searchmatch\">programming</span> language is a <span class=\"searchmatch\">programming</span> language in which every (or nearly every) construction is an expression and thus yields a"
 },
 {
-"title": "Kanban (development)",
-"pageid": 28936955,
-"size": 15519,
-"wordcount": 1759,
-"timestamp": "2026-07-03T01:21:20Z",
-"snippet": "Electrical and electronics engineering Outlines Software development Computer <span class=\"searchmatch\">programming</span> <span class=\"searchmatch\">Programming</span> languages C C++ C# Java JavaScript Perl <span class=\"searchmatch\">Python</span> Rust v t e"
+"title": "Microsoft account",
+"pageid": 33661681,
+"size": 27984,
+"wordcount": 2445,
+"timestamp": "2026-06-05T08:21:53Z",
+"snippet": "range of web server platforms - including ASP.NET (C#), Java, Perl, PHP, <span class=\"searchmatch\">Python</span> and Ruby. On October 27, 2008, Microsoft announced that it was publicly"
 }
 ]
 }

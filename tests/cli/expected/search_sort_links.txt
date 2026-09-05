@@ -1,5 +1,5 @@
 {
-"totalhits": 6143,
+"totalhits": 6088,
 "pages": [
 {
 "title": "Tilde",
@@ -60,9 +60,9 @@
 {
 "title": "BBC",
 "pageid": 19344654,
-"size": 220771,
-"wordcount": 21378,
-"timestamp": "2026-08-29T10:51:22Z",
+"size": 220754,
+"wordcount": 21366,
+"timestamp": "2026-09-04T16:06:38Z",
 "snippet": "England, the larger regions also produce some <span class=\"searchmatch\">programming</span>. Previously the largest hub of BBC <span class=\"searchmatch\">programming</span> from the regions had been BBC North West. At present"
 },
 {
@@ -76,9 +76,9 @@
 {
 "title": "Florida",
 "pageid": 18933066,
-"size": 253962,
+"size": 254013,
 "wordcount": 20866,
-"timestamp": "2026-08-19T22:18:42Z",
+"timestamp": "2026-09-04T20:57:49Z",
 "snippet": "animal species. Some exotic species living in Florida include the Burmese <span class=\"searchmatch\">python</span>, green iguana, veiled chameleon, Argentine black and white tegu, peacock"
 }
 ]
