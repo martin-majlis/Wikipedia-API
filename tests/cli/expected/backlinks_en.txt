@@ -2648,8 +2648,8 @@ User:Bass fishing physicist
 User:Bass fishing physicist/Userboxes
 User:BassxForte
 User:Batchelor
-User:Bawolff/Edit COI Summary/10 per page (newest first)/29
-User:Bawolff/Edit COI Summary/15 per page/34
+User:Bawolff/Edit COI Summary/10 per page (newest first)/32
+User:Bawolff/Edit COI Summary/15 per page/33
 User:Bawolff/Edit COI Summary/20 per page/25
 User:Bawolff/Edit COI Summary/25 per page/20
 User:Bawolff/Edit COI Summary/50
@@ -3158,7 +3158,6 @@ User:Hamzyboo
 User:Hanaichi/more userboxes
 User:Hank von Helvete
 User:Happy Animals12345/Books/Solar System
-User:HappyApple
 User:Harbingerdawn
 User:Harfarhs
 User:HarryAlffa/Solar System synopsis
@@ -3491,7 +3490,6 @@ User:Lonely Man on Pluto
 User:LongLiveMusic
 User:Looie496/Analysis of FAC
 User:Loolylolly1997/gallery
-User:Lorax
 User:Lord Rubix
 User:Lord mortekai
 User:LordFire333
@@ -3719,11 +3717,9 @@ User:One Salient Oversight/Userboxes
 User:OneSkyWalker
 User:Ongchenxi/Books/Solar System
 User:Onion1996
-User:Oniongas
 User:Onore Baka Sama
 User:Oobleckman
 User:Orangepilled
-User:OrdinaryGiraffe/Books/Vital/L2/A
 User:Oren neu dag
 User:Oren0
 User:Orinoco-w
@@ -3829,7 +3825,6 @@ User:Pythagorean Theorem
 User:Python187
 User:QN/tamrin
 User:Qrstw
-User:RAJIVVASUDEV
 User:RP88/Images
 User:RSSTRATFORD
 User:Radioheadhst
@@ -4312,7 +4307,6 @@ User:Vir/sandbox/core topic levels
 User:Vir/sandbox/core topic levels qaud
 User:VisLock/Books/The Solar System
 User:Voice of Clam/MP HistGen
-User:Voice of Clam/mainlinks
 User:Volker89
 User:Vreddy92
 User:W1k13rh3nry
@@ -4550,7 +4544,6 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
-Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1
@@ -4819,7 +4812,6 @@ Wikipedia:Main Page history/2026 June 15
 Wikipedia:Main Page history/2026 June 15b
 Wikipedia:Main Page history/2026 September 2
 Wikipedia:Main Page history/2026 September 2b
-Wikipedia:Main Page/Day before yesterday
 Wikipedia:Miscellany for deletion/User:TenPoundHammer (4th nomination)
 Wikipedia:Most read articles in 2008
 Wikipedia:Most read articles in 2009

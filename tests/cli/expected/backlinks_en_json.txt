@@ -13249,13 +13249,13 @@
 "language": "en",
 "ns": 2
 },
-"User:Bawolff/Edit COI Summary/10 per page (newest first)/29": {
-"title": "User:Bawolff/Edit COI Summary/10 per page (newest first)/29",
+"User:Bawolff/Edit COI Summary/10 per page (newest first)/32": {
+"title": "User:Bawolff/Edit COI Summary/10 per page (newest first)/32",
 "language": "en",
 "ns": 2
 },
-"User:Bawolff/Edit COI Summary/15 per page/34": {
-"title": "User:Bawolff/Edit COI Summary/15 per page/34",
+"User:Bawolff/Edit COI Summary/15 per page/33": {
+"title": "User:Bawolff/Edit COI Summary/15 per page/33",
 "language": "en",
 "ns": 2
 },
@@ -15799,11 +15799,6 @@
 "language": "en",
 "ns": 2
 },
-"User:HappyApple": {
-"title": "User:HappyApple",
-"language": "en",
-"ns": 2
-},
 "User:Harbingerdawn": {
 "title": "User:Harbingerdawn",
 "language": "en",
@@ -17464,11 +17459,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Lorax": {
-"title": "User:Lorax",
-"language": "en",
-"ns": 2
-},
 "User:Lord Rubix": {
 "title": "User:Lord Rubix",
 "language": "en",
@@ -18604,11 +18594,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Oniongas": {
-"title": "User:Oniongas",
-"language": "en",
-"ns": 2
-},
 "User:Onore Baka Sama": {
 "title": "User:Onore Baka Sama",
 "language": "en",
@@ -18621,11 +18606,6 @@
 },
 "User:Orangepilled": {
 "title": "User:Orangepilled",
-"language": "en",
-"ns": 2
-},
-"User:OrdinaryGiraffe/Books/Vital/L2/A": {
-"title": "User:OrdinaryGiraffe/Books/Vital/L2/A",
 "language": "en",
 "ns": 2
 },
@@ -19151,11 +19131,6 @@
 },
 "User:Qrstw": {
 "title": "User:Qrstw",
-"language": "en",
-"ns": 2
-},
-"User:RAJIVVASUDEV": {
-"title": "User:RAJIVVASUDEV",
 "language": "en",
 "ns": 2
 },
@@ -21569,11 +21544,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Voice of Clam/mainlinks": {
-"title": "User:Voice of Clam/mainlinks",
-"language": "en",
-"ns": 2
-},
 "User:Volker89": {
 "title": "User:Volker89",
 "language": "en",
@@ -22756,11 +22726,6 @@
 },
 "Wikipedia talk:WikiProject Medicine/Archive 152": {
 "title": "Wikipedia talk:WikiProject Medicine/Archive 152",
-"language": "en",
-"ns": 5
-},
-"Wikipedia talk:WikiProject Portals/Design/Archive 3": {
-"title": "Wikipedia talk:WikiProject Portals/Design/Archive 3",
 "language": "en",
 "ns": 5
 },
@@ -24101,11 +24066,6 @@
 },
 "Wikipedia:Main Page history/2026 September 2b": {
 "title": "Wikipedia:Main Page history/2026 September 2b",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:Main Page/Day before yesterday": {
-"title": "Wikipedia:Main Page/Day before yesterday",
 "language": "en",
 "ns": 4
 },
