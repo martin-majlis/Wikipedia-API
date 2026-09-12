@@ -308,6 +308,7 @@
 A Glastonbury Romance
 AIDA (international space cooperation)
 ASTER (spacecraft)
+Absolute Power (comics)
 Accretion (astrophysics)
 Accretion disk
 Achelous (crater)
@@ -353,7 +354,6 @@ Arecibo message
 Ariel (moon)
 Armin Otto Leuschner
 Arthur C. Clarke
-Asimov's Biographical Encyclopedia of Science and Technology
 Asteroid
 Asteroid 134340
 Asteroid Pluto
@@ -1694,6 +1694,7 @@ Sino-Vietnamese vocabulary
 SkyWeek
 Small Solar System body
 Snow
+So Long Pluto
 Solar System
 Solar System in fiction
 Solar System model
@@ -2271,7 +2272,6 @@ User talk:Drbogdan/Archive 5
 User talk:Dweller/Archive2010
 User talk:EdChem/Archive 9
 User talk:Egizm0
-User talk:Ellin Beltz
 User talk:Eric
 User talk:Erynnwasloved
 User talk:Eva Grossjean
@@ -2282,7 +2282,6 @@ User talk:Firsfron/Archive 8
 User talk:FlightTime/Archive 15
 User talk:Fortuna imperatrix mundi/Archive 8
 User talk:Fotaun
-User talk:Fred Bauder
 User talk:Freedom1234
 User talk:Frinkus
 User talk:Frog luva96
@@ -2312,7 +2311,6 @@ User talk:Jcpag2010
 User talk:Jcpag2012
 User talk:Jellyman1129
 User talk:Jimbo Wales/Archive 160
-User talk:JoJan
 User talk:John of Reading/Archive 15
 User talk:Johnnyboi89
 User talk:JorisvS/Archive5
@@ -2342,7 +2340,6 @@ User talk:Mspear
 User talk:Nabs2597
 User talk:Nealmcb
 User talk:Nergaal/Archive 5
-User talk:Netsnipe
 User talk:Ninjanich
 User talk:Nishanigreen
 User talk:Nitrobutane
@@ -2648,11 +2645,11 @@ User:Bass fishing physicist
 User:Bass fishing physicist/Userboxes
 User:BassxForte
 User:Batchelor
-User:Bawolff/Edit COI Summary/10 per page (newest first)/29
-User:Bawolff/Edit COI Summary/15 per page/34
-User:Bawolff/Edit COI Summary/20 per page/25
-User:Bawolff/Edit COI Summary/25 per page/20
-User:Bawolff/Edit COI Summary/50
+User:Bawolff/Edit COI Summary/10 per page (newest first)/40
+User:Bawolff/Edit COI Summary/15 per page/30
+User:Bawolff/Edit COI Summary/20 per page/23
+User:Bawolff/Edit COI Summary/25 per page/18
+User:Bawolff/Edit COI Summary/45
 User:Bayerischermann
 User:Bduke
 User:BeFriendlyGoodSir
@@ -2668,7 +2665,6 @@ User:Bellagio99
 User:Bellahdoll
 User:Benjamin Mako Hill/List of mnemonics I have trouble remembering
 User:Benjamin112
-User:Bentogoa
 User:Beodizia/Gemini Home Entertainment
 User:Bern7001/Books/Cosmic Key
 User:Bertou
@@ -2679,7 +2675,6 @@ User:Bhree
 User:BigBrotherIsWatchingYou/Userboxes
 User:Billiot
 User:Bismuthdistrict
-User:Biteof57
 User:BitterMan/Blast pit
 User:Bizcayen
 User:Bka9/Books/A
@@ -2777,7 +2772,6 @@ User:Catalyst2007
 User:Catcassidy
 User:Catfurball
 User:Catmoongirl
-User:Cats & dogs forever
 User:Cats-in-space
 User:Cauliflowerblackhole
 User:Ccai2053
@@ -3158,7 +3152,6 @@ User:Hamzyboo
 User:Hanaichi/more userboxes
 User:Hank von Helvete
 User:Happy Animals12345/Books/Solar System
-User:HappyApple
 User:Harbingerdawn
 User:Harfarhs
 User:HarryAlffa/Solar System synopsis
@@ -3306,7 +3299,6 @@ User:Java7837/Userboxes
 User:Java7837/archive1
 User:Jaxha/more userboxes
 User:Jay.S
-User:Jayant412
 User:Jazzyrhythms
 User:Jcpag2012/Planetary-mass Objects
 User:Jdaniels15
@@ -3332,7 +3324,6 @@ User:Jitterro
 User:Jkan997/sandbox
 User:Jmkprime
 User:Jnestorius/List of Elements
-User:Joaopais
 User:Jobetheren
 User:JoeCo0327/Beliefs
 User:JoeMc 65
@@ -3490,8 +3481,6 @@ User:LohShiSan2004
 User:Lonely Man on Pluto
 User:LongLiveMusic
 User:Looie496/Analysis of FAC
-User:Loolylolly1997/gallery
-User:Lorax
 User:Lord Rubix
 User:Lord mortekai
 User:LordFire333
@@ -3570,8 +3559,6 @@ User:Mckinlayr
 User:Me lkjhgfdsa
 User:MeatJustice
 User:Medtech349
-User:Megtetg34
-User:Mehmet Karatay
 User:Meile
 User:Meinsla/userboxes/pluto
 User:Mekmtl
@@ -3660,6 +3647,7 @@ User:NdnDivA
 User:Necessary Evil/Sandbox
 User:Necrobiology/Books/Astronomy
 User:NefariousPhD
+User:NeppyDaEnbyALT
 User:Nerd587
 User:NewbornCircle/TWA/Earth/2
 User:Newty23125
@@ -3719,7 +3707,6 @@ User:One Salient Oversight/Userboxes
 User:OneSkyWalker
 User:Ongchenxi/Books/Solar System
 User:Onion1996
-User:Oniongas
 User:Onore Baka Sama
 User:Oobleckman
 User:Orangepilled
@@ -3829,7 +3816,6 @@ User:Pythagorean Theorem
 User:Python187
 User:QN/tamrin
 User:Qrstw
-User:RAJIVVASUDEV
 User:RP88/Images
 User:RSSTRATFORD
 User:Radioheadhst
@@ -3906,7 +3892,6 @@ User:Robomaeyhem
 User:Robomaeyhem/OUC
 User:Robotoctopus1234
 User:Roc0ast3r/Challenges
-User:Rock drum/Toolbox
 User:Rockwithvinit
 User:Rodiger
 User:Ron Ritzman/sandbox
@@ -4080,7 +4065,6 @@ User:Sophie/Userboxs
 User:SoulCandy/Books/Solar System
 User:Soulrevolution
 User:Sourav bhattacharyya
-User:Souravmohanty2005
 User:SoylentPurple/sandbox
 User:Spaceinvaderscrab
 User:Spacepotato/Unsorted
@@ -4191,7 +4175,6 @@ User:TheEWDSDS
 User:TheInfinityZero
 User:TheLurkerMan
 User:TheMagikCow
-User:TheTito
 User:TheUltimateGrass
 User:Thealmightysponge
 User:Thecheesykid/Userboxen
@@ -4227,7 +4210,6 @@ User:Tom.Reding/Useful
 User:Tom.Reding/Userboxes
 User:Tom29739
 User:Tom29739/userboxes
-User:Tomeasy
 User:Tompw
 User:Tompw/templates
 User:Tompw/userboxes
@@ -4284,7 +4266,6 @@ User:Urion8/userboxes
 User:UsagiEriko
 User:Useight/Userboxes
 User:User226
-User:Valleybox
 User:Van Nooz
 User:Vancemiller
 User:Vanillian/sandbox/Vanillian
@@ -4312,7 +4293,6 @@ User:Vir/sandbox/core topic levels
 User:Vir/sandbox/core topic levels qaud
 User:VisLock/Books/The Solar System
 User:Voice of Clam/MP HistGen
-User:Voice of Clam/mainlinks
 User:Volker89
 User:Vreddy92
 User:W1k13rh3nry
@@ -4625,7 +4605,6 @@ Wikipedia:Articles for deletion/Pluto
 Wikipedia:Articles for deletion/Second planet (disambiguation)
 Wikipedia:Articles for deletion/Super Galaxy
 Wikipedia:Articles for deletion/Uranian
-Wikipedia:Articles for improvement/main page placement
 Wikipedia:Bilorv's Challenges
 Wikipedia:Bots/Requests for approval/OAbot
 Wikipedia:Categories for deletion/Log/2006 August 24
@@ -4819,7 +4798,6 @@ Wikipedia:Main Page history/2026 June 15
 Wikipedia:Main Page history/2026 June 15b
 Wikipedia:Main Page history/2026 September 2
 Wikipedia:Main Page history/2026 September 2b
-Wikipedia:Main Page/Day before yesterday
 Wikipedia:Miscellany for deletion/User:TenPoundHammer (4th nomination)
 Wikipedia:Most read articles in 2008
 Wikipedia:Most read articles in 2009

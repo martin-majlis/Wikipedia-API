@@ -1,12 +1,12 @@
-Total hits: 6143
+Total hits: 6092
 
 Python (programming language)
 History of Python
-Python syntax and semantics
 Outline of the Python programming language
+Python syntax and semantics
+Core Python Programming
 Mojo (programming language)
 Zen of Python
 Guido van Rossum
 Flask (web framework)
-Core Python Programming
-List of Python software
+Stackless Python

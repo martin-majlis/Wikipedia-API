@@ -1,7 +1,7 @@
-Total hits: 6143
+Total hits: 6092
 
+LiteLLM
+MLX (Apple ML framework)
 Hugging Face Transformers
 LiveKit
 LM Studio
-Evo (AI)
-Hermes Agent

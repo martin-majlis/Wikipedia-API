@@ -1,20 +1,20 @@
 {
-"totalhits": 6143,
+"totalhits": 6092,
 "pages": [
 {
 "title": "Tilde",
 "pageid": 212390,
-"size": 84730,
+"size": 84724,
 "wordcount": 8929,
-"timestamp": "2026-08-29T06:48:50Z",
+"timestamp": "2026-09-07T13:30:04Z",
 "snippet": "or influenced by C, such as C++, C#, D, Java, JavaScript, Perl, PHP, and <span class=\"searchmatch\">Python</span>. The MySQL database also use tilde as bitwise invert as does Microsoft&#039;s"
 },
 {
 "title": "Time zone",
 "pageid": 30890,
-"size": 93554,
+"size": 93555,
 "wordcount": 5755,
-"timestamp": "2026-09-03T05:38:05Z",
+"timestamp": "2026-09-12T06:48:05Z",
 "snippet": "implemented via the PECL timezonedb. The standard module datetime included with <span class=\"searchmatch\">Python</span> stores and operates on the time zone information class tzinfo. The third"
 },
 {
@@ -22,15 +22,15 @@
 "pageid": 2855554,
 "size": 53158,
 "wordcount": 4937,
-"timestamp": "2026-09-01T15:10:51Z",
+"timestamp": "2026-09-07T08:10:29Z",
 "snippet": "but the movie related data are in English, as made available by IMDb. A <span class=\"searchmatch\">Python</span> package called IMDbPY (since renamed cinemagoer) can also be used to process"
 },
 {
 "title": "England",
 "pageid": 9316,
-"size": 263436,
-"wordcount": 23445,
-"timestamp": "2026-09-04T04:31:55Z",
+"size": 263494,
+"wordcount": 23453,
+"timestamp": "2026-09-12T04:56:33Z",
 "snippet": "blood and guts in colour. The BFI Top 100 British films includes Monty <span class=\"searchmatch\">Python&#039;s</span> Life of Brian (1979), a film regularly voted the funniest of all time by"
 },
 {
@@ -52,33 +52,33 @@
 {
 "title": "YouTube",
 "pageid": 3524766,
-"size": 216290,
-"wordcount": 19647,
-"timestamp": "2026-08-31T17:17:30Z",
+"size": 216007,
+"wordcount": 19612,
+"timestamp": "2026-09-11T09:42:53Z",
 "snippet": "advertisements alone to paid offerings such as movies and exclusive <span class=\"searchmatch\">programming</span> explicitly produced for YouTube. It also offers YouTube Premium, a paid"
 },
 {
 "title": "BBC",
 "pageid": 19344654,
-"size": 220771,
-"wordcount": 21378,
-"timestamp": "2026-08-29T10:51:22Z",
+"size": 220754,
+"wordcount": 21366,
+"timestamp": "2026-09-04T16:06:38Z",
 "snippet": "England, the larger regions also produce some <span class=\"searchmatch\">programming</span>. Previously the largest hub of BBC <span class=\"searchmatch\">programming</span> from the regions had been BBC North West. At present"
 },
 {
 "title": "Bangladesh",
 "pageid": 3454,
-"size": 273430,
-"wordcount": 22379,
-"timestamp": "2026-08-29T23:24:06Z",
+"size": 271864,
+"wordcount": 22340,
+"timestamp": "2026-09-08T17:35:19Z",
 "snippet": "sambar deer, jungle cat, king cobra, wild boar, mongooses, pangolins, <span class=\"searchmatch\">pythons</span> and water monitors. Bangladesh has one of the largest populations of Irrawaddy"
 },
 {
 "title": "Florida",
 "pageid": 18933066,
-"size": 253962,
+"size": 254028,
 "wordcount": 20866,
-"timestamp": "2026-08-19T22:18:42Z",
+"timestamp": "2026-09-11T14:07:04Z",
 "snippet": "animal species. Some exotic species living in Florida include the Burmese <span class=\"searchmatch\">python</span>, green iguana, veiled chameleon, Argentine black and white tegu, peacock"
 }
 ]

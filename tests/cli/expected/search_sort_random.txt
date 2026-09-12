@@ -1,13 +1,61 @@
 {
-"totalhits": 6143,
+"totalhits": 6092,
 "pages": [
 {
-"title": "340th Expeditionary Air Refueling Squadron",
-"pageid": 27558316,
-"size": 16967,
-"wordcount": 1705,
-"timestamp": "2025-11-22T09:37:34Z",
-"snippet": "Refueling: Highlights, 1923–1998 (PDF). Air Force History and Museums <span class=\"searchmatch\">Program</span>. Washington, DC: Government Printing Office. Archived from the original"
+"title": "BLOOM (language model)",
+"pageid": 71889610,
+"size": 6644,
+"wordcount": 673,
+"timestamp": "2026-09-03T14:01:31Z",
+"snippet": "autoregressive model designed to generate text in 46 natural languages and 13 <span class=\"searchmatch\">programming</span> languages. The model is distributed under the project&#039;s &quot;Responsible"
+},
+{
+"title": "QLab",
+"pageid": 30820000,
+"size": 12192,
+"wordcount": 1326,
+"timestamp": "2026-06-18T02:03:23Z",
+"snippet": "<span class=\"searchmatch\">programming</span> capabilities. To create advanced multimedia sequences in QLab, multiple cues are used in combination, linked together with pre-<span class=\"searchmatch\">programmed</span>"
+},
+{
+"title": "Sting (musician)",
+"pageid": 83312,
+"size": 124870,
+"wordcount": 12051,
+"timestamp": "2026-09-08T01:39:36Z",
+"snippet": " The Secret Policeman&#039;s Other Ball, a benefit show co-founded by Monty <span class=\"searchmatch\">Python</span> member John Cleese. Sting states, &quot;before [the Ball] I did not know about"
+},
+{
+"title": "MuJoCo",
+"pageid": 75505285,
+"size": 3989,
+"wordcount": 335,
+"timestamp": "2026-05-14T16:12:07Z",
+"snippet": "3.2.7 / January 15, 2025; 19 months ago (2025-01-15) Written in C, C++, <span class=\"searchmatch\">Python</span>, C# License Apache-2.0 license Website mujoco.org  Repository https://github"
+},
+{
+"title": "Type variance",
+"pageid": 1104704,
+"size": 54951,
+"wordcount": 6778,
+"timestamp": "2026-07-09T07:50:26Z",
+"snippet": "In computer <span class=\"searchmatch\">programming</span>, type variance is the relationship between subtypes of a composite type (e.g. List[Int]) and the subtypes of its components (e"
+},
+{
+"title": "PLANTA Project",
+"pageid": 31330577,
+"size": 8045,
+"wordcount": 869,
+"timestamp": "2025-06-27T17:31:47Z",
+"snippet": "revised workflow-oriented interface, based on the open-source <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span>, and MS .NET with panel technology which enables users to position"
+},
+{
+"title": "Felienne Hermans",
+"pageid": 59615959,
+"size": 15416,
+"wordcount": 1167,
+"timestamp": "2026-08-31T13:55:22Z",
+"snippet": "launched the Hedy programming language, to teach children to use the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. She is the author of The Programmer&#039;s Brain: What every"
 },
 {
 "title": "Google Developers",
@@ -15,71 +63,23 @@
 "size": 15063,
 "wordcount": 1478,
 "timestamp": "2026-08-09T17:48:10Z",
-"snippet": "Engine also features a dedicated <span class=\"searchmatch\">Python</span> runtime environment, which includes a fast <span class=\"searchmatch\">Python</span> interpreter and the <span class=\"searchmatch\">Python</span> standard library. Google Plugin for"
+"snippet": "site for software development tools and platforms[update], application <span class=\"searchmatch\">programming</span> interfaces (APIs), and technical resources. The site contains documentation"
 },
 {
-"title": "Billy Cotton Band Show",
-"pageid": 1276897,
-"size": 1914,
-"wordcount": 176,
-"timestamp": "2026-05-03T00:04:23Z",
-"snippet": "began Terry Jones and Michael Palin, both later to become members of Monty <span class=\"searchmatch\">Python</span>, wrote jokes for the show. &quot;bbc.co.uk&quot;. bbc.co.uk. 14 August 2016. Retrieved"
+"title": "Qt Group",
+"pageid": 30054,
+"size": 20405,
+"wordcount": 1797,
+"timestamp": "2026-09-03T01:16:48Z",
+"snippet": "developers using C++ but is supported by bindings for other <span class=\"searchmatch\">programming</span> languages too, such as <span class=\"searchmatch\">Python</span>. Qt also includes packages such as data structures and"
 },
 {
-"title": "Beeper (software)",
-"pageid": 75635279,
-"size": 15151,
-"wordcount": 1152,
-"timestamp": "2026-04-07T18:09:30Z",
-"snippet": "proof of concept called Pypush that reimplemented iMessage in the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language and released it on GitHub. After Gill contacted Migicovsky"
-},
-{
-"title": "Circus (Britney Spears song)",
-"pageid": 19996174,
-"size": 62091,
-"wordcount": 4919,
-"timestamp": "2026-03-27T01:32:46Z",
-"snippet": "drums, keyboards, <span class=\"searchmatch\">programming</span> Claude Kelly – writer, background vocals Benny Blanco – writer, producer, drums, keyboards, <span class=\"searchmatch\">programming</span> Serban Ghenea – mixing"
-},
-{
-"title": "Ray tracing (graphics)",
-"pageid": 26000,
-"size": 69263,
-"wordcount": 8052,
-"timestamp": "2026-08-26T18:28:31Z",
-"snippet": "pages are shown as a video in the accompanying image. Roth&#039;s computer <span class=\"searchmatch\">program</span> noted an edge point at a pixel location if the ray intersected a bounded"
-},
-{
-"title": "Inkscape",
-"pageid": 412916,
-"size": 45055,
-"wordcount": 3155,
-"timestamp": "2026-08-31T01:31:26Z",
-"snippet": "expense of SVG. Following the fork, Inkscape&#039;s developers changed the <span class=\"searchmatch\">programming</span> language from C to C++; adopted the GTK toolkit C++ bindings (gtkmm);"
-},
-{
-"title": "HPX",
-"pageid": 15884125,
-"size": 9739,
-"wordcount": 843,
-"timestamp": "2025-10-09T00:17:22Z",
-"snippet": "&quot;Asynchronous Execution of <span class=\"searchmatch\">Python</span> Code on Task-Based Runtime Systems&quot;. 2018 IEEE/ACM 4th International Workshop on Extreme Scale <span class=\"searchmatch\">Programming</span> Models and Middleware"
-},
-{
-"title": "StackStorm",
-"pageid": 57505264,
-"size": 6911,
-"wordcount": 490,
-"timestamp": "2026-08-27T06:29:10Z",
-"snippet": "Give DevOps True Data Center Automation&quot;. 6 May 2014. Yegulalp, Serdar. &quot;<span class=\"searchmatch\">Python</span>-powered StackStorm sets scripts for event-triggered automation&quot;. Haranas"
-},
-{
-"title": "Kanban (development)",
-"pageid": 28936955,
-"size": 15519,
-"wordcount": 1759,
-"timestamp": "2026-07-03T01:21:20Z",
-"snippet": "Electrical and electronics engineering Outlines Software development Computer <span class=\"searchmatch\">programming</span> <span class=\"searchmatch\">Programming</span> languages C C++ C# Java JavaScript Perl <span class=\"searchmatch\">Python</span> Rust v t e"
+"title": "1991 in science",
+"pageid": 576359,
+"size": 12983,
+"wordcount": 1201,
+"timestamp": "2026-08-02T01:26:57Z",
+"snippet": "arc-burned graphite rods by Sumio Iijima of NEC. February 20 – <span class=\"searchmatch\">Python</span>, a <span class=\"searchmatch\">programming</span> language created by Guido van Rossum, Is released. February 26 –"
 }
 ]
 }
