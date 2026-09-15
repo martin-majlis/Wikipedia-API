@@ -28,6 +28,13 @@
 "primary": true
 },
 {
+"title": "Parliament Street from Trafalgar Square",
+"dist": 18.7,
+"lat": 51.507503,
+"lon": -0.128014,
+"primary": true
+},
+{
 "title": "Greater London Built-up Area",
 "dist": 23.6,
 "lat": 51.5075,
@@ -50,13 +57,6 @@
 },
 {
 "title": "1717–1718 Acts of Grace",
-"dist": 28.7,
-"lat": 51.507222222222225,
-"lon": -0.1275,
-"primary": true
-},
-{
-"title": "England",
 "dist": 28.7,
 "lat": 51.507222222222225,
 "lon": -0.1275,

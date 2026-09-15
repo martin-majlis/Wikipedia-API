@@ -7,6 +7,13 @@
 "primary": true
 },
 {
+"title": "Parliament Street from Trafalgar Square",
+"dist": 18.7,
+"lat": 51.507503,
+"lon": -0.128014,
+"primary": true
+},
+{
 "title": "Greater London Built-up Area",
 "dist": 23.6,
 "lat": 51.5075,
@@ -60,13 +67,6 @@
 "dist": 54.7,
 "lat": 51.507083333333334,
 "lon": -0.12719444444444444,
-"primary": true
-},
-{
-"title": "Drummonds Bank",
-"dist": 55.6,
-"lat": 51.5069,
-"lon": -0.1278,
 "primary": true
 }
 ]
