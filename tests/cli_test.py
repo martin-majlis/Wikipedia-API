@@ -201,7 +201,7 @@ class TestPageSections:
             {"title": "Section 2", "level": 1, "indent": 0},
         ]
 
-        result = format_sections(sections, "text")
+        result = format_sections(sections, "text")  # ty: ignore[invalid-argument-type]
         lines = result.split("\n")
 
         assert lines[0] == "Section 1"
@@ -215,7 +215,7 @@ class TestPageSections:
             {"title": "Subsection 1.1", "level": 2, "indent": 1},
         ]
 
-        result = format_sections(sections, "json")
+        result = format_sections(sections, "json")  # ty: ignore[invalid-argument-type]
         parsed = json.loads(result)
 
         assert len(parsed) == 2
@@ -401,7 +401,7 @@ class TestCategoryMembers:
             {"title": "Subcategory Page", "ns": 0, "level": 1},
         ]
 
-        result = format_category_members(members, "text")
+        result = format_category_members(members, "text")  # ty: ignore[invalid-argument-type]
         lines = result.split("\n")
 
         assert lines[0] == "Page 1 (ns: 0)"
@@ -415,7 +415,7 @@ class TestCategoryMembers:
             {"title": "Subcategory", "ns": 14, "level": 0},
         ]
 
-        result = format_category_members(members, "json")
+        result = format_category_members(members, "json")  # ty: ignore[invalid-argument-type]
         parsed = json.loads(result)
 
         assert len(parsed) == 2
@@ -458,7 +458,7 @@ class TestPageInfo:
             "pageid": 123,
         }
 
-        result = format_page_info(info, "text")
+        result = format_page_info(info, "text")  # ty: ignore[invalid-argument-type]
 
         assert "title: Test Page" in result
         assert "exists: True" in result
@@ -473,7 +473,7 @@ class TestPageInfo:
             "namespace": 0,
         }
 
-        result = format_page_info(info, "json")
+        result = format_page_info(info, "json")  # ty: ignore[invalid-argument-type]
         parsed = json.loads(result)
 
         assert parsed["title"] == "Test Page"
@@ -497,7 +497,7 @@ class TestFormatPageDict:
 
         pages = {"Page 1": page1, "Page 2": page2}
 
-        result = format_page_dict(pages, "text")
+        result = format_page_dict(pages, "text")  # ty: ignore[invalid-argument-type]
         lines = result.split("\n")
 
         assert lines[0] == "Page 1"
@@ -513,7 +513,7 @@ class TestFormatPageDict:
 
         pages = {"Page 1": page1}
 
-        result = format_page_dict(pages, "json")
+        result = format_page_dict(pages, "json")  # ty: ignore[invalid-argument-type]
         parsed = json.loads(result)
 
         assert "Page 1" in parsed
@@ -532,7 +532,7 @@ class TestFormatPageDict:
 
         pages = {"Page 1": page1}
 
-        result = format_page_dict(pages, "json")
+        result = format_page_dict(pages, "json")  # ty: ignore[invalid-argument-type]
         parsed = json.loads(result)
 
         assert "url" not in parsed["Page 1"]
@@ -567,7 +567,7 @@ class TestPageCoordinates:
             {"lat": 48.8566, "lon": 2.3522, "primary": False, "globe": "earth"},
         ]
 
-        result = format_coordinates(coords, "text")
+        result = format_coordinates(coords, "text")  # ty: ignore[invalid-argument-type]
         lines = result.split("\n")
 
         assert lines[0] == "51.5074, -0.1278 (primary)"
@@ -579,7 +579,7 @@ class TestPageCoordinates:
             {"lat": 51.5074, "lon": -0.1278, "primary": True, "globe": "earth"},
         ]
 
-        result = format_coordinates(coords, "json")
+        result = format_coordinates(coords, "json")  # ty: ignore[invalid-argument-type]
         parsed = json.loads(result)
 
         assert len(parsed) == 1
@@ -591,7 +591,7 @@ class TestPageCoordinates:
             {"lat": 51.5, "lon": -0.1, "primary": True, "globe": "earth", "dist": 123.4},
         ]
 
-        result = format_coordinates(coords, "text")
+        result = format_coordinates(coords, "text")  # ty: ignore[invalid-argument-type]
         assert "dist=123.4m" in result
 
     def test_format_coordinates_text_non_earth_globe(self):
@@ -600,7 +600,7 @@ class TestPageCoordinates:
             {"lat": 10.0, "lon": 20.0, "primary": False, "globe": "mars"},
         ]
 
-        result = format_coordinates(coords, "text")
+        result = format_coordinates(coords, "text")  # ty: ignore[invalid-argument-type]
         assert "globe=mars" in result
 
 
@@ -663,7 +663,7 @@ class TestGeoSearchResults:
             {"title": "Page 2", "dist": 200.7, "lat": 51.510, "lon": -0.130, "primary": True},
         ]
 
-        result = format_geosearch(results, "text")
+        result = format_geosearch(results, "text")  # ty: ignore[invalid-argument-type]
         lines = result.split("\n")
 
         assert lines[0] == "Page 1 (50.3m) [51.508, -0.128]"
@@ -675,7 +675,7 @@ class TestGeoSearchResults:
             {"title": "Page 1", "dist": 50.3, "lat": 51.508, "lon": -0.128, "primary": True},
         ]
 
-        result = format_geosearch(results, "json")
+        result = format_geosearch(results, "json")  # ty: ignore[invalid-argument-type]
         parsed = json.loads(result)
 
         assert len(parsed) == 1
@@ -700,7 +700,7 @@ class TestRandomPages:
         """Test formatting random results as text."""
         results = [{"title": "Page A"}, {"title": "Page B"}]
 
-        result = format_random(results, "text")
+        result = format_random(results, "text")  # ty: ignore[invalid-argument-type]
         lines = result.split("\n")
 
         assert lines[0] == "Page A"
@@ -710,7 +710,7 @@ class TestRandomPages:
         """Test formatting random results as JSON."""
         results = [{"title": "Page A", "pageid": 100}]
 
-        result = format_random(results, "json")
+        result = format_random(results, "json")  # ty: ignore[invalid-argument-type]
         parsed = json.loads(result)
 
         assert len(parsed) == 1
@@ -750,7 +750,7 @@ class TestSearchResults:
             "pages": [{"title": "Page 1"}, {"title": "Page 2"}],
         }
 
-        result = format_search(results, "text")
+        result = format_search(results, "text")  # ty: ignore[invalid-argument-type]
 
         assert "Total hits: 100" in result
         assert "Suggestion: test query" in result
@@ -764,7 +764,7 @@ class TestSearchResults:
             "pages": [{"title": "Page 1"}],
         }
 
-        result = format_search(results, "text")
+        result = format_search(results, "text")  # ty: ignore[invalid-argument-type]
 
         assert "Total hits: 50" in result
         assert "Suggestion:" not in result
@@ -776,7 +776,7 @@ class TestSearchResults:
             "pages": [{"title": "Page 1"}],
         }
 
-        result = format_search(results, "json")
+        result = format_search(results, "json")  # ty: ignore[invalid-argument-type]
         parsed = json.loads(result)
 
         assert parsed["totalhits"] == 100

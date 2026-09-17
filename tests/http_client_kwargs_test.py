@@ -58,9 +58,7 @@ class TestSyncHTTPClientKwargs:
             assert wiki._client._http2 is True
         except ImportError as e:
             if "h2" in str(e):
-                pytest.skip(
-                    "http2 not available (h2 package not installed)"  # ty: ignore[too-many-positional-arguments]
-                )
+                pytest.skip("http2 not available (h2 package not installed)")
             else:
                 raise
 
@@ -202,9 +200,7 @@ class TestAsyncHTTPClientKwargs:
             assert wiki._client._http2 is True
         except ImportError as e:
             if "h2" in str(e):
-                pytest.skip(
-                    "http2 not available (h2 package not installed)"  # ty: ignore[too-many-positional-arguments]
-                )
+                pytest.skip("http2 not available (h2 package not installed)")
             else:
                 raise
 

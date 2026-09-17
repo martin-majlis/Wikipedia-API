@@ -23,7 +23,7 @@ class TestEnumConvertersEdgeCases:
     def test_coordinate_type2str_edge_cases(self):
         """Test coordinate_type2str with edge cases."""
         # Test None handling
-        result = coordinate_type2str(None)  # ty: ignore[arg-type]
+        result = coordinate_type2str(None)  # ty: ignore[invalid-argument-type]
         assert result is None
 
         # Test empty string
@@ -53,7 +53,7 @@ class TestEnumConvertersEdgeCases:
     def test_globe2str_edge_cases(self):
         """Test globe2str with edge cases."""
         # Test None handling
-        result = globe2str(None)  # ty: ignore[arg-type]
+        result = globe2str(None)  # ty: ignore[invalid-argument-type]
         assert result is None
 
         # Test empty string
@@ -84,7 +84,7 @@ class TestEnumConvertersEdgeCases:
     def test_search_sort2str_edge_cases(self):
         """Test search_sort2str with edge cases."""
         # Test None handling
-        result = search_sort2str(None)  # ty: ignore[arg-type]
+        result = search_sort2str(None)  # ty: ignore[invalid-argument-type]
         assert result is None
 
         # Test empty string
@@ -124,7 +124,7 @@ class TestEnumConvertersEdgeCases:
     def test_geosearch_sort2str_edge_cases(self):
         """Test geosearch_sort2str with edge cases."""
         # Test None handling
-        result = geosearch_sort2str(None)  # ty: ignore[arg-type]
+        result = geosearch_sort2str(None)  # ty: ignore[invalid-argument-type]
         assert result is None
 
         # Test empty string
@@ -153,7 +153,7 @@ class TestEnumConvertersEdgeCases:
     def test_redirect_filter2str_edge_cases(self):
         """Test redirect_filter2str with edge cases."""
         # Test None handling
-        result = redirect_filter2str(None)  # ty: ignore[arg-type]
+        result = redirect_filter2str(None)  # ty: ignore[invalid-argument-type]
         assert result is None
 
         # Test empty string
@@ -192,8 +192,8 @@ class TestEnumConvertersEdgeCases:
         ]
 
         for converter, enum_val in enum_inputs:
-            result1 = converter(enum_val)
-            result2 = converter(enum_val)
+            result1 = converter(enum_val)  # ty: ignore[invalid-argument-type]
+            result2 = converter(enum_val)  # ty: ignore[invalid-argument-type]
             assert result1 == result2
             assert result1 == enum_val.value
 
@@ -224,7 +224,7 @@ class TestEnumConvertersEdgeCases:
 
         for converter, enum_val in converters_and_enums:
             # Test with enum
-            enum_result = converter(enum_val)
+            enum_result = converter(enum_val)  # ty: ignore[invalid-argument-type]
             assert isinstance(enum_result, str)
 
             # Test with string
@@ -232,7 +232,7 @@ class TestEnumConvertersEdgeCases:
             assert isinstance(string_result, str)
 
             # Test with None
-            none_result = converter(None)  # ty: ignore[arg-type]
+            none_result = converter(None)  # ty: ignore[invalid-argument-type]
             assert none_result is None
 
     def test_converter_performance_basic(self):
@@ -253,7 +253,7 @@ class TestEnumConvertersEdgeCases:
 
         for _ in range(iterations):
             for converter, enum_val in converters:
-                converter(enum_val)
+                converter(enum_val)  # ty: ignore[invalid-argument-type]
                 converter("test_string")
 
         end_time = time.time()

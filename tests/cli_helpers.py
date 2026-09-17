@@ -333,12 +333,6 @@ def create_mock_wiki_for_testing():
 
 def setup_cli_test_mocks():
     """Set up common mocks for CLI testing."""
-    import wikipediaapi.cli as cli_module
-
-    # Mock the CLI exceptions for testing
-    cli_module.PageNotFoundError = Exception
-    cli_module.SectionNotFoundError = Exception
-
     return create_mock_wikipedia()
 
 

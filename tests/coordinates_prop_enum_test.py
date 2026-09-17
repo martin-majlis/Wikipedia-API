@@ -211,7 +211,7 @@ class TestCoordinatesPropEdgeCases:
     def test_converter_with_none(self):
         """Test converter behavior with None input."""
         # The converter should handle None gracefully
-        result = coordinates_prop2str(None)
+        result = coordinates_prop2str(None)  # ty: ignore[invalid-argument-type]
         assert result is None
 
     def test_converter_with_empty_string(self):

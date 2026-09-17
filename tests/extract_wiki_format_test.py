@@ -36,12 +36,14 @@ class TestWikiFormatExtracts:
     def test_subsection_by_title(self):
         page = self.wiki.page("Test_1")
         section = page.section_by_title("Section 4")
+        assert section is not None
         assert section.title == "Section 4"
         assert section.level == 1
 
     def test_subsection(self):
         page = self.wiki.page("Test_1")
         section = page.section_by_title("Section 4")
+        assert section is not None
         assert section.title == "Section 4"
         assert section.text == ""
         assert len(section.sections) == 2
@@ -49,6 +51,7 @@ class TestWikiFormatExtracts:
     def test_subsubsection(self):
         page = self.wiki.page("Test_1")
         section = page.section_by_title("Section 4.2.2")
+        assert section is not None
         assert section.title == "Section 4.2.2"
         assert section.text == "Text for section 4.2.2"
         assert (

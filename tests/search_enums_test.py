@@ -17,7 +17,7 @@ class TestSearchEnums:
     def setup_method(self):
         """Set up test fixtures."""
         self.wiki = wikipediaapi.Wikipedia(user_agent="UnitTests (bot@example.com)", language="en")
-        self.wiki._session = wikipedia_api_request(self.wiki)
+        self.wiki._session = wikipedia_api_request(self.wiki)  # ty: ignore[unresolved-attribute]
 
     def test_search_prop_enum_values(self):
         """Test SearchProp enum has correct values."""
