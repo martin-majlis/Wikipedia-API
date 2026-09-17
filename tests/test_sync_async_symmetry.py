@@ -344,7 +344,7 @@ class TestSyncAsyncPropertySymmetry:
 
         # Both should allow access to undocumented fields
         sync_value = getattr(sync_page, undocumented_field, None)
-        async_value = await getattr(async_page, undocumented_field, None)
+        async_value = await getattr(async_page, undocumented_field, None)  # ty: ignore[invalid-await]
 
         assert sync_value == async_value
 

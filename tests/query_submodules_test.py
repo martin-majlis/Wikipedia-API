@@ -309,15 +309,15 @@ class TestParamsToApi:
 
     def test_geosearch_params_rejects_string_coord(self):
         with pytest.raises(TypeError):
-            GeoSearchParams(coord="51.5|-0.1")
+            GeoSearchParams(coord="51.5|-0.1")  # ty: ignore[invalid-argument-type]
 
     def test_geosearch_params_rejects_string_bbox(self):
         with pytest.raises(TypeError):
-            GeoSearchParams(bbox="52.0|-1.0|51.0|0.0")
+            GeoSearchParams(bbox="52.0|-1.0|51.0|0.0")  # ty: ignore[invalid-argument-type]
 
     def test_coordinates_params_rejects_string_distance_from_point(self):
         with pytest.raises(TypeError):
-            CoordinatesParams(distance_from_point="37.787|-122.4")
+            CoordinatesParams(distance_from_point="37.787|-122.4")  # ty: ignore[invalid-argument-type]
 
     def test_search_params_rejects_string_prop(self):
         with pytest.raises(TypeError):
@@ -682,7 +682,7 @@ class TestImageInfo:
 
     def test_imageinfo_params_rejects_string_prop(self):
         with pytest.raises(TypeError):
-            ImageInfoParams(prop="url|size")
+            ImageInfoParams(prop="url|size")  # ty: ignore[invalid-argument-type]
 
     def test_imageinfo_frozen(self):
         info = ImageInfo(url="http://example.com", width=100)

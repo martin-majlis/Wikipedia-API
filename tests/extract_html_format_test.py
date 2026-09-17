@@ -38,17 +38,20 @@ class TestHtmlFormatExtracts:
     def test_subsection_by_title(self):
         page = self.wiki.page("Test_1")
         section = page.section_by_title("Section 4")
+        assert section is not None
         assert section.title == "Section 4"
         assert section.level == 1
 
     def test_subsection_by_title_with_multiple_spans(self):
         page = self.wiki.page("Test_1")
         section = page.section_by_title("Section 5")
+        assert section is not None
         assert section.title == "Section 5"
 
     def test_subsection(self):
         page = self.wiki.page("Test_1")
         section = page.section_by_title("Section 4")
+        assert section is not None
         assert section.title == "Section 4"
         assert section.text == ""
         assert len(section.sections) == 2
@@ -56,6 +59,7 @@ class TestHtmlFormatExtracts:
     def test_subsubsection(self):
         page = self.wiki.page("Test_1")
         section = page.section_by_title("Section 4.2.2")
+        assert section is not None
         assert section.title == "Section 4.2.2"
         assert section.text == "<p><b>Text for section 4.2.2</b>\n\n\n</p>"
         assert (
@@ -69,6 +73,7 @@ class TestHtmlFormatExtracts:
     def test_subsection_by_title_return_last(self):
         page = self.wiki.page("Test_Nested")
         section = page.section_by_title("Subsection B")
+        assert section is not None
         assert section.title == "Subsection B"
         assert section.text == "<p><b>Text for section 3.B</b>\n\n\n</p>"
         assert len(section.sections) == 0
@@ -117,6 +122,7 @@ class TestHtmlFormatExtracts:
         page = self.wiki.page("Test_Edit")
         self.maxDiff = None
         section = page.section_by_title("Section with Edit")
+        assert section is not None
         assert section.title == "Section with Edit"
         expected = (
             "<p><b>Summary</b> text\n\n</p>\n\n"
