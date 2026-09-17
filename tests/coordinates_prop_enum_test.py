@@ -57,14 +57,9 @@ class TestCoordinatesPropEnum:
         """Test enum membership operations."""
         assert CoordinatesProp.GLOBE in CoordinatesProp
 
-        # Test that invalid string is not in enum values (compatible with all Python versions)
-        try:
-            assert "invalid" not in CoordinatesProp
-        except TypeError:
-            # In Python < 3.12, string membership in enum raises TypeError
-            # Check against enum values instead
-            enum_values = [prop.value for prop in CoordinatesProp]
-            assert "invalid" not in enum_values
+        # Test that invalid string is not in enum values
+        enum_values = [prop.value for prop in CoordinatesProp]
+        assert "invalid" not in enum_values
 
         # Test that all expected values are in enum
         expected_values = ["country", "dim", "globe", "name", "region", "type"]

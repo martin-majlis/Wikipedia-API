@@ -1,5 +1,7 @@
 # flake8: noqa
 
+from typing import Any
+
 user_agent = "UnitTests (bot@example.com)"
 
 
@@ -25,7 +27,7 @@ def async_wikipedia_api_request(wiki):
     return api_request
 
 
-_MOCK_DATA = {
+_MOCK_DATA: dict[str, Any] = {
     "en:action=query&explaintext=1&exsectionformat=wiki&format=json&prop=extracts&redirects=1&titles=Test_1&": {
         "batchcomplete": "",
         "warnings": {
@@ -1328,7 +1330,7 @@ CLI_MOCK_PAGES = {
 
 
 # Additional mock API responses for CLI-specific scenarios
-_CLI_MOCK_DATA = {
+_CLI_MOCK_DATA: dict[str, Any] = {
     # Mock response for section queries
     "en:action=query&explaintext=1&exsectionformat=wiki&format=json&prop=extracts&redirects=1&titles=CLI_Section_Test&": {
         "batchcomplete": "",
@@ -1771,4 +1773,4 @@ _CLI_MOCK_DATA = {
 }
 
 # Merge CLI mock data with main mock data
-_MOCK_DATA.update(_CLI_MOCK_DATA)  # ty: ignore[no-matching-overload]
+_MOCK_DATA.update(_CLI_MOCK_DATA)
