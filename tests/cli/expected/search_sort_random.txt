@@ -1,85 +1,85 @@
 {
-"totalhits": 6090,
+"totalhits": 6093,
 "pages": [
 {
-"title": "Linux-HA",
-"pageid": 1866997,
-"size": 7361,
+"title": "University of Engineering & Management, Kolkata",
+"pageid": 51273359,
+"size": 15991,
+"wordcount": 1300,
+"timestamp": "2026-08-08T00:08:29Z",
+"snippet": "campus including: robotics, ethical hacking, automobile, <span class=\"searchmatch\">programming</span>, Android app development, <span class=\"searchmatch\">Python</span> and aircraft technology. It is the annual technical festival"
+},
+{
+"title": "Jim Steinman",
+"pageid": 252147,
+"size": 93780,
+"wordcount": 9849,
+"timestamp": "2026-07-26T17:30:17Z",
+"snippet": "2012, it was announced that Steinman was working with Terry Jones of Monty <span class=\"searchmatch\">Python</span> fame on a heavy metal version of The Nutcracker. In February of the same"
+},
+{
+"title": "GenePattern",
+"pageid": 8167185,
+"size": 7795,
 "wordcount": 650,
-"timestamp": "2025-06-12T19:56:10Z",
-"snippet": "software product is Heartbeat, a GPL-licensed portable cluster management <span class=\"searchmatch\">program</span> for high-availability clustering. Its most important features are: no fixed"
+"timestamp": "2025-11-13T12:41:07Z",
+"snippet": "analysis modules available to computational biologists and developers from <span class=\"searchmatch\">Python</span>, Java, MATLAB, and R. The GenePattern Notebook Environment: Built on the"
 },
 {
-"title": "LiVES",
-"pageid": 1896953,
-"size": 13224,
-"wordcount": 1353,
-"timestamp": "2025-12-28T18:44:48Z",
-"snippet": "ago (2002) Stable release 3.2.0  / 8 November 2020 Written in C, Perl, <span class=\"searchmatch\">Python</span> Operating system Linux, Unix-like Available in 31 languages List of languages"
+"title": "Dynamic HTML",
+"pageid": 8996,
+"size": 11360,
+"wordcount": 1429,
+"timestamp": "2026-06-26T12:42:56Z",
+"snippet": "client-side scripting and ones created by server-side scripting (such as PHP, <span class=\"searchmatch\">Python</span>, JSP or ASP.NET) where the web server generates content before sending it"
 },
 {
-"title": "C14orf119",
-"pageid": 63845865,
-"size": 26434,
-"wordcount": 2158,
-"timestamp": "2025-10-30T16:29:43Z",
-"snippet": "random coils make up 37.86% of the protein (53 amino acids). Phryre2, a <span class=\"searchmatch\">program</span> for protein modeling, prediction, and analysis, was used to determine and"
+"title": "Gerrit (software)",
+"pageid": 28535391,
+"size": 4090,
+"wordcount": 272,
+"timestamp": "2026-01-06T04:10:32Z",
+"snippet": "Both are named after Dutch designer Gerrit Rietveld. Originally written in <span class=\"searchmatch\">Python</span> like Rietveld, it is now written in Java (Java EE Servlet) with SQL since"
 },
 {
-"title": "Wetar",
-"pageid": 2186138,
-"size": 6863,
-"wordcount": 694,
-"timestamp": "2026-08-23T16:25:29Z",
-"snippet": "where the trade is not banned. Wetar ground-dove Wetar figbird Wetar Island <span class=\"searchmatch\">python</span> Wetar lorikeet Islands portal Wetarese languages Wetar Strait Biro Pusat"
+"title": "Garak (software)",
+"pageid": 81002868,
+"size": 6167,
+"wordcount": 504,
+"timestamp": "2026-02-22T08:41:22Z",
+"snippet": "Language Models&quot;. arXiv:2406.11036 [cs.CL]. Official website garak on the <span class=\"searchmatch\">Python</span> Package Index garak on GitHub garak talk at DEF CON 2024 Nvidia NeMo Guardrails"
 },
 {
-"title": "SIP",
-"pageid": 100838,
-"size": 5246,
-"wordcount": 655,
-"timestamp": "2026-07-02T16:36:56Z",
-"snippet": "(software), a tool which generates C++ interface code for the <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> Scilab Image Processing, an image processing toolbox Soft Input"
+"title": "CBS Reports",
+"pageid": 20338880,
+"size": 23479,
+"wordcount": 1263,
+"timestamp": "2025-11-11T04:25:55Z",
+"snippet": "Reports was pre-empted by a high number of CBS affiliates that aired local <span class=\"searchmatch\">programming</span> in its timeslot. When the networks announced their Fall 1962 schedules"
 },
 {
-"title": "Chronic prostatitis/chronic pelvic pain syndrome",
-"pageid": 17223049,
-"size": 63984,
-"wordcount": 6809,
-"timestamp": "2026-08-23T19:13:32Z",
-"snippet": "the original on 28 July 2009. Retrieved 28 July 2009. The star of Monty <span class=\"searchmatch\">Python</span> and &quot;A Fish Called Wanda&quot; has been diagnosed with prostatitis, the inflammation"
+"title": "Just-in-time compilation",
+"pageid": 220632,
+"size": 27019,
+"wordcount": 3274,
+"timestamp": "2026-04-03T04:59:30Z",
+"snippet": " &quot;<span class=\"searchmatch\">Programming</span> language PHP 8 is out: This new JIT compiler points to better performance&quot;. ZDNet. Retrieved 28 November 2020. &quot;What&#039;s New In <span class=\"searchmatch\">Python</span> 3.13&quot;"
 },
 {
-"title": "Graphical lasso",
-"pageid": 46769757,
-"size": 6482,
-"wordcount": 708,
-"timestamp": "2026-03-23T12:10:57Z",
-"snippet": "estimator in <span class=\"searchmatch\">programs</span>, users could use the R package glasso, GraphicalLasso() class in the scikit-learn <span class=\"searchmatch\">Python</span> library, or the skggm <span class=\"searchmatch\">Python</span> package (similar"
+"title": "Milvus (vector database)",
+"pageid": 77949393,
+"size": 15683,
+"wordcount": 1212,
+"timestamp": "2026-07-30T01:52:56Z",
+"snippet": "algorithm CAGRA. Milvus provides official SDK clients for Java, NodeJS, <span class=\"searchmatch\">Python</span> and Go. An additional C# SDK client was contributed by Microsoft. The database"
 },
 {
-"title": "IRAF",
-"pageid": 520050,
-"size": 21138,
-"wordcount": 2393,
-"timestamp": "2025-12-22T15:30:23Z",
-"snippet": "xgterm and the Command Language, the <span class=\"searchmatch\">Python</span> package PyRAF can be used. PyRAF is able to translate CL scripts into <span class=\"searchmatch\">Python</span> scripts. It also provides a graphics"
-},
-{
-"title": "RDRAND",
-"pageid": 32961506,
-"size": 27116,
-"wordcount": 2740,
-"timestamp": "2025-12-29T18:16:13Z",
-"snippet": "Although a <span class=\"searchmatch\">Python</span> module of RDRAND has been constructed, it was found to be 20× slower than the default random number generator in <span class=\"searchmatch\">Python</span>, although a"
-},
-{
-"title": "LightGBM",
-"pageid": 64785522,
-"size": 9679,
-"wordcount": 792,
-"timestamp": "2026-08-11T16:40:25Z",
-"snippet": "accuracy. LightGBM works on Linux, Windows, and macOS and supports C++, <span class=\"searchmatch\">Python</span>, R, and C#. The source code is licensed under MIT License and available"
+"title": "List of roles and awards of Matt Stone",
+"pageid": 71675263,
+"size": 66842,
+"wordcount": 2358,
+"timestamp": "2026-09-14T21:31:24Z",
+"snippet": "Thanksgiving episode airs on Comedy Central tonight at 10. The Life of <span class=\"searchmatch\">Python</span> (DVD). A&amp;E Home Video. 2000. Hochman, Steve (June 7, 2000). &quot;Awards as American"
 }
 ]
 }

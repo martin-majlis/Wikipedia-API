@@ -235,6 +235,7 @@ Dead Sea
 Death Valley National Park
 Deep space exploration
 Definite article
+Definition of planet
 Deforestation
 Deimos (moon)
 Deity
@@ -504,11 +505,11 @@ Hydrogeology
 Hydrology
 Hydrosphere
 Hydrostatic equilibrium
-Hyperion (hypothetical planet)
 Hyperion (moon)
 Hypothetical moon of Mercury
 Hypsometry
 I.B. Tauris
+IAU definition of planet
 IPCC
 IPCC Sixth Assessment Report
 ISBN (identifier)
@@ -568,7 +569,6 @@ Kirkwood gap
 Komatiite
 Krypton
 Kuiper belt
-Kuiper cliff
 Kujata
 Kármán line
 Köppen climate classification
@@ -621,9 +621,11 @@ List of exceptional asteroids
 List of gravitationally rounded objects of the Solar System
 List of highest mountains on Earth
 List of hypothetical Solar System objects
+List of largest craters in the Solar System
 List of largest lakes and seas in the Solar System
 List of largest rifts, canyons and valleys in the Solar System
 List of missions to comets
+List of missions to minor planets
 List of natural satellites
 List of possible dwarf planets
 List of sovereign states
@@ -1099,7 +1101,6 @@ Sunlight
 Supercontinent
 Surface gravity
 Surface water
-Synestia
 Synodic month
 Synodic rotation period
 Syzygy (astronomy)
