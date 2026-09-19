@@ -1184,6 +1184,11 @@
 "language": "en",
 "ns": 0
 },
+"Definition of planet": {
+"title": "Definition of planet",
+"language": "en",
+"ns": 0
+},
 "Deforestation": {
 "title": "Deforestation",
 "language": "en",
@@ -2529,11 +2534,6 @@
 "language": "en",
 "ns": 0
 },
-"Hyperion (hypothetical planet)": {
-"title": "Hyperion (hypothetical planet)",
-"language": "en",
-"ns": 0
-},
 "Hyperion (moon)": {
 "title": "Hyperion (moon)",
 "language": "en",
@@ -2551,6 +2551,11 @@
 },
 "I.B. Tauris": {
 "title": "I.B. Tauris",
+"language": "en",
+"ns": 0
+},
+"IAU definition of planet": {
+"title": "IAU definition of planet",
 "language": "en",
 "ns": 0
 },
@@ -2849,11 +2854,6 @@
 "language": "en",
 "ns": 0
 },
-"Kuiper cliff": {
-"title": "Kuiper cliff",
-"language": "en",
-"ns": 0
-},
 "Kujata": {
 "title": "Kujata",
 "language": "en",
@@ -3114,6 +3114,11 @@
 "language": "en",
 "ns": 0
 },
+"List of largest craters in the Solar System": {
+"title": "List of largest craters in the Solar System",
+"language": "en",
+"ns": 0
+},
 "List of largest lakes and seas in the Solar System": {
 "title": "List of largest lakes and seas in the Solar System",
 "language": "en",
@@ -3126,6 +3131,11 @@
 },
 "List of missions to comets": {
 "title": "List of missions to comets",
+"language": "en",
+"ns": 0
+},
+"List of missions to minor planets": {
+"title": "List of missions to minor planets",
 "language": "en",
 "ns": 0
 },
@@ -5501,11 +5511,6 @@
 },
 "Surface water": {
 "title": "Surface water",
-"language": "en",
-"ns": 0
-},
-"Synestia": {
-"title": "Synestia",
 "language": "en",
 "ns": 0
 },

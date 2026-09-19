@@ -344,7 +344,6 @@ Apparent magnitude
 Apparent retrograde motion
 Application of silicon-germanium thermoelectrics in space exploration
 April 1976
-April 25
 April–June 2020 in science
 Apsis
 Arabic and Islamic names of Moon craters
@@ -1576,7 +1575,6 @@ Portal:Solar System/Solar System topics/imagebox
 Portal:Somerset/Did you know
 Portal:Somerset/Did you know/2
 Portal:Somerset/Nominate/Did you know
-Portal:Spaceflight
 Portal:Spaceflight/Did you know
 Portal:Spaceflight/Did you know/2008 Fortnight 1
 Portal:Spaceflight/Did you know/2008 Fortnight 2
@@ -2214,7 +2212,6 @@ User talk:A2soup
 User talk:Aaron Schulz/Archive6
 User talk:Alex Bakharev/Archive9
 User talk:Ali mcmc
-User talk:Antonioatrylia
 User talk:Apaleutos25
 User talk:Apc123
 User talk:Archola/3
@@ -2284,6 +2281,7 @@ User talk:Fotaun
 User talk:Freedom1234
 User talk:Frinkus
 User talk:Frog luva96
+User talk:Gazamp/Archive 2
 User talk:Gglee
 User talk:Glenncando
 User talk:GoldenTie
@@ -2644,11 +2642,11 @@ User:Bass fishing physicist
 User:Bass fishing physicist/Userboxes
 User:BassxForte
 User:Batchelor
-User:Bawolff/Edit COI Summary/10 per page (newest first)/47
-User:Bawolff/Edit COI Summary/15 per page/29
-User:Bawolff/Edit COI Summary/20 per page/22
-User:Bawolff/Edit COI Summary/25 per page/17
-User:Bawolff/Edit COI Summary/43
+User:Bawolff/Edit COI Summary/10 per page (newest first)/52
+User:Bawolff/Edit COI Summary/15 per page/27
+User:Bawolff/Edit COI Summary/20 per page/20
+User:Bawolff/Edit COI Summary/25 per page/16
+User:Bawolff/Edit COI Summary/40
 User:Bayerischermann
 User:Bduke
 User:BeFriendlyGoodSir
@@ -2847,6 +2845,7 @@ User:Cory Kohn
 User:Cosmic Latte
 User:Cotard
 User:Countincr
+User:CourtneyTheFortney
 User:Coven 36
 User:Crab rangoons
 User:Craft200/Books/Pluto the dwarf
@@ -3589,7 +3588,6 @@ User:MishaChan/userboxes
 User:Misscutie27
 User:Misscutie27/userboxen
 User:MissionControl
-User:Miszatomic
 User:Mitsube
 User:Mitternacht90
 User:Mjsp rn
@@ -3806,7 +3804,6 @@ User:Pulsar.co.nr/Userboxes
 User:Pulsar06
 User:Purple Is Pretty
 User:Purz12/Books/Pluto
-User:Putu Suhartawan
 User:PvtHudson IV
 User:Pwillows
 User:Pythagorean Theorem
@@ -3970,7 +3967,6 @@ User:Scootercatter/sandMendos
 User:Scorpion451
 User:Scottandrewhutchins
 User:Scourgezoned/Drafts/Draftspace1
-User:Scourgezoned/Drafts/Draftspace2
 User:Scowlinghunchback
 User:Scriptor de Verum
 User:SeaOfEdits/Sample page
@@ -4150,7 +4146,6 @@ User:The Bushranger/Userboxes Created
 User:The Fading Light
 User:The Genealogy Guy
 User:The Gopher Dude
-User:The Helper S
 User:The High Fin Sperm Whale/Userboxes
 User:The High Fin Sperm Whale/Userboxes/Pluto
 User:The Machine UK

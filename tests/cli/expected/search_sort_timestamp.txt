@@ -1,7 +1,7 @@
-Total hits: 6090
+Total hits: 6093
 
+List of free and open-source EDA software
 Open WebUI
 LiteLLM
-MLX (Apple ML framework)
+MLX (machine learning framework)
 Hugging Face Transformers
-LiveKit
