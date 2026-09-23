@@ -40,7 +40,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "coverage==7.16.1",
-    "ruff==0.16.7",
+    "ruff==0.16.8",
     "ty==0.0.80",
     "pre-commit==4.6.2",
     "pygments==2.21.0",
