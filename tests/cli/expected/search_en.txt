@@ -6,7 +6,7 @@ Python syntax and semantics
 History of Python
 Core Python Programming
 Mojo (programming language)
+List of Python software
 Zen of Python
-Python
-Stackless Python
 Flask (web framework)
+Stackless Python
