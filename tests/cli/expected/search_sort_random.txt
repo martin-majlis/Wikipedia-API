@@ -2,84 +2,84 @@
 "totalhits": 6090,
 "pages": [
 {
-"title": "Linux-HA",
-"pageid": 1866997,
-"size": 7361,
-"wordcount": 650,
-"timestamp": "2025-06-12T19:56:10Z",
-"snippet": "software product is Heartbeat, a GPL-licensed portable cluster management <span class=\"searchmatch\">program</span> for high-availability clustering. Its most important features are: no fixed"
+"title": "Les Dennis",
+"pageid": 599567,
+"size": 39186,
+"wordcount": 3585,
+"timestamp": "2026-09-14T04:50:21Z",
+"snippet": "Davis when the pair joined the cast of the West End production of Monty <span class=\"searchmatch\">Python&#039;s</span> Spamalot at London&#039;s Playhouse Theatre. His next theatrical appearance"
 },
 {
-"title": "LiVES",
-"pageid": 1896953,
-"size": 13224,
-"wordcount": 1353,
-"timestamp": "2025-12-28T18:44:48Z",
-"snippet": "ago (2002) Stable release 3.2.0  / 8 November 2020 Written in C, Perl, <span class=\"searchmatch\">Python</span> Operating system Linux, Unix-like Available in 31 languages List of languages"
+"title": "WireGuard",
+"pageid": 57257634,
+"size": 34477,
+"wordcount": 3074,
+"timestamp": "2026-09-08T08:14:48Z",
+"snippet": "June 2016. The logo is inspired by a stone engraving of the mythological <span class=\"searchmatch\">Python</span> that Jason Donenfeld saw while visiting a museum in Delphi. On 9 December"
 },
 {
-"title": "C14orf119",
-"pageid": 63845865,
-"size": 26434,
-"wordcount": 2158,
-"timestamp": "2025-10-30T16:29:43Z",
-"snippet": "random coils make up 37.86% of the protein (53 amino acids). Phryre2, a <span class=\"searchmatch\">program</span> for protein modeling, prediction, and analysis, was used to determine and"
+"title": "Neatx",
+"pageid": 23600044,
+"size": 4250,
+"wordcount": 223,
+"timestamp": "2026-08-09T21:38:28Z",
+"snippet": "Google. Neatx is written mostly in <span class=\"searchmatch\">Python</span>, with the exception of very few wrapper scripts in bash and one <span class=\"searchmatch\">program</span> written in C. Neatx is free and open-source"
 },
 {
-"title": "Wetar",
-"pageid": 2186138,
-"size": 6863,
-"wordcount": 694,
-"timestamp": "2026-08-23T16:25:29Z",
-"snippet": "where the trade is not banned. Wetar ground-dove Wetar figbird Wetar Island <span class=\"searchmatch\">python</span> Wetar lorikeet Islands portal Wetarese languages Wetar Strait Biro Pusat"
+"title": "Mixin",
+"pageid": 271968,
+"size": 36487,
+"wordcount": 3992,
+"timestamp": "2026-08-29T16:20:07Z",
+"snippet": "In object-oriented <span class=\"searchmatch\">programming</span> languages, a mixin (or mix-in) is a class that contains methods for use by other classes without having to be the parent"
 },
 {
-"title": "SIP",
-"pageid": 100838,
-"size": 5246,
-"wordcount": 655,
-"timestamp": "2026-07-02T16:36:56Z",
-"snippet": "(software), a tool which generates C++ interface code for the <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> Scilab Image Processing, an image processing toolbox Soft Input"
+"title": "Soar (cognitive architecture)",
+"pageid": 729751,
+"size": 32796,
+"wordcount": 3801,
+"timestamp": "2026-09-13T19:03:30Z",
+"snippet": "interface with external language environments including C++, Java, Tcl, and <span class=\"searchmatch\">Python</span> through SWIG-based bindings included with its distribution. The bindings"
 },
 {
-"title": "Chronic prostatitis/chronic pelvic pain syndrome",
-"pageid": 17223049,
-"size": 63984,
-"wordcount": 6809,
-"timestamp": "2026-08-23T19:13:32Z",
-"snippet": "the original on 28 July 2009. Retrieved 28 July 2009. The star of Monty <span class=\"searchmatch\">Python</span> and &quot;A Fish Called Wanda&quot; has been diagnosed with prostatitis, the inflammation"
+"title": "Outline of web design and web development",
+"pageid": 62423851,
+"size": 8197,
+"wordcount": 841,
+"timestamp": "2026-03-30T20:28:04Z",
+"snippet": "Outline of web design and web development Outline of computer <span class=\"searchmatch\">programming</span> <span class=\"searchmatch\">Programming</span> languages Outline of C++ Outline of Perl Outline of computer engineering"
 },
 {
-"title": "Graphical lasso",
-"pageid": 46769757,
-"size": 6482,
-"wordcount": 708,
-"timestamp": "2026-03-23T12:10:57Z",
-"snippet": "estimator in <span class=\"searchmatch\">programs</span>, users could use the R package glasso, GraphicalLasso() class in the scikit-learn <span class=\"searchmatch\">Python</span> library, or the skggm <span class=\"searchmatch\">Python</span> package (similar"
+"title": "2018 UST Growling Tigers basketball team",
+"pageid": 60163454,
+"size": 49280,
+"wordcount": 2313,
+"timestamp": "2026-05-13T02:21:15Z",
+"snippet": "full-fledged coach in 2003. The former coach of the Manuel L. Quezon University <span class=\"searchmatch\">Pythons</span> also called shots in the MBA: for the Pampanga Dragons in 2000, and the"
 },
 {
-"title": "IRAF",
-"pageid": 520050,
-"size": 21138,
-"wordcount": 2393,
-"timestamp": "2025-12-22T15:30:23Z",
-"snippet": "xgterm and the Command Language, the <span class=\"searchmatch\">Python</span> package PyRAF can be used. PyRAF is able to translate CL scripts into <span class=\"searchmatch\">Python</span> scripts. It also provides a graphics"
+"title": "Dynamic Languages Toolkit",
+"pageid": 33311015,
+"size": 4059,
+"wordcount": 239,
+"timestamp": "2025-04-18T21:29:19Z",
+"snippet": "Besides a set of frameworks DLTK provides exemplary Tcl, Ruby, Javascript and <span class=\"searchmatch\">Python</span> development environments. In 2005 Xored Software inc. proposed Eclipse Dynamic"
 },
 {
-"title": "RDRAND",
-"pageid": 32961506,
-"size": 27116,
-"wordcount": 2740,
-"timestamp": "2025-12-29T18:16:13Z",
-"snippet": "Although a <span class=\"searchmatch\">Python</span> module of RDRAND has been constructed, it was found to be 20× slower than the default random number generator in <span class=\"searchmatch\">Python</span>, although a"
+"title": "Open energy system databases",
+"pageid": 52660479,
+"size": 89576,
+"wordcount": 7337,
+"timestamp": "2026-08-31T23:41:15Z",
+"snippet": "files. The datasets can be accessed in real-time using stable URLs. The <span class=\"searchmatch\">Python</span> scripts deployed for data processing are available on GitHub and carry an"
 },
 {
-"title": "LightGBM",
-"pageid": 64785522,
-"size": 9679,
-"wordcount": 792,
-"timestamp": "2026-08-11T16:40:25Z",
-"snippet": "accuracy. LightGBM works on Linux, Windows, and macOS and supports C++, <span class=\"searchmatch\">Python</span>, R, and C#. The source code is licensed under MIT License and available"
+"title": "Galahad and the Holy Grail",
+"pageid": 442310,
+"size": 6052,
+"wordcount": 582,
+"timestamp": "2026-06-17T07:41:00Z",
+"snippet": "as well as other popular games of the day. With a nod to the film Monty <span class=\"searchmatch\">Python</span> and the Holy Grail, one of the objects found in the game is a holy hand"
 }
 ]
 }

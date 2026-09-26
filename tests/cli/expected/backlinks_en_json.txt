@@ -1729,11 +1729,6 @@
 "language": "en",
 "ns": 0
 },
-"April 25": {
-"title": "April 25",
-"language": "en",
-"ns": 0
-},
 "April–June 2020 in science": {
 "title": "April–June 2020 in science",
 "language": "en",
@@ -7129,6 +7124,11 @@
 "language": "en",
 "ns": 0
 },
+"Polar night": {
+"title": "Polar night",
+"language": "en",
+"ns": 0
+},
 "Polish names in space": {
 "title": "Polish names in space",
 "language": "en",
@@ -7886,11 +7886,6 @@
 },
 "Portal:Somerset/Nominate/Did you know": {
 "title": "Portal:Somerset/Nominate/Did you know",
-"language": "en",
-"ns": 100
-},
-"Portal:Spaceflight": {
-"title": "Portal:Spaceflight",
 "language": "en",
 "ns": 100
 },
@@ -11079,11 +11074,6 @@
 "language": "en",
 "ns": 3
 },
-"User talk:Antonioatrylia": {
-"title": "User talk:Antonioatrylia",
-"language": "en",
-"ns": 3
-},
 "User talk:Apaleutos25": {
 "title": "User talk:Apaleutos25",
 "language": "en",
@@ -11126,11 +11116,6 @@
 },
 "User talk:Beeblebrox/Archive 7": {
 "title": "User talk:Beeblebrox/Archive 7",
-"language": "en",
-"ns": 3
-},
-"User talk:BenAveling": {
-"title": "User talk:BenAveling",
 "language": "en",
 "ns": 3
 },
@@ -12944,11 +12929,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Arjuno3": {
-"title": "User:Arjuno3",
-"language": "en",
-"ns": 2
-},
 "User:Arkamesh/Books/Astronomy": {
 "title": "User:Arkamesh/Books/Astronomy",
 "language": "en",
@@ -13229,28 +13209,28 @@
 "language": "en",
 "ns": 2
 },
-"User:Bawolff/Edit COI Summary/10 per page (newest first)/47": {
-"title": "User:Bawolff/Edit COI Summary/10 per page (newest first)/47",
+"User:Bawolff/Edit COI Summary/10 per page (newest first)/56": {
+"title": "User:Bawolff/Edit COI Summary/10 per page (newest first)/56",
 "language": "en",
 "ns": 2
 },
-"User:Bawolff/Edit COI Summary/15 per page/29": {
-"title": "User:Bawolff/Edit COI Summary/15 per page/29",
+"User:Bawolff/Edit COI Summary/15 per page/21": {
+"title": "User:Bawolff/Edit COI Summary/15 per page/21",
 "language": "en",
 "ns": 2
 },
-"User:Bawolff/Edit COI Summary/20 per page/22": {
-"title": "User:Bawolff/Edit COI Summary/20 per page/22",
+"User:Bawolff/Edit COI Summary/20 per page/16": {
+"title": "User:Bawolff/Edit COI Summary/20 per page/16",
 "language": "en",
 "ns": 2
 },
-"User:Bawolff/Edit COI Summary/25 per page/17": {
-"title": "User:Bawolff/Edit COI Summary/25 per page/17",
+"User:Bawolff/Edit COI Summary/25 per page/13": {
+"title": "User:Bawolff/Edit COI Summary/25 per page/13",
 "language": "en",
 "ns": 2
 },
-"User:Bawolff/Edit COI Summary/43": {
-"title": "User:Bawolff/Edit COI Summary/43",
+"User:Bawolff/Edit COI Summary/32": {
+"title": "User:Bawolff/Edit COI Summary/32",
 "language": "en",
 "ns": 2
 },
@@ -14244,6 +14224,11 @@
 "language": "en",
 "ns": 2
 },
+"User:CourtneyTheFortney": {
+"title": "User:CourtneyTheFortney",
+"language": "en",
+"ns": 2
+},
 "User:Coven 36": {
 "title": "User:Coven 36",
 "language": "en",
@@ -14361,11 +14346,6 @@
 },
 "User:DJRaveN4x": {
 "title": "User:DJRaveN4x",
-"language": "en",
-"ns": 2
-},
-"User:DKqwerty": {
-"title": "User:DKqwerty",
 "language": "en",
 "ns": 2
 },
@@ -15259,6 +15239,11 @@
 "language": "en",
 "ns": 2
 },
+"User:Finn Freeman": {
+"title": "User:Finn Freeman",
+"language": "en",
+"ns": 2
+},
 "User:Firenationprincess": {
 "title": "User:Firenationprincess",
 "language": "en",
@@ -15506,11 +15491,6 @@
 },
 "User:Gerdel/About Me": {
 "title": "User:Gerdel/About Me",
-"language": "en",
-"ns": 2
-},
-"User:Gerixau": {
-"title": "User:Gerixau",
 "language": "en",
 "ns": 2
 },
@@ -17954,11 +17934,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Miszatomic": {
-"title": "User:Miszatomic",
-"language": "en",
-"ns": 2
-},
 "User:Mitsube": {
 "title": "User:Mitsube",
 "language": "en",
@@ -18056,11 +18031,6 @@
 },
 "User:Mr.Oliverrr": {
 "title": "User:Mr.Oliverrr",
-"language": "en",
-"ns": 2
-},
-"User:Mr.joomm": {
-"title": "User:Mr.joomm",
 "language": "en",
 "ns": 2
 },
@@ -18236,6 +18206,11 @@
 },
 "User:Nerd587": {
 "title": "User:Nerd587",
+"language": "en",
+"ns": 2
+},
+"User:NewMLWF/sandbox/SolarBalls": {
+"title": "User:NewMLWF/sandbox/SolarBalls",
 "language": "en",
 "ns": 2
 },
@@ -18894,6 +18869,11 @@
 "language": "en",
 "ns": 2
 },
+"User:Pluralmath/Userboxes": {
+"title": "User:Pluralmath/Userboxes",
+"language": "en",
+"ns": 2
+},
 "User:Pluto2181930": {
 "title": "User:Pluto2181930",
 "language": "en",
@@ -19036,11 +19016,6 @@
 },
 "User:Purz12/Books/Pluto": {
 "title": "User:Purz12/Books/Pluto",
-"language": "en",
-"ns": 2
-},
-"User:Putu Suhartawan": {
-"title": "User:Putu Suhartawan",
 "language": "en",
 "ns": 2
 },
@@ -19856,11 +19831,6 @@
 },
 "User:Scourgezoned/Drafts/Draftspace1": {
 "title": "User:Scourgezoned/Drafts/Draftspace1",
-"language": "en",
-"ns": 2
-},
-"User:Scourgezoned/Drafts/Draftspace2": {
-"title": "User:Scourgezoned/Drafts/Draftspace2",
 "language": "en",
 "ns": 2
 },
@@ -20756,11 +20726,6 @@
 },
 "User:The Gopher Dude": {
 "title": "User:The Gopher Dude",
-"language": "en",
-"ns": 2
-},
-"User:The Helper S": {
-"title": "User:The Helper S",
 "language": "en",
 "ns": 2
 },

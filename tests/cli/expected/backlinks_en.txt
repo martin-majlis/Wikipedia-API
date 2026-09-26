@@ -344,7 +344,6 @@ Apparent magnitude
 Apparent retrograde motion
 Application of silicon-germanium thermoelectrics in space exploration
 April 1976
-April 25
 April–June 2020 in science
 Apsis
 Arabic and Islamic names of Moon craters
@@ -1424,6 +1423,7 @@ Pluto–Charon
 Pluto–Charon system
 Pola Regio
 Polar ice cap
+Polar night
 Polish names in space
 Politics in Futurama
 Portal:Arizona/Featured article
@@ -1576,7 +1576,6 @@ Portal:Solar System/Solar System topics/imagebox
 Portal:Somerset/Did you know
 Portal:Somerset/Did you know/2
 Portal:Somerset/Nominate/Did you know
-Portal:Spaceflight
 Portal:Spaceflight/Did you know
 Portal:Spaceflight/Did you know/2008 Fortnight 1
 Portal:Spaceflight/Did you know/2008 Fortnight 2
@@ -2214,7 +2213,6 @@ User talk:A2soup
 User talk:Aaron Schulz/Archive6
 User talk:Alex Bakharev/Archive9
 User talk:Ali mcmc
-User talk:Antonioatrylia
 User talk:Apaleutos25
 User talk:Apc123
 User talk:Archola/3
@@ -2224,7 +2222,6 @@ User talk:Awkwafaba/Archive 12
 User talk:BIL
 User talk:Bathrobe
 User talk:Beeblebrox/Archive 7
-User talk:BenAveling
 User talk:Bensci54/Archives/2010
 User talk:Bethy12
 User talk:Billiamkarr
@@ -2587,7 +2584,6 @@ User:Arctic Fox/UBX/User Page
 User:Arcyqwerty/userpage
 User:Arenafoot
 User:Ariothegreat
-User:Arjuno3
 User:Arkamesh/Books/Astronomy
 User:ArkianNWM
 User:Armbrust/Userboxes - Science
@@ -2644,11 +2640,11 @@ User:Bass fishing physicist
 User:Bass fishing physicist/Userboxes
 User:BassxForte
 User:Batchelor
-User:Bawolff/Edit COI Summary/10 per page (newest first)/47
-User:Bawolff/Edit COI Summary/15 per page/29
-User:Bawolff/Edit COI Summary/20 per page/22
-User:Bawolff/Edit COI Summary/25 per page/17
-User:Bawolff/Edit COI Summary/43
+User:Bawolff/Edit COI Summary/10 per page (newest first)/56
+User:Bawolff/Edit COI Summary/15 per page/21
+User:Bawolff/Edit COI Summary/20 per page/16
+User:Bawolff/Edit COI Summary/25 per page/13
+User:Bawolff/Edit COI Summary/32
 User:Bayerischermann
 User:Bduke
 User:BeFriendlyGoodSir
@@ -2847,6 +2843,7 @@ User:Cory Kohn
 User:Cosmic Latte
 User:Cotard
 User:Countincr
+User:CourtneyTheFortney
 User:Coven 36
 User:Crab rangoons
 User:Craft200/Books/Pluto the dwarf
@@ -2871,7 +2868,6 @@ User:Czechers
 User:DATALAND
 User:DBZROCKS
 User:DJRaveN4x
-User:DKqwerty
 User:DN-boards1/Dwarf planets
 User:DaGrob
 User:DacodaNelson/Userboxes
@@ -3050,6 +3046,7 @@ User:Ferraridude100
 User:Fideliojoe/Books/Encyclopedia of The Solar System
 User:Fideliojoe/Books/Encyclopedia of The Solar System Vol 1
 User:Fife Club
+User:Finn Freeman
 User:Firenationprincess
 User:Fitzyp
 User:Fixious
@@ -3100,7 +3097,6 @@ User:GenghisTheHun
 User:George.eliza
 User:Georgeryall
 User:Gerdel/About Me
-User:Gerixau
 User:GetPossessed
 User:Ghostwar666/sandbox2
 User:Gidi70
@@ -3589,7 +3585,6 @@ User:MishaChan/userboxes
 User:Misscutie27
 User:Misscutie27/userboxen
 User:MissionControl
-User:Miszatomic
 User:Mitsube
 User:Mitternacht90
 User:Mjsp rn
@@ -3610,7 +3605,6 @@ User:Motomooda
 User:Mpprogram6771
 User:Mr. UnderhiIl
 User:Mr.Oliverrr
-User:Mr.joomm
 User:MrAstronomy101/Sandbox
 User:MrAstronomy101/Solar system Imaged objects
 User:MrRogersLovesYou
@@ -3646,6 +3640,7 @@ User:Necrobiology/Books/Astronomy
 User:NefariousPhD
 User:NeppyDaEnbyALT
 User:Nerd587
+User:NewMLWF/sandbox/SolarBalls
 User:NewbornCircle/TWA/Earth/2
 User:Newty23125
 User:Nhinds
@@ -3777,6 +3772,7 @@ User:PlatinumFire
 User:Playerse7en
 User:Pluma/userboxes
 User:Pluralmath
+User:Pluralmath/Userboxes
 User:Pluto2181930
 User:PoeticX
 User:Pogovina
@@ -3806,7 +3802,6 @@ User:Pulsar.co.nr/Userboxes
 User:Pulsar06
 User:Purple Is Pretty
 User:Purz12/Books/Pluto
-User:Putu Suhartawan
 User:PvtHudson IV
 User:Pwillows
 User:Pythagorean Theorem
@@ -3970,7 +3965,6 @@ User:Scootercatter/sandMendos
 User:Scorpion451
 User:Scottandrewhutchins
 User:Scourgezoned/Drafts/Draftspace1
-User:Scourgezoned/Drafts/Draftspace2
 User:Scowlinghunchback
 User:Scriptor de Verum
 User:SeaOfEdits/Sample page
@@ -4150,7 +4144,6 @@ User:The Bushranger/Userboxes Created
 User:The Fading Light
 User:The Genealogy Guy
 User:The Gopher Dude
-User:The Helper S
 User:The High Fin Sperm Whale/Userboxes
 User:The High Fin Sperm Whale/Userboxes/Pluto
 User:The Machine UK
