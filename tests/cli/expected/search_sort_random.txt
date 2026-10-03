@@ -1,85 +1,85 @@
 {
-"totalhits": 6090,
+"totalhits": 6091,
 "pages": [
 {
-"title": "Linux-HA",
-"pageid": 1866997,
-"size": 7361,
-"wordcount": 650,
-"timestamp": "2025-06-12T19:56:10Z",
-"snippet": "software product is Heartbeat, a GPL-licensed portable cluster management <span class=\"searchmatch\">program</span> for high-availability clustering. Its most important features are: no fixed"
+"title": "Land of the Tiger",
+"pageid": 15090173,
+"size": 16982,
+"wordcount": 2311,
+"timestamp": "2026-08-10T06:11:35Z",
+"snippet": "adapted to the tidal conditions. Mudskippers, monitor lizards, macaques and <span class=\"searchmatch\">pythons</span> are all shown. It is also home to over 500 tigers and is now a protected"
 },
 {
-"title": "LiVES",
-"pageid": 1896953,
-"size": 13224,
-"wordcount": 1353,
-"timestamp": "2025-12-28T18:44:48Z",
-"snippet": "ago (2002) Stable release 3.2.0  / 8 November 2020 Written in C, Perl, <span class=\"searchmatch\">Python</span> Operating system Linux, Unix-like Available in 31 languages List of languages"
+"title": "GNU Compiler Collection",
+"pageid": 12323,
+"size": 58611,
+"wordcount": 5214,
+"timestamp": "2026-09-30T17:12:44Z",
+"snippet": "for the Java <span class=\"searchmatch\">Programming</span> Language&quot;. Archived from the original on May 9, 2007. Retrieved April 22, 2010. graphing calculators#<span class=\"searchmatch\">programming</span> &quot;Using the GNU"
 },
 {
-"title": "C14orf119",
-"pageid": 63845865,
-"size": 26434,
-"wordcount": 2158,
-"timestamp": "2025-10-30T16:29:43Z",
-"snippet": "random coils make up 37.86% of the protein (53 amino acids). Phryre2, a <span class=\"searchmatch\">program</span> for protein modeling, prediction, and analysis, was used to determine and"
+"title": "WIMP (software bundle)",
+"pageid": 18446185,
+"size": 1652,
+"wordcount": 140,
+"timestamp": "2026-08-03T00:00:06Z",
+"snippet": "system (or database server); PHP or others, e.g. the Perl, <span class=\"searchmatch\">Python</span>, PowerShell <span class=\"searchmatch\">programming</span> languages. The Microsoft Web Platform Installer is a tool to"
 },
 {
-"title": "Wetar",
-"pageid": 2186138,
-"size": 6863,
-"wordcount": 694,
-"timestamp": "2026-08-23T16:25:29Z",
-"snippet": "where the trade is not banned. Wetar ground-dove Wetar figbird Wetar Island <span class=\"searchmatch\">python</span> Wetar lorikeet Islands portal Wetarese languages Wetar Strait Biro Pusat"
+"title": "Fractal",
+"pageid": 10913,
+"size": 79308,
+"wordcount": 8529,
+"timestamp": "2026-09-27T00:44:21Z",
+"snippet": "self-similar form approximating a natural fractal An artificial fern, rendered in <span class=\"searchmatch\">Python</span> Fractal defrosting patterns, polar Mars. The patterns are formed by sublimation"
 },
 {
-"title": "SIP",
-"pageid": 100838,
-"size": 5246,
-"wordcount": 655,
-"timestamp": "2026-07-02T16:36:56Z",
-"snippet": "(software), a tool which generates C++ interface code for the <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> Scilab Image Processing, an image processing toolbox Soft Input"
+"title": "Tau (mathematics)",
+"pageid": 32341736,
+"size": 59551,
+"wordcount": 4689,
+"timestamp": "2026-10-03T06:49:33Z",
+"snippet": "terms of τ instead of π. A constant named tau is implemented in some <span class=\"searchmatch\">programming</span> languages and calculator apps as an alias for 2π. τ is approximately"
 },
 {
-"title": "Chronic prostatitis/chronic pelvic pain syndrome",
-"pageid": 17223049,
-"size": 63984,
-"wordcount": 6809,
-"timestamp": "2026-08-23T19:13:32Z",
-"snippet": "the original on 28 July 2009. Retrieved 28 July 2009. The star of Monty <span class=\"searchmatch\">Python</span> and &quot;A Fish Called Wanda&quot; has been diagnosed with prostatitis, the inflammation"
+"title": "Flowblade",
+"pageid": 51866888,
+"size": 4629,
+"wordcount": 350,
+"timestamp": "2025-12-25T19:56:51Z",
+"snippet": "Stable release 2.24.2  / 29 May 2026; 3 months ago (29 May 2026) Written in <span class=\"searchmatch\">Python</span> (GTK) Operating system Linux Type Video editing software License GPL-3.0-or-later"
 },
 {
-"title": "Graphical lasso",
-"pageid": 46769757,
-"size": 6482,
-"wordcount": 708,
-"timestamp": "2026-03-23T12:10:57Z",
-"snippet": "estimator in <span class=\"searchmatch\">programs</span>, users could use the R package glasso, GraphicalLasso() class in the scikit-learn <span class=\"searchmatch\">Python</span> library, or the skggm <span class=\"searchmatch\">Python</span> package (similar"
+"title": "Sobol sequence",
+"pageid": 1358959,
+"size": 13701,
+"wordcount": 1900,
+"timestamp": "2026-09-01T08:39:47Z",
+"snippet": "dimensions in <span class=\"searchmatch\">Python</span> and Julia. A different free/open-source implementation in up to 1111 dimensions is available for C++, Fortran 90, Matlab, and <span class=\"searchmatch\">Python</span>. Commercial"
 },
 {
-"title": "IRAF",
-"pageid": 520050,
-"size": 21138,
-"wordcount": 2393,
-"timestamp": "2025-12-22T15:30:23Z",
-"snippet": "xgterm and the Command Language, the <span class=\"searchmatch\">Python</span> package PyRAF can be used. PyRAF is able to translate CL scripts into <span class=\"searchmatch\">Python</span> scripts. It also provides a graphics"
+"title": "Apache Avro",
+"pageid": 27326934,
+"size": 13321,
+"wordcount": 1328,
+"timestamp": "2026-08-24T18:09:26Z",
+"snippet": "APIs written for them: C C++ C# Elixir Go Haskell Java JavaScript Perl PHP <span class=\"searchmatch\">Python</span> Ruby Rust Scala In addition to supporting JSON for type and protocol definitions"
 },
 {
-"title": "RDRAND",
-"pageid": 32961506,
-"size": 27116,
-"wordcount": 2740,
-"timestamp": "2025-12-29T18:16:13Z",
-"snippet": "Although a <span class=\"searchmatch\">Python</span> module of RDRAND has been constructed, it was found to be 20× slower than the default random number generator in <span class=\"searchmatch\">Python</span>, although a"
+"title": "Astropy",
+"pageid": 40971733,
+"size": 15372,
+"wordcount": 1379,
+"timestamp": "2026-09-02T02:55:51Z",
+"snippet": "Astropy is a collection of software packages written in the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language and designed for use in astronomy. The software is a single, free"
 },
 {
-"title": "LightGBM",
-"pageid": 64785522,
-"size": 9679,
-"wordcount": 792,
-"timestamp": "2026-08-11T16:40:25Z",
-"snippet": "accuracy. LightGBM works on Linux, Windows, and macOS and supports C++, <span class=\"searchmatch\">Python</span>, R, and C#. The source code is licensed under MIT License and available"
+"title": "Gravitational lens",
+"pageid": 48824,
+"size": 58752,
+"wordcount": 6457,
+"timestamp": "2026-09-26T00:37:29Z",
+"snippet": "Meneghetti, Massimo (2021). Introduction to Gravitational Lensing With <span class=\"searchmatch\">Python</span> Examples. Lecture Notes in Physics. Vol. 956. Springer. doi:10.1007/978-3-030-73582-1"
 }
 ]
 }

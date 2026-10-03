@@ -1,13 +1,29 @@
 {
-"totalhits": 6090,
+"totalhits": 6091,
 "pages": [
 {
 "title": "Python (programming language)",
 "pageid": 23862,
-"size": 143574,
-"wordcount": 11644,
-"timestamp": "2026-09-13T12:32:06Z",
+"size": 145099,
+"wordcount": 11680,
+"timestamp": "2026-10-02T22:31:00Z",
 "snippet": " and garbage collection. <span class=\"searchmatch\">Python</span> supports multiple <span class=\"searchmatch\">programming</span> paradigms but with an emphasis on object-oriented <span class=\"searchmatch\">programming</span> and dynamic typing. Guido"
+},
+{
+"title": "History of Python",
+"pageid": 21356332,
+"size": 59915,
+"wordcount": 4349,
+"timestamp": "2026-10-02T21:57:22Z",
+"snippet": "The <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> was conceived in the late 1980s, and its implementation was started in December 1989 by Guido van Rossum at CWI in the"
+},
+{
+"title": "Python syntax and semantics",
+"pageid": 5250192,
+"size": 69693,
+"wordcount": 7920,
+"timestamp": "2026-09-25T19:53:01Z",
+"snippet": "The syntax of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is the set of rules that defines how a <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">program</span> will be written and interpreted (by both the runtime"
 },
 {
 "title": "Outline of the Python programming language",
@@ -16,22 +32,6 @@
 "wordcount": 838,
 "timestamp": "2026-08-24T15:15:14Z",
 "snippet": "functional <span class=\"searchmatch\">programming</span>. ABC (<span class=\"searchmatch\">programming</span> language) – precursor to <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">Python</span> was started by Guido van Rossum in 1989 and first released in 1991. <span class=\"searchmatch\">Python</span> 2 —"
-},
-{
-"title": "Python syntax and semantics",
-"pageid": 5250192,
-"size": 69647,
-"wordcount": 7920,
-"timestamp": "2026-09-06T08:39:18Z",
-"snippet": "The syntax of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is the set of rules that defines how a <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">program</span> will be written and interpreted (by both the runtime"
-},
-{
-"title": "History of Python",
-"pageid": 21356332,
-"size": 59958,
-"wordcount": 4349,
-"timestamp": "2026-09-14T20:30:54Z",
-"snippet": "The <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> was conceived in the late 1980s, and its implementation was started in December 1989 by Guido van Rossum at CWI in the"
 },
 {
 "title": "Core Python Programming",
@@ -44,10 +44,10 @@
 {
 "title": "Mojo (programming language)",
 "pageid": 73729965,
-"size": 21597,
-"wordcount": 1693,
-"timestamp": "2026-09-03T04:44:31Z",
-"snippet": "Mojo is a <span class=\"searchmatch\">programming</span> language for Linux and macOS. It is a systems <span class=\"searchmatch\">programming</span> language with semantics inspired by Rust such as static typing and a borrow"
+"size": 21581,
+"wordcount": 1690,
+"timestamp": "2026-10-01T06:55:07Z",
+"snippet": "Mojo is a <span class=\"searchmatch\">programming</span> language for Linux and macOS. It is a system <span class=\"searchmatch\">programming</span> language with semantics inspired by Rust such as static typing and a borrow"
 },
 {
 "title": "Zen of Python",
@@ -56,14 +56,6 @@
 "wordcount": 1130,
 "timestamp": "2026-03-11T00:04:23Z",
 "snippet": "<span class=\"searchmatch\">Python</span> is a collection of 19 &quot;guiding principles&quot; for writing computer <span class=\"searchmatch\">programs</span> that influence the design of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language. <span class=\"searchmatch\">Python</span> code"
-},
-{
-"title": "Python",
-"pageid": 46332325,
-"size": 2316,
-"wordcount": 315,
-"timestamp": "2026-09-12T21:46:27Z",
-"snippet": "Monty <span class=\"searchmatch\">Python</span> or the <span class=\"searchmatch\">Pythons</span>, a British comedy group <span class=\"searchmatch\">Python</span> (Monty) Pictures, a company owned by the troupe&#039;s surviving members <span class=\"searchmatch\">Python</span> (<span class=\"searchmatch\">programming</span> language)"
 },
 {
 "title": "Flask (web framework)",
@@ -76,10 +68,18 @@
 {
 "title": "Guido van Rossum",
 "pageid": 226402,
-"size": 24410,
+"size": 24441,
 "wordcount": 1977,
-"timestamp": "2026-09-15T04:06:51Z",
+"timestamp": "2026-09-21T08:44:06Z",
 "snippet": "31 January 1956) is a Dutch programmer. He is the creator of the <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language, for which he was the &quot;benevolent dictator for life&quot; (BDFL)"
+},
+{
+"title": "List of Python software",
+"pageid": 3673376,
+"size": 38301,
+"wordcount": 3721,
+"timestamp": "2026-10-01T00:32:08Z",
+"snippet": "The <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language is actively used by many people, both in industry and academia, for a wide variety of purposes. Atom — an open-source cross-platform"
 }
 ]
 }

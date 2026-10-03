@@ -344,7 +344,6 @@ Apparent magnitude
 Apparent retrograde motion
 Application of silicon-germanium thermoelectrics in space exploration
 April 1976
-April 25
 April–June 2020 in science
 Apsis
 Arabic and Islamic names of Moon craters
@@ -585,6 +584,7 @@ Draft:174567 Varda
 Draft:184314 Mbabamwanawaresa
 Draft:Brillante
 Draft:Hangorer Kanna
+Draft:List of arachnoids on Venus
 Draft:Minnie's Midnight Massacre (2026 horror film)
 Draft:William M. Grundy
 Dragonaut: The Resonance
@@ -1274,7 +1274,6 @@ New Horizons 2
 New Mexico State University
 Next Generation Small-Body Sample Return
 Nexus: The Jupiter Incident
-Niantic, Inc.
 Nibiru cataclysm
 Nice 2 model
 Nice model
@@ -1424,6 +1423,7 @@ Pluto–Charon
 Pluto–Charon system
 Pola Regio
 Polar ice cap
+Polar night
 Polish names in space
 Politics in Futurama
 Portal:Arizona/Featured article
@@ -1576,7 +1576,6 @@ Portal:Solar System/Solar System topics/imagebox
 Portal:Somerset/Did you know
 Portal:Somerset/Did you know/2
 Portal:Somerset/Nominate/Did you know
-Portal:Spaceflight
 Portal:Spaceflight/Did you know
 Portal:Spaceflight/Did you know/2008 Fortnight 1
 Portal:Spaceflight/Did you know/2008 Fortnight 2
@@ -1661,7 +1660,7 @@ Ron Miller (artist and author)
 Rose Center for Earth and Space
 Rosetta (spacecraft)
 Rotation
-Rotation period (astronomy)
+Rotation period
 Roughnecks: Starship Troopers Chronicles
 Rubble pile
 Russia
@@ -1681,6 +1680,7 @@ Satélite de Coleta de Dados
 Scale height
 Scattered disc
 Schmidt–Väisälä camera
+Scopely Explore, Inc.
 Seasons on planets
 Sedna (dwarf planet)
 Sednoid
@@ -2074,9 +2074,6 @@ Template:Infobox planetary system/testcases
 Template:Infobox plutonium
 Template:List of chemical elements
 Template:New Horizons
-Template:POTD part doc
-Template:POTD protected/2026-09-02
-Template:POTD random
 Template:POTD/2007-06-11
 Template:POTD/2014-12-12
 Template:POTD/2018-07-14
@@ -2214,7 +2211,6 @@ User talk:A2soup
 User talk:Aaron Schulz/Archive6
 User talk:Alex Bakharev/Archive9
 User talk:Ali mcmc
-User talk:Antonioatrylia
 User talk:Apaleutos25
 User talk:Apc123
 User talk:Archola/3
@@ -2224,7 +2220,6 @@ User talk:Awkwafaba/Archive 12
 User talk:BIL
 User talk:Bathrobe
 User talk:Beeblebrox/Archive 7
-User talk:BenAveling
 User talk:Bensci54/Archives/2010
 User talk:Bethy12
 User talk:Billiamkarr
@@ -2402,7 +2397,6 @@ User talk:Stephan Schulz/Archive 1
 User talk:Steve erwIN
 User talk:Stewader
 User talk:StuRat/archive5
-User talk:Sunborn
 User talk:Supercool Dude
 User talk:Tarret/Archive 1
 User talk:TestPilot
@@ -2410,7 +2404,6 @@ User talk:The Dancing Badger/archive3
 User talk:The Uncyclopedian/archive2
 User talk:The rakish fellow
 User talk:TheAustinMan/November 2011–October 2013
-User talk:TheEagle107
 User talk:TheXuitts
 User talk:Theindigowombat
 User talk:Theyoyoyo
@@ -2538,7 +2531,6 @@ User:Allixpeeke/places
 User:Allmightyduck (usurped)
 User:Alodnamra
 User:Alofferman
-User:Alokprasad84
 User:Amadeus1928/Templates
 User:Amage9/sandbox
 User:AmandaWins
@@ -2587,7 +2579,6 @@ User:Arctic Fox/UBX/User Page
 User:Arcyqwerty/userpage
 User:Arenafoot
 User:Ariothegreat
-User:Arjuno3
 User:Arkamesh/Books/Astronomy
 User:ArkianNWM
 User:Armbrust/Userboxes - Science
@@ -2644,11 +2635,6 @@ User:Bass fishing physicist
 User:Bass fishing physicist/Userboxes
 User:BassxForte
 User:Batchelor
-User:Bawolff/Edit COI Summary/10 per page (newest first)/47
-User:Bawolff/Edit COI Summary/15 per page/29
-User:Bawolff/Edit COI Summary/20 per page/22
-User:Bawolff/Edit COI Summary/25 per page/17
-User:Bawolff/Edit COI Summary/43
 User:Bayerischermann
 User:Bduke
 User:BeFriendlyGoodSir
@@ -2723,7 +2709,6 @@ User:Brianshapiro/Drafts/History of medicinal creosote
 User:Bubba73
 User:Bubbles02
 User:Buffs/Hydric Acid
-User:Bunty Pathak/footer
 User:Burmiester
 User:Bushfullofcats/sandbox
 User:Buurma
@@ -2744,7 +2729,6 @@ User:Cadwaladr/Userboxes/Pluto
 User:Cainram/Books/Our Solar System
 User:Calcifercat
 User:CallMeVbuck/sandbox
-User:Callinus
 User:CalumetCitation
 User:Cambalachero/Watchlist
 User:CamelotRoses Backup 3.0
@@ -2847,6 +2831,7 @@ User:Cory Kohn
 User:Cosmic Latte
 User:Cotard
 User:Countincr
+User:CourtneyTheFortney
 User:Coven 36
 User:Crab rangoons
 User:Craft200/Books/Pluto the dwarf
@@ -2871,7 +2856,6 @@ User:Czechers
 User:DATALAND
 User:DBZROCKS
 User:DJRaveN4x
-User:DKqwerty
 User:DN-boards1/Dwarf planets
 User:DaGrob
 User:DacodaNelson/Userboxes
@@ -2908,7 +2892,6 @@ User:DaryaB2003
 User:Dattebayo321/Userboxen..es?
 User:David Kernow/Known moons of the Solar System
 User:David Kernow/Template:Known moons of the Solar system
-User:David Levy/ITN death proposal
 User:David4286/Notes/userboxes
 User:DavidHitt
 User:DavidPickett/Sandbox1
@@ -2937,7 +2920,6 @@ User:Diriector Doc/sandbox/Archives/9.16.2019-2.11.2020
 User:DirkvdM
 User:DiscoLava
 User:DizzyITTech
-User:Dj0131dj/sandbox
 User:Djf2014
 User:Dkendr
 User:Dmbrown00
@@ -2981,7 +2963,6 @@ User:Earrnz
 User:EdChem/DYK
 User:Edequaw
 User:Edgars2007/Vital/Physical sciences
-User:EditorShane3456
 User:Eekfirebolt/sandbox/Zimbabwe Solar System
 User:Eenyminy
 User:EepTheMeep
@@ -3050,6 +3031,7 @@ User:Ferraridude100
 User:Fideliojoe/Books/Encyclopedia of The Solar System
 User:Fideliojoe/Books/Encyclopedia of The Solar System Vol 1
 User:Fife Club
+User:Finn Freeman
 User:Firenationprincess
 User:Fitzyp
 User:Fixious
@@ -3064,6 +3046,7 @@ User:Footy2000/sandbox7
 User:Forai/Userboxes
 User:Forestfufighting/userbox/pluto
 User:Fortunia
+User:Fotaun
 User:Fox/generatestats
 User:Foxtrot620
 User:Foysal02/Books/Research
@@ -3099,8 +3082,6 @@ User:Gautham Pillai
 User:GenghisTheHun
 User:George.eliza
 User:Georgeryall
-User:Gerdel/About Me
-User:Gerixau
 User:GetPossessed
 User:Ghostwar666/sandbox2
 User:Gidi70
@@ -3495,8 +3476,6 @@ User:Lvlnglafoftneatsteak
 User:Lyinseeker/Books/Planets
 User:Lyinseeker/Books/The Planets
 User:Lylahearts
-User:Lynda90024
-User:Lynda90024/sandbox
 User:M alexey
 User:M miyama
 User:M. Allen Williamson
@@ -3589,7 +3568,6 @@ User:MishaChan/userboxes
 User:Misscutie27
 User:Misscutie27/userboxen
 User:MissionControl
-User:Miszatomic
 User:Mitsube
 User:Mitternacht90
 User:Mjsp rn
@@ -3610,7 +3588,6 @@ User:Motomooda
 User:Mpprogram6771
 User:Mr. UnderhiIl
 User:Mr.Oliverrr
-User:Mr.joomm
 User:MrAstronomy101/Sandbox
 User:MrAstronomy101/Solar system Imaged objects
 User:MrRogersLovesYou
@@ -3646,6 +3623,7 @@ User:Necrobiology/Books/Astronomy
 User:NefariousPhD
 User:NeppyDaEnbyALT
 User:Nerd587
+User:NewMLWF/sandbox/SolarBalls
 User:NewbornCircle/TWA/Earth/2
 User:Newty23125
 User:Nhinds
@@ -3718,7 +3696,6 @@ User:Out of this World Adventure
 User:OutOfThisWiki
 User:Outofthedim
 User:Owlofthewillows/Books/Astronomy
-User:PC because
 User:PHENYLALANINE/Books/The Solar System
 User:Packerfan386
 User:Paine Ellsworth/Double planet
@@ -3777,6 +3754,7 @@ User:PlatinumFire
 User:Playerse7en
 User:Pluma/userboxes
 User:Pluralmath
+User:Pluralmath/Userboxes
 User:Pluto2181930
 User:PoeticX
 User:Pogovina
@@ -3806,7 +3784,6 @@ User:Pulsar.co.nr/Userboxes
 User:Pulsar06
 User:Purple Is Pretty
 User:Purz12/Books/Pluto
-User:Putu Suhartawan
 User:PvtHudson IV
 User:Pwillows
 User:Pythagorean Theorem
@@ -3949,7 +3926,6 @@ User:Sardanaphalus/Template:Solar System (using Navbox with columns)
 User:SargeAbernathy
 User:Sarindam7
 User:Sarregouset
-User:Sateros
 User:Saukkomies/My userboxes
 User:Savie Kumara
 User:Sayoxime
@@ -3970,7 +3946,6 @@ User:Scootercatter/sandMendos
 User:Scorpion451
 User:Scottandrewhutchins
 User:Scourgezoned/Drafts/Draftspace1
-User:Scourgezoned/Drafts/Draftspace2
 User:Scowlinghunchback
 User:Scriptor de Verum
 User:SeaOfEdits/Sample page
@@ -4150,7 +4125,6 @@ User:The Bushranger/Userboxes Created
 User:The Fading Light
 User:The Genealogy Guy
 User:The Gopher Dude
-User:The Helper S
 User:The High Fin Sperm Whale/Userboxes
 User:The High Fin Sperm Whale/Userboxes/Pluto
 User:The Machine UK
@@ -4233,7 +4207,6 @@ User:Travis Jaico R/Sample page
 User:Travisezell/Books/PlanetsAndSpace
 User:Trdsf/Userbox
 User:Trdsf/Userbox/PlutoNoIAUNo
-User:Triboi/draft1
 User:Triscuitster/Books/Astronomy
 User:Trisweb
 User:Truncatedcone
@@ -4289,7 +4262,6 @@ User:Viper1265
 User:Vir/sandbox/core topic levels
 User:Vir/sandbox/core topic levels qaud
 User:VisLock/Books/The Solar System
-User:Voice of Clam/MP HistGen
 User:Volker89
 User:Vreddy92
 User:W1k13rh3nry
@@ -4394,7 +4366,6 @@ User:Zelink546
 User:Zemant
 User:Zemant from Supernova
 User:Zimbabwe is Mine/Userboxes/Pluto
-User:Zo3a
 User:Zotel/Books/KindleWiki 10.10
 User:Zotel/Books/KindleWiki 10.10 a
 User:Zotel/Books/KindleWiki 10.10 b
@@ -4537,10 +4508,6 @@ Wikipedia:0.7/0.7alpha/P3
 Wikipedia:0.7/0.7index/Astronomy and outer space
 Wikipedia:0.8/Index/P4
 Wikipedia:1,000 core topics/with problems
-Wikipedia:2008 main page redesign proposal/Dr. Blofeld
-Wikipedia:2008 main page redesign proposal/Pretzels
-Wikipedia:2008 main page redesign proposal/Proposal Candidate 2
-Wikipedia:2008 main page redesign proposal/Proposal Candidate 2A
 Wikipedia:Administrators against kitten abuse
 Wikipedia:Administrators' noticeboard/3RRArchive250
 Wikipedia:Administrators' noticeboard/3RRArchive26
@@ -4615,6 +4582,7 @@ Wikipedia:Categories for discussion/Log/2018 August 27
 Wikipedia:Categories for discussion/Log/2018 December 27
 Wikipedia:Core math, science and technology topics
 Wikipedia:Database reports/Atypical deletion log actions/4
+Wikipedia:Database reports/Broken section anchors
 Wikipedia:Database reports/Featured articles by size
 Wikipedia:Database reports/Indefinitely semi-protected articles/3
 Wikipedia:Database reports/Most-watched pages
@@ -4807,7 +4775,6 @@ Wikipedia:Peer review/Enceladus (moon)/archive1
 Wikipedia:Pending changes/Metrics/Anonymous edit quality
 Wikipedia:Pending changes/Metrics/Full table
 Wikipedia:Pending changes/Queue/Week 1
-Wikipedia:Picture of the day/Archive
 Wikipedia:Picture of the day/December 2014
 Wikipedia:Picture of the day/July 2018
 Wikipedia:Picture of the day/June 2007
