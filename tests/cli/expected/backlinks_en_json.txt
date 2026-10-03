@@ -1729,11 +1729,6 @@
 "language": "en",
 "ns": 0
 },
-"April 25": {
-"title": "April 25",
-"language": "en",
-"ns": 0
-},
 "April–June 2020 in science": {
 "title": "April–June 2020 in science",
 "language": "en",
@@ -2931,6 +2926,11 @@
 },
 "Draft:Hangorer Kanna": {
 "title": "Draft:Hangorer Kanna",
+"language": "en",
+"ns": 118
+},
+"Draft:List of arachnoids on Venus": {
+"title": "Draft:List of arachnoids on Venus",
 "language": "en",
 "ns": 118
 },
@@ -6379,11 +6379,6 @@
 "language": "en",
 "ns": 0
 },
-"Niantic, Inc.": {
-"title": "Niantic, Inc.",
-"language": "en",
-"ns": 0
-},
 "Nibiru cataclysm": {
 "title": "Nibiru cataclysm",
 "language": "en",
@@ -7126,6 +7121,11 @@
 },
 "Polar ice cap": {
 "title": "Polar ice cap",
+"language": "en",
+"ns": 0
+},
+"Polar night": {
+"title": "Polar night",
 "language": "en",
 "ns": 0
 },
@@ -7889,11 +7889,6 @@
 "language": "en",
 "ns": 100
 },
-"Portal:Spaceflight": {
-"title": "Portal:Spaceflight",
-"language": "en",
-"ns": 100
-},
 "Portal:Spaceflight/Did you know": {
 "title": "Portal:Spaceflight/Did you know",
 "language": "en",
@@ -8314,8 +8309,8 @@
 "language": "en",
 "ns": 0
 },
-"Rotation period (astronomy)": {
-"title": "Rotation period (astronomy)",
+"Rotation period": {
+"title": "Rotation period",
 "language": "en",
 "ns": 0
 },
@@ -8411,6 +8406,11 @@
 },
 "Schmidt–Väisälä camera": {
 "title": "Schmidt–Väisälä camera",
+"language": "en",
+"ns": 0
+},
+"Scopely Explore, Inc.": {
+"title": "Scopely Explore, Inc.",
 "language": "en",
 "ns": 0
 },
@@ -10379,21 +10379,6 @@
 "language": "en",
 "ns": 10
 },
-"Template:POTD part doc": {
-"title": "Template:POTD part doc",
-"language": "en",
-"ns": 10
-},
-"Template:POTD protected/2026-09-02": {
-"title": "Template:POTD protected/2026-09-02",
-"language": "en",
-"ns": 10
-},
-"Template:POTD random": {
-"title": "Template:POTD random",
-"language": "en",
-"ns": 10
-},
 "Template:POTD/2007-06-11": {
 "title": "Template:POTD/2007-06-11",
 "language": "en",
@@ -11079,11 +11064,6 @@
 "language": "en",
 "ns": 3
 },
-"User talk:Antonioatrylia": {
-"title": "User talk:Antonioatrylia",
-"language": "en",
-"ns": 3
-},
 "User talk:Apaleutos25": {
 "title": "User talk:Apaleutos25",
 "language": "en",
@@ -11126,11 +11106,6 @@
 },
 "User talk:Beeblebrox/Archive 7": {
 "title": "User talk:Beeblebrox/Archive 7",
-"language": "en",
-"ns": 3
-},
-"User talk:BenAveling": {
-"title": "User talk:BenAveling",
 "language": "en",
 "ns": 3
 },
@@ -12019,11 +11994,6 @@
 "language": "en",
 "ns": 3
 },
-"User talk:Sunborn": {
-"title": "User talk:Sunborn",
-"language": "en",
-"ns": 3
-},
 "User talk:Supercool Dude": {
 "title": "User talk:Supercool Dude",
 "language": "en",
@@ -12056,11 +12026,6 @@
 },
 "User talk:TheAustinMan/November 2011–October 2013": {
 "title": "User talk:TheAustinMan/November 2011–October 2013",
-"language": "en",
-"ns": 3
-},
-"User talk:TheEagle107": {
-"title": "User talk:TheEagle107",
 "language": "en",
 "ns": 3
 },
@@ -12699,11 +12664,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Alokprasad84": {
-"title": "User:Alokprasad84",
-"language": "en",
-"ns": 2
-},
 "User:Amadeus1928/Templates": {
 "title": "User:Amadeus1928/Templates",
 "language": "en",
@@ -12941,11 +12901,6 @@
 },
 "User:Ariothegreat": {
 "title": "User:Ariothegreat",
-"language": "en",
-"ns": 2
-},
-"User:Arjuno3": {
-"title": "User:Arjuno3",
 "language": "en",
 "ns": 2
 },
@@ -13226,31 +13181,6 @@
 },
 "User:Batchelor": {
 "title": "User:Batchelor",
-"language": "en",
-"ns": 2
-},
-"User:Bawolff/Edit COI Summary/10 per page (newest first)/47": {
-"title": "User:Bawolff/Edit COI Summary/10 per page (newest first)/47",
-"language": "en",
-"ns": 2
-},
-"User:Bawolff/Edit COI Summary/15 per page/29": {
-"title": "User:Bawolff/Edit COI Summary/15 per page/29",
-"language": "en",
-"ns": 2
-},
-"User:Bawolff/Edit COI Summary/20 per page/22": {
-"title": "User:Bawolff/Edit COI Summary/20 per page/22",
-"language": "en",
-"ns": 2
-},
-"User:Bawolff/Edit COI Summary/25 per page/17": {
-"title": "User:Bawolff/Edit COI Summary/25 per page/17",
-"language": "en",
-"ns": 2
-},
-"User:Bawolff/Edit COI Summary/43": {
-"title": "User:Bawolff/Edit COI Summary/43",
 "language": "en",
 "ns": 2
 },
@@ -13624,11 +13554,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Bunty Pathak/footer": {
-"title": "User:Bunty Pathak/footer",
-"language": "en",
-"ns": 2
-},
 "User:Burmiester": {
 "title": "User:Burmiester",
 "language": "en",
@@ -13726,11 +13651,6 @@
 },
 "User:CallMeVbuck/sandbox": {
 "title": "User:CallMeVbuck/sandbox",
-"language": "en",
-"ns": 2
-},
-"User:Callinus": {
-"title": "User:Callinus",
 "language": "en",
 "ns": 2
 },
@@ -14244,6 +14164,11 @@
 "language": "en",
 "ns": 2
 },
+"User:CourtneyTheFortney": {
+"title": "User:CourtneyTheFortney",
+"language": "en",
+"ns": 2
+},
 "User:Coven 36": {
 "title": "User:Coven 36",
 "language": "en",
@@ -14361,11 +14286,6 @@
 },
 "User:DJRaveN4x": {
 "title": "User:DJRaveN4x",
-"language": "en",
-"ns": 2
-},
-"User:DKqwerty": {
-"title": "User:DKqwerty",
 "language": "en",
 "ns": 2
 },
@@ -14549,11 +14469,6 @@
 "language": "en",
 "ns": 2
 },
-"User:David Levy/ITN death proposal": {
-"title": "User:David Levy/ITN death proposal",
-"language": "en",
-"ns": 2
-},
 "User:David4286/Notes/userboxes": {
 "title": "User:David4286/Notes/userboxes",
 "language": "en",
@@ -14691,11 +14606,6 @@
 },
 "User:DizzyITTech": {
 "title": "User:DizzyITTech",
-"language": "en",
-"ns": 2
-},
-"User:Dj0131dj/sandbox": {
-"title": "User:Dj0131dj/sandbox",
 "language": "en",
 "ns": 2
 },
@@ -14911,11 +14821,6 @@
 },
 "User:Edgars2007/Vital/Physical sciences": {
 "title": "User:Edgars2007/Vital/Physical sciences",
-"language": "en",
-"ns": 2
-},
-"User:EditorShane3456": {
-"title": "User:EditorShane3456",
 "language": "en",
 "ns": 2
 },
@@ -15259,6 +15164,11 @@
 "language": "en",
 "ns": 2
 },
+"User:Finn Freeman": {
+"title": "User:Finn Freeman",
+"language": "en",
+"ns": 2
+},
 "User:Firenationprincess": {
 "title": "User:Firenationprincess",
 "language": "en",
@@ -15326,6 +15236,11 @@
 },
 "User:Fortunia": {
 "title": "User:Fortunia",
+"language": "en",
+"ns": 2
+},
+"User:Fotaun": {
+"title": "User:Fotaun",
 "language": "en",
 "ns": 2
 },
@@ -15501,16 +15416,6 @@
 },
 "User:Georgeryall": {
 "title": "User:Georgeryall",
-"language": "en",
-"ns": 2
-},
-"User:Gerdel/About Me": {
-"title": "User:Gerdel/About Me",
-"language": "en",
-"ns": 2
-},
-"User:Gerixau": {
-"title": "User:Gerixau",
 "language": "en",
 "ns": 2
 },
@@ -17484,16 +17389,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Lynda90024": {
-"title": "User:Lynda90024",
-"language": "en",
-"ns": 2
-},
-"User:Lynda90024/sandbox": {
-"title": "User:Lynda90024/sandbox",
-"language": "en",
-"ns": 2
-},
 "User:M alexey": {
 "title": "User:M alexey",
 "language": "en",
@@ -17954,11 +17849,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Miszatomic": {
-"title": "User:Miszatomic",
-"language": "en",
-"ns": 2
-},
 "User:Mitsube": {
 "title": "User:Mitsube",
 "language": "en",
@@ -18056,11 +17946,6 @@
 },
 "User:Mr.Oliverrr": {
 "title": "User:Mr.Oliverrr",
-"language": "en",
-"ns": 2
-},
-"User:Mr.joomm": {
-"title": "User:Mr.joomm",
 "language": "en",
 "ns": 2
 },
@@ -18236,6 +18121,11 @@
 },
 "User:Nerd587": {
 "title": "User:Nerd587",
+"language": "en",
+"ns": 2
+},
+"User:NewMLWF/sandbox/SolarBalls": {
+"title": "User:NewMLWF/sandbox/SolarBalls",
 "language": "en",
 "ns": 2
 },
@@ -18599,11 +18489,6 @@
 "language": "en",
 "ns": 2
 },
-"User:PC because": {
-"title": "User:PC because",
-"language": "en",
-"ns": 2
-},
 "User:PHENYLALANINE/Books/The Solar System": {
 "title": "User:PHENYLALANINE/Books/The Solar System",
 "language": "en",
@@ -18894,6 +18779,11 @@
 "language": "en",
 "ns": 2
 },
+"User:Pluralmath/Userboxes": {
+"title": "User:Pluralmath/Userboxes",
+"language": "en",
+"ns": 2
+},
 "User:Pluto2181930": {
 "title": "User:Pluto2181930",
 "language": "en",
@@ -19036,11 +18926,6 @@
 },
 "User:Purz12/Books/Pluto": {
 "title": "User:Purz12/Books/Pluto",
-"language": "en",
-"ns": 2
-},
-"User:Putu Suhartawan": {
-"title": "User:Putu Suhartawan",
 "language": "en",
 "ns": 2
 },
@@ -19754,11 +19639,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Sateros": {
-"title": "User:Sateros",
-"language": "en",
-"ns": 2
-},
 "User:Saukkomies/My userboxes": {
 "title": "User:Saukkomies/My userboxes",
 "language": "en",
@@ -19856,11 +19736,6 @@
 },
 "User:Scourgezoned/Drafts/Draftspace1": {
 "title": "User:Scourgezoned/Drafts/Draftspace1",
-"language": "en",
-"ns": 2
-},
-"User:Scourgezoned/Drafts/Draftspace2": {
-"title": "User:Scourgezoned/Drafts/Draftspace2",
 "language": "en",
 "ns": 2
 },
@@ -20759,11 +20634,6 @@
 "language": "en",
 "ns": 2
 },
-"User:The Helper S": {
-"title": "User:The Helper S",
-"language": "en",
-"ns": 2
-},
 "User:The High Fin Sperm Whale/Userboxes": {
 "title": "User:The High Fin Sperm Whale/Userboxes",
 "language": "en",
@@ -21174,11 +21044,6 @@
 "language": "en",
 "ns": 2
 },
-"User:Triboi/draft1": {
-"title": "User:Triboi/draft1",
-"language": "en",
-"ns": 2
-},
 "User:Triscuitster/Books/Astronomy": {
 "title": "User:Triscuitster/Books/Astronomy",
 "language": "en",
@@ -21451,11 +21316,6 @@
 },
 "User:VisLock/Books/The Solar System": {
 "title": "User:VisLock/Books/The Solar System",
-"language": "en",
-"ns": 2
-},
-"User:Voice of Clam/MP HistGen": {
-"title": "User:Voice of Clam/MP HistGen",
 "language": "en",
 "ns": 2
 },
@@ -21976,11 +21836,6 @@
 },
 "User:Zimbabwe is Mine/Userboxes/Pluto": {
 "title": "User:Zimbabwe is Mine/Userboxes/Pluto",
-"language": "en",
-"ns": 2
-},
-"User:Zo3a": {
-"title": "User:Zo3a",
 "language": "en",
 "ns": 2
 },
@@ -22694,26 +22549,6 @@
 "language": "en",
 "ns": 4
 },
-"Wikipedia:2008 main page redesign proposal/Dr. Blofeld": {
-"title": "Wikipedia:2008 main page redesign proposal/Dr. Blofeld",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:2008 main page redesign proposal/Pretzels": {
-"title": "Wikipedia:2008 main page redesign proposal/Pretzels",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:2008 main page redesign proposal/Proposal Candidate 2": {
-"title": "Wikipedia:2008 main page redesign proposal/Proposal Candidate 2",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:2008 main page redesign proposal/Proposal Candidate 2A": {
-"title": "Wikipedia:2008 main page redesign proposal/Proposal Candidate 2A",
-"language": "en",
-"ns": 4
-},
 "Wikipedia:Administrators against kitten abuse": {
 "title": "Wikipedia:Administrators against kitten abuse",
 "language": "en",
@@ -23081,6 +22916,11 @@
 },
 "Wikipedia:Database reports/Atypical deletion log actions/4": {
 "title": "Wikipedia:Database reports/Atypical deletion log actions/4",
+"language": "en",
+"ns": 4
+},
+"Wikipedia:Database reports/Broken section anchors": {
+"title": "Wikipedia:Database reports/Broken section anchors",
 "language": "en",
 "ns": 4
 },
@@ -24041,11 +23881,6 @@
 },
 "Wikipedia:Pending changes/Queue/Week 1": {
 "title": "Wikipedia:Pending changes/Queue/Week 1",
-"language": "en",
-"ns": 4
-},
-"Wikipedia:Picture of the day/Archive": {
-"title": "Wikipedia:Picture of the day/Archive",
 "language": "en",
 "ns": 4
 },
