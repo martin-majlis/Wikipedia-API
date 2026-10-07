@@ -1,13 +1,13 @@
 Total hits: 10
-Suggestion: python unterstützte mehnert programmierparadigmen
+Suggestion: python unterstützte mehreren programmierparadigmen
 
 Python (Programmiersprache)
 R (Programmiersprache)
 JavaScript
 Ruby (Programmiersprache)
-Hybridsprache
 Rust (Programmiersprache)
-Wolfram Language
+Hybridsprache
 Objektorientierte Programmierung
+Wolfram Language
 Scratch (Programmiersprache)
 Tcl
