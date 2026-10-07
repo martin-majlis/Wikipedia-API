@@ -1,85 +1,85 @@
 {
-"totalhits": 6090,
+"totalhits": 6091,
 "pages": [
 {
-"title": "Linux-HA",
-"pageid": 1866997,
-"size": 7361,
-"wordcount": 650,
-"timestamp": "2025-06-12T19:56:10Z",
-"snippet": "software product is Heartbeat, a GPL-licensed portable cluster management <span class=\"searchmatch\">program</span> for high-availability clustering. Its most important features are: no fixed"
+"title": "2014 Asian Le Mans Series",
+"pageid": 41323366,
+"size": 24895,
+"wordcount": 1107,
+"timestamp": "2026-10-03T20:57:38Z",
+"snippet": "Media Group, LLC. Retrieved 22 August 2014. &quot;Eurasia Planning LMP2, CN <span class=\"searchmatch\">Programs</span>&quot;. sportscar365.com. 21 June 2014. Retrieved 25 June 2014. &quot;Asian LeMans"
 },
 {
-"title": "LiVES",
-"pageid": 1896953,
-"size": 13224,
-"wordcount": 1353,
-"timestamp": "2025-12-28T18:44:48Z",
-"snippet": "ago (2002) Stable release 3.2.0  / 8 November 2020 Written in C, Perl, <span class=\"searchmatch\">Python</span> Operating system Linux, Unix-like Available in 31 languages List of languages"
+"title": "Lifestreaming",
+"pageid": 15357688,
+"size": 45435,
+"wordcount": 5177,
+"timestamp": "2026-04-14T02:09:25Z",
+"snippet": "cellphones that had accumulated on my messy desk. It uses thousands of lines of <span class=\"searchmatch\">Python</span> code, a custom real-time protocol, connection load balancing and several"
 },
 {
-"title": "C14orf119",
-"pageid": 63845865,
-"size": 26434,
-"wordcount": 2158,
-"timestamp": "2025-10-30T16:29:43Z",
-"snippet": "random coils make up 37.86% of the protein (53 amino acids). Phryre2, a <span class=\"searchmatch\">program</span> for protein modeling, prediction, and analysis, was used to determine and"
+"title": "PowerShell",
+"pageid": 14465871,
+"size": 100814,
+"wordcount": 8287,
+"timestamp": "2026-09-17T17:30:35Z",
+"snippet": "(computing) Comparison of command shells Comparison of <span class=\"searchmatch\">programming</span> languages List of open-source <span class=\"searchmatch\">programming</span> languages Web-Based Enterprise Management Windows"
 },
 {
-"title": "Wetar",
-"pageid": 2186138,
-"size": 6863,
-"wordcount": 694,
-"timestamp": "2026-08-23T16:25:29Z",
-"snippet": "where the trade is not banned. Wetar ground-dove Wetar figbird Wetar Island <span class=\"searchmatch\">python</span> Wetar lorikeet Islands portal Wetarese languages Wetar Strait Biro Pusat"
+"title": "Outline of the Perl programming language",
+"pageid": 33957176,
+"size": 31959,
+"wordcount": 3930,
+"timestamp": "2026-10-04T22:22:49Z",
+"snippet": "topical guide to the Perl <span class=\"searchmatch\">programming</span> language: Perl – high-level, general-purpose, interpreted, multi-paradigm, dynamic <span class=\"searchmatch\">programming</span> language. Perl was originally"
 },
 {
-"title": "SIP",
-"pageid": 100838,
-"size": 5246,
-"wordcount": 655,
-"timestamp": "2026-07-02T16:36:56Z",
-"snippet": "(software), a tool which generates C++ interface code for the <span class=\"searchmatch\">programming</span> language <span class=\"searchmatch\">Python</span> Scilab Image Processing, an image processing toolbox Soft Input"
+"title": "Backtick",
+"pageid": 559838,
+"size": 18297,
+"wordcount": 2047,
+"timestamp": "2026-10-06T21:55:56Z",
+"snippet": "was removed in <span class=\"searchmatch\">Python</span> 3.0. Backticks also appear extensively in the reStructuredText plain text markup language (implemented in the <span class=\"searchmatch\">Python</span> docutils package)"
 },
 {
-"title": "Chronic prostatitis/chronic pelvic pain syndrome",
-"pageid": 17223049,
-"size": 63984,
-"wordcount": 6809,
-"timestamp": "2026-08-23T19:13:32Z",
-"snippet": "the original on 28 July 2009. Retrieved 28 July 2009. The star of Monty <span class=\"searchmatch\">Python</span> and &quot;A Fish Called Wanda&quot; has been diagnosed with prostatitis, the inflammation"
+"title": "UML tool",
+"pageid": 1894394,
+"size": 6062,
+"wordcount": 823,
+"timestamp": "2026-06-19T11:29:57Z",
+"snippet": "diagrams of the whole <span class=\"searchmatch\">program</span> source, as that represents too much detail to be of interest at the level of a UML diagram. Some <span class=\"searchmatch\">programming</span> language features"
 },
 {
-"title": "Graphical lasso",
-"pageid": 46769757,
-"size": 6482,
-"wordcount": 708,
-"timestamp": "2026-03-23T12:10:57Z",
-"snippet": "estimator in <span class=\"searchmatch\">programs</span>, users could use the R package glasso, GraphicalLasso() class in the scikit-learn <span class=\"searchmatch\">Python</span> library, or the skggm <span class=\"searchmatch\">Python</span> package (similar"
+"title": "V (programming language)",
+"pageid": 72172767,
+"size": 18310,
+"wordcount": 1396,
+"timestamp": "2026-09-21T16:43:58Z",
+"snippet": "statically typed, compiled <span class=\"searchmatch\">programming</span> language created by Alexander Medvednikov in early 2019. It was inspired by Go, and other <span class=\"searchmatch\">programming</span> languages including"
 },
 {
-"title": "IRAF",
-"pageid": 520050,
-"size": 21138,
-"wordcount": 2393,
-"timestamp": "2025-12-22T15:30:23Z",
-"snippet": "xgterm and the Command Language, the <span class=\"searchmatch\">Python</span> package PyRAF can be used. PyRAF is able to translate CL scripts into <span class=\"searchmatch\">Python</span> scripts. It also provides a graphics"
+"title": "Topcoder",
+"pageid": 532303,
+"size": 41386,
+"wordcount": 3757,
+"timestamp": "2026-07-11T13:44:08Z",
+"snippet": "encouraged during the match with no penalty. <span class=\"searchmatch\">Programming</span> languages allowed in MMs are C++, Java, <span class=\"searchmatch\">Python</span>, C#.NET, VB.NET. Topcoder has organized Marathon"
 },
 {
-"title": "RDRAND",
-"pageid": 32961506,
-"size": 27116,
-"wordcount": 2740,
-"timestamp": "2025-12-29T18:16:13Z",
-"snippet": "Although a <span class=\"searchmatch\">Python</span> module of RDRAND has been constructed, it was found to be 20× slower than the default random number generator in <span class=\"searchmatch\">Python</span>, although a"
+"title": "Raheem Jarbo",
+"pageid": 6980880,
+"size": 32453,
+"wordcount": 3242,
+"timestamp": "2026-09-03T18:01:24Z",
+"snippet": "Rocket Science&quot; (Horris Records) 2011 – &quot;Easy Mode (Remix)&quot; by Kabuto The <span class=\"searchmatch\">Python</span> on &quot;The Kvetch Sessions: I Hate Everything&quot; (Scrubclub Records) 2012 – &quot;The"
 },
 {
-"title": "LightGBM",
-"pageid": 64785522,
-"size": 9679,
-"wordcount": 792,
-"timestamp": "2026-08-11T16:40:25Z",
-"snippet": "accuracy. LightGBM works on Linux, Windows, and macOS and supports C++, <span class=\"searchmatch\">Python</span>, R, and C#. The source code is licensed under MIT License and available"
+"title": "GConf",
+"pageid": 574633,
+"size": 5145,
+"wordcount": 501,
+"timestamp": "2024-11-19T00:26:40Z",
+"snippet": "platform, GConf can be accessed using various <span class=\"searchmatch\">programming</span> languages, such as C, C++, Perl, Java, C#, VB.NET and <span class=\"searchmatch\">Python</span>. &quot;GNOME Goal: Gconf to GSettings migration&quot;"
 }
 ]
 }
