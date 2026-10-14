@@ -52,7 +52,7 @@ dev = [
     "anyio[trio]==4.15.1",
     "respx==0.23.1",
     "types-setuptools==84.0.0.20260812",
-    "pytest-recording==0.13.4",
+    "pytest-recording==0.14.0",
     "vcrpy==8.2.1",
 ]
 doc = [
