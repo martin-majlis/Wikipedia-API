@@ -820,12 +820,12 @@
 "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=344734",
 "width": 1000,
 "height": 500,
-"size": 1301,
+"size": 1243,
 "mime": "image/svg+xml",
 "mediatype": "DRAWING",
-"sha1": "94f26e05e35c4343737369592f2d6ea9fa9dd795",
-"timestamp": "2026-04-16T22:34:40Z",
-"user": "9BBWMJ"
+"sha1": "17cb2bd4448d3bc6df1767ff5b82e8338bb00636",
+"timestamp": "2026-10-04T16:38:48Z",
+"user": "Dmdjdu"
 },
 "File:Flag of Vietnam.svg": {
 "title": "File:Flag of Vietnam.svg",
