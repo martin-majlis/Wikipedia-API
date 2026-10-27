@@ -1,5 +1,12 @@
 [
 {
+"title": "1991 Rugby World Cup",
+"dist": 0.0,
+"lat": 51.5074,
+"lon": -0.1278,
+"primary": true
+},
+{
 "title": "Equestrian statue of Charles I, Charing Cross",
 "dist": 10.7,
 "lat": 51.50734,
@@ -45,20 +52,6 @@
 "title": "Central London",
 "dist": 23.6,
 "lat": 51.5075,
-"lon": -0.1275,
-"primary": true
-},
-{
-"title": "Charing Cross",
-"dist": 23.6,
-"lat": 51.5075,
-"lon": -0.1275,
-"primary": true
-},
-{
-"title": "1717–1718 Acts of Grace",
-"dist": 28.7,
-"lat": 51.507222222222225,
 "lon": -0.1275,
 "primary": true
 }
