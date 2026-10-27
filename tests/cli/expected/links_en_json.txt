@@ -384,6 +384,11 @@
 "language": "en",
 "ns": 0
 },
+"Arwen Deuss": {
+"title": "Arwen Deuss",
+"language": "en",
+"ns": 0
+},
 "Asia": {
 "title": "Asia",
 "language": "en",
@@ -431,11 +436,6 @@
 },
 "Astrobiology (journal)": {
 "title": "Astrobiology (journal)",
-"language": "en",
-"ns": 0
-},
-"Astronomical Unit": {
-"title": "Astronomical Unit",
 "language": "en",
 "ns": 0
 },
@@ -629,8 +629,8 @@
 "language": "en",
 "ns": 0
 },
-"Biological processes": {
-"title": "Biological processes",
+"Biological process": {
+"title": "Biological process",
 "language": "en",
 "ns": 0
 },
@@ -1184,6 +1184,11 @@
 "language": "en",
 "ns": 0
 },
+"Definition of planet": {
+"title": "Definition of planet",
+"language": "en",
+"ns": 0
+},
 "Deforestation": {
 "title": "Deforestation",
 "language": "en",
@@ -1486,11 +1491,6 @@
 },
 "Earthquake": {
 "title": "Earthquake",
-"language": "en",
-"ns": 0
-},
-"Earthquakes": {
-"title": "Earthquakes",
 "language": "en",
 "ns": 0
 },
@@ -2529,11 +2529,6 @@
 "language": "en",
 "ns": 0
 },
-"Hyperion (hypothetical planet)": {
-"title": "Hyperion (hypothetical planet)",
-"language": "en",
-"ns": 0
-},
 "Hyperion (moon)": {
 "title": "Hyperion (moon)",
 "language": "en",
@@ -2554,6 +2549,11 @@
 "language": "en",
 "ns": 0
 },
+"IAU definition of planet": {
+"title": "IAU definition of planet",
+"language": "en",
+"ns": 0
+},
 "IPCC": {
 "title": "IPCC",
 "language": "en",
@@ -2571,11 +2571,6 @@
 },
 "ISSN (identifier)": {
 "title": "ISSN (identifier)",
-"language": "en",
-"ns": 0
-},
-"ITCZ": {
-"title": "ITCZ",
 "language": "en",
 "ns": 0
 },
@@ -2691,6 +2686,11 @@
 },
 "Interplanetary medium": {
 "title": "Interplanetary medium",
+"language": "en",
+"ns": 0
+},
+"Intertropical Convergence Zone": {
+"title": "Intertropical Convergence Zone",
 "language": "en",
 "ns": 0
 },
@@ -2849,11 +2849,6 @@
 "language": "en",
 "ns": 0
 },
-"Kuiper cliff": {
-"title": "Kuiper cliff",
-"language": "en",
-"ns": 0
-},
 "Kujata": {
 "title": "Kujata",
 "language": "en",
@@ -2881,6 +2876,11 @@
 },
 "Land": {
 "title": "Land",
+"language": "en",
+"ns": 0
+},
+"Land and water hemispheres": {
+"title": "Land and water hemispheres",
 "language": "en",
 "ns": 0
 },
@@ -3114,6 +3114,11 @@
 "language": "en",
 "ns": 0
 },
+"List of largest craters in the Solar System": {
+"title": "List of largest craters in the Solar System",
+"language": "en",
+"ns": 0
+},
 "List of largest lakes and seas in the Solar System": {
 "title": "List of largest lakes and seas in the Solar System",
 "language": "en",
@@ -3126,6 +3131,11 @@
 },
 "List of missions to comets": {
 "title": "List of missions to comets",
+"language": "en",
+"ns": 0
+},
+"List of missions to minor planets": {
+"title": "List of missions to minor planets",
 "language": "en",
 "ns": 0
 },
@@ -3266,6 +3276,11 @@
 },
 "Lowest temperature recorded on Earth": {
 "title": "Lowest temperature recorded on Earth",
+"language": "en",
+"ns": 0
+},
+"Luminosity": {
+"title": "Luminosity",
 "language": "en",
 "ns": 0
 },
@@ -3721,6 +3736,11 @@
 },
 "Mount Qaf": {
 "title": "Mount Qaf",
+"language": "en",
+"ns": 0
+},
+"Mountain range": {
+"title": "Mountain range",
 "language": "en",
 "ns": 0
 },
@@ -4559,11 +4579,6 @@
 "language": "en",
 "ns": 0
 },
-"Plate tectonic": {
-"title": "Plate tectonic",
-"language": "en",
-"ns": 0
-},
 "Plate tectonics": {
 "title": "Plate tectonics",
 "language": "en",
@@ -4811,6 +4826,11 @@
 },
 "Radiation": {
 "title": "Radiation",
+"language": "en",
+"ns": 0
+},
+"Radioactive decay": {
+"title": "Radioactive decay",
 "language": "en",
 "ns": 0
 },
@@ -5086,6 +5106,11 @@
 },
 "Seamount": {
 "title": "Seamount",
+"language": "en",
+"ns": 0
+},
+"Season": {
+"title": "Season",
 "language": "en",
 "ns": 0
 },
@@ -5504,11 +5529,6 @@
 "language": "en",
 "ns": 0
 },
-"Synestia": {
-"title": "Synestia",
-"language": "en",
-"ns": 0
-},
 "Synodic month": {
 "title": "Synodic month",
 "language": "en",
@@ -5569,13 +5589,13 @@
 "language": "en",
 "ns": 11
 },
-"Template talk:Earthsinterior": {
-"title": "Template talk:Earthsinterior",
+"Template talk:Geology": {
+"title": "Template talk:Geology",
 "language": "en",
 "ns": 11
 },
-"Template talk:Geology": {
-"title": "Template talk:Geology",
+"Template talk:Internal structure of Earth": {
+"title": "Template talk:Internal structure of Earth",
 "language": "en",
 "ns": 11
 },
@@ -5604,13 +5624,13 @@
 "language": "en",
 "ns": 10
 },
-"Template:Earthsinterior": {
-"title": "Template:Earthsinterior",
+"Template:Geology": {
+"title": "Template:Geology",
 "language": "en",
 "ns": 10
 },
-"Template:Geology": {
-"title": "Template:Geology",
+"Template:Internal structure of Earth": {
+"title": "Template:Internal structure of Earth",
 "language": "en",
 "ns": 10
 },
