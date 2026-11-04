@@ -53,7 +53,7 @@ dev = [
     "respx==0.23.1",
     "types-setuptools==84.0.0.20261006",
     "pytest-recording==0.14.0",
-    "vcrpy==8.2.1",
+    "vcrpy==8.5.0",
 ]
 doc = [
     "sphinx==9.1.0; python_version >= '3.12'",
