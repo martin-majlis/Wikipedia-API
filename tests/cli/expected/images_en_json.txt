@@ -517,6 +517,13 @@
 "pageid": 534124645209430650,
 "variant": null
 },
+"File:Pohled na Prahu Praga caput Regni Bohemiae Ouden Allen.jpg": {
+"title": "File:Pohled na Prahu Praga caput Regni Bohemiae Ouden Allen.jpg",
+"language": "en",
+"namespace": 6,
+"pageid": 879305877842163081,
+"variant": null
+},
 "File:Prag Dom St. Veit 01.jpg": {
 "title": "File:Prag Dom St. Veit 01.jpg",
 "language": "en",
@@ -608,13 +615,6 @@
 "pageid": 427755481728602762,
 "variant": null
 },
-"File:Prague banner c1477.png": {
-"title": "File:Prague banner c1477.png",
-"language": "en",
-"namespace": 6,
-"pageid": 365867922307806620,
-"variant": null
-},
 "File:Prague by Sentinel-2, 2020-05-18.jpg": {
 "title": "File:Prague by Sentinel-2, 2020-05-18.jpg",
 "language": "en",
@@ -671,18 +671,18 @@
 "pageid": 63869053684445566,
 "variant": null
 },
-"File:Praha CoA CZ small.svg": {
-"title": "File:Praha CoA CZ small.svg",
-"language": "en",
-"namespace": 6,
-"pageid": 26373698309764347,
-"variant": null
-},
 "File:Praha Holešovice EUSPA 1.jpg": {
 "title": "File:Praha Holešovice EUSPA 1.jpg",
 "language": "en",
 "namespace": 6,
 "pageid": 244238587708539584,
+"variant": null
+},
+"File:Praha Hrad 1607.jpg": {
+"title": "File:Praha Hrad 1607.jpg",
+"language": "en",
+"namespace": 6,
+"pageid": 588479505393916520,
 "variant": null
 },
 "File:Praha Národní muzeum 2.jpg": {
@@ -760,6 +760,13 @@
 "language": "en",
 "namespace": 6,
 "pageid": 331267983248458114,
+"variant": null
+},
+"File:Václav Hollar - Great View of Prague - Google Art Project.jpg": {
+"title": "File:Václav Hollar - Great View of Prague - Google Art Project.jpg",
+"language": "en",
+"namespace": 6,
+"pageid": 916711090385963232,
 "variant": null
 },
 "File:Wikidata-logo.svg": {

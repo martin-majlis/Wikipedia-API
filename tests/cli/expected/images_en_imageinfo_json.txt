@@ -590,8 +590,8 @@
 "mime": "image/svg+xml",
 "mediatype": "DRAWING",
 "sha1": "869c141fd01ec0ae4f6d911b535b1e6e18049e74",
-"timestamp": "2026-03-31T14:14:27Z",
-"user": "AdamantiosK"
+"timestamp": "2026-10-25T17:36:34Z",
+"user": "Slovn13"
 },
 "File:Flag of Mongolia.svg": {
 "title": "File:Flag of Mongolia.svg",
@@ -820,12 +820,12 @@
 "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=344734",
 "width": 1000,
 "height": 500,
-"size": 1301,
+"size": 1243,
 "mime": "image/svg+xml",
 "mediatype": "DRAWING",
-"sha1": "94f26e05e35c4343737369592f2d6ea9fa9dd795",
-"timestamp": "2026-04-16T22:34:40Z",
-"user": "9BBWMJ"
+"sha1": "17cb2bd4448d3bc6df1767ff5b82e8338bb00636",
+"timestamp": "2026-10-16T13:55:45Z",
+"user": "Dmdjdu"
 },
 "File:Flag of Vietnam.svg": {
 "title": "File:Flag of Vietnam.svg",
@@ -1331,6 +1331,24 @@
 "timestamp": "2008-08-09T14:02:00Z",
 "user": "Rodge500"
 },
+"File:Pohled na Prahu Praga caput Regni Bohemiae Ouden Allen.jpg": {
+"title": "File:Pohled na Prahu Praga caput Regni Bohemiae Ouden Allen.jpg",
+"language": "en",
+"namespace": 6,
+"pageid": 879305877842163081,
+"variant": null,
+"url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Pohled_na_Prahu_Praga_caput_Regni_Bohemiae_Ouden_Allen.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+"descriptionurl": "https://commons.wikimedia.org/wiki/File:Pohled_na_Prahu_Praga_caput_Regni_Bohemiae_Ouden_Allen.jpg",
+"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=22523603",
+"width": 33161,
+"height": 15516,
+"size": 104104013,
+"mime": "image/jpeg",
+"mediatype": "BITMAP",
+"sha1": "b4834d80521ffc12ca0f6416ed9e68e2d6fdde97",
+"timestamp": "2012-11-03T00:28:41Z",
+"user": "Octopus moldavicus"
+},
 "File:Prag Dom St. Veit 01.jpg": {
 "title": "File:Prag Dom St. Veit 01.jpg",
 "language": "en",
@@ -1565,24 +1583,6 @@
 "timestamp": "2005-08-23T00:46:47Z",
 "user": "Miaow Miaow"
 },
-"File:Prague banner c1477.png": {
-"title": "File:Prague banner c1477.png",
-"language": "en",
-"namespace": 6,
-"pageid": 365867922307806620,
-"variant": null,
-"url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Prague_banner_c1477.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
-"descriptionurl": "https://commons.wikimedia.org/wiki/File:Prague_banner_c1477.png",
-"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=20108123",
-"width": 936,
-"height": 600,
-"size": 167328,
-"mime": "image/png",
-"mediatype": "BITMAP",
-"sha1": "7c72633b2ff55126505271ca3eda476318e1e509",
-"timestamp": "2012-07-02T19:02:02Z",
-"user": "Paloeser"
-},
 "File:Prague by Sentinel-2, 2020-05-18.jpg": {
 "title": "File:Prague by Sentinel-2, 2020-05-18.jpg",
 "language": "en",
@@ -1727,24 +1727,6 @@
 "timestamp": "2009-12-27T15:36:41Z",
 "user": "Paddy"
 },
-"File:Praha CoA CZ small.svg": {
-"title": "File:Praha CoA CZ small.svg",
-"language": "en",
-"namespace": 6,
-"pageid": 26373698309764347,
-"variant": null,
-"url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Praha_CoA_CZ_small.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
-"descriptionurl": "https://commons.wikimedia.org/wiki/File:Praha_CoA_CZ_small.svg",
-"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=1977529",
-"width": 151,
-"height": 189,
-"size": 110157,
-"mime": "image/svg+xml",
-"mediatype": "DRAWING",
-"sha1": "31db3c32553d0df963054ff711b462e0efce61f0",
-"timestamp": "2022-03-25T19:03:07Z",
-"user": "Jomarius"
-},
 "File:Praha Holešovice EUSPA 1.jpg": {
 "title": "File:Praha Holešovice EUSPA 1.jpg",
 "language": "en",
@@ -1762,6 +1744,24 @@
 "sha1": "4f4b9948f55c31aaae6fc208ce4e28d48f50fe5b",
 "timestamp": "2024-07-03T21:51:33Z",
 "user": "VitVit"
+},
+"File:Praha Hrad 1607.jpg": {
+"title": "File:Praha Hrad 1607.jpg",
+"language": "en",
+"namespace": 6,
+"pageid": 588479505393916520,
+"variant": null,
+"url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Praha_Hrad_1607.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+"descriptionurl": "https://commons.wikimedia.org/wiki/File:Praha_Hrad_1607.jpg",
+"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=8880547",
+"width": 2116,
+"height": 1383,
+"size": 2141893,
+"mime": "image/jpeg",
+"mediatype": "BITMAP",
+"sha1": "4abe208dd17f1cba49b85805a2681612060802cb",
+"timestamp": "2013-03-17T11:28:25Z",
+"user": "Sokoljan"
 },
 "File:Praha Národní muzeum 2.jpg": {
 "title": "File:Praha Národní muzeum 2.jpg",
@@ -1960,6 +1960,24 @@
 "sha1": "fc776a2d169a07a28c08c50f20b1b926762b9ba1",
 "timestamp": "2009-12-18T04:40:25Z",
 "user": "ŠJů"
+},
+"File:Václav Hollar - Great View of Prague - Google Art Project.jpg": {
+"title": "File:Václav Hollar - Great View of Prague - Google Art Project.jpg",
+"language": "en",
+"namespace": 6,
+"pageid": 916711090385963232,
+"variant": null,
+"url": "https://upload.wikimedia.org/wikipedia/commons/5/57/V%C3%A1clav_Hollar_-_Great_View_of_Prague_-_Google_Art_Project.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+"descriptionurl": "https://commons.wikimedia.org/wiki/File:V%C3%A1clav_Hollar_-_Great_View_of_Prague_-_Google_Art_Project.jpg",
+"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=22491892",
+"width": 8213,
+"height": 1747,
+"size": 5341025,
+"mime": "image/jpeg",
+"mediatype": "BITMAP",
+"sha1": "3255f5c69c323a350c842d1cfc2efe2b37f11421",
+"timestamp": "2012-11-01T03:15:55Z",
+"user": "DcoetzeeBot"
 },
 "File:Wikidata-logo.svg": {
 "title": "File:Wikidata-logo.svg",

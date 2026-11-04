@@ -72,6 +72,7 @@ File:O2 Arena, od Českomoravské.jpg
 File:OOjs UI icon edit-ltr-progressive.svg
 File:Panorama von Prag – Vincenc Morstadt – 1835.jpg
 File:PetrinObservationTower.jpg
+File:Pohled na Prahu Praga caput Regni Bohemiae Ouden Allen.jpg
 File:Prag Dom St. Veit 01.jpg
 File:Prag Pulverturm.jpg
 File:Prag ginger u fred gehry.jpg
@@ -85,7 +86,6 @@ File:Prague Congress Centre (1).JPG
 File:Prague Mala Strana St. Nicholas-02.jpg
 File:Prague Praha 2014 Holmstad flott gammelnye synagoge old-new synagogue Josefov.jpg
 File:Prague Zoo main entrance.JPG
-File:Prague banner c1477.png
 File:Prague by Sentinel-2, 2020-05-18.jpg
 File:Prague districts en.svg
 File:Prague from Powder Tower 01.jpg
@@ -94,8 +94,8 @@ File:Prague old town square panorama.jpg
 File:Prague population pyramid in 2021.svg
 File:PragueCzechRepublicMalaStranaMostecka.jpg
 File:Praha 2009-12-26-27.jpg
-File:Praha CoA CZ small.svg
 File:Praha Holešovice EUSPA 1.jpg
+File:Praha Hrad 1607.jpg
 File:Praha Národní muzeum 2.jpg
 File:Praha Rudolfinum isometric.jpg
 File:Praha Veletržní palác jih.jpg
@@ -107,6 +107,7 @@ File:Relief Map of Czech Republic.png
 File:Strahov knihovna Teolog 2.jpg
 File:Vencovskeho aula.JPG
 File:Vyšehrad, z Císařské louky.jpg
+File:Václav Hollar - Great View of Prague - Google Art Project.jpg
 File:Wikidata-logo.svg
 File:Wikisource-logo.svg
 File:Wikivoyage-Logo-v3-icon.svg
