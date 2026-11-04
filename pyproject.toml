@@ -46,7 +46,7 @@ dev = [
     "pygments==2.21.0",
     "pyupgrade==3.21.2",
     "pytest==9.2.0",
-    "pytest-asyncio==1.4.0",
+    "pytest-asyncio==1.4.1",
     "pytest-cov==7.1.0",
     "tox==4.65.0",
     "anyio[trio]==4.15.1",
