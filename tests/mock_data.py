@@ -1720,6 +1720,53 @@ _CLI_MOCK_DATA: dict[str, Any] = {
             ],
         },
     },
+    # search("test", prop=[size, wordcount], info=[totalhits], what=text, qi_profile=engine_autoselect,
+    # sort=relevance) — enum and string spellings build the same query (search_enums_test.py)
+    "en:action=query&format=json&list=search&redirects=1&srinfo=totalhits&srlimit=10&srnamespace=0&srprop=size|wordcount&srqiprofile=engine_autoselect&srsearch=test&srsort=relevance&srwhat=text&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 1203, "suggestion": None, "rewrittenquery": "test"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Test",
+                    "pageid": 11089416,
+                    "size": 9500,
+                    "wordcount": 1100,
+                },
+                {
+                    "ns": 0,
+                    "title": "Test (assessment)",
+                    "pageid": 24590,
+                    "size": 48000,
+                    "wordcount": 5600,
+                },
+            ],
+        },
+    },
+    # same search with info=[totalhits, suggestion] (search_enums_test.py, mixed parameters)
+    "en:action=query&format=json&list=search&redirects=1&srinfo=totalhits|suggestion&srlimit=10&srnamespace=0&srprop=size|wordcount&srqiprofile=engine_autoselect&srsearch=test&srsort=relevance&srwhat=text&": {
+        "batchcomplete": "",
+        "query": {
+            "searchinfo": {"totalhits": 1203, "suggestion": None, "rewrittenquery": "test"},
+            "search": [
+                {
+                    "ns": 0,
+                    "title": "Test",
+                    "pageid": 11089416,
+                    "size": 9500,
+                    "wordcount": 1100,
+                },
+                {
+                    "ns": 0,
+                    "title": "Test (assessment)",
+                    "pageid": 24590,
+                    "size": 48000,
+                    "wordcount": 5600,
+                },
+            ],
+        },
+    },
     "en:action=query&format=json&list=search&redirects=1&srinfo=totalhits&srprop=size|wordcount|timestamp&srsearch=python&srlimit=3&srwhat=nearmatch&srsort=incominglinks_desc&": {
         "batchcomplete": "",
         "query": {
