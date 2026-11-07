@@ -7,7 +7,7 @@ JavaScript
 Rust (Programmiersprache)
 Ruby (Programmiersprache)
 Hybridsprache
+Wolfram Language
 Objektorientierte Programmierung
 Scratch (Programmiersprache)
-Wolfram Language
 Tcl

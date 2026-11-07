@@ -1,13 +1,13 @@
-Total hits: 6099
+Total hits: 6104
 Suggestion: python programing
 
 Python (programming language)
 History of Python
 Outline of the Python programming language
 Python syntax and semantics
-Core Python Programming
 Mojo (programming language)
 Zen of Python
-Anaconda (Python distribution)
-General-purpose programming language
+Core Python Programming
 List of Python software
+Python Software Foundation
+Guido van Rossum

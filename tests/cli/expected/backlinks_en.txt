@@ -395,7 +395,7 @@ Backyard Worlds
 Badoon
 Banstead
 Baret Montes
-Barycenter (astronomy)
+Barycenter
 Battlezone II: Combat Commander
 Belief
 Belton Regio
@@ -583,6 +583,8 @@ Double Asteroid Redirection Test
 Double planet
 Draft:174567 Varda
 Draft:184314 Mbabamwanawaresa
+Draft:2016 NY210
+Draft:2025 EA16
 Draft:Hangorer Kanna
 Draft:List of arachnoids on Venus
 Draft:Minnie's Midnight Massacre (2026 horror film)
@@ -846,6 +848,7 @@ Jens Olsen's World Clock
 Jesuit names on the Moon craters
 Jet Propulsion Laboratory Development Ephemeris
 Jewish astrology
+Jocelyn Bell Burnell
 John Rose (socialist)
 Johns Hopkins University Applied Physics Laboratory
 Jonathan Lee Riches
@@ -1092,6 +1095,7 @@ List of unnumbered trans-Neptunian objects: 2021
 List of unnumbered trans-Neptunian objects: 2022
 List of unnumbered trans-Neptunian objects: 2023
 List of unnumbered trans-Neptunian objects: 2025
+List of unnumbered trans-Neptunian objects: 2026
 List of works influenced by the Cthulhu Mythos
 Lists of geological features of the Solar System
 Lists of minor planets
@@ -2369,7 +2373,7 @@ User talk:Ryulong/Archive 3
 User talk:Ryulong/Archive 4
 User talk:ST47/Archive1
 User talk:Sapphaline
-User talk:Scourgezoned
+User talk:Scourgezoned/Archive 1
 User talk:Sds6065
 User talk:Serendipodous/Solar System
 User talk:Serendipodous/User talk:Serendipodous archive 10
@@ -3171,7 +3175,6 @@ User:Hunterrepublicans
 User:Hurricane Devon/news
 User:Husond/Userboxes
 User:Hyakurei
-User:HyperionGod/sandbox/Revised ASTRO
 User:Hz.tiang
 User:I am a Wikipedian
 User:I am a Wikipedian/Userboxes/IAU disagree likes Pluto
@@ -3186,8 +3189,6 @@ User:Iagocasabiell/Books/Astronomy
 User:Iamthecockatoo
 User:IanOsgood/List of astronomical objects by angular size
 User:Ibehnoud/sandbox
-User:Icanthelpit
-User:Icanthelpit/plutosucks
 User:Iceblock/Oxford Dictionary of Astronomy
 User:IcemanStunts
 User:Idaltu
@@ -3606,7 +3607,7 @@ User:Murtaugh~enwiki
 User:MusicalScience
 User:Mustang6172
 User:Muthumaxk/Books/The Knowledge 2
-User:My planet is Homlos/sandbox
+User:My planet is Homlos/sandbox/2021 DR15
 User:N W
 User:NBardy34
 User:Nahallac Silverwinds/ZLiang user page
@@ -3912,7 +3913,6 @@ User:Saltedcake/Userboxes
 User:Sambelmont
 User:Samcan
 User:SamuelRiv/Archive
-User:Samuelinca/sandbox
 User:Samurai3
 User:Sanddrew
 User:Sandeli Tepi
@@ -4500,6 +4500,7 @@ Wikipedia talk:WikiProject Languages/Archive 3
 Wikipedia talk:WikiProject Law/Archive 18
 Wikipedia talk:WikiProject Mathematics/Archive/2011/Sep
 Wikipedia talk:WikiProject Medicine/Archive 152
+Wikipedia talk:WikiProject Portals/Design/Archive 3
 Wikipedia talk:WikiProject Solar System/Archive 1
 Wikipedia talk:WikiProject Solar System/Archive 3
 Wikipedia talk:WikiProject Spaceflight/Timeline of spaceflight working group/Archive 1
@@ -5071,6 +5072,7 @@ Wikipedia:Wikipedia Signpost/Single/2025-05-01
 Wikipedia:Wikipedia articles written in the greatest number of languages
 Wikipedia:Wikipedia is not here to settle bar bets
 Wikipedia:You can be named after your son
+William B. McKinnon
 William Henry Pickering
 Wolf 1061b
 Wolf 1061c
