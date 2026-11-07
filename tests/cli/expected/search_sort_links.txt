@@ -1,20 +1,20 @@
 {
-"totalhits": 6099,
+"totalhits": 6104,
 "pages": [
 {
 "title": "Tilde",
 "pageid": 212390,
 "size": 84715,
-"wordcount": 8929,
+"wordcount": 8820,
 "timestamp": "2026-10-06T22:00:46Z",
 "snippet": "or influenced by C, such as C++, C#, D, Java, JavaScript, Perl, PHP, and <span class=\"searchmatch\">Python</span>. The MySQL database also use tilde as bitwise invert as does Microsoft&#039;s"
 },
 {
 "title": "Time zone",
 "pageid": 30890,
-"size": 96314,
+"size": 96288,
 "wordcount": 5917,
-"timestamp": "2026-10-14T16:41:24Z",
+"timestamp": "2026-11-05T09:17:43Z",
 "snippet": "implemented via the PECL timezonedb. The standard module datetime included with <span class=\"searchmatch\">Python</span> stores and operates on the time zone information class tzinfo. The third"
 },
 {
@@ -28,9 +28,9 @@
 {
 "title": "England",
 "pageid": 9316,
-"size": 264863,
-"wordcount": 23560,
-"timestamp": "2026-10-22T00:01:22Z",
+"size": 264875,
+"wordcount": 23562,
+"timestamp": "2026-11-07T11:37:06Z",
 "snippet": "blood and guts in colour. The BFI Top 100 British films includes Monty <span class=\"searchmatch\">Python&#039;s</span> Life of Brian (1979), a film regularly voted the funniest of all time by"
 },
 {
@@ -52,33 +52,33 @@
 {
 "title": "YouTube",
 "pageid": 3524766,
-"size": 215689,
-"wordcount": 19571,
-"timestamp": "2026-10-21T16:52:42Z",
+"size": 215765,
+"wordcount": 19572,
+"timestamp": "2026-11-06T21:32:48Z",
 "snippet": "advertisements alone to paid offerings such as movies and exclusive <span class=\"searchmatch\">programming</span> explicitly produced for YouTube. It also offers YouTube Premium, a paid"
 },
 {
 "title": "BBC",
 "pageid": 19344654,
-"size": 255793,
-"wordcount": 24835,
-"timestamp": "2026-10-24T16:22:19Z",
+"size": 256136,
+"wordcount": 24870,
+"timestamp": "2026-11-02T01:10:03Z",
 "snippet": "England, the larger regions also produce some <span class=\"searchmatch\">programming</span>. Previously the largest hub of BBC <span class=\"searchmatch\">programming</span> from the regions had been BBC North West. At present"
 },
 {
 "title": "Bangladesh",
 "pageid": 3454,
-"size": 274022,
-"wordcount": 22591,
-"timestamp": "2026-10-26T02:04:09Z",
+"size": 274717,
+"wordcount": 22617,
+"timestamp": "2026-11-06T16:43:25Z",
 "snippet": "sambar deer, jungle cat, king cobra, wild boar, mongooses, pangolins, <span class=\"searchmatch\">pythons</span> and water monitors. Bangladesh has one of the largest populations of Irrawaddy"
 },
 {
 "title": "Florida",
 "pageid": 18933066,
-"size": 255142,
-"wordcount": 20897,
-"timestamp": "2026-10-26T21:59:53Z",
+"size": 255110,
+"wordcount": 20896,
+"timestamp": "2026-11-06T16:13:06Z",
 "snippet": "animal species. Some exotic species living in Florida include the Burmese <span class=\"searchmatch\">python</span>, green iguana, veiled chameleon, Argentine black and white tegu, peacock"
 }
 ],

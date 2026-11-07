@@ -84,6 +84,11 @@
 "language": "en",
 "ns": 0
 },
+"AP News": {
+"title": "AP News",
+"language": "en",
+"ns": 0
+},
 "Abel Méndez": {
 "title": "Abel Méndez",
 "language": "en",
@@ -391,11 +396,6 @@
 },
 "Asia": {
 "title": "Asia",
-"language": "en",
-"ns": 0
-},
-"Associated Press": {
-"title": "Associated Press",
 "language": "en",
 "ns": 0
 },
@@ -1684,11 +1684,6 @@
 "language": "en",
 "ns": 0
 },
-"Excite (web portal)": {
-"title": "Excite (web portal)",
-"language": "en",
-"ns": 0
-},
 "Exosphere": {
 "title": "Exosphere",
 "language": "en",
@@ -2241,6 +2236,11 @@
 },
 "Great comet": {
 "title": "Great comet",
+"language": "en",
+"ns": 0
+},
+"Greek language": {
+"title": "Greek language",
 "language": "en",
 "ns": 0
 },
@@ -2944,6 +2944,11 @@
 "language": "en",
 "ns": 0
 },
+"Latin": {
+"title": "Latin",
+"language": "en",
+"ns": 0
+},
 "Latitude": {
 "title": "Latitude",
 "language": "en",
@@ -3591,11 +3596,6 @@
 },
 "Mimas": {
 "title": "Mimas",
-"language": "en",
-"ns": 0
-},
-"Mindspark Interactive Network": {
-"title": "Mindspark Interactive Network",
 "language": "en",
 "ns": 0
 },
