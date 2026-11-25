@@ -1,85 +1,85 @@
 {
-"totalhits": 6099,
+"totalhits": 6104,
 "pages": [
 {
-"title": "JModelica.org",
-"pageid": 33883790,
-"size": 8308,
-"wordcount": 781,
-"timestamp": "2025-07-20T10:55:46Z",
-"snippet": "pseudospectral collocation methods. A <span class=\"searchmatch\">Python</span> package for user interaction. All parts of the platform are accessed from <span class=\"searchmatch\">Python</span>, including compiling and loading"
+"title": "OneFuzz",
+"pageid": 66019828,
+"size": 4301,
+"wordcount": 286,
+"timestamp": "2025-12-14T11:59:35Z",
+"snippet": "found crashes. The command-line interface client is written in <span class=\"searchmatch\">Python</span> 3, and targets <span class=\"searchmatch\">Python</span> 3.7 and up. Microsoft uses the OneFuzz testing framework to probe"
 },
 {
-"title": "Comparison of web-based genealogy software",
-"pageid": 29872009,
-"size": 16865,
-"wordcount": 288,
-"timestamp": "2026-08-21T20:28:25Z",
-"snippet": "This article compares several selected genealogy <span class=\"searchmatch\">programs</span> that run on a web server. Genealogy websites are not included. List of genealogy databases &quot;GeneWeb"
+"title": "Parallel port",
+"pageid": 100616,
+"size": 36668,
+"wordcount": 3930,
+"timestamp": "2026-10-21T08:05:03Z",
+"snippet": "Parallel port complete: <span class=\"searchmatch\">programming</span>, interfacing &amp; using the PC&#039;s parallel printer port PyParallel - API for <span class=\"searchmatch\">Python</span> <span class=\"searchmatch\">programming</span> language Linux ppdev reference"
 },
 {
-"title": "Multiomics",
-"pageid": 48284539,
-"size": 52409,
-"wordcount": 5542,
-"timestamp": "2026-10-15T05:20:24Z",
-"snippet": "interface for visualization of multiomic data Omics Pipe, a framework in <span class=\"searchmatch\">Python</span> for reproducibly automating multiomic data analysis A major limitation of"
+"title": "Morris E. Lasker",
+"pageid": 21817929,
+"size": 6581,
+"wordcount": 440,
+"timestamp": "2026-05-29T03:01:46Z",
+"snippet": "broadcasting edited versions of three separate <span class=\"searchmatch\">programs</span> originally written and performed by Monty <span class=\"searchmatch\">Python</span> for broadcast by the BBC, brought to court by"
 },
 {
-"title": "Non-cryptographic hash function",
-"pageid": 73914251,
-"size": 7075,
-"wordcount": 789,
-"timestamp": "2026-02-21T02:33:23Z",
-"snippet": "is fast and efficient during initialization. Many <span class=\"searchmatch\">programming</span> environments based on PHP 5, <span class=\"searchmatch\">Python</span>, and ASP.NET use variants of this hash. The hash is"
+"title": "List of You Can't Do That on Television episodes",
+"pageid": 1142789,
+"size": 113117,
+"wordcount": 1640,
+"timestamp": "2026-11-04T01:48:07Z",
+"snippet": "Nickelodeon, and re-runs were still broadcast as part of the network&#039;s daily <span class=\"searchmatch\">programming</span>. Vanessa continued to handle most of the hosting duties, while Adam continued"
 },
 {
-"title": "Profiling (computer programming)",
-"pageid": 2310080,
-"size": 21830,
-"wordcount": 2373,
-"timestamp": "2026-06-08T16:34:32Z",
-"snippet": "agent can rewrite the target application&#039;s bytecode in arbitrary ways. <span class=\"searchmatch\">Python</span>: <span class=\"searchmatch\">Python</span> profiling includes the profile module, hotshot (which is call-graph"
+"title": "OctaDist",
+"pageid": 60613037,
+"size": 6704,
+"wordcount": 573,
+"timestamp": "2026-04-10T07:19:39Z",
+"snippet": "Materials group at University of Bordeaux. OctaDist is written entirely in <span class=\"searchmatch\">Python</span> binding to Tkinter graphical user interface toolkit. It is available for"
 },
 {
-"title": "LAMMPS",
-"pageid": 6098774,
-"size": 13447,
-"wordcount": 1283,
-"timestamp": "2026-10-01T19:41:48Z",
-"snippet": "design is easy to extend or integrate with other codes or languages like <span class=\"searchmatch\">Python</span>. Users can define variables, use loops, and run multiple simulations simultaneously"
+"title": "StatsDirect",
+"pageid": 42010769,
+"size": 5418,
+"wordcount": 500,
+"timestamp": "2025-08-02T16:52:02Z",
+"snippet": "gretl jamovi JASP JAGS JMulTi Julia Jupyter (Julia, <span class=\"searchmatch\">Python</span>, R) GNU Octave OpenBUGS Orange PSPP <span class=\"searchmatch\">Python</span> (statsmodels, PyMC, IPython, IDLE) R (RStudio) SageMath"
 },
 {
-"title": "Coroutine",
-"pageid": 243800,
-"size": 56114,
-"wordcount": 5595,
-"timestamp": "2026-10-23T02:50:51Z",
-"snippet": "coroutines, <span class=\"searchmatch\">programming</span> languages that support them can also quite easily support coroutines. As of 2003[update], many of the most popular <span class=\"searchmatch\">programming</span> languages"
+"title": "Function application",
+"pageid": 20576545,
+"size": 18571,
+"wordcount": 1987,
+"timestamp": "2026-11-06T17:59:03Z",
+"snippet": "thought of as the opposite of function abstraction. It is central to <span class=\"searchmatch\">programming</span> languages derived from lambda calculus, such as LISP and Scheme, and"
 },
 {
-"title": "Delphi (software)",
-"pageid": 349208,
-"size": 21359,
-"wordcount": 2178,
-"timestamp": "2026-09-29T05:48:06Z",
-"snippet": "is a general-purpose <span class=\"searchmatch\">programming</span> language and a software product that uses the Delphi dialect of the Object Pascal <span class=\"searchmatch\">programming</span> language and provides"
+"title": "Centripetal Catmull–Rom spline",
+"pageid": 40760845,
+"size": 14611,
+"wordcount": 2162,
+"timestamp": "2026-09-11T17:18:50Z",
+"snippet": "splines. The following is an implementation of the Catmull–Rom spline in <span class=\"searchmatch\">Python</span> that produces the plot shown beneath. import numpy import matplotlib.pyplot"
 },
 {
-"title": "Variable (high-level programming language)",
-"pageid": 22284121,
-"size": 23125,
-"wordcount": 2910,
-"timestamp": "2026-07-07T00:12:55Z",
-"snippet": "variables in APL. Computer <span class=\"searchmatch\">programming</span> portal Attribute (object-oriented <span class=\"searchmatch\">programming</span>) Class (<span class=\"searchmatch\">programming</span>) Control variable (<span class=\"searchmatch\">programming</span>) Dynamic variable Expression"
+"title": "Software Updater",
+"pageid": 7688107,
+"size": 5092,
+"wordcount": 304,
+"timestamp": "2025-10-14T06:11:17Z",
+"snippet": "In several Linux operating systems, the Software Updater <span class=\"searchmatch\">program</span> updates installed software and their associated packages with important software updates"
 },
 {
-"title": "Glyph Lefkowitz",
-"pageid": 55654231,
-"size": 4928,
-"wordcount": 328,
-"timestamp": "2026-06-30T19:59:19Z",
-"snippet": "the Twisted network <span class=\"searchmatch\">programming</span> framework for <span class=\"searchmatch\">Python</span>. His work on asynchronous <span class=\"searchmatch\">programming</span> techniques influenced the core <span class=\"searchmatch\">Python</span> language, as well as"
+"title": "List of The Walking Dead (TV series) characters",
+"pageid": 31997066,
+"size": 296542,
+"wordcount": 37364,
+"timestamp": "2026-10-31T04:02:46Z",
+"snippet": "Kingdom resident. Rick manages to kill all three once more with his Colt <span class=\"searchmatch\">Python</span> despite his weakened state. Jules, portrayed by Alex Sgambati, is a member"
 }
 ],
 "suggestion": "python programing"

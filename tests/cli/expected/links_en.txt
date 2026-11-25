@@ -15,6 +15,7 @@
 532037 Chiminigagua
 55565 Aya
 ABC-CLIO
+AP News
 Abel Méndez
 Abiogenesis
 Absolute magnitude
@@ -77,7 +78,6 @@ Artemis II
 Artificial satellite
 Arwen Deuss
 Asia
-Associated Press
 Asteroid
 Asteroid belt
 Asteroid family
@@ -335,7 +335,6 @@ Europa (moon)
 Europe
 European Environment Agency
 European Union
-Excite (web portal)
 Exosphere
 Exozodiacal dust
 Exploration of Jupiter
@@ -447,6 +446,7 @@ Gravity of Earth
 Great Oxidation Event
 Great Plains
 Great comet
+Greek language
 Greeks
 Greenhouse effect
 Greenhouse gas
@@ -587,6 +587,7 @@ Large low-shear-velocity provinces
 Last Glacial Period
 Last universal common ancestor
 Late Heavy Bombardment
+Latin
 Latitude
 Latitudinal gradients in species diversity
 Law of the Sea
@@ -717,7 +718,6 @@ Milankovitch cycles
 Milky Way
 Millisecond
 Mimas
-Mindspark Interactive Network
 Mineral physics
 Mineralogy
 Mining geology
