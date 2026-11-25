@@ -6,6 +6,8 @@ from Wikipedia. Documentation provides code snippets for the most common use
 cases.
 """
 
+import logging
+
 from ._enums.coordinate_type import CoordinateType
 from ._enums.coordinate_type import WikiCoordinateType
 from ._enums.coordinate_type import coordinate_type2str
@@ -77,6 +79,12 @@ from .exceptions import WikiRateLimitError
 from .extract_format import ExtractFormat
 
 __version__ = __version
+
+# Package logger, documented in the README ("How To See Underlying API Call").
+# The HTTP clients log to child loggers such as
+# ``wikipediaapi._http_client.sync_http_client``, which propagate to this one,
+# so ``wikipediaapi.log.setLevel(...)`` controls all logging of the library.
+log: logging.Logger = logging.getLogger(__name__)
 
 __all__ = [
     "Wikipedia",
